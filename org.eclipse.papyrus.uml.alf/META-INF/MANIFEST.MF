@@ -1,0 +1,1911 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.alf;singleton:=true
+Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.generator;resoluti
+ on:=optional,org.apache.commons.logging;resolution:=optional,org.ecli
+ pse.emf.codegen.ecore;resolution:=optional,org.eclipse.emf.mwe.utils;
+ resolution:=optional,org.eclipse.emf.mwe2.launch;resolution:=optional
+ ,com.ibm.icu;resolution:=optional,org.eclipse.xtext.xtend;resolution:
+ =optional,org.eclipse.xtext.util,org.eclipse.emf.ecore,org.eclipse.em
+ f.common,org.antlr.runtime,org.eclipse.uml2.uml;bundle-version="3.2.0
+ ",org.eclipse.xtext.gmf.glue;bundle-version="0.8.0",org.eclipse.papyr
+ us.uml.extensionpoints;bundle-version="0.9.1",org.eclipse.papyrus.inf
+ ra.core;bundle-version="0.9.1",org.apache.log4j;bundle-version="1.2.1
+ 5"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.alf,org.eclipse.papyrus.uml.al
+ f.alf,org.eclipse.papyrus.uml.alf.alf.impl,org.eclipse.papyrus.uml.al
+ f.alf.util,org.eclipse.papyrus.uml.alf.formatting,org.eclipse.papyrus
+ .uml.alf.generator,org.eclipse.papyrus.uml.alf.parser.antlr,org.eclip
+ se.papyrus.uml.alf.parser.antlr.internal,org.eclipse.papyrus.uml.alf.
+ scoping,org.eclipse.papyrus.uml.alf.serializer,org.eclipse.papyrus.um
+ l.alf.services,org.eclipse.papyrus.uml.alf.syntax,org.eclipse.papyrus
+ .uml.alf.validation,org.eclipse.papyrus.uml.alf.validation.typing
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/TypedElementDefinition.
+ class
+SHA1-Digest: nJjO7O3k7EVv4mAbWYjLRJLr7Wk=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/PropertyAccessExp
+ ression.class
+SHA1-Digest: KsrWHdn0oPvn8590x04vDWjODQs=
+
+Name: org/eclipse/papyrus/uml/alf/generator/AlfGenerator.xtend
+SHA1-Digest: Z5hoky/OBwe5OmJAK5COVZCj52E=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AcceptClauseImpl.class
+SHA1-Digest: 4yihqaGl0/QO8xA+rpvCQ0j/dK0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LinkOperat
+ ionKindElements.class
+SHA1-Digest: qrA4snDXJQfjM9ed31uihYnC3S0=
+
+Name: resources/alflibrary.di
+SHA1-Digest: jiP+Bh3tOzrWAL8k3vFvNctq5mg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LITERAL.class
+SHA1-Digest: Cd5gm2MMIlnuVH07BNfCFAIYN84=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NonEmptyStatementSequence.class
+SHA1-Digest: izMCBr1PX7K/N425dnazvHUM0Hc=
+
+Name: resources/fUMLlibrary.notation
+SHA1-Digest: /WzvjPGFeLfDv/0hnFlOzMDhvwE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SuperInvocationExpressionIm
+ pl.class
+SHA1-Digest: aBvfWceC3H9XPf3RnEkCgerrJ8M=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/internal/InternalAlfLex
+ er$DFA24.class
+SHA1-Digest: oMX3MkvZk7kVxG4cEDZdaF2odF0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/PrimaryExpression.class
+SHA1-Digest: qifFGY2ycDQ6CwoyjP/HAquyvd8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/AcceptStatement.cl
+ ass
+SHA1-Digest: GmD+sF+1F9tfnp4d9bYwVHv9dGo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NonEmptyStatementSequenceIm
+ pl.class
+SHA1-Digest: zTm1Bbaja3ZfXhJryx1x94OIwuc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ReceptionDefinition.cla
+ ss
+SHA1-Digest: zwFZtUOOS8zltGFj2Xbwv4k5sgA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/LocalNameDeclarati
+ onStatement.class
+SHA1-Digest: SKM4KvTzoRvAbP+nZgyS4Z1MLco=
+
+Name: org/eclipse/papyrus/uml/alf/alf/QualifiedNameList.class
+SHA1-Digest: HO7CMC0CzQvX7MgWz8mt0snsncY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequenceExpansionExpression
+ Impl.class
+SHA1-Digest: reuVTmxil6rUrJGOZ1W0sJkQN6g=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$EmptyState
+ mentElements.class
+SHA1-Digest: pIZx+zTADS38FO42yUm8KuSGeFw=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeUtils.class
+SHA1-Digest: hcQEQPh12tNvL9NGnffhPrjnmnQ=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SuperInvocationEx
+ pression.class
+SHA1-Digest: UV1J7kDmdvM03Zadz3CpPxhc3Os=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Sequential
+ ClausesElements.class
+SHA1-Digest: BfdJ8ObGkq78tAZaDs5uzlrGOCA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$BreakState
+ mentElements.class
+SHA1-Digest: cqXw19aEOL8WWzJ3Q0DrP6XT6pI=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/Annotation.class
+SHA1-Digest: 9R+IWO3JIy7kNo6wTtpvH42Uw5Q=
+
+Name: org/eclipse/papyrus/uml/alf/alf/VariableDeclarationCompletion.cl
+ ass
+SHA1-Digest: D2fsnfKnjN2Cl+RbqlWu9ql/6Q8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/SignalDefinition.class
+SHA1-Digest: QgajCXaQ3Ajr3XUNc6tnEqU0pGo=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/common/DocumentedElement.clas
+ s
+SHA1-Digest: MBV0h6pjLc2mama1oKI+tQtDnqU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/PartialSequenceConstruction
+ CompletionImpl.class
+SHA1-Digest: dx8vNQJAYte2V/aOWT4BVovuL2I=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SequenceEx
+ pansionExpressionElements.class
+SHA1-Digest: /T21WV48FDvdRTVpVcecrZykBM4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Reclassify
+ AllClauseElements.class
+SHA1-Digest: uKJHkgf5uZtMRTfem9fqXKxrS0M=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$ClassifiersNa
+ meStrategy.class
+SHA1-Digest: 31CAdmWTD2+LN7tzwuCj9ro+sx8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ImportReference.class
+SHA1-Digest: 62wUxsV1vLVPHCwkYeWTZYGt9iM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NameBinding.class
+SHA1-Digest: SF0U4ou60SiPx6D0mCiTgTfIrws=
+
+Name: org/eclipse/papyrus/uml/alf/alf/DoStatement.class
+SHA1-Digest: IMRp5cRt0YYXqJfA8PLXOfMaN/o=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ClassDefinition.class
+SHA1-Digest: TjK0zaqQspqzu0xbf/8AnKWfQcU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ForAllOrExistsOrOneOperator.clas
+ s
+SHA1-Digest: xCG+ftl02sU1o75pVXWKooiujuM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/EmptyStatementImpl.class
+SHA1-Digest: VlyDccNkPiXwmkAlWFW/xEMjeKM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/Tuple.class
+SHA1-Digest: apVIg/HmfJgI0NLk1wdLqHzxwxs=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$EnumerationLi
+ teralNameStrategy.class
+SHA1-Digest: ay7E/mF6wU2dFHbOhxU+HgNuMIs=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool.class
+SHA1-Digest: Bw5XkTFBEqcv41pCuR18XInhPag=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$StatementS
+ equenceElements.class
+SHA1-Digest: Bs/vX4W+C5VvkN7SwatITUU4TAU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ClassExtentExpression.class
+SHA1-Digest: G2GHfRo/jboUcjrfNJbyU//mgvI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SwitchDefaultClause.class
+SHA1-Digest: BursALnqlbWF0tVAiwuT1B8OmxM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Documented
+ StatementElements.class
+SHA1-Digest: zUXlZOaUuaf7sK9YojLDMkqWha0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AlfFactoryImpl.class
+SHA1-Digest: eC/zEi65rm/quNMPPtEiEMZ5GdU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LinkOperationKind.class
+SHA1-Digest: w9Ie/IL0bU6T6NbZhIjyerfVAS4=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/SignatureFacadeFac
+ tory.class
+SHA1-Digest: oM7IFv0X0Ye9QqjwGoehc28pCdw=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SelectOrRejectOperation.class
+SHA1-Digest: jX7cETLDKKIJZ1i8g1o6ZK5F7Dw=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/EmptyStatement.cla
+ ss
+SHA1-Digest: UUQPJCS6/JbiMdSperB0DhCjOnE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ClassifyStatement.class
+SHA1-Digest: 4H8mOm1pnqzWOakmy77DIToTXHs=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/BehaviorInvocatio
+ nExpression.class
+SHA1-Digest: sy5IXbL9nSRkgvrC9x3oAa8GuiM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/SwitchStatement.cl
+ ass
+SHA1-Digest: apC/qYYQX/lRLe/Emd1PpccQp9k=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/LinkOperationTupleElementIm
+ pl.class
+SHA1-Digest: UrU9xwQbwLf/iT8g7ND22muZRyA=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$VariableOrPar
+ ameterOrPropertyNameStrategy.class
+SHA1-Digest: Dhm07SzfLWhRJIq+Btximvi9J58=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/common/SyntaxElement.class
+SHA1-Digest: qNSx5GtBnOxnrNgVCdwG/Gz88jE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/Expression.class
+SHA1-Digest: 5Gl57ZXyxWQ7uhd3EWPs23rCulw=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LoopVariab
+ leDefinitionElements.class
+SHA1-Digest: COjgPeIiwwmEHjIV791hzaJroiA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NonFinalCl
+ auseElements.class
+SHA1-Digest: RuX61oF4g7PMSAyWrIdBLclsPAE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ReturnStatement.class
+SHA1-Digest: qxqxHeehLVS4Allh+SN6ztI4zBg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequentialClauses.class
+SHA1-Digest: bWfgFdycMTXpaBEplpeEbmKZT3Q=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ThisExpressionImpl.class
+SHA1-Digest: E6UpicG3gXrj886Q+kkF7yXv5WU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceRange.cla
+ ss
+SHA1-Digest: cRygmhNcDFdGgYcGH6T31iRTJ/w=
+
+Name: org/eclipse/papyrus/uml/alf/AlfStandaloneSetupGenerated.class
+SHA1-Digest: 7sJxNyR/L6TFlVfHsAmnZN6cHb4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InclusiveOrExpression.class
+SHA1-Digest: 2sYC6kroN4H5kAPtZdkchdH1QPA=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfPartialScope$IGetNameStra
+ tegy.class
+SHA1-Digest: UFxTX/8weLcojczj1U+ckcKwxiQ=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeExpressionFact
+ ory.class
+SHA1-Digest: zSpzYraFV+ZMQHqkumTN5Eoobsc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequenceReductionExpression.clas
+ s
+SHA1-Digest: VqvFfV7KORR5LI0IDM89EVo8EbI=
+
+Name: resources/alflibrary.notation
+SHA1-Digest: N14RxnvZqoAM1GGHOVY1w8tRAlU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceElements.
+ class
+SHA1-Digest: rcaT9czU/1HZ9B7PxA4q2Ljou1o=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ConditionalLogica
+ lExpression.class
+SHA1-Digest: 8PtJM+FKSWDVRp8rKQU+WmgDHpI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AccessCompletionImpl.class
+SHA1-Digest: QRywDKs5dKW8g3LpnwukdApMr50=
+
+Name: org/eclipse/papyrus/uml/alf/alf/Statement.class
+SHA1-Digest: KiPACW0rD25/6FXSSEuiy+n2ed0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$PropertyCa
+ llExpressionElements.class
+SHA1-Digest: 6IWkw2qvHagrcrQk49Q2ZOGvQjI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/DoStatementImpl.class
+SHA1-Digest: YY770v8O5qmwC79hTiLpkSEruNQ=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$CollectOrI
+ terateOperatorElements.class
+SHA1-Digest: KaUEMvfms++M/+LF/nFb0XiSZyk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InclusiveOrExpressionImpl.c
+ lass
+SHA1-Digest: evspue86R4mhyMI3BgWpw6b1Vl0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$INTEGER_LI
+ TERALElements.class
+SHA1-Digest: VueCcCZY3Jx7m5gh7N+XOhLoGa0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AndExpress
+ ionElements.class
+SHA1-Digest: Wyof4MKjua/Oup2E4X69zFNtvbs=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/FormalParameter.class
+SHA1-Digest: uRFCbGVpruUrqpdc9oxGNgG18NY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AlfPackageImpl.class
+SHA1-Digest: n6nGurnKwNd2j/BE7cnrs+DlDcU=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Expression
+ Elements.class
+SHA1-Digest: xjuy3d5XwQN31+Q2fUrrk6WAnVw=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$QualifiedN
+ ameWithBindingElements.class
+SHA1-Digest: 5hTPRo/8GDyTjGX178YzrfdFS7A=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ClassificationFromClause.class
+SHA1-Digest: TIcnoK9rWJJL360O8EsKUY7xJQ4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NullExpression.class
+SHA1-Digest: O3G8KTcf7OD4+2nDBUUc7dnbPYU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AnnotationImpl.class
+SHA1-Digest: r7PZkn4PljW6FfUzGwrqnWvVMDg=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/DefaultConstructor
+ Facade.class
+SHA1-Digest: MpzQe8vUhb9Le8uj4SnHQJAS8OY=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ForAllOrEx
+ istsOrOneOperationElements.class
+SHA1-Digest: Wg0TANSmfHCU2dLprufcAjpMyKg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/Tuple.class
+SHA1-Digest: n1c/3TepjTz9u7rVcmpilujPZZM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ShiftExpressionImpl.class
+SHA1-Digest: K/yKbeF8/XUuhKgNVjJ5LlUOuHs=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ElementImportReference.
+ class
+SHA1-Digest: PkpUnHP/mDNqTmiIcGK7tzi2kV8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ForStateme
+ ntElements.class
+SHA1-Digest: 1ALKYwT3knd2Ck2HdmQPgsmRZYQ=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/UnaryExpression.c
+ lass
+SHA1-Digest: oFilvyYWLkrTsEpGGU5g7Ktj5Ho=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceReduction
+ Expression.class
+SHA1-Digest: gfCxlPRSbZbvYm6uWvXKcj0te7A=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/FinalClauseImpl.class
+SHA1-Digest: GqUZ1Unecd0lW8CkfK3qBF2X0y0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/QualifiedNameListImpl.class
+SHA1-Digest: mqbEGKba8U/7GHhzrrLRqbdeH4s=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ExclusiveOrExpression.class
+SHA1-Digest: EgZodtVaw8Sj0dUQlWc6AZGfdiA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/BlockImpl.class
+SHA1-Digest: uIYMCm0qhZAjbZUs///wCZ2SYhc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/BitStringUnaryExp
+ ression.class
+SHA1-Digest: yfqNRIXnku7RdDwfKnY/8KwJrtg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/PositionalTemplat
+ eBinding.class
+SHA1-Digest: M0rq7m01Tgq9f31Ny8Cfh16u8KY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ValueSpecificationImpl.clas
+ s
+SHA1-Digest: jTDeTxLnNzUDLcHQgclQjPxgLps=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SwitchDefa
+ ultClauseElements.class
+SHA1-Digest: Jvnmn3POsVcoeHMGlBKp3mdjCic=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ExpressionImpl.class
+SHA1-Digest: ywj9i2RQ0kyImhQpKyA/Nvz5RNE=
+
+Name: org/eclipse/papyrus/uml/alf/AlfStandaloneSetup.class
+SHA1-Digest: Mqp/HG/n5FFo7c3Kg/hgudeEXmY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/CollectOrIterateOperationIm
+ pl.class
+SHA1-Digest: LzZH47xRcQ8T0rZti//c997Kx1w=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/LogicalExpression
+ .class
+SHA1-Digest: oqdK61uvdDpyol3yQA/qHDx8RUQ=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/AlfAntlrTokenFileProvid
+ er.class
+SHA1-Digest: 5l9l2/RXTHyj/2MQvXR0+GnX3To=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequenceOperationExpression
+ Impl.class
+SHA1-Digest: 88KvKbEukKDw1xxVRoy1sSUUkJg=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LinkOperat
+ ionExpressionElements.class
+SHA1-Digest: ORaJfdsTkTWXJg8FBPzh8eAlGHE=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Classifica
+ tionToClauseElements.class
+SHA1-Digest: TFhtgSUQo+UagBgrEDwYqaVmRec=
+
+Name: resources/fUMLlibrary.di
+SHA1-Digest: E/iGphELGC/dDX2Ol4jHzr23nkg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/UnaryExpressionImpl.class
+SHA1-Digest: coPQKKIk7gnFiOKA79ZVsEoEEIU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ReclassifyAllClause.class
+SHA1-Digest: j39DyJjKVRtWg2TFdkywd+LP0h0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$IfStatemen
+ tElements.class
+SHA1-Digest: czZtTMEWjzqL65M0qAIDMabQGU4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AcceptClau
+ seElements.class
+SHA1-Digest: hvBFSwAwQUAWRNwZYHDKZW54r50=
+
+Name: org/eclipse/papyrus/uml/alf/validation/NamingUtils.class
+SHA1-Digest: r8Mmj2cXTl5D0HNUPyodwuj3D+s=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/EqualityExpressionImpl.clas
+ s
+SHA1-Digest: iPsBK5ebXLD5x6QzSXAsoJgkeVs=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LinkOperationTupleElement.class
+SHA1-Digest: S9q7nxIrqfraHhwhzTWsW8gMZWE=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/MultiplicityFacade
+ Factory.class
+SHA1-Digest: mi8QUvx0R7mzgHSDTulLNkdXu2w=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ParenthesizedExpressionImpl
+ .class
+SHA1-Digest: 0zv5FLBOGB8LeN31ubj/XF844gc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/FinalClause.class
+SHA1-Digest: +UXDZrptFmTpgwFKOEtMntwzzZ8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$BlockState
+ mentElements.class
+SHA1-Digest: oQhZNXy918qfh0QZ2cihpB90mkY=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SequenceOp
+ erationExpressionElements.class
+SHA1-Digest: 9D6hIkNeVVZqognh5XR1RBJJnhE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AssignmentCompletion.class
+SHA1-Digest: 09cqm0M4qiSf7w4tZI2351kHGcA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/common/AssignedSource.class
+SHA1-Digest: MjPUuzda35CdGMWXMtBl/mZxy4c=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$BehaviorsBuil
+ dScopeStrategy.class
+SHA1-Digest: q40xexce1Iy/iDTKJhKu4T66IFw=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NullExpressionImpl.class
+SHA1-Digest: 1+FnofBrwuwhD0F1WBoKnvJjbWE=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceAccessExp
+ ression.class
+SHA1-Digest: mfYWB9sUSv2JMUpKOSfXRXV2CZU=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopeProvider.class
+SHA1-Digest: ApJq1/GrTJ7qCtR/SAquAzmMHro=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Annotation
+ Elements.class
+SHA1-Digest: HI4v9Ns/6BQBaYWVve3532wPAgc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/DocumentedStatement.class
+SHA1-Digest: j0U4TPWqm5eFeahTiadGhfmvuqk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AcceptStatementImpl.class
+SHA1-Digest: M27R7gZulSkSzEuB7M1+f/epeX8=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InstanceCreationTupleElemen
+ tImpl.class
+SHA1-Digest: cFr+8a3VEV4ETaOD/lsDrQgHlRg=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Conditiona
+ lTestExpressionElements.class
+SHA1-Digest: QNkA6i8jIX77jkrVRzr/Ek/th/8=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AccessCompletion.class
+SHA1-Digest: IX7Q+JAcNA2JQj9T9hDThLVdTY0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InstanceCreationTupleImpl.c
+ lass
+SHA1-Digest: WIet5pB1dLpbI95YkWmEf8Awn4A=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SwitchClau
+ seElements.class
+SHA1-Digest: k4fG0/2mk+TDXSILi5/Nctx5LqU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/OperationCallExpressionImpl
+ .class
+SHA1-Digest: dA6Y2EfVuY/uf5JFWH8heTI2gYA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/BlockStatementImpl.class
+SHA1-Digest: 386FZOztWtibCmljcC3nVBml2RM=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$PackagesBuild
+ ScopeStrategy.class
+SHA1-Digest: 74O5s1HaA8SWBzJzxkjwzsFMfU8=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequentialClausesImpl.class
+SHA1-Digest: BT4VJ3N2MCAMBg1AOCjqUoqSy+s=
+
+Name: org/eclipse/papyrus/uml/alf/serializer/AbstractAlfSyntacticSeque
+ ncer.class
+SHA1-Digest: NEOzBlxhQUmujLzhlu+7MYk3SFc=
+
+Name: org/eclipse/papyrus/uml/alf/generator/AlfGenerator.class
+SHA1-Digest: JiJPiOZAnjbF2XdekmZ3neuT8oE=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$CompoundAc
+ ceptStatementCompletionElements.class
+SHA1-Digest: 3UqqMyilObjaUCUhp3WN09SLXsg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/StereotypeAnnotation.cl
+ ass
+SHA1-Digest: 9xUS/Tn5eP22+E9slCjA3ndUZlo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequenceConstructionOrAcces
+ sCompletionImpl.class
+SHA1-Digest: E4Hip8lTAxvo75Np912lzehTJzU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/PropertyDefinition.clas
+ s
+SHA1-Digest: XrRFnGDa2PECxufMDhmh2fzR3Ho=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/FeatureInvocation
+ Expression.class
+SHA1-Digest: urPyjen/1VppTOJXFz3j08f1ilo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InstanceCreationExpression.class
+SHA1-Digest: sVBzNoeRLVTiYZn22rA8gIFwKM8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/BlockStatement.cla
+ ss
+SHA1-Digest: Sj5DW/U33GgSH0FECbmR70mAmGg=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/ErrorTypeFacade.cl
+ ass
+SHA1-Digest: byPhtA6+TVwI5OrJqVRKBfADpdI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/STRING_LITERALImpl.class
+SHA1-Digest: 74FiNs/gEtCKr3zdGF9+EfmekWg=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$BehaviorsName
+ Strategy.class
+SHA1-Digest: H6xyML76rlPTR78VAsKmHY3ipxU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ForControl.class
+SHA1-Digest: 8fPeByvgA99jRoi+ikHngOXN+Mo=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ClassifierDefinition.cl
+ ass
+SHA1-Digest: xPPr5BBbeuFHwfC+DEpGvjXY5nA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/TemplateBinding.c
+ lass
+SHA1-Digest: 0IGPndf6WvcBGc2NDtZFwbFns0U=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NameExpression.cl
+ ass
+SHA1-Digest: DGcl+Kak4OqQTHPLrk07pVs2r68=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/DoStatement.class
+SHA1-Digest: +SVuuKTwChV4enBVOGH6ZVMbqIQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ForAllOrExistsOrOneOperation.cla
+ ss
+SHA1-Digest: oNDr5kkhFpyDjsDD2o5IodR5eAw=
+
+Name: org/eclipse/papyrus/uml/alf/Copy of Alf.xtext
+SHA1-Digest: GZuXjR01FH1Pjq//12k5WI8lBrE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/TupleElementImpl.class
+SHA1-Digest: B7vybKQrVp/u0lwh0b7szlblAjM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/QualifiedNameWithBindingImp
+ l.class
+SHA1-Digest: LIaPOzldR1iYIBIIPW6FvAN1dfE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InvocationOrAssignementOrDe
+ clarationStatementImpl.class
+SHA1-Digest: USgHQbRZKLmjcwIGopCQjKv7hng=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/internal/InternalAlfPar
+ ser$DFA40.class
+SHA1-Digest: 02xVTU9CNy/npdV9/+RFMiNqeUM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Conditiona
+ lOrExpressionElements.class
+SHA1-Digest: MXsE8L3LFXMBDU10IjUUYV2YP/Y=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/SwitchClause.class
+SHA1-Digest: wRERCmjEWva4RvT/8aHIScDQOn8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$InstanceCr
+ eationTupleElementElements.class
+SHA1-Digest: smTLB8RyWu/Kh36BtlCLBEVtaZI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Assignment
+ CompletionElements.class
+SHA1-Digest: nB3ddLvpxAZJY3PcLy5TXKlAagY=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$FinalClaus
+ eElements.class
+SHA1-Digest: FjszCro0SyJsy89qRBNXJo2LPhg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ConditionalTestExpression.class
+SHA1-Digest: XzP0QU8UeioIFuSgB7f+iR6YhDk=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Unqualifie
+ dNameElements.class
+SHA1-Digest: YZIT25uULTGecMAswKkdYJAfAVo=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/UnboundedLiteralE
+ xpression.class
+SHA1-Digest: tkLSer0ThMST0n3SIr1P2zEoxl0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$PartialSeq
+ uenceConstructionCompletionElements.class
+SHA1-Digest: 02SqfUDAqnqe5SUKpFnJTHLxN6Q=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ForControl
+ Elements.class
+SHA1-Digest: lDCJXOSpBKz1cKVPyrl9s7ZcE04=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NonLiteral
+ ValueSpecificationElements.class
+SHA1-Digest: 2oBzhPhWK0+3YLzMDOYDZQ58Jog=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/QualifiedNameList.
+ class
+SHA1-Digest: eIT0FAAAhNQzDavTIo6mrCcrpGM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequenceElement.class
+SHA1-Digest: eL4nEAP1HsKVUUrNccyYEU37Xk0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ConditionalTestExpressionIm
+ pl.class
+SHA1-Digest: xNx2cIaO2b536zw7wApPLMzLro4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SwitchCase.class
+SHA1-Digest: e2de30tFc29g3KmZSrjfCqHViIQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AdditiveExpression.class
+SHA1-Digest: fkCZ3G20RTK9ShVDKTgCljH6Jn8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$VariableDe
+ clarationCompletionElements.class
+SHA1-Digest: ChdCgreyprdUUoaTzL7LS1Knyw0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Relational
+ ExpressionElements.class
+SHA1-Digest: wSdNRAp42VxHizlV0Jz4yl4NglA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/BinaryExpression.
+ class
+SHA1-Digest: 3o7BW4Y7qgqrbltobK4jm6ngPFk=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$ReceptionsNam
+ eStrategy.class
+SHA1-Digest: Txd4HAThTbyo3mg5CMkr9JJwWn0=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/LiteralExpression
+ .class
+SHA1-Digest: 6No2Ph6w1zgoDqeqfuzuMs1zrC4=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/IfStatement.class
+SHA1-Digest: qV/zmkOH5//ugfkly4oqFybKH7U=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/TemplateParameter
+ Substitution.class
+SHA1-Digest: T/TnXpqu259nZlumZ3aYtTPakMM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SequenceCo
+ nstructionOrAccessCompletionElements.class
+SHA1-Digest: 6GY4IuWwbPEjRc92UKxSHZiaR9o=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/VoidFacade.class
+SHA1-Digest: ufrG3zDlLosO/Omre9n496Wfwpk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/LocalNameDeclarationStateme
+ ntImpl.class
+SHA1-Digest: r8HUwMcpUGFl21R83YU2V0f3x/Q=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InstanceCreationExpressionI
+ mpl.class
+SHA1-Digest: Nue8K4rtNJqTFn9tdX+JNklg8Sw=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AnnotatedS
+ tatementElements.class
+SHA1-Digest: lm/Bwas4w098zWXyKGMiz2FJP+w=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/InvocationExpress
+ ion.class
+SHA1-Digest: 9PcUT7DZqwAJu05XS8FfBH27tjc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/INTEGER_LITERALImpl.class
+SHA1-Digest: sep9W2AV7xUsQi7KUsrxQ1AuCmg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AndExpressionImpl.class
+SHA1-Digest: Ia6Wl+CcLQLPYGdtkkliI3miQMI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/EmptyStatement.class
+SHA1-Digest: 8q5IXFl3yaB7lP5r+Nnh/vlH+ic=
+
+Name: org/eclipse/papyrus/uml/alf/alf/util/AlfSwitch.class
+SHA1-Digest: 7KlQTcyOQv4x4Unz0y/LzIJRImk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AnnotationKind.class
+SHA1-Digest: R9ysAnI1dj6+HK0j0uGma2B6I64=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SuperInvocationExpression.class
+SHA1-Digest: 2viYmUOTTOBLxCiabXILZUZYmew=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$STRING_LIT
+ ERALElements.class
+SHA1-Digest: foboYBOfX6mCviXU03DYRy0ZqV4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/UnaryExpression.class
+SHA1-Digest: wu1PafSmF+1tIMiDQOnSXs8hEVk=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SwitchCase
+ Elements.class
+SHA1-Digest: br79GlhKAk/ww1sxsTXVtWh/7p0=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/internal/InternalAlf.to
+ kens
+SHA1-Digest: CNTqIxSUjLuDy2fIluAhxHKhI18=
+
+Name: org/eclipse/papyrus/uml/alf/Alf.xmi
+SHA1-Digest: 6HODlz2BsoBK8VIRwqW2CXl9RbA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/ExpressionStatemen
+ t.class
+SHA1-Digest: pb6QpH0b6vqkj7mfK4Wc6nBHWWg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ArithmeticExpress
+ ion.class
+SHA1-Digest: UKBYXCWyYjwlE2iYHofx7YWYsYc=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ValueSpeci
+ ficationElements.class
+SHA1-Digest: aGmOKfcYtTgSXApI9in6PJ9wtYQ=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/PackageImportReference.
+ class
+SHA1-Digest: X6UUEYt4ZOjPGxkXKqeeHRBag4g=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/ClassifyStatement.
+ class
+SHA1-Digest: uXPGUCLFZ1VoNV9imE1Bu0qXcVI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NameExpression.class
+SHA1-Digest: jMnWKT9uAmMgpY+vq43K8d73SIU=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/internal/InternalAlf.g
+SHA1-Digest: MXhzrw+/J+Lg1IvrOgW9/ME/Zuo=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ActiveClassDefinition.c
+ lass
+SHA1-Digest: LQsKJsULtMM+CuU7N+EHwxJK+n0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AcceptStatement.class
+SHA1-Digest: O8REm//6ihnAeijOF6sP+rUOm6Q=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SwitchDefaultClauseImpl.cla
+ ss
+SHA1-Digest: nE45DKslvJQrfZwhXJ0lTN+6bYA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$DoStatemen
+ tElements.class
+SHA1-Digest: d5/Vo6RYeALsqUvXchlE49vWxKs=
+
+Name: org/eclipse/papyrus/uml/alf/alf/Block.class
+SHA1-Digest: jNh5nGPOApItZcINAZxDsSmQBMc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ForAllOrExistsOrO
+ neExpression.class
+SHA1-Digest: tDUxll1XdXjFZV9pH9mXRt54Ai4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/INTEGER_LITERAL.class
+SHA1-Digest: /Ypd4C/EQUT7BC02a0e/0UjPOjk=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$InclusiveO
+ rExpressionElements.class
+SHA1-Digest: AVwMl2xUXbQ/c4DzrWPo0dLWoc0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ConditionalOrExpressionImpl
+ .class
+SHA1-Digest: NJPnwcsv95uIadGc945wlCC9AkY=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/OperationFacade.cl
+ ass
+SHA1-Digest: 2dX4X8bKU/8jH3jHPLoecsnMMOk=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$EqualityEx
+ pressionElements.class
+SHA1-Digest: e1nDYPCWoscbp1B+bVAUveBbYwU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SuffixExpressionImpl.class
+SHA1-Digest: 65N/kcqtiMDt2sA6SIqHoo8biw0=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/AssignmentExpress
+ ion.class
+SHA1-Digest: Z56LvIFj8Q2zogr6pA9GH15F+SQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/CollectOrIterateOperation.class
+SHA1-Digest: dtQqSSyq+iZFcWWu+7z+gdYoct0=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/PropertyFacade.cla
+ ss
+SHA1-Digest: vT6hHiC7mlAUYdfNDobIb2odqpM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/LoopVariableDefini
+ tion.class
+SHA1-Digest: 0m6+nkfhkOwdUF1i+WGO5vrBY6I=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ShiftExpre
+ ssionElements.class
+SHA1-Digest: AU2aT88imZhPRsNjJMQC1Xx+Oqo=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$WhileState
+ mentElements.class
+SHA1-Digest: 9gaAOGe1b4NJfgXx7zi9VmSPleU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/DocumentedStatementImpl.cla
+ ss
+SHA1-Digest: L9LGc52Jg3xsCn3VxHzwO3cF0Wg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/IsUniqueExpressio
+ n.class
+SHA1-Digest: w9UB3c9qeACiefurpMylF3bAG24=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ConditionalAndExpression.class
+SHA1-Digest: 70vPsw0RzOb7v6Xeivbu12fEkfQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AlfPackage.class
+SHA1-Digest: 3lvek/8+J1bM5KrVSBxzprs/ZtQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ForAllOrExistsOrOneOperatio
+ nImpl.class
+SHA1-Digest: +pfYiLVid8qV1ddZXYx31Ew1j9c=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ClassificationExpressionImp
+ l.class
+SHA1-Digest: 2maZtNHaEwaNN8Gf91ks9fC4vt8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NumericUnaryExpre
+ ssion.class
+SHA1-Digest: CWeONUsPvE9FSEu8o1gmP0eNrmQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SimpleAcceptStatementCompletion.
+ class
+SHA1-Digest: J0lTR/QjHMvCGh2q8A9f3esw8P4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LoopVariableDefinition.class
+SHA1-Digest: QCZOvFHX4KhPW4M3B26pmbK21TI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$InstanceCr
+ eationInvocationStatementElements.class
+SHA1-Digest: hjwpP1B86hTsySSTx5d/L00EBQY=
+
+Name: resources/alflibrary.uml
+SHA1-Digest: BZNBMl42Eot+p+6bH2ih2muaE/U=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LinkOperationTuple.class
+SHA1-Digest: CwspDwzyO736nVS20IYu8bf8GtM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceConstruct
+ ionExpression.class
+SHA1-Digest: pu3Nk4aYPTyDQBZL8T5a58nrPFU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/STRING_LITERAL.class
+SHA1-Digest: rLYifBoAUewvuVO/klY/nSA0sps=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/StringLiteralExpr
+ ession.class
+SHA1-Digest: F8q/x4LkozxBN/WdIQOxtlcHCIo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NamedTemplateBindingImpl.cl
+ ass
+SHA1-Digest: Q710RE9gQjsew6LdcpksAgeGtEM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SuperInvocationStatement.class
+SHA1-Digest: hXphgvjO4JVQcZikMaQc95FkdSA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AccessComp
+ letionElements.class
+SHA1-Digest: XRabeN513fjTiAGPvVb6ZcvsSRY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LinkOperationExpression.class
+SHA1-Digest: BDCuOugDf9DBHG8jtgX/N7OzDRk=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/DefaultDestructorF
+ acade.class
+SHA1-Digest: PfnYMRO22EghI82fIG7jEQVy3Us=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/BOOLEAN_LITERALImpl.class
+SHA1-Digest: sr2cX5QDKo9XVFCmanHJkHAOvOs=
+
+Name: org/eclipse/papyrus/uml/alf/alf/PropertyCallExpression.class
+SHA1-Digest: oEB1Rdpwechk8CwIQd9RTd3yIbU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/CastExpression.cl
+ ass
+SHA1-Digest: A9TJWeM3UoiOJycUBuTVFQlGQ5w=
+
+Name: org/eclipse/papyrus/uml/alf/formatting/AlfFormatter.class
+SHA1-Digest: abxc1T++zAe1GtUzxKH39dTZBQQ=
+
+Name: resources/fUMLlibrary.uml
+SHA1-Digest: Y3CRHnmYy/IfJ5vqvcMPXZsypBg=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SequenceRe
+ ductionExpressionElements.class
+SHA1-Digest: y7TGYEJ5fMafEZBDBmOgmFuYciY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ClassifyStatementImpl.class
+SHA1-Digest: V1iyJBXbjYZ8LXL7ydDGCheL8KU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SwitchStatement.class
+SHA1-Digest: e2reiCqX14RSdOE6FF4sX3JI/eE=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$VariableOrPro
+ pertyOrParameterBuildScopeStrategy.class
+SHA1-Digest: qwFWlAuugA2kRg9eIHGyHgTIorY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ClassificationToClauseImpl.
+ class
+SHA1-Digest: U/QrgkqEhxfnGl5Ps8xPDi0iPmA=
+
+Name: org/eclipse/papyrus/uml/alf/GenerateAlf.mwe2
+SHA1-Digest: 59kB8TUBcxHQFZnKpWwu+tA0Q5w=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ShiftExpression.c
+ lass
+SHA1-Digest: ZRXKIw3z1b11WtTFajNKwl969ow=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/WhileStatement.cla
+ ss
+SHA1-Digest: +5lo3cESxz7Xme69shRnxwWQ4X8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ThisInvoca
+ tionStatementElements.class
+SHA1-Digest: O9D1WDxtnio6B5kp1AP+U4Uip68=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/AssignmentPolicy.c
+ lass
+SHA1-Digest: NTywbT8Y3cKHu1LO472DuIll7FY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/TemplateBinding.class
+SHA1-Digest: KTFs6r/X4GMM8Mfrwv/c9b2LRfg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/AssociationDefinition.c
+ lass
+SHA1-Digest: RqhzbzKwZBoNFFsczxIsV4IJwS4=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/RelationalExpress
+ ion.class
+SHA1-Digest: DMPGLPKc+YuMmMcCOzZZrYjAGQM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ClassifySt
+ atementElements.class
+SHA1-Digest: JSZHIBm9tuxCnvLCRsU7d2S+rcc=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeExpression.cla
+ ss
+SHA1-Digest: oGbibXuXSxzSqZulhSCJLv3HKeE=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeFacade.class
+SHA1-Digest: FMu1YK6ToKMiCDn2V6TJGNo8LvA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SimpleAcceptStatementComple
+ tionImpl.class
+SHA1-Digest: FDAldxbrLTyZZxDsF55TLr8HKZ8=
+
+Name: org/eclipse/papyrus/uml/alf/validation/AbstractAlfJavaValidator.
+ class
+SHA1-Digest: xesZui5NrBb8vkexMDVGuh0SzdI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Classifica
+ tionExpressionElements.class
+SHA1-Digest: tda9lITj8z9kJyPpfKCUpknLY30=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/PrimaryExpressionImpl.class
+SHA1-Digest: 9Z3YVNJUctRbw4F9/INbFlKvdzI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SuperInvoc
+ ationExpressionElements.class
+SHA1-Digest: XZm4lTx73Ii5uwPYcqOV/zxSPb0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/PartialSequenceConstructionCompl
+ etion.class
+SHA1-Digest: BpEpD2GPF+6BYVcG9/CIkrsLtWY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/Test.class
+SHA1-Digest: u4DeK778ApB3CK6feV3a1iole00=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SwitchClauseImpl.class
+SHA1-Digest: n15YY6WlFyW7TjScL15bnLY1GAc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/TupleImpl.class
+SHA1-Digest: NFDEmE09rDuq3NfE4uLi4Gn0TEs=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/CollectOrIterateE
+ xpression.class
+SHA1-Digest: 7heU8pE+Xb0gDgbKuum5cZeIwMg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InstanceCreationInvocationS
+ tatementImpl.class
+SHA1-Digest: 79XAgEE6pRvLMjJW9BTf2URhuKQ=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeInferenceExcep
+ tion.class
+SHA1-Digest: mc8hS9s/6LEqQqXWJKZ6Fd2kQsk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ClassificationExpression.class
+SHA1-Digest: CFcdjPxklEn8oaTz1OhNqr8j0vY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/MultiplicativeExpressionImp
+ l.class
+SHA1-Digest: 2I2h7He3+astScGaqXHSETDZsio=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/UnqualifiedNameImpl.class
+SHA1-Digest: uSx0USwYL4V89522u+mtt2Wl/GE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/BlockStatement.class
+SHA1-Digest: 2KvjWcJ5dAK6SP+vcZe9HUmRcrg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/TestImpl.class
+SHA1-Digest: KRd32u5YDNlDAFbsuSgcg3Zrols=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NullExpres
+ sionElements.class
+SHA1-Digest: bsJATe6KSValFeaV+mmiLY2qNPg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ForStatement.class
+SHA1-Digest: n/kvzC5BRrsBwYjCZHRxRsrlAr8=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeFacadeFactory.
+ class
+SHA1-Digest: RxaE6pP4MeXoNJApT/QjBiL5qt4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequenceConstructionExpression.c
+ lass
+SHA1-Digest: guue6JSft0kcTJ8xafZ2So7B9Lc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/InLineStatement.cl
+ ass
+SHA1-Digest: thH/hxezdqrp8kfPL+DI57WgAhU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ClassificationExp
+ ression.class
+SHA1-Digest: 3jcn3uqulGgII4Z2fRLwyjhAXYs=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ClassificationClause.class
+SHA1-Digest: 6GkB+f3bucNQp/EijpLEHtbVdWc=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ThisExpres
+ sionElements.class
+SHA1-Digest: DBuWsBYMenpcbrBMXa51+b3Lc4A=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/LITERALImpl.class
+SHA1-Digest: m430vYl8J32n1SY3fon8ns+RYuw=
+
+Name: org/eclipse/papyrus/uml/alf/validation/AlfJavaValidator.class
+SHA1-Digest: v/TuZF7ZFS1HJ+z8DEmG8SpU7Mc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/UNLIMITED_LITERALImpl.class
+SHA1-Digest: DxGvBhBSREC155uQB1o6pc9MiKE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ConditionalOrExpression.class
+SHA1-Digest: GsX7xIO5/gv0YH3bCnSQFh0BNSA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ActivityDefinition.clas
+ s
+SHA1-Digest: Y6TamT7xymyb1I8Ak/Q3TJ06zEw=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/Block.class
+SHA1-Digest: BPoOAsUz35m/EI+aJ+bYlkmkz14=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/IfStatement.class
+SHA1-Digest: zgKm8hYZ0WtdjaVA9fug08wSJZo=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ReturnStat
+ ementElements.class
+SHA1-Digest: DJPonLYfACFZQZLFfs1biX4dOwY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NUMBER_LITERALImpl.class
+SHA1-Digest: B1fKXZAiVNSCpsUKYTzKOkukwuU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InstanceCreationInvocationStatem
+ ent.class
+SHA1-Digest: KQagEJoOusqHgG00G4WhKAw3uIE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/LocalNameDeclarationStatement.cl
+ ass
+SHA1-Digest: hE0cmzKyyMETnguflIEJNuKhJf4=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NameLeftHandSide.
+ class
+SHA1-Digest: /jdpVhPGUtijAF/N3Lzv+w3U7kY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/IsUniqueOperation.class
+SHA1-Digest: qCgYDqIUEeRffuCTyFkZSM+8kDk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/QualifiedNamePath.class
+SHA1-Digest: dibsNkNnq9/fWwPijQFk9ywh07E=
+
+Name: org/eclipse/papyrus/uml/alf/alf/UnqualifiedName.class
+SHA1-Digest: jW71MTVbpie/4zvvS48dXvGmqQM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AndExpression.class
+SHA1-Digest: xug9TOkd/plLxvevOZhb1tSivx8=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ValueSpecification.class
+SHA1-Digest: OkOhKHSl8+9N7radcrcToy++PFQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ThisInvocationStatementImpl
+ .class
+SHA1-Digest: W1shepUbzGn6TLFfaXUXsJE7c6M=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/AlfParser.class
+SHA1-Digest: DTwLDBCU7alAOcLLliZ0nHfaKjM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/EnumerationLiteralName.
+ class
+SHA1-Digest: iLAIjQlZ0+9I+0cDuP8nvGuE/qU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SuperInvocationStatementImp
+ l.class
+SHA1-Digest: 3jPQLmW4kEq4mODHX9RaDO78shI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Concurrent
+ ClausesElements.class
+SHA1-Digest: 6uFXh/64UWFm3n0aNewrscC8N1Q=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess.class
+SHA1-Digest: 8vUAG4vXhPwTjmDpqlGfVFgLhRk=
+
+Name: org/eclipse/papyrus/uml/alf/validation/AlfJavaValidator$UpdateIm
+ portCommand.class
+SHA1-Digest: aiuDgcfylQtfiGDMMgXNg8sKjhA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/CompoundAcceptStatementCompletio
+ n.class
+SHA1-Digest: FtIBHE4TjZyZx1QdXOGQyqUAXB8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/BreakStatement.cla
+ ss
+SHA1-Digest: EoIklA+qqKCLmGtlcWAp5zKYeH8=
+
+Name: org/eclipse/papyrus/uml/alf/Alf.ecore
+SHA1-Digest: GwnxJaGw/1TXMM7L/Rvway0yioU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/common/ExternalElementReferen
+ ce.class
+SHA1-Digest: 8ua6F7Bqwi7Kths6IlSqKh5YRKE=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ClassExten
+ tExpressionElements.class
+SHA1-Digest: oShPUFgKpCCfP5sGZ6umX1Y7QQo=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AdditiveEx
+ pressionElements.class
+SHA1-Digest: gNg0J5wQUTh/7try5z5z+eV5OEc=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SuffixExpr
+ essionElements.class
+SHA1-Digest: ITNpX2IYkxozDCcRMH3vaM/EuZo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/RelationalExpressionImpl.cl
+ ass
+SHA1-Digest: DnNr/Cc9RvyBbJCcyEFP6Kzmm3k=
+
+Name: org/eclipse/papyrus/uml/alf/alf/EqualityExpression.class
+SHA1-Digest: JYpGsSYETTBarsl0A9usc2zLfwE=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Multiplica
+ tiveExpressionElements.class
+SHA1-Digest: f6xcg8KKKtoYE+btkRNNPWcsK2E=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LocalNameD
+ eclarationStatementElements.class
+SHA1-Digest: TTLdzfFFhCC2r9U99dN46L9sDBo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AcceptBlockImpl.class
+SHA1-Digest: wt2wRBQYiPWDSrDoGdpHD7yAt5k=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$PackageNameSt
+ rategy.class
+SHA1-Digest: 9LSsCkDRsFPBBiAH1PS3EdV2f6Y=
+
+Name: org/eclipse/papyrus/uml/alf/Alf.xtext
+SHA1-Digest: kIEmnTs2bTlGr0xVB44TaEGPYJA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$OperationC
+ allExpressionElements.class
+SHA1-Digest: hT0hOuMJIV9Ro0KuJzYrjx1lYS0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SuffixExpression.class
+SHA1-Digest: yfkMZGyVJ0uCzR5EMdfWzCM6GBY=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequenceElementImpl.class
+SHA1-Digest: 3h1mvswI7kJVj4M4xO54gLc7k4U=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/NamespaceDefinition.cla
+ ss
+SHA1-Digest: mPcjg0p+njRmz5S5wZ0ttjyyZdM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/MultiplicativeExpression.class
+SHA1-Digest: MirCIiH54Fuv21co5+rXaO8oFgw=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/FeatureLeftHandSi
+ de.class
+SHA1-Digest: geS86ffC4dWFxikB1i8wMnvsA58=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Conditiona
+ lAndExpressionElements.class
+SHA1-Digest: OpbiDNEjNsspDUfmdE9LnitoZtk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AssignmentOperator.class
+SHA1-Digest: FMjhLaiQVlEifX8tV2ZRfoS6Gnc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NaturalLiteralExp
+ ression.class
+SHA1-Digest: P2lXaQdKnbT9P3Uqr1GdkM7GxZY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AdditiveExpressionImpl.clas
+ s
+SHA1-Digest: iGI3QUMaq3K4JAnfma5Hy+pRWtY=
+
+Name: org/eclipse/papyrus/uml/alf/AbstractAlfRuntimeModule.class
+SHA1-Digest: rchIQyGuu0QO5zbAXKMI8OfRq9M=
+
+Name: org/eclipse/papyrus/uml/alf/alf/QualifiedNameWithBinding.class
+SHA1-Digest: hP2PmTynuoS4OdkWrECsKSAFKJ4=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/OperationDefinition.cla
+ ss
+SHA1-Digest: dTqkS7ylbkhs7WMTNeLhcvV7zeo=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Classifica
+ tionClauseElements.class
+SHA1-Digest: NYJroOTlaaoBVF2utXp1pGKV5nQ=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/Member.class
+SHA1-Digest: OHXbY4B8BUsfutIfAMTV1sc2UIc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NamedExpression.c
+ lass
+SHA1-Digest: kU/M+HGiKpYyBtt3wArbhBFkdq4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NUMBER_LIT
+ ERALElements.class
+SHA1-Digest: oNTtpDdfDGF027jkVQdDbpkYuzg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/StatementSequenceImpl.class
+SHA1-Digest: C4jkcvqp3laD+PaN/Rt6Y0dqGEQ=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/NonFinalClause.cla
+ ss
+SHA1-Digest: tyNMwKTfSOQ1XV4OHAHNvx6IRuE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/IfStatementImpl.class
+SHA1-Digest: JLtKWdMgzw90pNOVQ4n8sABDN+4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$PrimaryExp
+ ressionElements.class
+SHA1-Digest: bY0hS2OkqhX+4YU3ey1w5XMpEm4=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/TaggedValue.class
+SHA1-Digest: pW5/pvn4k+SP1UxU+qEwMesaitU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/Statement.class
+SHA1-Digest: 7wbMB18cLTVWOCPmekIlQuw3Zxo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AcceptBlock.class
+SHA1-Digest: SUqz88RX+TXQ0Cw5TjPePjWtJyk=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SelectOrRe
+ jectOperatorElements.class
+SHA1-Digest: cNUKfVT/jg5mPEJIJRSYofbXUvU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/util/AlfAdapterFactory.class
+SHA1-Digest: NGUDPBfRyMmiK6PeM23vSHC9Hyg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ClassifierTemplateParam
+ eter.class
+SHA1-Digest: 5286SbQ08Jdn8GZDGVskL2ovWSE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ConcurrentClauses.class
+SHA1-Digest: 2IxesgfqEp7cWIR0t7FkzaSNKw4=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/IsolationExpressi
+ on.class
+SHA1-Digest: NKNgRlO9AsYw9glSnesVxzMAHzI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$TupleEleme
+ nts.class
+SHA1-Digest: wA3T5yMgfvwunWj6Go3ajrK9gE0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequenceConstructionOrAccessComp
+ letion.class
+SHA1-Digest: 1dUvLjTlNlPe/2sMX8nN9SKiv7E=
+
+Name: plugin.properties
+SHA1-Digest: KLBtDe4nwPS6YEjHCvZrzK6kAco=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/TypeFacadeFactory$
+ 1.class
+SHA1-Digest: UIHmYK4SogTQUC+UMqmVTxNa3M4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Assignment
+ OperatorElements.class
+SHA1-Digest: fha3Bic+fWMoABRzq5XIPObDknM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$BlockEleme
+ nts.class
+SHA1-Digest: a3yM9GE5sJ0eG2uwr34AEe7JNro=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequenceExpansionExpression.clas
+ s
+SHA1-Digest: m9vaQlM3oDebBXtJnc1AwwqzIcI=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ExtentOrExpressio
+ n.class
+SHA1-Digest: hvfKzw2I2JP9Ddk/nOk6oC7pifs=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ShiftExpression.class
+SHA1-Digest: 6verX5wI9nqAs+h7ood8fo56jF0=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/ImportedMember.class
+SHA1-Digest: EozyCXo3Nz9obYKTxglGl76sYf0=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/PositionalTuple.c
+ lass
+SHA1-Digest: HKJHKEi18EUgmZaZQi/8fomxoZs=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$InlineStat
+ ementElements.class
+SHA1-Digest: urpAZThcfvC6O3nfxLJz1ysoR64=
+
+Name: plugin.xml
+SHA1-Digest: dJ8NPocH1QVxt27BcKOVqCx6hgY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ClassificationClauseImpl.cl
+ ass
+SHA1-Digest: Q2kht3Jv1yGmZDZ5TeEcIEfOOzU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NamedTemplateBind
+ ing.class
+SHA1-Digest: RxdXKK6t4TQpux/vzdrdSQzMA8I=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InstanceCreationTupleElement.cla
+ ss
+SHA1-Digest: Wcw7TowIqKSGcEFzZKjXXYVYUuY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ClassExtentExpressionImpl.c
+ lass
+SHA1-Digest: EAzEVdUgdyMUbJOxC9nvbjopu+c=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SelectOrRejectExp
+ ression.class
+SHA1-Digest: dRHfQPQJbkChd2jeKeZ+UccbFOc=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$BooleanVal
+ ueElements.class
+SHA1-Digest: jSniatUIpVgh9lPaeq5nTZSIoS4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SequenceCo
+ nstructionExpressionElements.class
+SHA1-Digest: Rd+aG/SkIBsMmg+fvp/dJL4PozE=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/internal/InternalAlfPar
+ ser.class
+SHA1-Digest: 1Pw7y59RT93yCVl+OJP7dGJCyLE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NonLiteralValueSpecification.cla
+ ss
+SHA1-Digest: rnHY8akeK+wcs3JoXx71KFd5XmY=
+
+Name: org/eclipse/papyrus/uml/alf/AlfRuntimeModule.class
+SHA1-Digest: Wf3fquGl5VhE4x5FY+EXNDFQf9I=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/ReturnStatement.cl
+ ass
+SHA1-Digest: pypjw/O+wBiC5xcwZBnpFnuFZqM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LITERALEle
+ ments.class
+SHA1-Digest: 6+ZhaPS/AJdT3IRA+3fZElMTfz0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Parenthesi
+ zedExpressionElements.class
+SHA1-Digest: wnh1+CPWn45wUdY3gYgl5dkh8V4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/RelationalExpression.class
+SHA1-Digest: f5By9Isna5nPoKUb4B36UQswbRA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceExpansion
+ Expression.class
+SHA1-Digest: BjQKk/veLIsd3wk1eeA5ewUcwCs=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/TaggedValueList.class
+SHA1-Digest: sEJ0y1HXvkiHHsy2KJnvrdpcvEA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/LeftHandSide.clas
+ s
+SHA1-Digest: JH4piUVKc2tsSUMzQ/aWCXoabB0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NonLiteralValueSpecificatio
+ nImpl.class
+SHA1-Digest: 8AiJjX3Erz8H3By+Ezhb9Zpkjts=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$OperationAndB
+ ehaviorBuildScopeStrategy.class
+SHA1-Digest: iwYvCeQrrBN6gSASiRd/wqb55sc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/Expression.class
+SHA1-Digest: C/YA3bZH+KkLWNOkri/uBaeJKsc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/LinkOperationExpr
+ ession.class
+SHA1-Digest: GCVBszGTMdgdn1YmRHjzmP4eFYM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ParenthesizedExpression.class
+SHA1-Digest: icS/LhYr9VvujBzvVxP62Z5oAE0=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$IsUniqueOp
+ erationElements.class
+SHA1-Digest: oBdbjE/Or26SAsZeWL25cJz8sAU=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$QualifiedN
+ amePathElements.class
+SHA1-Digest: Ru9Iza1yvAIL/sVuoje3gY4RqAg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NUMBER_LITERAL.class
+SHA1-Digest: x2G7OfvepgQtMDVxM8jF1ku5leY=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/SignalReceptionDefiniti
+ on.class
+SHA1-Digest: 3JSGon4QPAw1De54LPROu+9TOsw=
+
+Name: org/eclipse/papyrus/uml/alf/alf/BOOLEAN_LITERAL.class
+SHA1-Digest: 4lwNvf4usK2OpdVuXAFXf7fLGqc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequenceConstructionExpress
+ ionImpl.class
+SHA1-Digest: 2OEovq2KlKT+7i2DsEYrWMeQwlA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/WhileStatement.class
+SHA1-Digest: fRT4BcRes6HoOX4f3iou+aHgbQ4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/StatementImpl.class
+SHA1-Digest: CbFJDCyJ4e6wXIhpP+x2x9w2RhA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SelectOrRejectOperator.class
+SHA1-Digest: GPyqepiCZtG1YFP4CX1MBJ1qNp8=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ThisInvocationStatement.class
+SHA1-Digest: kRjtiyIwnlmO1hoRtgHzgERcwVU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/LoopVariableDefinitionImpl.
+ class
+SHA1-Digest: aslUiDevpWi4Tm4swLTespBLbP4=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfPartialScope.class
+SHA1-Digest: /u5kur9qVHOJ3yM+hVRjYBKkswM=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/EqualityExpressio
+ n.class
+SHA1-Digest: xKti07LG3goCxx3KyIkeGn1Qgac=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AnnotatedStatementImpl.clas
+ s
+SHA1-Digest: zQdBHLqCjMGrUR7OrZ7hp7OJ01I=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Annotation
+ KindElements.class
+SHA1-Digest: RJf7veU+9bIw+hcznU9yr7HFZ7w=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceExpressio
+ nList.class
+SHA1-Digest: +dOOuY4TpjPz9FgWl4VB9XCtO+M=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AcceptBloc
+ kElements.class
+SHA1-Digest: Myb2T9JEG98EkOH22GQobU4lUgU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ClassificationToClause.class
+SHA1-Digest: GodKgn7swRcrk/QIHQh6psq2IbM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/TupleElement.class
+SHA1-Digest: HuYvKSkwmAoGwH4UeyvVnD7kHAk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/LinkOperationExpressionImpl
+ .class
+SHA1-Digest: 7RRaII8PGiVL7bBSPEuK0h2yiPk=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NamedTempl
+ ateBindingElements.class
+SHA1-Digest: pW7lhAb9SbgIKigl6MiTITtkecM=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$StatementE
+ lements.class
+SHA1-Digest: n+zPrGboe9HPdPD0Sj4v+PaZ7oY=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InvocationOrAssignementOrDeclara
+ tionStatement.class
+SHA1-Digest: VW9Nn0yVhffzpx+xLRezFXLFMqo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/PropertyCallExpressionImpl.
+ class
+SHA1-Digest: XG7VWcaEPynVgzM3ERPkmsMlvdg=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$ClassifiersBu
+ ildScopeStrategy.class
+SHA1-Digest: A+eyIS6gdQYGNLNoIo/yg311lfU=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/NamedTuple.class
+SHA1-Digest: aLFGEdXlxDzJ9x6luoV2rV5Y5q4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SequenceEl
+ ementElements.class
+SHA1-Digest: 2jmw/BGztCXKYynRKqynjeofc3c=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NameExpres
+ sionElements.class
+SHA1-Digest: ojdoXDVGDT9VJ8fandkXOeN5f8w=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ThisExpression.cl
+ ass
+SHA1-Digest: FzeNA/wwzKCigPiqhgMa9hgRASE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SwitchStatementImpl.class
+SHA1-Digest: QAw+uTevNshnaosqJZpAJImJBpo=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$EnumerationLi
+ teralBuildScopeStrategy.class
+SHA1-Digest: AY8z+3lFi9Qar+EIFlYdwaq1Lvc=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$InstanceCr
+ eationExpressionElements.class
+SHA1-Digest: fFsngT5ey3fdLR0Hn1CEeMAuoxU=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SelectOrRe
+ jectOperationElements.class
+SHA1-Digest: r7OO1MlcqHJjniAXDk2K82xjf78=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ForStatementImpl.class
+SHA1-Digest: 65y7exmRlQEpDj1BOgS0WkH4q20=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AnnotatedStatement.class
+SHA1-Digest: thrWgxlRHVDvA8W8tM8sRGsKDJE=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/UnitDefinition.class
+SHA1-Digest: XqnLDodbQ76v3Fivy/T7qefd9+U=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/PackageDefinition.class
+SHA1-Digest: LwdDoA2bKtajGNeMhXx5wkerhqc=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/DataTypeDefinition.clas
+ s
+SHA1-Digest: JU2qtdU/cjV+NhENyrJgc6jrTPs=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/TemplateBindingImpl.class
+SHA1-Digest: ctpbvXYaSRKLPq9fOifuoyasN94=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ConcurrentClausesImpl.class
+SHA1-Digest: tRGCW0Kp04bJTTo4Bf9pND+8m9E=
+
+Name: org/eclipse/papyrus/uml/alf/validation/PredefinedBehaviorsAndTyp
+ esUtils.class
+SHA1-Digest: 41+0ESE/QGqY+KLEhqhH9f0NDxo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/BreakStatementImpl.class
+SHA1-Digest: VtjW7odGLNOlZz2pIOcfO0rhIjA=
+
+Name: org/eclipse/papyrus/uml/alf/Copy (2) of Alf.xtext
+SHA1-Digest: sQKz2I3VoD2qzedNiaArZqC6wGA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Invocation
+ OrAssignementOrDeclarationStatementElements.class
+SHA1-Digest: 4kFDSY21yf/vlbfIk666gpnyah8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$CollectOrI
+ terateOperationElements.class
+SHA1-Digest: ol7DCwE82L+RZfdQxLvIXQDz8FY=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/ASTFactory.class
+SHA1-Digest: ns+/rYOPkulftumBhbc6xqftp4Y=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$ReceptionsBui
+ ldScopeStrategy.class
+SHA1-Digest: GWIse0NFTzJVdYNtmS5GNO7Cz7k=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$UnaryExpre
+ ssionElements.class
+SHA1-Digest: pYSC1qi4XnWBxDkbyWiscUPg/VE=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InstanceCreationTuple.class
+SHA1-Digest: Noxhkl4wTMU9F2P3M+f1oAl5cB8=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AcceptClause.class
+SHA1-Digest: /kSFjtEcRKRPDCtbNpkkSqclqJk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/AssignmentCompletionImpl.cl
+ ass
+SHA1-Digest: VQXuQ57w0EGnqDqaOwR/4rNyoqs=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$UNLIMITED_
+ LITERALElements.class
+SHA1-Digest: CYhV7LU4PSCzlWlnGV9c3Tm9GqA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/IsUniqueOperationImpl.class
+SHA1-Digest: Gyg41nmedA7cKf+6Ms0MrpT9HJ4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/QualifiedNamePathImpl.class
+SHA1-Digest: KHDjhSmZFBYDikQPAHCVyxF0w58=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AlfPackage$Literals.class
+SHA1-Digest: u9U53fA9p9MMlFZxK0rpqsMHUO0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SequenceOperationExpression.clas
+ s
+SHA1-Digest: zLerB2trTcl+2vZPGGgx9gmSeMU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ForControlImpl.class
+SHA1-Digest: mhal6C1On/+1iOhqv/O9YwbLfxA=
+
+Name: org/eclipse/papyrus/uml/alf/serializer/AbstractAlfSemanticSequen
+ cer.class
+SHA1-Digest: C1gvJVPuseJz/n1XSLeCp9Rj8a8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$Classifica
+ tionFromClauseElements.class
+SHA1-Digest: uHHqz+7SRw8jO2D5UIFyqQMkIv4=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/SignatureFacade.cl
+ ass
+SHA1-Digest: AF+toIrnwo+4naIzofTpoev0c04=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/CompoundAcceptStatementComp
+ letionImpl.class
+SHA1-Digest: dpNk/6+TiArpIAXTR/A5JYAKi8A=
+
+Name: org/eclipse/papyrus/uml/alf/alf/BooleanValue.class
+SHA1-Digest: IDjte3g2bjxzgSxBWv61AZCmOn4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LinkOperat
+ ionTupleElementElements.class
+SHA1-Digest: LJrIKb/4xZAG+lTr4e3zpwGVz5s=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfScopingTool$OperationAndB
+ ehaviorNameStrategy.class
+SHA1-Digest: 4+Lwz4S8vQRWz4VnZcsZtbZkWU4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/AlfFactory.class
+SHA1-Digest: B5udnCc3gIDg+hOtFSpHU6DM8PM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/BreakStatement.class
+SHA1-Digest: s0mWanxgDfLV86anU/CMsBbqylo=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$AcceptStat
+ ementElements.class
+SHA1-Digest: mbcWNZ3/usUEZnhSn7Bhntpq0qI=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/QualifiedName.cla
+ ss
+SHA1-Digest: kAaoHUo9qDN1jLRP8nNuIo+yBl0=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/BooleanUnaryExpre
+ ssion.class
+SHA1-Digest: 9fCJ0UwVaQcM9MYCsHbkFFiMRCk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/util/AlfAdapterFactory$1.class
+SHA1-Digest: 5uawDfp8uBZ7TMXCNYBj5wUvsSg=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$TestElemen
+ ts.class
+SHA1-Digest: hp7DJ9hM29+aiz5JpmRK4WYR8BE=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$TupleEleme
+ ntElements.class
+SHA1-Digest: aFGvXmwfdGYPtm9bkqDW1elGXf8=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$InstanceCr
+ eationTupleElements.class
+SHA1-Digest: MLJ/ozZt/oKhWwF8YNXEM7+bcDk=
+
+Name: org/eclipse/papyrus/uml/alf/alf/SwitchClause.class
+SHA1-Digest: rUw6JbqbvrMzdXRr6+OmrflrPCU=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NonFinalClauseImpl.class
+SHA1-Digest: XfmAhn6NZUT/h32JrAEXR7CL+4c=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/SequenceOperation
+ Expression.class
+SHA1-Digest: +pJWZdjlbCkz0B6WtDVtcM/GQiI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ReclassifyAllClauseImpl.cla
+ ss
+SHA1-Digest: JD5sZocTrGU+HxByiiz0xyFcQXI=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/LinkOperationTupleImpl.clas
+ s
+SHA1-Digest: pEw9guMgeMPcSaeGGIhS95iMhhw=
+
+Name: org/eclipse/papyrus/uml/alf/Alf.genmodel
+SHA1-Digest: aMVt8eXAnn2j+EmFVqHODmS8ZII=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/IncrementOrDecrem
+ entExpression.class
+SHA1-Digest: tgeOK3moDKxC797fZcrfOwtkdJQ=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ClassificationFromClauseImp
+ l.class
+SHA1-Digest: zbqfdjRfoe2Sl+ab7oPoIBcHiEw=
+
+Name: org/eclipse/papyrus/uml/alf/alf/CollectOrIterateOperator.class
+SHA1-Digest: dOVjQg7OwQ7cFT5LXTUyRw5BAuA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/StatementSequence.class
+SHA1-Digest: PVcHqJ0tygpd0pvOgh/o2zlF2/k=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SwitchCaseImpl.class
+SHA1-Digest: z4CFlQFX8iry6hvXFcxjWDB4K6s=
+
+Name: org/eclipse/papyrus/uml/alf/alf/ThisExpression.class
+SHA1-Digest: 2DtnfOTcIU87Xia9Wuo6laxiNT0=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SelectOrRejectOperationImpl
+ .class
+SHA1-Digest: TdUj9u7pHnl2A/ln0/wDfno5zQg=
+
+Name: org/eclipse/papyrus/uml/alf/parser/antlr/internal/InternalAlfLex
+ er.class
+SHA1-Digest: +kqwU+uXA3AE5UHhwXuR/WLgfNA=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ForAllOrEx
+ istsOrOneOperatorElements.class
+SHA1-Digest: feATVhRjOFaWsCzrjI4wq94yYIc=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$NonEmptySt
+ atementSequenceElements.class
+SHA1-Digest: IkYICFA7nP3PWRECI46qbRwWEV4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SimpleAcce
+ ptStatementCompletionElements.class
+SHA1-Digest: Eyt/xXXPrtxUEtZun3r8RrZdOeE=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/AcceptBlock.class
+SHA1-Digest: yh0mMLNjuD6If9Qf9slbhg43/h4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/OperationCallExpression.class
+SHA1-Digest: DGkjW69ByNj2hvtRpjKiTCTQHfs=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/InstanceCreationE
+ xpression.class
+SHA1-Digest: z7V3qfIg31qlFqIJLb6noBwAJr8=
+
+Name: org/eclipse/papyrus/uml/alf/scoping/AlfPartialScope$IBuildScopeS
+ trategy.class
+SHA1-Digest: mmiSkRjl3IvzOZ84Heij31mlC2Y=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/InlineStatementImpl.class
+SHA1-Digest: xoFxxmCK6fUwoZMwpRJtwI/s7YM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ExclusiveOrExpressionImpl.c
+ lass
+SHA1-Digest: JK6fnpcVkkRzqwKf0FS8577rdSI=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SuperInvoc
+ ationStatementElements.class
+SHA1-Digest: 3q1Z9cxUzTPrdqYt/AAnHx5l/To=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/VariableDeclarationCompleti
+ onImpl.class
+SHA1-Digest: P9zuwuq1Xm4BNZLWFRzuzlVD+ko=
+
+Name: org/eclipse/papyrus/uml/alf/alf/Annotation.class
+SHA1-Digest: KhA4lG1oHKYqCj1F7qF6AYAG0HE=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$QualifiedN
+ ameListElements.class
+SHA1-Digest: a9g25sCdd1Bi3CjUysqKIy6WDDM=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ReturnStatementImpl.class
+SHA1-Digest: EFJjHdNgG0ptEsQpZWTddXLGlrA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NamedTemplateBinding.class
+SHA1-Digest: B1B3eP+69ZDfKaaT7z5ZJvcLprA=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/common/ElementReference.class
+SHA1-Digest: jks0cgldEx4dr9iWHnHdAH26nBc=
+
+Name: org/eclipse/papyrus/uml/alf/alf/UNLIMITED_LITERAL.class
+SHA1-Digest: dRC9mdGys0Ug2vqqJ5j/UKYRMvo=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/BooleanLiteralExp
+ ression.class
+SHA1-Digest: G8gQBgABnnTDb4Fd/+FnwuBKr3k=
+
+Name: org/eclipse/papyrus/uml/alf/alf/NonFinalClause.class
+SHA1-Digest: McmfYpZ7mWdJW4CwX35sjCvQHx8=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/units/EnumerationDefinition.c
+ lass
+SHA1-Digest: boEhrKWdO6WxUe8yQnYOt2oDAA4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/ConditionalAndExpressionImp
+ l.class
+SHA1-Digest: y8+caHLLNRTbjFmm3rXT98f20Wg=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/SequenceReductionExpression
+ Impl.class
+SHA1-Digest: FNysKwWQTysMTwnwTAgksnRXDCo=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$ExclusiveO
+ rExpressionElements.class
+SHA1-Digest: F37pxlI4QwoRFX1u064VOSzyWB4=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$SwitchStat
+ ementElements.class
+SHA1-Digest: yWZ9wm3JCa+4n/a5O6SldO4qVGE=
+
+Name: org/eclipse/papyrus/uml/alf/validation/typing/MultiplicityFacade
+ .class
+SHA1-Digest: Pl+v59CEyJrXd0+tXQfAqokHkTk=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/FeatureReference.
+ class
+SHA1-Digest: zlQ03KB7OgrihdE6iti0d4O7eK4=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/WhileStatementImpl.class
+SHA1-Digest: pVbCdtEgOjieBFA2eV/IjgKu3Sg=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/common/InternalElementReferen
+ ce.class
+SHA1-Digest: cxBe3F17IBgc+oQ5M9ZwFtZFHSw=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/ForStatement.class
+SHA1-Digest: 5bFWtdT9M+beWd/ccHZDTpAQUfo=
+
+Name: org/eclipse/papyrus/uml/alf/alf/impl/NameExpressionImpl.class
+SHA1-Digest: z/KzG0LXK/FXrYWgkAblOP6Y1nY=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$TemplateBi
+ ndingElements.class
+SHA1-Digest: sRJfoaxhrPU6ceHHE3mxPma1SyA=
+
+Name: org/eclipse/papyrus/uml/alf/alf/InlineStatement.class
+SHA1-Digest: ipTsRBsiYgYMJ3WumimSQMM1Ndo=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/OutputNamedExpres
+ sion.class
+SHA1-Digest: W1B5k3Rjnq8f95+rBSIcxcF3va0=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ConditionalTestEx
+ pression.class
+SHA1-Digest: H7a70Gtu0zXnN4r+BaszuIaApZw=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$LinkOperat
+ ionTupleElements.class
+SHA1-Digest: ySoOksT73BcHx4o0LXHp+wVY340=
+
+Name: org/eclipse/papyrus/uml/alf/services/AlfGrammarAccess$BOOLEAN_LI
+ TERALElements.class
+SHA1-Digest: 7+f6yAzo0/YUXblitgNU7Q+R8y4=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/statements/ConcurrentClauses.
+ class
+SHA1-Digest: 5SdhoJaMr6tN6aGtSPL2jnqCisE=
+
+Name: org/eclipse/papyrus/uml/alf/syntax/expressions/ClassExtentExpres
+ sion.class
+SHA1-Digest: jWiCUV/qzIcZmA8AIBsodoPGJ00=
+

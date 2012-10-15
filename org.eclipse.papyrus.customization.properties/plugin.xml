@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?>
+
+<plugin>
+   <extension point="org.eclipse.emf.facet.infra.browser.custom.core.registration">
+      <browserCustomization file="UICustom/context.uiCustom" loadByDefault="true">
+      </browserCustomization>
+   </extension>
+   <extension point="org.eclipse.emf.facet.infra.browser.custom.core.registration">
+      <browserCustomization file="UICustom/environment.uiCustom" loadByDefault="true"/>
+   </extension>
+   <extension point="org.eclipse.emf.facet.infra.browser.custom.core.registration">
+      <browserCustomization file="UICustom/ui.uiCustom" loadByDefault="true"/>
+   </extension>
+   <extension point="org.eclipse.emf.facet.infra.query.registration">
+      <modelqueryset file="Query/Contexts.querySet"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.facet.infra.query.registration">
+      <modelqueryset
+            file="Query/Ui.querySet">
+      </modelqueryset>
+   </extension>
+   <extension point="org.eclipse.ui.editors">
+      <editor class="org.eclipse.papyrus.customization.properties.editor.UIEditor" contributorClass="org.eclipse.papyrus.customization.properties.editor.ContextEditorActionBarContributor" default="true" extensions="ctx" icon="platform:/plugin/org.eclipse.papyrus.views.properties.model.edit/icons/full/obj16/Context.gif" id="org.eclipse.papyrus.customization.properties.UIEditor" name="%editor.name">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="pathmap://PPECustom/" target="platform:/plugin/org.eclipse.papyrus.customization.properties/Model/">
+      </mapping>
+   </extension>
+   <extension point="org.eclipse.papyrus.views.properties.environment">
+      <environment environmentModel="Model/CustomizationEnvironment.xmi">
+      </environment>
+   </extension>
+   <extension point="org.eclipse.papyrus.views.properties.context">
+      <context contextModel="Model/Customization.ctx">
+      </context>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor contributorId="CustomizationPropertyView" labelProvider="org.eclipse.papyrus.views.properties.providers.SelectionLabelProvider" tabDescriptorProvider="org.eclipse.papyrus.views.properties.xwt.XWTTabDescriptorProvider">
+         <propertyCategory
+               category="org.eclipse.papyrus">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="org.eclipse.papyrus.views.category"
+            class="org.eclipse.papyrus.customization.properties.editor.preview.Preview"
+            icon="icons/preview.png"
+            id="org.eclipse.papyrus.customization.properties.preview"
+            name="%view.name"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.papyrus.customization.properties.perspective.CustomizationPerspectiveFactory"
+            icon="icons/Customization.gif"
+            id="org.eclipse.papyrus.customization.properties.perspective"
+            name="%perspective.name">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.papyrus.customization.properties.preferences.CustomizationPreferencesInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.customization.properties.preferences.CustomizationPreferencePage"
+            id="org.eclipse.papyrus.customization.properties.preferences"
+            name="%page.name">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.papyrus.customization.properties.ui.OpenCustomization"
+            commandId="org.eclipse.papyrus.customization.properties.customize">
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.customization.properties.editor.actions.TogglePreviewAction"
+            commandId="org.eclipse.papyrus.customization.properties.TogglePreview">
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.customization.properties.editor.actions.ToggleDataContextAction"
+            commandId="org.eclipse.papyrus.customization.properties.ToggleDataContext">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="%command.description"
+            id="org.eclipse.papyrus.customization.properties.customize"
+            name="%command.name">
+      </command>
+      <command
+            description="%command.description.0"
+            id="org.eclipse.papyrus.customization.properties.TogglePreview"
+            name="%command.name.0">
+         <state
+               class="org.eclipse.papyrus.customization.properties.editor.actions.TogglePreviewState"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+      <command
+            description="%command.description.1"
+            id="org.eclipse.papyrus.customization.properties.ToggleDataContext"
+            name="%command.name.1">
+            <state
+               class="org.eclipse.papyrus.customization.properties.editor.actions.ToggleDataContextState"
+               id="org.eclipse.papyrus.customizatio.propertiesn.displayContextState">
+         </state>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.views.PropertySheet">
+         <command
+               commandId="org.eclipse.papyrus.customization.properties.customize"
+               icon="icons/Customization.gif"
+               id="org.eclipse.papyrus.customization.properties.customizehandler"
+               label="%customize.command.label"
+               mnemonic="%customize.command.mnemonic"
+               mode="FORCE_TEXT"
+               style="push"
+               tooltip="%customize.command.tooltip">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="org.eclipes.papyrus.customization.properties"
+               label="%toolbar.label">
+            <command
+                  commandId="org.eclipse.papyrus.customization.properties.TogglePreview"
+                  icon="icons/preview.png"
+                  id="org.eclipse.papyrus.customization.properties.togglePreview"
+                  label="%command.label"
+                  style="toggle"
+                  tooltip="%command.tooltip">
+               <visibleWhen>
+                  <with
+                        variable="activeEditorId">
+                     <equals
+                           value="org.eclipse.papyrus.customization.properties.UIEditor">
+                     </equals>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="org.eclipse.papyrus.customization.properties.ToggleDataContext"
+                  icon="icons/DataContexts.gif"
+                  id="org.eclipse.papyrus.customization.properties.toggleDataContext"
+                  label="%command.label.0"
+                  style="toggle"
+                  tooltip="%command.tooltip.0">
+               <visibleWhen>
+                  <with
+                        variable="activeEditorId">
+                     <equals
+                           value="org.eclipse.papyrus.customization.properties.UIEditor">
+                     </equals>
+                  </with>
+               </visibleWhen>
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+</plugin>

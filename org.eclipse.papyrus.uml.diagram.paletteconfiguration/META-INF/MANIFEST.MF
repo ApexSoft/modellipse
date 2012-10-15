@@ -1,0 +1,249 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.diagram.paletteconfigurat
+ ion;singleton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil
+ ity:=reexport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.ecli
+ pse.papyrus.infra.queries.core.configuration;bundle-version="0.9.1";v
+ isibility:=reexport,org.eclipse.emf.facet.infra.query;visibility:=ree
+ xport,org.eclipse.uml2.uml;visibility:=reexport,org.eclipse.ui,org.ec
+ lipse.gmf.runtime.common.core;bundle-version="1.4.0",org.eclipse.gmf.
+ runtime.common.ui.services;bundle-version="1.3.0",org.eclipse.gmf.run
+ time.diagram.core;bundle-version="1.4.0",org.eclipse.gmf.runtime.diag
+ ram.ui;bundle-version="1.4.0",org.eclipse.papyrus.infra.core.log;bund
+ le-version="0.9.1",org.eclipse.papyrus.infra.extendedtypes;bundle-ver
+ sion="0.9.1",org.eclipse.papyrus.infra.core;bundle-version="0.9.1",or
+ g.eclipse.papyrus.editor;bundle-version="0.9.1",org.eclipse.papyrus.u
+ ml.diagram.common;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.uml.diagram.paletteconfiguration
+ .Activator
+Export-Package: org.eclipse.papyrus.uml.diagram.paletteconfiguration,o
+ rg.eclipse.papyrus.uml.diagram.paletteconfiguration.descriptor,org.ec
+ lipse.papyrus.uml.diagram.paletteconfiguration.impl,org.eclipse.papyr
+ us.uml.diagram.paletteconfiguration.provider,org.eclipse.papyrus.uml.
+ diagram.paletteconfiguration.util
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/IconDescrip
+ tor.class
+SHA1-Digest: NVM3bXbUh4Ax2MEcQvBZ+kHTsPY=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Palett
+ eConfigurationImpl.class
+SHA1-Digest: EA+SzLYe9OBke2xwvlCN/LGfTyU=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/LeafCo
+ nfigurationImpl.class
+SHA1-Digest: VI+3jElOOE0yjZAxEtq+SHjyDWc=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/ElementDesc
+ riptor.class
+SHA1-Digest: CPwOCbqd8RQeuXMC9daMr5X42lE=
+
+Name: icons/separator.gif
+SHA1-Digest: l+rWncEcySSnAJKwblPaMrihzcw=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/StackConfig
+ uration.class
+SHA1-Digest: ndiynSl6zXwFDu74G9xBMt+uphg=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/ToolCo
+ nfigurationImpl.class
+SHA1-Digest: EUx+vlwzdaIqkjxneuQdKYVhwcE=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/Ex
+ tendedPluginPaletteProvider$1.class
+SHA1-Digest: n6cXJi3bh6THfSGnDQ4T0eUQOvU=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/SeparatorCo
+ nfiguration.class
+SHA1-Digest: t1MHdRn9p92xfuJQT0aDYp16vuk=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/Activator.c
+ lass
+SHA1-Digest: CzoLNO+124xH5/94hr8tm+oppYA=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Drawer
+ ConfigurationImpl.class
+SHA1-Digest: wRBE+XQXYq50MR0+CxGPTa2zZHo=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Elemen
+ tDescriptorImpl.class
+SHA1-Digest: c80KK1nFl3plFByZHAhZes3eX60=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/Paletteconf
+ igurationPackage$Literals.class
+SHA1-Digest: W01lb1Mo6EeK3SlU/SdXNTOFxuc=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ econfigurationAdapterFactory.class
+SHA1-Digest: kbnbxNB84eL+XrN9fX662Y7PWL8=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/Ex
+ tendedPluginPaletteProvider$ExtendedPaletteFactory.class
+SHA1-Digest: CnanoT9QJQW4cyPMRV6MReS62SA=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/Paletteconf
+ igurationPackage.class
+SHA1-Digest: LJ+5vEqlV4t7C5BQ/A6wqPWTYoQ=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ eConfigurationUtils.class
+SHA1-Digest: lpv9K0ktNgLnq8woglYg+LabY3M=
+
+Name: model/PaletteConfiguration.genmodel
+SHA1-Digest: AlMFubvnh+k8r4es1deFKXLo1o0=
+
+Name: icons/stack.gif
+SHA1-Digest: J08i2rueFvxIsJ1Z9BgktWZSpEE=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/Configurati
+ on.class
+SHA1-Digest: P1LN7V9U6PackjXCfeoyoyAS3eM=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ econfigurationResourceFactoryImpl.class
+SHA1-Digest: cXzwYEVhCh4FH1+EsSfBy8wd/Vk=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ econfigurationResourceImpl.class
+SHA1-Digest: vVUlqAUeKvb7EqzYSfqJAH1BDSc=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/Ex
+ tendedPaletteDrawer.class
+SHA1-Digest: cQuDNxPkoBOa/J6ruqSpL2xD7NI=
+
+Name: icons/testIcon.png
+SHA1-Digest: vVssws51roXo7cvsEv2wevVc4sY=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Palett
+ econfigurationFactoryImpl.class
+SHA1-Digest: cwV75Pv6U8YB2R7hNzH934UYGag=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/DrawerConfi
+ guration.class
+SHA1-Digest: DSuH1rKOu5sf+jxzRP1K+rSSW4Y=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/Ex
+ tendedCreationToolEntry.class
+SHA1-Digest: yjYNis7EfwuOjTOBn3sJByRsRg0=
+
+Name: model/PaletteConfiguration.ecorediag
+SHA1-Digest: IZ24sAbXYo7yJzddJ6hPZQiQPDg=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Config
+ urationImpl.class
+SHA1-Digest: volvKjz3Zx2KQ5yN7BD63wP/gFg=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/ChildC
+ onfigurationImpl.class
+SHA1-Digest: mIw59cLQ1ZMOaWtrM9UwugYP5wM=
+
+Name: icons/tool.gif
+SHA1-Digest: /cDYtgpMpwE6CalF4KLRGKMP6IM=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/ToolKind.cl
+ ass
+SHA1-Digest: j8l1JVJP77KNMXovpduNG9VTs4M=
+
+Name: plugin.properties
+SHA1-Digest: P184xQCRa7XjZY3ccHWxCM+WDR0=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/IconDe
+ scriptorImpl.class
+SHA1-Digest: dO9/V8/ZgpoirGz/SH3sJUGbx4Y=
+
+Name: icons/elementTypeIcon.gif
+SHA1-Digest: pPLQbqJcrNkVh80Fz8n5In3iAOA=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ econfigurationSwitch.class
+SHA1-Digest: yfVDpl/YXP81ybJWRAqa4ZNvqXE=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/StackC
+ onfigurationImpl.class
+SHA1-Digest: UksMtp5t4bUacQOGYac1o1cFpgM=
+
+Name: model/PaletteConfiguration.ecore
+SHA1-Digest: WSy3AlMiQyPzG5T5cnKJe0wpINE=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Separa
+ torConfigurationImpl.class
+SHA1-Digest: P7UGXooy/CfOx13SINeacV3BmX4=
+
+Name: plugin.xml
+SHA1-Digest: XEBQDKRPEUtGH5RU4wlGoujoHqw=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ econfigurationXMLProcessor.class
+SHA1-Digest: 3keCQvL5fDGj7dhFLccij10N5A4=
+
+Name: icons/drawer.gif
+SHA1-Digest: 5TF7ftfUsp4Z3KdTaSlgyQoFpuk=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/Ex
+ tendedConnectionToolEntry.class
+SHA1-Digest: 5GcR334vQufuhZNrUQ4lls6hfhw=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/descriptor/
+ ExtendedSemanticTypeDescriptor.class
+SHA1-Digest: kKBxUStdL57QgHBfdhkjzysxIuI=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/descriptor/
+ ExtendedEditHelperAdvice.class
+SHA1-Digest: HheAIoojYe8YnndSv+c6xfgQkUc=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/Paletteconf
+ igurationFactory.class
+SHA1-Digest: BIvNa1XUHcXhpgZ+7tf0cIy/xc4=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ econfigurationAdapterFactory$1.class
+SHA1-Digest: pBhBNp/QReteSrSGvIXN0heEbks=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/LeafConfigu
+ ration.class
+SHA1-Digest: RTpPCw15mnxXFQ/xL8ElbP/BqU0=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/util/Palett
+ eConfigurationUtils$1.class
+SHA1-Digest: JyhfRAcsIne61hIx+GxqMeXZLKg=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/ChildConfig
+ uration.class
+SHA1-Digest: pHAegBY39M1wsWTCCNZlotCwZ+o=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/PaletteConf
+ iguration.class
+SHA1-Digest: Dw6iRvbMLP4i25F4OL158RD2+aM=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/ToolConfigu
+ ration.class
+SHA1-Digest: HHuQ5WNwjsRq0oA9IEKiVgI9p7E=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/impl/Palett
+ econfigurationPackageImpl.class
+SHA1-Digest: 6MBXf1GZ4icWwPu/QJoPt+ly0r4=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/IE
+ lementTypesBasedTool.class
+SHA1-Digest: Necc0VCgp5hJAzx7cUlodVQIRP0=
+
+Name: org/eclipse/papyrus/uml/diagram/paletteconfiguration/provider/Ex
+ tendedPluginPaletteProvider.class
+SHA1-Digest: trwJgqJG3FLebN0hWSCmm3JzI+M=
+

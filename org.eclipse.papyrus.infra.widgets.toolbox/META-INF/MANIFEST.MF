@@ -1,0 +1,340 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.widgets.toolbox;singlet
+ on:=true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.core.runtime,org.eclipse.ui,org.eclipse.gef;bundle-versio
+ n="3.7.1",org.eclipse.ui.forms;bundle-version="3.5.100"
+Bundle-Activator: org.eclipse.papyrus.infra.widgets.toolbox.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.widgets.toolbox,org.eclipse.
+ papyrus.infra.widgets.toolbox.dialog,org.eclipse.papyrus.infra.widget
+ s.toolbox.draw2d,org.eclipse.papyrus.infra.widgets.toolbox.notificati
+ on,org.eclipse.papyrus.infra.widgets.toolbox.notification.builders,or
+ g.eclipse.papyrus.infra.widgets.toolbox.notification.dialogs,org.ecli
+ pse.papyrus.infra.widgets.toolbox.notification.exception,org.eclipse.
+ papyrus.infra.widgets.toolbox.notification.popups,org.eclipse.papyrus
+ .infra.widgets.toolbox.notification.utils,org.eclipse.papyrus.infra.w
+ idgets.toolbox.notification.view,org.eclipse.papyrus.infra.widgets.to
+ olbox.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/P
+ apyrusPopup.class
+SHA1-Digest: Q9CLZfL2chzYaKU0MFsFLsaS4m8=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$1$1.class
+SHA1-Digest: qgcxFNgngDOIueboo/uosjk8kqs=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/utils/Pap
+ yrusControlsFactory.class
+SHA1-Digest: lvUtW/PA+y7RISTt/ZiC8RPoC/0=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$6$1.class
+SHA1-Digest: p7HB7h5jOmT9konwHl2WQ13nLy8=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ AsyncNotifierBuilder$1.class
+SHA1-Digest: cH1OK3z0lSPzZDYJcOB8V3kWeFk=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/SwtUtil$IFadeListener.
+ class
+SHA1-Digest: +jDjE/5dF3q4F2bkbToYPQqKj3c=
+
+Name: schema/papyrusNotificationBuilder.exsd
+SHA1-Digest: mGkI9AY4aw1yvAE3ddHC7RJGMUg=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/I
+ magePapyrusAsyncNotificationPopup.class
+SHA1-Digest: jr2woqyxWFj4q+4oLpCDjQqla+o=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$1.class
+SHA1-Digest: m4sEy38lZA2evpLigy9XTvXaA/s=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ PropertyWrapper.class
+SHA1-Digest: UAg0+KMOyZ3Ka0ZbadvJ34xwIjE=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/C
+ ommonFonts$1.class
+SHA1-Digest: AqJ5+siaKsxgWeRTks5OaXTodpY=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/Notificat
+ ionRunnable.class
+SHA1-Digest: lEowxVfE8Xchn4JEVlnRXNHW+tE=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$3.class
+SHA1-Digest: 5l5TbJ9m1i8U2+E/24rgPNIMW1w=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/P
+ apyrusAsyncNotificationPopup$1.class
+SHA1-Digest: GKMPHSq7qFB+/3Q+RX1Fz3KfrKY=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$5.class
+SHA1-Digest: hv5B9lUQvjQ+l3ZjigMPLt3QUys=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/SwtUtil$FadeJob.class
+SHA1-Digest: qXJ20uJsOtymOudOxQPydQ6QLpw=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$7.class
+SHA1-Digest: QpFrh0cqK77FE/SL6GCwOElc64g=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ ViewBuilder$1.class
+SHA1-Digest: +MB8iccnrGk9qCuLbIvbvanDkMw=
+
+Name: icons/sample.gif
+SHA1-Digest: feojBp2FjL/usTYVXuMCiWP/cmg=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/P
+ apyrusAsyncNotificationPopup$1$1.class
+SHA1-Digest: CsP//QGPY2pgBjatJwK8nr5GuLg=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/SwtUtil$FadeJob$2.clas
+ s
+SHA1-Digest: epc87+1kseaGmPQ2A3CqVa8TSms=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/Type.clas
+ s
+SHA1-Digest: uIArI5UkEmePBCE/l9Jbzt1zmtQ=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView.class
+SHA1-Digest: bRcEldSDxiAfqzGfV3nljS72lwg=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/LookForElement.class
+SHA1-Digest: FNZsBTYVo5hfIa8OATVG8uURmNM=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup.class
+SHA1-Digest: vC2PCgfpVdssZu4N6HHy3tjiJ78=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/utils/ISharedImages.cl
+ ass
+SHA1-Digest: RVhTrDQOWpOo1BI+L79oPcNSj/U=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$1.class
+SHA1-Digest: /KRgiSOsn7J4fOOX7UYokHKQ1Ew=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ syncNotification.class
+SHA1-Digest: xAqjetKVPl6kGLRTh2n2mJj44Pg=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$3.class
+SHA1-Digest: 9wEJYmrblbMoAQX5qRmSCTkwVok=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Abst
+ ractInsideComposite$1.class
+SHA1-Digest: Jg5196RyCfxEJVumiHi00xrK8oc=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$5.class
+SHA1-Digest: Lz7l1rpoHKJKI6Wl+QPkxyJJCNs=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$7.class
+SHA1-Digest: MHINNZLNArHhTJ6I+8eBt8pqIA0=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$2.class
+SHA1-Digest: Sp9ZdSf14rJdHaFnDa3XSRq8y5M=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$4.class
+SHA1-Digest: zZ6rKKjlMivMC1fIGxJSuGUuJho=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/N
+ otificationPopupColors.class
+SHA1-Digest: bjJr9LU5j8ysG+/gPzwgma/zCCw=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$6.class
+SHA1-Digest: XNlHru61yyeb96hI48Kf8TotcgY=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/ICallBack
+ .class
+SHA1-Digest: UeEi9vqtoin/qjAtaJw10/6blPE=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/popups/Me
+ ssagePapyrusPopup.class
+SHA1-Digest: 2egtvEdnu62yKVDwJ0cGsyzH+Mw=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder.class
+SHA1-Digest: 7VIGyGbaIejdR2GAbr6j/7f3GuA=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/INotifica
+ tion.class
+SHA1-Digest: J3jihDtJ25juWwt+uxkpTx4bjmw=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/C
+ ommonFonts.class
+SHA1-Digest: UqUcU9OhHXawoh7OgC5F8UPfA1w=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ CombinedPopupAndViewBuilder$1.class
+SHA1-Digest: z3u06g3y0vJv68MhsTG1VSr2VnE=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/P
+ apyrusAsyncNotificationPopup.class
+SHA1-Digest: 3wbK5V89FlC7d7BIiIdlvuOge04=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ ViewBuilder.class
+SHA1-Digest: PCOK5mHeTUa36bvxUVo6LD1AofQ=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ IContext.class
+SHA1-Digest: afQW3HavW8lvPp4kmx020z82ZsM=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ AsyncNotifierBuilder$2.class
+SHA1-Digest: PCQwX3bD5GS4Z7nWiR+qG4VsaD4=
+
+Name: plugin.properties
+SHA1-Digest: AI/hVU/z0YFSXxGUcDO/u3/qipU=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$2.class
+SHA1-Digest: m9i3CPJjkR85UFV6Jsm+CZy/3N4=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$4.class
+SHA1-Digest: WzSiwJU0b4XpTL0G/Cg2D4Gx4NU=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ NotificationBuilder$6.class
+SHA1-Digest: dWg3Wezabez0YhdxwcHksVufri0=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/utils/ToolbooxImageUti
+ ls.class
+SHA1-Digest: h0IgzyP6FJjMlE+ANGpS7ezGulM=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ PopupBuilder.class
+SHA1-Digest: 4Rohq5cxMRR54EY3XW8z2xK6Vgk=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/popups/Po
+ pupNotification.class
+SHA1-Digest: ww4qVuRkt4cDSzdYpnK42F4Or5c=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/Activator.class
+SHA1-Digest: iVHynwuAwynislsv+ISMpZyY348=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/IBuilder.
+ class
+SHA1-Digest: 8YK0G/qBzfIMsISyiZoPiWkBTTA=
+
+Name: plugin.xml
+SHA1-Digest: N6NurSy9hvVKMZfI0akjKzg7KF4=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/SwtUtil$FadeJob$1.clas
+ s
+SHA1-Digest: RKAD9M1LamnNZGxr1jJhn/yg91o=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/utils/ToolbooxImageUti
+ ls$1.class
+SHA1-Digest: YpSTvBY8oX368LrM2BAxg8fZClA=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Abst
+ ractInsideComposite.class
+SHA1-Digest: KyeTv1pNc/qaYCFVy3/3ywQlvuk=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/View
+ Notification.class
+SHA1-Digest: iO2UkZgRuvV096M7pMC9qawqn5w=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/draw2d/ManuallyDrawnSh
+ ortcutDecorationFigure.class
+SHA1-Digest: oHqstgF6sHg72fIN94Z+c/KNBhk=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: icons/run.gif
+SHA1-Digest: 9nUFtkM1LiPz9RddB8tq+Zl7LlE=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/PapyrusTo
+ olkit.class
+SHA1-Digest: OFfpiVCRKFyw1F4RmSF6haCyLT4=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$2.class
+SHA1-Digest: g6aj/phqJx6C//Eo3xGG57TbqKQ=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/exception
+ /NotificationException.class
+SHA1-Digest: 9m5ZETvt6rV8D5xC6IcydMoVWTI=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$4.class
+SHA1-Digest: nOtTJYXEkWYvP2NurJ8G/ASpMjs=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Abst
+ ractInsideComposite$2.class
+SHA1-Digest: qnZuPekMr5DXxY1OkkD7vmSxBrk=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/popups/Ic
+ onAndMessagePapyrusPopup.class
+SHA1-Digest: p95SKW8a7irBkZ6Qip1lqN2DBcU=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Papy
+ rusNotificationView$6.class
+SHA1-Digest: U6U4EjzBUSGAV4menZF7b249FDQ=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/SwtUtil.class
+SHA1-Digest: sKXC72n4uM43Ayq4pcFqTJ3a/1k=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ IContext$Context.class
+SHA1-Digest: tCwlML5xFG0GnEzL5qPmGiLwyTc=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$1.class
+SHA1-Digest: KwoQVjYGYBpGSYIbyv85DJAW/us=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ CombinedPopupAndViewBuilder.class
+SHA1-Digest: k5vXgcvMId3INCvyMSHfZmQ4iBo=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/view/Mess
+ ageComposite.class
+SHA1-Digest: QIgW7J8NrUsTki+5fDZQU+HWS2Y=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$3.class
+SHA1-Digest: oqKDe3CO2/lBFaHyuxuwgyVr7UY=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/dialogs/A
+ bstractNotificationPopup$5.class
+SHA1-Digest: 9BKrYg7fHY+esXmq5k7o2mbwYSA=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/IComposit
+ eCreator.class
+SHA1-Digest: 38YhGsJmhW0nOnsxmVfubBcW5/E=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/notification/builders/
+ AsyncNotifierBuilder.class
+SHA1-Digest: gCUe/+0ovNlv2s2ZbfuVvnjNJW8=
+
+Name: org/eclipse/papyrus/infra/widgets/toolbox/dialog/InformationDial
+ og.class
+SHA1-Digest: Cb8P2CeCqMqEDnje7OyS10QAd5U=
+

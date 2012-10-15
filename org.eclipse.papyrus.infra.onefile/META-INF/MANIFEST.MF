@@ -1,0 +1,178 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.onefile;singleton:=true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.ui.navigator,org.eclipse.team.ui,org.eclipse.ui.navigator
+ .resources,org.eclipse.papyrus.infra.ui.resources;bundle-version="0.9
+ .1",org.eclipse.core.resources;bundle-version="3.7.0",org.eclipse.cor
+ e.runtime;bundle-version="3.7.0"
+Bundle-Activator: org.eclipse.papyrus.infra.onefile.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.onefile.model,org.eclipse.pa
+ pyrus.infra.onefile.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: schema/modelFactory.exsd
+SHA1-Digest: 0h/OpEWlLox+tQu3vl8H20kKUQE=
+
+Name: org/eclipse/papyrus/infra/onefile/model/impl/SubResourceFile.cla
+ ss
+SHA1-Digest: xWtJR/yL3FFwYD4ddOdijddTELk=
+
+Name: org/eclipse/papyrus/infra/onefile/model/ISubResourceFile.class
+SHA1-Digest: oB+LOIpk1wqW1MmDG+1US58TU+A=
+
+Name: org/eclipse/papyrus/infra/onefile/model/mapping/SubResourceMappi
+ ng.class
+SHA1-Digest: kj2YrgOR4RAbKV8kA2QRF63Ncz4=
+
+Name: plugin.properties
+SHA1-Digest: iM6qRK/jMnl62KhrbNkHTQZzbEw=
+
+Name: org/eclipse/papyrus/infra/onefile/model/impl/PapyrusModelFactory
+ .class
+SHA1-Digest: RWcG8SFiffqTTQAJ3fV216kOd6o=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$ActionHelper.class
+SHA1-Digest: sy5C42ADcXve4n7k7CxqQZXrJT0=
+
+Name: org/eclipse/papyrus/infra/onefile/model/IPapyrusModelFactory.cla
+ ss
+SHA1-Digest: CtI/S1e0HQKP2IFGrClgJDQBwQE=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusViewerSorter.
+ class
+SHA1-Digest: 6VfRby1X1H8dYyiGtyPAFIFk0Ug=
+
+Name: org/eclipse/papyrus/infra/onefile/model/PapyrusModelHelper$Segme
+ nt.class
+SHA1-Digest: OcnqmsqBWCUaX+J0BN9e6UDwEAs=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/OneFileDecorator$Fil
+ teredDecorationBuilder.class
+SHA1-Digest: YVCy/UEilLL0VycSNdF3SlzaIt8=
+
+Name: org/eclipse/papyrus/infra/onefile/model/adapters/PapyrusLinkHelp
+ er.class
+SHA1-Digest: IxS3lagavjGrDbf+jilNXH1dKdU=
+
+Name: plugin.xml
+SHA1-Digest: ExNQ3bL07E+LUII3A/w3xQR3kIw=
+
+Name: icons/papyrus.png
+SHA1-Digest: qRVOaQq19Qq/T2+hjrQ+xwWOo8k=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusLabelProvider
+ .class
+SHA1-Digest: VNROK4Hvc5MM+3XKcVi7utSKgKc=
+
+Name: org/eclipse/papyrus/infra/onefile/model/adapters/ModelAdapterFac
+ tory.class
+SHA1-Digest: 1NGuUg+GmTsv1eM66fArVH2VLkA=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusContentProvid
+ er.class
+SHA1-Digest: fRl4nDsOnN9MTIUTn1WviI89d/Y=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/onefile/model/adapters/SubResourceAdap
+ terFactory.class
+SHA1-Digest: CJsiO6Zz7SvYVPUPi3cQ5kwhxRA=
+
+Name: org/eclipse/papyrus/infra/onefile/Activator.class
+SHA1-Digest: /QMF2dUUZv6GhO3p1DJWZhP1xko=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/OneFileModelProvider
+ .class
+SHA1-Digest: eFXJbcH8T0UjP9AnPVxVqfwyMpY=
+
+Name: org/eclipse/papyrus/infra/onefile/matcher/OnlyDiFilter.class
+SHA1-Digest: 4G3vD6RvPuHjwm+d2+5bNkwzQNo=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/OneFileDecorator.cla
+ ss
+SHA1-Digest: t9BSscEvv5KBi5njw4dhCfJ+C9g=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider.class
+SHA1-Digest: bQCQw6VtB/2SkrJZ/TR3ziHqDOA=
+
+Name: org/eclipse/papyrus/infra/onefile/model/PapyrusModelHelper.class
+SHA1-Digest: PVk7hRi9cC4xVlWZv3BTvJgGUkA=
+
+Name: org/eclipse/papyrus/infra/onefile/model/impl/PapyrusFile.class
+SHA1-Digest: dT8YKbcCSDbhdGO+sSMMnlY/8mk=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/onefile/utils/OneFileUtils.class
+SHA1-Digest: YD1tTjwxqtVg8ojBWiAaoldIiSw=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusContentProvid
+ er$1.class
+SHA1-Digest: KJGmw9NIG/VWmapLZy3+ITODIb4=
+
+Name: org/eclipse/papyrus/infra/onefile/model/adapters/PapyrusModelCon
+ tributorResourceAdapter.class
+SHA1-Digest: 7zT5BGEmRKKaqE94qlDWTQKfJCU=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusContentProvid
+ er$2.class
+SHA1-Digest: M/n6KsrmleLeNcU422irVbRWkAY=
+
+Name: org/eclipse/papyrus/infra/onefile/model/IPapyrusFile.class
+SHA1-Digest: /FTN4i8UIA4q4EVYIxtOJiXOVaE=
+
+Name: org/eclipse/papyrus/infra/onefile/model/mapping/PapyrusResourceM
+ apping.class
+SHA1-Digest: QGkEefPfQcDyXgwKEtolD4YMlBY=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$1.class
+SHA1-Digest: L9kRo4TjEp93GjL1ltgM/G5owGw=
+
+Name: org/eclipse/papyrus/infra/onefile/model/PapyrusModelHelper$1.cla
+ ss
+SHA1-Digest: IOGfUyzfNu7pmUfTb1a1BdKwQJk=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$2.class
+SHA1-Digest: ZejawEP+84YEiRnN/6bHOfsViuY=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/ISubresourceFileActi
+ onProvider.class
+SHA1-Digest: rViEUFcwccB8QbywR7SKqzQoA28=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$3.class
+SHA1-Digest: TWRcdok2V/fCZa99e0QzyW+U2+k=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$4.class
+SHA1-Digest: YMxXz3DPMQ16TvXKxhdSrUqDjK4=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$5.class
+SHA1-Digest: dQpVsAD+k8NtQNh8zv7WU3G5Y5o=
+
+Name: org/eclipse/papyrus/infra/onefile/providers/PapyrusModelActionPr
+ ovider$6.class
+SHA1-Digest: 44Kdq2P6l15H+199CV/uPYf9JYI=
+
+Name: org/eclipse/papyrus/infra/onefile/model/IPapyrusElement.class
+SHA1-Digest: r8roWeiEKOU2OPLLw3zjkFeaa+4=
+
+Name: org/eclipse/papyrus/infra/onefile/model/adapters/PapyrusCommonDr
+ opAdapterAssistant.class
+SHA1-Digest: 8j0wdv90uObL+Nqnq+9DP/LDLxU=
+

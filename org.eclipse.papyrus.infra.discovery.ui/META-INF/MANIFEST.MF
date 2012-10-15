@@ -1,0 +1,312 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.discovery.ui;singleton:
+ =true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;vi
+ sibility:=reexport,org.eclipse.equinox.p2.core,org.eclipse.equinox.p2
+ .ui,org.eclipse.equinox.p2.metadata,org.eclipse.equinox.p2.metadata.r
+ epository,org.eclipse.equinox.p2.repository,org.eclipse.equinox.p2.en
+ gine,org.eclipse.equinox.p2.director,org.eclipse.equinox.p2.operation
+ s;resolution:=optional,org.eclipse.emf.edit;visibility:=reexport,org.
+ eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.edit.ui;vi
+ sibility:=reexport,org.eclipse.ui,org.eclipse.ui.forms,org.eclipse.pa
+ pyrus.infra.discovery;bundle-version="0.9.1",org.eclipse.papyrus.infr
+ a.core.log;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.discovery.ui.Activator
+Export-Package: org.eclipse.papyrus.infra.discovery.ui,org.eclipse.pap
+ yrus.infra.discovery.ui.viewer,org.eclipse.papyrus.infra.discovery.ui
+ .wizards
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/GradientC
+ anvas$1.class
+SHA1-Digest: y8dCOV7WsBMJvoQWIMOkUbJ3gas=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/GradientC
+ anvas$3.class
+SHA1-Digest: kVQyKlCTHVDwnhXadTo4TwsavyQ=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Workbench
+ Util.class
+SHA1-Digest: xbZA9OK/cdMYvuEBvy+TB2PgXTg=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Selection
+ ProviderAdapter$1.class
+SHA1-Digest: ZuNsn/pK4MCdzDhBgwchztKDC+s=
+
+Name: icons/full/etool16/find-clear-disabled.gif
+SHA1-Digest: WxhnTMWKIL+67CkVDVgJs8l2hwY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/wizards/Messages.class
+SHA1-Digest: iLr5frPYA5B6gPYrWBl0eIW1pvU=
+
+Name: icons/full/wizban/banner-discovery-papyrus.png
+SHA1-Digest: AzBVqukixBYjx7LTm9eocZf3qbg=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/CommonIma
+ ges.class
+SHA1-Digest: 5+ccCyPbOXXfIC5enkJGAef5iss=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/wizards/Discover
+ yWizardMainPage$2.class
+SHA1-Digest: Ezt7/Uiv6WLab1cw7gDXwq4GXgY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/PrepareIn
+ stallProfileJob.class
+SHA1-Digest: GeCOsby6EY3IbNguyoP1dzb5ctY=
+
+Name: icons/full/obj16/message_info.gif
+SHA1-Digest: Jp6jc3eHNNEwzbCLjn7smofN+VY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/InstallationStatus
+ Updater.class
+SHA1-Digest: bk45CpfskWux7xhLyTr0juX+vUI=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/AvailabilityUpdate
+ r$VerifyUpdateSiteJob.class
+SHA1-Digest: 6sqRtT2XCWyYbX/No0PIkf04T/c=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/wizards/Messages
+ .class
+SHA1-Digest: geVNqha4yddw/MwhL+xDSzoef2M=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$Co
+ nnectorDescriptorItemUi.class
+SHA1-Digest: NDXeuKz1IFJ8gm5ZiSfc5T7dMss=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/OverviewT
+ oolTip$2.class
+SHA1-Digest: GvJXrQAP6IqAJLT6BAyFoavEuVU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/PrepareIn
+ stallProfileJob$1.class
+SHA1-Digest: 0UgFqfhpPKuct0XewCOUBLb4L/U=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$Co
+ nnectorDescriptorItemUi$1.class
+SHA1-Digest: bkgIk+vVD66hu/rzntTJ0ei2C78=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Discovery
+ UiUtil.class
+SHA1-Digest: HGgq5ZbAD7s2+hW//riLj1AHGZQ=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$1.
+ class
+SHA1-Digest: E3pOJtKvLiCL3ce1s1QKzeCskVo=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$Co
+ nnectorDescriptorItemUi$3.class
+SHA1-Digest: yM2TbyDUtNXyXHaVDAU3gBFGiKU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/wizards/DiscoveryComponen
+ t.class
+SHA1-Digest: Jr5OS4yV/902NrOFk3fqZ5M1NXQ=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$3.
+ class
+SHA1-Digest: khCMYRmOcMdELYwh0UNT+Rj1I/U=
+
+Name: icons/full/ovr32/incubation.gif
+SHA1-Digest: vGz+VuAvoALFahgGIZvva4VUesY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$5.
+ class
+SHA1-Digest: Ub4gLjDHPcXzEQfJuMI1hpxBlko=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$7.
+ class
+SHA1-Digest: UCuUB9wwzK/TupUgB3yEqfrG4Rg=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$9.
+ class
+SHA1-Digest: m6yPBkSpd+o+NKTmwhh6aWFCIdY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Notificat
+ ionPopupColors.class
+SHA1-Digest: deqlyx7fg2RISiCpDiRF3cKLklM=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$11
+ .class
+SHA1-Digest: xPQvcr21kN4smuIDYBRLjoHlbsY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$13
+ .class
+SHA1-Digest: BScHHsS4dOQ0T4z4+qaIhyCuVJU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$2$
+ 1.class
+SHA1-Digest: V3CbXnsvtW5wSU9JA+PTQ3ZW/7s=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/wizards/DiscoveryComponen
+ t$1.class
+SHA1-Digest: VXUuZboMIvg06jI02Ve5qvU6SDk=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$15
+ .class
+SHA1-Digest: ZXsFGaJWvSKkbIT7iDU8Mpz+Rh8=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$17
+ .class
+SHA1-Digest: khkrH+M2qYf4BhoQ7M8VVJnMrsU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/GradientC
+ anvas$GradientInfo.class
+SHA1-Digest: Ayk3FyH3nrtTbTomMQaL9HfnYFI=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/GradientC
+ anvas$2.class
+SHA1-Digest: 9TkZGoYGnDoN1+35llWA95srtLg=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/wizards/Discover
+ yWizardMainPage.class
+SHA1-Digest: ypygHLdczn2yd0CApNy8nzbQnr4=
+
+Name: icons/full/wizban/banner-discovery.png
+SHA1-Digest: PRjm7eHzyk7VJ5FwKvovVeMDbpY=
+
+Name: icons/full/ovr32/message_warning.gif
+SHA1-Digest: fDwtYUWjteP13A0FZiIdDO7wEmU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/wizards/DiscoveryWizard.c
+ lass
+SHA1-Digest: MGU5eEYa0ctpCTTCtw1isNN5FgU=
+
+Name: plugin.properties
+SHA1-Digest: cqLLRecX7yoZSUBSV1ZzvbR3L1M=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/Activator.class
+SHA1-Digest: 0+0BzXiBb8sRwmhIveB8bp4QMU8=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryContentPr
+ ovider.class
+SHA1-Digest: 2VoredEK73xIZFlmfsYemyCXh2c=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$Co
+ nnectorBorderPaintListener.class
+SHA1-Digest: edLKuPQmrT55VQfzFKzRIxj12K4=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/OverviewT
+ oolTip.class
+SHA1-Digest: WJzBMKI0eCfAnvjbjiF0JZXuMV4=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/viewer/Discovery
+ CategoryComparator.class
+SHA1-Digest: HbcH1eGyQx4D5wixa3AoKkyh7Ss=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/wizards/Discover
+ yWizardMainPage$1.class
+SHA1-Digest: N8qFqlLXPSiGLICbDLGlGoSe9ss=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryDefinitio
+ nBrowser.class
+SHA1-Digest: PWTPkkz8to5cqUqxg6PdO1y+CMg=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/OverviewT
+ oolTip$1.class
+SHA1-Digest: 3CBxWtAwDemdPRce830DTFHNFzs=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer.cl
+ ass
+SHA1-Digest: rqAjA6nLiWNBQ1LoD3/FDc7gz2o=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/OverviewT
+ oolTip$3.class
+SHA1-Digest: cGHM2N3/LO9fPej7zK9E7ZFNaYU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/CommonThe
+ mes.class
+SHA1-Digest: wAy6yeuJH249ML36Z15VpxE/9Ks=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/PrepareIn
+ stallProfileJob$2.class
+SHA1-Digest: cAYg3g2yvgxKIk7okiK8n8embJg=
+
+Name: icons/full/etool16/find-clear.gif
+SHA1-Digest: Hkk3F+A+vwPO8xTmg0Cl3/Ox2JU=
+
+Name: about.html
+SHA1-Digest: ztzTKONYJdfqz4aa9yHkuSdsVnE=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/AvailabilityUpdate
+ r.class
+SHA1-Digest: f6ILQGY4Hm8eH5XWx4BMninV37s=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$Co
+ nnectorDescriptorItemUi$2.class
+SHA1-Digest: XlJfqIShHiJbDyJf5U/soxvikgo=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/wizards/messages
+ .properties
+SHA1-Digest: S7qI8HQS0+dVZMXpfj07Yfcb2wM=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$2.
+ class
+SHA1-Digest: UEHUGJBPTfmLSz/8Jrhvw+OceUM=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$Co
+ nnectorDescriptorItemUi$4.class
+SHA1-Digest: WmtRlw++7m4M+yg7qpg9vziRRIg=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Installer
+ .class
+SHA1-Digest: RbQWM9m9l1DSDuUlMUveBgAVpDA=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Discovery
+ Images.class
+SHA1-Digest: Jvh5Hf6oPZGgesIRVo6J+6/9lbU=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$4.
+ class
+SHA1-Digest: AVHqd8WxUNfNbdAiJeH+ZN1cn7U=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$6.
+ class
+SHA1-Digest: EUHoqcXU5gJkade52pQBIX73UJE=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$8.
+ class
+SHA1-Digest: he4nBUPK9Ox9e+nqT0B3Wz7C8ok=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/GradientC
+ anvas.class
+SHA1-Digest: 7mxuRuE2CeouG1Q8sCsOOM0Hjpc=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$10
+ .class
+SHA1-Digest: aKfldWXKFcJpM6JrL5gAbI5Afik=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$12
+ .class
+SHA1-Digest: Dy6Lt7H+e0cy5cU9uP7dZcQSrJ8=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/GradientT
+ oolTip.class
+SHA1-Digest: bGF7cIua0WrFXT6lqIHLZNrt/YY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$14
+ .class
+SHA1-Digest: uX4MvSFRR7vVuNDiv7u6UU2NCmk=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/wizards/messages.properti
+ es
+SHA1-Digest: vaqcpxQI1Q42zOXhjlH1uolHojY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/viewer/DiscoveryViewer$16
+ .class
+SHA1-Digest: fON5o50M4LyPxCo3J13DPEw3C3c=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/internal/common/Selection
+ ProviderAdapter.class
+SHA1-Digest: XSBAQvsCYWTJSNVMnAYjVH6P3YI=
+

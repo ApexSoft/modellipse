@@ -1,0 +1,927 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.icons;singleton:=true
+Bundle-Activator: org.eclipse.papyrus.uml.icons.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.icons
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: resource/icns/Substitution.icns
+SHA1-Digest: p9+H+3cj37bQs4V5ke1W05txre4=
+
+Name: resource/gif/Dependency.gif
+SHA1-Digest: LB8ZrM1oni01mWpAszukB82K46E=
+
+Name: resource/gif/Profile.gif
+SHA1-Digest: AHY9JDvtSCzju70QulnrlQT35Xo=
+
+Name: resource/gif/SendSignalEvent.gif
+SHA1-Digest: mVl8lJwpxwNzqTWKAyM1QvwnItk=
+
+Name: resource/gif/Artifact.gif
+SHA1-Digest: qUAgZk/uKw31vUzX770JbE6xC4M=
+
+Name: resource/gif/TemplateBinding.gif
+SHA1-Digest: nAvn5de+Fq71gowl/3iKgM5Dz5c=
+
+Name: resource/icns/TestIdentityAction.icns
+SHA1-Digest: OXvJwzdPcZ37bpbprXyH7OmW18Q=
+
+Name: resource/gif/ClassifierTemplateParameter.gif
+SHA1-Digest: VwsWwbSsjAG6wUi3a7EEkQGMKnk=
+
+Name: resource/icns/Association_shared.icns
+SHA1-Digest: 5KJwuNplA7e19TPhKA2gGtkbFZc=
+
+Name: resource/gif/Pseudostate_terminate.gif
+SHA1-Digest: 47/sQ/2FV0ms8yxVAxh+Doaxvfc=
+
+Name: resource/gif/ReceiveOperationEvent.gif
+SHA1-Digest: 5bg5dSCw+n1L+f116IXspeyYQoU=
+
+Name: resource/gif/CentralBufferNode.gif
+SHA1-Digest: vzGe3+1JEO18plVJsLlVwb4+Y8Y=
+
+Name: resource/gif/ClearStructuralFeatureAction.gif
+SHA1-Digest: KqpQW6tJsiLiELBSQkhi694n8HA=
+
+Name: resource/gif/DeploymentSpecification.gif
+SHA1-Digest: T847GcvE5i7OhdlrZVPICUj8/Rs=
+
+Name: resource/gif/PrimitiveType.gif
+SHA1-Digest: /5cCnkU40xQo2p+JDOdXuExsmTE=
+
+Name: resource/gif/CreateLinkAction.gif
+SHA1-Digest: +QCGFtBM28bkTo/6zg80iWlQ7rA=
+
+Name: resource/gif/Package.gif
+SHA1-Digest: NoR6mty153CXxLdK3y2ZMBx8etY=
+
+Name: resource/gif/Pseudostate_fork.gif
+SHA1-Digest: b7UemeNdqukvY1sWlyGSo7/qXLA=
+
+Name: resource/gif/Clause.gif
+SHA1-Digest: yGQu4UT4H9k9VhnuQ2LJ2IptGxY=
+
+Name: resource/gif/RemoveVariableValueAction.gif
+SHA1-Digest: x+e6klO5sAltQ8uzoYeOIb60b6U=
+
+Name: resource/gif/Lifeline.gif
+SHA1-Digest: J20ZJ8Lj//0Z/RTmLFDQiio5TcY=
+
+Name: resource/icns/ActivityFinalNode.icns
+SHA1-Digest: PT0ixe7FbqYIRCjyHD8YVXHZ9oU=
+
+Name: resource/gif/LinkEndCreationData.gif
+SHA1-Digest: q08MefpVs1X/eENvljtS6whGDGU=
+
+Name: resource/icns/Association.icns
+SHA1-Digest: vR8YJv4CDwu9AMPc5QzMCGeEY6c=
+
+Name: resource/gif/LiteralBoolean.gif
+SHA1-Digest: t53zmO5SRMRqxi5goSUnRtjtG7I=
+
+Name: resource/icns/ClearStructuralFeatureAction.icns
+SHA1-Digest: ei+QI5/0lkuFl0MjhrSHsnSunVM=
+
+Name: resource/icns/CallOperationAction.icns
+SHA1-Digest: oeUSUr4ov4zUwCrsGeEk1v+y10k=
+
+Name: resource/icns/TemplateSignature.icns
+SHA1-Digest: EGJuNUDRmdDwOyqt6cwTxDyEo3M=
+
+Name: resource/gif/Slot.gif
+SHA1-Digest: 6OclxKH9zsrOnsra/rdEQ/VXcDI=
+
+Name: resource/gif/DecisionNode.gif
+SHA1-Digest: yNaGrL8hYtNZWtiQgmfLBtunCUc=
+
+Name: resource/gif/PartDecomposition.gif
+SHA1-Digest: yXBAT/Bl83gMiXMMqKtZS64RawA=
+
+Name: resource/gif/LiteralUnlimitedNatural.gif
+SHA1-Digest: ax9QFPVFwQ7qxx9WBuV8gqb+qZY=
+
+Name: resource/gif/Node.gif
+SHA1-Digest: oomRLUxZhlK9TQcqvc/zXXfkEwA=
+
+Name: resource/gif/Pseudostate_deepHistory.gif
+SHA1-Digest: Ye5cWWsutdWlNcSYYDe1GUmzt5A=
+
+Name: resource/gif/ProtocolConformance.gif
+SHA1-Digest: w8p9J5p/z4pwi21XTCkX+1mLRyE=
+
+Name: resource/gif/TemplateSignature.gif
+SHA1-Digest: LDJkNvMdW6av5SsQC3ukoxx8e7I=
+
+Name: resource/gif/ReadLinkAction.gif
+SHA1-Digest: +4yY41oj4EF6zdwKR8lu5Sj78gc=
+
+Name: resource/gif/DestructionEvent.gif
+SHA1-Digest: n59N/0bElUyuxeVLaEmxBwDynTQ=
+
+Name: resource/gif/StringExpression.gif
+SHA1-Digest: SfXpNf+zbi7Qr2FdzCk/bicJ9OQ=
+
+Name: resource/gif/Pseudostate_shallowHistory.gif
+SHA1-Digest: cc4k+tO5WniKg1FGv7neK9F4dSU=
+
+Name: resource/gif/Pseudostate_exitPoint.gif
+SHA1-Digest: j2jGb8zz2obwQF3GHnuqbkzikg4=
+
+Name: resource/gif/LiteralInteger.gif
+SHA1-Digest: /b93sJE8uNH77BMN15sYW21vkl0=
+
+Name: resource/gif/ExtensionPoint.gif
+SHA1-Digest: sv69kYzWFyBaoJJb5eN1YkWH988=
+
+Name: resource/gif/DurationConstraint.gif
+SHA1-Digest: LMBRGupjge5UES7oYuUx88EYVsk=
+
+Name: resource/gif/OpaqueBehavior.gif
+SHA1-Digest: Lh3Reo0StPCf4fIzT4J8PySEbZg=
+
+Name: resource/icns/Usage.icns
+SHA1-Digest: lIfr5Imh+TI4xQt1VP9OoSSieE4=
+
+Name: resource/gif/OpaqueExpression.gif
+SHA1-Digest: NumjSHpcSM8NGEVbCiKddWYFgtg=
+
+Name: resource/gif/Extend.gif
+SHA1-Digest: sdriVBuFNf/4BAJm/ewirJfi1fg=
+
+Name: resource/icns/BroadcastSignalAction.icns
+SHA1-Digest: 3dN96Mf12Rl2dDrnk5PULyaLLFM=
+
+Name: resource/icns/ActivityParameterNode.icns
+SHA1-Digest: tnZ8objFHlzOFWnLwQZAvSsqXD0=
+
+Name: resource/icns/Variable.icns
+SHA1-Digest: u2JE7qKDQXzhO363b+tmj72NGl8=
+
+Name: resource/icns/InformationFlow.icns
+SHA1-Digest: VWn0D/vNupFNZxPQvpKEe2K2DT4=
+
+Name: resource/gif/InterruptibleActivityRegion.gif
+SHA1-Digest: LssEyeavOu6/YeVnzePER6h/TSo=
+
+Name: resource/gif/InformationFlow.gif
+SHA1-Digest: qF8gW+95QwsLoUONpvxWdp+Ck2w=
+
+Name: resource/gif/Message_asynchCall.gif
+SHA1-Digest: TG6Eiu/vp1Tq6hTDnB9/sOka3C0=
+
+Name: resource/gif/ActivityParameterNode.gif
+SHA1-Digest: 9MK2WuklVkjJfWFsE0uwYHGT/U0=
+
+Name: resource/gif/Component.gif
+SHA1-Digest: TTGYF0csJ2dSEzLc8K8+xcgHb8I=
+
+Name: resource/gif/CallBehaviorAction.gif
+SHA1-Digest: pQbK/0jeh4IBsbErNan2dGXJW+I=
+
+Name: resource/gif/Stereotype.gif
+SHA1-Digest: 3YSulO3TCAJg4GDqP9oAyjfuNk4=
+
+Name: resource/icns/RemoveVariableValueAction.icns
+SHA1-Digest: sr4ivrTeV/jWw8MNeNj8cqE90jU=
+
+Name: resource/icns/ValueSpecificationAction.icns
+SHA1-Digest: r092IBEg2MlzjuHFOic7Y6zP9a8=
+
+Name: resource/gif/Association_none.gif
+SHA1-Digest: /YHkZi7HveCIbRPAWX8y0ibh0qc=
+
+Name: resource/gif/ReduceAction.gif
+SHA1-Digest: VyTL4rH+yB30csCYp5uOs9HZ4T4=
+
+Name: resource/icns/CallEvent.icns
+SHA1-Digest: 5bw5pN4/ZHXFKKmKeRV2ibzFAE0=
+
+Name: resource/icns/SendObjectAction.icns
+SHA1-Digest: CofNxI82N4y28xb2zkVG9XAJ9UE=
+
+Name: resource/icns/AcceptCallAction.icns
+SHA1-Digest: UQGLQHYMtDwBsCqd2acRt+/oe40=
+
+Name: resource/icns/Actor.icns
+SHA1-Digest: Uki/sCP4btMI7u0HJgLjfPIF3D0=
+
+Name: resource/gif/Deployment.gif
+SHA1-Digest: Z26QyT1dFHpclhZ4WbMsqfF5g2k=
+
+Name: resource/gif/TimeObservation.gif
+SHA1-Digest: movvDxmEx2y6Z89eUTtig40THg8=
+
+Name: resource/icns/SignalEvent.icns
+SHA1-Digest: yfMc3x44QlWjnKxjBG4ravBDEVA=
+
+Name: resource/gif/ComponentRealization.gif
+SHA1-Digest: X0AKX9m61oqtWqAPuY7TcgAU9CI=
+
+Name: resource/icns/PackageMerge.icns
+SHA1-Digest: 2luGunggyKL+dPAEhK0CTg8xovM=
+
+Name: resource/gif/FunctionBehavior.gif
+SHA1-Digest: 8VHL7FN/ILz604Md4/3M2DJfKDE=
+
+Name: resource/gif/ClearAssociationAction.gif
+SHA1-Digest: wvK4x2OiO1GaryDIuvDmyEEWF7k=
+
+Name: resource/gif/Gate.gif
+SHA1-Digest: VSUcwmew5NhdnmjxptJ9pXnEF8k=
+
+Name: resource/gif/Abstraction.gif
+SHA1-Digest: dUYdhEQtOm6TQPOBzWOv9sXImZM=
+
+Name: resource/gif/ConditionalNode.gif
+SHA1-Digest: 8Xnmnfu0f49G7+JrYIpxApo9Rwg=
+
+Name: resource/gif/Model.gif
+SHA1-Digest: aivOSIg+4ZRsoX4wG/KLGrpPnus=
+
+Name: resource/icns/ClearAssociationAction.icns
+SHA1-Digest: wNwfVCL0oZFUvDg5bjQiIhKN+dQ=
+
+Name: resource/icns/AcceptEventAction.icns
+SHA1-Digest: 3cMYTuqa2GUzglX3Y8j8JUIfHXw=
+
+Name: resource/gif/StartClassifierBehaviorAction.gif
+SHA1-Digest: CvD36NKdOzmMEtitrwrUHPye2ek=
+
+Name: resource/icns/ProfileApplication.icns
+SHA1-Digest: o8DISpJgRhx960tcX77f2z0p4cA=
+
+Name: resource/gif/Property.gif
+SHA1-Digest: 5Jl3ogQ7YumAgTX05AiHusn0XMw=
+
+Name: resource/gif/Pseudostate_join.gif
+SHA1-Digest: fmmlBxBpwcAb/tbOYMxLphGPM6I=
+
+Name: resource/gif/AddStructuralFeatureValueAction.gif
+SHA1-Digest: XggfoLeXVIKkkWVcus9bhES5Ics=
+
+Name: resource/gif/RaiseExceptionAction.gif
+SHA1-Digest: 9ebNhmUgGSxnmOcFAIxEURl+/KM=
+
+Name: resource/icns/CollaborationUse.icns
+SHA1-Digest: wJ/PEBrRAI33bbqhefa35lWYOdg=
+
+Name: resource/gif/Connector_delegation.gif
+SHA1-Digest: rPTbQrcW3Ixz3gPzGIEwv3tFPkU=
+
+Name: resource/gif/OccurrenceSpecification.gif
+SHA1-Digest: y5PNLqOJleAbReYP/8/kOJ2stiY=
+
+Name: resource/icns/Comment.icns
+SHA1-Digest: oz7483uf7JXk5eSjgbcE+ZQgZqw=
+
+Name: resource/gif/AcceptCallAction.gif
+SHA1-Digest: 8jCeQnS8UMBEBpQkW99B6/0t/IE=
+
+Name: resource/gif/Trigger.gif
+SHA1-Digest: cC5XM5NKvh+81bYUzrrSIbrzh2I=
+
+Name: resource/gif/Interface.gif
+SHA1-Digest: 8nxlZZCOfm3BSdQ+Z/t2Vd/9cLA=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: resource/icns/UseCase.icns
+SHA1-Digest: weTHe0YZYKZ77e+3NYSXacso7IA=
+
+Name: resource/gif/Association_shared.gif
+SHA1-Digest: 4dHgK/4ToI9ruQU+OzwRp9HWqeg=
+
+Name: resource/gif/Extension.gif
+SHA1-Digest: 5wdTZumtSgXDC1uD7mo+xBRKRk4=
+
+Name: resource/gif/ProfileApplication.gif
+SHA1-Digest: Om0oO4PBqzKmMnQJxujcGj9RNLg=
+
+Name: resource/gif/ReplyAction.gif
+SHA1-Digest: lfqFWspo9O7Fcs+ubHgC/RxzGek=
+
+Name: resource/gif/EnumerationLiteral.gif
+SHA1-Digest: Omqm13d4LGQpCjy16l+Yv/BbAfA=
+
+Name: resource/icns/ClassifierTemplateParameter.icns
+SHA1-Digest: S4BnZbg2/sFXob3sE0N0mP9SFCc=
+
+Name: resource/gif/RedefinableTemplateSignature.gif
+SHA1-Digest: LATp8zrYoPqhNj3zYOTgQaqUsvk=
+
+Name: resource/gif/ReceiveSignalEvent.gif
+SHA1-Digest: eVLrfj8gq83fI/hT/gELH9nNQU4=
+
+Name: resource/icns/SendSignalEvent.icns
+SHA1-Digest: EheEL1gY2ZeXzQu4ySdtp7sDdIU=
+
+Name: resource/icns/Association_composite.icns
+SHA1-Digest: zEfp6DjffcaFS4oxghxxxa5FXk4=
+
+Name: resource/gif/ChangeEvent.gif
+SHA1-Digest: qHZwnh43viPrBhfcDih6WrZK338=
+
+Name: resource/icns/CallBehaviorAction.icns
+SHA1-Digest: Sm/v015wM7oKy0PU8FLxRwfHt1U=
+
+Name: resource/gif/StateMachine.gif
+SHA1-Digest: QjC0xPh3upIFzW9wh5qGhgQCRu0=
+
+Name: resource/gif/TemplateParameter.gif
+SHA1-Digest: BreZi+TBuYyvGAwWCvvuNPv+BwI=
+
+Name: resource/gif/ParameterSet.gif
+SHA1-Digest: ZDVIsh/SDCfP9ziO9abNYISSHKs=
+
+Name: resource/gif/SignalEvent.gif
+SHA1-Digest: zLrioQvn3HWKXu9FNq4fqCMmbUw=
+
+Name: resource/gif/ExecutionOccurrenceSpecification.gif
+SHA1-Digest: aS6FC8svRbZ6zDJ8FLbJYfxc1V8=
+
+Name: resource/gif/Generalization.gif
+SHA1-Digest: BvPP1eIXEzfbA3kV4IjIH8f293o=
+
+Name: resource/gif/OutputPin.gif
+SHA1-Digest: bwk3+EpUEzIDZw5e8n9yxYF+pRc=
+
+Name: resource/gif/SendObjectAction.gif
+SHA1-Digest: TPFey8j6d9JnvsZgrwmRxTZ1l8U=
+
+Name: resource/gif/LiteralNull.gif
+SHA1-Digest: zGmzqQSLg0+GFpWIJpw1oUbBgsI=
+
+Name: resource/gif/UseCase.gif
+SHA1-Digest: 2tbsfcqc14xRu30xBkaMIrWhnKI=
+
+Name: resource/gif/Transition_local.gif
+SHA1-Digest: Tqa7EY/NYjNoYsWA3dgxkppbvOY=
+
+Name: resource/gif/CallEvent.gif
+SHA1-Digest: I4MO0hCcFAFa1buDcGyAA3ULY8c=
+
+Name: resource/icns/Transition_external.icns
+SHA1-Digest: cBcTPqywwas0wU2yI4SISojTV00=
+
+Name: resource/gif/Parameter_return.gif
+SHA1-Digest: +eJcpkBS1WdJKNnOdTymhgUwDfg=
+
+Name: resource/gif/BroadcastSignalAction.gif
+SHA1-Digest: tPI0bpBbrfetX/Dhfq7bb+kwN7s=
+
+Name: resource/gif/ReadIsClassifiedObjectAction.gif
+SHA1-Digest: SQDS6x3gje375es78U9L3Q+0SkE=
+
+Name: resource/gif/ExpansionNode.gif
+SHA1-Digest: htmGt4sRQs+lWmY9O/H3cs8jU0g=
+
+Name: resource/icns/RemoveStructuralFeatureValueAction.icns
+SHA1-Digest: 16ZPKHEaajOJAxIBu0NJNqj6QSM=
+
+Name: resource/icns/Artifact.icns
+SHA1-Digest: QcrNbrgued/KxjdORTlrO8qM2I8=
+
+Name: resource/icns/AddStructuralFeatureValueAction.icns
+SHA1-Digest: piVD+4TLsC/9dbcCxgQok4niiB8=
+
+Name: plugin.properties
+SHA1-Digest: hFEVulpX1q8WO2dtvPgpVQsjF2A=
+
+Name: resource/gif/InterfaceRealization.gif
+SHA1-Digest: ZYBRjFKtrTVjkiTxU/sCryfQc8A=
+
+Name: resource/gif/ObjectFlow.gif
+SHA1-Digest: N6P+0HDkP0nLLwieXZ8wRfFTxUw=
+
+Name: resource/icns/TemplateBinding.icns
+SHA1-Digest: i8ZcPRX9hHK3DSissAGL81glI8Y=
+
+Name: resource/gif/Activity.gif
+SHA1-Digest: BFFWbY0lqnNWiABTWCdrSkvLKSs=
+
+Name: resource/icns/Realization.icns
+SHA1-Digest: JaIHX31cQmdch8aikEDgfLFj6Jc=
+
+Name: resource/gif/TemplateParameterSubstitution.gif
+SHA1-Digest: 2lf4T73v+3Bsip8abNEW53eG2VY=
+
+Name: resource/gif/Duration.gif
+SHA1-Digest: IgRQfzlo169vWlKW/aMUC6R/P40=
+
+Name: resource/gif/ReadLinkObjectEndQualifierAction.gif
+SHA1-Digest: PNsvSvubGpmSczuOOO5QF1xuqcs=
+
+Name: resource/gif/DestroyObjectAction.gif
+SHA1-Digest: h8bw+osZD6du+KPX6Set72DFNas=
+
+Name: resource/gif/Expression.gif
+SHA1-Digest: CicW9nmkp1HVZ3jWCrW6Xg33XFE=
+
+Name: resource/gif/ConnectionPointReference.gif
+SHA1-Digest: 8ARNQXcjImoGf4UCOijHQgpdm4s=
+
+Name: resource/icns/ActionExecutionSpecification.icns
+SHA1-Digest: F/81hiQZKNoADwsPZ9u7v35phUQ=
+
+Name: resource/gif/DurationObservation.gif
+SHA1-Digest: XtNA9X+sPEA7iNu8aZWxIug9ndo=
+
+Name: resource/gif/ReadStructuralFeatureAction.gif
+SHA1-Digest: OeB47V29W4LoQ8hJQ7fKhSGWwCc=
+
+Name: resource/icns/Trigger.icns
+SHA1-Digest: lXAzU1mKqv9rQntdUEhSMXPpSIk=
+
+Name: resource/icns/Class.icns
+SHA1-Digest: pAZajwdwzo+k51KDMW1JPW3mpMQ=
+
+Name: resource/gif/StructuredActivityNode.gif
+SHA1-Digest: oX1MCUTav+shOGTAaoKKE+H+iWY=
+
+Name: resource/gif/SendSignalAction.gif
+SHA1-Digest: IR7qXozX2t/nTlCd+CqsIWjvIq8=
+
+Name: resource/icns/Transition.icns
+SHA1-Digest: xx1oS+pNyTK6y4QUkbe1d/+ZJeM=
+
+Name: resource/gif/ClearVariableAction.gif
+SHA1-Digest: Q/DV+M6i4tlN6sjJr/q7rJRNA/U=
+
+Name: resource/gif/Signal.gif
+SHA1-Digest: iKVXGGLDaEtfHz7MRdXJglZZYg0=
+
+Name: resource/gif/Association.gif
+SHA1-Digest: FdHdeyEVMuUtjqY59bIsodm/zd8=
+
+Name: resource/gif/AnyReceiveEvent.gif
+SHA1-Digest: BHcIPm2lEKbXkZWyHBtVowK0P6Q=
+
+Name: resource/icns/TemplateParameterSubstitution.icns
+SHA1-Digest: COOZ498OmL7bIDnalCBUcYjjzbM=
+
+Name: resource/gif/Realization.gif
+SHA1-Digest: UZL92UofK4/2JcngrH0363lTbLQ=
+
+Name: resource/gif/StateInvariant.gif
+SHA1-Digest: KEWpQFQ0pJMU1rlbm6jmpcfP4Sk=
+
+Name: resource/gif/TimeInterval.gif
+SHA1-Digest: t0CaIVH1GDsmlgidgg84Z2Bgpmc=
+
+Name: resource/gif/ReadExtentAction.gif
+SHA1-Digest: o7mGA5tab3aAmD9oysRYUi5QQag=
+
+Name: resource/icns/AnyReceiveEvent.icns
+SHA1-Digest: K02J+LBoDRLxtTIItRp4Iuru0Xc=
+
+Name: resource/icns/Transition_local.icns
+SHA1-Digest: cK8gv0alDvGeSddKXnR8MVgSook=
+
+Name: resource/icns/ClearVariableAction.icns
+SHA1-Digest: cM6jGqpfs38cvta9+Vd9sosrS7U=
+
+Name: resource/gif/Pseudostate.gif
+SHA1-Digest: nPOJ3/4Vuc06PvrQfd9t6uI4Tqc=
+
+Name: resource/icns/BehaviorExecutionSpecification.icns
+SHA1-Digest: IhFTUzq5XQ5NpOIY/RSoojm+qu4=
+
+Name: resource/gif/ActivityPartition.gif
+SHA1-Digest: oJ7g4bxzuy3Cbm5FxcfMAmF8HOo=
+
+Name: resource/gif/TimeExpression.gif
+SHA1-Digest: 2+QtmqKMoZoBxl9ssibvIeRJZ6Q=
+
+Name: resource/gif/TestIdentityAction.gif
+SHA1-Digest: hcXZ6PQnwTQ9xv06tc7XNQTn3e4=
+
+Name: resource/gif/LoopNode.gif
+SHA1-Digest: 88tXGrkfonIyWrHxTRdDVQjMAGs=
+
+Name: resource/icns/CombinedFragment.icns
+SHA1-Digest: EZB9vGJe0rjV5VhpRKa8WO24VYk=
+
+Name: resource/gif/Usage.gif
+SHA1-Digest: AWI2A5wH8KmUNb9vHiswdwX8U/k=
+
+Name: resource/gif/Manifestation.gif
+SHA1-Digest: vtEU6SSkSmGpEA/gcKekKJTDrH8=
+
+Name: resource/icns/RedefinableTemplateSignature.icns
+SHA1-Digest: GQ+vbhnluw2n8QUVr695RgMPJJo=
+
+Name: resource/gif/Parameter.gif
+SHA1-Digest: Wtoza0h6uTCbTLERB6ZEmpEZ8Ok=
+
+Name: resource/icns/Transition_internal.icns
+SHA1-Digest: EiLw/xjq+VRVIfNDEP6tK9JMfuQ=
+
+Name: resource/gif/Transition.gif
+SHA1-Digest: pidEFucV2Y8pr5lLjJFQDBdBtJA=
+
+Name: resource/gif/InteractionOperand.gif
+SHA1-Digest: eBKFECnDno6pAm7gokt7K4GpF1s=
+
+Name: resource/gif/ReadSelfAction.gif
+SHA1-Digest: CAPVFYUApHOeQ/c+eJTkPOI57Xo=
+
+Name: resource/gif/ConsiderIgnoreFragment.gif
+SHA1-Digest: ct/PNZkSBCQZhmK1S0kF6Ct8LEQ=
+
+Name: resource/icns/ActivityPartition.icns
+SHA1-Digest: Oicn1QiunGpkoMNVQUZ9Xt690OQ=
+
+Name: resource/icns/ReduceAction.icns
+SHA1-Digest: bOb5IouV0MvV9U2ipu+QvPZ9jpU=
+
+Name: resource/gif/SequenceNode.gif
+SHA1-Digest: dXt8PDlJnxN11YYxoWEXioCzGVo=
+
+Name: resource/gif/ForkNode.gif
+SHA1-Digest: ykIuqDUsfV1P+kjNuQn05bEz2KQ=
+
+Name: resource/gif/ValueSpecificationAction.gif
+SHA1-Digest: atkBngEBPaeoogNvcd8WZ+p0PHc=
+
+Name: resource/gif/ElementImport.gif
+SHA1-Digest: 0sb9wvde4wdQPFtJTSpMF8MmV7Q=
+
+Name: resource/icns/Stereotype.icns
+SHA1-Digest: 7lqyb7EN0DpDGyzz2h2QRtu++dA=
+
+Name: resource/gif/InputPin.gif
+SHA1-Digest: 4vqd739Vs7Y6qZ4Rk7I7qhmoKOQ=
+
+Name: resource/gif/GeneralizationSet.gif
+SHA1-Digest: q44/xEKCF916gB8x142NzGAREiQ=
+
+Name: resource/gif/AcceptEventAction.gif
+SHA1-Digest: 5wNuz8zkHhUUf9jTfam1fGIxAO8=
+
+Name: resource/gif/StartObjectBehaviorAction.gif
+SHA1-Digest: 8l+oZ4HnL8DJxE2Urm+/uFv7zl4=
+
+Name: resource/gif/CreateObjectAction.gif
+SHA1-Digest: zcOexb17XKReQepXH7gKu2aFHsA=
+
+Name: resource/gif/LinkEndData.gif
+SHA1-Digest: Vw7ESnOivUwjZlQIVMGs6jcCXQ8=
+
+Name: resource/icns/Abstraction.icns
+SHA1-Digest: NqMLN6w+aH4MjAjIlHB8qBGuoOk=
+
+Name: resource/gif/Region.gif
+SHA1-Digest: yFN6NTR+2awcNW4xlV5C4xlmTgc=
+
+Name: resource/icns/Collaboration.icns
+SHA1-Digest: YTF+nSiV+s60R1mFohzL0gJHGm4=
+
+Name: resource/gif/TimeEvent.gif
+SHA1-Digest: qq2soJzYDvIAZ1l1qzzFc2VMPrw=
+
+Name: resource/gif/CombinedFragment.gif
+SHA1-Digest: c/kN8Cxvf/BrvCAVufXpjFeFRGI=
+
+Name: resource/gif/AssociationClass.gif
+SHA1-Digest: 1QL11SI4vygRQRduusOUomkcLg4=
+
+Name: resource/gif/Reception.gif
+SHA1-Digest: xjhD3iUChvHsQekHhkUwmnZ2hao=
+
+Name: resource/gif/DurationInterval.gif
+SHA1-Digest: PoiIGphTTMsUV8BPxBJDViub5Pk=
+
+Name: resource/gif/Parameter_in.gif
+SHA1-Digest: btoB3ivZHp5HFcp1/RdtIyC43ZE=
+
+Name: resource/icns/UnmarshallAction.icns
+SHA1-Digest: 5+SL6BB8JL+eV7GzjOdPo7yG5Dc=
+
+Name: resource/gif/Port.gif
+SHA1-Digest: cXoY5zI++Q7z0mjCsm+JDjnZDIY=
+
+Name: resource/gif/CollaborationUse.gif
+SHA1-Digest: Ulb1MP7FyS5llhOstm7Ju8yFF9Y=
+
+Name: resource/gif/MergeNode.gif
+SHA1-Digest: md0Yr3P2MHPa7D4TmM/QfsqzPFo=
+
+Name: resource/gif/DataType.gif
+SHA1-Digest: RcS3AsjED8KucgrnzF+5bpiD3UE=
+
+Name: resource/icns/AssociationClass.icns
+SHA1-Digest: 59o9XmdDTlG3uRAp86hkPJnNo+k=
+
+Name: resource/gif/ReadVariableAction.gif
+SHA1-Digest: fyj2/bc7G21J+hWgklykOQ7y5rA=
+
+Name: resource/gif/CreateLinkObjectAction.gif
+SHA1-Digest: K+vwOxbWxxMAv33WRqLqaJ275H0=
+
+Name: resource/gif/InitialNode.gif
+SHA1-Digest: DcQXssPKqp0KbLIVKo84j73B3pU=
+
+Name: resource/icns/AddVariableValueAction.icns
+SHA1-Digest: N8koE9zyg6F8b9Ke1v+rrGsYS2Q=
+
+Name: resource/gif/DestroyLinkAction.gif
+SHA1-Digest: rzKcmWXys6+xm9i2ZoNJhMeeJIo=
+
+Name: resource/gif/InstanceSpecification.gif
+SHA1-Digest: SYXO1tBWnJvaMybWdRMFKhXmZrI=
+
+Name: resource/gif/Message_synchCall.gif
+SHA1-Digest: 7UCqI1pTOhe502EYMB/o7f5Z0Os=
+
+Name: resource/gif/Parameter_inout.gif
+SHA1-Digest: Ce/rBNl0unOVcvtR4EywXmOCLik=
+
+Name: resource/gif/ExtensionEnd.gif
+SHA1-Digest: 0RkLpNbZ1QQhjiVled1YcmYTc74=
+
+Name: resource/gif/Actor.gif
+SHA1-Digest: 0Uux66rCmdPIs4XQ5JHYnlyGSbg=
+
+Name: resource/gif/Class.gif
+SHA1-Digest: wHNettriOZu1MiB3Tu/PFcXzMRM=
+
+Name: resource/gif/DataStoreNode.gif
+SHA1-Digest: UdZibaUC76ZcUE7+wGVxP6fC41M=
+
+Name: resource/gif/ActionExecutionSpecification.gif
+SHA1-Digest: ts9pTYCiH2jn30Qjc/WL/Lh6rzk=
+
+Name: resource/gif/CreationEvent.gif
+SHA1-Digest: sHPfoy8B6YlCURbXuN0ouYmXNmk=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: resource/gif/MessageOccurrenceSpecification.gif
+SHA1-Digest: FV5trdemF7aTCGibEUq43MplxmI=
+
+Name: resource/gif/ProtocolStateMachine.gif
+SHA1-Digest: pWkGBVCjhBVEPm8pdxoKenJj32Q=
+
+Name: resource/gif/Message.gif
+SHA1-Digest: iiY9WMjtSH60cq0fkoKgR9OSPks=
+
+Name: resource/icns/ReclassifyObjectAction.icns
+SHA1-Digest: eSGBwEnGvW9R3dHiHPUA6iQAnps=
+
+Name: resource/gif/OpaqueAction.gif
+SHA1-Digest: +8E6qZlx4p4VTTuUcBFFoAKYjB4=
+
+Name: resource/icns/ValuePin.icns
+SHA1-Digest: WnzlziIGO3sZH6fsoK5vwOL7axQ=
+
+Name: resource/icns/ActionInputPin.icns
+SHA1-Digest: +boyncIzJ6IB2N5K8YXGKLEVAzY=
+
+Name: resource/gif/FinalState.gif
+SHA1-Digest: I6Efvfv5DXOXG9ASEa0Vp2XQid4=
+
+Name: resource/gif/LinkEndDestructionData.gif
+SHA1-Digest: 1kVVly4rR/YSRHh1OJKSPifbg8Q=
+
+Name: resource/gif/BehaviorExecutionSpecification.gif
+SHA1-Digest: XM6lthFKTI8fSFekJE3jFDeITPQ=
+
+Name: resource/gif/ConnectableElementTemplateParameter.gif
+SHA1-Digest: zvEKfVdnBE41YKOAF6OU/PhmbCE=
+
+Name: resource/gif/Pseudostate_initial.gif
+SHA1-Digest: qxSdWR59PES73pDCZyOugwuYOVQ=
+
+Name: resource/gif/ActionInputPin.gif
+SHA1-Digest: a6NyAjpMPAjOBycewBBXtt0h+E0=
+
+Name: resource/icns/CentralBufferNode.icns
+SHA1-Digest: iQ7XATJy+u4FUAEb90NFmlI2OWg=
+
+Name: resource/gif/CommunicationPath.gif
+SHA1-Digest: 4sb24GrEY4oIYcG2Gx3jOe2Bn1U=
+
+Name: resource/gif/Interval.gif
+SHA1-Digest: exuYDvtcJ/uB2tFc+wq78eqTM7U=
+
+Name: resource/gif/LiteralString.gif
+SHA1-Digest: zVARbQRR2MEHQPEPw3/iCi7JFxc=
+
+Name: resource/gif/ReadLinkObjectEndAction.gif
+SHA1-Digest: 7MCI0iMuCrhtdxc9fNdxhi6CBwU=
+
+Name: resource/gif/JoinNode.gif
+SHA1-Digest: gq4O9NOqIlgN67zMXDeK0C3qJWk=
+
+Name: resource/gif/Message_deleteMessage.gif
+SHA1-Digest: 6JTMpiqy2V0YO6OwDkkvMT83yYY=
+
+Name: resource/icns/ReceiveSignalEvent.icns
+SHA1-Digest: JlGDwjxl82RQit4Wgkh36SVCXnw=
+
+Name: resource/icns/Clause.icns
+SHA1-Digest: /IWqb2OJOxbx/ChQenrSK8E1t3U=
+
+Name: resource/gif/Pseudostate_choice.gif
+SHA1-Digest: PZ+2QsK+dth6jQqt9ob6/NpWCiI=
+
+Name: resource/gif/ConnectorEnd.gif
+SHA1-Digest: 4ZcFYpAjAjt4v53otOx0ztDCDYc=
+
+Name: resource/icns/ChangeEvent.icns
+SHA1-Digest: gfJlI2bzE5HuShFgM51m4DZQBIU=
+
+Name: resource/gif/Include.gif
+SHA1-Digest: mNlwgvZH3CPeiJAnMwHDe0t4NAs=
+
+Name: resource/gif/ControlFlow.gif
+SHA1-Digest: P1XTvt7BcLdLYW0B59sd8r8IN7s=
+
+Name: resource/gif/Device.gif
+SHA1-Digest: /SjWV1oymsBG/HYrWySPrX/7tsA=
+
+Name: resource/gif/Message_reply.gif
+SHA1-Digest: MSoOVhlzs8/lb8zrk520PYwx2GM=
+
+Name: resource/gif/ExecutionEnvironment.gif
+SHA1-Digest: ulxbVBmsVxDwDgXkcArIBPlIS1g=
+
+Name: resource/gif/Message_createMessage.gif
+SHA1-Digest: vz9bzViTt3UEgz3d8Sb9Cal9n9M=
+
+Name: resource/gif/Constraint.gif
+SHA1-Digest: LT/o1OuPQj+uQa7+iLOlLCqYFiQ=
+
+Name: resource/gif/Parameter_out.gif
+SHA1-Digest: VamKZFX9rjOsqIFhMITpBl4r51o=
+
+Name: resource/gif/ExecutionEvent.gif
+SHA1-Digest: 2XnydPtrvUdBR1i9T8VBOUcE6XE=
+
+Name: resource/gif/ValuePin.gif
+SHA1-Digest: JG6o6BoaT6I4f9/e0Z27EJjhJpY=
+
+Name: resource/gif/CallOperationAction.gif
+SHA1-Digest: M8HhNyftaMXVw0wphQvi/NF7WKs=
+
+Name: resource/gif/QualifierValue.gif
+SHA1-Digest: GChBjUBEzLRgPwhESr6bEXLg2YI=
+
+Name: resource/gif/Pseudostate_entryPoint.gif
+SHA1-Digest: pALDgYeHXGrY4zNb4Ld81RvfR+k=
+
+Name: resource/gif/Message_asynchSignal.gif
+SHA1-Digest: 4xH4BFQYmVjHL+o8zeKal65TOk4=
+
+Name: resource/icns/Activity.icns
+SHA1-Digest: hJe6+ghMJWb6JZfRGttgeu1dcpY=
+
+Name: resource/gif/Collaboration.gif
+SHA1-Digest: k9JyWSjutey711kmmgWF1OArfgU=
+
+Name: resource/icns/PackageImport.icns
+SHA1-Digest: 6Lt0xQMJ6nzWVKamOa9QWKcFTTo=
+
+Name: resource/gif/Enumeration.gif
+SHA1-Digest: kklXugU4x6KPA/5cLdF7YeNhWfY=
+
+Name: resource/icns/StartObjectBehaviorAction.icns
+SHA1-Digest: Zm9PMM1Bga+0ckn2L6exqrG5Tdw=
+
+Name: resource/gif/Association_composite.gif
+SHA1-Digest: YVdOkvVj3kGWrRVBMUycZN6rtis=
+
+Name: resource/gif/ActivityFinalNode.gif
+SHA1-Digest: tq0DZnCxUbL9PuOLjG7uMn/eQvI=
+
+Name: resource/gif/Connector.gif
+SHA1-Digest: M/GyO99olpViCLbCbeyHnZSpvPs=
+
+Name: resource/gif/ExceptionHandler.gif
+SHA1-Digest: owfigMDW4OYFmisHwKe6lg3EfLc=
+
+Name: resource/gif/Variable.gif
+SHA1-Digest: OwDyoyzRLxdv8h35G0lA0J9TpoA=
+
+Name: resource/gif/Substitution.gif
+SHA1-Digest: KqTMtAwhNdsD/Voidsj+Y0xvVaU=
+
+Name: resource/gif/Pseudostate_junction.gif
+SHA1-Digest: ixLUwtCBLAmM8ecsCbJ33qC8O2U=
+
+Name: resource/gif/Thumbs.db
+SHA1-Digest: uLmSL67tcuZa2FSUQjF/Q3DJrs0=
+
+Name: resource/gif/IntervalConstraint.gif
+SHA1-Digest: Iqed+2wJ4QFJ7iOWu7jhRUcguUo=
+
+Name: resource/gif/Image.gif
+SHA1-Digest: 7xHLQ2EL+ukBcD05+dpT2eThWC0=
+
+Name: resource/gif/GeneralOrdering.gif
+SHA1-Digest: 8ixASy0jM4T724CkgQwfCsWR+8E=
+
+Name: resource/gif/InstanceValue.gif
+SHA1-Digest: 8xgrZ1IWuo1MFjJBEMgGkP3uOW4=
+
+Name: resource/gif/Comment.gif
+SHA1-Digest: P2hGpzELz7VQ4J4ZC/YCBvTwPBE=
+
+Name: resource/gif/InformationItem.gif
+SHA1-Digest: Ikr1e0S/oxvaVqvnNmFf6GayKAw=
+
+Name: resource/gif/TimeConstraint.gif
+SHA1-Digest: wcAlJdxAtRUX3KC9Qr+tnUhZPV8=
+
+Name: resource/gif/AddVariableValueAction.gif
+SHA1-Digest: gDdZjGtJqPpxmenMDG94Ca6/Puc=
+
+Name: resource/gif/ProtocolTransition.gif
+SHA1-Digest: OPSKEoUR2kmQONjkQI1kqbwRiX8=
+
+Name: resource/gif/Transition_internal.gif
+SHA1-Digest: msciVa881eyGRhLl2+gZl5vJ0sM=
+
+Name: resource/gif/Operation.gif
+SHA1-Digest: I1kFiQxKZxvxcdWsTa9iWxdCNh4=
+
+Name: resource/gif/PackageMerge.gif
+SHA1-Digest: yA75i419LGsOUzacop7bH1yLTg4=
+
+Name: resource/gif/RemoveStructuralFeatureValueAction.gif
+SHA1-Digest: 3Pw+Y2/t8NAw+LV5+2gPdiP1j5g=
+
+Name: resource/gif/InteractionUse.gif
+SHA1-Digest: ozGO22Xnje2b9ipDI966cEh7+vw=
+
+Name: resource/gif/Connector_assembly.gif
+SHA1-Digest: TmaGU7NXrxv8V1udo414xRmSWYg=
+
+Name: resource/gif/SendOperationEvent.gif
+SHA1-Digest: rnOG3TO19+AxUJAYFA5YRqwVuEk=
+
+Name: resource/gif/Transition_external.gif
+SHA1-Digest: KT3uBTK6zFfGzqfo7IzKG/GmkFo=
+
+Name: org/eclipse/papyrus/uml/icons/Activator.class
+SHA1-Digest: P2kMAGusoKw3DtfvcpIq1QYMMNI=
+
+Name: resource/icns/Association_none.icns
+SHA1-Digest: llyQJEUPYcfKmZKaw9BLrm1eq5A=
+
+Name: resource/gif/OperationTemplateParameter.gif
+SHA1-Digest: y+KUwaHeLGaFa3dX4lW0qhMGSzk=
+
+Name: resource/icns/TemplateParameter.icns
+SHA1-Digest: PUXxehI7XrEk2jRLhDm6zFmyCcA=
+
+Name: resource/gif/ReclassifyObjectAction.gif
+SHA1-Digest: YvBROl2R/cC1w7yI8DeUYr0aJYY=
+
+Name: resource/icns/InterfaceRealization.icns
+SHA1-Digest: /EmS3T2IrH35riAphWhYSURnhUc=
+
+Name: resource/gif/FlowFinalNode.gif
+SHA1-Digest: sWiwOqnwf3eMN8iM/zgabKToknw=
+
+Name: resource/gif/PackageImport.gif
+SHA1-Digest: 1iXQPuNXws95FQTbMnCahdkaEW0=
+
+Name: resource/icns/Signal.icns
+SHA1-Digest: ihMyhArIU3S9gsDGaEds/M4hrzU=
+
+Name: resource/icns/Manifestation.icns
+SHA1-Digest: WftKNh2W4xuJldm1Ryb5e3GapE0=
+
+Name: resource/gif/Continuation.gif
+SHA1-Digest: 0loEKy473vaUVKL1qFAz22ImSt4=
+
+Name: resource/gif/InteractionConstraint.gif
+SHA1-Digest: sq84HtWMmO7dPPUT1ZSB+YTqDUY=
+
+Name: resource/gif/State.gif
+SHA1-Digest: acSkhc90e5K4IENrWs5N/K6Ycc8=
+
+Name: resource/gif/Interaction.gif
+SHA1-Digest: vHtmU5bVgtgKMCbMej1o7DqRi2M=
+
+Name: resource/gif/ExpansionRegion.gif
+SHA1-Digest: bL//5uz1PJDmvnfd22LhZLhL7F8=
+
+Name: resource/gif/UnmarshallAction.gif
+SHA1-Digest: JIadfN5NWN1LzKgSHpNapwEFfAY=
+
+Name: resource/gif/Pin.gif
+SHA1-Digest: XwoV8DaVFDz0QZFhtuEvDzSH9yI=
+

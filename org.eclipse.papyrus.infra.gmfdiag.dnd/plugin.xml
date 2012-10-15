@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+<plugin>
+   <extension-point id="dropStrategy" name="dropStrategy" schema="schema/dropStrategy.exsd"/>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+      <editpolicyProvider
+            class="org.eclipse.papyrus.infra.gmfdiag.dnd.policy.CustomizableDropEditPolicyProvider">
+         <Priority
+               name="Medium">
+         </Priority>
+      </editpolicyProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.infra.gmfdiag.dnd.preferences.DNDPreferencesPage"
+            id="org.eclipse.papyrus.infra.gmfdiag.dnd.preferences"
+            name="Drag and drop">
+      </page>
+   </extension>
+
+</plugin>

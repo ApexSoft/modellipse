@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.core.service">
+      <service
+            classname="org.eclipse.papyrus.infra.services.decoration.DecorationService"
+            priority="1"
+            useClassTypeAsKey="true"
+            startKind="lazy">
+      </service>
+   </extension>
+   <extension-point id="decorationSpecificFunctions" name="decorationSpecificFunctions" schema="schema/decorationSpecificFunctions.exsd"/>
+</plugin>

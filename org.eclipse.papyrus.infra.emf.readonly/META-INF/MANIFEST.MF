@@ -1,0 +1,83 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.emf.readonly;singleton:
+ =true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.papyrus.infra.onefile;bundle-version="0.9.1",org.eclipse.
+ core.expressions;bundle-version="3.4.300",org.eclipse.core.resources;
+ bundle-version="3.7.0",org.eclipse.core.runtime;bundle-version="3.7.0
+ ",org.eclipse.emf.transaction;bundle-version="1.4.0",org.eclipse.emf.
+ workspace;bundle-version="1.4.0",org.eclipse.gmf.runtime.common.core;
+ bundle-version="1.4.1",org.eclipse.papyrus.infra.emf;bundle-version="
+ 0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.emf.readonly.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.emf.readonly,org.eclipse.pap
+ yrus.infra.emf.readonly.handlers
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/emf/readonly/FSReadOnlyHandler$1.class
+SHA1-Digest: vCn1XKEnOooN1AORLma+QlztzlM=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/ReadOnlyManager.class
+SHA1-Digest: USKBkNgVZbY5BVYI9BZM7Ym41GQ=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/EMFReadOnlyHandler.class
+SHA1-Digest: AEQYEXmWFB250MmYNqu5qTCiHLA=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/ReadOnlyManager$HandlerPr
+ iorityPair.class
+SHA1-Digest: 6UnMJdcYElrLpwOnOf4+UxGvZH8=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/handlers/EnableWriteHandl
+ er.class
+SHA1-Digest: fLivUtc0AT3gMtC6YdKQuC9fbeQ=
+
+Name: plugin.properties
+SHA1-Digest: VLJL8/DLkivQ3xxdjIMfU8IZ+eA=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/Activator.class
+SHA1-Digest: mJGosAhvAtAlbow9lsRknA2ltTE=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/PapyrusROTransactionalEdi
+ tingDomainProvider.class
+SHA1-Digest: 8tS+4Zs6ZlTiF8UmIrmxpDiCaFo=
+
+Name: icons/enable_write.png
+SHA1-Digest: L9TLYJXeML9oOtAeJ2DMexfXgZ4=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/FSReadOnlyHandler.class
+SHA1-Digest: d4LN4x7IoaZBhhJ+CCM3OCYRMO0=
+
+Name: schema/readOnlyHandler.exsd
+SHA1-Digest: rl1J6pFxgrKJaQDqSrlZJsqDsFU=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/IReadOnlyHandler.class
+SHA1-Digest: OdLAtpNCF1WKXzfhG3xiEL9vHJg=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/ReadOnlyTester.class
+SHA1-Digest: A7DkbDYxUz9hLkg9W0IqSaDHLHk=
+
+Name: plugin.xml
+SHA1-Digest: 8vBDGLUnRorljQUGsOotvXOfy+Y=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/ReadOnlyOneFileApprover.c
+ lass
+SHA1-Digest: 73fV6OI4hiqJPj1bjQ7rUaYEBmA=
+
+Name: org/eclipse/papyrus/infra/emf/readonly/PapyrusROTransactionalEdi
+ tingDomain.class
+SHA1-Digest: 3p6RpQcdyTCsUpaUk980c6i+5X0=
+

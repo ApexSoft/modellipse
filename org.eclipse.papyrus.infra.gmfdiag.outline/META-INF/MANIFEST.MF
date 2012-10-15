@@ -1,0 +1,93 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.gmfdiag.outline;singlet
+ on:=true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.uml2.uml.editor;bundle-version="2.2.0",org.eclipse.gmf.ru
+ ntime.diagram.ui.render;bundle-version="1.2.0",org.eclipse.core.runti
+ me;bundle-version="3.7.0",org.eclipse.emf.transaction;bundle-version=
+ "1.4.0",org.eclipse.gef;bundle-version="3.7.1",org.eclipse.gmf.runtim
+ e.notation;bundle-version="1.5.0",org.eclipse.gmf.runtime.diagram.ui;
+ bundle-version="1.5.0"
+Bundle-Activator: org.eclipse.papyrus.infra.gmfdiag.outline.internal.A
+ ctivator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.gmfdiag.outline,org.eclipse.
+ papyrus.infra.gmfdiag.outline.internal;x-internal:=true,org.eclipse.p
+ apyrus.infra.gmfdiag.outline.overview
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramOutline$1.class
+SHA1-Digest: GeIy3sTFF1MBOfsnhiKyMHJbkhQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramOutline$2.class
+SHA1-Digest: DcXmR7rcHqBqOGzRfcnNmFSBf+w=
+
+Name: icons/elcl16/overview_co.gif
+SHA1-Digest: xfTa3fqXPPHUSrwUvTg736YYjOs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramOutline$3.class
+SHA1-Digest: 0GLSMS/ESK6cNRq2mNsqs2cozWg=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: icons/elcl16/all_co.gif
+SHA1-Digest: +tFkPcR/X6T2YXn8ZT7bJvRQRAE=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramNavigator$Navig
+ atorAdapterFactoryContentProvider.class
+SHA1-Digest: mqAN+thvMTP1rcE4gTPXk2kS5X8=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/internal/Activator.cla
+ ss
+SHA1-Digest: nV5CHFGoy49oLJhUnw/lALoySsU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramNavigator.class
+SHA1-Digest: eWbDBDCvr/89J2QtVBeBHseHUJU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/internal/Messages.clas
+ s
+SHA1-Digest: KayYm39JOsNPMTH5Lw33hd/t1E4=
+
+Name: about.html
+SHA1-Digest: vIxomquVXmQ7LkkEipyPIjyBWu0=
+
+Name: plugin.properties
+SHA1-Digest: HmIPkqafd2MXaikBwIiwApawXi4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramOrientedLabelPr
+ ovider.class
+SHA1-Digest: g1Ju95vw1UjtqolhwsZ9Na9x9lw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramOutline.class
+SHA1-Digest: cMI+Ff3erU+p40E2H4dVBmNyOqY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramNavigator$1.cla
+ ss
+SHA1-Digest: txUvCoE3CELLKjjIlUraOPr0v+w=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/DiagramOrientedContent
+ Provider.class
+SHA1-Digest: Utn79nz1HmupBjXaSMJQQHFNods=
+
+Name: plugin.xml
+SHA1-Digest: WTQbDkUOqDfvBUYUr9nvs7odD9w=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/overview/OverviewCompo
+ site.class
+SHA1-Digest: 2cx6wLL+bt8YJTURa5It/3z1aOc=
+
+Name: icons/elcl16/tree_co.gif
+SHA1-Digest: zP70CE3lcwVcEElD4m+J6u+26jQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/outline/internal/messages.prop
+ erties
+SHA1-Digest: YspUSs/CmqW+G+iZ3aWsohJuBFk=
+

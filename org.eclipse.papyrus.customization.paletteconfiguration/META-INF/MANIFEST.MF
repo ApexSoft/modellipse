@@ -1,0 +1,63 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.customization.paletteconfigur
+ ation;singleton:=true
+Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",org.eclipse.core
+ .runtime;bundle-version="3.7.0",org.eclipse.papyrus.uml.diagram.palet
+ teconfiguration;bundle-version="0.9.1",org.eclipse.uml2.uml;bundle-ve
+ rsion="3.2.0",org.eclipse.emf.facet.infra.query.core;bundle-version="
+ 0.1.0",org.eclipse.gmf.runtime.emf.type.core;bundle-version="1.4.0",o
+ rg.eclipse.papyrus.infra.extendedtypes;bundle-version="0.9.1",org.ecl
+ ipse.papyrus.uml.diagram.paletteconfiguration.edit;bundle-version="0.
+ 9.1"
+Bundle-Activator: org.eclipse.papyrus.customization.paletteconfigurati
+ on.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.customization.paletteconfiguration
+ ,org.eclipse.papyrus.customization.paletteconfiguration.queries
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %Bundle-Vendor
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %Bundle-Name
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/customization/paletteconfiguration/queries/G
+ etDrawerLabelQuery.class
+SHA1-Digest: tEn7cZdSdSIAxIjlDB/YoZXz2oc=
+
+Name: facet/PaletteConfiguration.uiCustom
+SHA1-Digest: RC9xsMZqV1Bthe9flvHfXnEyUEA=
+
+Name: org/eclipse/papyrus/customization/paletteconfiguration/Activator
+ .class
+SHA1-Digest: l5dHWwGxy5ol4xrSoluP7p2SUqo=
+
+Name: org/eclipse/papyrus/customization/paletteconfiguration/queries/H
+ asIconQuery.class
+SHA1-Digest: JrcXCqfJdQVRDRBSJsQsMId5rx4=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: facet/PaletteConfiguration.querySet
+SHA1-Digest: q4LtHh6+T4HFr7pclltLo2WJopU=
+
+Name: org/eclipse/papyrus/customization/paletteconfiguration/queries/G
+ etToolLabelQuery.class
+SHA1-Digest: 7gx+/St6e21TYhhHrPP9xz0D7S4=
+
+Name: org/eclipse/papyrus/customization/paletteconfiguration/queries/G
+ etIconQuery.class
+SHA1-Digest: G+pFZX/5e4sZfwAvC6pWPBXU4GA=
+
+Name: plugin.xml
+SHA1-Digest: 5UOP/zFsOAYUt1QgBk2ypXuSIa8=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: plugin.properties
+SHA1-Digest: i1wacV5SwhXdzgkkpnQdzJMLI/w=
+

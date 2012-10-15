@@ -1,0 +1,310 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.textedit.transition.xtext
+ ;singleton:=true
+Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.generator;resoluti
+ on:=optional,org.apache.commons.logging;resolution:=optional,org.ecli
+ pse.emf.codegen.ecore;resolution:=optional,org.eclipse.emf.mwe.utils;
+ resolution:=optional,org.eclipse.emf.mwe2.launch;resolution:=optional
+ ,com.ibm.icu;resolution:=optional,org.eclipse.xtext.xtend;resolution:
+ =optional,org.eclipse.xtext.util,org.eclipse.emf.ecore,org.eclipse.em
+ f.common,org.antlr.runtime,org.eclipse.uml2.uml;bundle-version="3.1.0
+ ",org.eclipse.uml2.codegen.ecore;bundle-version="1.6.0",org.eclipse.x
+ text.gmf.glue;bundle-version="0.9.0",org.apache.log4j;bundle-version=
+ "1.2.15"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.textedit.transition.xtext,org.
+ eclipse.papyrus.uml.textedit.transition.xtext.formatting,org.eclipse.
+ papyrus.uml.textedit.transition.xtext.parser.antlr,org.eclipse.papyru
+ s.uml.textedit.transition.xtext.parser.antlr.internal,org.eclipse.pap
+ yrus.uml.textedit.transition.xtext.scoping,org.eclipse.papyrus.uml.te
+ xtedit.transition.xtext.serializer,org.eclipse.papyrus.uml.textedit.t
+ ransition.xtext.services,org.eclipse.papyrus.uml.textedit.transition.
+ xtext.umlTransition,org.eclipse.papyrus.uml.textedit.transition.xtext
+ .umlTransition.impl,org.eclipse.papyrus.uml.textedit.transition.xtext
+ .umlTransition.util,org.eclipse.papyrus.uml.textedit.transition.xtext
+ .validation
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ UmlTransitionPackage.class
+SHA1-Digest: ZFu4YIjV9Vqe6Dj22ovhz4K0wTk=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/i
+ nternal/InternalUmlTransitionParser.class
+SHA1-Digest: YTBD/XFVkL7vSXQPqCh/gidjTxE=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/AbsoluteTimeEventRuleImpl.class
+SHA1-Digest: PrCn1Epqfrv2aPLhgs+pQy3g9YI=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ BehaviorKind.class
+SHA1-Digest: +f5eql4CMw0XirPKVFkS6qIuK70=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/EventRuleImpl.class
+SHA1-Digest: KAuH0OEBCBUAE6Xfz6KVh17dnC8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$CallOrSignalEventRuleElements.class
+SHA1-Digest: xv1dRwMOhhB/IFnuF1ou1SizfVc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/RelativeTimeEventRuleImpl.class
+SHA1-Digest: sWXHGwsN/WVOB+aa+JCcgHmyZQ8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransition.
+ genmodel
+SHA1-Digest: 0ChlWBge9YD7oV9M6Ss884SNQHs=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ util/UmlTransitionSwitch.class
+SHA1-Digest: 180hyQwKle7AkGg4ILmol2dnaJg=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/validation/Uml
+ TransitionJavaValidator.class
+SHA1-Digest: pQRxEn3oNRhXusutD+aJrJhEP8I=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ util/UmlTransitionXMLProcessor.class
+SHA1-Digest: ijyJyY+xYCz3ra7yfHkeoZFPCLQ=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/AbstractUmlTra
+ nsitionRuntimeModule.class
+SHA1-Digest: TIllZdhKSXhYKSQkqRFYTW0mY2o=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/formatting/Uml
+ TransitionFormatter.class
+SHA1-Digest: lKMm6rh0sJaCX//aXcrW3tA+swY=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/GenerateUmlTra
+ nsition.mwe2
+SHA1-Digest: +5HevEYAk7bmhk0h2YerMCh8hbo=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$TimeEventRuleElements.class
+SHA1-Digest: hxjfUWrywsLC8D5/c1R4ASLyw78=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ util/UmlTransitionAdapterFactory$1.class
+SHA1-Digest: oyjkDyGnyZRQPa1yN87JaFzjO90=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransitionS
+ tandaloneSetup.class
+SHA1-Digest: Tk1pzHbkICoQxpvhjgRuu3niQg4=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$AbsoluteTimeEventRuleElements.class
+SHA1-Digest: xdm4CqaaORHxEsfAiD4rJ2JZ+V8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/i
+ nternal/InternalUmlTransition.tokens
+SHA1-Digest: m7yKrEJpjSzq/bei9FH5MCXYTVc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ EffectRule.class
+SHA1-Digest: R2i5Ir6Q6yPIVo6AFpF6OQ9Xy8E=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ util/UmlTransitionResourceFactoryImpl.class
+SHA1-Digest: KK/mpWGMmNed95SNq7qmfN1NDGI=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/TransitionRuleImpl.class
+SHA1-Digest: kDFpqPGq3Ja96iC9+tXL9xdzpO8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/i
+ nternal/InternalUmlTransition.g
+SHA1-Digest: nFw39T5JF1e1yJ9sD+uUp0wOIw0=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$EffectRuleElements.class
+SHA1-Digest: FxylTtwBJNtcrrxqU3T8YHf7SV4=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ GuardRule.class
+SHA1-Digest: x7GLuerZIZsUDh/2NgYwaOx00ss=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/AnyReceiveEventRuleImpl.class
+SHA1-Digest: 7T9eSEzYdGIZbvUrZIJgh5XjrQI=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$EventRuleElements.class
+SHA1-Digest: vzml3TLC6CS54AQbmMKaLWlaKtM=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/ChangeEventRuleImpl.class
+SHA1-Digest: FVFx6V9gxVW385ahhiTjfah5IdE=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$RelativeTimeEventRuleElements.class
+SHA1-Digest: BrmMp/fChk1YUbKJ9EJp8I2Xoh8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ UmlTransitionPackage$Literals.class
+SHA1-Digest: YiETxpIlSSVHEMFOorlaTS6NjEo=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ CallOrSignalEventRule.class
+SHA1-Digest: HrJ8bH4UPSoegmT5XU+ULxHkkKI=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/UmlTransitionFactoryImpl.class
+SHA1-Digest: I3XY7tGLymF58ijjUsJ4uei1COY=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ UmlTransitionFactory.class
+SHA1-Digest: 1hgpTY7KlYKiz+kZ+LVTYu08Xak=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$BehaviorKindElements.class
+SHA1-Digest: /VpVhaGc6plq5fJ7sVKyhLKDjH8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransition.
+ ecore
+SHA1-Digest: bcB9Ska5ar92MMGLMZFL1l/cfM0=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/U
+ mlTransitionAntlrTokenFileProvider.class
+SHA1-Digest: LSEFYlMur7pKWUk9k3BJj0/3ATU=
+
+Name: plugin.properties
+SHA1-Digest: wGHo0/JuHPQq9Ow3LnWvYDvdVjg=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ AnyReceiveEventRule.class
+SHA1-Digest: EPcwlL1Ma8h4PRlcAYxNzckK1vA=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/GuardRuleImpl.class
+SHA1-Digest: uDsRoXJpq4npqaljinB3ShYnBy8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/validation/Abs
+ tractUmlTransitionJavaValidator.class
+SHA1-Digest: Ob94h88SDqZiZE6t5lxWjE53gQI=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/scoping/UmlTra
+ nsitionScopeProvider.class
+SHA1-Digest: E4HoSyH+GbUXDA6p45bynHQFcjE=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransitionS
+ tandaloneSetupGenerated.class
+SHA1-Digest: 6MQhu1z410Vi5Pkpnzja25fIW4M=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ ChangeEventRule.class
+SHA1-Digest: id+QcFZvaDbZ/EK6AqXh7XK2Shc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/serializer/Abs
+ tractUmlTransitionSyntacticSequencer.class
+SHA1-Digest: WR0YlXAbtS2RHaG6+10iMzgSwgk=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransitionR
+ untimeModule.class
+SHA1-Digest: ODb8GbAxVUfGbyBLmp1B8lIQ/g0=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/i
+ nternal/InternalUmlTransitionLexer$DFA12.class
+SHA1-Digest: cGkYIGNgSe3JoirhTlqgOIPql7E=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ util/UmlTransitionAdapterFactory.class
+SHA1-Digest: OZKEsc650vxpeVDv+SN4kiVveUg=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ TimeEventRule.class
+SHA1-Digest: 6EVtezpPEEenjspA4OgxZg5pn7I=
+
+Name: plugin.xml
+SHA1-Digest: RM0v+r+DmMjwQzWXgUd7dAAXAXc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$AnyReceiveEventRuleElements.class
+SHA1-Digest: dF1quWTaQNo6xzcsllfUvZpJVxM=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransition.
+ xmi
+SHA1-Digest: nlpL02T7HJNrnk2LA1LA88z7HWc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/i
+ nternal/InternalUmlTransitionLexer.class
+SHA1-Digest: iWSSjhYha613PhQcoXfmlyvNvJ8=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/CallOrSignalEventRuleImpl.class
+SHA1-Digest: KDeicRt1oI+DuWNQrC20/vrfsDA=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$ChangeEventRuleElements.class
+SHA1-Digest: xbKfhiqIE41eB7lPx890LkzFprc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ AbsoluteTimeEventRule.class
+SHA1-Digest: +HUzrkQ+xu1unvFBIW7AfqLGi/4=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ EventRule.class
+SHA1-Digest: j217tHZYZEZNdqRR5JmyQHv1DUQ=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess.class
+SHA1-Digest: tGA15CN2Tho6k4jAnP0PIRolf8o=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ util/UmlTransitionResourceImpl.class
+SHA1-Digest: NObpC79iWZDbPuoZO2C4P37TPI0=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/EffectRuleImpl.class
+SHA1-Digest: z82FKEONFc5m2GEaBUc122GfcyU=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/UmlTransition.
+ xtext
+SHA1-Digest: JoZPxFn95f4WgIIr7CSZtEQauuI=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ RelativeTimeEventRule.class
+SHA1-Digest: u7PBmVjYU+D3uQOymGNNWpcG2/4=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/parser/antlr/U
+ mlTransitionParser.class
+SHA1-Digest: Dow+snDd6WRWhBmPWvvdghBOdHc=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ TransitionRule.class
+SHA1-Digest: 96+n+1iorVyPJ2eF6FsjLdy+fFM=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$TransitionRuleElements.class
+SHA1-Digest: dsD/A8nMFkPqgD9lxg50bW2fOYU=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/serializer/Abs
+ tractUmlTransitionSemanticSequencer.class
+SHA1-Digest: iPiKhC2hjxm1kYoiWLEbvW+2KT0=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/UmlTransitionPackageImpl.class
+SHA1-Digest: vaC7OjZoDoUXJw7j1XzZh1Q2YVg=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/umlTransition/
+ impl/TimeEventRuleImpl.class
+SHA1-Digest: UzTX7Q1BAkmIEXgyU0df0tZ6TVQ=
+
+Name: org/eclipse/papyrus/uml/textedit/transition/xtext/services/UmlTr
+ ansitionGrammarAccess$GuardRuleElements.class
+SHA1-Digest: 5x7xmzXp9pXxVfEcrYdSG5E5aUQ=
+

@@ -1,0 +1,113 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.gmfdiag.modelexplorer;s
+ ingleton:=true
+Bundle-Activator: org.eclipse.papyrus.infra.gmfdiag.modelexplorer.Acti
+ vator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,com.google.gua
+ va,org.eclipse.papyrus.views.modelexplorer;bundle-version="0.9.1",org
+ .eclipse.emf.facet.infra.query.core,org.eclipse.emf.facet.infra.brows
+ er.custom.core,org.eclipse.emf.facet.infra.facet.core,org.eclipse.gmf
+ .runtime.notation,org.eclipse.emf.transaction,org.eclipse.gmf.runtime
+ .common.core,org.eclipse.gmf.runtime.emf.commands.core,org.eclipse.co
+ re.expressions,org.eclipse.gmf.runtime.emf.type.core
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/queries/GetConta
+ inedDiagrams.class
+SHA1-Digest: PnDYh7JVWq4XEDvtvyC2WdnfJog=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/messages/message
+ s.properties
+SHA1-Digest: Oi9WzWNOe/8mirSCOWqKJhb5YLk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/Activator.class
+SHA1-Digest: UVGckWc8iTv8amVyLMJrfbytxH8=
+
+Name: resources/PapyrusNotationFacet.uiCustom
+SHA1-Digest: ycabLqn6B79v84xTajGLEFVFPBI=
+
+Name: plugin.properties
+SHA1-Digest: D6DkPc/a/iXztORcaTamlGMFcS0=
+
+Name: resources/PapyrusNotationFacet.facetSet
+SHA1-Digest: Hhcc8SWMcAPm9LLLtpQKWEr9G2I=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/queries/GetConta
+ inedDiagrams$1.class
+SHA1-Digest: sVEiHenkyvaK8xUNn5E7fgzOQhI=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/queries/GetConta
+ inedDiagrams$2.class
+SHA1-Digest: +e6adC+nwXlTeK/PWN17vLZBy70=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/Duplica
+ teDiagramHandler.class
+SHA1-Digest: 8Ba0ZDsVEvxfFV0dpdcMygDH0/4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/DeleteD
+ iagramHandler.class
+SHA1-Digest: tdJ2Da4XVI7R9wWUAI8z7DjB/5Q=
+
+Name: plugin.xml
+SHA1-Digest: /hKNq8FzKDIGYhXWv6wS9/oSnqM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/queries/GetDiagr
+ amIcon.class
+SHA1-Digest: 42vhqkXzSF4jCYU/lCAEvCMQRbQ=
+
+Name: resources/PapyrusNotationFacet.querySet
+SHA1-Digest: 1DjGOI6cHnJyTJagZTHxisUhbrY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/queries/IsDiagra
+ mContainer.class
+SHA1-Digest: j2I2YDlZ+EodkAS/CBmekMklTEc=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/messages/Message
+ s.class
+SHA1-Digest: qW+SY5bHBztJn4oKkbv2MAfI7uM=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: resources/PapyrusNotation.uiCustom
+SHA1-Digest: uDI4l6H9QJ6IQner+KODPwgUmtc=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/Duplica
+ teDiagramHandler$1.class
+SHA1-Digest: u+cv6AuD0NQ/J9PL1sXm+a0Ep7A=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/DeleteD
+ iagramHandler$1.class
+SHA1-Digest: CwThrnefai+7pI0Xj3ckehBKXvQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/Abstrac
+ tDiagramCommandHandler.class
+SHA1-Digest: 9IBemKkHx7pDOK/+k41pUeQn3Tg=
+
+Name: about.html
+SHA1-Digest: INBopOQiELASMNzeqt0bQiHmDZk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/providers/Diagra
+ mPropertyTester.class
+SHA1-Digest: nnDHR5aOvAVB6+v5KNDQcwol3JU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/queries/IsDiagra
+ mContainer$1.class
+SHA1-Digest: rGJrHVv1ZlnglwicI6mZc8t2VAQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/RenameD
+ iagramHandler.class
+SHA1-Digest: +azMygkwh1C8C9ZO5V+LppZzs7U=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/modelexplorer/handlers/RenameD
+ iagramHandler$1.class
+SHA1-Digest: wovb5J+lTIwytb6wHto66INp5AM=
+

@@ -1,0 +1,124 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.controlmode.profile;singl
+ eton:=true
+Bundle-Activator: org.eclipse.papyrus.uml.controlmode.profile.Activato
+ r
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.papyrus.infra.ser
+ vices.controlmode;bundle-version="0.9.1",org.eclipse.gmf.runtime.emf.
+ commands.core,org.eclipse.uml2.uml,org.eclipse.uml2.uml.edit,org.ecli
+ pse.papyrus.infra.widgets.toolbox;bundle-version="0.9.1",org.eclipse.
+ papyrus.infra.core;bundle-version="0.9.1",org.eclipse.papyrus.infra.s
+ ervices.resourceloading.preferences;bundle-version="0.9.1",org.eclips
+ e.emf.validation.ocl;bundle-version="1.4.0",org.eclipse.emf.validatio
+ n.ui;bundle-version="1.3.0"
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/helpers/ProfileAppli
+ cationHelper.class
+SHA1-Digest: zHK6lTjzJSIHnnkaZhzGPbdaaFg=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileC
+ ontrolCommand$1.class
+SHA1-Digest: XucUTLvaHSm6qMoUatzAC/l5fWo=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileC
+ ontrolCommand$2.class
+SHA1-Digest: f4R2IPbrIGXJq2p73Mj4pNQDScc=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/providers/UMLValidat
+ ionProvider$ValidationReportListener$1.class
+SHA1-Digest: QptzWek79d4ZQLEmJLdq8WQkCao=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileC
+ ontrolCondition.class
+SHA1-Digest: OdoHLSOo+T8iodKoFGgftRmyq8o=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/providers/UMLValidat
+ ionProvider$ValidationReportListener$2.class
+SHA1-Digest: 4By1InXp7HpdnUKj3YsglJwB+6c=
+
+Name: plugin.properties
+SHA1-Digest: rIW57M4qI/LdPIER7OOswBfCKAg=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileU
+ ncontrolCommand.class
+SHA1-Digest: TgS+SuK3TbVQ4kodWUbevQ7H39Y=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/Messages.class
+SHA1-Digest: 1PsE3WzL4gzoxucFvSR6jppDjBU=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/validation/ProfileAp
+ plicationDuplicationChecker.class
+SHA1-Digest: 2U+frjoM2qBYKIw5lLjtKmTfnsA=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/helpers/SafeDialogOp
+ enerDuringValidation.class
+SHA1-Digest: XL4UEFvwELnhWowKz74IrL0CjEA=
+
+Name: plugin.xml
+SHA1-Digest: 6ZVQIYNgL7q08gjAoFLAHdQtjT4=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileU
+ ncontrolCommand$1.class
+SHA1-Digest: QawO6iol5Ff7ruvt1/dEjZuBJsE=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileU
+ ncontrolCommand$2.class
+SHA1-Digest: I+WsWqkDBm1UQqoOBbQEx840Gq8=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/providers/UMLValidat
+ ionProvider.class
+SHA1-Digest: HhCEIWcaZ2z2EDYL21AyrWioHAQ=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/validation/ProfileAp
+ plicationDuplicationChecker$1.class
+SHA1-Digest: lSnb8GGF5UdDkWuS1lYmlcbSNpM=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/validation/ProfileAp
+ plicationDuplicationChecker$2.class
+SHA1-Digest: Fr2FQ0aGWqlt2Z5fgrv6HY7fdms=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/helpers/SafeDialogOp
+ enerDuringValidation$1.class
+SHA1-Digest: YgP/OoDcVctkkmIElKPl4OszjIg=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/Activator.class
+SHA1-Digest: WnXI+xagPRfVjEM3onZNMq2yL6k=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/providers/UMLValidat
+ ionProvider$1.class
+SHA1-Digest: PM8z2w4isqLvYLY+pTSB99arAbc=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/validation/ProfileAp
+ plicationDuplicationChecker$BooleanResult.class
+SHA1-Digest: 9sFsxeQ+xDMEOlbX7Z3x1euquZE=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/commands/UMLProfileC
+ ontrolCommand.class
+SHA1-Digest: kpbUJvG2jGHX2mc0kHGCxDYg5mo=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/messages.properties
+SHA1-Digest: c16ZyYwMWCKneGyiibhvsQzTKlI=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/providers/UMLValidat
+ ionProvider$ValidationReportListener.class
+SHA1-Digest: LFOLR3/Z7uuI1t2u7nA62rWvEbY=
+
+Name: org/eclipse/papyrus/uml/controlmode/profile/providers/UMLValidat
+ ionProvider$DefaultCtx.class
+SHA1-Digest: 4nn+ntJsClRphz1qMRvhmcx+VyA=
+

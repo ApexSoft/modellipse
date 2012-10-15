@@ -1,0 +1,253 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.customization.properties.gene
+ ration;singleton:=true
+Require-Bundle: org.eclipse.ui;bundle-version="3.6.1",org.eclipse.osgi
+ ;bundle-version="3.6.1",org.eclipse.core.runtime;bundle-version="3.6.
+ 0",org.eclipse.papyrus.views.properties.model;bundle-version="0.9.1",
+ org.eclipse.m2m.qvt.oml;bundle-version="3.0.1",org.eclipse.m2m.qvt.om
+ l.common;bundle-version="2.1.0",org.eclipse.papyrus.infra.core.log;bu
+ ndle-version="0.9.1",org.eclipse.papyrus.views.properties.model.edit;
+ bundle-version="0.9.1",org.eclipse.emf.common.ui;bundle-version="2.6.
+ 0",org.eclipse.core.resources;bundle-version="3.6.0",org.eclipse.uml2
+ .uml;bundle-version="3.1.1",org.eclipse.papyrus.views.properties;bund
+ le-version="0.9.1",org.eclipse.core.databinding;bundle-version="1.3.1
+ 00",org.eclipse.emf.databinding;bundle-version="1.2.0",org.eclipse.co
+ re.databinding.property;bundle-version="1.3.0",org.eclipse.papyrus.cu
+ stomization.properties.model.xwt;bundle-version="0.9.1",org.eclipse.p
+ apyrus.infra.tools;bundle-version="0.9.1",org.eclipse.papyrus.infra.c
+ onstraints;bundle-version="0.9.1",org.eclipse.papyrus.infra.emf;bundl
+ e-version="0.9.1",org.eclipse.m2m.qvt.oml.project;bundle-version="3.1
+ .0"
+Bundle-Activator: org.eclipse.papyrus.customization.properties.generat
+ ion.Activator
+Export-Package: org.eclipse.papyrus.customization.properties.generatio
+ n,org.eclipse.papyrus.customization.properties.generation.generators,
+ org.eclipse.papyrus.customization.properties.generation.layout,org.ec
+ lipse.papyrus.customization.properties.generation.wizard,org.eclipse.
+ papyrus.customization.properties.generation.wizard.widget
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Eclipse-BuddyPolicy: dependent
+Bundle-ClassPath: .,bin
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Name: %Bundle-Name
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/customization/properties/generation/generato
+ rs/IGenerator.class
+SHA1-Digest: wOXvhn+07Ioan24wjt1q9DtX4KA=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/FieldSelectionPackage.class
+SHA1-Digest: Mc/kSVtfcYj0iDdpkgKqe5zZ2qw=
+
+Name: org/eclipse/papyrus/customization/properties/generation/layout/P
+ rofileWithDatatypes$TypeCategory.class
+SHA1-Digest: s24wMquJp5OvTYlKCv035G+VgdI=
+
+Name: org/eclipse/papyrus/customization/properties/generation/generato
+ rs/EcoreGenerator.class
+SHA1-Digest: /nt6Qu0sJAX2dhpcr9dagulxd8Q=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/C
+ reateContextWizard.class
+SHA1-Digest: szRYejYhiN33FVIT7m+4vCLGtG0=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/util/FieldSelectionAdapterFactory.class
+SHA1-Digest: P2A/Y8+fmGwz5+5Cn1YrGNRp71s=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/PropertyDefinition.class
+SHA1-Digest: ZNlkzBB5mXEnxhqKb6QYQ2HO62Y=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/impl/FieldSelectionFactoryImpl.class
+SHA1-Digest: yj2HARrGZHX/HWRl4PAlDtaJoiQ=
+
+Name: model/FieldSelection.ecore
+SHA1-Digest: UbfCC24XgagBqaX9IPVrcX/35R8=
+
+Name: model/FieldSelection.genmodel
+SHA1-Digest: tH22tUTVpBaOMFkJglx5kkQyElw=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/ContextElement.class
+SHA1-Digest: cpccB5zUdPCA35zG1kBczRUnIVA=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/impl/FieldSelectionImpl.class
+SHA1-Digest: MDARpu1/ypG18aCoiqf65q7687A=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/C
+ reateContextWizard$1.class
+SHA1-Digest: WEhhPgRHo4W+R0hjCF4spZWiiKY=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/w
+ idget/ExtensionFilter.class
+SHA1-Digest: Hr6ZoYYQbUfcfwo6dXNfF29ozOo=
+
+Name: transforms/profile2datacontext.qvto
+SHA1-Digest: qScQd3/kr8aWJS8xvzUXRAOWzPc=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/w
+ idget/FileChooser.class
+SHA1-Digest: WbkH0X1RUrD1HwjOwIdBtvz6V7A=
+
+Name: transforms/ecore2datacontext.qvto
+SHA1-Digest: Cs3nmG56qWAOfEIByPox2aAn1uQ=
+
+Name: org/eclipse/papyrus/customization/properties/generation/layout/S
+ tandardLayoutGenerator$Category.class
+SHA1-Digest: 9aZdPF2LUsCOhhQxOVWpX9gmttw=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/customization/properties/generation/generato
+ rs/EditContextGenerator.class
+SHA1-Digest: p41pSbCG0uZPnn2HbS6dNr9knkc=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/A
+ bstractCreateContextPage.class
+SHA1-Digest: hAfYh+tlgrGme05VGvrDTaPyApM=
+
+Name: schema/org.eclipse.papyrus.customization.properties.generation.g
+ enerator.exsd
+SHA1-Digest: /CTD1Aa6MjBGAXIuxvOoI1D/iEs=
+
+Name: org/eclipse/papyrus/customization/properties/generation/extensio
+ npoint/GeneratorExtensionPoint.class
+SHA1-Digest: fZN1vw8y1DYIj39EY0PGnrQTNzg=
+
+Name: org/eclipse/papyrus/customization/properties/generation/messages
+ /messages.properties
+SHA1-Digest: 229wBGu7cjvmFQlL3YSnZ/JRPq8=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/FieldSelection.class
+SHA1-Digest: 0onIw8oWKzLY35ZS7nvOV73a6js=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/FieldSelectionPackage$Literals.class
+SHA1-Digest: p+TLDm7Y3g8XgCBVFOYaYrOdMIY=
+
+Name: icons/true.gif
+SHA1-Digest: 0pXeSSiPxl0wjqwsdbYiX/tsaNo=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/w
+ idget/TernaryButton$State.class
+SHA1-Digest: rmkRBCAGJsc5zy5AzITdrweyjmc=
+
+Name: org/eclipse/papyrus/customization/properties/generation/generato
+ rs/ProfileGenerator.class
+SHA1-Digest: 1PiNKaduFXyCU8RPgPiHrbeXUT4=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/util/FieldSelectionSwitch.class
+SHA1-Digest: T+g5FbIYarZSyu/1Yl3NHFC1qMY=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/C
+ reateContextMainPage.class
+SHA1-Digest: /ai8fQTWo0wmgqXh2hJH/BQN2Gs=
+
+Name: icons/false.gif
+SHA1-Digest: uEj8Z2s+ui3Ic8k8KXvELHyTKLY=
+
+Name: icons/default_false.gif
+SHA1-Digest: uEj8Z2s+ui3Ic8k8KXvELHyTKLY=
+
+Name: model/LayoutEuristic.ecore
+SHA1-Digest: 8upTjQMfougCRwC61InfBYnEVyk=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: H+GXTHgpk6YBGyMms/YR9Uub8PU=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/FieldSelectionFactory.class
+SHA1-Digest: treHZyZd+JezHDRHvDwN1iMx3rQ=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/impl/FieldSelectionPackageImpl.class
+SHA1-Digest: j6y+Rn06TstsIeyciBgjfVS1qEA=
+
+Name: org/eclipse/papyrus/customization/properties/generation/layout/I
+ LayoutGenerator.class
+SHA1-Digest: MWFe5EmKBR59JVhelBHTbPWc9+k=
+
+Name: plugin.properties
+SHA1-Digest: /7RCYGOdtkIz+yiKS0CyrNNoOJo=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/S
+ electFieldsPage.class
+SHA1-Digest: Mf/H3kWkl2VBbqFL28WEttPPFQw=
+
+Name: org/eclipse/papyrus/customization/properties/generation/messages
+ /Messages.class
+SHA1-Digest: cg8yTtyoRf3t4xNbiOpighTElNU=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/util/FieldSelectionAdapterFactory$1.class
+SHA1-Digest: 0yzu+l/butlT1a3HiGsrTCYJtHA=
+
+Name: plugin.xml
+SHA1-Digest: mR9DzQo8gEvWfQAEKGvueP/qvOg=
+
+Name: icons/wizban-custom.png
+SHA1-Digest: C/BXjUS7z7zGcUkLb3EtVCabRwI=
+
+Name: org/eclipse/papyrus/customization/properties/generation/extensio
+ npoint/LayoutExtensionPoint.class
+SHA1-Digest: NALMl7gxJh9ym2x7E+4R4TkTxfc=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/impl/PropertyDefinitionImpl.class
+SHA1-Digest: 7680fHUfvTJBXeXUg1XI1T9y1eM=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/G
+ eneratorPage.class
+SHA1-Digest: 4otxL6PO+g5JR6bAK9zNRcT1HAM=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/customization/properties/generation/fieldsel
+ ection/impl/ContextElementImpl.class
+SHA1-Digest: lnSKkMxD9MwBvfW5U7m4Pl6T2tk=
+
+Name: org/eclipse/papyrus/customization/properties/generation/layout/P
+ rofileWithDatatypes.class
+SHA1-Digest: EmbYAKRi/MNXJ0kioqlT6C/QV5g=
+
+Name: org/eclipse/papyrus/customization/properties/generation/wizard/w
+ idget/TernaryButton.class
+SHA1-Digest: Bb98qREzRHkv0RK3IoK0LI1FGoQ=
+
+Name: icons/Context.gif
+SHA1-Digest: 76Qa0FUze5RfqAv8Wl+RdddX0N4=
+
+Name: org/eclipse/papyrus/customization/properties/generation/layout/S
+ tandardLayoutGenerator.class
+SHA1-Digest: UxLtfFONu0ChkDJRR5oG17/tuvA=
+
+Name: icons/default_true.gif
+SHA1-Digest: 0pXeSSiPxl0wjqwsdbYiX/tsaNo=
+
+Name: icons/new_customization.png
+SHA1-Digest: SG09BqH3izq5rdLRylBNkaXP6gM=
+
+Name: schema/org.eclipse.papyrus.customization.properties.generation.l
+ ayout.exsd
+SHA1-Digest: Qw3Dl8YqOu5r4QF6x88UEs4Rju8=
+
+Name: org/eclipse/papyrus/customization/properties/generation/Activato
+ r.class
+SHA1-Digest: r3Lwl8LLPzZ/hd+sIbKg4XPt2ls=
+
+Name: org/eclipse/papyrus/customization/properties/generation/generato
+ rs/AbstractQVTGenerator.class
+SHA1-Digest: Tc/jqcNCnC0c5kjtoNUqAdkE+6Q=
+

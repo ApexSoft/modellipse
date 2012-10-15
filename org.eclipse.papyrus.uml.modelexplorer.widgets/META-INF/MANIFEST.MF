@@ -1,0 +1,51 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.modelexplorer.widgets
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.views.modelexplorer.widgets;bundle-version="0.9.1";visibility:=
+ reexport,org.eclipse.uml2.uml;bundle-version="3.2.0",org.eclipse.papy
+ rus.infra.services.edit;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.uml.modelexplorer.widgets.Activa
+ tor
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.modelexplorer.widgets
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/modelexplorer/widgets/NamedElementCompar
+ ator.class
+SHA1-Digest: BlD35DhFloSYjcboe+0BSl+0Ye8=
+
+Name: org/eclipse/papyrus/uml/modelexplorer/widgets/Activator.class
+SHA1-Digest: uZvDhlO7dEtXI/d/SG7Tghx0TVE=
+
+Name: org/eclipse/papyrus/uml/modelexplorer/widgets/StereotypeViewerFi
+ lter.class
+SHA1-Digest: qWbcy1K22UlVEHlnvJDXPh1SvLM=
+
+Name: org/eclipse/papyrus/uml/modelexplorer/widgets/StereotypeContentP
+ rovider.class
+SHA1-Digest: A5Ca63fHZU9qQw/k1StPZoVlYrQ=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/modelexplorer/widgets/ProfileContentProv
+ ider.class
+SHA1-Digest: sdq0A4rxPbqn8yjanRv8qsNB8pM=
+
+Name: org/eclipse/papyrus/uml/modelexplorer/widgets/StereotypeMetaclas
+ sLabelProvider.class
+SHA1-Digest: HPKH5cj6AzRAXf9Kx3ceaV/ygnI=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: plugin.properties
+SHA1-Digest: zRidgggMhpqlVLrk53Lmy4fkKBI=
+

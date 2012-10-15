@@ -1,0 +1,342 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.gmfdiag.preferences;sin
+ gleton:=true
+Require-Bundle: org.eclipse.gmf.runtime.diagram.ui.properties,org.ecli
+ pse.papyrus.infra.core.log;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.gmfdiag.preferences.Activa
+ tor
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.gmfdiag.preferences,org.ecli
+ pse.papyrus.infra.gmfdiag.preferences.initializer,org.eclipse.papyrus
+ .infra.gmfdiag.preferences.jface.preference;x-internal:=true,org.ecli
+ pse.papyrus.infra.gmfdiag.preferences.jface.preference.dialogs,org.ec
+ lipse.papyrus.infra.gmfdiag.preferences.pages,org.eclipse.papyrus.inf
+ ra.gmfdiag.preferences.pages.internal;x-internal:=true,org.eclipse.pa
+ pyrus.infra.gmfdiag.preferences.ui,org.eclipse.papyrus.infra.gmfdiag.
+ preferences.ui.diagram,org.eclipse.papyrus.infra.gmfdiag.preferences.
+ ui.editor,org.eclipse.papyrus.infra.gmfdiag.preferences.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorFo
+ ntGroup.class
+SHA1-Digest: /ENs8UM9gtkNDVnEb9RmrsTqFsg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/dialog/Abstract
+ PreferenceKeyDialog$KeyContentProvider.class
+SHA1-Digest: WcQJ3qdCe6gT0Kxj8eVw4tKUpek=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/dialog/ApplyVal
+ ueOnPreferenceKeyDialog.class
+SHA1-Digest: iLB3rN+UAG5eQinKNpZveetMrxQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ LinkColorGroup.class
+SHA1-Digest: 7kB8CquteEQEperaKDBbI3l37Wo=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/DecorationGroup
+ .class
+SHA1-Digest: tz5vCgACirYvfHw1rmWg44sD7ms=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ DimensionGroup.class
+SHA1-Digest: s04R9LbpfJ+mE+AHK0Fs9mM7KAg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/internal/Pap
+ yrusPathmapsPreferencePage.class
+SHA1-Digest: 922cb2+/PfjllNpq6I1xOTKP5i0=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ NodeColorGroup.class
+SHA1-Digest: m3enWvKbGegliSY1U9YSo/Vbvn8=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/OrderedLabelGro
+ up.class
+SHA1-Digest: 9VF5GmEuHo13t9fdJMg2YF0bjJM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/C
+ olorFieldEditor$ColorOverlayImageDescriptor.class
+SHA1-Digest: q7XqNGGbv+UBv9jeve3CTaFM9Mk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/NodeCompartment
+ Group.class
+SHA1-Digest: UT7tlrWvrxuFSAUL9kLIDyHumcY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorCo
+ nnectionGroup.class
+SHA1-Digest: sOsIhB7mcFwgm7iQHSm5Sw8rLFg=
+
+Name: icons/fill_color.gif
+SHA1-Digest: 9ArcJzaaxwtt4NV6kql9cCTuNfk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/initializer/Abstra
+ ctViewInitializer.class
+SHA1-Digest: EL+Gc5+5AysY+bWKwdAMPDtzKQo=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/AbstractGroup.c
+ lass
+SHA1-Digest: fzKbIOEPktua1y1Z4KdYPoSU1Rk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/C
+ olorFieldEditor.class
+SHA1-Digest: JS61SxhrjG+oJbVtnAZAL51yC2Q=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/LinkColorGroup.
+ class
+SHA1-Digest: +RPVnWXvybpDmILb3tzGfqT30uk=
+
+Name: icons/diag.gif
+SHA1-Digest: 3Tvpr5fAci8UuP1znSHgUSeM88o=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/ConnectionGroup
+ .class
+SHA1-Digest: 5XV2lhAdsZM860GHDiqKKbN93qs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/DimensionGroup.
+ class
+SHA1-Digest: 3MD7duxSmZA6uqD34zXje/AIU2o=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/Activator.class
+SHA1-Digest: 0Q4uoyGVJku2KyjHbBNaNOBiQuU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/utils/PreferenceCo
+ nstantHelper.class
+SHA1-Digest: uCred9U46EkjUqVUuzQBl6VaiT8=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/F
+ ontFieldEditor.class
+SHA1-Digest: RIxkCw0KRzB9AXqIlbugpkXIDGc=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/NodeColorGroup.
+ class
+SHA1-Digest: yTc/7WSTDabHfcXNHAH//HRUBI4=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorBa
+ ckgroundColor.class
+SHA1-Digest: vWYnGs7WVpaXcIJOacMZ26l2c2c=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/CLabelBo
+ oleanFieldEditor.class
+SHA1-Digest: Ma/9dMyx5wVpslNok7VGtNXiYKs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/internal/Pap
+ yrusUML2PreferencePage.class
+SHA1-Digest: 9tGt89b2geCEnkQm5rInpkweoCI=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/G
+ radientFieldEditor$2.class
+SHA1-Digest: 3RJJ3OV0vwF3XDxgSJO23/YrYXE=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/BackgroundColor
+ .class
+SHA1-Digest: 8Pe8SN3xD+IjiV1syz2Sn5S23iA=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/d
+ ialogs/GradientTransparencySelectionDialog.class
+SHA1-Digest: 5sEupzrgSneGOZg92pYg5n8fzUs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/AbstractPapy
+ rusElementPreferencePage.class
+SHA1-Digest: PADJgro9b1cV9fzO4yjOBQMky2E=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/PapyrusScopedPrefe
+ renceStore.class
+SHA1-Digest: 3nEFje33mT19fo9TPUEQYMg6o0I=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/PapyrusAllDi
+ agramsPreferencePage.class
+SHA1-Digest: hy83tPSgSIecoe7NWowJQyU66i4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/initializer/NodeVi
+ ewInitializer.class
+SHA1-Digest: sBBoC9Wdk4/juG1UZBllawtpy6c=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/CLabelBo
+ oleanFieldEditor$1.class
+SHA1-Digest: I8EH1D81/HJm27InWdG27deWwow=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/internal/Vis
+ iblePageSingleton.class
+SHA1-Digest: PowNo63ZybSkyzlS3ENtV1kry/A=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ DecorationGroup.class
+SHA1-Digest: yizCeOrCMph3J8xkpWxvDcA4iUU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/AbstractPapy
+ rusPreferencePage.class
+SHA1-Digest: +Libu9Lz8o2kyA0KWxC/THKUmIo=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ FontGroup.class
+SHA1-Digest: VGjF4l7FUauhJ+ZbjZT4rU2XZG4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/messages/messages.
+ properties
+SHA1-Digest: x5ALOzJ26Lh09wgumxEEDJsS4+E=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorLi
+ nkColorGroup.class
+SHA1-Digest: xflRPq66VbxMa3IO0D6btCZ/BsQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/initializer/LinkVi
+ ewInitializer.class
+SHA1-Digest: pBAz1TZJUwtnieAD/sg424Xp9Xw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorDi
+ mensionGroup.class
+SHA1-Digest: hoKgzNtdn0ARFpig27VY7CR/heI=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/PapyrusScopedPrefe
+ renceStore$2.class
+SHA1-Digest: EzIK81Q3/PzNEB9/s+Lh+DIWv0c=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorNo
+ deColorGroup.class
+SHA1-Digest: LjvS4iNI4wlYlyynr+OQ6NUBeg4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/dialog/Abstract
+ PreferenceKeyDialog.class
+SHA1-Digest: OESzt7UtkNbQiaJKUrTttzh9d+A=
+
+Name: icons/line_color.gif
+SHA1-Digest: /cDYtgpMpwE6CalF4KLRGKMP6IM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/FontGroup.class
+SHA1-Digest: bRkeIJIlock2hq9XWhrnQb7EzfA=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ ConnectionGroup.class
+SHA1-Digest: dIN1hRC6nPZygK0F0ijy6qHWd60=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/LabelGroup.clas
+ s
+SHA1-Digest: HejhEypBcoEwavl/QZPDh7eRML0=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/utils/FontHelper.c
+ lass
+SHA1-Digest: 257rJOyMD++zuT6TtBfu3ZhbZ98=
+
+Name: plugin.properties
+SHA1-Digest: 2eCXURCcvkEX0eJpQ9LThnSKSas=
+
+Name: icons/pref.gif
+SHA1-Digest: 1beXZR62dQbIPe+RyENcjByNr0M=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/AbstractPapy
+ rusLinkPreferencePage.class
+SHA1-Digest: BofneWg5DnVJOJcBvQVxFExNJ8o=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/AbstractPapy
+ rusNodePreferencePage.class
+SHA1-Digest: s5P/iEdyiwJ9nmWtpMuSKYUkWNY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/utils/GradientPref
+ erenceConverter.class
+SHA1-Digest: ZL152wfA7vWoLETWjBN7f651sWw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/G
+ radientFieldEditor.class
+SHA1-Digest: l9L5Ub/q+uITAauo2Bo3y9LotIo=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/NodeCompartment
+ Group$1.class
+SHA1-Digest: aEEBQwNOdaNps+9puJC5n31azH8=
+
+Name: plugin.xml
+SHA1-Digest: K87iKRL3fEaKqVmfkCdn14T9ePg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/Messages.class
+SHA1-Digest: 8Xomqt33UAVgdTtH+EpHMCLzU7k=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/diagram/Diagram
+ BackgroundColor.class
+SHA1-Digest: c82ccfdUdiqUQ+WMMBbTwfLgKEA=
+
+Name: icons/font_color.gif
+SHA1-Digest: vGrg57goEn0Y9UIUHFpSAHrGyfk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/internal/Pap
+ yrusPrintingPreferencePage.class
+SHA1-Digest: 9qmvAWwsPvVHsBeeijRXWpgYPSw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/PapyrusPreferenceS
+ tore.class
+SHA1-Digest: 9cXRdHfX0ge93Jk0mMXEbs/iSG4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/C
+ olorFieldEditor$1.class
+SHA1-Digest: iHO2l0J277MzVI8FPl147nQ78Xo=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/PapyrusPreferenceI
+ nitializer.class
+SHA1-Digest: F55NiC1+JX1W9ptOu4grjqV0M7c=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/G
+ radientFieldEditor$1.class
+SHA1-Digest: aWTohBmw4/l0zr6x4iJ6FqWT4M0=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/G
+ radientFieldEditor$3.class
+SHA1-Digest: POPus3f6SZ5MRG5SBCtt2HqW2+s=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/OrderedCompartm
+ entGroup.class
+SHA1-Digest: KNg36oJkhY5890LKwshch5hE6rE=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/messages.propertie
+ s
+SHA1-Digest: Qem4UpkWxdLW7OsjVLrsZHYQ75M=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/messages/Messages.
+ class
+SHA1-Digest: IJAlyE25SsDzpBRb9O+JN6+c9xg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/DiagramPrefe
+ rencePage.class
+SHA1-Digest: dT5SDtWLP/nZDAKIwiLzATWtbgs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/BackgroundColor
+ $1.class
+SHA1-Digest: 89PVDoOGmBC7oTc4KgI/ysA0ntk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/jface/preference/d
+ ialogs/GradientTransparencySelectionDialog$1.class
+SHA1-Digest: iqQtZVPX1WzKqP0OxD6QGGQ1hVM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/dialog/Abstract
+ PreferenceKeyDialog$KeyLabelProvider.class
+SHA1-Digest: 71o/Mlq8fzQSUrcAB7Wz9x1XOgs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/OrderedCompartm
+ entGroup$1.class
+SHA1-Digest: cdVozMfThl7gq5mpFFXHJ0r5oXE=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/PapyrusScopedPrefe
+ renceStore$1.class
+SHA1-Digest: ThfR2D5GqMw01+hpjFpZuUJ80Pc=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/ui/editor/EditorDe
+ corationGroup.class
+SHA1-Digest: 8FXM6Jm+CrnMuQg429ZS+1kMCbE=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/PapyrusScopedPrefe
+ renceStore$3.class
+SHA1-Digest: ln8csbneb6/eIIgNNSUmKLRdS3A=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/preferences/pages/internal/Pap
+ yrusRulersAndGridPreferencePage.class
+SHA1-Digest: Rz2gaGG58A0az4FQLLEbX3XLfRM=
+

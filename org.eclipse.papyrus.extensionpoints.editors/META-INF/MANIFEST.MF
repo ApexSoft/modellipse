@@ -1,0 +1,220 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.extensionpoints.editors;singl
+ eton:=true
+Require-Bundle: org.eclipse.ui.editors;bundle-version="3.4.0",org.ecli
+ pse.papyrus.infra.core;bundle-version="0.9.1",org.eclipse.emf.edit.ui
+ ;bundle-version="2.4.0",org.antlr.runtime;bundle-version="3.0.0",org.
+ eclipse.core.runtime;bundle-version="3.7.0",org.eclipse.jface.text;bu
+ ndle-version="3.7.1",org.eclipse.draw2d;bundle-version="3.7.1",org.ec
+ lipse.gmf.runtime.diagram.ui;bundle-version="1.5.0",org.eclipse.papyr
+ us.infra.constraints;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.extensionpoints.editors.Activato
+ r
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.extensionpoints.editors,org.eclips
+ e.papyrus.extensionpoints.editors.configuration,org.eclipse.papyrus.e
+ xtensionpoints.editors.definition,org.eclipse.papyrus.extensionpoints
+ .editors.preferences,org.eclipse.papyrus.extensionpoints.editors.ui,o
+ rg.eclipse.papyrus.extensionpoints.editors.ui.images,org.eclipse.papy
+ rus.extensionpoints.editors.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/IAdvan
+ cedEditorConfiguration.class
+SHA1-Digest: 6EV/khNZkpPvRhArgpUmQi96SuE=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/ILabelEditorDialo
+ g.class
+SHA1-Digest: NoTzzqIXMWzc/iscCdYdJC7CTDU=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/AntlrReconcileStr
+ ategy$1.class
+SHA1-Digest: RvLqs4FwBmymfU2Tq9yHsNME+E4=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/Defaul
+ tDirectEditorConfiguration.class
+SHA1-Digest: WZx50bFuNjNIUf42ERwYNoRm42w=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/ErrorAnnotation.c
+ lass
+SHA1-Digest: rtYTcUmbotgMMt1UNJZ1mB8Zp3k=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/definition/DirectEdi
+ torExtensionPoint.class
+SHA1-Digest: cAPbpH6BAluR8JPzSEPurxJvzKo=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/utils/IDirectEditors
+ Ids.class
+SHA1-Digest: LcmNs4aW075wRNoBCV0S+T26Jtg=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/DirectEditorsCont
+ ributionItem.class
+SHA1-Digest: CTAFFORRsOVtaezsSM5ie0kh4sg=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedTextEdito
+ r$ControlListener.class
+SHA1-Digest: iBvS/XNt2JtNR51FnfB/ptTIalw=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/IPopup
+ EditorConfiguration.class
+SHA1-Digest: jXso8kdHEpV0tlxqtBilJ9QcIjM=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/SimpleStringError
+ Reporter.class
+SHA1-Digest: 8tNUBtGR4ZLL3DhTceyVw2gbCjI=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/LabelEditorDialog
+ .class
+SHA1-Digest: BVLXwRtrTAeswVdBiEi1zCoIZtE=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/IDirec
+ tEditorConfiguration.class
+SHA1-Digest: wdmT+WqR73FZG0ge949aVdJ+uUI=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/DirectEditorsCont
+ ributionItem$1.class
+SHA1-Digest: WQimzb/48ch1vX5N1zEsRkfEfaE=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/images/error.gif
+SHA1-Digest: N97gpTnuqVWSz4TSTF0RPc7Qzrk=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/IPopupEditorHelpe
+ r.class
+SHA1-Digest: DcEx2W1oz0Ie/lMGYKooQH5ijOA=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/GMFEmbeddedEditor
+ ActionDelegate.class
+SHA1-Digest: wK6DYaQxDcFgpRsCDrTOE4gI2PM=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedEditorInp
+ ut.class
+SHA1-Digest: EIwJ/5QlgWmoDoNMIKV+bauaNAU=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: icons/error.gif
+SHA1-Digest: N97gpTnuqVWSz4TSTF0RPc7Qzrk=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/MultiReconciler.c
+ lass
+SHA1-Digest: m5HtjrHJKdNR1v3+LiCZ1i4WZ5c=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/AntlrReconcileStr
+ ategy$ProblemCollector.class
+SHA1-Digest: 6iYdIuMDGfHbpVfsDkYCJBdr1u0=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/ExtendedDirectEdi
+ tionDialog$DocumentListener.class
+SHA1-Digest: w8Ag97dUK4/KgyHhFeOuc6/rhc8=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/DirectEditExecuta
+ bleExtension.class
+SHA1-Digest: jMfnbqR9q81OBCA1PyFYkI6C2d4=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/ExtendedDirectEdi
+ tionDialog.class
+SHA1-Digest: 53OtQfNU9dmDsu/csrpmtVxxWx8=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/definition/DirectEdi
+ torRegistry.class
+SHA1-Digest: WBBbxpDZhQeVtNz0FjMUmQsWxTI=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/Activator.class
+SHA1-Digest: X62jD1s4aAzUyCf1VXPRNaaoM3Q=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/MultiStatusErrorR
+ eporter.class
+SHA1-Digest: NKzx5nsI+IfGk4j5tVC27Adp2F8=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/IModel
+ Generator.class
+SHA1-Digest: VuaQj3v6Awgoolidk2zPQ4o8R9U=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/ErrorAnnotation$D
+ isplayDisposeRunnable.class
+SHA1-Digest: zGgPUVCfe+sbiYfGW+KWZuARJVs=
+
+Name: plugin.properties
+SHA1-Digest: wsJZQW1L7+aGHQVOXaqfgz78IiI=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/Defaul
+ tDirectEditorConfiguration$1.class
+SHA1-Digest: qCuP8w5Rwi6+kcgFZCIUUXu82xM=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/preferences/PapyrusE
+ mbeddedEditorsPreferencePage.class
+SHA1-Digest: iDixoRZAoYOgH/z8LzUe3df2AGw=
+
+Name: plugin.xml
+SHA1-Digest: LAZDtZRyYnIvKeczYiv9il+pg6k=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/ExtendedDirectEdi
+ tionDialog$LabelKeyListener.class
+SHA1-Digest: AOW1ltgQkvm6iFufR0Y6sN4CL3o=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/IErrorReporter.cl
+ ass
+SHA1-Digest: jklIY0pxmkRqxqThGr7GborMDUU=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/configuration/IDirec
+ tEditorConfiguration$Selection.class
+SHA1-Digest: yBtMPNNoFDPR1o0XqOlUIF68km4=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedEditorDoc
+ umentProvider.class
+SHA1-Digest: mU24B9MuIwNqM5xhGCtcVcDsfqQ=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedTextEdito
+ r.class
+SHA1-Digest: +bcTYNX3mTrc2rXmSyVwRTyLmEU=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/utils/DirectEditorsU
+ til.class
+SHA1-Digest: GPh9rlu+V1xxv1H8qqqiOO/KUDg=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/OpenEmbeddedTextE
+ ditorObjectActionDelegate.class
+SHA1-Digest: SelTWPkKwcMMITumXDam2moucvk=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: schema/DirectEditor.exsd
+SHA1-Digest: jm4jAiDm/HmuXjQT6DhNU2VNsuo=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedTextEdito
+ r$LabelKeyListener.class
+SHA1-Digest: bjCHkCDJvVlhL3rw7vAr2UH1BoE=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/definition/IDirectEd
+ itorConfigurationIds.class
+SHA1-Digest: D2eTLsDOpBjH/F6gJshJ/ReI9Ow=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedTextEdito
+ r$1.class
+SHA1-Digest: FDwLFb3G4JT+S3i/nyurYnY53Lg=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/AntlrReconcileStr
+ ategy.class
+SHA1-Digest: 4lLjKJgMGF5t0uGYCmMPwTUlRxI=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/EmbeddedEditorRec
+ oncilingStrategy.class
+SHA1-Digest: 8P6SN0dpRdt6SSeb0YvvX3weYVo=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/OpenEmbeddedTextE
+ ditorObjectActionDelegate$1.class
+SHA1-Digest: gYGeP76XIZrnPIFoM7TZ6M+J3AM=
+
+Name: org/eclipse/papyrus/extensionpoints/editors/ui/CloseListener.cla
+ ss
+SHA1-Digest: R6jUcquvra09KGK/uEX7+fg6Mg0=
+

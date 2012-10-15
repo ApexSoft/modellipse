@@ -1,0 +1,108 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.alf.ui;singleton:=true
+Require-Bundle: org.eclipse.xtext.ui,org.eclipse.ui.editors;bundle-ver
+ sion="3.5.0",org.eclipse.ui.ide;bundle-version="3.5.0",org.eclipse.xt
+ ext.ui.shared,org.eclipse.ui,org.eclipse.xtext.builder,org.antlr.runt
+ ime,org.eclipse.uml2.uml;bundle-version="3.2.0",org.eclipse.xtext.gmf
+ .glue;bundle-version="0.9.0",org.eclipse.papyrus.uml.alf;bundle-versi
+ on="0.9.1",org.apache.log4j;bundle-version="1.2.15"
+Bundle-Activator: org.eclipse.papyrus.uml.alf.ui.internal.AlfActivator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.alf.ui.contentassist,org.eclip
+ se.papyrus.uml.alf.ui.contentassist.antlr
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/AlfParser$1.c
+ lass
+SHA1-Digest: xivtAJNE8orsfKcMCk8jgEeXv9Y=
+
+Name: org/eclipse/papyrus/uml/alf/ui/internal/AlfActivator$1.class
+SHA1-Digest: O3RXCiYylzTICWFrgd8AOs1dW1U=
+
+Name: org/eclipse/papyrus/uml/alf/ui/AbstractAlfUiModule.class
+SHA1-Digest: Ge6n+mdEgByUiH1ONlDiapsixvk=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/internal/Inte
+ rnalAlfParser.class
+SHA1-Digest: QV8MSfkaP5YklNbKEpA9IZh3Tzk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/internal/Inte
+ rnalAlfParser$DFA17.class
+SHA1-Digest: qtjRIxifyQcncrth/ct7qQMMkDU=
+
+Name: org/eclipse/papyrus/uml/alf/ui/AlfUiModule.class
+SHA1-Digest: AqdUFKYGhFa5gMd3vzBqZhkc2sM=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/AlfProposalProvider
+ $AlfCompletionProposalUtils.class
+SHA1-Digest: 1f3bndJtwAlJe1opjnonM17A3KY=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/alf/ui/outline/AlfOutlineTreeProvider.cl
+ ass
+SHA1-Digest: F0forF9te56yQr+9kb5oO8d7XLE=
+
+Name: org/eclipse/papyrus/uml/alf/ui/labeling/AlfDescriptionLabelProvi
+ der.class
+SHA1-Digest: K5iP5HnJKRCMbohgrMs28UfLt1A=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/internal/Inte
+ rnalAlf.tokens
+SHA1-Digest: 0Bjv3f5erLz19ddRtLigBUm4kGA=
+
+Name: plugin.properties
+SHA1-Digest: BizYcpTxk4XPaAnWKMQNfCXyiq8=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/internal/Inte
+ rnalAlf.g
+SHA1-Digest: nx6760XCI7FeA5AnvwRibdILaII=
+
+Name: org/eclipse/papyrus/uml/alf/ui/labeling/AlfLabelProvider.class
+SHA1-Digest: sDBpudsEwTuqLiZ0PfumZbZ4b0Y=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/AlfParser.cla
+ ss
+SHA1-Digest: fTHl2GM4lw9/bz9MD0BbeNI4Pgk=
+
+Name: org/eclipse/papyrus/uml/alf/ui/internal/AlfActivator.class
+SHA1-Digest: +fIhKlQOuZEP13eqOopkKCE+F4s=
+
+Name: org/eclipse/papyrus/uml/alf/ui/quickfix/AlfQuickfixProvider.clas
+ s
+SHA1-Digest: uD4yCcsWQN3P0hKz7MTmscyCAgs=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/internal/Inte
+ rnalAlfLexer$DFA24.class
+SHA1-Digest: ld7VUcsUj0CDZmTsgR9PfwCEZNQ=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/AbstractAlfProposal
+ Provider.class
+SHA1-Digest: xDZ3UH0TDMdI5f4MLJEzjRO/npQ=
+
+Name: org/eclipse/papyrus/uml/alf/ui/AlfExecutableExtensionFactory.cla
+ ss
+SHA1-Digest: Ob4m+KHht6uWs2WDEp4JMiGHIVQ=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/antlr/internal/Inte
+ rnalAlfLexer.class
+SHA1-Digest: td3LzLY0Uw/VXJtKo2td6TezV7k=
+
+Name: org/eclipse/papyrus/uml/alf/ui/contentassist/AlfProposalProvider
+ .class
+SHA1-Digest: bRISz58jRbBPpnSuCtcoDolyaOk=
+
+Name: plugin.xml
+SHA1-Digest: t4jccUXbtyxIwzRHf/UKE/CFrkw=
+

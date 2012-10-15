@@ -1,0 +1,1018 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.xwt;singleton:=true
+Require-Bundle: org.eclipse.jface.databinding;bundle-version="1.2.0",o
+ rg.eclipse.core.databinding.beans;bundle-version="1.1.0",org.eclipse.
+ swt;bundle-version="3.4.0",org.eclipse.core.databinding;bundle-versio
+ n="1.1.0",org.eclipse.jface;bundle-version="3.4.0",org.eclipse.core.d
+ atabinding.property;bundle-version="1.1.0",org.eclipse.equinox.common
+ ;bundle-version="3.4.0",org.eclipse.osgi;bundle-version="3.8.0"
+Bundle-Activator: org.eclipse.papyrus.xwt.internal.Activator
+Export-Package: org.eclipse.papyrus.xwt,org.eclipse.papyrus.xwt.animat
+ ion,org.eclipse.papyrus.xwt.annotation,org.eclipse.papyrus.xwt.callba
+ ck,org.eclipse.papyrus.xwt.collection,org.eclipse.papyrus.xwt.convert
+ ers,org.eclipse.papyrus.xwt.core,org.eclipse.papyrus.xwt.databinding,
+ org.eclipse.papyrus.xwt.dataproviders,org.eclipse.papyrus.xwt.graphic
+ s,org.eclipse.papyrus.xwt.input,org.eclipse.papyrus.xwt.internal.core
+ ,org.eclipse.papyrus.xwt.internal.databinding.menuitem,org.eclipse.pa
+ pyrus.xwt.internal.utils,org.eclipse.papyrus.xwt.internal.xml,org.ecl
+ ipse.papyrus.xwt.javabean,org.eclipse.papyrus.xwt.javabean.metadata,o
+ rg.eclipse.papyrus.xwt.javabean.metadata.properties,org.eclipse.papyr
+ us.xwt.jface,org.eclipse.papyrus.xwt.metadata,org.eclipse.papyrus.xwt
+ .utils,org.eclipse.papyrus.xwt.validation
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-Name: %Bundle-Name.0
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+DynamicImport-Package: *
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/xwt/converters/SelectionToBoolean.class
+SHA1-Digest: iaSDZo+IQFaGiT79zX4vBFjQ+K8=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/Element.class
+SHA1-Digest: 8Fpp0I5n6v+UVTEF0/cPh/eSQCY=
+
+Name: org/eclipse/papyrus/xwt/input/CanExecuteChangedListener.class
+SHA1-Digest: aV5pYVF7XncsRUHudR30hdlxVfE=
+
+Name: org/eclipse/papyrus/xwt/converters/CollectionToBoolean.class
+SHA1-Digest: 7Pk6VtchadjqqfWGN82rmsLpsR4=
+
+Name: org/eclipse/papyrus/xwt/IConstants$2.class
+SHA1-Digest: 05EGjaQ1iSEpj5c54HelgqlsjoQ=
+
+Name: org/eclipse/papyrus/xwt/dataproviders/AbstractDataProvider.class
+SHA1-Digest: Kao0Rh+2T72uep/DCbilQrEXWrE=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/Behavior.class
+SHA1-Digest: Nb1wqrA0T+X7gxcZNMMa6ziFwd8=
+
+Name: org/eclipse/papyrus/xwt/XWTException.class
+SHA1-Digest: xJCBEG6AvH7PW/TFvZgvknYlB0A=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableItemPr
+ operty.class
+SHA1-Digest: ixmBMRrbE9JLLP0iYDQK3Xdx4bU=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToEnum.class
+SHA1-Digest: FP8Z9RQJv60dByl9pBlIjDSg3fU=
+
+Name: org/eclipse/papyrus/xwt/internal/core/Core.class
+SHA1-Digest: NxvVHUZYtj5ZQejnQE3ycu+xReM=
+
+Name: org/eclipse/papyrus/xwt/metadata/IMetaclass.class
+SHA1-Digest: HqBI9nZsruhjYfF9xYPr4Lp8B40=
+
+Name: org/eclipse/papyrus/xwt/input/RoutedCommand.class
+SHA1-Digest: 9KRe+6ymGxB92r1zXXempMyvBtE=
+
+Name: org/eclipse/papyrus/xwt/input/InputBinding.class
+SHA1-Digest: GHgotC7VgxksiPTgf5d7GVYLqJE=
+
+Name: org/eclipse/papyrus/xwt/converters/BindingToObject.class
+SHA1-Digest: ndauq09eRzCTH+N0okc0QCtI20M=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/LoadedEvent.class
+SHA1-Digest: SmBRxOWcOFeEQ/9UzNKG5Uy9WBY=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/UserData$1.class
+SHA1-Digest: UWKEKU5NuLdWj2NWMpauJyP+Mfo=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToPoint.class
+SHA1-Digest: 3Izx2ocqnop0+QRdjQPXcDbCCuc=
+
+Name: org/eclipse/papyrus/xwt/core/Operator.class
+SHA1-Digest: HKAyHuD8GsR5kzuGBXLK6cZjDY0=
+
+Name: org/eclipse/papyrus/xwt/core/Trigger.class
+SHA1-Digest: 3PaZJLDl5cdGNND0QUY3wHUWl5s=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$2.class
+SHA1-Digest: Pgkdq60Uhe+xF9BGw5SJ5bbj/LI=
+
+Name: org/eclipse/papyrus/xwt/internal/core/Core$1.class
+SHA1-Digest: Spkso0p56LePZOWuj5yOvfqDCo8=
+
+Name: org/eclipse/papyrus/xwt/converters/IStatusToString.class
+SHA1-Digest: OKvWFAOMHPIdxseK5ehDMmUY60o=
+
+Name: org/eclipse/papyrus/xwt/internal/core/Core$ExtensionContext.clas
+ s
+SHA1-Digest: MpW69N6+EBJBqGJYkfAzllTHDuA=
+
+Name: org/eclipse/papyrus/xwt/internal/core/IEventController.class
+SHA1-Digest: T61BsgYXXByyXUQQq1853ICwEiY=
+
+Name: org/eclipse/papyrus/xwt/IValidationRule$Direction.class
+SHA1-Digest: VaPIOfqmnoWgB2wTnerZkBftErI=
+
+Name: org/eclipse/papyrus/xwt/internal/core/ScopeManager$ObservableVal
+ ueBuilder.class
+SHA1-Digest: tj62/i1o5KHqrITkVxflcS+3bDA=
+
+Name: org/eclipse/papyrus/xwt/input/KeyGesture.class
+SHA1-Digest: xDxh7BzN1R5NKT8/VheZz069eRY=
+
+Name: org/eclipse/papyrus/xwt/input/ModifierKeys.class
+SHA1-Digest: 6YJ/20bmVRTDGANm4sPsgVymm9E=
+
+Name: org/eclipse/papyrus/xwt/javabean/Controller$LoadedEventListener.
+ class
+SHA1-Digest: wFBuyBQGpEJj5RIUK6bVuFYaDWg=
+
+Name: org/eclipse/papyrus/xwt/jface/DefaultListContentProvider.class
+SHA1-Digest: IvGUvQooEfbbBfQUemN01tc8VwA=
+
+Name: org/eclipse/papyrus/xwt/internal/core/BindingExpressionPath.clas
+ s
+SHA1-Digest: CJf6LSS2oHpq/xoTO3XtT6fw4To=
+
+Name: org/eclipse/papyrus/xwt/dataproviders/ObjectDataProvider$1.class
+SHA1-Digest: 1ZsWOXH3yrRAN2ZhI61NqMRkhKs=
+
+Name: org/eclipse/papyrus/xwt/metadata/ISetPostAction.class
+SHA1-Digest: fRI+NBgeNQoioZVLuMMBci+1CHw=
+
+Name: org/eclipse/papyrus/xwt/core/Setter.class
+SHA1-Digest: wHhCGXdGfu1uAE4tM0wJfkNaHQw=
+
+Name: org/eclipse/papyrus/xwt/utils/ResourceManager$ImageTool.class
+SHA1-Digest: OuhyUqHGa2o7donsTXFn/VX2MxE=
+
+Name: org/eclipse/papyrus/xwt/jface/DefaultCellModifier.class
+SHA1-Digest: NqAJLZyH1AE0Gsgo/BU+MJybIVw=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/XDataHandler.class
+SHA1-Digest: Sq0elprr0xdd3dTN8oWI6MHQRFs=
+
+Name: org/eclipse/papyrus/xwt/IDataProviderFactory.class
+SHA1-Digest: qDkGx+V778VfTERgIZNRw3JBaR4=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToURL.class
+SHA1-Digest: gQKioJzTOy1aU+tu1ynksAja63g=
+
+Name: org/eclipse/papyrus/xwt/DefaultLoadingContext.class
+SHA1-Digest: pT6iRO5zAE675y0CKE3c5LZ2qfk=
+
+Name: org/eclipse/papyrus/xwt/jface/XWTDialog.class
+SHA1-Digest: 8Vyx3foSDcA4bQ6MDbOPfv9LdV8=
+
+Name: org/eclipse/papyrus/xwt/databinding/TypedViewerObservableValueDe
+ corator.class
+SHA1-Digest: yoDXhQgpuvAo/Lh1wQIz6Zotj+E=
+
+Name: org/eclipse/papyrus/xwt/databinding/BindingContext$1.class
+SHA1-Digest: mCm7xya6Jgr7t+Qb8ffzXaM/YNA=
+
+Name: org/eclipse/papyrus/xwt/utils/ResourceManager$ColorTool.class
+SHA1-Digest: 4wFS94FLS9VRVuHddWr6VmQMIk8=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/StyleProper
+ ty.class
+SHA1-Digest: kMM8/61k0dxXpaYdMT6kU9bA61w=
+
+Name: org/eclipse/papyrus/xwt/internal/core/DataBindingTrack.class
+SHA1-Digest: ttyhpCcFsRYoDBlhGuoUxRjTZ2w=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableViewer
+ ColumnWidthProperty.class
+SHA1-Digest: Ev8kCjXFRxfkypoT78HWMBkYKVY=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/BeanPropert
+ y.class
+SHA1-Digest: aHIAMPmiuWp/OFQswHdqmNF0QrU=
+
+Name: org/eclipse/papyrus/xwt/converters/ObjectToBoolean.class
+SHA1-Digest: MhQLoCh8oSCnUWbR4ZNfosGrRYc=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableEditor
+ DynamicProperty$2.class
+SHA1-Digest: CEHo1a7aShaVXIbv4mnwuPnDvyQ=
+
+Name: org/eclipse/papyrus/xwt/IMetaclassFactory.class
+SHA1-Digest: ouK1EDVCTHkxjU3QWFzVgfxZytY=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/ComboBoxCellEditorMeta
+ class.class
+SHA1-Digest: 800ShTmwrcxBoIVYDYMQ4SnTs2w=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/TableEditorHelper.class
+SHA1-Digest: psWPJXQpGFupHjkHTRbH8iAEQLc=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/NamespaceHelper.class
+SHA1-Digest: K5jeBy4DzE4dBHmqZRhuEioMQhs=
+
+Name: org/eclipse/papyrus/xwt/metadata/IProperty.class
+SHA1-Digest: PK5Bc21UB8NLnEjv/9HqU9PHYAY=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableViewer
+ ColumnTextProperty.class
+SHA1-Digest: VKeism3kRfd3V4Pl/a/ZnUKW9uo=
+
+Name: org/eclipse/papyrus/xwt/dataproviders/IObjectDataProvider.class
+SHA1-Digest: jIKqN1lYapg3dijYDjpdcUgZa3E=
+
+Name: org/eclipse/papyrus/xwt/utils/NamedColorsUtil.class
+SHA1-Digest: vokZLIZqlY/uFXhDgDwhmOkXl1I=
+
+Name: org/eclipse/papyrus/xwt/internal/Activator.class
+SHA1-Digest: RPmyr9b0MWcqwqBeyigzlYWn/SE=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/Metaclass.class
+SHA1-Digest: 2M9YnRG+/WEb7PqaRU8z3Rj7xi4=
+
+Name: org/eclipse/papyrus/xwt/annotation/UI.class
+SHA1-Digest: G/yS8qpnYTC8SvMOPG4Dxpyehtw=
+
+Name: org/eclipse/papyrus/xwt/IStyle.class
+SHA1-Digest: arxm4buTQ+VuhLXSYQecT2DhGCE=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableItemEd
+ itorProperty.class
+SHA1-Digest: zselqHdwxMGR32QaLrIHMfFow8I=
+
+Name: org/eclipse/papyrus/xwt/input/KeyBinding.class
+SHA1-Digest: 7daa6xCt+JXnexUTWJOL/NiJ59c=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableColumn
+ EditorProperty.class
+SHA1-Digest: PQytmBLGpLDDMOAnZ3tsvIlYNcc=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$7.class
+SHA1-Digest: 4pd+DDkkn4DlJrcfQB8cYE1/4qg=
+
+Name: org/eclipse/papyrus/xwt/core/DataTrigger$ValueChangeListener.cla
+ ss
+SHA1-Digest: ZQJFxmv6S9wMWykppLH5nzOWgn4=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableEditor
+ DynamicProperty$TableUtil.class
+SHA1-Digest: L5m+Bg7uwRvtaI4GWSPXbd1eLpg=
+
+Name: org/eclipse/papyrus/xwt/javabean/ResourceLoader$LoadingData.clas
+ s
+SHA1-Digest: gvgyd8e+9YxWYfAc7gRt8UkGf+U=
+
+Name: org/eclipse/papyrus/xwt/converters/ListToIObservableCollection.c
+ lass
+SHA1-Digest: qUThvVoFSoD4ttPVTrXV7Xm7s98=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToIValidationRule.class
+SHA1-Digest: B1GuhvXs0KKcMw+gqbYxaqbVZXc=
+
+Name: org/eclipse/papyrus/xwt/internal/databinding/menuitem/AbstractMe
+ nuItemObservableValue.class
+SHA1-Digest: 7uFJgOS1NlhWWbQ8tx6HYRip8bc=
+
+Name: org/eclipse/papyrus/xwt/core/MultiDataTrigger.class
+SHA1-Digest: xlrWz1Bu6aJPR6Vt2tNx/wG8oBs=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/DocumentRoot.class
+SHA1-Digest: nrRHiQE/ECxJIr/yDonHCgQme5A=
+
+Name: org/eclipse/papyrus/xwt/metadata/ModelUtils.class
+SHA1-Digest: HZ1OsRTaJWfcqZFq1bNf8xw8s/I=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/ElementManager$1.class
+SHA1-Digest: EB+7NL6TNV3+vTIa1wTdmosJCWk=
+
+Name: org/eclipse/papyrus/xwt/databinding/BindingContext.class
+SHA1-Digest: xSSZXoGTay7Umz8/iTtJP96LBxU=
+
+Name: org/eclipse/papyrus/xwt/javabean/ResourceLoader$1.class
+SHA1-Digest: Q+x4PekG/1btinsz37Jey10dCFw=
+
+Name: org/eclipse/papyrus/xwt/core/MultiTrigger.class
+SHA1-Digest: Qq7SdVxRoUDYjG+KG8QdngAjXjA=
+
+Name: org/eclipse/papyrus/xwt/databinding/EventManager.class
+SHA1-Digest: VsiMMPMOQjy/EXjaktjR5vhAI7w=
+
+Name: org/eclipse/papyrus/xwt/core/AbstractEventGroup.class
+SHA1-Digest: lLFk7TLMcWPMdoe9W/MoKI/881I=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableEditor
+ DynamicProperty$TableSelectionHandler.class
+SHA1-Digest: +r+XEvaYtHbXWvfHbP38BTkc+Ro=
+
+Name: org/eclipse/papyrus/xwt/core/IDynamicValueBinding.class
+SHA1-Digest: XmRJEl6ZCni+ygUkGSxxI46+1WY=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/SingleSelec
+ tionBeanProperty.class
+SHA1-Digest: IpHggXVdXh6xdw78uAoCy/9uQn8=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/ColumnViewe
+ rColumnsProperty.class
+SHA1-Digest: 3xdBn5gCQv/iVrDbLm2nwcJzGXU=
+
+Name: org/eclipse/papyrus/xwt/jface/ViewerFilter.class
+SHA1-Digest: O7dAaS7yOy995PhWprFiISR0D+I=
+
+Name: org/eclipse/papyrus/xwt/core/IUserDataConstants.class
+SHA1-Digest: NHH3+BM8Yk5MgaBUr9IsmC/5s5I=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader.class
+SHA1-Digest: DPdNsRwyHDUhRSkMUUWRdbtXl58=
+
+Name: org/eclipse/papyrus/xwt/core/ICollectionView.class
+SHA1-Digest: zFOlnHQGZUhGWb224CTgLoaCw8k=
+
+Name: org/eclipse/papyrus/xwt/jface/JFacesHelper.class
+SHA1-Digest: 75uwazGCGKy55pjoq3PHGZsviW8=
+
+Name: org/eclipse/papyrus/xwt/jface/XWTObservableWrapper.class
+SHA1-Digest: A+64FTCediFuh/P8qLAno1lkiIo=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/TableEditorHelper$2.class
+SHA1-Digest: VChCJWGoreajm185h887ISbNKR8=
+
+Name: org/eclipse/papyrus/xwt/converters/CollectionToInteger.class
+SHA1-Digest: syQEsOQ/OZUToKM/ysYY2bAh+fs=
+
+Name: org/eclipse/papyrus/xwt/core/IVisualElementLoader.class
+SHA1-Digest: DWlUbBfmesNd0JfJxwl4HzqGAUA=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$4.class
+SHA1-Digest: YCTAcYtsWiJTxcT/lotYtvjY4SY=
+
+Name: org/eclipse/papyrus/xwt/collection/SortDescription.class
+SHA1-Digest: 9YLBwerVLCeaSvGomHTFtc3SL2s=
+
+Name: org/eclipse/papyrus/xwt/databinding/XWTObservableValue.class
+SHA1-Digest: yF6/d9I4onX9d1TuJUarclSQgKY=
+
+Name: org/eclipse/papyrus/xwt/metadata/IObjectInitializer.class
+SHA1-Digest: zNxSLugtf8L+KgI0CMkYVPfVQ38=
+
+Name: org/eclipse/papyrus/xwt/metadata/ILoadingType$1.class
+SHA1-Digest: yKXynGpJKH8Mc/mbiWZ+3VYRQE8=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/Attribute.class
+SHA1-Digest: BchXWI0Y6e3Xqzc4fjH4sdBABuc=
+
+Name: org/eclipse/papyrus/xwt/IValidationRule.class
+SHA1-Digest: l/vEvj94wuE94cHLSFl5v3kWIGg=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/xwt/internal/databinding/menuitem/MenuItemEn
+ abledObservableValue.class
+SHA1-Digest: S3kC4CkVbDgP8/Bfcz+cAdJb3wo=
+
+Name: org/eclipse/papyrus/xwt/core/EventTrigger$RunableAction.class
+SHA1-Digest: 4j3pxdAgh+/j1FLccZU46Qzu0fA=
+
+Name: org/eclipse/papyrus/xwt/databinding/XWTObservableValue$1.class
+SHA1-Digest: VnFO14p2uqLG+HgCA0ZHWi7PzFU=
+
+Name: org/eclipse/papyrus/xwt/internal/core/ScopeManager$ObservableFac
+ tory.class
+SHA1-Digest: qWKOdFIiqFcFM0cNHqIkFhhy/zc=
+
+Name: org/eclipse/papyrus/xwt/internal/core/Binding.class
+SHA1-Digest: g5hO0j3bOsiumsvZA//ok5psgj4=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/ClassLoaderUtil.class
+SHA1-Digest: E/h9AG4Q/sF/BHZtqtB9AwAnXr8=
+
+Name: org/eclipse/papyrus/xwt/IXWTLoader.class
+SHA1-Digest: kg4lBtEH5Udj/ROK3hhZ9kkxqfI=
+
+Name: org/eclipse/papyrus/xwt/callback/ICreatedCallback.class
+SHA1-Digest: zBkUdyYTLvRfqW/RN1oUpig5h/Q=
+
+Name: org/eclipse/papyrus/xwt/core/EventTrigger.class
+SHA1-Digest: bspjlSdWvGt9H1Zmy13pacwksFI=
+
+Name: org/eclipse/papyrus/xwt/databinding/ListToArrayObservableValue.c
+ lass
+SHA1-Digest: VO0g4OWCHAWcnnqaDWntuwuLxZc=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/PropertiesC
+ onstants.class
+SHA1-Digest: KV8YRhuJ1bE3vc78lZPkDRk0Yag=
+
+Name: org/eclipse/papyrus/xwt/XWT$1$1.class
+SHA1-Digest: TIZ8Hqdzn60NBPVjpc2vZkq0Sgc=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/MultiSelect
+ ionBeanProperty.class
+SHA1-Digest: NMRNPEK2rfc+8kb2LHpFTrmYfLY=
+
+Name: org/eclipse/papyrus/xwt/input/MouseAction.class
+SHA1-Digest: sdaVRJ8q+rmugI6k2HiXyatlg8A=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/DataPropert
+ y.class
+SHA1-Digest: HIEbPObaEsIgPD4QswnpaGyE8KQ=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/ElementHandler.class
+SHA1-Digest: XGzVjXWYlID8DomWWn+spTrkR/o=
+
+Name: org/eclipse/papyrus/xwt/INamespaceHandler.class
+SHA1-Digest: rZspQTWn25WHgNaEY2a/8n9w7fg=
+
+Name: org/eclipse/papyrus/xwt/javabean/Controller.class
+SHA1-Digest: xn+6TCgdtvbzw15rlcxpyHjVpXg=
+
+Name: org/eclipse/papyrus/xwt/converters/ListToSet.class
+SHA1-Digest: X+uHNmBX03nViPM7SeAzDNQHh/0=
+
+Name: org/eclipse/papyrus/xwt/databinding/JFaceXWTDataBinding.class
+SHA1-Digest: wOVZ9YtO2VH+QV6g/Ua+VRLbk7s=
+
+Name: org/eclipse/papyrus/xwt/core/RadioEventGroup.class
+SHA1-Digest: 0zDIMn4Qx+IEspQdfz0rTX7GOiU=
+
+Name: org/eclipse/papyrus/xwt/databinding/ListToArrayObservableValue$2
+ .class
+SHA1-Digest: xmQDuYRYj+hKbY4kHciwokFzdSI=
+
+Name: org/eclipse/papyrus/xwt/IConstants$1.class
+SHA1-Digest: QKx3aKVQ8NfnLj9a6dsv/SFqm8U=
+
+Name: org/eclipse/papyrus/xwt/databinding/IBindingContext.class
+SHA1-Digest: DpdhnBePWvb7b5d4yWhtzgnO/T0=
+
+Name: org/eclipse/papyrus/xwt/jface/ObservableMapLabelProvider.class
+SHA1-Digest: UWlm6FpI3ukz/3NDAZmwUM3jkws=
+
+Name: org/eclipse/papyrus/xwt/core/IElementLoaderFactory.class
+SHA1-Digest: PH/95j16OGj+KsDciw1CpyMKGjU=
+
+Name: org/eclipse/papyrus/xwt/core/MultiTrigger$ValueChangeListener.cl
+ ass
+SHA1-Digest: BiqRRPaCsiuv0nQFFNMO6msKU6M=
+
+Name: plugin.properties
+SHA1-Digest: CZ8p2fnu6LVKRzVs12f0+uzPs04=
+
+Name: org/eclipse/papyrus/xwt/internal/core/MetaclassService.class
+SHA1-Digest: HLfOTxAAtSEZ4mb1Zw8NrT8pf4Y=
+
+Name: org/eclipse/papyrus/xwt/core/Style.class
+SHA1-Digest: xlY2U8Mi5zkpJqvjB0t6WS2FZNY=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/AbstractMetaclass.clas
+ s
+SHA1-Digest: +CbbTbQVFYu99aCgIFtx+Em7AdI=
+
+Name: org/eclipse/papyrus/xwt/ResourceDictionary.class
+SHA1-Digest: hqTbD2FjDiHuwyNV13OJbFbPERc=
+
+Name: org/eclipse/papyrus/xwt/internal/core/BindingGate.class
+SHA1-Digest: BZufR6zZ59xHwl8zNKcrTcHUtcw=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$1.class
+SHA1-Digest: eEqWJrK4MylI7MHV6xTYhOkdJgk=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/DynamicBean
+ Property.class
+SHA1-Digest: 4dfGRThSmjUXtHZhupoNw+CKxY4=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToFont.class
+SHA1-Digest: 78wkfLZP6evsRzNEEaD4MXRPZOk=
+
+Name: org/eclipse/papyrus/xwt/converters/StringMultiValueConerter.clas
+ s
+SHA1-Digest: OWuVJU/l8/1MzzARzcRZjaG9rO8=
+
+Name: org/eclipse/papyrus/xwt/javabean/ResourceLoaderFactory.class
+SHA1-Digest: L0NBT2BmANbva5/LJEo3iJ6tGHQ=
+
+Name: org/eclipse/papyrus/xwt/converters/ObjectToISelection.class
+SHA1-Digest: IX7J0Y2s4YdLJ3FmpAsPTiwQGR4=
+
+Name: org/eclipse/papyrus/xwt/metadata/DelegateProperty.class
+SHA1-Digest: bGenw2bFI0g/uEyI/qXatCgUEKk=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/ElementManager.class
+SHA1-Digest: Sx7qMzjGbIYCr5RwnIe0otmwKTw=
+
+Name: org/eclipse/papyrus/xwt/internal/Activator$1.class
+SHA1-Digest: BTemgz+7YZTiWaCTotNxLrHuG7I=
+
+Name: org/eclipse/papyrus/xwt/internal/core/Core$ConverterService.clas
+ s
+SHA1-Digest: xB30BIDof4A/yhjD2StE/H2ZKDA=
+
+Name: org/eclipse/papyrus/xwt/jface/AbstractDialog.class
+SHA1-Digest: y5p9e2ID2H6YWeSow39fwTbFDu8=
+
+Name: org/eclipse/papyrus/xwt/IDataBinding.class
+SHA1-Digest: x3KXN6719E53EH8Q45AUAuGq/BA=
+
+Name: org/eclipse/papyrus/xwt/databinding/ControlDataBinding.class
+SHA1-Digest: OlbYLYaKWtZ4y3cs69hO4uMrZ0Y=
+
+Name: org/eclipse/papyrus/xwt/IUIExtensionProvider.class
+SHA1-Digest: c87o/8kTLKHcgbQDSAYilWhaqwM=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/InputBeanPr
+ operty.class
+SHA1-Digest: +jZ5THf1REEGuo2P/awSymZjVj8=
+
+Name: org/eclipse/papyrus/xwt/XWT$1.class
+SHA1-Digest: J88BZ6r4DNJ0op8t+J2JKRUIoHs=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$4$1.class
+SHA1-Digest: xWBFkzLF8j+17eqH/+tmrTe6zlo=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$6$1.class
+SHA1-Digest: u2fXJx8nZWbGnNGsj100fnKLrgo=
+
+Name: org/eclipse/papyrus/xwt/graphics/Rect.class
+SHA1-Digest: 6LifDUdGZ5T9FCb4azmVY+er1Xk=
+
+Name: org/eclipse/papyrus/xwt/annotation/UIBounds.class
+SHA1-Digest: INS5zGKZI3MI7skcdQAaENpFHbQ=
+
+Name: org/eclipse/papyrus/xwt/graphics/Color.class
+SHA1-Digest: OZ9/D/a3YLn4qpOYnBzql9IqnmQ=
+
+Name: org/eclipse/papyrus/xwt/databinding/AggregateObservableValue.cla
+ ss
+SHA1-Digest: RCtirqjWgM5TLl0hnix7bM6e7UU=
+
+Name: org/eclipse/papyrus/xwt/core/TriggerBase$AbstractChangeListener.
+ class
+SHA1-Digest: 7qqIOJncSWWSEo2Vbcx5p2rOcYs=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToIntArray.class
+SHA1-Digest: qaQbyhGkSps3dns/5QhOvB8/By0=
+
+Name: org/eclipse/papyrus/xwt/IConstants.class
+SHA1-Digest: P03PSxo5Qe4QjuPKuDDsiuI3MCQ=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/DocumentRoot$1.class
+SHA1-Digest: tR66AamhiKQO/4vwx+5yeV+VrjI=
+
+Name: org/eclipse/papyrus/xwt/converters/DateToString.class
+SHA1-Digest: 8ml+oV+m/QQfXcbaHU6basCTYLo=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToIValueConverter.class
+SHA1-Digest: If7HlgDqsaM3a7DtZaOw9Qt+vFM=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableEditor
+ DynamicProperty$1.class
+SHA1-Digest: GRrfpACBwQJ9hLIkUE5URvLPZjA=
+
+Name: org/eclipse/papyrus/xwt/InverseValueConverter.class
+SHA1-Digest: qZvTfh9ExHO6es3NU5JXLt9Za3c=
+
+Name: org/eclipse/papyrus/xwt/core/Condition$CacheData.class
+SHA1-Digest: voQSfH1UNVmhLhN9ZoDy8cn91VU=
+
+Name: org/eclipse/papyrus/xwt/metadata/IValueLoading.class
+SHA1-Digest: VmP1L8tNaQRvM9oaRRrTq3hFSP0=
+
+Name: org/eclipse/papyrus/xwt/jface/ComboBoxCellEditor.class
+SHA1-Digest: EG8udv4tZ4Jjknb8FPw/YCz0TSE=
+
+Name: org/eclipse/papyrus/xwt/jface/ObservableTreeContentProvider.clas
+ s
+SHA1-Digest: cfODso3Df24XhnsCzCecX+uaIp4=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/UserData.class
+SHA1-Digest: 9T0VqrZ2FiKinI6PMSONOtVDEA4=
+
+Name: org/eclipse/papyrus/xwt/databinding/AbstractDataBinding.class
+SHA1-Digest: 3wsPAWMsfvvkj+laTOoITkhySDg=
+
+Name: org/eclipse/papyrus/xwt/metadata/IBehavior.class
+SHA1-Digest: MRBqLmN3kFUZ5F+mwYTK746UP28=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/DynamicProp
+ erty.class
+SHA1-Digest: X6gTKvTH2PXzAzLB1gAL+ZZ7rQQ=
+
+Name: org/eclipse/papyrus/xwt/databinding/DataBinding.class
+SHA1-Digest: j/eb5VHuVDhAAi1Q/bm8tsvumR4=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableItemPr
+ operty$Cell.class
+SHA1-Digest: paKVyHOzxL1OfT0M72Ci8cpGkps=
+
+Name: org/eclipse/papyrus/xwt/converters/EnumToString.class
+SHA1-Digest: TzWtPH0OYiwfC9h90nYb8wWo9WQ=
+
+Name: org/eclipse/papyrus/xwt/IEventInvoker.class
+SHA1-Digest: d5M/wRHgNc0car4PE8IIOAQY440=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToDoubleArray.class
+SHA1-Digest: EOwUisLZGNMacNLvd2jQoqBTgsY=
+
+Name: org/eclipse/papyrus/xwt/jface/ObservableMapLabelProvider$1.class
+SHA1-Digest: JVTyULwj4jAvfRXyTpborBx7600=
+
+Name: org/eclipse/papyrus/xwt/IEventGroup.class
+SHA1-Digest: SUjOOzDTYDKu8unvKa5xhkL1vIc=
+
+Name: org/eclipse/papyrus/xwt/jface/JFaceInitializer.class
+SHA1-Digest: QASKdRBJGpA/r/ByjbxSMrFwyrg=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToFormAttachment.class
+SHA1-Digest: 76jd7m96XBwoFwppxOY9bbBxhTc=
+
+Name: org/eclipse/papyrus/xwt/jface/CellEditorHelper.class
+SHA1-Digest: 3dzcJBvtjVoG5xNHOMg6dcMbwbc=
+
+Name: org/eclipse/papyrus/xwt/XWTLoaderManager.class
+SHA1-Digest: ZV/e68l3FIBCl4M++032zttU+xc=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableViewer
+ ColumnImageProperty.class
+SHA1-Digest: eDfSYIGv8shIxYlS09lwPWR7ryE=
+
+Name: org/eclipse/papyrus/xwt/animation/Drawing.class
+SHA1-Digest: nus0xWaCpDlG11dbZJEQVXYc0uU=
+
+Name: org/eclipse/papyrus/xwt/IValidationRule$Phase.class
+SHA1-Digest: 57Tyy/VJPpaaQ7lSXz6DDlPITSM=
+
+Name: org/eclipse/papyrus/xwt/javabean/StaticResourceBinding.class
+SHA1-Digest: ZBbC6KYfp1kQI0JABpoEBypQN0o=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$6.class
+SHA1-Digest: wjqsAPwkVByO+zlEEgR9Ul5ZEOI=
+
+Name: org/eclipse/papyrus/xwt/dataproviders/ObjectDataProvider.class
+SHA1-Digest: 10ktMgPQauCvt0jdeE2s+8W4CLo=
+
+Name: org/eclipse/papyrus/xwt/annotation/Containment.class
+SHA1-Digest: 6I6dENSa1++gzRrnNrPNT9MXdrI=
+
+Name: org/eclipse/papyrus/xwt/databinding/EventPropertyObservableValue
+ .class
+SHA1-Digest: u+EaNOUyO3YqFwjTbr1zfgGyC0M=
+
+Name: org/eclipse/papyrus/xwt/IDataProvider$DataModelService.class
+SHA1-Digest: KmnRyNB9D42sVI6HE2D7N0me5po=
+
+Name: org/eclipse/papyrus/xwt/utils/OperatorExceptionMessage.class
+SHA1-Digest: NIvI/LTP87vZCZUwfZYlwntNhJk=
+
+Name: org/eclipse/papyrus/xwt/core/IDynamicBinding.class
+SHA1-Digest: 98+31Vr/xsNbwLbATugPizprNyE=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToBoolean.class
+SHA1-Digest: cPzVcp1slKSuCp1rEz4QNr3cOj4=
+
+Name: org/eclipse/papyrus/xwt/IDataBindingInfo.class
+SHA1-Digest: E0fGg44phI+L2MvRjMbTl8YmWyo=
+
+Name: org/eclipse/papyrus/xwt/IXWTLoader$Utilities.class
+SHA1-Digest: GlphaNBVGvrdNgMyTwd2Ck2UyS8=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableEditor
+ DynamicProperty.class
+SHA1-Digest: ydjrxpKdMAbVSCrQZmJzfoYtHPg=
+
+Name: org/eclipse/papyrus/xwt/metadata/DefaultLoadingType.class
+SHA1-Digest: 7l58KqAGO8A3qBAk4FuwxMlgCSY=
+
+Name: org/eclipse/papyrus/xwt/IValueConverter.class
+SHA1-Digest: Nans7f7f7S8YbjkCj6At9nXRcFE=
+
+Name: org/eclipse/papyrus/xwt/jface/XWTTitleAreaDialog$1.class
+SHA1-Digest: YX3VRhp7pQtO7nUu4OCw6auyEAs=
+
+Name: org/eclipse/papyrus/xwt/databinding/EventListener.class
+SHA1-Digest: Uf9besPddLPPrWYguVFvk0OyF9o=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/BindingMetaclass.class
+SHA1-Digest: i2EPdrzLvFLk1C6ZjAbr7XAxCWQ=
+
+Name: org/eclipse/papyrus/xwt/XWT$DisplayThread.class
+SHA1-Digest: +emL0OpNOPPiQWdRJqrlIG0vnDM=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/TypedEvent.class
+SHA1-Digest: /5MvYid3wm6E0IIrD71vGvwColo=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/DocumentObjectSorter$Attr
+ Comparator.class
+SHA1-Digest: 9qY8zFkKMVG6a8AqaV69TGIL7nE=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/DocumentObject.class
+SHA1-Digest: 9btB9rNCZj3Jn21S1Hr8TSTd31Q=
+
+Name: org/eclipse/papyrus/xwt/core/TriggerBase.class
+SHA1-Digest: KkZhZ4SYgknhjts9foUAfMX/37c=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/BeanEvent.class
+SHA1-Digest: laWaPUHkv5YRPPjKOuVUV622jno=
+
+Name: org/eclipse/papyrus/xwt/converters/ObjectToString.class
+SHA1-Digest: fh3VSDq2awXMOcYJS8NZaU4w7w0=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/TableViewerColumnMetaC
+ lass.class
+SHA1-Digest: 1Jze8wZ8RU/wMUt+GAyiZogmq0g=
+
+Name: org/eclipse/papyrus/xwt/core/IBinding.class
+SHA1-Digest: 6gx4J2N/FXbHggEfJsMXAMW4J2c=
+
+Name: org/eclipse/papyrus/xwt/collection/GroupDescription.class
+SHA1-Digest: RSyhiOzwHsiZy6dsUBfynpH6VoU=
+
+Name: org/eclipse/papyrus/xwt/metadata/IEvent.class
+SHA1-Digest: pWpJfSE9uiY406D4QRl+zV9p0rQ=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/ObjectUtil.class
+SHA1-Digest: umDNB/mxVJK5ubNbBPdE4Z5JKrs=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/TableEditorHelper$1.class
+SHA1-Digest: hMhGn0rZb6I2T83SWsNwB36s13g=
+
+Name: org/eclipse/papyrus/xwt/internal/core/DynamicValueBinding.class
+SHA1-Digest: g6e0p1AXAJ/5H5XSG+dP31MpcU8=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$3.class
+SHA1-Digest: kYpOX1WqhBn/FTyYHzV8+09k42Q=
+
+Name: org/eclipse/papyrus/xwt/internal/core/Core$2.class
+SHA1-Digest: 1cOLsKl4Q6uvelMD605pZwVZDOI=
+
+Name: org/eclipse/papyrus/xwt/graphics/Point.class
+SHA1-Digest: 2EqhmZX4JvUOTbpPlHAhQkbYJWc=
+
+Name: org/eclipse/papyrus/xwt/IEventHandler.class
+SHA1-Digest: k1ieQZLzZRzCYYCg3721puJcviE=
+
+Name: org/eclipse/papyrus/xwt/IEventConstants.class
+SHA1-Digest: XE7aexSggBR37RrSHXTRaOIJNqI=
+
+Name: org/eclipse/papyrus/xwt/utils/ResourceManager.class
+SHA1-Digest: t57CPHRQvExaugzn8xQQ6ULP22M=
+
+Name: org/eclipse/papyrus/xwt/core/Trigger$1.class
+SHA1-Digest: CwKzErpk8KVl49WBP/PuO3zsfrA=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/EventProper
+ ty.class
+SHA1-Digest: L5KfVssQGaSRhIDmq5r4hHsBdCM=
+
+Name: org/eclipse/papyrus/xwt/IObservableValueListener.class
+SHA1-Digest: Mu3D6lgFuZJanr6rS0699H3Z8SE=
+
+Name: org/eclipse/papyrus/xwt/databinding/Event.class
+SHA1-Digest: dfXR3Ec6TIqc2tkbozkwcIa8QQQ=
+
+Name: about.html
+SHA1-Digest: 2D3bb4QkwRTOjVP0deohSdlSr2Y=
+
+Name: org/eclipse/papyrus/xwt/utils/colors.properties
+SHA1-Digest: HXYrU3LF2LlxH8aRe9jnvKgN0pM=
+
+Name: org/eclipse/papyrus/xwt/core/TriggerAction.class
+SHA1-Digest: GDTqUyXSQYp/lSCc9rYTqqEeQcE=
+
+Name: org/eclipse/papyrus/xwt/IMultiValueConverter.class
+SHA1-Digest: KD1iP1ra1JkPeFLUSGKhxMWM6sE=
+
+Name: org/eclipse/papyrus/xwt/input/CommandBinding.class
+SHA1-Digest: COXDfg03kXuLQSEygGyOb2zYgE4=
+
+Name: org/eclipse/papyrus/xwt/validation/AbstractValidationRule.class
+SHA1-Digest: slIw/Z4wjZgwSizUN32J7i2XFe8=
+
+Name: org/eclipse/papyrus/xwt/converters/IStatusToBoolean.class
+SHA1-Digest: jdNW0pKd4ypVYQS4e7jk7rjQa4Q=
+
+Name: org/eclipse/papyrus/xwt/collection/CollectionViewSource.class
+SHA1-Digest: ohmdfxOFxU9o8l8Ukav23jbikx8=
+
+Name: org/eclipse/papyrus/xwt/internal/core/DynamicBinding.class
+SHA1-Digest: na2bkL3h6ki2j58bMKCCl2dG7gI=
+
+Name: org/eclipse/papyrus/xwt/databinding/XWTObservableValue$1$1.class
+SHA1-Digest: qtPSybWDm7dhpTPsruK7IEGOwO8=
+
+Name: org/eclipse/papyrus/xwt/callback/ILoadedCallback.class
+SHA1-Digest: Y+SGgeFJ4Pt2Y+Z4sv6wiCf10MI=
+
+Name: org/eclipse/papyrus/xwt/internal/databinding/menuitem/MenuItemSe
+ lectionObservableValue.class
+SHA1-Digest: Z3MADTdEE+WSWazlQ8X+M9ACglU=
+
+Name: org/eclipse/papyrus/xwt/databinding/BindingContext$2.class
+SHA1-Digest: bvMwCMnMCnT2TbT+wn/Pzlrkddo=
+
+Name: org/eclipse/papyrus/xwt/databinding/ListToArrayObservableValue$1
+ .class
+SHA1-Digest: VwoboUIlXH+74mLWSCqVCgCJ8cU=
+
+Name: org/eclipse/papyrus/xwt/databinding/AggregateObservableValue$1.c
+ lass
+SHA1-Digest: AGuWEaJkY7M46WjYQ1New2RSB64=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/DocumentRoot$Format.class
+SHA1-Digest: 750GMvnLTZndZbIzXwL+j1i+kRU=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToType.class
+SHA1-Digest: RlBTiaKOhD20mworC6tJEtHXPQs=
+
+Name: org/eclipse/papyrus/xwt/Tracking.class
+SHA1-Digest: 8IkuGetrOPksUZ3VXBW6UND5JCI=
+
+Name: org/eclipse/papyrus/xwt/IDataProvider.class
+SHA1-Digest: AI2HyiQM15hfkzm0GNq46CfyrRg=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TriggersPro
+ perty.class
+SHA1-Digest: +HT9HhFG5NdXLVjJmxrPwON5x6w=
+
+Name: org/eclipse/papyrus/xwt/core/DataTrigger.class
+SHA1-Digest: QvV5nSR5iwTH6b8BGRhpoYx4LfU=
+
+Name: org/eclipse/papyrus/xwt/metadata/ILoadingType.class
+SHA1-Digest: 59lX3W/01PAy96XID6Z4jVENffo=
+
+Name: org/eclipse/papyrus/xwt/input/ICommand.class
+SHA1-Digest: rGe2WAfHsU2RDTkqhp2WLrtwMhY=
+
+Name: org/eclipse/papyrus/xwt/databinding/BindingMode.class
+SHA1-Digest: ZzP0xNS8rZ+N5Uo6Y6UTSPQFwcs=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/DocumentObjectSorter.clas
+ s
+SHA1-Digest: Yvs85qauzp8KTOKHMzODfXUDpto=
+
+Name: org/eclipse/papyrus/xwt/utils/ResourceManager$FontTool.class
+SHA1-Digest: IsEse0SrfytXe25/wLB0DNFkMtw=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/ExpandItemHeightAction
+ .class
+SHA1-Digest: 3SpGeK1DjbFWYHg8PvMBczJj8rU=
+
+Name: org/eclipse/papyrus/xwt/utils/PathHelper.class
+SHA1-Digest: WVCYgbmK/UwfQFaO/YyIxrHPLHs=
+
+Name: org/eclipse/papyrus/xwt/javabean/ResourceLoader.class
+SHA1-Digest: TyshecwebjRlMOu/e1sgFqR2/gs=
+
+Name: org/eclipse/papyrus/xwt/collection/ListSortDirection.class
+SHA1-Digest: yiQSjccGrgwVXS9HpJ11HaeNpUs=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToImage.class
+SHA1-Digest: kGEr60zT3qRznZ56zJBSulntzk8=
+
+Name: org/eclipse/papyrus/xwt/internal/core/ScopeManager.class
+SHA1-Digest: ASsO720BjHDSsasnuq3mfOvtvV8=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/TableEditorMetaclass.c
+ lass
+SHA1-Digest: BGiKCbJFAPI/gGIRIUIrTPZe4Ho=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToColor.class
+SHA1-Digest: im/AV0Vu/BpcLZtqGL262xBbeCY=
+
+Name: org/eclipse/papyrus/xwt/ICLRFactory.class
+SHA1-Digest: 6peSQsphxt0bCWAByPt9gmrrQS8=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/AbstractPro
+ perty.class
+SHA1-Digest: kcGyr+lfud6IxScYaZ6NVHYOBFQ=
+
+Name: org/eclipse/papyrus/xwt/converters/ValueConverterAdapter.class
+SHA1-Digest: ShtBGXAvHCJHilVDUTXqQnNQxSo=
+
+Name: org/eclipse/papyrus/xwt/internal/xml/ElementHandler$ExtensionPar
+ ser.class
+SHA1-Digest: vGDkjCCyLSEnNb8vpjJtTFnG1b8=
+
+Name: org/eclipse/papyrus/xwt/core/EventTrigger$RunableAction$1.class
+SHA1-Digest: 2in2GurkWCF0tbJd6QLhl+WY2P4=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToRectangle.class
+SHA1-Digest: Tv8uFvGIBwPg9RAkGmlSU4D/tok=
+
+Name: org/eclipse/papyrus/xwt/internal/core/UpdateSourceTrigger.class
+SHA1-Digest: g0tYiHU/EqApvQcI8PBk8+f/ZHY=
+
+Name: org/eclipse/papyrus/xwt/core/MultiDataTrigger$ValueChangeListene
+ r.class
+SHA1-Digest: CBcbbIMxbmQ2Bzc3L/ExFtzQgWw=
+
+Name: org/eclipse/papyrus/xwt/internal/core/MultiBinding.class
+SHA1-Digest: Pn3zGH7NJ3ODix7W//ElO0rbaiQ=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/TableViewer
+ ColumnDynamicProperty.class
+SHA1-Digest: NQK9JeAx0UOVLozOhDlyurJ0ghg=
+
+Name: org/eclipse/papyrus/xwt/core/Condition.class
+SHA1-Digest: fv7Xknwslyhsvksj7ycjLrEeliA=
+
+Name: org/eclipse/papyrus/xwt/javabean/metadata/properties/FieldProper
+ ty.class
+SHA1-Digest: bGEMMT/xCfMBU3qYjv6AIYR9g+g=
+
+Name: org/eclipse/papyrus/xwt/converters/StringToInteger.class
+SHA1-Digest: H1/gpIQOla70eNfQ6ZLabp8DoW8=
+
+Name: org/eclipse/papyrus/xwt/internal/core/MetaclassManager.class
+SHA1-Digest: lyeyILMC2IHM3O+0qaC1WNddUcI=
+
+Name: org/eclipse/papyrus/xwt/javabean/ValueConvertorRegister.class
+SHA1-Digest: iGKLpu4UrfiabKiADHlxLglfPhs=
+
+Name: org/eclipse/papyrus/xwt/internal/core/ScopeKeeper.class
+SHA1-Digest: fTP4/99o83FDLkY7NqKUFN1c8ko=
+
+Name: org/eclipse/papyrus/xwt/converters/SetToIObservableCollection.cl
+ ass
+SHA1-Digest: sedk92T5vBpQZ2ck6AL5VvdKgTc=
+
+Name: org/eclipse/papyrus/xwt/internal/core/UIResource.class
+SHA1-Digest: G5IIiX3qsR4N1iKYDSAe3VXWi9g=
+
+Name: org/eclipse/papyrus/xwt/XWTMaps.class
+SHA1-Digest: 1SSCj8lwIMpGnSghsY2zVETyNcg=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/ObservableValueManager.cl
+ ass
+SHA1-Digest: yYq3zJBRdvgMj4UNY8Ql4GaAnAs=
+
+Name: org/eclipse/papyrus/xwt/jface/TextCellEditor.class
+SHA1-Digest: PLDS+bFLFaQ/zFnY1PSrcJtanhU=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/TableEditorHelper$3.class
+SHA1-Digest: l3cslQYdR5+Enk6dJisrFJhdSVg=
+
+Name: org/eclipse/papyrus/xwt/IIndexedElement.class
+SHA1-Digest: 1mrOxvQkSaI1CJVX5io1TLwZh9o=
+
+Name: org/eclipse/papyrus/xwt/XWT.class
+SHA1-Digest: G7P4xz1bC58KjePyO0m95ptniXg=
+
+Name: org/eclipse/papyrus/xwt/converters/AbstractMultiValueConverter.c
+ lass
+SHA1-Digest: xvgDxl0D/XASa4nO3OYVjd9Su0A=
+
+Name: org/eclipse/papyrus/xwt/IXWTInitializer.class
+SHA1-Digest: 1t6d8EQLA9IMWJQi+bmx1A2PI70=
+
+Name: org/eclipse/papyrus/xwt/internal/utils/LoggerManager.class
+SHA1-Digest: qVnliV7r+dGWsiXOAde2tNiqupk=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$5.class
+SHA1-Digest: 2SoQwajxyjOmboGoMMZSGZr9A8g=
+
+Name: org/eclipse/papyrus/xwt/ILogger.class
+SHA1-Digest: bhaezDjr8iqsUahfQvp0ETcb8hk=
+
+Name: org/eclipse/papyrus/xwt/validation/InverseValidationRule.class
+SHA1-Digest: Wwki7QCMamPTSPr5/zBtJBaStyc=
+
+Name: org/eclipse/papyrus/xwt/ILoadingContext.class
+SHA1-Digest: 9ng/8zOCYldCNk9+StfrcWvvXmc=
+
+Name: org/eclipse/papyrus/xwt/core/SetterBase.class
+SHA1-Digest: AAkleLVH2mVdh5b6K0+6GRj9eFA=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$1$1.class
+SHA1-Digest: z34MUD2oPlPjx9xQiri+EOYypw4=
+
+Name: org/eclipse/papyrus/xwt/XWTLoader$3$1.class
+SHA1-Digest: 9kIzhbASLZbz4x5qpZp2AmX2jlQ=
+
+Name: org/eclipse/papyrus/xwt/jface/DefaultViewerLabelProvider.class
+SHA1-Digest: zEvFRiVRL5b8cy8+IvUMidvyzZM=
+
+Name: org/eclipse/papyrus/xwt/core/IRenderingContext.class
+SHA1-Digest: chILzB/J57iYeGHC21ciq81Rfvc=
+
+Name: org/eclipse/papyrus/xwt/IUIResource.class
+SHA1-Digest: XSlsI1xvUo/lAzMfWDuoYQJhckE=
+
+Name: org/eclipse/papyrus/xwt/jface/XWTTitleAreaDialog.class
+SHA1-Digest: ylSpKptK+n2rMgpicKEJ8jw9F1k=
+
+Name: org/eclipse/papyrus/xwt/internal/core/ScopeKeeper$ChangeListener
+ Support.class
+SHA1-Digest: PIxmgk7GmnPuqQ21i5n/7fAHiGw=
+
+Name: org/eclipse/papyrus/xwt/internal/databinding/menuitem/AbstractMe
+ nuItemObservableValue$1.class
+SHA1-Digest: 3mLj/J+EI/iqZJOew22QZQHewJQ=
+
+Name: org/eclipse/papyrus/xwt/core/EventTrigger$RunablePaintAction.cla
+ ss
+SHA1-Digest: q+wFSr6FLTkDJ2YzEvpnOBwta24=
+
+Name: org/eclipse/papyrus/xwt/collection/CollectionView.class
+SHA1-Digest: ai0ERHb0O8PgEafu2XBQ0Ybga3w=
+
+Name: org/eclipse/papyrus/xwt/converters/ObjectToObject.class
+SHA1-Digest: aq4vnwRffpF6DPU8ME9nvVnRmoU=
+
+Name: org/eclipse/papyrus/xwt/callback/IBeforeParsingCallback.class
+SHA1-Digest: yloCOOkNLdN3ZXx9mSiJ8NbslYk=
+

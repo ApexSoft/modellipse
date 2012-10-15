@@ -1,0 +1,191 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.diagram.wizards;singleton
+ :=true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.emf.edit.ui;bundle-version="2.4.0",org.eclipse.emf.ecore.
+ edit;bundle-version="2.4.0",org.eclipse.ui.intro;bundle-version="3.4.
+ 0",org.eclipse.core.runtime;bundle-version="3.7.0",org.eclipse.gmf.ru
+ ntime.notation;bundle-version="1.5.0",org.eclipse.emf.transaction;bun
+ dle-version="1.4.0",org.eclipse.papyrus.infra.widgets.toolbox;bundle-
+ version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.uml.diagram.wizards.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.diagram.wizards,org.eclipse.pa
+ pyrus.uml.diagram.wizards.category,org.eclipse.papyrus.uml.diagram.wi
+ zards.kind,org.eclipse.papyrus.uml.diagram.wizards.pages
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %pluginProvider
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/Messages.class
+SHA1-Digest: j/46kPJGysCF6JEwAz4hJfet+LI=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/CreateModelWizard$1.clas
+ s
+SHA1-Digest: gOkrEiY4hn6kL0zu1eRxmbhipmU=
+
+Name: schema/templates.exsd
+SHA1-Digest: Xkp9MMjJT3YTOx0Ncu5vrjCdiUs=
+
+Name: icons/papyrus/new_papyrus_model.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/kind/DiagramKindContentP
+ rovider$1.class
+SHA1-Digest: X+iRLM2atIdsgz2q9aD2QUHX51A=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/template/ModelTemplateDe
+ scription.class
+SHA1-Digest: H+jfZLWdXDLEvm4ejFQjOXyazaM=
+
+Name: plugin.properties
+SHA1-Digest: 70oiPeVt9S+5o4CijKsNxXa9O54=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/NewPapyrusProjectWizard.
+ class
+SHA1-Digest: FuH+P+FQ0m90/pi8a+mWyMBS/Eg=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/CreateModelWizard$DiReso
+ urceSetExt.class
+SHA1-Digest: O15TRWl0cDGqEQBUGzwBWENHiVc=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/NewModelFilePage.c
+ lass
+SHA1-Digest: Cy3oyv0MyycSPhDAcfxXv4H/ZLg=
+
+Name: messages.properties
+SHA1-Digest: T/soNNVlSZePk4PHhh1DUVFCT0s=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/CreateSeveralModelsWizar
+ d.class
+SHA1-Digest: o+XLurN8CKQjcsoBiTpXGSLblfg=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/template/InitFromTemplat
+ eCommand.class
+SHA1-Digest: RoX4zUh1vfRkLVQLs+sUoD3Ylvw=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectDiagramKindP
+ age$CategoryProvider.class
+SHA1-Digest: +U7Wuye/weIlCf66vZJFHUeLHGg=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectDiagramCateg
+ oryPage.class
+SHA1-Digest: slCraG5dJHCJ+EdNzawajsPNNls=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/InitDiagramAction.class
+SHA1-Digest: f0d97/6c8IwnmXk/EBYBPOyjo5o=
+
+Name: plugin.xml
+SHA1-Digest: oOMaXD/0ZDQUZrGXOCzOnkx2BDM=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/category/PapyrusModelFro
+ mExistingDomainModelCommand.class
+SHA1-Digest: SfaizTkQJf9lemkN/X7M+MJW1M0=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectRootElementP
+ age.class
+SHA1-Digest: lBp5O95rOJclr92b07JZlgk5H4w=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/NewProjectAction.class
+SHA1-Digest: C9m26zkzjyU5OtrqmY8RmbD6hA8=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/category/DiagramCategory
+ Descriptor.class
+SHA1-Digest: YBQkMC1wkMpe/yuVg9VHnseMYk4=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/InitModelWizard.class
+SHA1-Digest: F3G/IJRlIHPlnMXbPR7jZrBpR4M=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/SettingsHelper.class
+SHA1-Digest: gbQMXq1cTOJDpsWfwWu7EoVk/IQ=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectDiagramCateg
+ oryPage$1.class
+SHA1-Digest: 8NDTjGuYmF/Pd4fsONtXnE/QO44=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/category/NewPapyrusModel
+ Command.class
+SHA1-Digest: Lzd51Sr361HDMjdE/baM6hLKa2k=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/InitModelWizard$NewDiagr
+ amForExistingModelPage.class
+SHA1-Digest: FJ2XTVjW7x6crqC0E4+PhfxVLik=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/category/PapyrusModelFro
+ mExistingDomainModelCommand$1.class
+SHA1-Digest: QQR75rC+dajn/gbSNkzHDMVKRE0=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectRootElementP
+ age$1.class
+SHA1-Digest: HIvPJheNnXnhlmHNYCcPRpyTDFY=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectDiagramKindP
+ age.class
+SHA1-Digest: /FeE+kxSMkizYv0+5CMItMONavg=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/category/DiagramCategory
+ Registry.class
+SHA1-Digest: KHrpLBkz+xPHybuP/l73j0dS9lk=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/InitModelWizard$1.class
+SHA1-Digest: kBhnoEunydHtW4ZnlSGHtJ360E4=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/template/ModelTemplatesL
+ abelProvider.class
+SHA1-Digest: etCqCVviFcCesE+hoHkCoalfAqo=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/template/SelectModelTemp
+ lateComposite.class
+SHA1-Digest: zmwZILc7v1EaBOlT4N3537c05Rg=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/Activator.class
+SHA1-Digest: jsHFvTaV/UVbim9G46v366IbxQc=
+
+Name: icons/papyrus/Papyrus_16x16.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/utils/WizardsHelper.clas
+ s
+SHA1-Digest: tlVr9cq9QdkYkQFiNpY7lAx8GsE=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/CreateModelWizard.class
+SHA1-Digest: XhyxkbmveU0GNmUBEQ+wRrZAQAc=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/template/ModelTemplatesC
+ ontentProvider.class
+SHA1-Digest: RtaWari/1Y90lrP3an44/2rOt4I=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/kind/DiagramKindLabelPro
+ vider.class
+SHA1-Digest: SfBdOIynJ6x2bB6JIObrAS/Gst4=
+
+Name: icons/papyrus/new_papyrus_project.gif
+SHA1-Digest: QLUuPWjqm6Ec4OrU2lHIrbXrjkM=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/NewPapyrusProjectWithMul
+ tiModelsWizard.class
+SHA1-Digest: sF+7chssw46pVanigtxjiCE4H0U=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectDiagramKindP
+ age$1.class
+SHA1-Digest: efWaU/iN3ky+x30VboxYnD9TAps=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/pages/SelectDiagramKindP
+ age$2.class
+SHA1-Digest: nCigEEH5xbFsKtqaD1TeB/xDNg0=
+
+Name: org/eclipse/papyrus/uml/diagram/wizards/kind/DiagramKindContentP
+ rovider.class
+SHA1-Digest: zyyDPfnfOXdjktBWIqTW90cphmU=
+

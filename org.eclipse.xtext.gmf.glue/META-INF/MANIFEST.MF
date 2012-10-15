@@ -1,0 +1,218 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.xtext.gmf.glue;singleton:=true
+Bundle-Activator: org.eclipse.xtext.gmf.glue.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.em
+ f.common;bundle-version="2.5.0",org.eclipse.xtext;bundle-version="1.0
+ .1",org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.2.1";visibil
+ ity:=reexport,org.eclipse.ui.ide;bundle-version="3.5.0",org.eclipse.x
+ text.ui;bundle-version="0.8.0",org.eclipse.core.expressions;bundle-ve
+ rsion="3.4.100",org.eclipse.xtext.ui.shared;bundle-version="1.0.1",or
+ g.eclipse.papyrus.extensionpoints.editors;bundle-version="0.9.1",org.
+ eclipse.uml2.uml;bundle-version="3.1.0",org.eclipse.papyrus.infra.cor
+ e.sasheditor;bundle-version="0.9.1",org.eclipse.papyrus.editor;bundle
+ -version="0.9.1",org.eclipse.papyrus.infra.core;bundle-version="0.9.1
+ ",org.apache.log4j;bundle-version="1.2.15"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.xtext.gmf.glue,org.eclipse.xtext.gmf.glue.
+ concurrency,org.eclipse.xtext.gmf.glue.contentassist,org.eclipse.xtex
+ t.gmf.glue.edit.part,org.eclipse.xtext.gmf.glue.editingdomain,org.ecl
+ ipse.xtext.gmf.glue.partialEditing
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: Eclipse Modeling Project
+Bundle-ActivationPolicy: lazy
+Bundle-Name: XText GMF Glue (Incubation)
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/CustomXtextSourceViewe
+ r.class
+SHA1-Digest: CyA/PPK7VNfkDyZu6fnKW0+NG6U=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/EditingDomainAdapter$Fact
+ ory.class
+SHA1-Digest: pVY9gcwAAQ03GNgA4hj3aimUvjk=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/XtextNodeModelReconcile
+ r.class
+SHA1-Digest: ABNEzuycs207zFxbnQHgjYKXbG8=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/IActionContributor$Com
+ positeImpl.class
+SHA1-Digest: JhNeTJED5nOV1psU0oWtihsSLt8=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/ConcurrentModificationObs
+ erver$Initializer.class
+SHA1-Digest: YfIOQJymNPM+B1qyzfW9ASK2j40=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/UpdateXtextResourceText
+ Command.class
+SHA1-Digest: xC+LgvGZBIJ3Bc1pNFLRoK2w1Hg=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/StringUtil.class
+SHA1-Digest: CbvP3wXwX68zHTgJ1TNLmcg/sJw=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorHelper.clas
+ s
+SHA1-Digest: wjciHaCGYitp2jVQ3NkqS2Qpebo=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/SourceViewerHandleFact
+ ory$2.class
+SHA1-Digest: /X+8vqzCp4Sf2MO+NwXEtAP1nfw=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/SemanticRootUnloadListe
+ ner.class
+SHA1-Digest: E51MNnyWk6zxAAkQyuwFYNeFFIk=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/HighlightingReconciler
+ .class
+SHA1-Digest: gvY/dOHpXh3H+O9xsmU+QEBZbtU=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/ConcurrentModificationObs
+ erver$Initializer$1.class
+SHA1-Digest: 3OH1u1T3qbJTJV4o7o78i102TcQ=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/IPartialContentAssistP
+ arser.class
+SHA1-Digest: JcwXX8KK2HcmoXW7bPjdvYGN6Ag=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/EditingDomainAdapter$Dial
+ ogPrompter.class
+SHA1-Digest: K96F3XxVPg5WS57MsridEEuTbvg=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/UpdateXtextResourceText
+ Command$1.class
+SHA1-Digest: Ga1r0uVBzQHUHMOzvDqZ0hbk0kw=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorHelper$1.cl
+ ass
+SHA1-Digest: NvQFdR76XKy4RTv8BLrFu1lK/0Q=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorHelper$3.cl
+ ass
+SHA1-Digest: 4KhmiLUyKDjycTPVjZZjEdZYXB4=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorHelper$5.cl
+ ass
+SHA1-Digest: cAkd1QHKifgF9IiF3kpucFqwG/w=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/IXTextSemanticValidator.cla
+ ss
+SHA1-Digest: E4Iz5X+UA2g+cD089rG4JrW1+qA=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/OperationHistoryListen
+ er.class
+SHA1-Digest: 6MjkvdJvPKkVpB2JpofMkzSt7UM=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/AntlrParserWrapper.class
+SHA1-Digest: vaPYVProkVqg8oV0SrvY3bMGDF0=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorKeyListener
+ $1.class
+SHA1-Digest: YpfUCN4kjyJA2GcEhVVeQmG+1eA=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/EditingDomainAdapter.clas
+ s
+SHA1-Digest: IbV6N6yeyg11XtqTq+y9tn9vIYM=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/SourceViewerHandle.cla
+ ss
+SHA1-Digest: MEukZflsPeEX8zGG9nCpMVgVsJs=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/ISyntheticResourceProv
+ ider.class
+SHA1-Digest: mLbMGZz4GqdiVvgKeYAEpg2JdKg=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/IActionContributor.cla
+ ss
+SHA1-Digest: swEQzx/O0UIgUY0mkE9bdUI82Gk=
+
+Name: org/eclipse/xtext/gmf/glue/Activator.class
+SHA1-Digest: W2yj8uDOfjIZg+zolqmSx1GQUAs=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/SourceViewerHandleFact
+ ory.class
+SHA1-Digest: bGvJzfhXGy8z/EmmSqVLC+QciFI=
+
+Name: org/eclipse/xtext/gmf/glue/PopupEditorConfiguration.class
+SHA1-Digest: zzO5FQvm3pGrMCXkTy416Vrsf1Y=
+
+Name: plugin.xml
+SHA1-Digest: oBJwAaRbmzdj0vcJfTH9tPOmE0w=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/SourceViewerHandleFact
+ ory$1.class
+SHA1-Digest: 1fLU/pMVOPbLME69qIa4PxElgUk=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/SyntheticResourceProvi
+ der.class
+SHA1-Digest: cPNVzsqG5TxWyJac7NCAWhMVY2k=
+
+Name: org/eclipse/xtext/gmf/glue/contentassist/CustomCompletionProposa
+ l.class
+SHA1-Digest: Ii/iwkbVVxxTRysZmLT0tarI0W8=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/PartialModelEditor.cla
+ ss
+SHA1-Digest: NOYzlXFjtSjEwcMl2OA7dBqBrPo=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/IXtextEMFReconciler.class
+SHA1-Digest: GO/T9zpHUAllOuirOm39jDoEBNM=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/DefaultXtextSemanticValidat
+ or.class
+SHA1-Digest: UeugTZwMcafT7s1ii/bSLWQ+7Qk=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/UpdateXtextResourceText
+ Command$2.class
+SHA1-Digest: pCl3M+jP/AbOLPKNRlKNtWMIuqg=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/SimpleDirtyResource.class
+SHA1-Digest: uZTwi6XTbqHg5ebQx0lQ2+opbQM=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/HighlightingHelper.cla
+ ss
+SHA1-Digest: IvQB2q+GyZUfP5cr3bsNWYPoUhg=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/PartialContentAssistCo
+ ntextFactory.class
+SHA1-Digest: 9rsoiocMELkjaAqpQNYwzrZjcEY=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorHelper$2.cl
+ ass
+SHA1-Digest: HHkBb2hZ+VWkcacBCYEN6tTKKXg=
+
+Name: org/eclipse/xtext/gmf/glue/contentassist/CompletionProposalUtils
+ .class
+SHA1-Digest: AYI/cyDRbGpNIJ4ysDnthN3XFho=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorKeyListener
+ .class
+SHA1-Digest: jyGb/E2wEIdCd0JBBLtnnPHGO/o=
+
+Name: org/eclipse/xtext/gmf/glue/edit/part/PopupXtextEditorHelper$4.cl
+ ass
+SHA1-Digest: yiOPk5+cVjDIAhe1RE9cumSzR1o=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/SemanticRootUnloadListe
+ ner$1.class
+SHA1-Digest: 07fiPmbPrFGSpuaRZ3ZuB9a6E3k=
+
+Name: org/eclipse/xtext/gmf/glue/partialEditing/HighlightingReconciler
+ $1.class
+SHA1-Digest: exurG5Xq5cbwjIlT6x7agnTt0ok=
+
+Name: org/eclipse/xtext/gmf/glue/concurrency/ConcurrentModificationObs
+ erver.class
+SHA1-Digest: H0YYcJAOimxNDSkCW/J9650ePdw=
+
+Name: org/eclipse/xtext/gmf/glue/editingdomain/ChangeAggregatorAdapter
+ .class
+SHA1-Digest: znxGUeHz2M/U2IfvF38mmawJ0/4=
+

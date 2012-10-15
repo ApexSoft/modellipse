@@ -1,0 +1,122 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.textedit.parameter.xtext.
+ ui;singleton:=true
+Bundle-Activator: org.eclipse.papyrus.uml.textedit.parameter.xtext.ui.
+ internal.UmlParameterActivator
+Require-Bundle: org.eclipse.papyrus.uml.textedit.parameter.xtext;bundl
+ e-version="0.9.1";visibility:=reexport,org.eclipse.xtext.ui,org.eclip
+ se.ui.editors;bundle-version="3.5.0",org.eclipse.ui.ide;bundle-versio
+ n="3.5.0",org.eclipse.xtext.ui.shared,org.eclipse.ui,org.eclipse.xtex
+ t.builder,org.antlr.runtime,org.eclipse.papyrus.extensionpoints.edito
+ rs;bundle-version="0.9.1",org.eclipse.xtext.gmf.glue;bundle-version="
+ 0.9.0",org.eclipse.papyrus.infra.services.edit;bundle-version="0.9.1"
+ ,org.eclipse.papyrus.uml.tools.utils;bundle-version="0.9.1",org.eclip
+ se.papyrus.uml.textedit.common.xtext;bundle-version="0.9.1",org.eclip
+ se.papyrus.uml.textedit.common.xtext.ui;bundle-version="0.9.1",org.ec
+ lipse.papyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.papyr
+ us.infra.gmfdiag.commands;bundle-version="0.9.1",org.apache.log4j;bun
+ dle-version="1.2.15",org.eclipse.uml2.uml
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.textedit.parameter.xtext.ui.co
+ ntentassist.antlr
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contribution
+ s/ParameterPopupEditor.class
+SHA1-Digest: mWQTT+9Hax6CanGrFKVDYFvetno=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/internal/InternalUmlParameterParser.class
+SHA1-Digest: OUD4LmyWxASUPKURGJpTb4ZLdms=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/quickfix/Uml
+ ParameterQuickfixProvider.class
+SHA1-Digest: 0UWjELb7/XoSw9C/tfQVega9PVw=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/UmlParameterParser.class
+SHA1-Digest: +ANVkiqii+a0SHVq8KXP4wwh6HA=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/UmlParameterProposalProvider.class
+SHA1-Digest: xNNzOTttJEA29cQ3ScQAJMlT5sc=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/AbstractUmlParameterProposalProvider.class
+SHA1-Digest: KV/YjeWce5CNhwzg0kGuDmc9+lw=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contribution
+ s/ParameterPopupEditor$1.class
+SHA1-Digest: e35RA3XY6/QjHJInrUKC+LaFEAQ=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/internal/InternalUmlParameter.tokens
+SHA1-Digest: xYRyOZV7D0d2dFjb8l8F39WCMQI=
+
+Name: plugin.properties
+SHA1-Digest: F/przQAMf/QDK7w8rNQPDK5stys=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/UmlParameter
+ ExecutableExtensionFactory.class
+SHA1-Digest: Gfnd/AIEbtwfcckQr4X3f8fGpnA=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/labeling/Uml
+ ParameterDescriptionLabelProvider.class
+SHA1-Digest: KN0rA7PTSwG15Te6JgJVzAySdQo=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/internal/Uml
+ ParameterActivator.class
+SHA1-Digest: ZTp1ElzdyXrrrdakFXsJYSA4XB0=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/labeling/Uml
+ ParameterLabelProvider.class
+SHA1-Digest: 4yF7kFeSlQ4mZy7+CVUocMHZ0XE=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contribution
+ s/UMLParameterEditorUtil.class
+SHA1-Digest: URfee3teWiQlYoxjOmfLYUf0Kw4=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/UmlParameterParser$1.class
+SHA1-Digest: Hn+4SQOFn1rOG3BOXdDgnckiewM=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/internal/InternalUmlParameter.g
+SHA1-Digest: D/rY1B9VLttP2/AXZwihUFhVJdY=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/internal/InternalUmlParameterLexer$DFA12.class
+SHA1-Digest: RncBpgX6i5oM9y2nE2w11imiNLo=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/UmlParameter
+ UiModule.class
+SHA1-Digest: 4AnwR2JWYsLT4wnxdZsCkSodXgM=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/AbstractUmlP
+ arameterUiModule.class
+SHA1-Digest: vQQgkHHGfd5mR/y0KSvdH2ULfHA=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/contentassis
+ t/antlr/internal/InternalUmlParameterLexer.class
+SHA1-Digest: SHN++kp85BPBl3usD1Ls61smWE8=
+
+Name: plugin.xml
+SHA1-Digest: Z6vopHtEeSIxIBdMOwCPUQiecXY=
+
+Name: org/eclipse/papyrus/uml/textedit/parameter/xtext/ui/outline/UmlP
+ arameterOutlineTreeProvider.class
+SHA1-Digest: iEqUScN5VBy2w6w9K4fW8C2PPxw=
+

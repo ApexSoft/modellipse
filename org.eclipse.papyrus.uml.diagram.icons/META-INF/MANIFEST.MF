@@ -1,0 +1,714 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.diagram.icons;singleton:=
+ true
+Bundle-Activator: org.eclipse.papyrus.uml.diagram.icons.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIconWithF
+ rame_48x48-32.bmp
+SHA1-Digest: opGeRN7Sug47W0uLCj/v3JJhjyM=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_48x48-
+ 32.gif
+SHA1-Digest: OnQaRaKbYJhqDPbLv7Kl+VmOHOI=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_16
+ x16-32.gif
+SHA1-Digest: o5X/RGK3uUPb6Bp+kFL9AO79aKk=
+
+Name: resource/obj16/Diagram_Activity.gif
+SHA1-Digest: NJLnEJzz1dT4w6AnYV71ETvTnc4=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_32
+ x32-32.bmp
+SHA1-Digest: 3fv1oqtXfA7o1cpYpUMXLWGUmkk=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_128x128-32.gif
+SHA1-Digest: chhyx5mH+7RvhWCfBxEUfKFvh/k=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_16x16-32.gif
+SHA1-Digest: evxhje4U8EXt3547xrJ0wkbQZ6Y=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIconWithF
+ rame_32x32-32.bmp
+SHA1-Digest: Augzagw3bx46efa7wywB1+3ozas=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_128x12
+ 8-32.bmp
+SHA1-Digest: FG3wWOlv+82eko1DdX30Uy7U+cc=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_32x32-32.bmp
+SHA1-Digest: wIL4UXUUpUINASzXGjHb2r1VFSM=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIconWithFra
+ me_16x16-32.bmp
+SHA1-Digest: g015drDOtwg3X/4pEpjQEQsuQU0=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIconWit
+ hFrame_48x48-32.bmp
+SHA1-Digest: 4FSXeo6DCvrPijGOv9f/SJaahB4=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIconWithFrame.icns
+SHA1-Digest: 0VVaE97FdHIclG2ri/mwHDu0pYU=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_128x
+ 128-32.bmp
+SHA1-Digest: HHrkBQqu8FOnvmOTIU8AbW7NdqY=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon.icns
+SHA1-Digest: ODLxgrmCmVRzPz9+ajNctBpLngQ=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_16x16-32
+ .bmp
+SHA1-Digest: F1ttTh1Pu+j+PfFfaWXEv4JBJcM=
+
+Name: resource/obj16/Diagram_Communication.gif
+SHA1-Digest: svhx4OdzXQ4q8KrgSozPMIox5yU=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_48x4
+ 8-32.gif
+SHA1-Digest: vGCEc+OjqlrI0RZCvD4IO5eyaqg=
+
+Name: resource/obj16/Diagram_UseCase.gif
+SHA1-Digest: QZx4WnOPFhinvtYpdNIXkLNRdIE=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_128x
+ 128-32.bmp
+SHA1-Digest: lYvpM5LB6wvlOfLL0/MAzdn5h1I=
+
+Name: resource/RequirementDiagramEditorIcons/RequirementDiagramEditorI
+ con.ico
+SHA1-Digest: AHm/BFFrwCJUXW3fhZe1wKA8Msw=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_48x48-32.bmp
+SHA1-Digest: z/53QheJLi1OSjqOjVelzT0qidE=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ nsWithFrame_128x128-32.bmp
+SHA1-Digest: kc3ElYqSHQnnzEo//sZMjvU6rQE=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 32x32-32.gif
+SHA1-Digest: QoXjnkPTnuvIfsnBIED0iEjWbQs=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIconW
+ ithFrame_32x32-32.bmp
+SHA1-Digest: KH9sqS+/6yHhIbzrV/KZhH8tNhQ=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_16x16-32.gif
+SHA1-Digest: DjMBr9QsH4fXvqjH537zYlKh+as=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_32x32-32.bmp
+SHA1-Digest: FrmQx8F3wWc/6vkB8kjGpSmn/3s=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_4
+ 8x48-32.bmp
+SHA1-Digest: LwvduTNByYPiajWGPbUPdq5E5O4=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIconWithFrame_16x16-32.bmp
+SHA1-Digest: fNWpsFjzh6Fq4piWGpef3HxHMzM=
+
+Name: resource/obj16/Diagram_CompositeStructure.gif
+SHA1-Digest: 3g8/ulkVeaAQPyumnb7mBHkx5Uc=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIconWithFrame
+ _16x16-32.bmp
+SHA1-Digest: xkW6Rqllyh9ylom9OFPRAXSmiGQ=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_16x16-32.bmp
+SHA1-Digest: OqsPg3s/WaRb1QAyAyT+DrcFs2Q=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_48
+ x48-32.bmp
+SHA1-Digest: NU/YmdkRQknwOxTjvoEt2W8mp4c=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_16x1
+ 6-32.gif
+SHA1-Digest: qI5lqy+/UJ3kX4ShcrdeaG6C0HI=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIconWithFrame_32x32-32.bmp
+SHA1-Digest: kAqxSv8T/gI/ido23TK3kQEn3G0=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIconWithF
+ rame_48x48-32.bmp
+SHA1-Digest: CCO0DFblnKQzLrvE0jAufoM/7sI=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_32x3
+ 2-32.bmp
+SHA1-Digest: 2UEwma0f2hePDSXrD1VjWc8aMcQ=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_48x48-32.bmp
+SHA1-Digest: dpykxsZLVFNa+X5RCvz1D/Idfvs=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_128x128-32.gif
+SHA1-Digest: jbABUmTj5iVnZnT+yhkgXtLxONc=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIconWithF
+ rame_128x128-32.bmp
+SHA1-Digest: 1N1n78FOsa4wZrVKdpm641BPeGQ=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_128x
+ 128-32.gif
+SHA1-Digest: X3lLcRMCNXdZhAAbzGtAHbTif90=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIconWithFrame_128x128-32.bmp
+SHA1-Digest: 0qwlbgv8UxHqDge0I0Dtt8IWB2g=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIconWithFra
+ me.icns
+SHA1-Digest: F4jgCBoHY7NsQvIvLOmvEED/LQs=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_128x128-
+ 32.bmp
+SHA1-Digest: HlLOXM3ln96ZzLjP9iWJGYpBjp4=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon.icns
+SHA1-Digest: 2r78l3F0d+tR21hsM8E4YV3E/jQ=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_32x32-32.gif
+SHA1-Digest: WgOWG3ykEAA1oJPdDxfEIxML2xw=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 48x48-32.gif
+SHA1-Digest: qscg6lfRock4+nJm1aVyAy0lvLI=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 128x128-32.bmp
+SHA1-Digest: hUR3fpksV68HkqNbpLPNyy/0mdY=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIconW
+ ithFrame_48x48-32.bmp
+SHA1-Digest: pGk3cuA5mV7YsONgXIShw26SI7k=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_3
+ 2x32-32.gif
+SHA1-Digest: JcYdsquIbnOHoOyClYfneReFoiA=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_48x48-32.bmp
+SHA1-Digest: XN6V8II+CRqt4/ySVTkaAKTke5E=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIconWithFrame.icns
+SHA1-Digest: QC1ZqXj564D150QJwkS6gGy6Pwg=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_32
+ x32-32.gif
+SHA1-Digest: Y+7N3aKq777dkHa5wa++3VwOKNo=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIconWithFrame
+ .icns
+SHA1-Digest: GHibbjd6P2CCi8CbQDpzWYg7cOE=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_128x12
+ 8-32.gif
+SHA1-Digest: HefmfRlvf2l109DPTqzUZrd3Q8A=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_32x32-32.gif
+SHA1-Digest: XBniXYoliI5txkPZHm1BXfpATFU=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIconWithFrame_48x48-32.bmp
+SHA1-Digest: RH6ixnZLCWv6hFv2kOPnCO/0oXk=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_48x4
+ 8-32.bmp
+SHA1-Digest: S71o44zMlgAa6GIbgZdRoeuKlG0=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIconWithFra
+ me_32x32-32.bmp
+SHA1-Digest: ppCCuCduPQURM00eyvea5gbF1i8=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIconWithFrame_16x16-32.bmp
+SHA1-Digest: DZzGGo265FrOXp9/cLsprP2ztgc=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon.icns
+SHA1-Digest: Tmwt5QWU1x2FcSnWrpugMxkLUfI=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIconWithFrame_128x128-32.bmp
+SHA1-Digest: Tu2H38C1A2E2YTrH/1TxpU2HjJE=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_128x
+ 128-32.gif
+SHA1-Digest: Tu7PFmss6C9kW4sq+PiyNjHL+TA=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_16x1
+ 6-32.bmp
+SHA1-Digest: sKf7o+SL99KdiEO9X2JYXDucv2c=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_16x16-32
+ .gif
+SHA1-Digest: Kqt+ns0wjaC3F0pLA6qgPys31Uo=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramEditorIconWit
+ hFrame_128x128-32.bmp
+SHA1-Digest: wVDHI1nwTgBkmAh6q8vhVYPv75E=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_32x32-32
+ .bmp
+SHA1-Digest: 8u7A8xEXCKbD+4SECHXrsuxxhvw=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_128x
+ 128-32.gif
+SHA1-Digest: QHPsXhTnBbasO5LJsw+5h6yVS44=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_48x48-32.gif
+SHA1-Digest: uC70qm3MugCSe1wYiqUdCa3c9Yo=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_32x32-32.gif
+SHA1-Digest: 2ZNXlOCyn6aEcCWoPmk8Eh5Rcuc=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_4
+ 8x48-32.gif
+SHA1-Digest: cb7N5hmzf9lZ/puosMTTdzsSRSw=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIconWithFrame_32x32-32.bmp
+SHA1-Digest: kKpnnENrjHNu6YAmWxPWPpwXQNY=
+
+Name: resource/obj16/Diagram_Profile.gif
+SHA1-Digest: 8BiBdUMmWxz2Q5XPL2taSnPZVsQ=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_1
+ 28x128-32.bmp
+SHA1-Digest: YfJnknrhxgo6qJ9H6KgQd2iGt58=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIconWithFrame
+ _32x32-32.bmp
+SHA1-Digest: gi/5IWdBmaNbmTlJ9UVeQaZrihA=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_16x16-32.gif
+SHA1-Digest: pANtpLv4hZCUBXOtkbSJJUVNUMc=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_48
+ x48-32.gif
+SHA1-Digest: oEzoX+wMcSyLrrPXg3pLtDgxy6k=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_16x16-
+ 32.bmp
+SHA1-Digest: SKeqkFgb9ZSGGqkd1/i88NVBtPY=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_32x32-32.bmp
+SHA1-Digest: OHqS5OxU7JZpIhPre1X35cv+nRk=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_32x3
+ 2-32.gif
+SHA1-Digest: qioGHOQXdLhVyszjs8frIWx3XG4=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_48x48-32.gif
+SHA1-Digest: CotnFb50ja6M+oiKxyTXnIAh7WY=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_12
+ 8x128-32.bmp
+SHA1-Digest: cd/zWKeyZgLFL5ogv4+7X+TiZkY=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIconWithFra
+ me_48x48-32.bmp
+SHA1-Digest: VYcbN7ZKl8eJ03g5gGu5fT+IjjM=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramEditorIconWit
+ hFrame_16x16-32.bmp
+SHA1-Digest: t1aMBpBpbjYlcS1c3iwpe48pqr0=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIconWithFrame.icns
+SHA1-Digest: GGjJUPg2CB8GOhkbSwbkYo6K40s=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_48x48-32
+ .bmp
+SHA1-Digest: mCtA/Cj5eVdM4Uj7l7shUR6LFcw=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon.icns
+SHA1-Digest: XUxF6m8Q/50qEiz8kLRwdh/6olY=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_128x128-
+ 32.gif
+SHA1-Digest: 1uWX/y5fExevIkNyt+nmVh9LH6U=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_16x1
+ 6-32.bmp
+SHA1-Digest: F50Z+evi0ilFn89cWMGgPmbs4MY=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ nsWithFrame_16x16-32.bmp
+SHA1-Digest: 1UNQhQ9KBWIgjeASsj4r7nk+gs8=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 128x128-32.gif
+SHA1-Digest: e6EUZIUKDvjcTIm3rX9DUYmtAtI=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_48x48-32.gif
+SHA1-Digest: fyQZ+k3Qh9WPBhckdcVlf+uWClw=
+
+Name: resource/obj16/Diagram_Package.gif
+SHA1-Digest: qyycLKPadpuGApmtzWXQSfKYjAU=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIconWithFrame_48x48-32.bmp
+SHA1-Digest: r3gYiLA/rCQUznZB+ZqYZSMBEJ8=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIconWithFrame
+ _48x48-32.bmp
+SHA1-Digest: z8ALXV680DqzJCljIR0VFoq2RV4=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIconWithFrame
+ _128x128-32.bmp
+SHA1-Digest: tnoNKW0nS+GziPK70ZOo2GfyOV8=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_48x48-32.bmp
+SHA1-Digest: A4xswe6d9wse2O1SupOqN5MP6Mk=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIconWithF
+ rame_128x128-32.bmp
+SHA1-Digest: qGCQubgZhXO+VzdeaBkKIOpyLPI=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_48x4
+ 8-32.gif
+SHA1-Digest: lWQUf4C4wyTdZzdg9rVRi7xK7W0=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_16x1
+ 6-32.gif
+SHA1-Digest: Q+dZzB6CsjkjqRJ9QHgCR8AJZP0=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon.icns
+SHA1-Digest: VvFhcfrkN70rq6j+AnoRP8zX6tQ=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIconWithFrame_32x32-32.bmp
+SHA1-Digest: rf88y3ez3ACoPThsBUN0CkP3VHQ=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_32x3
+ 2-32.bmp
+SHA1-Digest: xD9k14l0o5/03xB+fS82DbrEGrU=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIconWit
+ hFrame_128x128-32.bmp
+SHA1-Digest: 6JmvSypSotIGIZNrELoqB3pkpa0=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_32x32-32
+ .gif
+SHA1-Digest: Vaobd/6C2s1sS02q9ZkGdk/bu0k=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramEditorIconWit
+ hFrame.icns
+SHA1-Digest: 9mPJN6QKkaMvxdVKfb94Jwg7+ak=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon.icns
+SHA1-Digest: xLCnev6YQsJJSBUKkYWKOwq0sRA=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_128x128-32.bmp
+SHA1-Digest: BXzXI3XpAFcXto0SH1rCAuUM/7s=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ nsWithFrame.icns
+SHA1-Digest: dcm8+mny6DbcIpVefxGabgzHmQk=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 16x16-32.bmp
+SHA1-Digest: HCVD+ALmrwSE4sPzMcPI1HCKBuw=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_1
+ 28x128-32.gif
+SHA1-Digest: eGjLjFRlam2pUfQAdB/GeCq/Z8A=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIconWithF
+ rame_16x16-32.bmp
+SHA1-Digest: pnW/8h0y3tapT1RDBkyu/nfuIPM=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_16x16-
+ 32.gif
+SHA1-Digest: ltVGaQwsSdV6h4fPRs0Zco56KEs=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_32x32-32.gif
+SHA1-Digest: fYRDvJGKV9wa+jnVB9MC5LMsDMk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_32x32-
+ 32.bmp
+SHA1-Digest: AKh+eowLsUelH637zRBTnZ6T8h8=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_12
+ 8x128-32.gif
+SHA1-Digest: EpZaVc8IvvpOOyGMpELoiUYCXTM=
+
+Name: org/eclipse/papyrus/uml/diagram/icons/Activator.class
+SHA1-Digest: wphrLEiAGtOr5JD1AFvCuXiJA2A=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIconWithFrame_48x48-32.bmp
+SHA1-Digest: uLiHOa6P5cbjEE9LKKKltIEkuVY=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIconWit
+ hFrame_16x16-32.bmp
+SHA1-Digest: UZS+ce+5Gesw/4yVacYEaR0PRfk=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramEditorIconWit
+ hFrame_32x32-32.bmp
+SHA1-Digest: snJkvLZiaWyyz24d2WOUK4DC9+s=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_48x4
+ 8-32.bmp
+SHA1-Digest: uFBPLvqmoAE3KCas4ShGOtRSZUQ=
+
+Name: resource/ClassDiagramEditorIcons/ClassDiagramEditorIcon_48x48-32
+ .gif
+SHA1-Digest: 6mC4s9+0HUJzEeohgX0TyH1I9Bc=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_16x1
+ 6-32.gif
+SHA1-Digest: 8M4wUJ0mrl4C7YdX3CHUBXoCWJs=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_32x3
+ 2-32.bmp
+SHA1-Digest: IQ5AyJ/S1X/0XMc1+PZaIeTQ7NY=
+
+Name: resource/obj16/Diagram_Class.gif
+SHA1-Digest: eW67A/2xOMpxtSDf50JwOqMD1tI=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_16x16-32.bmp
+SHA1-Digest: yt+DE/tXFuLYlzyz8UWEhpCyUF8=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ nsWithFrame_32x32-32.bmp
+SHA1-Digest: /uMz+WqDp4K9u/Zpmo79kixHP3w=
+
+Name: resource/obj16/Diagram_Component.gif
+SHA1-Digest: PazbwvInk+kugQ3qDbKrP8dfnPg=
+
+Name: resource/obj16/Diagram_Sequence.gif
+SHA1-Digest: XhXze2P/O+0NL4e2xouM0jB/+TI=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon.
+ icns
+SHA1-Digest: DekotCLrTBIw4A/QewlNg3kwaH4=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIconW
+ ithFrame_128x128-32.bmp
+SHA1-Digest: gDVMOzYVoxpALzH65PrTJvZCkAs=
+
+Name: resource/obj16/Diagram_Deployment.gif
+SHA1-Digest: U9OiHzxewOE22WI7CRuv2OBEf00=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_1
+ 6x16-32.bmp
+SHA1-Digest: 9VKfT+HExrFS4DyXCrytBEPYqsQ=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_128x128-32.bmp
+SHA1-Digest: IpRUT++bBOBZWgpvZxO+923FrYU=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIconWithFrame_128x128-32.bmp
+SHA1-Digest: lpQF1EsWJpAFs1DqzXD+BcWyqMM=
+
+Name: resource/obj16/Diagram_Timing.gif
+SHA1-Digest: 9eDZsIz+zU9yHA/c8kN+Bsvtguw=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_48x48-32.gif
+SHA1-Digest: /LL1SsaluAGB4r1yWwOJB9ToHw8=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_48x48-
+ 32.bmp
+SHA1-Digest: yWE3itEtZRomlqND0g7NCb7eApU=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon_16
+ x16-32.bmp
+SHA1-Digest: hgmNVRotZ3n9KuN0ZwSA+awK5q8=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIconWithF
+ rame_16x16-32.bmp
+SHA1-Digest: IXBm3tR2/QEQ5YPKUxxKG7QveRs=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIconWithF
+ rame.icns
+SHA1-Digest: yxSDJrDjGKmo3QSKG8ju9samX7g=
+
+Name: resource/StatemachineDiagramEditorIcons/StatemachineDiagramEdito
+ rIcon_128x128-32.bmp
+SHA1-Digest: BgHreTM8aDzqyRkUGwl2m6S4qyY=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_16x16-32.bmp
+SHA1-Digest: i7WFoptbUoN6ijxjIh3eWpQlxBU=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_32x3
+ 2-32.gif
+SHA1-Digest: G7KWwNHAJjiKJADzSQmMOm/Vjy8=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramEditorIconWit
+ hFrame_48x48-32.bmp
+SHA1-Digest: NJwPUWr1QCOI0MOVJJ7iNwicBsY=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIconWit
+ hFrame.icns
+SHA1-Digest: OTmUJH8J7+uKamcSHkErnouP8uE=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_48x4
+ 8-32.bmp
+SHA1-Digest: kXRgj53DVmRrqoNf6M9oaAmCRqw=
+
+Name: plugin.properties
+SHA1-Digest: ydrCOKg4YA3RC0OcA7HHT3KNThc=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_128x128-32.gif
+SHA1-Digest: JhT+Bdd2y1O1wYCqVGopX3TxDsQ=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ nsWithFrame_48x48-32.bmp
+SHA1-Digest: DLJsV29fKPBiXxOfVyZXU4RMQ8o=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon.icns
+SHA1-Digest: wNwsMBgH0ZdHE0eeM47uw99sgrQ=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 16x16-32.gif
+SHA1-Digest: O8wVM9luJS5yUPq1RVobfuAYZ6g=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 32x32-32.bmp
+SHA1-Digest: rhRvYvPx2rChCiBaZWaFGdfDU8U=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIconW
+ ithFrame_16x16-32.bmp
+SHA1-Digest: 2wvnXEagvu3NIpLXDNF3jHfX2jI=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_16x16-32.bmp
+SHA1-Digest: Ue+yVMxaWDXf4o5EChleZwJDACA=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon.i
+ cns
+SHA1-Digest: RiVCq2RR3lOXPWd6kuMEd1dgcrM=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIconWithF
+ rame_32x32-32.bmp
+SHA1-Digest: t8Wf9yRsY4slohdxft+r8xr65nY=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIcon_32x32-
+ 32.gif
+SHA1-Digest: wGzJInIAjnqRZKjsVvBrlBlBENM=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIconWithFrame_16x16-32.bmp
+SHA1-Digest: pWcvhkz2S1uBaphEO0+aKN8/mS8=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIcon_16x1
+ 6-32.bmp
+SHA1-Digest: qwaquWpNtnsbUH38xz27ANENGfs=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_48x4
+ 8-32.gif
+SHA1-Digest: gfn4YxyJNhgn7wCbJIb7FlpPqt8=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIconWit
+ hFrame_32x32-32.bmp
+SHA1-Digest: F3cCnjADVuTGqDUKo8iLI/3t24Q=
+
+Name: resource/SequenceDiagramEditorIcons/SequenceDiagramEditorIcon.ic
+ ns
+SHA1-Digest: KVaPYDw74ywZtN6oxUeqy0v9cWc=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon_128x128-32.bmp
+SHA1-Digest: FRd2pSPHPp6g+sjXgGougkx0VyI=
+
+Name: resource/PackageDiagramEditorIcons/PackageDiagramEditorIconWithF
+ rame.icns
+SHA1-Digest: xN4wBTdDi8/vr2Ms79UtPssLUo0=
+
+Name: resource/TimingDiagramEditorIcons/TimingDiagramEditorIconWithFra
+ me_128x128-32.bmp
+SHA1-Digest: JcUIik8BRj84F38J/HfdU+NvWTA=
+
+Name: resource/CommunicationDiagramEditorIcons/CommunicationDiagramEdi
+ torIcon.icns
+SHA1-Digest: a/5zfRVsQbpmOgyMpgJ39pMgEtI=
+
+Name: resource/UseCaseDiagramEditorIcons/UseCaseDiagramEditorIcon_128x
+ 128-32.bmp
+SHA1-Digest: B1re2jeHwOHAtDLdjWcEP+W+gvU=
+
+Name: resource/obj16/Diagram_StateMachine.gif
+SHA1-Digest: 26pFBjtzLSpAEf6KpHPX2Tgl/ss=
+
+Name: resource/ProfileDiagramEditorIcons/ProfileDiagramEditorIcon_32x3
+ 2-32.gif
+SHA1-Digest: 9NVAypXAJ/kiLuUB0BYNaZfi87o=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_16x16-32.gif
+SHA1-Digest: Tp41J8a+7RsNTuxC5FmGqfIQDa0=
+
+Name: resource/CompositeStructureDiagramEditorIcons/CompositeDiagramEd
+ itorIcon_32x32-32.bmp
+SHA1-Digest: tqx4OZQqvEmSpPx3+5rRqYU99aM=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIcon_
+ 48x48-32.bmp
+SHA1-Digest: Q2XRt4GfR9M+/RTS2InIAicQNGI=
+
+Name: resource/ComponentDiagramEditorIcons/ComponentDiagramEditorIconW
+ ithFrame.icns
+SHA1-Digest: 9bsGy4t/VJVGU/OmrJLAW6H4AsA=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_1
+ 6x16-32.gif
+SHA1-Digest: JOSGYwE7hG6EWlFAp2QCUyM76u8=
+
+Name: resource/ActivityDiagramEditorIcons/ActivityDiagramDiagramIcon_3
+ 2x32-32.bmp
+SHA1-Digest: G1rrKRGcHIoHaH6xaeGUvMpOuJc=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns_128x128-32.gif
+SHA1-Digest: TluvHR7K2oQskPOMPwkcPHvbL1k=
+
+Name: resource/DeploymentDiagramEditorIcons/DeploymentDiagramEditorIco
+ ns.icns
+SHA1-Digest: utQa67mk6EHvKTnKUpEg/+W4Nqg=
+

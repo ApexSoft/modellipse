@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+   <extension-point id="nestedEditor" name="NestedEditor" schema="schema/nestedEditor.exsd"/>
+   <extension-point id="initializeView" name="initializeView" schema="schema/initializeView.exsd"/>
+
+   <extension point="org.eclipse.team.core.fileTypes">
+      <?gmfgen generated="true"?>
+      <fileTypes
+         type="text"
+         extension="umlclass_diagram">
+      </fileTypes>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <?gmfgen generated="true"?>
+      <parser
+         type="umlclass_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+
+<extension
+      point="org.eclipse.papyrus.infra.core.papyrusDiagram">
+   <editorContext
+         contextClass="org.eclipse.papyrus.infra.gmfdiag.common.GmfEditorContext"
+         id="com.cea.papyrus.gmf.editor.context">
+   </editorContext>
+   </extension>
+<extension
+      point="org.eclipse.ui.handlers">
+   <handler
+         class="org.eclipse.papyrus.infra.gmfdiag.common.handler.RefreshHandler"
+         commandId="org.eclipse.ui.file.refresh">
+      <activeWhen>
+         <with
+               variable="activePartId">
+            <equals
+                  value="org.eclipse.papyrus.infra.core.papyrusEditor">
+            </equals>
+         </with>
+      </activeWhen>
+   </handler>
+</extension>
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         allPopups="false"
+         locationURI="toolbar:org.eclipes.papyrus.menu.toolbar">
+      <command
+            commandId="org.eclipse.ui.file.refresh"
+            icon="icons/refresh.gif"
+            label="Refresh"
+            style="push"
+            tooltip="Refresh the current diagram">
+         <visibleWhen
+               checkEnabled="false">
+            <with
+                  variable="activeEditorId">
+               <equals
+                     value="org.eclipse.papyrus.infra.core.papyrusEditor">
+               </equals>
+            </with>
+         </visibleWhen>
+      </command>
+   </menuContribution>
+</extension>
+<extension
+      point="org.eclipse.ui.preferencePages">
+   <page
+         category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+         class="org.eclipse.papyrus.infra.gmfdiag.common.preferences.ConnectionToolPreferencePage"
+         id="org.eclipse.papyrus.infra.gmfdiag.common.connectionTools"
+         name="Connection Tools">
+   </page>
+</extension>
+<extension
+      point="org.eclipse.core.runtime.preferences">
+   <initializer
+         class="org.eclipse.papyrus.infra.gmfdiag.common.preferences.ConnectionToolPreferenceInitializer">
+   </initializer>
+</extension>
+<extension
+      point="org.eclipse.core.runtime.adapters">
+   <factory
+         adaptableType="org.eclipse.gef.EditPart"
+         class="org.eclipse.papyrus.infra.gmfdiag.common.adapter.EditPartAdapterFactory">
+      <adapter
+            type="org.eclipse.emf.ecore.EObject">
+      </adapter>
+   </factory>
+</extension>
+
+
+
+
+
+
+</plugin>

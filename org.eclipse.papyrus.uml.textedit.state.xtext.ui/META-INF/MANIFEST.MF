@@ -1,0 +1,123 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.textedit.state.xtext.ui;s
+ ingleton:=true
+Bundle-Activator: org.eclipse.papyrus.uml.textedit.state.xtext.ui.inte
+ rnal.UmlStateActivator
+Require-Bundle: org.eclipse.papyrus.uml.textedit.state.xtext;bundle-ve
+ rsion="0.9.1",org.eclipse.xtext.ui,org.eclipse.ui.editors;bundle-vers
+ ion="3.5.0",org.eclipse.ui.ide;bundle-version="3.5.0",org.eclipse.xte
+ xt.ui.shared,org.eclipse.ui,org.antlr.runtime,org.eclipse.xtext.build
+ er,org.eclipse.uml2.uml;bundle-version="3.1.0",org.eclipse.core.expre
+ ssions;bundle-version="3.4.200",org.eclipse.papyrus.extensionpoints.e
+ ditors;bundle-version="0.9.1",org.eclipse.gmf.runtime.diagram.ui;bund
+ le-version="1.4.0",org.eclipse.papyrus.infra.core;bundle-version="0.9
+ .1",org.eclipse.xtext.gmf.glue;bundle-version="0.9.0",org.apache.log4
+ j;bundle-version="1.2.15"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.textedit.state.xtext.ui.conten
+ tassist.antlr
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/internal/InternalUmlStateParser.class
+SHA1-Digest: X0H0hfUH38Zc8SHPzD+HNYLwCSY=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/quickfix/UmlStat
+ eQuickfixProvider.class
+SHA1-Digest: sNrTnmFTUHFIdaP4CyjuYoP40wU=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contributions/St
+ atePopupEditorConfigurationContribution$1.class
+SHA1-Digest: KSkAo5XtMGvFsRQ+vf24HMFb96o=
+
+Name: plugin.properties
+SHA1-Digest: 9W0FnHR98cG07MpjARopnoQL43E=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contributions/St
+ atePopupEditorConfigurationContribution$BehaviorRole_Local.class
+SHA1-Digest: ngFQ7TOuqxAKEynKn92sRmfzX8Q=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/labeling/UmlStat
+ eLabelProvider.class
+SHA1-Digest: ZzekLdxPzhxt6yatv+/a/FrxbIE=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/internal/InternalUmlStateLexer$DFA12.class
+SHA1-Digest: RwgRg0SQJq5tweiq+o0Q0OPNa8I=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/UmlStateParser.class
+SHA1-Digest: j9C2zNShXTbH+d9qcdHh12COPtw=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/Um
+ lStateProposalProvider.class
+SHA1-Digest: Ir1yUKYUIZL7Ovsz7SVu7Srmt4A=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/internal/InternalUmlStateLexer.class
+SHA1-Digest: u4uHWzOCidIh6RF4oBAcvAxxbos=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/Ab
+ stractUmlStateProposalProvider.class
+SHA1-Digest: mSGaXHTwSbEAf+psNQPgHdeVQc8=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contributions/St
+ atePopupEditorConfigurationContribution$UpdateUMLStateCommand.class
+SHA1-Digest: hh/Ct/cE6TIXn6niNnP7JLc3iXM=
+
+Name: plugin.xml
+SHA1-Digest: ryWGPjy17vlIXbBrzgjRtnFbV+8=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/UmlStateParser$1.class
+SHA1-Digest: QKFd4BdFmFt5IuIOAM6UJi9Ereg=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/UmlStateUiModule
+ .class
+SHA1-Digest: bFr7ryo7WEN259GSlf5qgesrHy4=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/AbstractUmlState
+ UiModule.class
+SHA1-Digest: 7hFFA6zNce/TAKHgb0aKWobzoSQ=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/internal/InternalUmlState.tokens
+SHA1-Digest: +0FoaSkBKUOl42G1l9wmZRU2Gys=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/labeling/UmlStat
+ eDescriptionLabelProvider.class
+SHA1-Digest: NOAxvtVah/iNHy+M2GU/yNlsjdk=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/outline/UmlState
+ OutlineTreeProvider.class
+SHA1-Digest: o+rk9fi2kgVAfZS8Vlij9sz5QOc=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/internal/UmlStat
+ eActivator.class
+SHA1-Digest: ucGN4uJAsbYI4VXSZLcC7nyXOQo=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contentassist/an
+ tlr/internal/InternalUmlState.g
+SHA1-Digest: al1Ml3hjaq692cWZgf1YgSvXNxY=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/contributions/St
+ atePopupEditorConfigurationContribution.class
+SHA1-Digest: LSpadSML9MKG9azPO9UC84dpm5U=
+
+Name: org/eclipse/papyrus/uml/textedit/state/xtext/ui/UmlStateExecutab
+ leExtensionFactory.class
+SHA1-Digest: r0BEksb4vOBYUnjEtEmo+HWCGB4=
+

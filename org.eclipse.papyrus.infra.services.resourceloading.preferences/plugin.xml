@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.papyrus.infra.services.resourceloading.preferences.CorePreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+      		category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.infra.services.resourceloading.preferences.LoadingStrategyPreferencePage"
+            id="org.eclipse.papyrus.infra.services.resourceloading.preferences.ModelLoadingPreferencePage"
+            name="Model loading">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.services.resourceloading.currentStrategyChooser">
+      <CurrentStrategyChooser
+            chooser="org.eclipse.papyrus.infra.services.resourceloading.preferences.StrategyChooser">
+      </CurrentStrategyChooser>
+   </extension>
+
+</plugin>

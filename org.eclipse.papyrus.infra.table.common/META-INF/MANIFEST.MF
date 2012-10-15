@@ -1,0 +1,205 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.table.common;singleton:
+ =true
+Require-Bundle: org.eclipse.emf.facet.widgets.nattable.instance,org.ec
+ lipse.emf.facet.widgets.nattable,org.eclipse.papyrus.infra.widgets;bu
+ ndle-version="0.9.1",org.eclipse.papyrus.views.properties;bundle-vers
+ ion="0.9.1",org.eclipse.emf.databinding;bundle-version="1.2.0",org.ec
+ lipse.papyrus.infra.table.instance;bundle-version="0.9.1",org.eclipse
+ .emf.facet.infra.query.core;bundle-version="0.1.0",org.eclipse.emf.fa
+ cet.infra.query.editor;bundle-version="0.1.0",org.eclipse.emf.facet.q
+ uery.java;bundle-version="0.1.0",org.eclipse.emf.facet.infra.common.c
+ ore;bundle-version="0.1.0",org.eclipse.papyrus.infra.services.edit;bu
+ ndle-version="0.9.1",org.eclipse.papyrus.infra.gmfdiag.commands;bundl
+ e-version="0.9.1",net.sourceforge.nattable.core;bundle-version="2.1.0
+ ",org.eclipse.emf.facet.infra.facet.core,org.eclipse.papyrus.infra.em
+ f;bundle-version="0.9.1",org.eclipse.papyrus.uml.tools;bundle-version
+ ="0.9.1",org.eclipse.core.runtime;bundle-version="3.8.0",org.eclipse.
+ emf.transaction;bundle-version="1.4.0",org.eclipse.gmf.runtime.common
+ .core;bundle-version="1.4.1",org.eclipse.gmf.runtime.emf.type.core;bu
+ ndle-version="1.4.0",org.eclipse.uml2.uml;bundle-version="4.0.0",org.
+ eclipse.papyrus.infra.hyperlink;bundle-version="0.9.1",org.eclipse.pa
+ pyrus.infra.core;bundle-version="0.9.1",org.eclipse.emf.facet.util.em
+ f.core;bundle-version="0.2.0"
+Bundle-Activator: org.eclipse.papyrus.infra.table.common.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.table.common,org.eclipse.pap
+ yrus.infra.table.common.dialog,org.eclipse.papyrus.infra.table.common
+ .editor,org.eclipse.papyrus.infra.table.common.factory,org.eclipse.pa
+ pyrus.infra.table.common.handlers,org.eclipse.papyrus.infra.table.com
+ mon.messages,org.eclipse.papyrus.infra.table.common.modelresource,org
+ .eclipse.papyrus.infra.table.common.util
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/table/common/listener/AbstractSynchron
+ izedTableTriggerListener.class
+SHA1-Digest: kMOsKue+KG/Rn4EgiDpC4djhje8=
+
+Name: org/eclipse/papyrus/infra/table/common/Activator.class
+SHA1-Digest: g5fKsxs0ipZt+N3kLGg5XrH4Yco=
+
+Name: org/eclipse/papyrus/infra/table/common/editor/AbstractNattableEd
+ itor$PartNameSynchronizer.class
+SHA1-Digest: N2zgA7aD+lcr5tA2Fkp126ktJBI=
+
+Name: org/eclipse/papyrus/infra/table/common/util/QueryRepresentation.
+ class
+SHA1-Digest: 6JPHE8W3aYzcZsOuzmBZ1Jd/a54=
+
+Name: org/eclipse/papyrus/infra/table/common/messages/messages.propert
+ ies
+SHA1-Digest: AXDR5+YNj/qbJOPVIDcrZ0F+u9c=
+
+Name: org/eclipse/papyrus/infra/table/common/listener/TableTriggerList
+ ener.class
+SHA1-Digest: z0q/3bowtPq78T0ZM9A5VBWCRJI=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/NatTableEditor$1
+ .class
+SHA1-Digest: ZRSrSDOUj93OVvt+5nQs/OWtg3M=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/NatTableEditor$2
+ .class
+SHA1-Digest: kLr+n2G6CS+ysC0NUNakzq0LVHQ=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/NatTableEditor$3
+ .class
+SHA1-Digest: 89sQyJCa/fkOVLENNBKNAjMBofc=
+
+Name: plugin.properties
+SHA1-Digest: ddXGJ5PbA39rP/SjpK//aVvXOUA=
+
+Name: org/eclipse/papyrus/infra/table/common/listener/AbstractSynchron
+ izedTableTriggerListener$1.class
+SHA1-Digest: RLtXFI/XYlxaKOLNjNxS3QCCK3I=
+
+Name: org/eclipse/papyrus/infra/table/common/listener/AbstractSynchron
+ izedTableTriggerListener$2.class
+SHA1-Digest: Lik9A/4EpPzbf2bR3HvGDZBi86s=
+
+Name: org/eclipse/papyrus/infra/table/common/listener/ModelTriggerList
+ ener.class
+SHA1-Digest: brDV4V3Q7gvvc5+htqzqIEO8Ct8=
+
+Name: org/eclipse/papyrus/infra/table/common/hyperlink/HyperLinkTableC
+ onstants.class
+SHA1-Digest: Qy808m09np5/vvaGtniBqlJ5kyc=
+
+Name: org/eclipse/papyrus/infra/table/common/handlers/CreateNewElement
+ ContributionItem.class
+SHA1-Digest: gZq5zr1N8mmlvPtO6RiL9YpWz3E=
+
+Name: icons/table.png
+SHA1-Digest: dBX/oav9UCvrwnEWOY2DukEVvco=
+
+Name: org/eclipse/papyrus/infra/table/common/editor/AbstractNattableEd
+ itor$PartNameSynchronizer$1.class
+SHA1-Digest: HoXYtConD4piHfX/QP2FLePSnfA=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/NatTableEditor$C
+ ontextLabelConverter.class
+SHA1-Digest: 1lpWi/uSDnwTp/xjjliak6y43ws=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/PapyrusNatTableW
+ idget.class
+SHA1-Digest: LQpfo5jcC0mt3DkzdimlLNhQLfE=
+
+Name: icons/table_green.png
+SHA1-Digest: Dksrtnks6p3fjcizXxwlaNKvLMo=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/NatTableEditor$1
+ $1.class
+SHA1-Digest: OPngmSV22KuveElqGqGd/F4uKb4=
+
+Name: resources/table_Ecore_hideEAnnotationFeature.uiCustom
+SHA1-Digest: +rf0ELDwx+IVpxoBCk64thovfK8=
+
+Name: plugin.xml
+SHA1-Digest: pHcJBqjDuEKYHD4gsol7tp/aIRo=
+
+Name: org/eclipse/papyrus/infra/table/common/modelresource/EMFFacetNat
+ tableModel.class
+SHA1-Digest: W2izCazdjG+poYcmyOMJGVpQ/kw=
+
+Name: org/eclipse/papyrus/infra/table/common/dialog/TwoInputDialog.cla
+ ss
+SHA1-Digest: FOvZ5rD4y1AVO9XgKyT1n03DE50=
+
+Name: org/eclipse/papyrus/infra/table/common/modelresource/PapyrusNatt
+ ableModel.class
+SHA1-Digest: cw78mFTUQT6GB/KDquqsqpl1CB0=
+
+Name: org/eclipse/papyrus/infra/table/common/handlers/CreateNewElement
+ ContributionItem$1.class
+SHA1-Digest: y/TdRN07BmrtRvkcv8kCSgtSIIQ=
+
+Name: org/eclipse/papyrus/infra/table/common/hyperlink/HyperLinkTableE
+ ditor.class
+SHA1-Digest: 3PBvk2IYlhdjPEnSsdsvg4z/+IM=
+
+Name: org/eclipse/papyrus/infra/table/common/messages/Messages.class
+SHA1-Digest: waqBvtxIEL+Ismsx9VOkGK9jG0k=
+
+Name: org/eclipse/papyrus/infra/table/common/factory/PapyrusCommandFac
+ tory.class
+SHA1-Digest: zyvYKGHXcM/TksWKiUqAPM5Z1Tw=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/IPapyrusNatTable
+ Widget.class
+SHA1-Digest: TIb2CQHGq3FcOKUp27lB3FX9vPY=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/table/common/factory/AbstractNattableE
+ ditorFactory$NattableEditorModel.class
+SHA1-Digest: b0PL9jwqZCiFeFNY7fJNbl/Gt8o=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/table/common/hyperlink/HyperLinkTableE
+ ditorHelper.class
+SHA1-Digest: UxQGMVIsRROOnVbFJuiS7jVhV3s=
+
+Name: icons/table.gif
+SHA1-Digest: 5sswQTiyRrUqbfxCKAM7S9QSEus=
+
+Name: org/eclipse/papyrus/infra/table/common/handlers/AbstractCreateNa
+ ttableEditorCommand.class
+SHA1-Digest: IJE7DxP3SU9gi0dVg9CfE9NhHDw=
+
+Name: org/eclipse/papyrus/infra/table/common/editor/AbstractNattableEd
+ itor.class
+SHA1-Digest: VMcAajg8Dvj9UerCZtNddYaOayE=
+
+Name: org/eclipse/papyrus/infra/table/common/hyperlink/CreateHyperLink
+ TableCommand.class
+SHA1-Digest: fiRxxP+DZ0vmfh6iWi7pNvNL8NY=
+
+Name: icons/table_green.gif
+SHA1-Digest: b5nT28ndQdgJ4LwieE8Fr6ExeT4=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/TableEditorInput
+ .class
+SHA1-Digest: kP9/gBmhUzGm+er7s3Kt6HcBLpA=
+
+Name: org/eclipse/papyrus/infra/table/common/factory/AbstractNattableE
+ ditorFactory.class
+SHA1-Digest: tQhWzo/KXBuiyzBpZh9MpkkrHeI=
+
+Name: org/eclipse/papyrus/infra/table/common/handlers/AbstractCreateNa
+ ttableEditorCommand$1.class
+SHA1-Digest: ECxd+1YkniswZk4oyI73V7jpS7A=
+
+Name: org/eclipse/papyrus/infra/table/common/internal/NatTableEditor.c
+ lass
+SHA1-Digest: zb4S6KXRkyY7ZZid5XIYB6osOck=
+

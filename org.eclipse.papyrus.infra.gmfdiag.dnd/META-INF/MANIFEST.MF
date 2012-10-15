@@ -1,0 +1,128 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.gmfdiag.dnd;singleton:=
+ true
+Bundle-Activator: org.eclipse.papyrus.infra.gmfdiag.dnd.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.gmf.runtime.d
+ iagram.ui;bundle-version="1.5.0",org.eclipse.papyrus.infra.gmfdiag.co
+ mmon;bundle-version="0.9.1",org.eclipse.papyrus.infra.emf;bundle-vers
+ ion="0.9.1",org.eclipse.papyrus.infra.gmfdiag.commands;bundle-version
+ ="0.9.1",org.eclipse.papyrus.uml.service.types;bundle-version="0.9.1"
+ ,org.eclipse.papyrus.infra.services.edit;bundle-version="0.9.1",org.e
+ clipse.papyrus.infra.widgets;bundle-version="0.9.1",org.eclipse.core.
+ databinding;bundle-version="1.4.1"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.gmfdiag.dnd.policy,org.eclip
+ se.papyrus.infra.gmfdiag.dnd.strategy
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: Eclipse Modeling Project
+Bundle-ActivationPolicy: lazy
+Bundle-Name: Customizable Drag and Drop (Incubation)
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DropStrategyEd
+ itor$1.class
+SHA1-Digest: V+Z+TNYogF1ohIgRtflqa0FNW0s=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DropStrategyEd
+ itor$2.class
+SHA1-Digest: 8TH2eUmPOkcEfmtY0JM78MrSC0w=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DropStrategyEd
+ itor$3.class
+SHA1-Digest: 4Jk/369rCFIqyaIzYqUSnU2xJjM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/DropStrategy.clas
+ s
+SHA1-Digest: jZXzfLhyBT+N47OXWiPNdsdBoMY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/AbstractDropStrat
+ egy.class
+SHA1-Digest: pHixd3t41SGQTHcn/7SevMGNOoQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DropStrategyEd
+ itor$DropStrategyObservableList.class
+SHA1-Digest: /43CtN6gW9kaDz9DYHMOSSrA5o4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/TransactionalDrop
+ Strategy$1.class
+SHA1-Digest: znfYymWQb5GAD2ifnTT6jGyPdZY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DNDPreferences
+ Page.class
+SHA1-Digest: LqkQ6qmxXPwJckqV86vOq8Jwdv4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/ServiceEditDropSt
+ rategy.class
+SHA1-Digest: lCriU/X5kAEAzPzMccmkR9vkFJA=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/SetValueDropStrat
+ egy.class
+SHA1-Digest: WN6SeI+AgE0khlaPgxab3lyV0w8=
+
+Name: plugin.xml
+SHA1-Digest: rscvzKc0oDzS0naBY8i+Bwof4N0=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/policy/DropStrategyManager
+ .class
+SHA1-Digest: 1LZ5lGnlmlXU+TTwGtBa5jC5ecw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DNDPreferences
+ .class
+SHA1-Digest: J7RpCY/pSPJCHjt7yWPpeaQvdWw=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/policy/DropStrategyManager
+ $1.class
+SHA1-Digest: ikvtUiW/3OsKRXv0cimbsaCh/JU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/policy/CustomizableDropEdi
+ tPolicy.class
+SHA1-Digest: HJ8MvrWf8iP9oLaL0HOJ/mmrMkA=
+
+Name: about.html
+SHA1-Digest: INBopOQiELASMNzeqt0bQiHmDZk=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DropStrategyLa
+ belProvider.class
+SHA1-Digest: 86Y1MXk+P/N8oEQdbL8KNTGf9OU=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/preferences/DropStrategyEd
+ itor.class
+SHA1-Digest: ppeP5mKtkRQ3E75CuPutQC7m1HM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/DefaultDropStrate
+ gy.class
+SHA1-Digest: AagiOAPmePeqsFU6q+QWYyJaXWE=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/MoveDropStrategy.
+ class
+SHA1-Digest: Tf/UzqtxxwpQU3yBluHMOBXAX9I=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/policy/CustomizableDropEdi
+ tPolicy$1.class
+SHA1-Digest: hSnJ2DYYAlgYR/5DbPn+EzuHUSo=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/policy/CustomizableDropEdi
+ tPolicy$2.class
+SHA1-Digest: hTe48ZDhaF8jzdaIayPn0ltTCxg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/policy/CustomizableDropEdi
+ tPolicyProvider.class
+SHA1-Digest: hJdVguCLpCgSdULIOXvkEZoT15E=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/Activator.class
+SHA1-Digest: Ih5c0WV+Ga9PXDU9qt07hLzHbp0=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/CompositeDropStra
+ tegy.class
+SHA1-Digest: Xw9kyZ/6f1BqcVw43opML90QjsY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/dnd/strategy/TransactionalDrop
+ Strategy.class
+SHA1-Digest: z46ntCHWidCHdrivYTYZ1X1ljE8=
+

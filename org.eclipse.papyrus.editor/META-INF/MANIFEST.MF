@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.editor;singleton:=true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.emf.transaction;bundle-version="1.4.0",org.eclipse.gmf.ru
+ ntime.notation;bundle-version="1.5.0",org.eclipse.gmf.runtime.diagram
+ .ui;bundle-version="1.5.0"
+Bundle-Activator: org.eclipse.papyrus.editor.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.editor
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/editor/PapyrusMultiDiagramEditor.class
+SHA1-Digest: x18OZ507c4hE2zDY4szA6MKDjtY=
+
+Name: org/eclipse/papyrus/editor/commands/RenameNestedEditorCommand.cl
+ ass
+SHA1-Digest: +LbfBLoBC5yB+WMEbAWRgZFpkw8=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: icons/papyrus/Papyrus_16x16.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/editor/PapyrusActionBarContributor.class
+SHA1-Digest: Iv6O1Y8IbhRz3tYQG/HR3XHH6TI=
+
+Name: org/eclipse/papyrus/editor/Activator.class
+SHA1-Digest: quJnvrI4BoDun2Apnf2ELgOINas=
+
+Name: org/eclipse/papyrus/editor/PapyrusMatchingStrategy.class
+SHA1-Digest: ZwLFbtb6N+kulCnFeaDLBbNsC1o=
+
+Name: plugin.xml
+SHA1-Digest: ngdEYwHdTmjHnP7aYPRSKrHzdI0=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: plugin.properties
+SHA1-Digest: HYjXumUWbszTKEIdqSlDuUrQPl8=
+
+Name: org/eclipse/papyrus/editor/commands/RenameNestedEditorCommand$1.
+ class
+SHA1-Digest: UsSbsugaEuX06CME1mSK06n75DY=
+

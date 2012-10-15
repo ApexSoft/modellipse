@@ -1,0 +1,216 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.queries.core.configurat
+ ion.edit;singleton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.papyrus.infra.que
+ ries.core.configuration;bundle-version="0.9.1";visibility:=reexport,o
+ rg.eclipse.emf.edit;visibility:=reexport,org.eclipse.emf.ecore;visibi
+ lity:=reexport,org.eclipse.emf.ecore.edit;visibility:=reexport,org.ec
+ lipse.emf.facet.infra.query;visibility:=reexport,org.eclipse.emf.face
+ t.infra.query.edit;visibility:=reexport,org.eclipse.uml2.uml;visibili
+ ty:=reexport,org.eclipse.uml2.uml.edit;visibility:=reexport
+Bundle-Activator: org.eclipse.papyrus.infra.queries.core.configuration
+ .provider.ConfigurationEditPlugin$Implementation
+Export-Package: org.eclipse.papyrus.infra.queries.core.configuration.p
+ rovider
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Du
+ ration.gif
+SHA1-Digest: janS7PuCo4yAQhrYx9Kx7XBdzT0=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Ex
+ pression.gif
+SHA1-Digest: skHxtpH1a/3XigPylwywjmqaJ8I=
+
+Name: icons/full/ctool16/CreateModiscoQueryConfiguration_parameterValu
+ es_ConstantParameterValue.gif
+SHA1-Digest: qaRMOh2Sthv8KR1Q6jOeF54Ed10=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Op
+ aqueExpression.gif
+SHA1-Digest: skHxtpH1a/3XigPylwywjmqaJ8I=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_LiteralNul
+ l.gif
+SHA1-Digest: w9X5YEJn3wQ5xkd4Ajgk8O8Z+EE=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_LiteralUnl
+ imitedNatural.gif
+SHA1-Digest: lAbMuBwQIyqCagkIq2liu7V4FTU=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_InstanceVa
+ lue.gif
+SHA1-Digest: m/sRyb229qHDa0jmsoQIdIXZt0A=
+
+Name: icons/full/obj16/ParameterValue.gif
+SHA1-Digest: k6QiLCZYrVmMJ6A2ZM7y663F7w0=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Ti
+ meInterval.gif
+SHA1-Digest: LMnJcyuWpW4V7cKlsVbeAsUnE1E=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Pa
+ rameterValueItemProvider.class
+SHA1-Digest: QgJddFYq6kYV2NyvtfwkQi9DA+Y=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Li
+ teralString.gif
+SHA1-Digest: qCnU1PPhs0YTAbSE7PUa22MmjGs=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_DurationIn
+ terval.gif
+SHA1-Digest: X4ewmpCGg4elKs4pZPi88swE+Hw=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_LiteralBoo
+ lean.gif
+SHA1-Digest: OQL6uRmHSxaKqJDqcSBSWcLsgDA=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Ti
+ meExpression.gif
+SHA1-Digest: +BDNjkq54oakQBf8Z8YxZZU2rWU=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_In
+ terval.gif
+SHA1-Digest: DawLJAg+8fNeV2JV1AaN+f0XnLA=
+
+Name: icons/full/ctool16/CreateModiscoQueryConfiguration_parameterValu
+ es_QueryExecutionValue.gif
+SHA1-Digest: 1T2VAYhXAvkkOI0PmzJpEQdBNhI=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_StringExpr
+ ession.gif
+SHA1-Digest: ODkKNGv6qavXdLbzmS6Sc3kIIZ8=
+
+Name: icons/full/obj16/QueryExecutionValue.gif
+SHA1-Digest: iNVc3fEIjB2HS0NQ8OuRztfxmsU=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_LiteralInt
+ eger.gif
+SHA1-Digest: jepl+dTnmg1Fz4odLxaFOVSsKt8=
+
+Name: icons/full/ctool16/CreateModiscoQueryConfiguration_parameterValu
+ es_ParameterValue.gif
+SHA1-Digest: Amr3qpJctkNlinyovBQslz4xl20=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_Duration.g
+ if
+SHA1-Digest: llUOU+GADXMbeehmIIXb/upLBdQ=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Qu
+ eryExecutionValueItemProvider.class
+SHA1-Digest: afADnIS1yy2ObMQmPAwkYctgXoc=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_Expression
+ .gif
+SHA1-Digest: TMwcHhXsvLsloRLcY07jnn3r99g=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_OpaqueExpr
+ ession.gif
+SHA1-Digest: TMwcHhXsvLsloRLcY07jnn3r99g=
+
+Name: plugin.properties
+SHA1-Digest: ndqrmf+qdVbEdUQiXOUNX9QwgRQ=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Co
+ nfigurationEditPlugin.class
+SHA1-Digest: +JFqnXS+y5iy9mY264aVBJNOMjY=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Li
+ teralNull.gif
+SHA1-Digest: ymSDvATQsHgzLH8XAEct2sSACGU=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Li
+ teralUnlimitedNatural.gif
+SHA1-Digest: wo/7WcSjGyn5SyoilNsSILWyF3c=
+
+Name: icons/full/obj16/ListParameterValue.gif
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_In
+ stanceValue.gif
+SHA1-Digest: kvfYiwpvKtlMRXvJ9RzY2+Pxt6s=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_LiteralStr
+ ing.gif
+SHA1-Digest: JJWe+VoujVBPFRpp7iYLvdoxFvA=
+
+Name: plugin.xml
+SHA1-Digest: 53/paR89Yo1kWl0jFT5a5Emkooo=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Li
+ stParameterValueItemProvider.class
+SHA1-Digest: klR/e0MLgnnJQceNi150KeSHuAk=
+
+Name: icons/full/obj16/ModiscoQueryConfiguration.gif
+SHA1-Digest: 5ktZWQ9vFuge0K5ogYbfqW5JfNk=
+
+Name: icons/full/obj16/ConstantParameterValue.gif
+SHA1-Digest: 5ktZWQ9vFuge0K5ogYbfqW5JfNk=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_TimeInterv
+ al.gif
+SHA1-Digest: SDl+WJpCuy8415hw8BESCDDCBr8=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Co
+ nstantParameterValueItemProvider.class
+SHA1-Digest: /n0axkHpz/GJJwXzaShJSjFZ3BE=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Qu
+ eryConfigurationItemProvider.class
+SHA1-Digest: jKwIjGe8cWL1eZhpNJ/psk0uogk=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Du
+ rationInterval.gif
+SHA1-Digest: Ex/jFb+tZBQKRcguoXUHPKypyKE=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Li
+ teralBoolean.gif
+SHA1-Digest: 38+7mWzvbN98fZf7xmRwm5I+X6o=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Mo
+ discoQueryConfigurationItemProvider.class
+SHA1-Digest: JQaSY7kEYs914vZRImY9jZFGSrY=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_St
+ ringExpression.gif
+SHA1-Digest: DawLJAg+8fNeV2JV1AaN+f0XnLA=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_Interval.g
+ if
+SHA1-Digest: ODkKNGv6qavXdLbzmS6Sc3kIIZ8=
+
+Name: icons/full/ctool16/CreateParameterValue_valueInstance_TimeExpres
+ sion.gif
+SHA1-Digest: DMXTVJNbkK4tb4CHtxDGxCdFYEM=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Co
+ nfigurationEditPlugin$Implementation.class
+SHA1-Digest: 29f0dqclxybdHEmvlrXpQHCM1JM=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/provider/Co
+ nfigurationItemProviderAdapterFactory.class
+SHA1-Digest: j6/WGebGtixbiV60mTd14O7qXZQ=
+
+Name: icons/full/ctool16/CreateConstantParameterValue_valueInstance_Li
+ teralInteger.gif
+SHA1-Digest: NARNggPje+zqF9Xn97R9AlTFv5c=
+
+Name: icons/full/ctool16/CreateModiscoQueryConfiguration_parameterValu
+ es_ListParameterValue.gif
+SHA1-Digest: Z4JyURR0/blzaY/UEj5LBL38S60=
+

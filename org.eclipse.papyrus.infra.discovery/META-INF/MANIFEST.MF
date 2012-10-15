@@ -1,0 +1,115 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.discovery;singleton:=tr
+ ue
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",org.ec
+ lipse.emf.ecore;bundle-version="2.8.0";visibility:=reexport
+Bundle-Activator: org.eclipse.papyrus.infra.discovery.Activator$Implem
+ entation
+Export-Package: org.eclipse.papyrus.infra.discovery,org.eclipse.papyru
+ s.infra.discovery.impl,org.eclipse.papyrus.infra.discovery.util
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/discovery/DiscoveryDefinition.class
+SHA1-Digest: 7kvcIplnFRqWFZQ56i2Q1qzqH+c=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/GroupImpl.class
+SHA1-Digest: G0VS6pPCDHV+o8vIC0HahZHL2rE=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/MessageImpl.class
+SHA1-Digest: OwZevTBTwCdHSKcmhJSqo+ru3Wo=
+
+Name: plugin.properties
+SHA1-Digest: 3U7odXtNcOyO833/F1rjB2o8WpM=
+
+Name: org/eclipse/papyrus/infra/discovery/DiscoveryPackage$Literals.cl
+ ass
+SHA1-Digest: JaRir9m4cwVkktzcQsVQtGBwCy0=
+
+Name: plugin.xml
+SHA1-Digest: 0rQ9DbATYHCdS/hSH/8Oq6Sha0I=
+
+Name: org/eclipse/papyrus/infra/discovery/Group.class
+SHA1-Digest: yFls4JGP/hdEmAf3pVaHIBHVDgQ=
+
+Name: model/discovery.ecore
+SHA1-Digest: KE+Fi8OHoY0wEJwhUjsM0ScAKZc=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/DiscoveryPackageImpl.cl
+ ass
+SHA1-Digest: cUkpbImZ6GQcgG1he+s3s1LSLTw=
+
+Name: org/eclipse/papyrus/infra/discovery/Message.class
+SHA1-Digest: PjT05eXovYTWD2UFMx50H1YpD3s=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/DiscoveryDefinitionImpl
+ .class
+SHA1-Digest: 9EMRthZ0m8F+Wx/ODjGSPs1OldA=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/OverviewImpl.class
+SHA1-Digest: MSmYEaZEyxWc+H2fUwLFkSTciG8=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/DiscoveryFactoryImpl.cl
+ ass
+SHA1-Digest: XH5RbZX5Afq/UZ9R1dyszGxui2Y=
+
+Name: org/eclipse/papyrus/infra/discovery/DiscoveryPackage.class
+SHA1-Digest: ZwIcQxdSiHu/R/LMpa7G3Zd6rvc=
+
+Name: org/eclipse/papyrus/infra/discovery/util/DiscoverySwitch.class
+SHA1-Digest: pb3fAfeFD1Ms3UA8sm2toLA+lrY=
+
+Name: about.html
+SHA1-Digest: X2o3XdUsmEVEXLId47fxtZKgoAo=
+
+Name: org/eclipse/papyrus/infra/discovery/Overview.class
+SHA1-Digest: +BIN4y63ZzxekA5cw8+gBrwAJr0=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/CategoryImpl.class
+SHA1-Digest: mPBgXW9XWUpRHnqfYt8jqGLBj+g=
+
+Name: org/eclipse/papyrus/infra/discovery/DiscoveryFactory.class
+SHA1-Digest: XDBbpwUx2UlKcz+ujEXAdPqM7hs=
+
+Name: org/eclipse/papyrus/infra/discovery/Severity.class
+SHA1-Digest: reObRzQ/DNAFP0dKM+rlcfkn8cA=
+
+Name: org/eclipse/papyrus/infra/discovery/Category.class
+SHA1-Digest: /UZPowwgXztGCXQeFNPOEKlqziw=
+
+Name: org/eclipse/papyrus/infra/discovery/util/DiscoveryAdapterFactory
+ .class
+SHA1-Digest: eqxyAsL/5VSjixxV0CIDQjWGZJ8=
+
+Name: org/eclipse/papyrus/infra/discovery/Activator.class
+SHA1-Digest: 4Ayga1Zdhs2In3HCWnXfDKFHHcU=
+
+Name: org/eclipse/papyrus/infra/discovery/Activator$Implementation.cla
+ ss
+SHA1-Digest: 98yU7TMlnbhme8LW8GgdfV+KVMM=
+
+Name: org/eclipse/papyrus/infra/discovery/impl/InstallableComponentImp
+ l.class
+SHA1-Digest: 4COQh55spcmtdvA6WVREaoO6V/I=
+
+Name: org/eclipse/papyrus/infra/discovery/InstallableComponent.class
+SHA1-Digest: oZB1CyAclGlznbFdE+o6hHpWpqs=
+
+Name: model/discovery.genmodel
+SHA1-Digest: OE+b7uM88QQ96Q/X/p76ydqdUT4=
+
+Name: org/eclipse/papyrus/infra/discovery/util/DiscoveryAdapterFactory
+ $1.class
+SHA1-Digest: 5kcz9xCSEv24y93uoMMKUsg6uEE=
+

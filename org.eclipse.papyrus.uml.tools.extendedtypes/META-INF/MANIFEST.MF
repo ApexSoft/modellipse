@@ -1,0 +1,140 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.tools.extendedtypes;singl
+ eton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil
+ ity:=reexport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.ecli
+ pse.papyrus.infra.queries.core.configuration;bundle-version="0.9.1";v
+ isibility:=reexport,org.eclipse.papyrus.infra.extendedtypes;bundle-ve
+ rsion="0.9.1";visibility:=reexport,org.eclipse.emf.facet.infra.query;
+ visibility:=reexport,org.eclipse.uml2.uml;visibility:=reexport,org.ec
+ lipse.papyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.papyr
+ us.uml.tools.utils;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.uml.tools.extendedtypes.Activato
+ r$Implementation
+Export-Package: org.eclipse.papyrus.uml.tools.extendedtypes,org.eclips
+ e.papyrus.uml.tools.extendedtypes.applystereotypeactionconfiguration,
+ org.eclipse.papyrus.uml.tools.extendedtypes.applystereotypeactionconf
+ iguration.impl,org.eclipse.papyrus.uml.tools.extendedtypes.applystere
+ otypeactionconfiguration.util
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: model/ApplyStereotypeActionConfiguration.genmodel
+SHA1-Digest: 755468RNl06zlfbyOeMG0wLjCDQ=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/util/ApplyStereotypeActionConfigurationSwitch.class
+SHA1-Digest: nhO286VN9UOpeKclJ8GFWnnG67s=
+
+Name: model/ApplyStereotypeActionConfiguration.ecorediag
+SHA1-Digest: KiRt7PT3xNJmC57mL82jjdZfnOo=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/util/ApplyStereotypeActionConfigurationXMLProcessor.cl
+ ass
+SHA1-Digest: /klJqshJjeUw1Djs+6Csg3vuj2w=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/util/ApplyStereotypeActionConfigurationAdapterFactory.
+ class
+SHA1-Digest: IYRRw68oobRKFQMLlNSzLD7c7/o=
+
+Name: plugin.properties
+SHA1-Digest: TTAUrlp4CaveLfajOqL6w9pWZNQ=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/impl/ApplyStereotypeActionConfigurationImpl.class
+SHA1-Digest: VQ+TtIzU23dsISF1FISZJQRGAuc=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/providers/ApplyStere
+ otypeActionProvider.class
+SHA1-Digest: mY7BBjIkQVu7xhJ5dG1H3ayr9kg=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/util/ApplyStereotypeActionConfigurationAdapterFactory$
+ 1.class
+SHA1-Digest: brrMZl1ObtO29t7UdIh9SGUSPNk=
+
+Name: plugin.xml
+SHA1-Digest: w2huT5wCUR8xpp/0YMcCV+JN280=
+
+Name: model/ApplyStereotypeActionConfiguration.ecore
+SHA1-Digest: /XK98MJOidfYLgOqxG/Ho8cNrPA=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/util/ApplyStereotypeActionConfigurationResourceFactory
+ Impl.class
+SHA1-Digest: RkpgO4mkTKNfIDX3deIIUvuZeWM=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/util/ApplyStereotypeActionConfigurationResourceImpl.cl
+ ass
+SHA1-Digest: thdjuu+4iGvZvTUY3dXI5080I2Y=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/impl/StereotypeToApplyImpl.class
+SHA1-Digest: 3DgcNVO2V6U0hezKzrH/jehBJwI=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/StereotypeToApply.class
+SHA1-Digest: HX4Nc5qTGY6fGvBQNIHisTO/+HA=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/impl/ApplyStereotypeActionConfigurationPackageImpl.cla
+ ss
+SHA1-Digest: DrAuwDJZJYnbdIFxixInCeTku5c=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/providers/ApplyStere
+ otypeActionProvider$ApplyStereotypeCommand.class
+SHA1-Digest: d/qhLAkQ83mJYq3eASb3061hz0A=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/impl/ApplyStereotypeActionConfigurationFactoryImpl.cla
+ ss
+SHA1-Digest: uNpw5qXHc6gbl626THY6T/Z+NJI=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/ApplyStereotypeActionConfigurationPackage.class
+SHA1-Digest: VE98cvkXHdRuSCKd3fjs0ctgv7Q=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/providers/ApplyStere
+ otypeActionProvider$ApplyStereotypeRequest.class
+SHA1-Digest: uaxsTzJjzR1VOYdwNUWkxGY0rQA=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/ApplyStereotypeActionConfigurationFactory.class
+SHA1-Digest: /ZkDdYRWxEjroiAoJMnBTuE1Htk=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/ApplyStereotypeActionConfiguration.class
+SHA1-Digest: EBaFzj+eXZwDgGpWWmWDNwutz9M=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/applystereotypeactio
+ nconfiguration/ApplyStereotypeActionConfigurationPackage$Literals.cla
+ ss
+SHA1-Digest: t/bteljhdN51MyobJlk0Eq9kxBM=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/Activator.class
+SHA1-Digest: KwuQM5YyGD3WXYiSlFWXxNSBiD4=
+
+Name: org/eclipse/papyrus/uml/tools/extendedtypes/Activator$Implementa
+ tion.class
+SHA1-Digest: lnsXm11MTR24opdXW7K8vueT/qk=
+
+Name: icons/Stereotype.gif
+SHA1-Digest: 3YSulO3TCAJg4GDqP9oAyjfuNk4=
+

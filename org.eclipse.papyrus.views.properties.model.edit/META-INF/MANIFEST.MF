@@ -1,0 +1,508 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.views.properties.model.edit;s
+ ingleton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.papyrus.views.pro
+ perties.model;bundle-version="0.9.1";visibility:=reexport,org.eclipse
+ .emf.edit;visibility:=reexport,org.eclipse.emf.ecore.edit;bundle-vers
+ ion="2.7.0",org.eclipse.papyrus.infra.constraints;bundle-version="0.9
+ .1",org.eclipse.papyrus.infra.constraints.edit;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.views.properties.environment.pro
+ vider.PropertiesEditPlugin$Implementation
+Export-Package: org.eclipse.papyrus.views.properties.contexts.provider
+ ,org.eclipse.papyrus.views.properties.environment.provider,org.eclips
+ e.papyrus.views.properties.ui.provider
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/TabItemPr
+ ovider.class
+SHA1-Digest: 6psg49tpB2qHTB6pjYiL4aNrcWs=
+
+Name: icons/full/ctool16/CreateDisplayUnit_constraints_CompositeConstr
+ aint.gif
+SHA1-Digest: MIBli+vGsURy6zPVNshy2keG93Q=
+
+Name: icons/full/obj16/SimpleConstraint.gif
+SHA1-Digest: Sk87peqtjGOl7ixDme+ldSvxyvY=
+
+Name: icons/full/obj16/MiscClass.gif
+SHA1-Digest: W91ply/2wuUeqvZOwUawmGbBCJs=
+
+Name: icons/full/ctool16/CreateDataContextElement_properties_Property.
+ gif
+SHA1-Digest: 9h32HIB3EXRJ0o4jZOqZ40tM1s4=
+
+Name: icons/full/ctool16/CreateConstraintDescriptor_properties_Referen
+ ceProperty.gif
+SHA1-Digest: dgYstiNd2o23zyE2hvhvLBVtjns=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/DataConte
+ xtElementItemProvider.class
+SHA1-Digest: Q+vszPFH6lAX6a0Kl/Bv5bwC2YM=
+
+Name: icons/full/ctool16/CreateElement_children_ValueAttribute.gif
+SHA1-Digest: eadcd4WUNLJ+OOuQEarl9VT9t2U=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Enviro
+ nmentItemProviderAdapterFactory.class
+SHA1-Digest: RDDSQHIy9AkRFHztnCBjPCAbocE=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/LayoutItemProvi
+ der.class
+SHA1-Digest: zUFGJFSKc9cV886VJQ+tIcZXki0=
+
+Name: icons/full/obj16/ConstraintType.gif
+SHA1-Digest: mZF1T6Pb2Dhp4iDyUYq0k//n4fs=
+
+Name: icons/full/ctool16/CreateEnvironment_compositeWidgetTypes_Compos
+ iteWidgetType.gif
+SHA1-Digest: 2UUUvhnWZNGhfcz34eIBGXZUnHs=
+
+Name: icons/full/ctool16/CreateEnvironment_namespaces_Namespace.gif
+SHA1-Digest: 8wu2xhCsBRfWAx993nDDi1ENKZs=
+
+Name: icons/full/ctool16/CreateConstraintMapping_properties_ReferenceP
+ roperty.gif
+SHA1-Digest: y8UYRwEMY2CbCNFAq6tlYuNjQpE=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/UiItemProviderA
+ dapterFactory.class
+SHA1-Digest: pJDgXller4iBgjAPvckriVKCvNw=
+
+Name: icons/full/ctool16/CreateCompositeWidget_widgets_PropertyEditor.
+ gif
+SHA1-Digest: 2sXog3vE3G8wfA9TghiwdXtomgw=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/DataConte
+ xtRootItemProvider.class
+SHA1-Digest: 5KT+p71WnJS6aFsw2j12GGsIod0=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/ViewItemP
+ rovider.class
+SHA1-Digest: P306AiJdt960HIMIy1VfXQZS40I=
+
+Name: icons/full/ctool16/CreateDataContextPackage_elements_DataContext
+ Package.gif
+SHA1-Digest: R0r0l+fhTpE6s03JFu56r+uz3Dg=
+
+Name: icons/full/obj16/Widget.gif
+SHA1-Digest: YbFvmzZpHi7cpxXxToWhDaIKoJo=
+
+Name: icons/full/ctool16/CreateDisplayUnit_constraints_SimpleConstrain
+ t.gif
+SHA1-Digest: bYQNVEH5dWqm/zM2XtULSHziCHQ=
+
+Name: icons/full/ctool16/CreateEnvironment_widgetTypes_StandardWidgetT
+ ype.gif
+SHA1-Digest: 9UClUJH+IotLPO+QV/lN0lywpNI=
+
+Name: icons/full/ctool16/CreateUIComponent_attributes_ValueAttribute.g
+ if
+SHA1-Digest: eadcd4WUNLJ+OOuQEarl9VT9t2U=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/ModelE
+ lementFactoryDescriptorItemProvider.class
+SHA1-Digest: vgPd2o8Sofu7H0xYbeKW9aBsB3M=
+
+Name: icons/full/ctool16/CreateView_datacontexts_DataContextPackage.gi
+ f
+SHA1-Digest: AZIlZxGRrvLulnUbbtpSldrkUXo=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/UIComponentItem
+ Provider.class
+SHA1-Digest: o237b1xlLgIu5osRqb5nDvSKNJ0=
+
+Name: icons/full/obj16/UnknownElement.gif
+SHA1-Digest: 5s2tkcFEwBdYJd1Q2aqbgzSkZuA=
+
+Name: icons/full/ctool16/CreateCompositeWidget_widgets_UnknownWidget.g
+ if
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/obj16/Environment.gif
+SHA1-Digest: F2xKYRa+HZ5CdKmh1Jda4OFSiG0=
+
+Name: icons/full/ctool16/CreateCompositeWidget_layout_Layout.gif
+SHA1-Digest: AavLQ+NwipNI4Fmx7zwfsn/XO7A=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/UnknownPr
+ opertyItemProvider.class
+SHA1-Digest: cMf7IMyRq+D34hh97WhubgcPYro=
+
+Name: icons/full/ctool16/CreateElement_children_Element.gif
+SHA1-Digest: 8QAgBokD9bz/Dhh5NYJqfzSd7R8=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_UnknownCompone
+ nt.gif
+SHA1-Digest: UDjGh8Fvu2IyiNOxyjNsEMsdyJY=
+
+Name: icons/full/ctool16/CreateContext_views_View.gif
+SHA1-Digest: 8i7pPMSae6AePmMtg+MAshkTqiU=
+
+Name: icons/full/ctool16/CreateEnvironment_constraintTypes_ConstraintT
+ ype.gif
+SHA1-Digest: AJHiXCtgIGhXx7xmZDXj9WH5S+Q=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/WidgetAttribute
+ ItemProvider.class
+SHA1-Digest: /NYMcH+rEwImNT5lu61TpFZrA3U=
+
+Name: icons/full/ctool16/CreateConstraintMapping_properties_ValuePrope
+ rty.gif
+SHA1-Digest: z31XG4Cd4zOuNh0kDmvajmHrN5E=
+
+Name: icons/full/obj16/DataContextPackage.gif
+SHA1-Digest: 2Tb0aoOkBpdWxFUkvdSVs0P+6MU=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_CompositeWidge
+ t.gif
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_StandardWidget
+ .gif
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/ctool16/CreateElement_children_StandardWidget.gif
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/obj16/DataContextRoot.gif
+SHA1-Digest: 2Tb0aoOkBpdWxFUkvdSVs0P+6MU=
+
+Name: icons/full/ctool16/CreateCompositeWidget_widgets_UnknownComponen
+ t.gif
+SHA1-Digest: UDjGh8Fvu2IyiNOxyjNsEMsdyJY=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/PropertyI
+ temProvider.class
+SHA1-Digest: dlPqrkMiHdLpKIufSGlaTwQIW+g=
+
+Name: icons/full/obj16/UnknownWidget.gif
+SHA1-Digest: UDjGh8Fvu2IyiNOxyjNsEMsdyJY=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/MiscCl
+ assItemProvider.class
+SHA1-Digest: ZdU1wactI7RY+fzSaeemxdotRZQ=
+
+Name: icons/full/ctool16/CreateTab_sections_Section.gif
+SHA1-Digest: wDW4YhtvoQmh/ZtxvG2YCDxsNSY=
+
+Name: icons/full/obj16/WidgetAttribute.gif
+SHA1-Digest: eadcd4WUNLJ+OOuQEarl9VT9t2U=
+
+Name: icons/full/ctool16/CreateEnvironment_modelElementFactories_Model
+ ElementFactoryDescriptor.gif
+SHA1-Digest: urmhfszESt+8UNl4g4FhuxwIv8o=
+
+Name: icons/full/ctool16/CreateCompositeWidget_widgets_StandardWidget.
+ gif
+SHA1-Digest: YbFvmzZpHi7cpxXxToWhDaIKoJo=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/SectionIt
+ emProvider.class
+SHA1-Digest: 0/SinF2BFZN2eXzWwYJFEPV9/Gg=
+
+Name: icons/full/obj16/UnknownProperty.gif
+SHA1-Digest: eadcd4WUNLJ+OOuQEarl9VT9t2U=
+
+Name: icons/full/obj16/ReferenceProperty.gif
+SHA1-Digest: 94MmC6wLIHEOGVlb7ugNl2gohXc=
+
+Name: icons/full/obj16/LayoutType.gif
+SHA1-Digest: AavLQ+NwipNI4Fmx7zwfsn/XO7A=
+
+Name: icons/full/ctool16/CreateElement_children_CompositeWidget.gif
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/obj16/CompositeConstraint.gif
+SHA1-Digest: lWmo7ZrF8xnTWBuI04DT2NWotWo=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Standa
+ rdWidgetTypeItemProvider.class
+SHA1-Digest: KJFZeJica/qxpmmeiaFqeQI/yYI=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Proper
+ tiesEditPlugin$Implementation.class
+SHA1-Digest: craInTGiM+3O/WT9mC/y2MCAT0E=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Compos
+ iteWidgetTypeItemProvider.class
+SHA1-Digest: Ok46Slful1FzjrRmsn8rt/Z9bg0=
+
+Name: icons/full/ctool16/CreateSimpleConstraint_properties_ReferencePr
+ operty.gif
+SHA1-Digest: jZa24V6Ds9SHwAMry46bkihDMbw=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Layout
+ TypeItemProvider.class
+SHA1-Digest: qIde9inNF1SwV1g3czQH3iw9GlA=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/CompositeWidget
+ ItemProvider.class
+SHA1-Digest: rHIXRMgDTAZmx/a1kfvZmoJrYZU=
+
+Name: icons/full/obj16/Customization.gif
+SHA1-Digest: 8y1B4/QIRNVlKD4RNLe6l3PaGDQ=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Enviro
+ nmentItemProvider.class
+SHA1-Digest: lfRpEMoiTNkd6L3ubsriuVVbXEU=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/ContextsI
+ temProviderAdapterFactory.class
+SHA1-Digest: Tmrauipy5ljVd4Xs12NBVRFVRFI=
+
+Name: icons/full/obj16/WidgetType.gif
+SHA1-Digest: YbFvmzZpHi7cpxXxToWhDaIKoJo=
+
+Name: icons/full/obj16/PropertyEditor.gif
+SHA1-Digest: 2sXog3vE3G8wfA9TghiwdXtomgw=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/ElementItemProv
+ ider.class
+SHA1-Digest: H6f8IE8JvvYG6hrqRMorT83ZpOw=
+
+Name: icons/full/obj16/View.gif
+SHA1-Digest: 8i7pPMSae6AePmMtg+MAshkTqiU=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_UIComponent.gi
+ f
+SHA1-Digest: 7uoyZojmD9wayPmegYy2sFdxaO8=
+
+Name: icons/full/ctool16/CreateConstraintMapping_constraints_Constrain
+ tMapping.gif
+SHA1-Digest: wPY3iOOFhyPQFFFvnjxc2INNvxI=
+
+Name: icons/full/ctool16/CreateDataContextElement_properties_UnknownPr
+ operty.gif
+SHA1-Digest: y4lnExJRyvKVCqJ+gC8lVancM9U=
+
+Name: icons/full/obj16/ValueProperty.gif
+SHA1-Digest: 94MmC6wLIHEOGVlb7ugNl2gohXc=
+
+Name: icons/full/obj16/ValueAttribute.gif
+SHA1-Digest: eadcd4WUNLJ+OOuQEarl9VT9t2U=
+
+Name: icons/full/ctool16/CreateCompositeConstraint_constraints_SimpleC
+ onstraint.gif
+SHA1-Digest: bYQNVEH5dWqm/zM2XtULSHziCHQ=
+
+Name: icons/full/obj16/ConstraintDescriptor.gif
+SHA1-Digest: mZF1T6Pb2Dhp4iDyUYq0k//n4fs=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/StandardWidgetI
+ temProvider.class
+SHA1-Digest: D0cAZWn8zGfm10sMzV3Uf0EPKRY=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/PropertyEditorI
+ temProvider.class
+SHA1-Digest: cCs4i1hI75hfE94FaY0g3Eq2heo=
+
+Name: icons/full/ctool16/CreateUIComponent_attributes_ReferenceAttribu
+ te.gif
+SHA1-Digest: 94MmC6wLIHEOGVlb7ugNl2gohXc=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_Layout.gif
+SHA1-Digest: AavLQ+NwipNI4Fmx7zwfsn/XO7A=
+
+Name: icons/full/ctool16/CreateElement_children_Layout.gif
+SHA1-Digest: AavLQ+NwipNI4Fmx7zwfsn/XO7A=
+
+Name: icons/full/ctool16/CreateSimpleConstraint_properties_ValueProper
+ ty.gif
+SHA1-Digest: Zvnju8tPhfIN9a8tR9a4FKxYRZg=
+
+Name: icons/full/obj16/StandardWidgetType.gif
+SHA1-Digest: YbFvmzZpHi7cpxXxToWhDaIKoJo=
+
+Name: icons/full/obj16/Element.gif
+SHA1-Digest: FwIULsnDPaW05GBgAj22h3/p3AY=
+
+Name: icons/full/ctool16/CreateDisplayUnit_constraints_ConstraintDescr
+ iptor.gif
+SHA1-Digest: mZF1T6Pb2Dhp4iDyUYq0k//n4fs=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/ContextIt
+ emProvider.class
+SHA1-Digest: gmB8Ux178tQpWe3GiWyKu/lAExQ=
+
+Name: icons/full/obj16/CompositeWidgetType.gif
+SHA1-Digest: nYiq2Asxi3cmqtbVQBFV/87XLus=
+
+Name: icons/full/ctool16/CreateDataContextPackage_elements_DataContext
+ Root.gif
+SHA1-Digest: K8LJdzibjxj9BzbYG6phjIa4/0o=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/WidgetItemProvi
+ der.class
+SHA1-Digest: w0I0gkndnmcHtMqb97XHtk9Y0EM=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: icons/full/obj16/UnknownComponent.gif
+SHA1-Digest: UDjGh8Fvu2IyiNOxyjNsEMsdyJY=
+
+Name: icons/full/ctool16/CreateCompositeWidget_widgets_CompositeWidget
+ .gif
+SHA1-Digest: nYiq2Asxi3cmqtbVQBFV/87XLus=
+
+Name: icons/full/ctool16/CreateConstraintDescriptor_constraints_Constr
+ aintDescriptor.gif
+SHA1-Digest: mZF1T6Pb2Dhp4iDyUYq0k//n4fs=
+
+Name: icons/full/obj16/Property.gif
+SHA1-Digest: eadcd4WUNLJ+OOuQEarl9VT9t2U=
+
+Name: icons/full/obj16/Tab.gif
+SHA1-Digest: /UT4ogdpNWWWDWKVYMuPNCJv4O0=
+
+Name: icons/full/ctool16/CreateConstraintDescriptor_properties_ValuePr
+ operty.gif
+SHA1-Digest: FGo1ZWLwhRYmD3t1sYGeFw7j4LE=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_UnknownElement
+ .gif
+SHA1-Digest: q8rfh7bd7JD2VV1XATd9sWIxQDM=
+
+Name: icons/full/ctool16/CreateElement_children_UnknownElement.gif
+SHA1-Digest: q8rfh7bd7JD2VV1XATd9sWIxQDM=
+
+Name: icons/full/ctool16/CreateView_datacontexts_DataContextRoot.gif
+SHA1-Digest: ayEaZy0+HG7yu1YOxaihPXG884Y=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/ReferenceAttrib
+ uteItemProvider.class
+SHA1-Digest: D7xpNrEPcv5O6TXHhjc3v5WZms4=
+
+Name: icons/full/obj16/StandardWidget.gif
+SHA1-Digest: YbFvmzZpHi7cpxXxToWhDaIKoJo=
+
+Name: icons/full/ctool16/CreateEnvironment_propertyEditorTypes_Propert
+ yEditorType.gif
+SHA1-Digest: TtyNuXZ5LgS/K3m6KsEzOIY9k44=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_UnknownWidget.
+ gif
+SHA1-Digest: sp33IwukHB8+lYxsOTbjRb/sMDI=
+
+Name: icons/full/obj16/CompositeWidget.gif
+SHA1-Digest: nYiq2Asxi3cmqtbVQBFV/87XLus=
+
+Name: icons/full/obj16/Context.gif
+SHA1-Digest: 76Qa0FUze5RfqAv8Wl+RdddX0N4=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/ValueAttributeI
+ temProvider.class
+SHA1-Digest: TiYYcCqZJux5Zz1pngFtLCP4TKM=
+
+Name: icons/full/ctool16/CreateEnvironment_contexts_Context.gif
+SHA1-Digest: 76Qa0FUze5RfqAv8Wl+RdddX0N4=
+
+Name: icons/full/ctool16/CreateEnvironment_layoutTypes_LayoutType.gif
+SHA1-Digest: CzkUxVdEe6fl2maWeCQFwXQajxU=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Proper
+ tiesEditPlugin.class
+SHA1-Digest: lQ9zAv4jqVxQRW92dErThIg7yDs=
+
+Name: icons/full/ctool16/CreateDataContextPackage_elements_DataContext
+ Element.gif
+SHA1-Digest: ODOhlRZLgz6g+4m8P4nTIYOsE54=
+
+Name: plugin.properties
+SHA1-Digest: G3ExggY5KKhRrp9nMgWDPWAgF/Q=
+
+Name: icons/full/obj16/PropertyEditorType.gif
+SHA1-Digest: 2sXog3vE3G8wfA9TghiwdXtomgw=
+
+Name: org/eclipse/papyrus/views/properties/contexts/provider/DataConte
+ xtPackageItemProvider.class
+SHA1-Digest: 4mZVDFz9KI7FXl1yd2eYyJOXNL4=
+
+Name: icons/full/ctool16/CreateView_datacontexts_DataContextElement.gi
+ f
+SHA1-Digest: 68sHeu6Nk0XDA9a3zhM+jHHPubg=
+
+Name: plugin.xml
+SHA1-Digest: jgp1nt0TVR7ctCDUb9nKM7QwbZQ=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Proper
+ tyEditorTypeItemProvider.class
+SHA1-Digest: WtZPGlIKG9iYFCBjuMpxPS64cqc=
+
+Name: icons/full/obj16/ModelElementFactoryDescriptor.gif
+SHA1-Digest: ppfyEGvk3jw/7/mCTuzzTQpta38=
+
+Name: icons/full/obj16/Reference.gif
+SHA1-Digest: 94MmC6wLIHEOGVlb7ugNl2gohXc=
+
+Name: icons/full/ctool16/CreatePropertyEditor_unresolvedProperty_Unkno
+ wnProperty.gif
+SHA1-Digest: 9hdk001yUIuA/8kHJnsu4zo2c9Q=
+
+Name: icons/full/obj16/ReferenceAttribute.gif
+SHA1-Digest: 94MmC6wLIHEOGVlb7ugNl2gohXc=
+
+Name: icons/full/obj16/DataContextElement.gif
+SHA1-Digest: PuINaMCVOYb7njl8hgSHS7VVcw0=
+
+Name: icons/full/ctool16/CreateElement_children_ReferenceAttribute.gif
+SHA1-Digest: 94MmC6wLIHEOGVlb7ugNl2gohXc=
+
+Name: icons/full/ctool16/CreateContext_tabs_Tab.gif
+SHA1-Digest: /UT4ogdpNWWWDWKVYMuPNCJv4O0=
+
+Name: icons/full/ctool16/CreateContext_constraints_ConstraintDescripto
+ r.gif
+SHA1-Digest: mZF1T6Pb2Dhp4iDyUYq0k//n4fs=
+
+Name: icons/full/ctool16/CreateContext_dataContexts_DataContextRoot.gi
+ f
+SHA1-Digest: 7RBJ81kFRKa833ya+fTyrSi6dV4=
+
+Name: icons/full/obj16/Namespace.gif
+SHA1-Digest: Xg/E1wMKhipTUi/PMzIB+6ZHmyc=
+
+Name: org/eclipse/papyrus/views/properties/ui/provider/UnknownComponen
+ tItemProvider.class
+SHA1-Digest: AGPV+9y9Jfvkguflo6VGON/uPCg=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Namesp
+ aceItemProvider.class
+SHA1-Digest: i583zoxjEmnDZxFrOjvtKyvBeKI=
+
+Name: icons/full/ctool16/CreateContext_constraints_ConstraintMapping.g
+ if
+SHA1-Digest: 3NmS2h1az9/VIapGbO8Vx6i5RBs=
+
+Name: icons/full/ctool16/CreateEnvironment_miscClasses_MiscClass.gif
+SHA1-Digest: eHK6pUSnh48Wqf4mYM+W1aTtNHY=
+
+Name: icons/full/obj16/Section.gif
+SHA1-Digest: wDW4YhtvoQmh/ZtxvG2YCDxsNSY=
+
+Name: icons/full/obj16/Layout.gif
+SHA1-Digest: AavLQ+NwipNI4Fmx7zwfsn/XO7A=
+
+Name: icons/full/ctool16/CreateReferenceAttribute_value_PropertyEditor
+ .gif
+SHA1-Digest: 2sXog3vE3G8wfA9TghiwdXtomgw=
+
+Name: org/eclipse/papyrus/views/properties/environment/provider/Widget
+ TypeItemProvider.class
+SHA1-Digest: dCFO2tq1qGutMJ7/0SOkbv7ynBY=
+
+Name: icons/full/ctool16/CreateElement_children_PropertyEditor.gif
+SHA1-Digest: 2sXog3vE3G8wfA9TghiwdXtomgw=
+

@@ -1,0 +1,196 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.services.resourceloadin
+ g;singleton:=true
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.papyrus.infra.services.controlmode.history;bundle-version
+ ="0.9.1",org.eclipse.papyrus.infra.widgets.toolbox;bundle-version="0.
+ 9.1",org.eclipse.core.expressions,org.eclipse.core.resources;bundle-v
+ ersion="3.7.0",org.eclipse.core.runtime;bundle-version="3.7.0",org.ec
+ lipse.gef;bundle-version="3.7.1",org.eclipse.gmf.runtime.notation;bun
+ dle-version="1.5.0",org.eclipse.gmf.runtime.diagram.ui;bundle-version
+ ="1.5.0"
+Bundle-Activator: org.eclipse.papyrus.infra.services.resourceloading.A
+ ctivator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.services.resourceloading,org
+ .eclipse.papyrus.infra.services.resourceloading.impl,org.eclipse.papy
+ rus.infra.services.resourceloading.strategies,org.eclipse.papyrus.inf
+ ra.services.resourceloading.util
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/OnDemandLoadi
+ ngModelSetServiceFactory.class
+SHA1-Digest: JnRggonSsHTyBgwOLlWKyHm+MwQ=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/Lo
+ adControlledResources.class
+SHA1-Digest: HsmwO+uRoN5mvrZ8XqZKSy4CRYs=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy.class
+SHA1-Digest: uG/ibwjaIqmSvyFdkxNT5cOHMpA=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/IProxyManager
+ .class
+SHA1-Digest: VB0zJgjvLFK783aaZXzg8Rs+jK0=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$EncapsulatedNotification.class
+SHA1-Digest: uWJN8MRwwZdbyDdFeVj5c/9GaaU=
+
+Name: plugin.properties
+SHA1-Digest: n7W1yYjcUqWginOwQqmeAN/h1kU=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/OnDemandLoadi
+ ngModelSet.class
+SHA1-Digest: 4oNCe2FCw8VkZcnR8NGy4Bs9U3U=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/messages.prop
+ erties
+SHA1-Digest: S1XRsWldYvgYAyBd1BWnTNSVyjQ=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/impl/ProxyMan
+ ager.class
+SHA1-Digest: hTONa+/u00ai09Nc4yu4neB6k1Q=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$EditorClosePerspectiveListener.class
+SHA1-Digest: qyIo3nyyQ4nP8nPMkzxb5/ybCco=
+
+Name: schema/currentStrategyChooser.exsd
+SHA1-Digest: uUdjBlaUEg05w1sgdh1dfx5Ohjo=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$LoadAndRefreshRunnable.class
+SHA1-Digest: uo6/tmh2xprxO/ovuBF+Ji8pSo8=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/ControledReso
+ urceAdapter.class
+SHA1-Digest: 7muTompM4S5DIKAnrrjADiyL0xM=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$1.class
+SHA1-Digest: nKUE6hvJ+HsZLipxogN9YOobLXc=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$2.class
+SHA1-Digest: nPa1AE5YY3IvOlaUZl0LiN0GQlc=
+
+Name: src/org/eclipse/papyrus/infra/services/resourceloading/messages.
+ properties
+SHA1-Digest: S1XRsWldYvgYAyBd1BWnTNSVyjQ=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$3.class
+SHA1-Digest: SHJhiWI/07IWdzCXmj1oXqldbpg=
+
+Name: plugin.xml
+SHA1-Digest: GCWZ3cdH08C+vUAlTK9NyyLOWos=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/ILoadingStrat
+ egyExtension.class
+SHA1-Digest: /6+zSlwZf8DJajm1zF9eYyjPDdg=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/editor/Unload
+ ResourcesEditorFactory.class
+SHA1-Digest: bHlYaoLSdekX0LUAbYjOP6t0tcA=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/Messages.clas
+ s
+SHA1-Digest: Xx4ItuIn5gVbGhgsUH3/RrHpSBU=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$RefreshRunnable.class
+SHA1-Digest: x9lHq74Q7zNUj5WrUY/yi1SxhEM=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/HistoryRoutin
+ gManager.class
+SHA1-Digest: fR1HzWcpojk7NQMHbinrKrCXAc0=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/util/LoadingT
+ ester.class
+SHA1-Digest: IjaIlCryom1ZzEqm7sRxYANuKUM=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$LoadAndRefreshRunnable$1.class
+SHA1-Digest: zmgtZhOxDDWCxWWrDkKsNA+Lnp4=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/HistoryRoutin
+ gUtils.class
+SHA1-Digest: bdmeM5bb+laLdrXc5sL4TsA3h6U=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$EditorActivateListener.class
+SHA1-Digest: sS92dkCP2omCYgS4iGMBdFDma0s=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/util/LoadingU
+ tils.class
+SHA1-Digest: 0SCjfMqEXyfVNPPGQ4ijLDs/iyA=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$2$1.class
+SHA1-Digest: U5WMTuCySNuvuI6SWReG4/WKLAo=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$EditorCloseListener.class
+SHA1-Digest: tSwO8Yhff5qsGEr3/ZGD8ZMYM3o=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/As
+ kUserStrategy$EditorAdapter.class
+SHA1-Digest: 3klyBMoXbZG20WBJH7JYT9bYrOk=
+
+Name: schema/loadingStrategyExtender.exsd
+SHA1-Digest: FSf9b82AbbpP2DGVgQz+Hb9H7zc=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/Lo
+ adAllResources.class
+SHA1-Digest: fcIUgXdY7jS7eEQhjae0QYNfBvI=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/Me
+ ssages.class
+SHA1-Digest: 1K0VbVrpFjNlYP9YylB6+lwsFIE=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/IStrategyChoo
+ ser.class
+SHA1-Digest: pwUGWpHTikHfypkcS9x2bxVRsQo=
+
+Name: schema/loadingStrategy.exsd
+SHA1-Digest: 6nYB9RWFzI32qRaDmvtAGXMBi70=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/Lo
+ adCurrentResource.class
+SHA1-Digest: QyeqKuPSnWYvLtSFJZj58AD0h/M=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/ILoadingStrat
+ egy.class
+SHA1-Digest: 1cqKQSFjgow+h6L7FCdRvlBvLJs=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/Activator.cla
+ ss
+SHA1-Digest: 4NpLg7mA9e/2bx1baYg7RsCBByc=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/editor/Unload
+ ResourcesEditorModel.class
+SHA1-Digest: tNqefN0flvHkTHEaC02a9ZDwb1U=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/editor/Unload
+ ResourcesEditorModel$UnloadResourcesEditorPart.class
+SHA1-Digest: 0G8Tgyd9bX9zEqPWpczkoxmcuwY=
+
+Name: org/eclipse/papyrus/infra/services/resourceloading/strategies/me
+ ssages.properties
+SHA1-Digest: UjRH7JxSZRfGMPbR/HhpiDjFA2o=
+

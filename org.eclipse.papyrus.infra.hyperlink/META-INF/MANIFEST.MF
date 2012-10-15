@@ -1,0 +1,327 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.hyperlink;singleton:=tr
+ ue
+Require-Bundle: org.eclipse.emf.transaction,org.eclipse.papyrus.infra.
+ gmfdiag.navigation;bundle-version="0.9.1",org.eclipse.papyrus.infra.e
+ mf;bundle-version="0.9.1",org.eclipse.papyrus.views.modelexplorer;bun
+ dle-version="0.9.1",org.eclipse.papyrus.infra.table.instance;bundle-v
+ ersion="0.9.1",org.eclipse.ui.navigator;bundle-version="3.5.100",org.
+ eclipse.papyrus.infra.widgets;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.hyperlink.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.hyperlink,org.eclipse.papyru
+ s.infra.hyperlink.commands,org.eclipse.papyrus.infra.hyperlink.helper
+ ,org.eclipse.papyrus.infra.hyperlink.object,org.eclipse.papyrus.infra
+ .hyperlink.ui,org.eclipse.papyrus.infra.hyperlink.util
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/hyperlink/object/HyperLinkEditor.class
+SHA1-Digest: JAcGCVUGftlt95Qsr2sJ5IRHgSM=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ 1.class
+SHA1-Digest: 8eH/TcnM+emMHVc43hYcsb6NVF4=
+
+Name: org/eclipse/papyrus/infra/hyperlink/helper/EditorHyperLinkHelper
+ .class
+SHA1-Digest: ux16AvGWIyZZUsIsgBWsickTRXo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/messages/Messages.class
+SHA1-Digest: 0VppJusB0RU2f+KqkhsTDAtho9o=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ 3.class
+SHA1-Digest: HQAnzRd4W6ySck57ToAM7XBlDnI=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkWebShell$2
+ .class
+SHA1-Digest: Yc+7JWN1L01w4CD42WoJqHwQYQc=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/AbstractEditHyperlinkShel
+ l.class
+SHA1-Digest: u1axZCo+DsMhnzMU6dthnoYzz94=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ 5.class
+SHA1-Digest: WGk+8svure2hLVTfIHh7pluymus=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkWebShell$4
+ .class
+SHA1-Digest: nz/RypWgE1eH/zYYVpYyL6DGP/U=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/EditorListContentProvid
+ er.class
+SHA1-Digest: uUhF6OoO7k9w0ecM/Z4d3QSC7IA=
+
+Name: org/eclipse/papyrus/infra/hyperlink/commands/DeleteHyperLinkDocu
+ mentCommand.class
+SHA1-Digest: 6rpecfgwxA5Rrkbl42+/FUW0pFE=
+
+Name: schema/org.eclipse.papyrus.infra.hyperlink.editor.registration.e
+ xsd
+SHA1-Digest: 8irhui46tfO1mFx4HoXO8aW6vjU=
+
+Name: org/eclipse/papyrus/infra/hyperlink/commands/CreateHyperLinkWebC
+ ommand.class
+SHA1-Digest: MESdimVqiIhvRG9EoEE6i7rFJs4=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ LocalLabelProvider.class
+SHA1-Digest: XHO+MFtrLgMPGinK+WKjdBxc7bw=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperlinkDocumentSh
+ ell$2.class
+SHA1-Digest: mOlohISWE/uFjfGiw5/gyVDUuXM=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkEditorShel
+ l.class
+SHA1-Digest: 6h7OZMsSt6MjajELkiP/9Yh4j0w=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperlinkDocumentSh
+ ell$4.class
+SHA1-Digest: DlqzwBiYMYag6lUDE8hiXt4VEfA=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/DefaultHyperLinkTab$2.cla
+ ss
+SHA1-Digest: DjB1/anNigVBtS1zVZriVnLxMqA=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/AbstractHyperLinkTab.clas
+ s
+SHA1-Digest: Op77Om1r7sJYEAw6yVCCBe0Z2t8=
+
+Name: plugin.pdoc
+SHA1-Digest: p5f/gxU6ERgyCF7O0Mj3V5EMEzQ=
+
+Name: org/eclipse/papyrus/infra/hyperlink/commands/CreateHyperLinkDocu
+ mentCommand.class
+SHA1-Digest: NjoRkWJQbNi8Azgr9gSe9qDRhxs=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/DefaultHyperLinkTab$4.cla
+ ss
+SHA1-Digest: z4t0klcsx69cd2rF+W9bbKIAbD8=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkEditorShel
+ l$1.class
+SHA1-Digest: kex42B98HzPTm8sSgggp1pvJdC0=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkEditorShel
+ l$3.class
+SHA1-Digest: 6Yo+piXSgLI9QzFsHiO4ncwKgDo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/Activator.class
+SHA1-Digest: mkbT+QzQ9L3Za+rWrf6UqG5xRhs=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkException.clas
+ s
+SHA1-Digest: pw0CPVWWtQxonaiGCl5g5zBKzuc=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkConstants.clas
+ s
+SHA1-Digest: Yhlr6aB5ttsSUuSv00FdBd03Tog=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkTab$1.class
+SHA1-Digest: 1YO9whl7OCCMvdFwLDgzIBSAdvM=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkTab$3.class
+SHA1-Digest: S4fmCMy2QGqy3pGB1GA6XK0Tgco=
+
+Name: org/eclipse/papyrus/infra/hyperlink/helper/AbstractHyperLinkHelp
+ er.class
+SHA1-Digest: rgOHlEiVfJMHvBT96Y8j6wCxRK0=
+
+Name: org/eclipse/papyrus/infra/hyperlink/commands/AbstractDeleteHyper
+ LinkCommand.class
+SHA1-Digest: jlx87ryZQ1awpk8uUORKIXpsAek=
+
+Name: org/eclipse/papyrus/infra/hyperlink/object/HyperLinkDocument.cla
+ ss
+SHA1-Digest: Sw+oUSXvBXlHtyGrUi1dQkbPipI=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkEditorHelpersR
+ egistrationUtil.class
+SHA1-Digest: X8nHPMhzqfLInns+8di4AGBFpKY=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkTab$5.class
+SHA1-Digest: vhQcWJmkqpJsfNSjssnD0o0zkIo=
+
+Name: build.properties
+SHA1-Digest: F98QAglBtjyjqv89ZsyTcb+tMwo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ DiagramCreateListener.class
+SHA1-Digest: jwc/86sMAwhkNeo8k/Oagkqw/h0=
+
+Name: org/eclipse/papyrus/infra/hyperlink/helper/WebHyperLinkHelper.cl
+ ass
+SHA1-Digest: 3IoBQKfw958pIUzXDiUJKramWtI=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkManagerShell$1.c
+ lass
+SHA1-Digest: y0dRMYeDQo9an0tRdbu2PJghKo0=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkManagerShell$3.c
+ lass
+SHA1-Digest: PEJTBlN6FHunh5W4jgdc8vKEPNg=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ 2.class
+SHA1-Digest: NwbkKZPnjHsuVc0lHf5CSzvqP6o=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkWebShell$1
+ .class
+SHA1-Digest: yGFCdEMjGk71aobKTwigcPmxzFY=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ 4.class
+SHA1-Digest: MEuXKGGdJoxh4VruHj8hjHyDvcI=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkWebShell$3
+ .class
+SHA1-Digest: edznbiR/ZoqVabrBroIIcQzSS+k=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell$
+ 6.class
+SHA1-Digest: PsJssg8m1VqCOwB7bzbDceJqEoo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperlinkDocumentSh
+ ell.class
+SHA1-Digest: xQdJXGzjuYdSw/D9+j7bhiuoTO0=
+
+Name: plugin.properties
+SHA1-Digest: 5NqLDtYPeSz7XFPsZ61r5iHR7Zo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkTabsRegistrati
+ onUtil.class
+SHA1-Digest: IWNArGZo5CvLo2um0sPprvkNeT0=
+
+Name: org/eclipse/papyrus/infra/hyperlink/object/HyperLinkObject.class
+SHA1-Digest: xhSUDaF8rifUPwbWBNUMQRikpQQ=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/DefaultHyperLinkTab.class
+SHA1-Digest: LN7rP12S9VKNn7hqAxzCL+MqMxw=
+
+Name: org/eclipse/papyrus/infra/hyperlink/object/HyperLinkWeb.class
+SHA1-Digest: j8dOQnE4XxUgh8Os2aqX0lpxjGA=
+
+Name: org/eclipse/papyrus/infra/hyperlink/helper/DocumentHyperLinkHelp
+ er.class
+SHA1-Digest: xqIfWgyGJocDjen9Rm13vN0gMoU=
+
+Name: org/eclipse/papyrus/infra/hyperlink/commands/EmptyAllHyperLinkCo
+ mmand.class
+SHA1-Digest: /Oj4JaISNQTGzMYJBdicRLysQko=
+
+Name: org/eclipse/papyrus/infra/hyperlink/internal/IEditorLabelProvide
+ r.class
+SHA1-Digest: wKWVdQKOmLx7vSzLg3PYeABCqvc=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperlinkDocumentSh
+ ell$1.class
+SHA1-Digest: tblNtIIlyJRzVx6ht/mH3XNgDUI=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperlinkDocumentSh
+ ell$3.class
+SHA1-Digest: ssqHOCxCbZmfX9yPEbitEXRnblI=
+
+Name: plugin.xml
+SHA1-Digest: kJ8oPOi2fZLE9AKyCnrU/HfPYl0=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkHelpersRegistr
+ ationUtil.class
+SHA1-Digest: ey4eiWY1I5MerBtjwKkbWMEXbhY=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkTab.class
+SHA1-Digest: LLtX8Zs5tbujti4lHR7I7oUrX70=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/DefaultHyperLinkTab$1.cla
+ ss
+SHA1-Digest: Emyl65pu5x/WpgN1RAPElpEfNIk=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkLabelProvider.
+ class
+SHA1-Digest: mzFs3MHOeu80OjFwH9sQhh0xgcg=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/DefaultHyperLinkTab$3.cla
+ ss
+SHA1-Digest: 21nqzSpXSHetHFHNAjsfYrocqIM=
+
+Name: schema/org.eclipse.papyrus.infra.hyperlink.tab.registration.exsd
+SHA1-Digest: SojymrsNdWfWg30O8JeR0bCrbO4=
+
+Name: org/eclipse/papyrus/infra/hyperlink/messages/messages.properties
+SHA1-Digest: LfLAf1ycG1BNfyK9R7/fUwIQJ7o=
+
+Name: org/eclipse/papyrus/infra/hyperlink/util/HyperLinkContentProvide
+ r.class
+SHA1-Digest: CRSaFl87zNAcdnlb1+QZlPhveVA=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkEditorShel
+ l$2.class
+SHA1-Digest: vSnoq29AhhfoL+rnuuAmoTybI0Q=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/AbstractHyperLinkManagerS
+ hell.class
+SHA1-Digest: +7D8Wf9rAlvOVM7OqZAIl1HCg7U=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkEditorShel
+ l$4.class
+SHA1-Digest: F5TNEojy4w/p80rKH+JBfoMfFPI=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkManagerShell.cla
+ ss
+SHA1-Digest: bl7wQIF7wkgJ7QRKZC72lgKIqSU=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/AbstractEditHyperlinkDocu
+ mentShell.class
+SHA1-Digest: wPKhJhfdO/0NOI7PmhvqUq3mEDo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/AbstractLookForEditorShel
+ l.class
+SHA1-Digest: 8DzU3OCUH5MqNev5fkh4WHgnDFE=
+
+Name: org/eclipse/papyrus/infra/hyperlink/helper/HyperLinkHelperFactor
+ y.class
+SHA1-Digest: TdMvHwpLw8jvBlG7g1XfmSuAUrg=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkTab$2.class
+SHA1-Digest: uQtmFBV5q2hGkTDlLpFKVWTemzg=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkTab$4.class
+SHA1-Digest: m8/pnMvvhP4E787b9P4q4bbbYGo=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorLookForEditorShell.
+ class
+SHA1-Digest: FfGrdM4+SmOECe2oCTMSSGmqNjE=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorHyperLinkWebShell.c
+ lass
+SHA1-Digest: +TMV3KAMRysA//Zixv/8l/F67wk=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/HyperLinkManagerShell$2.c
+ lass
+SHA1-Digest: x8l+sYD3kdX36Os+csskPXZUMcE=
+
+Name: org/eclipse/papyrus/infra/hyperlink/ui/EditorNavigationDialog.cl
+ ass
+SHA1-Digest: WKXh7ZVN+JAIOm25xwlESTkIjjc=
+
+Name: org/eclipse/papyrus/infra/hyperlink/helper/AbstractHyperLinkEdit
+ orHelper.class
+SHA1-Digest: 1qt2FZuLgGWdaMjIy5tgggGArSY=
+
+Name: schema/org.eclipse.papyrus.infra.hyperlink.registration.exsd
+SHA1-Digest: 1saLBIznwykKRQd/Okw/qVPK0b8=
+

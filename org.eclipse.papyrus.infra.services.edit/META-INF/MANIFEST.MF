@@ -1,0 +1,117 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.services.edit;singleton
+ :=true
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.em
+ f;bundle-version="2.6.0",org.eclipse.gmf.runtime.emf.type.core;bundle
+ -version="1.4.0",org.eclipse.papyrus.infra.core.log;bundle-version="0
+ .9.1",org.eclipse.papyrus.infra.core;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.services.edit.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.services.edit,org.eclipse.pa
+ pyrus.infra.services.edit.commands,org.eclipse.papyrus.infra.services
+ .edit.internal;x-internal:=true,org.eclipse.papyrus.infra.services.ed
+ it.internal.context;x-internal:=true,org.eclipse.papyrus.infra.servic
+ es.edit.internal.matcher;x-internal:=true,org.eclipse.papyrus.infra.s
+ ervices.edit.messages,org.eclipse.papyrus.infra.services.edit.service
+ ,org.eclipse.papyrus.infra.services.edit.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/services/edit/internal/ElementEditServ
+ iceProviderFactory.class
+SHA1-Digest: fKzcwjYmIpB6hlYd1njs6H97hTE=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/ConfigureFeatur
+ eCommandFactory.class
+SHA1-Digest: FdrdcDi36Tou4vvV3F9kNLYgw5g=
+
+Name: org/eclipse/papyrus/infra/services/edit/internal/ElementEditServ
+ ice.class
+SHA1-Digest: kmtz1XLJQtMDHsCeBhOHPfrtPtI=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/ConfigureFeatur
+ eListCommandFactory$1.class
+SHA1-Digest: 0nXlQTL2BVpl4dsEgtjkdcPZS0A=
+
+Name: org/eclipse/papyrus/infra/services/edit/internal/context/TypeCon
+ text.class
+SHA1-Digest: hg9dLzRxF2pdTG1CxjNcfd6nR48=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/IConfigureComma
+ ndFactory.class
+SHA1-Digest: I5/dI2v6BG2LJttmZq7WjxrsCVA=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/ConfigureFeatur
+ eCommandFactory$1.class
+SHA1-Digest: /U1Ukd+2if9zK2kfut5EBK0xudc=
+
+Name: plugin.properties
+SHA1-Digest: fpjVnsEROR3S3m4ZnFd080sftnM=
+
+Name: messages.properties
+SHA1-Digest: VCd+yKeOM9oHvW7F5g75lqAxq+I=
+
+Name: plugin.xml
+SHA1-Digest: ZuoDP/6XCvfs2piy4re3SdQoe/M=
+
+Name: org/eclipse/papyrus/infra/services/edit/internal/ElementEditServ
+ iceProvider.class
+SHA1-Digest: UAfKzlQbqPa2BCZ+hexftt1/+fU=
+
+Name: org/eclipse/papyrus/infra/services/edit/internal/matcher/NoConte
+ xtEnablementMatcher.class
+SHA1-Digest: GDzax3TAxB/L55Zl7pTo4VN+IAk=
+
+Name: org/eclipse/papyrus/infra/services/edit/Activator.class
+SHA1-Digest: g3MYt3QG4RZAJyWfjSyluSWeIsE=
+
+Name: org/eclipse/papyrus/infra/services/edit/utils/ElementTypeValidat
+ or.class
+SHA1-Digest: 6M1zGR32oZi1QaPu3jl+btpWQUU=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/AbstractConfigu
+ reCommandFactory.class
+SHA1-Digest: R2RQjobCLHTSlgQ3+k3NvAaXtIM=
+
+Name: org/eclipse/papyrus/infra/services/edit/service/IElementEditServ
+ ice.class
+SHA1-Digest: DJlf26K6YE003YWJu/QQD3OBHPU=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/AbstractConfigu
+ reCommandFactory$1.class
+SHA1-Digest: /Cwz4/cHJrnhbp1pgJdr2Vjnh10=
+
+Name: org/eclipse/papyrus/infra/services/edit/service/ElementEditServi
+ ceUtils.class
+SHA1-Digest: nYiU3w66dPQNscAiV2j+uGDZH0M=
+
+Name: org/eclipse/papyrus/infra/services/edit/utils/GMFCommandUtils.cl
+ ass
+SHA1-Digest: JyKYNCh+PTHRwWdx9TXW9OAf9lU=
+
+Name: build.properties
+SHA1-Digest: kk+quwLXgU/7CWy1L6ThaOfXmPA=
+
+Name: org/eclipse/papyrus/infra/services/edit/messages/Messages.class
+SHA1-Digest: b92u94p+1bXozW3AaO1oZPSy520=
+
+Name: org/eclipse/papyrus/infra/services/edit/service/IElementEditServ
+ iceProvider.class
+SHA1-Digest: BqvK4I4sJHRrVplkSR01OuBrhP8=
+
+Name: org/eclipse/papyrus/infra/services/edit/commands/ConfigureFeatur
+ eListCommandFactory.class
+SHA1-Digest: dDwESZSadoXKAuw7pEtcy458li0=
+

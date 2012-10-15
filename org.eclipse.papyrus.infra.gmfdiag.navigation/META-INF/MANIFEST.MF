@@ -1,0 +1,150 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.gmfdiag.navigation;sing
+ leton:=true
+Bundle-Activator: org.eclipse.papyrus.infra.gmfdiag.navigation.Activat
+ or
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1";
+ visibility:=reexport,org.eclipse.papyrus.infra.gmfdiag.commands;bundl
+ e-version="0.9.1",org.eclipse.papyrus.infra.gmfdiag.preferences;bundl
+ e-version="0.9.1",org.eclipse.papyrus.infra.gmfdiag.common;bundle-ver
+ sion="0.9.1",org.eclipse.papyrus.infra.widgets.toolbox;bundle-version
+ ="0.9.1",org.eclipse.core.expressions;bundle-version="3.4.300",org.ec
+ lipse.papyrus.views.modelexplorer;bundle-version="0.9.1",org.eclipse.
+ ui.navigator;bundle-version="3.5.100",org.eclipse.emf.facet.infra.bro
+ wser.uicore;bundle-version="0.1.0",org.eclipse.core.runtime;bundle-ve
+ rsion="3.7.0",org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.5.
+ 0"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.gmfdiag.navigation,org.eclip
+ se.papyrus.infra.gmfdiag.navigation.decorator,org.eclipse.papyrus.inf
+ ra.gmfdiag.navigation.preference
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/ExistingNavigableEl
+ ement.class
+SHA1-Digest: FpZRuMBFeI1PIfpBGnMiKzM37j0=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/IBaseNameSetter.cla
+ ss
+SHA1-Digest: Esqgl6/P3LEJ+M/9OVddRd6I3sg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/Messages.class
+SHA1-Digest: bmHOgxdgCn/DdBq0QhATL0domWs=
+
+Name: icons/NEXT.png
+SHA1-Digest: QHSv9jHTi7z6d3M2ZlykS/jjLjg=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/CreatedNavigableEle
+ ment.class
+SHA1-Digest: KF9kc+Rjtig9uDMxaDPESZuuanM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/messages.properties
+SHA1-Digest: ZGfziSPVM/q2CGFk1vFxzeE/EO0=
+
+Name: plugin.properties
+SHA1-Digest: 7u0NtrIHhBS13MJFgUam8nCC2D4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/preference/Navigati
+ onPreferencePage.class
+SHA1-Digest: ISw1junjzrl2kkMrWHbpJ0MSbcc=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/decorator/Navigatio
+ nDecorator.class
+SHA1-Digest: KkyeU+qimDjLIbhfU1npfPWLRIw=
+
+Name: schema/navigationDecoratorRules.exsd
+SHA1-Digest: HumqD510r5BX/O7GlbrrE7IxLak=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/preference/Navigati
+ onPreferenceInitializer.class
+SHA1-Digest: X/gRQG2zcIvH0w4uToA06veQ/F4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/utils/MultiDiagramD
+ ialog.class
+SHA1-Digest: VoNKsBxjC2/17CQ1P1IpDG1FCXY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/INavigationRule.cla
+ ss
+SHA1-Digest: 2Oxp2Ve4uPct0D6x7jah1ZMYm8Y=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/NavigableElement.cl
+ ass
+SHA1-Digest: ex4HIOZdTzLonheKzyxkwZBMGG4=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/NavigationHelper.cl
+ ass
+SHA1-Digest: pWN9y4fq0Qbi4KRmi8gwnBaeirk=
+
+Name: plugin.xml
+SHA1-Digest: X/tFNunBR/oANlYCUQPjOzioEv8=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/preference/INavigat
+ ionPreferenceConstant.class
+SHA1-Digest: vrGCKbVrvk+TkXGPMjJEXTfAP5U=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/utils/Messages.clas
+ s
+SHA1-Digest: WwuQsAPFm/hAYtKOBDZsnevqIuQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/decorator/Navigatio
+ nDecoratorProvider.class
+SHA1-Digest: l19bzU0vjl/kfOYh4nSQ0lqyZvs=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/utils/MultiDiagramD
+ ialog$1.class
+SHA1-Digest: 8lgtlF1+JXZLIyeZmiGlvQtiwho=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/utils/MultiDiagramD
+ ialog$2.class
+SHA1-Digest: 1cO5gGwuLEWzBlI3cma7mEnNFBg=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/NavigationHelper$1.
+ class
+SHA1-Digest: JzXioGOYoMa58TmP/hZQdEStftY=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/utils/messages.prop
+ erties
+SHA1-Digest: NYtYyN+c3CTOA95h25gnlfEp19A=
+
+Name: icons/UP.png
+SHA1-Digest: 7TpjV+aOOIXM8zxyu8S+1QQOWBU=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/NavigationHelper$Na
+ vigationHelperHolder.class
+SHA1-Digest: u//WhwOgt3m1wS2dtrC3xxHMJV8=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/CreateDiagramWithNa
+ vigationHandler.class
+SHA1-Digest: b95rKr8n8YVFAjGFOlPoXJzkKWM=
+
+Name: schema/navigationColorProviders.exsd
+SHA1-Digest: RCSenZOexnVR5vriLxMB8/7jBDM=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/Activator.class
+SHA1-Digest: wmQ83kBUPz+kWuoLpn9SUUp2rAI=
+
+Name: icons/BACK.png
+SHA1-Digest: G/DQGst004MGaY1mG3vHN1hDCeA=
+
+Name: icons/TOP.png
+SHA1-Digest: sNeZ9WW/dPY024CCUFjKqW7gbGg=
+
+Name: schema/navigationRules.exsd
+SHA1-Digest: 9wcdyVOn5tCpJQ8ukLlUfZ7BwqQ=
+
+Name: org/eclipse/papyrus/infra/gmfdiag/navigation/IModelLinker.class
+SHA1-Digest: n9gvAAhkiETirasBQMv6E74cwWw=
+

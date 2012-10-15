@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="kr.co.apexsoft.modellipse.perspective.ModellipsePerspective"
+            icon="icons/Logo-16-8bit.bmp"
+            id="kr.co.apexsoft.modellipse.perspective.perspective"
+            name="Modellipse">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="Modellipse">
+         <property
+               name="appName"
+               value="Modellipse">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/Logo-windowImage-16.png">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,280,445,15">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,255,445,20">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

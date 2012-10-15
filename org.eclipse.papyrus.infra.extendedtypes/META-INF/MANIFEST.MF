@@ -1,0 +1,219 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.extendedtypes;singleton
+ :=true
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",org.ec
+ lipse.emf.ecore;bundle-version="2.7.0";visibility:=reexport,org.eclip
+ se.emf.ecore.xmi;bundle-version="2.6.0";visibility:=reexport,org.ecli
+ pse.papyrus.infra.queries.core.configuration;bundle-version="0.9.1";v
+ isibility:=reexport,org.eclipse.emf.facet.infra.query;bundle-version=
+ "0.1.0";visibility:=reexport,org.eclipse.uml2.uml;bundle-version="3.2
+ .0";visibility:=reexport,org.eclipse.ui;bundle-version="3.7.0",org.ec
+ lipse.gmf.runtime.emf.type.core;bundle-version="1.4.0";visibility:=re
+ export,org.eclipse.papyrus.infra.core.log;bundle-version="0.9.1",org.
+ eclipse.papyrus.infra.queries.core;bundle-version="0.9.1",org.eclipse
+ .gmf.runtime.common.ui.services;bundle-version="1.3.0"
+Bundle-Activator: org.eclipse.papyrus.infra.extendedtypes.Activator
+Export-Package: org.eclipse.papyrus.infra.extendedtypes,org.eclipse.pa
+ pyrus.infra.extendedtypes.advices,org.eclipse.papyrus.infra.extendedt
+ ypes.impl,org.eclipse.papyrus.infra.extendedtypes.preferences,org.ecl
+ ipse.papyrus.infra.extendedtypes.providers,org.eclipse.papyrus.infra.
+ extendedtypes.types,org.eclipse.papyrus.infra.extendedtypes.util
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/extendedtypes/PreActionConfiguration.c
+ lass
+SHA1-Digest: krOO7kHN8HKYWb63O8LKP+zymQY=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/advices/ExtendedTypesOwn
+ erAdvice.class
+SHA1-Digest: Lsm9qsPVDgNylIqAmtgEtVRCQvM=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ExtendedtypesResour
+ ceImpl.class
+SHA1-Digest: kxDGiaa1ShcR54L++Pz4wh5sLUE=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/IconEntry.class
+SHA1-Digest: 28ncc0HQC4P05UyWUvyxqv/imM0=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedElementTypeSet.c
+ lass
+SHA1-Digest: zQSeYecl6HTq7y7tFv9CmxPRsaA=
+
+Name: schema/extendedTypesSetConfiguration.exsd
+SHA1-Digest: baXaXJo5WSBVNhPQqCL4y17iLcY=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedEditHelperAdvice
+ .class
+SHA1-Digest: 5Ldl4FCq/VwMbJ8O/58cMhXZeeI=
+
+Name: model/ExtendedTypes.genmodel
+SHA1-Digest: fBEi/GOocekWKa7wcgX0PK8xXnc=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedtypesFactory.cla
+ ss
+SHA1-Digest: wtkkPsUnaSoaor5G6z/aAtrG46U=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/preferences/ExtendedType
+ sPreferences.class
+SHA1-Digest: 6yiM1vqoqVpb/xRThK0BiJlIPjg=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ExtendedtypesResour
+ ceFactoryImpl.class
+SHA1-Digest: LhkW+HNBn1+Tyd9yQEKBk72so3Q=
+
+Name: schema/extendedElementTypeActionProvider.exsd
+SHA1-Digest: /mSbEABFztX70bltD5awTmrThb0=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/Activator.class
+SHA1-Digest: ysZYS8fFdaeb+tdhfGkoONp4vkY=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/ExtendedElemen
+ tTypeActionService$ProviderDescriptor.class
+SHA1-Digest: X6EEX+N7wrx5c3w0YmKldPQF1is=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/ExtendedtypesFactor
+ yImpl.class
+SHA1-Digest: W70hZamVywG0GGH8m5R+QxGmukc=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ExtendedtypesSwitch
+ .class
+SHA1-Digest: agQWQXnMsBkLxeWClX0ozpUlqg4=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/IExtendedEleme
+ ntTypeActionProvider.class
+SHA1-Digest: i1zY33/jhVErxR4Hl6j9SAi+Oo0=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedTypesRegistry.cl
+ ass
+SHA1-Digest: uHFBE/5Le5+7uMrNoFxtVi/4P+E=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ActionConfiguration.clas
+ s
+SHA1-Digest: joCDFbi7gE9CTvOS0jFhnR7NVek=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedtypesPackage$Lit
+ erals.class
+SHA1-Digest: KrGcXVn3HzNcW2cP1UBW31bC9rw=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ExtendedtypesXMLPro
+ cessor.class
+SHA1-Digest: 6EpCtuKkPzWQB/cLwEis6YKrmKk=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/ExtentedElemen
+ tTypeActionProviderConfiguration.class
+SHA1-Digest: ZAQ8P82SU9zqeiaWYH91pPBnnV4=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/ActionConfiguration
+ Impl.class
+SHA1-Digest: PxzZ6kzwM+hKwHQlSisyNo6TEGI=
+
+Name: model/ExtendedTypes.ecorediag
+SHA1-Digest: Fb5Qu5Oo4+cI+3LtmtuBLMVnSh8=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ExtendedtypesAdapte
+ rFactory$1.class
+SHA1-Digest: nJyoGzn0KKhKsvS8PCUD9UcB+Pg=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/types/IExtendedHintedEle
+ mentType.class
+SHA1-Digest: Cq06B5J2wki1K3yS/Hdh7Y0hfgs=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedtypesPackage.cla
+ ss
+SHA1-Digest: s5S8a1EQL1a1k22TrVmYM9BnjKg=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedSemanticTypeDesc
+ riptor.class
+SHA1-Digest: xvIpuebjL+kWb1ieICgRqx37V0c=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/IconEntryImpl.class
+SHA1-Digest: dk9ohs8nD9PaR0JMkwN/TypjNI0=
+
+Name: plugin.properties
+SHA1-Digest: 7FrgR42KZEGM8XIIzGA99xV92/k=
+
+Name: model/ExtendedTypes.ecore
+SHA1-Digest: mMI1xn44Tgnwx6T6eVRBdELkB5E=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/types/ExtendedHintedType
+ Factory$ExtendedHintedSpecializationType.class
+SHA1-Digest: vPUzgO1Y5EgLkQmOYY2avvvreOM=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/ProviderNotFou
+ ndException.class
+SHA1-Digest: Bp2+jvGNwxZJHhlaF16ynttsLS8=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/ExtendedElemen
+ tTypeActionService.class
+SHA1-Digest: s3qYNhSscYUd5oHgD7S5Z0TLdD4=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/PreActionConfigurat
+ ionImpl.class
+SHA1-Digest: yDIE0hnR5bFMuR7rEjoEbyWl4DA=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/GetExtendedEle
+ mentTypeActionProviderOperation.class
+SHA1-Digest: zP+Iqv6H/gJTE+n7mA9VPtdaNv4=
+
+Name: plugin.xml
+SHA1-Digest: FQ41peeKo/CFHO8rH+C/MQc2uK8=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/ExtendedElementTypeConfi
+ guration.class
+SHA1-Digest: dTa6lbLHLFzvhIDztl2A0ztsOJA=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/IExtendedTypeExtensionPo
+ int.class
+SHA1-Digest: NWq0vAjdCe8Q04rR+v9rAVpvczA=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/ExtendedElementType
+ SetImpl.class
+SHA1-Digest: Zez8Iyzq8ntU0rBN1leITLcTqSs=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/ExtendedtypesPackag
+ eImpl.class
+SHA1-Digest: 7RSBCJ/cwKBG4g4CsItF4VS+tRw=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/types/ExtendedHintedType
+ Factory.class
+SHA1-Digest: mkP1oygGo2NuA/VCqKL9Mmz3U5M=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/PostActionConfiguration.
+ class
+SHA1-Digest: GhlDwuyzOCcC+Qn6Y+qTDwQ5QeU=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/providers/GetAllExtended
+ ElementTypeActionProvidersOperation.class
+SHA1-Digest: 0T3X1CtbhzmjpAaoOrG8wnod/dI=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ExtendedtypesAdapte
+ rFactory.class
+SHA1-Digest: im2wH+kOCyhr9POo2tfzSW4cjKw=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/PostActionConfigura
+ tionImpl.class
+SHA1-Digest: vNMdt3C8xDov2PTdfc5sd1aiJWk=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/impl/ExtendedElementType
+ ConfigurationImpl.class
+SHA1-Digest: rzRTqSZ0WjHpfaKMYw3A/p/gSx8=
+
+Name: org/eclipse/papyrus/infra/extendedtypes/util/ElementTypeUtils.cl
+ ass
+SHA1-Digest: Nj2OlcWWVRUBlmo5MdQF+xpmP0M=
+

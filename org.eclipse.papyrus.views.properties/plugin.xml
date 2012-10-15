@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="context" name="%extension-point.context" schema="schema/context.exsd"/>
+   <extension-point id="environment" name="%extension-point.environment" schema="schema/environment.exsd"/>
+   <extension-point id="labelprovider" name="labelprovider" schema="schema/labelprovider.exsd"/>
+   
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="org.eclipse.papyrus.views.properties.runtime.preferences.PreferencesPackage"
+            genModel="Model/Preferences.genmodel"
+            uri="http://www.eclipse.org/papryus/properties/preferences">
+      </package>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://PPEResources/"
+            target="platform:/plugin/org.eclipse.papyrus.views.properties/model/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.views.properties.preferences.Preferences"
+            id="org.eclipse.papyrus.views.properties.propertyview"
+            name="%page.name">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="org.eclipse.papyrus.views.properties.root.RootPackage"
+            genModel="Model/PropertiesRoot.genmodel"
+            uri="http://www.eclipse.org/papyrus/properties/root">
+      </package>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.views.properties.environment">
+      <environment
+            environmentModel="model/Environment.xmi">
+      </environment>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.protocol_parser">
+      <parser
+            class="org.eclipse.papyrus.views.properties.catalog.PropertiesCatalog"
+            protocolName="ppe">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.views.properties.labelprovider">
+      <labelProvider
+            labelProvider="org.eclipse.papyrus.views.properties.providers.EMFFilteredLabelProvider"
+            priority="100">
+      </labelProvider>
+   </extension>
+</plugin>

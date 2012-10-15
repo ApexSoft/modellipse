@@ -1,0 +1,2275 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.properties;singleton:=tru
+ e
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.papyrus.views.pro
+ perties.model;bundle-version="0.9.1",org.eclipse.papyrus.views.proper
+ ties;bundle-version="0.9.1",org.eclipse.papyrus.infra.widgets;bundle-
+ version="0.9.1",org.eclipse.papyrus.infra.services.edit;bundle-versio
+ n="0.9.1",org.eclipse.gmf.runtime.emf.core,org.eclipse.emf.databindin
+ g;bundle-version="1.2.0",org.eclipse.jface;bundle-version="3.6.1",org
+ .eclipse.core.databinding.property;bundle-version="1.3.0",org.eclipse
+ .papyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.ui;bundle-
+ version="3.6.1",org.eclipse.papyrus.uml.profile;bundle-version="0.9.1
+ ",org.eclipse.emf.facet.infra.query.core;bundle-version="0.1.0",org.e
+ clipse.papyrus.uml.tools;bundle-version="0.9.1",org.eclipse.papyrus.i
+ nfra.emf;bundle-version="0.9.1",org.eclipse.papyrus.infra.tools;bundl
+ e-version="0.9.1",org.eclipse.papyrus.infra.constraints;bundle-versio
+ n="0.9.1",org.eclipse.papyrus.infra.gmfdiag.properties;bundle-version
+ ="0.9.1",org.eclipse.papyrus.uml.tools.utils;bundle-version="0.9.1",o
+ rg.eclipse.papyrus.infra.gmfdiag.common;bundle-version="0.9.1",org.ec
+ lipse.papyrus.uml.extensionpoints;bundle-version="0.9.1",org.eclipse.
+ uml2.uml;bundle-version="4.0.0",org.eclipse.uml2.common.edit;bundle-v
+ ersion="1.6.0",org.eclipse.ui.views.properties.tabbed;bundle-version=
+ "3.5.200",org.eclipse.papyrus.infra.emf.appearance;bundle-version="0.
+ 9.1",org.eclipse.papyrus.uml.appearance;bundle-version="0.9.1",org.ec
+ lipse.papyrus.uml.diagram.common;bundle-version="0.9.1",org.eclipse.g
+ mf.runtime.notation;bundle-version="1.5.0",org.eclipse.gmf.runtime.di
+ agram.ui;bundle-version="1.5.0"
+Bundle-Activator: org.eclipse.papyrus.uml.properties.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.properties.constraints,org.ecl
+ ipse.papyrus.uml.properties.creation,org.eclipse.papyrus.uml.properti
+ es.databinding,org.eclipse.papyrus.uml.properties.datatype,org.eclips
+ e.papyrus.uml.properties.modelelement,org.eclipse.papyrus.uml.propert
+ ies.profile.ui.actions,org.eclipse.papyrus.uml.properties.profile.ui.
+ compositeforview,org.eclipse.papyrus.uml.properties.profile.ui.compos
+ itesformodel,org.eclipse.papyrus.uml.properties.profile.ui.dialogs,or
+ g.eclipse.papyrus.uml.properties.profile.ui.items,org.eclipse.papyrus
+ .uml.properties.profile.ui.listeners,org.eclipse.papyrus.uml.properti
+ es.profile.ui.panels,org.eclipse.papyrus.uml.properties.profile.ui.se
+ ction,org.eclipse.papyrus.uml.properties.profile.ui.views,org.eclipse
+ .papyrus.uml.properties.providers,org.eclipse.papyrus.uml.properties.
+ util,org.eclipse.papyrus.uml.properties.widgets
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: Model/UML/ui/SingleInteractionOperand.xwt
+SHA1-Digest: l31kEcHE5vr05V5p6GQNLaUlxW4=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /DecoratedTreeComposite$RemoveButtonlistener.class
+SHA1-Digest: bRmqUzG8PdUKZBK9NNHy0W3g2QI=
+
+Name: Model/UML/ui/SingleLiteralString.xwt
+SHA1-Digest: 49odWaB9g4Sokrr7NAPusQqjOXI=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/I
+ ViewComposite.class
+SHA1-Digest: h3Jn0tuLMq8JmW0roOw7T2TeAkM=
+
+Name: org/eclipse/papyrus/uml/properties/preferences/LanguageRegistry.
+ class
+SHA1-Digest: mD4DwA5foJeEcCD2Mrj7WXLKKD0=
+
+Name: Model/UML/ui/MultipleStructuralFeatureAction.xwt
+SHA1-Digest: nlrLlTv4tSsTjOLGrWxRl22TeGY=
+
+Name: Model/UML/ui/SingleValuePin.xwt
+SHA1-Digest: umdFoG+c4cEUfUKeB7jQmrLCbyg=
+
+Name: Model/UML/ui/MultipleExtensionEnd.xwt
+SHA1-Digest: 994lET/p4SbhJ9zdqAOPqiPTNZE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$6.class
+SHA1-Digest: mY3bsgES0MqplRuApJX+Yo5UaPo=
+
+Name: Model/UML/ui/MultipleDestructionOccurrenceSpecification.xwt
+SHA1-Digest: Hl2rkI5De/3X+u/3GGK5hcz9i2c=
+
+Name: Model/UML/ui/SingleObservation.xwt
+SHA1-Digest: 1vdkqrQsi9bBZ8RWrfDAm6X+TzA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportProf
+ ileAction.class
+SHA1-Digest: zMvPMfIDL53hQ2ocsoSiAtPaBNA=
+
+Name: Model/UML/ui/MultipleActionExecutionSpecification.xwt
+SHA1-Digest: zYdPOBy8T5Djnft1vhhSQJ+dtMM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$3$1.class
+SHA1-Digest: 1yQXWOzdRTljiKYNqmaJrSLqZSw=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/languagep
+ referencesFactory.class
+SHA1-Digest: w+9XTmTM0t8U+scO1FfwxNbrzn4=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/listeners/NoValueE
+ xception.class
+SHA1-Digest: Y0oOVTe3JKVycjy81kVVm+ZkNZY=
+
+Name: Model/UML/ui/MultipleSignal.xwt
+SHA1-Digest: bJ/wpgs7xQWvJJlXdOQxI0twZro=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /DecoratedTreeComposite$UpButtonlistener.class
+SHA1-Digest: XdS4dcwmr2eNkuhO5n9bR3lt/rk=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$3$1$1.class
+SHA1-Digest: Z4L17QUeqrEfzoDhetn7oseOhxA=
+
+Name: Model/UML/ui/MultipleTypedElement.xwt
+SHA1-Digest: DrXCxKeuIP7DmQcM45rw+dlqiAg=
+
+Name: Model/UML/ui/SingleDeploymentSpecification.xwt
+SHA1-Digest: tMAepG+Ya7EAIQX4j1fj2tbNyUc=
+
+Name: Model/UML/ui/SingleExceptionHandler.xwt
+SHA1-Digest: RxUSw1cNEFbDuQTAiScVha+zRUs=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLNotationFacto
+ ry.class
+SHA1-Digest: lz07MevXG8vqUhSo9KWILpz1rhw=
+
+Name: Model/UML/ui/SingleVariable.xwt
+SHA1-Digest: Yamn84zOi7JiK1AZz0wNt7GzARo=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportFrom
+ File.class
+SHA1-Digest: 30KtuxyZRI+Pv68PEH8gNTo+jz8=
+
+Name: Model/UML/ui/MultipleOpaqueAction.xwt
+SHA1-Digest: ngXmmiLfNIbMTDDQeBXkB4HabV0=
+
+Name: Model/UML/ui/MultipleInteractionConstraint.xwt
+SHA1-Digest: G+ZYBO1N+sRjGttEAk1s1hExpqE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypePropertyCompositeWithView$1.class
+SHA1-Digest: PyT8UtMXqAQ0ybleqLv0WTrvwOo=
+
+Name: Model/UML/ui/SingleReadLinkAction.xwt
+SHA1-Digest: 6LSOmE62eJNg3AzKQHM8ncOlmS0=
+
+Name: Model/UML/ui/SingleReadVariableAction.xwt
+SHA1-Digest: ZwlEMgBqCmngTPYNaobQvhd8CtI=
+
+Name: Model/UML/ui/SingleReadIsClassifiedObjectAction.xwt
+SHA1-Digest: HdbgflFm9pvYWt9kA8aCmtMGhII=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/NaturalLanguageEditor
+ $3.class
+SHA1-Digest: 1kWPdIUFELuyMHhYktiMxFBAfj8=
+
+Name: Model/UML/ui/SingleTemplateParameter.xwt
+SHA1-Digest: AXav6o0GOIwjIJm1QB1MVF4dA18=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypeSectionWithView.class
+SHA1-Digest: 58iW5afMbULzJDU+TRW5GxWY6os=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/util/lang
+ uagepreferencesSwitch.class
+SHA1-Digest: lfbboL3SzkUWI8KgeVL4Cm7jEsw=
+
+Name: Model/UML/ui/SingleInterfaceRealization.xwt
+SHA1-Digest: 2W49BNZbB/hm1YHaCBIUsU7XHRY=
+
+Name: Model/UML/ui/MultipleActivityPartition.xwt
+SHA1-Digest: 6xpkID7XJ1nkoAbKD+DgZZR+lb4=
+
+Name: Model/UML/ui/SingleLiteralInteger.xwt
+SHA1-Digest: dMZeMYg4uTn87ohBgNpfilVhTLM=
+
+Name: Model/UML/ui/SingleOutputPin.xwt
+SHA1-Digest: ZvWkpJ99vD6QtDQU39BYxGzKyBY=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$2$1.class
+SHA1-Digest: iFaHMCr2Slgr0TrwftvVvuhfwwU=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportProf
+ ilesAsLibraryFromRepositoryAction.class
+SHA1-Digest: nb4bq27nVcjXTsgtucuW/nVGo20=
+
+Name: Model/UML/ui/SingleLiteralUnlimitedNatural.xwt
+SHA1-Digest: nClxyJIXcjhDb4J6W/0cXhkyfeo=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$6$1.class
+SHA1-Digest: G2g0No9/Mh+dceL+JFPsCZgYHt8=
+
+Name: Model/UML/ui/MultipleConnectorEnd.xwt
+SHA1-Digest: fn8mfCI1t07n9DonuXhpMtQdaOk=
+
+Name: Model/UML/ui/SingleImage.xwt
+SHA1-Digest: z6nvSd6/GVBPa/9jtIlBXapyhbU=
+
+Name: Model/UML/ui/MultipleBehavior.xwt
+SHA1-Digest: 5Rpy6Hvd4h9j06AUlQARVdm0HVo=
+
+Name: Model/UML/ui/MultipleConditionalNode.xwt
+SHA1-Digest: aP/5L5uvWPFCo0T+w2vmzU3zs+s=
+
+Name: Model/UML/ui/MultipleControlFlow.xwt
+SHA1-Digest: QBRw9XUNcZFtj4ahjXiSDTTH+MU=
+
+Name: Model/UML/ui/MultipleConsiderIgnoreFragment.xwt
+SHA1-Digest: eg3rR+Rki65cMj+3bUvnvPacTp0=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/impl/Lang
+ uageImpl.class
+SHA1-Digest: udSoNGGg5rF7xyYzgR+5J+ZkZdc=
+
+Name: Model/UML/ui/MultipleAcceptCallAction.xwt
+SHA1-Digest: h3HxQgJjN2dQMTBJf36i/KoNgi8=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypeKindAppearanceSection.class
+SHA1-Digest: yXOEfFomFKmToZHCEe8aS4OFuNI=
+
+Name: Model/UML/ui/SingleStructuralFeatureAction.xwt
+SHA1-Digest: 6fUJN1SIGeC0KqG/0xY8N+tsEa8=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/NullBodyEditor.class
+SHA1-Digest: NFqcUgXNaNk0y5P5sG7ChUqktm0=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/ElementCustomizat
+ ionObservableValue$Property.class
+SHA1-Digest: xS+1oLKlshFp7QTGfaSLQudrcl4=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList$1$1.class
+SHA1-Digest: PSHg+C1NRiReJqjL6W/t13TtyVE=
+
+Name: Model/UML/ui/SingleTimeInterval.xwt
+SHA1-Digest: 47CnxFTUTT1GGjnwCkHG9UDbzbA=
+
+Name: Model/UML/ui/MultipleCallOperationAction.xwt
+SHA1-Digest: rJfzN0LHmRyGyn5U2JS/Y0/ZPK8=
+
+Name: Model/UML/ui/MultiplePrimitiveType.xwt
+SHA1-Digest: 6RR2p2aTLAFc7O5uItAdP9sZb9A=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypeKindAppearanceSection$2.class
+SHA1-Digest: OVTIyH5B7j6PhtZ9BAPpz1HpWKI=
+
+Name: Model/UML/ui/MultipleEnumeration.xwt
+SHA1-Digest: yVoO7b74RldehWCPnBmtDlVfWe8=
+
+Name: Model/UML/ui/MultipleAcceptEventAction.xwt
+SHA1-Digest: fbfo2t9dI0zmRRpO7O/42IMc00w=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$6$1$1.class
+SHA1-Digest: Cv2gGAwjCGyKVXD5D+OTj/VnPWg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedProfileCompositeWithView.class
+SHA1-Digest: s2mez0ebCrf6nzvB4Dn9jD2V/yw=
+
+Name: Model/UML/ui/MultipleTimeEvent.xwt
+SHA1-Digest: D8G4BcoSekRgiZWF/+fsKoV9SYY=
+
+Name: Model/UML/ui/MultipleExecutionOccurrenceSpecification.xwt
+SHA1-Digest: 8yIoUHbY6BrzHy7rPUYrepBgTUE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/Message.cl
+ ass
+SHA1-Digest: o2gZPCJyEx9KSnPURmVTaUF13mo=
+
+Name: Model/UML/ui/MultipleSendObjectAction.xwt
+SHA1-Digest: p4lFHfoSAp6WBpGO1ZT8gDw2h+U=
+
+Name: Model/UML/ui/SingleFlowFinalNode.xwt
+SHA1-Digest: hdN8/TvSazzo141jzXXEVKBOzpk=
+
+Name: Model/UML/ui/SinglePackageImport.xwt
+SHA1-Digest: 6Gty7DmZFLy1KQoyl5aJxuKRO80=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/ChooseSetS
+ tereotypeDialog$StereotypeContentProposalProvider.class
+SHA1-Digest: djkbGQhuHnQjUWiLwkKt4adtUyQ=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /ISectionComposite.class
+SHA1-Digest: IoS8jWFJnqkxny0XgdoX2UyiIZg=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypePropertyEdi
+ tor.class
+SHA1-Digest: WDn0PED/kbsOrvfAXQL4UELwZ08=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypeApplication
+ .class
+SHA1-Digest: JznspiaAZLr73blMyV5lvs5DEwU=
+
+Name: Model/UML/ui/SingleState.xwt
+SHA1-Digest: 43+CDEopv/yphu/CUq1TGqVgITo=
+
+Name: Model/UML/ui/MultipleMergeNode.xwt
+SHA1-Digest: unHaddHZR5+DXF2ZXoh3LVmwNUo=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedPro
+ fileSection.class
+SHA1-Digest: UIa7g/74TgCyjpcPzYq+2niQ3Qg=
+
+Name: Model/UML/ui/SingleArtifact.xwt
+SHA1-Digest: 9E/aU7DaPnvCeSEDS4qw0mKt5bI=
+
+Name: Model/UML/ui/MultipleCreateLinkObjectAction.xwt
+SHA1-Digest: xkIgJ6lfHFQhM65sXpF+tdETD2o=
+
+Name: Model/UML/ui/SingleMessageEnd.xwt
+SHA1-Digest: z744qFxHyKfQ2IxrUmTH+gSC7vk=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/AbstractVi
+ ewActionDelegate.class
+SHA1-Digest: zgTyFuVfXMjE4nJ761UAqHG5o9k=
+
+Name: Model/UML/ui/MultipleDurationConstraint.xwt
+SHA1-Digest: hdsBet6Zmme9LARBFR9n9+prEdA=
+
+Name: Model/UML/ui/MultipleValueSpecification.xwt
+SHA1-Digest: dBIq3b982gxCC+yf4dzWnNx1MCc=
+
+Name: Model/UML/ui/MultipleReadLinkObjectEndQualifierAction.xwt
+SHA1-Digest: OCa7V4ODZpeXDj5iQM0UkrvEH8k=
+
+Name: Model/UML/ui/MultipleConnectionPointReference.xwt
+SHA1-Digest: yTup881bnTFeZGnIJzy81vwIXiI=
+
+Name: Model/UML/ui/SingleObjectNode.xwt
+SHA1-Digest: 20C/9PJOHGsqDuIUw123/d/ovWM=
+
+Name: Model/UML/ui/SingleConditionalNode.xwt
+SHA1-Digest: 25fxlXtrgQsNrnWQyBRsqd5pbNg=
+
+Name: Model/UML/ui/SingleParameter.xwt
+SHA1-Digest: 5gx9g+nTfSc3He4Uh/D2+bSH+tU=
+
+Name: Model/UML/ui/SingleControlFlow.xwt
+SHA1-Digest: BJ3V5IPgmva+DNYwdj/Td9qTmps=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypeDisplaySection.class
+SHA1-Digest: oKqErRF7QKsirF+KAh+sBtiyWwA=
+
+Name: Model/UML/ui/MultipleFeature.xwt
+SHA1-Digest: I5BtXVMPZZBHkMjPxcjWD4KARto=
+
+Name: Model/UML/ui/SingleCreateLinkAction.xwt
+SHA1-Digest: sfnmKAlL8PIqyV/560ip3S5R0lo=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/StereotypeModelE
+ lement.class
+SHA1-Digest: aO7+aSEwJUAXfrYciyCFMz8wK6w=
+
+Name: Model/UML/ui/MultipleCallBehaviorAction.xwt
+SHA1-Digest: KC3S9QO3bBZEC5s4NrkbjyauA3s=
+
+Name: Model/UML/ui/MultipleSendSignalAction.xwt
+SHA1-Digest: hc/TKWReICqxMMtBlJyLXGwsNNQ=
+
+Name: Model/UML/ui/SingleLifeline.xwt
+SHA1-Digest: JOVUe8x5oM9M3sSXCGlSRneHydk=
+
+Name: Model/UMLNotation/ui/StereotypeDisplay.xwt
+SHA1-Digest: hCc2psyH4aIDkuGTcNuYalvN9v8=
+
+Name: Model/UML/ui/MultipleMessageOccurrenceSpecification.xwt
+SHA1-Digest: gCFLpvCD/FRXTm7E+CXugRRhlNA=
+
+Name: schema/org.eclipse.papyrus.uml.properties.languageEditor.exsd
+SHA1-Digest: w8AdXPRk0At+uBgM565XJXGC2YU=
+
+Name: Model/UML/ui/SingleCallOperationAction.xwt
+SHA1-Digest: 2wV2bqpq5verJiOoQAmjrhhBosY=
+
+Name: Model/UML/ui/MultipleCallAction.xwt
+SHA1-Digest: 5iJm30qtaM0UOireABV/Q5uuMig=
+
+Name: Model/UML/ui/MultipleEncapsulatedClassifier.xwt
+SHA1-Digest: hXrGnTQ7O3ZixlEwt9vuHTbi0Og=
+
+Name: Model/UML/ui/MultipleReadExtentAction.xwt
+SHA1-Digest: Y4dwdPjB2vNywfa2YZHK9YDDX2M=
+
+Name: Model/UML/ui/MultipleAction.xwt
+SHA1-Digest: czWvwkDzTMHMPnsZL2Br7u/QbYk=
+
+Name: Model/UML/ui/MultipleContinuation.xwt
+SHA1-Digest: w+8Co4tBrswTsKSs2QU3fsB04So=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/items/StereotypeIt
+ ems.class
+SHA1-Digest: 2vIN2/Z9K1COwXcwegWEkBeslns=
+
+Name: Model/UML/ui/MultipleDeployedArtifact.xwt
+SHA1-Digest: M7ESKR2VIPZuVW9pZzhQ98E1SUs=
+
+Name: Model/UMLNotation/ui/NamedElementDisplay.xwt
+SHA1-Digest: V/yho13T4cObURctzNha7yBJjiY=
+
+Name: Model/UML/ui/SinglePort.xwt
+SHA1-Digest: 0CGWX39uI0JxloJ+gt/iXq3+f9g=
+
+Name: Model/UML/ui/SingleGeneralizationSet.xwt
+SHA1-Digest: 0r0iaQhZei+LY+Q0QuqumEQZ7Rw=
+
+Name: Model/UML/ui/SingleIntervalConstraint.xwt
+SHA1-Digest: OrGtPXZpaJn4qSZ1RXqcOL1fLTI=
+
+Name: Model/UML/ui/SingleEnumeration.xwt
+SHA1-Digest: /1iOMDwnrOWkO3es+sGxMxKyDiQ=
+
+Name: Model/UML/ui/MultiplePackageableElement.xwt
+SHA1-Digest: k0KcLXpQ/qCj/EDXJlpxlPmQjxg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/FileSelect
+ ionFilter.class
+SHA1-Digest: oLQf3E5F+NuDNmLPYp7hyJFnhcw=
+
+Name: Model/UML/ui/SingleStartObjectBehaviorAction.xwt
+SHA1-Digest: XmR5CanG47TLwL4Tw4YYkfV8b50=
+
+Name: Model/UML/ui/MemberEnd.xwt
+SHA1-Digest: tRe9wLHSFUKa9MlZvN3IMD706tM=
+
+Name: Model/UML/ui/MultipleWriteVariableAction.xwt
+SHA1-Digest: y0H7QWc4JOm1LHdmRNYUkygaCIk=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$4.class
+SHA1-Digest: 1vxSl/QaHodQJ9MOWiR9FBU/zDc=
+
+Name: Model/UML/ui/MultipleActionInputPin.xwt
+SHA1-Digest: i1119PMOTDcpPtWNizo1d9fXmDE=
+
+Name: Model/UML/ui/SingleReception.xwt
+SHA1-Digest: Px1nbVqkg1rhvFMHKMPY9kohNiE=
+
+Name: Model/UML/ui/SingleProtocolTransition.xwt
+SHA1-Digest: J78azhl/sRbU5q84CwVQwwbXMiE=
+
+Name: Model/UML/ui/MultipleDeployment.xwt
+SHA1-Digest: ty6Q6Pz1pxQweq8ctxrZ/5Ls5Uo=
+
+Name: Model/UML/ui/MultipleCommunicationPath.xwt
+SHA1-Digest: mxcwhGjr85SmHjingQCNRJ1QqZg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/ChooseSetS
+ tereotypeDialog$2.class
+SHA1-Digest: OQgZG7Il6NxT8VkzvHkBcu10Udw=
+
+Name: Model/UML/ui/SingleRemoveStructuralFeatureValueAction.xwt
+SHA1-Digest: Iu1qo76Fhwdb/5tjv1j94EdL/cU=
+
+Name: Model/UML/ui/MultipleExecutionSpecification.xwt
+SHA1-Digest: k0KcLXpQ/qCj/EDXJlpxlPmQjxg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypeCompositeWithView$2.class
+SHA1-Digest: UmHZHC5wgNdOnM/q4T5Q+jfvWmM=
+
+Name: Model/UML/ui/SingleExtensionEnd.xwt
+SHA1-Digest: MvtRUIWL5VEVI8iEjS/RlIoDcmQ=
+
+Name: Model/UML/ui/MultipleModel.xwt
+SHA1-Digest: 2VTCMTnqzXIo54fEVpFBUFjW3YM=
+
+Name: Model/UML/ui/MultipleDevice.xwt
+SHA1-Digest: Gg/HVR3D4aB8KPtNzkcqByaDjjE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$3.class
+SHA1-Digest: 1yZlbi7hijCsAIb9UYDOCyG5+Lg=
+
+Name: Model/UML/ui/MultipleStartClassifierBehaviorAction.xwt
+SHA1-Digest: FtvQxaKD4uGLVj7AURoXZX/Ss9U=
+
+Name: Model/UML/ui/SingleActionExecutionSpecification.xwt
+SHA1-Digest: Q/vmEbzo/sIu/DIgEeWepmmPZDQ=
+
+Name: Model/UML/ui/SingleClassifier.xwt
+SHA1-Digest: ZJhgF6mSmZad9HUioQtNd6oBeqM=
+
+Name: Model/UML/ui/SingleStructuredActivityNode.xwt
+SHA1-Digest: EFoEHGuWsvkj6+ExMYHCOSDubv8=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$5.class
+SHA1-Digest: ttxMGOwJZexFKThyCy80w4HQBN0=
+
+Name: Model/UML/ui/SingleDestroyLinkAction.xwt
+SHA1-Digest: 39bZrxKZ96fyyg6R3Dr4Lz32pEQ=
+
+Name: Model/UML/ui/SingleSyncMessage.xwt
+SHA1-Digest: 3sAo5E+qBeVwKUb8CBSCWqDZsC8=
+
+Name: Model/UML/ui/SingleOperationTemplateParameter.xwt
+SHA1-Digest: npxfDYU4qDtVynpDHj4IvbuuvfY=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/P
+ rofileElementWithDisplayContentProvider.class
+SHA1-Digest: 2gRxzOacyn92sap4COHX3h08zeU=
+
+Name: Model/UML/ui/MultipleInvocationAction.xwt
+SHA1-Digest: unHaddHZR5+DXF2ZXoh3LVmwNUo=
+
+Name: Model/UML/ui/SingleStateInvariant.xwt
+SHA1-Digest: uYDxvAYEnjOd4cng9cAFkMU0b9E=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/StereotypeAppear
+ anceModelElement.class
+SHA1-Digest: tI4DDzGIXo8sNDqs+GJ6I9xObDU=
+
+Name: Model/UML/ui/SingleTypedElement.xwt
+SHA1-Digest: 6Q2pz0vTtx2hXcUF5ddbp0CBdIw=
+
+Name: Model/UML/ui/SingleFeature.xwt
+SHA1-Digest: 5YoDyHHL/FEo/ruqugyLnEIjkKE=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/CustomImageModel
+ ElementFactory.class
+SHA1-Digest: R0QDVqEpDauif8KFvQB4frBVlWo=
+
+Name: Model/UML/ui/SingleOpaqueAction.xwt
+SHA1-Digest: L2F18QuWyP4R4iWUhyeh1wqlofE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /DecoratedTreeComposite$DownButtonlistener.class
+SHA1-Digest: AMN3/q1VmrA8blQes7geLWzrzcw=
+
+Name: Model/UML/ui/SingleActivityParameterNode.xwt
+SHA1-Digest: U6wCXX+wWF6H/s2nyYNA5Vl8aek=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/languagep
+ referencesPackage$Literals.class
+SHA1-Digest: qThwnKrfcjxQa62GLqgTLZVEpgs=
+
+Name: Model/UML/ui/MultipleConnector.xwt
+SHA1-Digest: UZeYOiVGkPVlM4wqCg6WkxLmSfQ=
+
+Name: org/eclipse/papyrus/uml/properties/datatype/StructuredDataTypeOb
+ servableValue.class
+SHA1-Digest: UlA0s+CAY63FrqJ/nkwSXI51GfI=
+
+Name: Model/LanguagePreferences.genmodel
+SHA1-Digest: c4lkXDrBG9voeHO5zWE9k9xciRM=
+
+Name: Model/UML/ui/SingleTimeExpression.xwt
+SHA1-Digest: npqYZLUHwZREqwidJSw2Z70Qjco=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/NaturalLanguageEditor
+ $2.class
+SHA1-Digest: UGwzEpjv5n5RVxRMMf4+DNSAcX4=
+
+Name: Model/UML/ui/MultipleNode.xwt
+SHA1-Digest: ySYOkdtP01MKVBzPACHZ+jfrxyk=
+
+Name: Model/UML/ui/MultipleCollaborationUse.xwt
+SHA1-Digest: q/h46T9jU63VP/MdnVeVAVn6ojQ=
+
+Name: Model/UML/ui/SingleDependency.xwt
+SHA1-Digest: JIt7KslTg8mz16iovoM46W/PBc0=
+
+Name: Model/UML/ui/SingleWriteVariableAction.xwt
+SHA1-Digest: F564eli2TXgYqYgaBAhws8ZN5N4=
+
+Name: Model/UML/ui/SingleConnectorEnd.xwt
+SHA1-Digest: FPO1nVgAqjT9R5s29u7TLo+mas0=
+
+Name: Model/UML/ui/SingleVariableAction.xwt
+SHA1-Digest: ua/RsalfFoSIb/EgQJ6ovI4s1OI=
+
+Name: Model/UML/ui/MultipleAddVariableValueAction.xwt
+SHA1-Digest: iJu5+MppFUg+MV55h2qVkg/pDts=
+
+Name: Model/UML/ui/SingleBehavior.xwt
+SHA1-Digest: 7AlUyBWqdxOnqR9HMfodJJPpxzw=
+
+Name: Model/UML/ui/MultipleBroadcastSignalAction.xwt
+SHA1-Digest: rTFE0wAR0dxpRja6430eu2wwrL4=
+
+Name: org/eclipse/papyrus/uml/properties/preferences/LanguagePreferenc
+ es.class
+SHA1-Digest: NR+SlmivbjG7dj2omwBXaLOiUQc=
+
+Name: Model/UML/ui/ReplyMessage.xwt
+SHA1-Digest: 65lCOqCSgxn/BEkbfW58Hp/47aY=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypeApplication
+ $1.class
+SHA1-Digest: 1IA3uweTG+yzMdJO74JoDcu37OA=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList.class
+SHA1-Digest: YN+FxBOfeVshuIgdks1fAKEYkpc=
+
+Name: Model/UML/ui/SingleReadSelfAction.xwt
+SHA1-Digest: 7XMEpHw0w/voV/wlCMx/iqtTqys=
+
+Name: Model/UML/ui/MultipleOperation.xwt
+SHA1-Digest: KaojfMdUqnRroA+jj6Q1q6la7sE=
+
+Name: Model/UML/ui/SingleAcceptCallAction.xwt
+SHA1-Digest: bGJXHOU4+Jm4+3N1DJVVs0B3dQA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/S
+ tereotypePropertiesDoubleClickListener.class
+SHA1-Digest: /QC6sCDEDXQ98Ca1oJBy1j6uhQQ=
+
+Name: org/eclipse/papyrus/uml/properties/extensionpoint/LanguageEditor
+ ExtensionPoint.class
+SHA1-Digest: 1+dozg+yg6xD1zwMmHPCDsmsZRI=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$2$1.class
+SHA1-Digest: GSKJNZKOvtx0EuYEPBNMkltd7V8=
+
+Name: Model/UML/ui/MultipleVertex.xwt
+SHA1-Digest: jbUe4WA3v20OJQw3nVl9TtQ+7SA=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/Editor.cl
+ ass
+SHA1-Digest: +evk/BjugkJZPGWCTJAiXWxH29E=
+
+Name: Model/UML/ui/SingleRegion.xwt
+SHA1-Digest: zudekpH8OKOwEuStTjo5r9YLM0A=
+
+Name: Model/UML/ui/MultipleReclassifyObjectAction.xwt
+SHA1-Digest: XvIObPpNBy8fbrFRO2eKSg8CmrM=
+
+Name: Model/UML/ui/SingleBehavioralFeature.xwt
+SHA1-Digest: zDwlBZ+5x4qKXo+fN+jZSfhJ7QY=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypeKindAppearanceSection$1.class
+SHA1-Digest: jyY6QEOmiFA0NZMMHTvrHLsO2UA=
+
+Name: Model/UML/ui/MultipleInteractionFragment.xwt
+SHA1-Digest: hSreQiYStdTmC+M7Yf5EyRrIN/Y=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/panels/AppliedProf
+ ilePanel.class
+SHA1-Digest: 1JPVojZvpTNA7jhqyWepuci4k4k=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/NaturalLanguageEditor
+ .class
+SHA1-Digest: qi4t0ExWRRbq7ddOQbJuoKfkyZo=
+
+Name: Model/UML/ui/SingleExecutionOccurrenceSpecification.xwt
+SHA1-Digest: qpeEUuqg0drelLBepfdZD0iRWRQ=
+
+Name: Model/UML/ui/MultipleMessage.xwt
+SHA1-Digest: 4zut+ZPw+PeJNF4L3xIFGFgkdg0=
+
+Name: Model/UML/ui/SingleSendObjectAction.xwt
+SHA1-Digest: WrNDu5EAdIS5XHONGJmS5ENHR9s=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/CustomImageModel
+ Element$1.class
+SHA1-Digest: EP+3xRyyx4fkRJscVU0BKZkwBmU=
+
+Name: Model/UML/ui/SingleActivityFinalNode.xwt
+SHA1-Digest: FIjacG3TNd+NC0xJctv7zqlmZuE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/items/CompositeIte
+ ms.class
+SHA1-Digest: B+7s5RVp8DeJEyCN2Gk3Rf/6arw=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/ProfileApplicationEdi
+ tor.class
+SHA1-Digest: +XyhALfFS6fenqWX1JNWAOQDA/0=
+
+Name: Model/UML/ui/MultipleInterval.xwt
+SHA1-Digest: 1ufXU3XX72DrHJRHVZQNGLxbK7o=
+
+Name: Model/UML/ui/MultipleTestIdentityAction.xwt
+SHA1-Digest: TFfN9+S4ERKowXRsvbSMm5n3m2g=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$1$1.class
+SHA1-Digest: CATngfRom05YWej/Phmf8dz41IY=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeAppeara
+ nceObservableValue.class
+SHA1-Digest: cDT5V+A0nj96SwAmpz8spPDAGGA=
+
+Name: org/eclipse/papyrus/uml/properties/creation/ConnectorTypeEditorF
+ actory.class
+SHA1-Digest: wwjn+CeVjmGN/MvlqJaZjLUGgx8=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$5$1.class
+SHA1-Digest: P2IQVQ5lG02YrbsT7LHF7Isl3SA=
+
+Name: Model/UML/ui/SingleReadLinkObjectEndQualifierAction.xwt
+SHA1-Digest: 3lcg0eOxutJv4ES1iIDjGNDjdu0=
+
+Name: org/eclipse/papyrus/uml/properties/datatype/DataTypeObservableVa
+ lue.class
+SHA1-Digest: rVOmLjTGRVKzvrH7jrJsNhonG4M=
+
+Name: Model/UML/ui/MultipleReadLinkObjectEndAction.xwt
+SHA1-Digest: +78Ci5WnHRoTVZlQ3c9kjz2yyOI=
+
+Name: Model/UML/ui/SingleNamespace.xwt
+SHA1-Digest: je/97qBGXiDsB/rJw2v2XUdXxhc=
+
+Name: Model/UML/ui/SingleConnectionPointReference.xwt
+SHA1-Digest: O82fn2oQrVQsTgXY2ZHPaIjxNO4=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppearanceDecoratedTreeComposite.class
+SHA1-Digest: jSZhIpGOGAHfFgA9CtMYD7QSuv8=
+
+Name: Model/UML/ui/MultipleStructuredClassifier.xwt
+SHA1-Digest: PCvvKdizP+XoQIvcfe+VmYkd1o4=
+
+Name: Model/UML/ui/MultipleInclude.xwt
+SHA1-Digest: UVAnHbtW84apSVWmblEe3A76+7o=
+
+Name: Model/UML/ui/SingleExpansionNode.xwt
+SHA1-Digest: 9WvN+BqHN+uXU1xFApZFJ3mg/f0=
+
+Name: Model/UML/ui/MultipleInteractionOperand.xwt
+SHA1-Digest: c5NKVEFyGF+mcqNzDgvW6/8K7tA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/Stereotype
+ QualifiedLabelProvider.class
+SHA1-Digest: XqJhfmKnLtZD98oBv4t5ATdugTI=
+
+Name: org/eclipse/papyrus/uml/properties/creation/ExpressionLanguageFa
+ ctory.class
+SHA1-Digest: ZHChx6P/htMTYQs5qjwVNt9H9Bo=
+
+Name: Model/UML/ui/MultipleRaiseExceptionAction.xwt
+SHA1-Digest: 7ptDyhBmMzzQi7iVXAE8Zo9ZvKA=
+
+Name: Model/UML/ui/SingleSendSignalAction.xwt
+SHA1-Digest: U3gMrxMvz0c3a9I0PmgeJqGv2fo=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypeCompositeWithView$2$1.class
+SHA1-Digest: EcNr6Ob6hCPIF4QJ3dQE28GH0DU=
+
+Name: Model/UML/ui/SingleTemplateParameterSubstitution.xwt
+SHA1-Digest: BCb75PdblF9LYEqBqqFUrAnCSeU=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLEditorFactory
+ .class
+SHA1-Digest: d2Mn5frxkDZfB9ml1Gbg1Ma51FE=
+
+Name: Model/UML/ui/SingleStereotype.xwt
+SHA1-Digest: Kc5o2y+wfUy8Ac+rt+f0W5gfG3s=
+
+Name: Model/UML/ui/MultipleActivityEdge.xwt
+SHA1-Digest: 1oPdLANQXNbEBDtdizYrySZl8Po=
+
+Name: Model/UML/ui/SingleInterruptibleActivityRegion.xwt
+SHA1-Digest: /qdgxrO23AB37sP3cdvRhXF5LJg=
+
+Name: Model/UML/ui/MultipleRedefinableTemplateSignature.xwt
+SHA1-Digest: FtvQxaKD4uGLVj7AURoXZX/Ss9U=
+
+Name: Model/UML/ui/MultipleElementImport.xwt
+SHA1-Digest: M+076NfiG1Q3Z1NS/TrVuacbQDg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite.class
+SHA1-Digest: JkMr0kGMgd0zW6x4N5rkjdArapY=
+
+Name: Model/UML/ui/SingleReadExtentAction.xwt
+SHA1-Digest: FuZaxFsQKooKCMNIT4ZleZMC2qw=
+
+Name: Model/UML/ui/SingleContinuation.xwt
+SHA1-Digest: 9qvY5s6Q3SBznImJfZuB31PjW9Y=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$2$1$1.class
+SHA1-Digest: 0e6o6I8zJieE6axyc5FjEgDuicI=
+
+Name: Model/UML/ui/SingleDeployedArtifact.xwt
+SHA1-Digest: z744qFxHyKfQ2IxrUmTH+gSC7vk=
+
+Name: Model/UML/ui/SingleLinkEndDestructionData.xwt
+SHA1-Digest: QOTZJU2tABhQhDfAjEJiMYn8Gpk=
+
+Name: Model/UML/ui/SingleBehaviorExecutionSpecification.xwt
+SHA1-Digest: VJ6XsTzsVLLpyMIAshgP066s6xI=
+
+Name: Model/UML/ui/MultipleChangeEvent.xwt
+SHA1-Digest: q/h46T9jU63VP/MdnVeVAVn6ojQ=
+
+Name: Model/UML/ui/MultipleStateMachine.xwt
+SHA1-Digest: IU/2C7GWVXkBGCpD0oTb/cw2ToE=
+
+Name: Model/UML/ui/SingleInteractionFragment.xwt
+SHA1-Digest: cXSMYJ8eNurKEfu2BsP518+cVrA=
+
+Name: Model/UML/ui/MultipleParameterSet.xwt
+SHA1-Digest: fr1UnulIPnBLC4TQLXA9fgkds18=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLNotationModel
+ Element.class
+SHA1-Digest: 81TTD1+znE2cD8ADk4B+T0XRyO8=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: Model/UML/ui/SingleMessage.xwt
+SHA1-Digest: Ch11jwci21ng1+mPFq3L9rQZn0M=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$3.class
+SHA1-Digest: U1Ci1AyBJjdZLL886EF7Jwv7kPk=
+
+Name: Model/UML/ui/MultipleSignalEvent.xwt
+SHA1-Digest: qBSq8sIkXh2N8Cw8Hq5LFFUISRs=
+
+Name: Model/UML/ui/MultipleLiteralNull.xwt
+SHA1-Digest: q5HvERs9Oknnk3sW1NJI+oiFDqw=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypeCompositeWithView.class
+SHA1-Digest: SuojRtRK3bi3JrqRXbgS9lDxKFY=
+
+Name: org/eclipse/papyrus/uml/properties/providers/AppliedStereotypePr
+ opertyFilteredLabelProvider.class
+SHA1-Digest: 3ENiRs0a6tFIALsiZKBOBwUFbSg=
+
+Name: Model/UML/ui/MultipleReadLinkAction.xwt
+SHA1-Digest: TkryAfS5/TGORgbVVHSQFJeBeYM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/ChooseSetS
+ tereotypeDialog$1.class
+SHA1-Digest: r5Dmw+zwN7UrdUD7kGS/vjgClCU=
+
+Name: Model/UML/ui/MultipleReadVariableAction.xwt
+SHA1-Digest: yKgtHYcWGgYoZyElCKZfiYwTOXY=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportProf
+ ileAction$ImportProfileCommand$1.class
+SHA1-Digest: F/94cDFdKA/pjUg03syOZpyg2NU=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel.class
+SHA1-Digest: S/fZnQgrq6kkGIbaag6S3jPyrIg=
+
+Name: Model/UML/ui/MultipleInformationItem.xwt
+SHA1-Digest: E4ZBPaZUJeJqj4+lyxR/m/ACgOQ=
+
+Name: Model/UML/ui/MultipleLiteralInteger.xwt
+SHA1-Digest: V8GKLsnSSqR7AvPuS5li7HMGZyE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypeCompositeWithView$1.class
+SHA1-Digest: cOWZbNnJGch9/vd82/cQixlmg3g=
+
+Name: schema/org.eclipse.papyrus.uml.properties.datatype.exsd
+SHA1-Digest: NAaFGBQZnaccZ3RB6ZgkEcU4U1c=
+
+Name: Model/UML/ui/SingleUsage.xwt
+SHA1-Digest: ByzjNqhqOdi06/yKB1DLPnpD6yk=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$2.class
+SHA1-Digest: 1FDVx1bclf6gAttdqeIPcOT3WVw=
+
+Name: Model/UML/ui/SingleReadLinkObjectEndAction.xwt
+SHA1-Digest: ZOuItC7/XMSGygA4RTFTANXa1UM=
+
+Name: org/eclipse/papyrus/uml/properties/util/StereotypeAppearanceCons
+ tants.class
+SHA1-Digest: RzDBOSC3PZq22iOqxBmvaeJys50=
+
+Name: Model/UML/ui/MultipleInstanceSpecification.xwt
+SHA1-Digest: gB7u7MRThmAH3DtCyq3rAw09aBY=
+
+Name: Model/UML/ui/SingleManifestation.xwt
+SHA1-Digest: oamnmwKGE3BwURNRFKCaQfXxu+o=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$4.class
+SHA1-Digest: cB7/Z6UOcRvzGH4Fm0y6egFuoP4=
+
+Name: Model/UML/UML.ctx
+SHA1-Digest: 1/1Fwa/7wptmm64IXnv1OGRboTo=
+
+Name: Model/UML/ui/SingleInclude.xwt
+SHA1-Digest: 66WRwEqn2DeoaCgDcuXY789egcc=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList$2.class
+SHA1-Digest: IY2wcwQB1ZCoQH/LTFtiLljr60c=
+
+Name: Model/UML/ui/SingleInvocationAction.xwt
+SHA1-Digest: XwO9ps6jayNGY4geb7hBxfAY4Io=
+
+Name: Model/UML/ui/SingleQualifierValue.xwt
+SHA1-Digest: Mhk9qCa9Le6Khbj+/EP5kl2IFuM=
+
+Name: Model/UML/ui/SingleProfileApplication.xwt
+SHA1-Digest: g5bBku6tC9CBJYiAQ7F9xx9fvQs=
+
+Name: Model/UML/ui/SingleEnumerationLiteral.xwt
+SHA1-Digest: jThu3fktuHwToQLlcBSQeLDNdT0=
+
+Name: Model/UML/ui/MultipleActor.xwt
+SHA1-Digest: hXrGnTQ7O3ZixlEwt9vuHTbi0Og=
+
+Name: Model/UML/ui/MultipleDurationObservation.xwt
+SHA1-Digest: RE6kYxeGj3/2otuhrjHVrH5I14A=
+
+Name: Model/UML/ui/SingleExecutableNode.xwt
+SHA1-Digest: t3DsbdXo+lCmFOe63qqSwYPFj7c=
+
+Name: Model/UML/ui/MultipleReadStructuralFeatureAction.xwt
+SHA1-Digest: FtvQxaKD4uGLVj7AURoXZX/Ss9U=
+
+Name: Model/UML/ui/MultipleDataStoreNode.xwt
+SHA1-Digest: NLzcLwL3H8c0QYCjGWsmUgVDN+4=
+
+Name: Model/UML/ui/MultipleCreationEvent.xwt
+SHA1-Digest: bw1F0XV12eviC5nnjkEdcrqE+F4=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypeImageEditor
+ $2.class
+SHA1-Digest: P/9iMOJD/18Jsunkh2EZb1mURcA=
+
+Name: Model/UML/ui/MultipleElement.xwt
+SHA1-Digest: 9XpazIENMAToqEanZJU3/ckd9Sc=
+
+Name: Model/UML/ui/MultipleMultiplicityElement.xwt
+SHA1-Digest: J1kWaRlTwHztUl4zNkD4RWWPZ50=
+
+Name: Model/UML/ui/MultipleComponent.xwt
+SHA1-Digest: Q6HJk7qrEdKYgMS80MDt8LEh+WM=
+
+Name: Model/UML/ui/SingleCentralBufferNode.xwt
+SHA1-Digest: fnwoZM1hqFQ/Z6HodiMRqw37LTg=
+
+Name: Model/UML/ui/MultipleAssociation.xwt
+SHA1-Digest: DxMCDWhsRWnpCZj3KSkH4I0kyCo=
+
+Name: org/eclipse/papyrus/uml/properties/constraints/IsDataTypeConstra
+ int.class
+SHA1-Digest: x+dlSvL6j8pqn6FlL6Aj7awigdM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/items/MetaclassIte
+ ms.class
+SHA1-Digest: ZKbDuBKkiG7i/J/fWQHeWFQUyNU=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportProf
+ ilesAsLibraryFromRepositoryAction$ImportProfilesAsLibraryFromReposito
+ ryCommand$1.class
+SHA1-Digest: 80jLogjhYpFZEhJzIcxSlU08XI8=
+
+Name: Model/UML/ui/SingleCollaborationUse.xwt
+SHA1-Digest: HNKk+UTOh02Q06kwoYwJVYsT+go=
+
+Name: Model/UML/ui/SingleNode.xwt
+SHA1-Digest: gtUVvc5FCR46+4jEpZlgWOt1CF0=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/panels/AbstractPan
+ el.class
+SHA1-Digest: sJsdi5Fm4Vcipm76Wr1D+UCSrEI=
+
+Name: Model/UML/ui/SingleRemoveVariableValueAction.xwt
+SHA1-Digest: QcymHQhm6M3BkhkNR34eAgZz498=
+
+Name: Model/UML/ui/MultipleUnmarshallAction.xwt
+SHA1-Digest: P6kd1fXmRpW3rklGntuomZI22eo=
+
+Name: Model/UML/ui/SingleChangeEvent.xwt
+SHA1-Digest: 5n5N9vJ90iMC3Jt1w4y/cHClqHY=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/NaturalLanguageEditor
+ $1.class
+SHA1-Digest: yzcjcluAODKvFRyCe7TIOahm1Fo=
+
+Name: Model/UML/ui/MultiplePseudostate.xwt
+SHA1-Digest: lTFNGt4sPlnKzRdA0QfcxfYOvx8=
+
+Name: Model/UML/ui/MultipleExpansionRegion.xwt
+SHA1-Digest: Z7L+c1/k6dMqHzw1fHI7cVVfkaA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/items/EnumerationI
+ tems.class
+SHA1-Digest: MuAESvjPcuITPzggRO/eGuWpxac=
+
+Name: Model/UML/ui/SingleTimeConstraint.xwt
+SHA1-Digest: IFofl6AmP6wzM4U3jPS4psHyoAI=
+
+Name: Model/UML/ui/SingleObjectFlow.xwt
+SHA1-Digest: 3BwuNpDlC5Vv79M/JkDV2U6n/0E=
+
+Name: Model/UML/ui/SingleSignalEvent.xwt
+SHA1-Digest: tRlO8W68Aq+AEm4FT2e87RVASyA=
+
+Name: Model/UML/ui/SinglePartDecomposition.xwt
+SHA1-Digest: jDdUgYxYGHRxiuaUwsmZBguc1yY=
+
+Name: Model/UML/ui/SingleLiteralNull.xwt
+SHA1-Digest: JbGplyEBHlvgWf6BxrgMs2Hb6Z0=
+
+Name: Model/UML/ui/MultipleLiteralString.xwt
+SHA1-Digest: QOJHAgvsHjhjKYkQcihJnG3MhfE=
+
+Name: icons/AddReg.gif
+SHA1-Digest: FT+yMU/XrBGk25OwgZC0vvpreSk=
+
+Name: Model/UML/ui/SingleInteractionUse.xwt
+SHA1-Digest: AIb/GLNFFYl1soSoWCO4iYgVYik=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/ProfileApplicationEdi
+ tor$1.class
+SHA1-Digest: E5mYno6EZ8bcL0V1g8UmHNukyq0=
+
+Name: Model/UML/ui/SingleExpression.xwt
+SHA1-Digest: AcOerdABY1+EUiwM1gbwMWEd89Q=
+
+Name: Model/UML/ui/SingleInformationItem.xwt
+SHA1-Digest: WgkIQYGfm2ofYFsIXvunojUO8sU=
+
+Name: Model/UML/ui/MultipleMessageEnd.xwt
+SHA1-Digest: qSuhFmFLay8OuDXtTStwELrhq1Q=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/Language.
+ class
+SHA1-Digest: mCe5/OJ68N6eiV6WysC6zW+4VZQ=
+
+Name: Model/UML/ui/MultipleProfile.xwt
+SHA1-Digest: ylHzmKEdmHLZR9VIUFtCOudVS04=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/util/lang
+ uagepreferencesAdapterFactory$1.class
+SHA1-Digest: jxa/AJU5KoKer+NlmMLjKdRstmY=
+
+Name: Model/UML/ui/MultipleObjectNode.xwt
+SHA1-Digest: 5hphp9c+vND2I8RQe+Kmz4FmFcM=
+
+Name: Model/UML/ui/MultipleSequenceNode.xwt
+SHA1-Digest: K20VGRiY1mFibBS3J0OsQ/msjMY=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/MemberEndModelEl
+ ement.class
+SHA1-Digest: 60wfd/9kQXj1B++G0NrDbLfaHcI=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$6$1.class
+SHA1-Digest: Ch12tt6zfZA8PoB1XEU0OwcB+eo=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/ExpressionLanguageEdi
+ tor.class
+SHA1-Digest: /OewqtP/89r0iEuBcT9z+fh3qDA=
+
+Name: Model/UML/ui/SingleClass.xwt
+SHA1-Digest: q+s9d/JN4jXNPELYZ/P7HcaNfpU=
+
+Name: Model/UML/ui/SingleDurationObservation.xwt
+SHA1-Digest: uU+RWDNcL8qrTTsj8vttBBuQuo8=
+
+Name: Model/UML/ui/SingleReadStructuralFeatureAction.xwt
+SHA1-Digest: 38CQg4ktVgXI/JP3VrYCPbUt/iU=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/impl/lang
+ uagepreferencesFactoryImpl.class
+SHA1-Digest: kOd1+UxW1Eq5XI4fCgDJ/i/xTyM=
+
+Name: Model/UML/ui/SingleElement.xwt
+SHA1-Digest: dBMvm9prVnNGSo4Tl3DYt5pKHSg=
+
+Name: Model/UML/ui/SingleMultiplicityElement.xwt
+SHA1-Digest: vk9dR8R65M97iAxruCRLgx3VqjQ=
+
+Name: Model/UML/ui/MultiplePackage.xwt
+SHA1-Digest: hSreQiYStdTmC+M7Yf5EyRrIN/Y=
+
+Name: Model/UML/ui/SingleReplyMessage.xwt
+SHA1-Digest: sNwcyK9W30dD872wKCkqylI7DCI=
+
+Name: Model/UML/ui/SingleAssociation.xwt
+SHA1-Digest: UZ1XW4rgtFoKmO1j6UUlWqaGYBg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/panels/DefaultPane
+ l.class
+SHA1-Digest: uMBpHszXoRsT2ohyoiemv3o9v+Y=
+
+Name: Model/UML/ui/SingleInterval.xwt
+SHA1-Digest: oli69yGAaK1UWbhJN7tBXxLpVG4=
+
+Name: Model/UML/ui/MultipleOutputPin.xwt
+SHA1-Digest: jdMj6ojsNkq9l38yx7TAwu0yS18=
+
+Name: Model/UML/ui/MultipleIntervalConstraint.xwt
+SHA1-Digest: akpAyn8xx86dBVLV0NH4S9xlHMY=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/StereotypeApplic
+ ationModelElement.class
+SHA1-Digest: SLp04hxdf0g6z0iDnZb9wpuvuAY=
+
+Name: Model/UML/ui/SingleRedefinableElement.xwt
+SHA1-Digest: RPBIEELS9gpnHWo3C+kWDD+Le/U=
+
+Name: Model/UML/ui/MultipleNamedElement.xwt
+SHA1-Digest: k4GdFfgBTnYoIVlZQtKaUKf57zw=
+
+Name: Model/UML/ui/SinglePseudostate.xwt
+SHA1-Digest: cbrTbFTSPtDl852dgP4Lt6RaATw=
+
+Name: Model/UML/ui/SingleExpansionRegion.xwt
+SHA1-Digest: tyoCOMcnh+6pHzcN48LRkPYtcns=
+
+Name: Model/UML/ui/SingleLinkAction.xwt
+SHA1-Digest: C/OqeD6Ma9tDexkt3ia0z6ILWNk=
+
+Name: Model/UML/ui/MultipleStringExpression.xwt
+SHA1-Digest: t89wsjNxC9FlCrrhZMhLpDf/cLg=
+
+Name: Model/UML/ui/SingleStructuredClassifier.xwt
+SHA1-Digest: bZZ3C5BlV+3EDR2MqCjYoaC2KAw=
+
+Name: Model/UML/ui/SingleFinalNode.xwt
+SHA1-Digest: jl5cLm0yUhesPJIJdX1CHM3/WhA=
+
+Name: Model/UML/ui/SingleTransition.xwt
+SHA1-Digest: Gs+R5YyiuSPUdfyyye8r6EvrRb0=
+
+Name: Model/UML/ui/MultipleProtocolTransition.xwt
+SHA1-Digest: q0BojdSIM2ihtLxTK/br6VhoS4A=
+
+Name: Model/UML/ui/SingleEvent.xwt
+SHA1-Digest: 3HGcHu0noG6QdumceT+ntSdSU4w=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypePropertiesPlaceSection.class
+SHA1-Digest: 6T4XzKm5HGLnTDDG7v1lIv4m3Tw=
+
+Name: Model/UML/ui/MultipleWriteStructuralFeatureAction.xwt
+SHA1-Digest: mvk62/VWALmHzRWWG+J2cpJyNDM=
+
+Name: Model/UML/ui/SingleRaiseExceptionAction.xwt
+SHA1-Digest: pqO12E8/U/QL4ioo2KfW79FLXnY=
+
+Name: Model/UML/ui/MultipleRemoveStructuralFeatureValueAction.xwt
+SHA1-Digest: WpuPdS2isngscnqTC4lH5XsJDKE=
+
+Name: Model/UML/ui/MultipleInitialNode.xwt
+SHA1-Digest: /6yb5ozg18cybAGDJo+8r2TIJCk=
+
+Name: Model/UML/ui/MultipleOpaqueExpression.xwt
+SHA1-Digest: rWtEz0Qw4DstdpwvwXWEiHfmvKg=
+
+Name: Model/UML/ui/SingleProfile.xwt
+SHA1-Digest: RaKakIe1RWXEQaGHovG5DxsYfvI=
+
+Name: Model/UML/ui/SingleTemplateBinding.xwt
+SHA1-Digest: pqH8oxlqG4N0dorZhh9e9so+BXo=
+
+Name: Model/UML/ui/MultipleClassifier.xwt
+SHA1-Digest: 6RR2p2aTLAFc7O5uItAdP9sZb9A=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$1$1.class
+SHA1-Digest: E3uc/e76VSiWgB6ZfS3O6Zs97vg=
+
+Name: Model/UML/ui/MultipleStructuredActivityNode.xwt
+SHA1-Digest: 0qyp+rjPx6wWLkc6S7jPrmFKP+w=
+
+Name: Model/UML/uml.querySet
+SHA1-Digest: 4E57Cpp+EDtPJ07+GcHM1KwqQ64=
+
+Name: Model/UML/ui/SingleActivityEdge.xwt
+SHA1-Digest: Zf0LWQVVl82LhqZV2a0oThMHkTQ=
+
+Name: Model/UML/ui/SingleRedefinableTemplateSignature.xwt
+SHA1-Digest: zC19HAN4dEnU0KFVK3FKaMoAco4=
+
+Name: Model/UML/ui/MultipleInformationFlow.xwt
+SHA1-Digest: M7ESKR2VIPZuVW9pZzhQ98E1SUs=
+
+Name: Model/UML/ui/SingleClause.xwt
+SHA1-Digest: hl491M7LcFkRqkLhYi7jPfOAnok=
+
+Name: Model/UML/ui/SingleCreateObjectAction.xwt
+SHA1-Digest: OzuIivylp1kcva1N6UPAQT0J37w=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/impl/lang
+ uagepreferencesPackageImpl.class
+SHA1-Digest: MUoqEcfzGSMLREFS9QAo/IEtc08=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/Preferenc
+ es.class
+SHA1-Digest: gn5EX+QRjDXdG3WgLhNche+Q6Y0=
+
+Name: Model/UML/ui/SingleInterface.xwt
+SHA1-Digest: tazwggq/OJOPKTg+XUXdedVMCf0=
+
+Name: Model/UML/ui/SingleStateMachine.xwt
+SHA1-Digest: EVO0bGspm4SVN4xwQQ2DMd9U2Bg=
+
+Name: Model/UML/ui/MultipleProtocolStateMachine.xwt
+SHA1-Digest: ca8wYv/sUOMOakNKGJKUljn77Wo=
+
+Name: Model/UML/ui/MultipleStateInvariant.xwt
+SHA1-Digest: hybk1xeo3UQDHX+mxRMNv7MUh+s=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /DecoratedTreeComposite$AddButtonlistener.class
+SHA1-Digest: 0zcncsqsYFfIMNv8F2wpTiMpiuM=
+
+Name: Model/UML/ui/SingleParameterSet.xwt
+SHA1-Digest: UL8Es9h1X79s7Gdra7Aq9ggdtvA=
+
+Name: Model/UML/ui/SingleLiteralBoolean.xwt
+SHA1-Digest: f7j3Ignv8wWegtC8a8XFVHQO4no=
+
+Name: Model/UML/ui/SingleExtension.xwt
+SHA1-Digest: FjD4gs+vOQrwGvgfbgUYcn0vMR0=
+
+Name: Model/UML/ui/MultipleFlowFinalNode.xwt
+SHA1-Digest: l+VYeB8ZBdR4S22R9b+fo8ZwjpA=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList$1$2$1.class
+SHA1-Digest: FkJ6grS0B1ephzEyCffps8pTuCc=
+
+Name: Model/UML/ui/MultiplePackageImport.xwt
+SHA1-Digest: VuMyifvX4L55p/TeRfQo+hs8/E0=
+
+Name: Model/UML/ui/SingleCollaboration.xwt
+SHA1-Digest: d1uFaFsvuoiGpO8t189kJOk4upk=
+
+Name: Model/UML/ui/SinglePackage.xwt
+SHA1-Digest: BC+u+WtKh03UcyxvFwbQqefOmXA=
+
+Name: Model/UML/ui/MultipleType.xwt
+SHA1-Digest: mlUjWjvsx3p4iSRfAPl+x+5wwF4=
+
+Name: Model/UML/ui/AsyncMessage.xwt
+SHA1-Digest: GHL88WRRCsJc4Jzp5KqWqIxdpFw=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$2.class
+SHA1-Digest: j+zJnNKYkAS+Iqx0rSamYR09tKg=
+
+Name: Model/UML/ui/MultipleState.xwt
+SHA1-Digest: Y4dwdPjB2vNywfa2YZHK9YDDX2M=
+
+Name: Model/UML/ui/SingleLinkEndData.xwt
+SHA1-Digest: vjRpWxTOzS8XGu5aLbr0Bdb1JS0=
+
+Name: org/eclipse/papyrus/uml/properties/datatype/DataTypeProvider.cla
+ ss
+SHA1-Digest: +vRrCSAFbDi724cxSh7xyxczx5c=
+
+Name: Model/UML/ui/MultipleTimeExpression.xwt
+SHA1-Digest: Wv9O88nUcIdPvjrgDRNi/yFu7pM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypePropertyCompositeWithView$1$1.class
+SHA1-Digest: C97KxJVnNGcEgPms4EN1tItqN6A=
+
+Name: Model/UML/ui/SingleExtensionPoint.xwt
+SHA1-Digest: qB0nQhgm3YX9Ys7XlOz5YrsYqX4=
+
+Name: Model/UML/ui/MultipleFunctionBehavior.xwt
+SHA1-Digest: bPnHEsArU5ufjwrzMyXbvWm4oJk=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$4$1.class
+SHA1-Digest: GtfVHt095N58UBywZ+y6U+X71ls=
+
+Name: Model/UML/ui/MultipleDependency.xwt
+SHA1-Digest: 99HMZ+lRk0iYuMDfHZEible0pWQ=
+
+Name: Model/UML/ui/MultipleTimeObservation.xwt
+SHA1-Digest: xDINETX2WCUM3m2LS2RyeU5DRzs=
+
+Name: Model/UML/ui/SingleOpaqueBehavior.xwt
+SHA1-Digest: PCM0FlCyZzzRBVYljhJFhuIsgQQ=
+
+Name: Model/UML/ui/SingleStructuralFeature.xwt
+SHA1-Digest: 1Q0+9LKbArvoeSHKmiw51xEQGvY=
+
+Name: Model/UML/ui/SingleCallEvent.xwt
+SHA1-Digest: 5hdWKCJYUuVutZKExaXv8uDWUME=
+
+Name: Model/UML/ui/SingleConnectableElement.xwt
+SHA1-Digest: QOmEmzIYWcs+O6AHRcSRW2gM/ak=
+
+Name: Model/UML/ui/SingleInstanceValue.xwt
+SHA1-Digest: aeoXH6iw070wgqGp9/n9mXGwGyU=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$DisplayButtonListener.class
+SHA1-Digest: MGlvwu43wIhFxmVFZrzAU+P4FkA=
+
+Name: Model/UML/ui/MultipleVariableAction.xwt
+SHA1-Digest: diHIxizWkE56AvIlNZDcn2Jawg4=
+
+Name: Model/UML/ui/SingleExtend.xwt
+SHA1-Digest: crLjBY0WDKVearVbqcr59HqoVcQ=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$1.class
+SHA1-Digest: WAPhfTQRTpgfXneWj0tfR7Te5Hg=
+
+Name: Model/UML/ui/MultipleProperty.xwt
+SHA1-Digest: WdhFTQnSOQIGW676Tts1hxIgAVU=
+
+Name: Model/UML/ui/MultipleParameter.xwt
+SHA1-Digest: CzvbYaPA8IplpMOmiMyef0KcOPU=
+
+Name: Model/UML/ui/MultipleReadSelfAction.xwt
+SHA1-Digest: TFfN9+S4ERKowXRsvbSMm5n3m2g=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$3.class
+SHA1-Digest: ddzQhxp1Z0FNkV3/NhuRqCP0ZL4=
+
+Name: Model/UML/ui/SingleInitialNode.xwt
+SHA1-Digest: Ym2dRffqjcYQz02QMsUqnOqhxf0=
+
+Name: Model/UML/ui/MultipleAddStructuralFeatureValueAction.xwt
+SHA1-Digest: EFRP3WDvyj0gZxIFgxOSSObURBA=
+
+Name: Model/UML/ui/MultipleExecutionEnvironment.xwt
+SHA1-Digest: t/DoKFy87sFZlgtfAED9uiSCcFE=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList$1.class
+SHA1-Digest: s12AWyyoP2Y2DEOhwqgOtgC7uPI=
+
+Name: Model/UML/ui/MultipleRealLiteral.xwt
+SHA1-Digest: Hl2rkI5De/3X+u/3GGK5hcz9i2c=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypeCompositeWithView$1$1.class
+SHA1-Digest: Dh0TKSwSlSPc5uUxTEjbc/CFttk=
+
+Name: Model/UML/ui/MultipleOccurrenceSpecification.xwt
+SHA1-Digest: PPNjwZWPMBtyvLPaymLRw6Zbi44=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/languagep
+ referencesPackage.class
+SHA1-Digest: 4Cx9ErUItLvrVaaM9Jfkz08LA1Y=
+
+Name: Model/UML/ui/MultipleTrigger.xwt
+SHA1-Digest: 65fJCfOPzpsy+SDIb0jqzqwfT9w=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypeDisplayComposite.class
+SHA1-Digest: 7jeqGpIeAofCJAcqZ13JKgWUfgM=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypeImageEditor
+ $1.class
+SHA1-Digest: BoUTqRrxWBPSq2aAh2fg7qo5LiI=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/Stereotype
+ LabelProvider.class
+SHA1-Digest: tCSFG/iz6YuClvF6rrmNo5TUTkU=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/Registered
+ ProfileSelectionDialog.class
+SHA1-Digest: 8vM5h8JmHjMOiwqGsCmA3qA4suU=
+
+Name: Model/UMLNotation/ui/Label.xwt
+SHA1-Digest: boOe+4lvRuHN0AQIabh6R/HbSfo=
+
+Name: Model/UML/ui/SingleInformationFlow.xwt
+SHA1-Digest: guP5A+YZ0EgAT12d+Er241W3Yt8=
+
+Name: Model/UML/ui/Metaclass.xwt
+SHA1-Digest: ZjuWER0Fhjz3HK7wrTKnAh7Q5Rw=
+
+Name: Model/UML/ui/MultipleGeneralizationSet.xwt
+SHA1-Digest: Z4x63snOwaThdteHs8pYc2EwZtU=
+
+Name: Model/UML/ui/MultipleBehavioredClassifier.xwt
+SHA1-Digest: PCvvKdizP+XoQIvcfe+VmYkd1o4=
+
+Name: Model/UML/ui/SingleFinalState.xwt
+SHA1-Digest: dQU0zoj3aLIhu+xrSzGJRQr2SMU=
+
+Name: Model/UML/ui/MultipleRegion.xwt
+SHA1-Digest: lisZ0arAB/W3dc6BUNOUc69GvQ4=
+
+Name: Model/UML/ui/SingleUnmarshallAction.xwt
+SHA1-Digest: 8rWn+c3GaTpvt7/MYpq0hlBkD2Q=
+
+Name: Model/UML/ui/MultipleStartObjectBehaviorAction.xwt
+SHA1-Digest: vQYv5jNwhw/wIUDyt8w1kNfqxAY=
+
+Name: org/eclipse/papyrus/uml/properties/Activator.class
+SHA1-Digest: 3AGEN+mB+yWCMan0UJuY/OBlPKs=
+
+Name: Model/UML/ui/MultipleReception.xwt
+SHA1-Digest: +R6GMv4Uz1vohV4cw8Pj9f6IEao=
+
+Name: Model/UML/ui/MultipleSubstitution.xwt
+SHA1-Digest: FEp2k7/lRjXRC70ftAyavkDscu0=
+
+Name: Model/UML/ui/SingleClearAssociationAction.xwt
+SHA1-Digest: wSlAgkNK9xONB9h78Rb/XK8oEgs=
+
+Name: Model/UML/ui/MultipleUseCase.xwt
+SHA1-Digest: A5bejmJr5ZqjAbE/9sLMHXW47DM=
+
+Name: Model/UML/ui/SingleInteractionConstraint.xwt
+SHA1-Digest: IYNw8I4IGwlllQFywI1JL5Jr2lI=
+
+Name: icons/Add_32x32.gif
+SHA1-Digest: BQtX/ggfRf+DKUT2lnPNmreMPLQ=
+
+Name: Model/UML/ui/SingleConnectableElementTemplateParameter.xwt
+SHA1-Digest: tQO6PyaXB0e8sGejpbHzk8SZgsg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /DecoratedTreeComposite.class
+SHA1-Digest: EudFZswoFXjzVErcv3tT81nyPhc=
+
+Name: Model/UML/ui/MultipleActivity.xwt
+SHA1-Digest: ToZkKGlBZFC2D+PTW4Lzk58NQis=
+
+Name: Model/UML/ui/SingleActivityPartition.xwt
+SHA1-Digest: SAgDhhczgM5uL9STgxIeZlf2KzU=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/DynamicBodyEditor.cla
+ ss
+SHA1-Digest: 65cnQeu+cvZsdWuQyghZliOv/DA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportLibr
+ ariesFromRepositoryAction$ImportLibraryFromRepositoryCommand.class
+SHA1-Digest: TL+BljxnTprT8KEnY1NAnv4S8Ww=
+
+Name: Model/UML/ui/SingleTimeObservation.xwt
+SHA1-Digest: oSOWhuyIM1GVU3BGg9kMc5dp1gw=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/listeners/DoubleCl
+ ickListener.class
+SHA1-Digest: TgDs/erpP8cTQ7ZjlQP4EJeRbnI=
+
+Name: Model/UML/ui/MultipleLiteralSpecification.xwt
+SHA1-Digest: QYU97rjFzLs1Nr/7ZRJb2xh+mVM=
+
+Name: Model/UML/ui/MultipleDuration.xwt
+SHA1-Digest: 2Pyb7lgAkYG2owpfa00ZEbvQFcM=
+
+Name: Model/UML/ui/SingleConstraint.xwt
+SHA1-Digest: Zv9JwRJR7DDULrrIjX2f6UX8f+M=
+
+Name: org/eclipse/papyrus/uml/properties/messages/messages.properties
+SHA1-Digest: 1FAGyjOsdI4oOPSyWBwRuPShgHA=
+
+Name: Model/UML/ui/MultipleDestroyLinkAction.xwt
+SHA1-Digest: w6uYa8ZaWELcfdSf6y9vz49V5+k=
+
+Name: Model/UML/ui/SingleSequenceNode.xwt
+SHA1-Digest: 1vn6G/ibx7y57gu/xdDZ7jetq10=
+
+Name: Model/Environment.xmi
+SHA1-Digest: c+1Nz+ApQLGAlXa3Ce9TGVSCGP4=
+
+Name: Model/UML/ui/SingleAddStructuralFeatureValueAction.xwt
+SHA1-Digest: bkB9IEq91ljXneoqs6WKBzBDy+s=
+
+Name: org/eclipse/papyrus/uml/properties/creation/ExpressionLanguageFa
+ ctory$UniqueElementValidator.class
+SHA1-Digest: bEhjJv93tBCLvDSDFtflXtYlvzk=
+
+Name: Model/UML/ui/SingleRealLiteral.xwt
+SHA1-Digest: Hl2rkI5De/3X+u/3GGK5hcz9i2c=
+
+Name: Model/UML/ui/SingleOccurrenceSpecification.xwt
+SHA1-Digest: y9YFSS4x4+E12kRLSY7vTyZRdQI=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportProf
+ ilesAsLibraryFromRepositoryAction$ImportProfilesAsLibraryFromReposito
+ ryCommand.class
+SHA1-Digest: ZqODLMrYjj/OVpLhwKR1btH1Ux0=
+
+Name: Model/UML/ui/MultipleActivityParameterNode.xwt
+SHA1-Digest: TbParXHcXT8fmulNzZdbmwFVK6k=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/StereotypeApplic
+ ationFactory.class
+SHA1-Digest: s3FXBzaRSpF8c8V5XcLOK7J7AaE=
+
+Name: Model/UML/ui/SingleTrigger.xwt
+SHA1-Digest: Qf4pZo/LlmYjbYyVz0oAmLCs6Zg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel$1$1$1.class
+SHA1-Digest: IYbIqFmfWLfi4ta9O2cLAjAO5J0=
+
+Name: Model/UML/ui/MultipleAnyReceiveEvent.xwt
+SHA1-Digest: jtjQekmJbgTykAlbvrb+m2YayOM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$1$1$1.class
+SHA1-Digest: xrkCpmCLYX4nhAmCfUCApZjYlbA=
+
+Name: Model/UML/ui/MultipleStereotype.xwt
+SHA1-Digest: woa0YtjljRPQf1UndF9+ytDDLGw=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: Model/UML/ui/SingleGeneralization.xwt
+SHA1-Digest: Sh9EYRodjtul5Gv7oDZMhzfayIc=
+
+Name: org/eclipse/papyrus/uml/properties/providers/UMLFilteredLabelPro
+ vider.class
+SHA1-Digest: F5+G6etfQz8Uj4ZQHbkgJAD2z8k=
+
+Name: Model/UML/ui/SinglePrimitiveType.xwt
+SHA1-Digest: fXcj6AZk0wTBT4UgY1hVurarXOA=
+
+Name: Model/UML/ui/MultipleDeploymentTarget.xwt
+SHA1-Digest: unCR8rkskHlFPTMCse8ZRTXbD+s=
+
+Name: Model/UML/ui/MultipleLinkEndDestructionData.xwt
+SHA1-Digest: O2/brOEukk6Gvo7DwbDcnqKi+5Y=
+
+Name: Model/UML/ui/SingleNamedElement.xwt
+SHA1-Digest: tWVRURtXpBkm0OxzqLYS3nhpIgc=
+
+Name: Model/UML/ui/SingleAcceptEventAction.xwt
+SHA1-Digest: E7UdV1PXP/SGl3P0stMzekK5nvM=
+
+Name: org/eclipse/papyrus/uml/properties/expression/ExpressionList$Exp
+ ression.class
+SHA1-Digest: qT0yMra7EdM3tyMq6MbQaoln6ag=
+
+Name: Model/UML/ui/MultipleBehaviorExecutionSpecification.xwt
+SHA1-Digest: Wv9O88nUcIdPvjrgDRNi/yFu7pM=
+
+Name: Model/UML/ui/MultipleInteraction.xwt
+SHA1-Digest: jYYkPv1JdtURk3xeYLbuxnH9Eks=
+
+Name: Model/UML/ui/SingleTimeEvent.xwt
+SHA1-Digest: aCKFiOLyzQZBScogJCuXz8h/57A=
+
+Name: Model/UML/ui/SingleStringExpression.xwt
+SHA1-Digest: YCnr+oQFfOhdEW9nd9g6naNdCyE=
+
+Name: Model/UML/ui/MultiplePin.xwt
+SHA1-Digest: jMpE4guM9rc0zi7KXpI0ZGFNQzo=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLModelElementF
+ actory.class
+SHA1-Digest: KP5rPhV8rTydo+6udQCnNPseM2M=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/impl/Pref
+ erencesImpl.class
+SHA1-Digest: HWC+t3oQFInuXYLaCXDzdoGafMg=
+
+Name: Model/UML/ui/MultipleLoopNode.xwt
+SHA1-Digest: wNRm36lzh22eQrnuvGBwZq5Z1sg=
+
+Name: org/eclipse/papyrus/uml/properties/constraints/UmlInstanceOfCons
+ traint.class
+SHA1-Digest: QS+j/vL3nZamO/4H/4YPeAru30s=
+
+Name: Model/UML/ui/SyncMessage.xwt
+SHA1-Digest: e2oG0OykS9i3Ck+0wh5kNPg226g=
+
+Name: Model/UML/ui/SingleWriteStructuralFeatureAction.xwt
+SHA1-Digest: 3CTQ48WOVPvAkpFlpkTYsbnrFwI=
+
+Name: Model/UML/ui/SingleUseCase.xwt
+SHA1-Digest: o4nb7JjFR7okGFXhPYKVbxPZzZ4=
+
+Name: Model/UML/ui/SingleMergeNode.xwt
+SHA1-Digest: TtsbycH/ZFMtB/jfEqcttiT2tnU=
+
+Name: Model/UML/ui/SingleOpaqueExpression.xwt
+SHA1-Digest: vr/RZimCKgdlJm6HRwZfa4+LMaI=
+
+Name: Model/UML/ui/SingleDestructionOccurrenceSpecification.xwt
+SHA1-Digest: 3BYpu5zCKWHd9aOT/KIsmN5ylwg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /DecoratedTreeComposite$EditItemListener.class
+SHA1-Digest: gBBRbtINuqj1owFmjWmFwiq/Zqs=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLModelElement.
+ class
+SHA1-Digest: h5ZMbsylLrrc/BpzO6+DMH1uKdU=
+
+Name: Model/UML/ui/MultipleClassifierTemplateParameter.xwt
+SHA1-Digest: BMTsyi5XKpOFlFu5fSodTVkQDnI=
+
+Name: plugin.properties
+SHA1-Digest: I/7odBDYFWftGrLPD3MwDEZq0wY=
+
+Name: Model/UML/ui/SingleSignal.xwt
+SHA1-Digest: oNz+saDVnZHL/GiXulFHSvGWvFM=
+
+Name: Model/UML/ui/MultipleClearStructuralFeatureAction.xwt
+SHA1-Digest: e49d/UaIVqx2/9B5WHGINyXECuw=
+
+Name: Model/UML/ui/MultipleForkNode.xwt
+SHA1-Digest: yWQBRCZD9QhA0T13nHEiO+/4qWE=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$1$1.class
+SHA1-Digest: M0JXa83pZ0juvzGKWLFJ53RyzIA=
+
+Name: Model/UML/ui/MultipleBehavioralFeature.xwt
+SHA1-Digest: FbmIgo+qKhF7XspDR/c681wDttM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/items/DataTypeItem
+ s.class
+SHA1-Digest: /1zdUG6rVy7ZZyT6I1NvyDCbmOk=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/AbstractPa
+ ckageImportAction.class
+SHA1-Digest: EvlfaN21zylBpF0pqT7R28Py75I=
+
+Name: Model/UML/ui/SingleProtocolStateMachine.xwt
+SHA1-Digest: 8d5vs/jVJG87pbUwuxKCNKb28hI=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/ElementCustomizat
+ ionObservableValue.class
+SHA1-Digest: FgHEALsRbZG2Sy+Z7q8RPs9vzNg=
+
+Name: Model/UML/ui/MultipleProfileApplication.xwt
+SHA1-Digest: TJLgW3haRA6Lg4Pz/R/Q3Vwl8uM=
+
+Name: Model/UML/ui/MultipleEnumerationLiteral.xwt
+SHA1-Digest: +g/T2WwiHKojkgnT0kRnqNRfR4Y=
+
+Name: Model/UML/ui/MultipleValueSpecificationAction.xwt
+SHA1-Digest: rTFE0wAR0dxpRja6430eu2wwrL4=
+
+Name: plugin.xml
+SHA1-Digest: 91Ms5T6JYiucESBbaWLO0gdhHUI=
+
+Name: Model/UML/ui/MultipleInputPin.xwt
+SHA1-Digest: GrnI1rzOO1j9ibTDMBfQ5BDRH7w=
+
+Name: Model/UML/ui/MultipleExecutableNode.xwt
+SHA1-Digest: ngXmmiLfNIbMTDDQeBXkB4HabV0=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppliedStereotypePropertyCompositeWithView.class
+SHA1-Digest: QFHMRVCGcYuwpUzzxjvEOtNHdRc=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/impl/Edit
+ orImpl.class
+SHA1-Digest: cSoTxGTA77eKT7/TMYdhIJTM1I4=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/LanguageSelector$1.cl
+ ass
+SHA1-Digest: hcL+YdpyzdlhYpGkwPIfL2xnRG8=
+
+Name: Model/UML/ui/SingleType.xwt
+SHA1-Digest: srAB29QFa8LpVusjMwSdK3weJ0w=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypeDisplay.cla
+ ss
+SHA1-Digest: ipckQ0J+4Si0MS77T532upD5D1o=
+
+Name: org/eclipse/papyrus/uml/properties/constraints/HasStereotypeCons
+ traint.class
+SHA1-Digest: 4M5ui91ImE4nX6RO9meuTc0A8NY=
+
+Name: Model/UML/ui/MultipleCombinedFragment.xwt
+SHA1-Digest: elMjhdjxix0rlVOv1iwmTpOUgmY=
+
+Name: Model/UML/ui/MultipleActivityFinalNode.xwt
+SHA1-Digest: rrat5700qf9bgZBfWHByL5PZbRo=
+
+Name: Model/UML/ui/MultipleLinkEndCreationData.xwt
+SHA1-Digest: Pkoe6RDtWQ6HJaF/wvbdFRlC4co=
+
+Name: Model/UML/ui/MultipleAssociationClass.xwt
+SHA1-Digest: GUWiIezeuovW36hT8DC4LihCcxY=
+
+Name: Model/UML/ui/SingleAnyReceiveEvent.xwt
+SHA1-Digest: 3HGcHu0noG6QdumceT+ntSdSU4w=
+
+Name: Model/UML/ui/MultipleDurationInterval.xwt
+SHA1-Digest: FlXtUVVfMQN+GvvQlz3t/3ao1YM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/ChooseSetS
+ tereotypeDialog.class
+SHA1-Digest: tBnqU+epkDgNmNFot6w+eaDywWQ=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$1.class
+SHA1-Digest: kshSmeiW88axzHDPyM719ssPA24=
+
+Name: Model/UML/ui/MultipleDecisionNode.xwt
+SHA1-Digest: LTIPC5Bo8mn7CGSK6GkqAmd+Sgg=
+
+Name: Model/LanguagePreferences.ecore
+SHA1-Digest: OP3RVRyMtVHuVjmvSce/yVk0OIU=
+
+Name: Model/UML/ui/SingleFunctionBehavior.xwt
+SHA1-Digest: 1DwOopGsFivz0R0so2UN3Rg9KGo=
+
+Name: Model/UML/ui/MultipleDataType.xwt
+SHA1-Digest: ZVp8NRZ/Rh2QWxRxfwyl2xUYWmk=
+
+Name: Model/UML/ui/SingleInteraction.xwt
+SHA1-Digest: 33IM1BDGyJ8H5SXhxils56VUJ30=
+
+Name: Model/UML/ui/MultipleNamespace.xwt
+SHA1-Digest: iHRMjT1ab6/Kpcvd734lsCOxlEE=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLNotationModel
+ Element$2.class
+SHA1-Digest: N6SU8EOoZvSuBqsujJM5RjImIm0=
+
+Name: Model/UML/ui/SinglePin.xwt
+SHA1-Digest: cEe8wTePbw+bzJ3WeCCDF8CPbFI=
+
+Name: Model/UML/ui/MultipleTimeConstraint.xwt
+SHA1-Digest: cyLdLDiO9IHbK8/IylZvrqrglkA=
+
+Name: Model/UML/ui/SingleProperty.xwt
+SHA1-Digest: MBNLY+fic5IR2q2p/Dq4MsywNj4=
+
+Name: Model/UML/ui/MultipleObjectFlow.xwt
+SHA1-Digest: XsgrHpxmd9OjP9tyDpZadYHQ8xU=
+
+Name: Model/UML/ui/MultipleExpansionNode.xwt
+SHA1-Digest: PdPcOL1jku8bbOAUAIdskjmRi14=
+
+Name: Model/UML/ui/SingleCommunicationPath.xwt
+SHA1-Digest: QHKoFpt0LH6S/yNDGnLw3pUvzZ4=
+
+Name: Model/UML/ui/SingleConsiderIgnoreFragment.xwt
+SHA1-Digest: x7//s+e1tcW56ECHvRgrfWyhfmg=
+
+Name: Model/UML/ui/SingleExecutionEnvironment.xwt
+SHA1-Digest: nr0ZsDXFJojgc2o3vRWy488zbhM=
+
+Name: Model/UML/ui/MultipleInteractionUse.xwt
+SHA1-Digest: KFkA7X28K16mhcnbUzylbfdBwvk=
+
+Name: Model/UMLNotation/ui/ElementDisplay.xwt
+SHA1-Digest: HhkiLnHU8TbcdBvCPfTlUDibYfY=
+
+Name: Model/UML/ui/MultipleExpression.xwt
+SHA1-Digest: qmWbrJirfcEXskfjmcwBuHOQFIU=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$2.class
+SHA1-Digest: J15Cahfms8Rs2n26pEilLt0Yxk8=
+
+Name: Model/UML/ui/SingleModel.xwt
+SHA1-Digest: tRf/9yGe8odEzjgLFyM8YtnuFo8=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportLibr
+ ariesFromRepositoryAction$ImportLibraryFromRepositoryCommand$1.class
+SHA1-Digest: XadmgADsMJ6gQFM2v9rDgCTG0EA=
+
+Name: Model/UML/ui/SingleStartClassifierBehaviorAction.xwt
+SHA1-Digest: b5hZM1T6DiSvSYLhYe8cC5eKLyw=
+
+Name: Model/UML/ui/SingleClassifierTemplateParameter.xwt
+SHA1-Digest: ny6EfUvviKEhxYrEl3nB0MOrdJY=
+
+Name: Model/UML/ui/SingleAsyncMessage.xwt
+SHA1-Digest: 3sAo5E+qBeVwKUb8CBSCWqDZsC8=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/LanguageSelector.clas
+ s
+SHA1-Digest: Zg2ilorAigL1d4SKvPBzvW7a/tM=
+
+Name: org/eclipse/papyrus/uml/properties/creation/MessageValueSpecific
+ ationFactory.class
+SHA1-Digest: dOmfIkfwIdc2WF02bSo5fDN+3iU=
+
+Name: icons/delete.gif
+SHA1-Digest: ORJe0sG1BDPf20zkd9DI+HUjfk8=
+
+Name: org/eclipse/papyrus/uml/properties/creation/UMLPropertyEditorFac
+ tory.class
+SHA1-Digest: m0m+2mlZ0z8/5CqoZl5dGqpl0pg=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/LabelCustomizationMas
+ kProvider.class
+SHA1-Digest: xNLYPYXaHBEN4MzFgnYh/QT2NKg=
+
+Name: Model/UML/ui/SingleBehavioredClassifier.xwt
+SHA1-Digest: 1Eb96JWhC3pm4/4Fvk8wwWdepXc=
+
+Name: Model/UML/ui/MultipleControlNode.xwt
+SHA1-Digest: a9D1jirnzpSn2yswxxG/mcJpz6A=
+
+Name: Model/UML/ui/MultipleActivityNode.xwt
+SHA1-Digest: XXfbNuBT6yFprrtAkU+GOUfBTqs=
+
+Name: Model/UML/ui/SingleSubstitution.xwt
+SHA1-Digest: HK+Pr1dwHpF7hR3Ilu7uTLaiYFo=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList$1$1$1.class
+SHA1-Digest: zGhAF3oUlNXGMslkwV2fNIlX9sM=
+
+Name: Model/UML/ui/SinglePackageProfile.xwt
+SHA1-Digest: Gq9OvK+XFr/Y0T5oilEbk2KxzCg=
+
+Name: Model/UML/ui/MultipleWriteLinkAction.xwt
+SHA1-Digest: ngXmmiLfNIbMTDDQeBXkB4HabV0=
+
+Name: org/eclipse/papyrus/uml/properties/datatype/StringDataTypeObserv
+ ableValue.class
+SHA1-Digest: fF7WOjit97UdHxcSorD7LP5DHis=
+
+Name: Model/UML/ui/MultipleReduceAction.xwt
+SHA1-Digest: dZSvQ4XEDpy3uFJdfke9qJyvzDE=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/BodyEditor.class
+SHA1-Digest: AKez8pmclRzcZibgt3UEx7yTj/s=
+
+Name: Model/UML/ui/SingleLinkEndCreationData.xwt
+SHA1-Digest: lCFcyZtNjYlSYjs0qY9Yi00s8y0=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/dialogs/FileSelect
+ ionValidator.class
+SHA1-Digest: 5Ytkmcv+UFJzUdgh6NBb/5XxvzQ=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$6.class
+SHA1-Digest: ksFy6qTyv3rMT5LIvavteos0Hxg=
+
+Name: Model/UML/ui/SingleConnector.xwt
+SHA1-Digest: 8nZQFmudq82kELE9Wx8RvTHv39w=
+
+Name: Model/UML/ui/SingleCreateLinkObjectAction.xwt
+SHA1-Digest: OGpy02ocmEBQGbwQmci5Bljc3NI=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/items/PrimitiveTyp
+ eItems.class
+SHA1-Digest: lCUhpGx3xrd7avGfokYwKT2pe34=
+
+Name: Model/UML/ui/SingleActivity.xwt
+SHA1-Digest: ZP3fZtW4zmkHbwCkCeKyJUJlFLA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedStereotypeCompositeOnModel.class
+SHA1-Digest: tHUgrPuUPGpnKpwGk/gQYTn9n+Q=
+
+Name: Model/UML/ui/MultipleComponentRealization.xwt
+SHA1-Digest: ZTtEi8djvD1CHd3jcwgSx77Ewu8=
+
+Name: Model/UML/ui/SingleDurationConstraint.xwt
+SHA1-Digest: bKnQEalm8bwDjeJs3oDNMfsSiKQ=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$3$1.class
+SHA1-Digest: SfFrpKbuCi8gx4K9fb8efEU4Yx8=
+
+Name: Model/UML/ui/SingleValueSpecification.xwt
+SHA1-Digest: hP6UrjzoWiZ1SIOpu45FyIxkFbI=
+
+Name: Model/UML/ui/MultipleRedefinableElement.xwt
+SHA1-Digest: VOqB4uXkeqMEnKWjJKmqYvhlHW8=
+
+Name: Model/UML/ui/MultipleGate.xwt
+SHA1-Digest: LeuiUBoPN/qMYNUrrHsN4Fl3cKo=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ReApplyPro
+ files.class
+SHA1-Digest: IrSKP2HGAtjJbWk1BsvdYXdPzHY=
+
+Name: Model/UML/ui/MultipleJoinNode.xwt
+SHA1-Digest: vVAUybUSucWEQsuFbsMcokfnABU=
+
+Name: Model/UML/ui/SingleDuration.xwt
+SHA1-Digest: JvGCKQViYgAEzSWdJLWv2DBE3CU=
+
+Name: Model/UML/ui/SingleLiteralSpecification.xwt
+SHA1-Digest: wH1ziMnL+AxZuTOdgAB8RB1dzdk=
+
+Name: Model/UML/ui/MultipleUsage.xwt
+SHA1-Digest: qmWbrJirfcEXskfjmcwBuHOQFIU=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/EStructuralFeatureEdi
+ tor.class
+SHA1-Digest: kUo+yk/A3aNJ8yZ/m2Ec7XIZHhQ=
+
+Name: Model/UML/ui/MultipleLinkAction.xwt
+SHA1-Digest: rrat5700qf9bgZBfWHByL5PZbRo=
+
+Name: org/eclipse/papyrus/uml/properties/expression/ExpressionList.cla
+ ss
+SHA1-Digest: r34fJ7p3wZgd7gwqXaykqyWZFdc=
+
+Name: Model/UML/ui/MultipleManifestation.xwt
+SHA1-Digest: Y8k1+bNvJdjGqQZlRGO7poo4OWw=
+
+Name: Model/UML/ui/MultipleAbstraction.xwt
+SHA1-Digest: UlrOYXzAtCjBWs0JVaEdJiiDO2A=
+
+Name: Model/UML/ui/MultipleMessageEvent.xwt
+SHA1-Digest: qSuhFmFLay8OuDXtTStwELrhq1Q=
+
+Name: Model/UML/ui/SingleBroadcastSignalAction.xwt
+SHA1-Digest: pdSAWHgOostVw7eYe2cThm4Bxm0=
+
+Name: Model/UML/ui/MultipleTransition.xwt
+SHA1-Digest: j0NDU02wtWsrxfUE5KCWy/LFn9M=
+
+Name: Model/UML/ui/SingleOperation.xwt
+SHA1-Digest: Ab6wVRteOsBj+mfM9ywj6hdwZcM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypePropertiesPlaceSection$1.class
+SHA1-Digest: /4RgW6z+SRNU98rgMKBzMyel+w8=
+
+Name: Model/UML/ui/SingleCallBehaviorAction.xwt
+SHA1-Digest: VtkpDwxkl2lcedhlq7NAO03rQhw=
+
+Name: Model/UML/ui/MultipleCentralBufferNode.xwt
+SHA1-Digest: je69PF79luET94vGRuQfqjdEI5s=
+
+Name: Model/UML/ui/SingleMessageOccurrenceSpecification.xwt
+SHA1-Digest: fgvVcKb2vXZYxLdtS0SzAYkeHaM=
+
+Name: Model/UML/ui/MultipleValuePin.xwt
+SHA1-Digest: sBJB5pGfYeW7G7hY6rfkXpjfs7k=
+
+Name: Model/UML/ui/MultipleReplyAction.xwt
+SHA1-Digest: bxs03FkdlGlqte5330YiQ2rbKJ0=
+
+Name: Model/UML/ui/SingleCallAction.xwt
+SHA1-Digest: 6RliXsd4+zpbg4U7xrr2CYpeOz4=
+
+Name: Model/UML/ui/SingleEncapsulatedClassifier.xwt
+SHA1-Digest: KW+OKxJHTHjOiP/wno9mIq+DOYg=
+
+Name: Model/UML/ui/SingleAction.xwt
+SHA1-Digest: X/GeDr95xK2paxBbGZcSc2wlJfw=
+
+Name: Model/UML/ui/SingleDeploymentTarget.xwt
+SHA1-Digest: iGsgQpHGMu1D81BN/z8Y+x4LMXA=
+
+Name: Model/UML/ui/MultipleCreateObjectAction.xwt
+SHA1-Digest: RCjuLfuAmtScOKWFvUmd1aSRy3s=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportFrom
+ File$ImportFromFileCommand.class
+SHA1-Digest: eg8FaCwZOi0DKVkGaZmhPKPYCW0=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/ExpressionEditor.clas
+ s
+SHA1-Digest: R7NmqAgsX3Frka1bzsQFZWxhbgo=
+
+Name: Model/UML/ui/MultipleRemoveVariableValueAction.xwt
+SHA1-Digest: QXMJhlCYAC0GKll28jfmOznEWp4=
+
+Name: Model/UML/ui/SingleControlNode.xwt
+SHA1-Digest: pcm+a8YWbjViwPULW84jLrmiq50=
+
+Name: Model/UML/ui/SinglePackageableElement.xwt
+SHA1-Digest: 0W4V4B0Df0ntUkNYvlkf0BEMV7Y=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/StereotypeModelE
+ lementFactory.class
+SHA1-Digest: fUQepok2wj1t9pC8kPhARql31Ls=
+
+Name: Model/UML/ui/MultipleLiteralBoolean.xwt
+SHA1-Digest: xIuTe5qWr+Bg9Xjyen4gx3XmtR8=
+
+Name: Model/UML/ui/SingleActionInputPin.xwt
+SHA1-Digest: VuIZa/MiiY+BUOonA+pKg9Ntztg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/views/ProfilePanel
+ View.class
+SHA1-Digest: NFTraAiQCqBiHoL0DbmUsCeOwPg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportProf
+ ileAction$ImportProfileCommand.class
+SHA1-Digest: jW6jQOD49sitlGIhPdhEmc9ZcPg=
+
+Name: Model/UML/ui/MultipleVariable.xwt
+SHA1-Digest: C3sjMKfkr+R5sdTlA/c83RLSAGs=
+
+Name: Model/UML/ui/SingleDeployment.xwt
+SHA1-Digest: OVNns012ubmUMTNnX2rdtndRCCo=
+
+Name: Model/UML/ui/SingleLoopNode.xwt
+SHA1-Digest: 3t9W3m2iAVNj0kVsz/acGK2LNkc=
+
+Name: Model/UML/ui/MultiplePartDecomposition.xwt
+SHA1-Digest: g9OjjLGxnwttjI1kN1KYgi75ntM=
+
+Name: Model/UML/ui/SingleWriteLinkAction.xwt
+SHA1-Digest: kiWMjA2M6DlItRGu8qbYOzJQUtQ=
+
+Name: Model/UML/ui/SingleExecutionSpecification.xwt
+SHA1-Digest: 41Kfdg3fmqPjstyMi8Hwhv4sm3c=
+
+Name: Model/UML/ui/MultipleReadIsClassifiedObjectAction.xwt
+SHA1-Digest: NTa368J0/vP5s/Y4qNmh7xpMGbQ=
+
+Name: Model/UML/ui/MultipleGeneralOrdering.xwt
+SHA1-Digest: qyyKB2NbzYeWN7oxRdWDLStbFXM=
+
+Name: org/eclipse/papyrus/uml/properties/languagepreferences/util/lang
+ uagepreferencesAdapterFactory.class
+SHA1-Digest: BG/8Pdp5th8oHKw7YU3A+Uc4XAI=
+
+Name: Model/UML/ui/MultipleInterfaceRealization.xwt
+SHA1-Digest: gSF15UVcA0DEn9NTImcXx0dGC1U=
+
+Name: Model/UML/ui/SingleDevice.xwt
+SHA1-Digest: qUDdaL2m06muPb8G8eN6z3pEepw=
+
+Name: Model/UML/ui/MultipleExtensionPoint.xwt
+SHA1-Digest: rIVFyEY7Xxf92KxVnNxCmsoS6+E=
+
+Name: Model/UML/ui/MultipleOpaqueBehavior.xwt
+SHA1-Digest: GGtM3nYQawOBcKoa8kVJwAaiwxw=
+
+Name: Model/UML/ui/MultipleConnectableElement.xwt
+SHA1-Digest: Tst+PMx5gr9pDsrwlGdTo1oClJ4=
+
+Name: Model/UML/ui/MultipleExtend.xwt
+SHA1-Digest: gT6btFxVFWUwjMW+/BqjW27mek4=
+
+Name: Model/UML/ui/SingleAbstraction.xwt
+SHA1-Digest: QQUWF8SNLXhWJdCkCv8GZPQBXPk=
+
+Name: Model/UML/ui/SingleClearStructuralFeatureAction.xwt
+SHA1-Digest: EyyhH05fGAMDRFCu+KeITowdpkc=
+
+Name: Model/UML/ui/MultipleDestroyObjectAction.xwt
+SHA1-Digest: y8LqWZdf00TSWyV1FV64w+RF+xA=
+
+Name: Model/UML/ui/SingleForkNode.xwt
+SHA1-Digest: rCnIRDkVKoBVxGheADvxiPINmqQ=
+
+Name: Model/UML/ui/SingleValueSpecificationAction.xwt
+SHA1-Digest: aonJQxumbicG2hEQ6joycyO//3c=
+
+Name: Model/UML/ui/SingleInputPin.xwt
+SHA1-Digest: goC/s5dwmxh5zfUB7VifM/fpPuo=
+
+Name: Model/UML/ui/MultipleClass.xwt
+SHA1-Digest: HgbQzBgvC9+XVGQTlJ8NOQEuGWg=
+
+Name: org/eclipse/papyrus/uml/properties/databinding/StereotypeApplica
+ tionObservableList$1$2.class
+SHA1-Digest: Ol59EEheCU+JqKLgq3ZiR5EpICo=
+
+Name: Model/UML/ui/MultipleClearVariableAction.xwt
+SHA1-Digest: FtvQxaKD4uGLVj7AURoXZX/Ss9U=
+
+Name: Model/UML/ui/SingleCombinedFragment.xwt
+SHA1-Digest: l+H3G+wKzks3TO+BNo1Yo/QFE7M=
+
+Name: Model/UML/ui/SingleAssociationClass.xwt
+SHA1-Digest: dSG2SxpqKsP4tG9bX6O/01LuhLw=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/section/AppliedSte
+ reotypeKindAppearanceSection$3.class
+SHA1-Digest: juSX8Bta5shSXZyjaBHeY7fFwwI=
+
+Name: Model/UML/ui/SingleDurationInterval.xwt
+SHA1-Digest: 9M1kGpjrfxBqwBQHI3rKfAkONYo=
+
+Name: Model/UML/ui/MultipleRealization.xwt
+SHA1-Digest: g9OjjLGxnwttjI1kN1KYgi75ntM=
+
+Name: Model/UML/ui/MultipleTimeInterval.xwt
+SHA1-Digest: c5NKVEFyGF+mcqNzDgvW6/8K7tA=
+
+Name: Model/UML/ui/SingleReplyAction.xwt
+SHA1-Digest: ONbSjFH1eqIY+f7f1VVquMFvGzE=
+
+Name: Model/UML/ui/SingleElementImport.xwt
+SHA1-Digest: W0WRDqKh57Zml8eeiHVW+BAgdwA=
+
+Name: Model/UML/ui/SingleSlot.xwt
+SHA1-Digest: 0NY7uExpLJSVVoVAjJIWc+YuYhQ=
+
+Name: Model/UML/ui/SingleDecisionNode.xwt
+SHA1-Digest: myF1fREZO3Q5u7/SJ0XBgLieQZs=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/ProfileApplicationPro
+ pertyEditor.class
+SHA1-Digest: QZpYOkhrAvQ9iH792cuKtYH2bH4=
+
+Name: Model/UML/ui/MultipleFinalState.xwt
+SHA1-Digest: LEAZgCNrPIaYkFKjQoJCHpKrSzE=
+
+Name: Model/UML/ui/SingleDataType.xwt
+SHA1-Digest: ZC9NKqCuekqL32EKN5c+Hg4Bcow=
+
+Name: org/eclipse/papyrus/uml/properties/creation/OwnedRuleCreationFac
+ tory.class
+SHA1-Digest: kpTEnzLoq2JLL1S1TdJLd9NzZyA=
+
+Name: Model/UML/ui/SingleAddVariableValueAction.xwt
+SHA1-Digest: Vp+CHrc5QlzmhhNOrPu7aHR9sEc=
+
+Name: Model/UML/ui/MultipleFinalNode.xwt
+SHA1-Digest: Kt+LDXWJdrtGdl1V6sCcOA3/kVU=
+
+Name: Model/UML/ui/MultipleEvent.xwt
+SHA1-Digest: QYU97rjFzLs1Nr/7ZRJb2xh+mVM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /PropertyComposite.class
+SHA1-Digest: sV3DwcDhOdvaWrcEpF3t6xDcvdg=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/UMLNotationModel
+ Element$1.class
+SHA1-Digest: wHcbKLq6zLP3M0+q3Zcm8K1pd/w=
+
+Name: Model/UML/ui/MultipleClearAssociationAction.xwt
+SHA1-Digest: q4+c7siJU1h45Pl6pAgoyjOhZMA=
+
+Name: Model/UML/ui/SingleGeneralOrdering.xwt
+SHA1-Digest: jDdUgYxYGHRxiuaUwsmZBguc1yY=
+
+Name: Model/UML/ui/MultipleArtifact.xwt
+SHA1-Digest: etlwBZz17OaqVKqAvAJB+74wWAs=
+
+Name: org/eclipse/papyrus/uml/properties/messages/Messages.class
+SHA1-Digest: 2Yz3A9I74FjI8goXlXgOY/YPA3k=
+
+Name: Model/UML/ui/SingleComment.xwt
+SHA1-Digest: UjGQoYVu3Mqcq/zJGtK+XQDiI7A=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositesformodel
+ /AppliedProfileCompositeOnModel$1.class
+SHA1-Digest: K7cHnkK2FK64LKZ/6Cl/6TDtXAg=
+
+Name: Model/UML/ui/MultipleObservation.xwt
+SHA1-Digest: Nzmv4yCLujybO2J3P4BnEIWJd+Q=
+
+Name: org/eclipse/papyrus/uml/properties/widgets/StereotypeImageEditor
+ .class
+SHA1-Digest: LKQSzhwgiMwbfr6MUWNpoqZ9eG8=
+
+Name: Model/UML/ui/SingleVertex.xwt
+SHA1-Digest: 4mrQ4//xNDliw4Xg5jXgJEkbghg=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/P
+ rofileElementWithDisplayLabelProvider.class
+SHA1-Digest: 2GiWRfaEvPTmdFnl9lab8WCUgUo=
+
+Name: Model/UML/ui/MultipleConstraint.xwt
+SHA1-Digest: dBIq3b982gxCC+yf4dzWnNx1MCc=
+
+Name: Model/UMLNotation/UMLNotation.ctx
+SHA1-Digest: qBstxa03oubm/KO6ew0eR1rZqqw=
+
+Name: Model/UML/ui/SingleInstanceSpecification.xwt
+SHA1-Digest: UGLnaWHlqkNp8CZs21Vm+F7AqbY=
+
+Name: Model/UML/ui/SingleDestroyObjectAction.xwt
+SHA1-Digest: BgAgHI64sUG0bbukwrTcmqgvupc=
+
+Name: Model/UML/ui/SingleReclassifyObjectAction.xwt
+SHA1-Digest: eCOk6y3SFLG+78aRbQytDYGbE80=
+
+Name: Model/UML/ui/MultipleInterface.xwt
+SHA1-Digest: 4Wqg2W+fjpOJfALyvFRR1Q6xNgo=
+
+Name: Model/UML/ui/SingleActivityNode.xwt
+SHA1-Digest: L7Cndk4h4TL4mkCC2RRaJ9a714g=
+
+Name: Model/UML/ui/SingleActor.xwt
+SHA1-Digest: IV4P3W7J7QEthbDk7tF5VaisChQ=
+
+Name: Model/UML/ui/MultipleDeploymentSpecification.xwt
+SHA1-Digest: G68yGOcXs8dRL92Ld7fLCrUGx28=
+
+Name: Model/UML/ui/MultipleExtension.xwt
+SHA1-Digest: 5lWTBzcgRiMzXYmNoSN5LXOhxyE=
+
+Name: Model/UML/ui/MultipleCreateLinkAction.xwt
+SHA1-Digest: 2+XN4feNXbme4bI8EGMErQJa8CM=
+
+Name: Model/UML/ui/SingleDataStoreNode.xwt
+SHA1-Digest: IvPV0xrX42oMCXThfsKtXjx0XeA=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/panels/AppliedSter
+ eotypePanel.class
+SHA1-Digest: lYStqver4iweCU3DXiI5ZZGq6j8=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/CustomImageModel
+ Element.class
+SHA1-Digest: otXK+R0iiqdtJcG1scA12jpIlY8=
+
+Name: Model/UML/ui/SingleCreationEvent.xwt
+SHA1-Digest: 6FdECu8ZRc8o92rGbnRMSPWmr5Y=
+
+Name: Model/UML/ui/MultipleLifeline.xwt
+SHA1-Digest: 7dT/phVUUdq4k4I7Z3ueqW8h/eo=
+
+Name: Model/UML/ui/MultipleCollaboration.xwt
+SHA1-Digest: p9CYiJ1vxPZeusJLU1S3afMjxX0=
+
+Name: Model/UML/ui/SingleComponent.xwt
+SHA1-Digest: 4dh8xJVeKElFoTQUrCcBECwz6GU=
+
+Name: Model/UML/ui/SingleClearVariableAction.xwt
+SHA1-Digest: ssoSvp1oJG/zsLGnWiiFgNi3gtk=
+
+Name: Model/UML/ui/SingleReduceAction.xwt
+SHA1-Digest: 3hi00zh0sD8OBheFuCZqCmUMPh8=
+
+Name: Model/UML/ui/SingleRealization.xwt
+SHA1-Digest: ee33RnFIfV9hNoyb/pRwT+DRQck=
+
+Name: Model/UML/ui/MultipleGeneralization.xwt
+SHA1-Digest: fAr+8CCg6Tm1NzzsUU/6hKwu/W4=
+
+Name: Model/UML/ui/SingleTestIdentityAction.xwt
+SHA1-Digest: XpF8nouZ9xlEfO2e/oottAuoP4o=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/compositeforview/A
+ ppearanceForAppliedStereotypeComposite$5.class
+SHA1-Digest: ocjjnSDgrWfUhHGnkf96F8XePZM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportFrom
+ File$ImportFromFileCommand$1.class
+SHA1-Digest: 5m0HZtO6WFvhW1jaOBUMX3ePtiw=
+
+Name: Model/UML/ui/MultiplePort.xwt
+SHA1-Digest: C5bImosKJBgpRttpq8/Uk5WPWcs=
+
+Name: Model/UML/ui/SingleComponentRealization.xwt
+SHA1-Digest: 2SomZwIur62vHrQA3dGAuwOw2yc=
+
+Name: Model/UML/ui/MultipleLiteralUnlimitedNatural.xwt
+SHA1-Digest: N8EznQde/7kosn/Ff5IfQNg3R/g=
+
+Name: Model/UML/ui/SingleGate.xwt
+SHA1-Digest: 3HGcHu0noG6QdumceT+ntSdSU4w=
+
+Name: Model/UML/ui/SingleJoinNode.xwt
+SHA1-Digest: GbP2UMjHIlCduJYa1lknu77e/sM=
+
+Name: org/eclipse/papyrus/uml/properties/profile/ui/actions/ImportLibr
+ ariesFromRepositoryAction.class
+SHA1-Digest: 2YwcppaYW6wRvDRECtSZcT3PGeo=
+
+Name: Model/UML/ui/MultipleStructuralFeature.xwt
+SHA1-Digest: nppbO2EoxjuPX+RJa84XbH85A1o=
+
+Name: org/eclipse/papyrus/uml/properties/modelelement/StereotypeAppear
+ anceFactory.class
+SHA1-Digest: 9VThCJfjPE0hV4NaDlK67NJw47g=
+
+Name: Model/UML/ui/MultipleInstanceValue.xwt
+SHA1-Digest: 17kWtUK9PykFRnxxhzNKGwO8eBo=
+
+Name: Model/UML/ui/MultipleCallEvent.xwt
+SHA1-Digest: OivbZSBumjgrN1kQeyFf9nsbdUM=
+
+Name: Model/UML/ui/SingleMessageEvent.xwt
+SHA1-Digest: bel0DqUxBshs+KjXn44dz4DMw7E=
+

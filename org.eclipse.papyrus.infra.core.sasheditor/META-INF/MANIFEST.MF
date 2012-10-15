@@ -1,0 +1,564 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.core.sasheditor;singlet
+ on:=true
+Require-Bundle: org.eclipse.ui,org.eclipse.gef,org.junit;bundle-versio
+ n="4.8.1";resolution:=optional,org.eclipse.papyrus.infra.core.log;bun
+ dle-version="0.9.1";visibility:=reexport,org.eclipse.core.runtime;bun
+ dle-version="3.7.0",org.eclipse.e4.core.contexts;bundle-version="1.0.
+ 0";resolution:=optional,org.eclipse.e4.ui.model.workbench;bundle-vers
+ ion="0.10.0";resolution:=optional,org.eclipse.core.expressions;bundle
+ -version="3.4.300"
+Bundle-Activator: org.eclipse.papyrus.infra.core.sasheditor.Activator
+Export-Package: org.eclipse.papyrus.infra.core.sasheditor,org.eclipse.
+ papyrus.infra.core.sasheditor.contentprovider,org.eclipse.papyrus.inf
+ ra.core.sasheditor.contentprovider.simple,org.eclipse.papyrus.infra.c
+ ore.sasheditor.editor,org.eclipse.papyrus.infra.core.sasheditor.edito
+ r.actionbarcontributor,org.eclipse.papyrus.infra.core.sasheditor.edit
+ or.gef,org.eclipse.papyrus.infra.core.sasheditor.multipage.editor
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$CollectVisibleIEditorPart.class
+SHA1-Digest: JxtSXQvPmyG/AEat/mByspye3DU=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/P
+ resentationUtil$4.class
+SHA1-Digest: nMXEDtaqP7v9maDEilRX/A6GejE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$IP
+ TabFolderListener.class
+SHA1-Digest: WvzzfaFh+hDRACOZWoiYxnixTEo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/single
+ folder/SingleFolderContentProvider$ContentChangeListenerManager.class
+SHA1-Digest: q4fWQKZHFJTfH/iMa0dyZsJgIWk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$SetFolderTabMenuVisitor.class
+SHA1-Digest: kS5STttPt48aRPXImz2YN67d7UQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PartVisitor.c
+ lass
+SHA1-Digest: RE+MdKkiTDXgFmWXHTqEuJkII0A=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$1.class
+SHA1-Digest: yWRYKVR1Sg05vT4DdXTNrB62hFw=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/preferences/T
+ abTooltipPreferencePage.class
+SHA1-Digest: 4gNS+bmyXxPkanzjI8wFWqQGFNo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/EditorPart$3.
+ class
+SHA1-Digest: viCYLLD2Ow+7Bd9dIhDSDN2tQE4=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/actionbarcontri
+ butor/MultiPageEditorActionBarContributor.class
+SHA1-Digest: l2oSviWVk8U9Ac5ejL/3VAaZGw8=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/IPartVisitor.
+ class
+SHA1-Digest: iK2Yjt5EQ9oliQlPTfUJFXcMqGk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $1.class
+SHA1-Digest: jbLN+RLyy2Mrm7Al2AeSJxqzjHg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$CollectVisiblePageVisitor.class
+SHA1-Digest: Epm6eDSRBV/9Vu0USR74oBa0jts=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ImageToolTipM
+ anager.class
+SHA1-Digest: Cgz8EAB3Z0LwIkwJiuN+Ymw3XKk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IPage.class
+SHA1-Digest: 6s1DIbx7HkEsD7GW/uxE/G+Iw3w=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite.class
+SHA1-Digest: +PcMaSPm13xlqr4LvFRWEI2FuuY=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IConte
+ ntChangedListener.class
+SHA1-Digest: kQIJwacKZOZdbNyw9jpm2YKmhfI=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/single
+ folder/SingleFolderContentProvider.class
+SHA1-Digest: 5ADfEbQBuwyG3Xlryr6g24quvv8=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$4.
+ class
+SHA1-Digest: 8z2FDsxy+D1KhpuwBzc9Hgd2NZ8=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite$3.class
+SHA1-Digest: fQ5Lq4W1w1HqIMyPNU2EjBZzExU=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite4x$1.class
+SHA1-Digest: viR0y1cZD6B/z6DiL+BrkGc8KgQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashWindowsEven
+ tsProvider.class
+SHA1-Digest: vq4fYNXF6J/qFl6ipCyy378/jkA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ActivePageTra
+ cker$IActiveEditorChangedListener.class
+SHA1-Digest: u3tJWip8TGPL2JvyHib3zDGHvV4=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $DropTarget.class
+SHA1-Digest: jtu34I2kIWjLEPeHT8Of/2f4J3c=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/P
+ resentationUtil.class
+SHA1-Digest: y/5ZeopPQwK/0j7z/m+zxikRmO0=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /RootModel.class
+SHA1-Digest: 9PhEE79TxtBp134YHP8i5Zoi7f0=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PartLists.cla
+ ss
+SHA1-Digest: 5HOEa+Pk/JpG/8aKhZMx4FrfePU=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/AbstractPart.
+ class
+SHA1-Digest: oEmpPUXxSiJ5wE2FnHGa2FvBGsk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/preferences/I
+ TabTooltipPreferences.class
+SHA1-Digest: ffAFVHLGlqMMwZ9jb8CCmq2Pht4=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/P
+ resentationUtil$1.class
+SHA1-Digest: JUdGywKADy4eufM0OOUNIbZCl5U=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/Activator.class
+SHA1-Digest: 0YhRlETyEFpfVh4yVOu135rRywM=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ReplaceableSa
+ shForm.class
+SHA1-Digest: Myrah6xa44XK+N5T4cdlkvjco0M=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/preferences/S
+ howPreferencesHandler.class
+SHA1-Digest: kt6nejzVpUDQ/mYQJoFDwrfJekI=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /TabFolderModel.class
+SHA1-Digest: vtxBarevLlqXlTXHNK9z2e6lUmc=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IPageM
+ ngr.class
+SHA1-Digest: b+sM22++gfuGmE89WB0FWfzX6hc=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /AbstractPanelModel.class
+SHA1-Digest: SoR/6oSYNDSHp4GDpQgkoQlprNk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /SashPanelModel.class
+SHA1-Digest: sp/HrP10JU1igdrxM8iDzqRP5hU=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$2.class
+SHA1-Digest: skegkVI+s1A95CBVjZpR+v70mWA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/EditorPart$4.
+ class
+SHA1-Digest: GMXxk1nzLVd9yTPnD14tlAQO9sY=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/LookupModelPa
+ geVisitor.class
+SHA1-Digest: kaDLAgteFfA3DI+Y7P1D1g8n70M=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashTabDecorati
+ onSynchronizer$1.class
+SHA1-Digest: lp5d7xhb8d6rg/iSFdY0WmcuT08=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder.cl
+ ass
+SHA1-Digest: zNY+TdkNAgyGlIZxx2RZrllYm0k=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $2.class
+SHA1-Digest: qAQqh6vy7H28E+af0nlcA73cOkE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageSelectionProvider$1.class
+SHA1-Digest: 5TE/L+KVDpLpHH1paQFYH/5y5aE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/actionbarcontri
+ butor/IMultiPageEditorActionBarContributor.class
+SHA1-Digest: 1j4s3RpsrLoQtHZBwEUdrfYcqdQ=
+
+Name: schema/readme.txt
+SHA1-Digest: QbDjIEuJnpjXKXKXQ6Hw/m6BBKM=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IPageChangedLis
+ tener.class
+SHA1-Digest: 97z03RNCIdnyk4kEZBF7WWkZBiA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/IMultiEditorM
+ anager.class
+SHA1-Digest: Tvb0q7/dfph74rOiVwWLUt8/RIM=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$1.
+ class
+SHA1-Digest: prR5R9prjoMZEJW9BXvjOjA2pFQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PagePart.clas
+ s
+SHA1-Digest: d/J0vOQJ3yfxAVxrzaNUsJvKewk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $MouseHoverTracker.class
+SHA1-Digest: KfmdC0Bo8QFu+evPLmb3lzScioc=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$5.
+ class
+SHA1-Digest: 70jRS1MQEEJrlmidDmVQS2psolQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $TabPartList.class
+SHA1-Digest: 9IkmK8MA+cqFW5DcX5LijCNjyG4=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashTabDecorati
+ onSynchronizer$AttachVisitor.class
+SHA1-Digest: 2kfCdA0I7gqyUuOY8y6xgPbagfk=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite4x$2.class
+SHA1-Digest: gfCqRTgJ+DA8P0SQZQvsLWzjOGk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabItemPart.c
+ lass
+SHA1-Digest: yrdngY+LxOED6gompFaMo4WYKuI=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IPageLifeCycleE
+ ventsListener.class
+SHA1-Digest: b1QT0bvDP5KZuro+j+zKa2Rb0yI=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $MouseHoverTracker$1.class
+SHA1-Digest: b0s0/18T+tESktWBFaAHjg5/PbQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PageVisitorWr
+ apper.class
+SHA1-Digest: jhiwjHelUc8V051f+XnxFArVvNs=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/AbstractMultiPa
+ geSashEditor.class
+SHA1-Digest: UZl4TljlGFwFrtKjQgOfSts3NQo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashWindowsEven
+ tsProvider$1.class
+SHA1-Digest: O+uD1U1234G8upKWm8cJRFc4Ut8=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IEdito
+ rModel.class
+SHA1-Digest: eYnh+wMIbXyGVM4AUi7ixPE5N+E=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/P
+ resentationUtil$2.class
+SHA1-Digest: CpbeiNoUGUfi6uWs9N7m5SB57Pw=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/single
+ folder/SingleFolderModel.class
+SHA1-Digest: clc/L2wKFdIRVQz8AREBOizw6Rc=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer.class
+SHA1-Digest: DDuJz5u4bMsVws8Qg8TtvoPGZkU=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /SimpleSashWindowsContentProvider$ContentChangeListenerManager.class
+SHA1-Digest: i+2x9v5gHpGnqZ2Qi/fNOj2S8Ao=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashWindowsEven
+ tsProvider$PageChangedListeners.class
+SHA1-Digest: UqIsMsiJEn1N1meZx6mdbKNjgsA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashTabDecorati
+ onSynchronizer.class
+SHA1-Digest: SZWimyvMnd0c94rEHeL7I+LYh7M=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashPanelPart
+ .class
+SHA1-Digest: s80XbIklpYrFRUsXKqNe4HVKoVQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageSelectionProvider.class
+SHA1-Digest: 3DlGAbyPa0Gh2t/r3djR0SPcBRI=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/ISashWindowsCon
+ tainer.class
+SHA1-Digest: qD4+xj7EjY/3tu715r4Tu8SiIFM=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/EditorPart$1.
+ class
+SHA1-Digest: 62r+Dr/MlGrwXMBFoBvvs9/okl0=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashTabDecorati
+ onSynchronizer$2.class
+SHA1-Digest: ZwySDaI9qKsje9s4F45C7M8xS40=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IComponentPage.
+ class
+SHA1-Digest: QoIJBz7hhjnzZYMbfDhGBtmNCyw=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$DropTarget.class
+SHA1-Digest: G+qEZXnusN4LJ2na8P7lL7dZnZs=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IPageM
+ odel.class
+SHA1-Digest: Xs2mks742LL6U4D/IufqoGIdtUE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/ITabFo
+ lderModel.class
+SHA1-Digest: SpsRxKog8lpAY8DYckbvuYqjqNo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IAbstr
+ actPanelModel.class
+SHA1-Digest: Rbp7iTOPEwmPmS6XpfHyBiwOx4U=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/ISashP
+ anelModel.class
+SHA1-Digest: DU9I+kCgSp0HR6mYNzDeQizzjLk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/AbstractPart$
+ GarbageState.class
+SHA1-Digest: lvyPVHfozpFuSRKy/zKmI+AQT3U=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/multipage/editor/Multi
+ PageEditor.class
+SHA1-Digest: YWWk9SKtciNfNGAyltjXOh+4GWE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/ISashW
+ indowsContentProvider.class
+SHA1-Digest: +mFMC6fgeGgHKSy2vOPY2rBk4Dg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite4x.class
+SHA1-Digest: Te59Jytsy2qgR9XaBbGXws/aaRg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IConte
+ ntChangedProvider.class
+SHA1-Digest: WYUhHpdllr/VfYtVoa59bndJpSo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/actionbarcontri
+ butor/ComposedActionBarContributor.class
+SHA1-Digest: yZ11v06PFJm+L/Pk4rN6OgrZuyA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$2.
+ class
+SHA1-Digest: Lu6iS8LCcbVedzUvvCU6ZcYHlZI=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /SimpleSashWindowsContentProvider.class
+SHA1-Digest: 43cO7r0ma2SxPu+/dLYfgrBgZVA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/preferences/T
+ abTooltipPreferences.class
+SHA1-Digest: Afu2oo8pLgX60VmN9cFwEfEXT2w=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashWindowsEven
+ tsProvider$ListenersList.class
+SHA1-Digest: lPh7Alw1BANzi/bojzc0BkLpWXQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$Ev
+ entsManager.class
+SHA1-Digest: NZVhPs1gCg7p4v0PX0PmfGuGcZg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IEditorPage.cla
+ ss
+SHA1-Digest: lz+uCN7y99LbdlgcJLu09bX34is=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/AbstractPanel
+ Part.class
+SHA1-Digest: EHBmVYMLcNhjf4LBOxFe2whXPyw=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/IPanelParent.
+ class
+SHA1-Digest: j3bVW5yuFc7xO2bLnH0Lto+zynY=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite$1.class
+SHA1-Digest: JI2/3z/h5AE6e8w3IZLJK0PbBbY=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/LookupFolderP
+ artByRawModelVisitor.class
+SHA1-Digest: mkhkq92yqL0NSqU2Lkv06Nd9m5A=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite4x$3.class
+SHA1-Digest: +CjpRejLaKaGv8N6zKs2i+h6Iuo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/ISashWindowsCon
+ tainerChangedListener.class
+SHA1-Digest: qt5syf6G+Ai79cM0EfXPUFpR2SE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IMultiPageEdito
+ rPart.class
+SHA1-Digest: 9p4hVvTNvQIs5bMSKw/w9gvla/8=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ $MouseHoverTracker$2.class
+SHA1-Digest: 14iIuRfahm9gTh5bBpS/tyOzsps=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/preferences/T
+ abTooltipPreferenceInitializer.class
+SHA1-Digest: FnrAFrArgfg8XUEI+yqJOpnQpiE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/AbstractMultiPa
+ geSashEditor$EditorVisitor.class
+SHA1-Digest: SOiIDQkPh9C6yhRfWVlQq50XwR4=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/IConte
+ ntChangedListener$ContentEvent.class
+SHA1-Digest: U2y2ndZYEC/6UQHc0rfqvwhukRA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashWindowsEven
+ tsProvider$2.class
+SHA1-Digest: /7YAbPuBpIK62XnJYShnG0Xna9U=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashContainer
+ EventsProvider.class
+SHA1-Digest: MFfZEltQD60EGGTyUtLp/Vq5XWk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ShowPartStatu
+ sVisitor.class
+SHA1-Digest: L5EregTTmtLxzbSqf3ftnVs89Yo=
+
+Name: schema/nestedEditor.exsd
+SHA1-Digest: ZiO79J06E0LOh6RhR+ftDDTiaqQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/P
+ resentationUtil$3.class
+SHA1-Digest: 8K+RYPM1fZ9LDnUYK5URgei1k1I=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/ICompo
+ nentModel.class
+SHA1-Digest: 2i9RKskFq6x/79xdMaS7EgOfw/0=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/gef/MultiDiagra
+ mEditorGefDelegate.class
+SHA1-Digest: 8bpEFG++iwkdXiFilsLLuW33Q1o=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/EditorPart.cl
+ ass
+SHA1-Digest: 4CYddXGqHA+ZD8Go5NeOsOUzkBE=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/TabFolderPart
+ .class
+SHA1-Digest: wNu71iqovvkVbvY7RUyXa377QWo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IPageVisitor.cl
+ ass
+SHA1-Digest: 7DzAL0BYi97RRyx60VXpkFQrRKk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/LookupIPageBy
+ IEditorPartVisitor.class
+SHA1-Digest: f+0V7ZCbZfrEHmdotOxGge6hrlA=
+
+Name: plugin.properties
+SHA1-Digest: p3SuGirr/YlJnmfDOdZ00b3b8Eg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/IPageImageUtils
+ .class
+SHA1-Digest: 2VvW9EN/dx9Xx6YAc/O0Q/HCWx0=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/EditorPart$2.
+ class
+SHA1-Digest: AuThMM25ZgJMbhIdOKaWebPxZrg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsEx
+ ception.class
+SHA1-Digest: /qCOhm803IX5GrNEUO65Sbxotps=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$CollectIEditorParts.class
+SHA1-Digest: nVi0s71dypX8rA8II379zsr0f7A=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ActiveEditorS
+ ervicesSwitcher.class
+SHA1-Digest: e7z/kyb/8k9a7XAHZt7YBIweW2A=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ActivePageTra
+ cker.class
+SHA1-Digest: GO9a/P3caSTSSPG8ASRQD2EbmmA=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/Copyright.cla
+ ss
+SHA1-Digest: OWA/tZsXm8umZyXfpREey45m6vI=
+
+Name: plugin.xml
+SHA1-Digest: 4GwhkTiYRMrWXwhvHHBAfG/cGiU=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashTabDecorati
+ onSynchronizer$DetachVisitor.class
+SHA1-Digest: wrFFjqKxaEBb/CTAs+fb8AYJScg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/ComponentPart
+ .class
+SHA1-Digest: En29RbiAQsoxCWb49uhlt9PG3Gg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/PTabFolder$3.
+ class
+SHA1-Digest: Fem3VSDueAcj3ocrpLxHru6aQcg=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/I
+ MultiPageEditorSite.class
+SHA1-Digest: 9W+ZVpXY2e+3eMF1GlbxV0MR78Y=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite$2.class
+SHA1-Digest: VI3hJK6u1FJ+l8S4Xy7RRlswx/k=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/M
+ ultiPageEditorSite4x$4.class
+SHA1-Digest: PFkahQBnMZlLYHC/hD4KI8JK/44=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/NotFoundExcep
+ tion.class
+SHA1-Digest: an5AQip/jt8/5zyO1psDYLWzA84=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/eclipsecopy/A
+ bstractTabFolderPart.class
+SHA1-Digest: B2HcgSWeJfM6xvzmCbkCrxTL1Xo=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/contentprovider/simple
+ /AbstractModel.class
+SHA1-Digest: joNyL3BJuAyVFI4A+XBWaIt++Kk=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/SashWindowsCo
+ ntainer$AbstractCollectIEditorPart.class
+SHA1-Digest: csflfby+G2dMwJ9mDRa8ciNBh20=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/internal/RootPart.clas
+ s
+SHA1-Digest: 3buo2KA1syM4yYDIzO1iIR4lcFQ=
+
+Name: org/eclipse/papyrus/infra/core/sasheditor/editor/SashWindowsEven
+ tsProvider$SashWindowsContainerChangedListeners.class
+SHA1-Digest: f2Wzdeongt+eVmQ7giG44j8HzTk=
+

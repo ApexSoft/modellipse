@@ -1,0 +1,218 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.table.properties;single
+ ton:=true
+Bundle-Activator: org.eclipse.papyrus.infra.table.properties.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.views.properties;bundle-version="0.9.1",org.eclipse.papyrus.vie
+ ws.properties.model;bundle-version="0.9.1",org.eclipse.emf.edit,org.e
+ clipse.papyrus.infra.widgets;bundle-version="0.9.1",org.eclipse.emf.f
+ acet.infra.query.core;bundle-version="0.1.0",org.eclipse.emf.databind
+ ing,org.eclipse.papyrus.infra.core.log;bundle-version="0.9.1",org.ecl
+ ipse.papyrus.infra.table.instance;bundle-version="0.9.1",org.eclipse.
+ emf.facet.widgets.nattable.instance;bundle-version="0.1.0",org.eclips
+ e.papyrus.infra.emf;bundle-version="0.9.1"
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: model/ui/MultipleQueryColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleColumn.xwt
+SHA1-Digest: FUXU/BAb0YNg8FwdheEUgZgCw7c=
+
+Name: model/ui/MultipleTableInstance.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleQueryColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleTableInstance.xwt
+SHA1-Digest: TaMQRceOJhoIhIYqw+H8Qur5X3o=
+
+Name: model/tableinstance2FieldSelection.xmi
+SHA1-Digest: vmu6bz8/QAGAq+IVJG/4YqiKuNc=
+
+Name: model/ui/SingleDefaultLabelColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/tableinstance2.ctx
+SHA1-Digest: uYg0SAZbXgJEH75+KizBjxzIhZs=
+
+Name: org/eclipse/papyrus/infra/table/properties/Activator.class
+SHA1-Digest: 0WqCa/Dy/0VwsJ0vbkWorPN/cWw=
+
+Name: model/ui/MultipleDefaultLabelColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleFacetFeatureColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleRow.xwt
+SHA1-Digest: wEwR7kzes3VfmA7y03Usfi3IKlM=
+
+Name: org/eclipse/papyrus/infra/table/properties/modelelement/PapyrusT
+ ableModelElement.class
+SHA1-Digest: nOiJS/Barodeo7T1xhngQFDLps8=
+
+Name: model/ui/MultipleFacetFeatureColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: model/ui/SingleFacetReferenceColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleTableInstance2.xwt
+SHA1-Digest: nkbS9Qk+iIwzzjZej4wrEb4+8Zg=
+
+Name: model/Environment.xmi
+SHA1-Digest: 8Uwj11WXcox1LaiSGVIoOHdoC9Q=
+
+Name: model/tableinstanceFieldSelection.xmi
+SHA1-Digest: Jn8u7eGlOaj1pYvD8ihES3k8gcY=
+
+Name: model/tableinstance.ctx
+SHA1-Digest: iezl7JrGHpoIaflFjxmQGmgi3RI=
+
+Name: model/ui/MultipleFacetReferenceColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleQueryTableInstance2.xwt
+SHA1-Digest: 2O4CwajLqrpGj64xfphOyYsUXtQ=
+
+Name: model/ui/MultipleTableInstance2.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleQueryTableInstance.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleFacetAttributeColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleQueryTableInstance2.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleReferenceColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleFacetAttributeColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleQueryTableInstance.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: org/eclipse/papyrus/infra/table/properties/provider/Customizatio
+ nLabelProvider.class
+SHA1-Digest: 9n/7WAh8K/Y1GoLRT5Z/6fc2a9g=
+
+Name: model/ui/SingleReferenceColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: plugin.properties
+SHA1-Digest: edTPQydyMWvzeWMOiYTtp5rReXc=
+
+Name: org/eclipse/papyrus/infra/table/properties/provider/Customizatio
+ nContentProvider.class
+SHA1-Digest: ifgvX0xMq4B1JS17tdAusx4zTKs=
+
+Name: org/eclipse/papyrus/infra/table/properties/modelelement/PapyrusT
+ ableFactory.class
+SHA1-Digest: Id1A1QWXRBuAPAwYMWgmaHAvZrY=
+
+Name: model/ui/MultipleAttributeColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultiplePrimitiveTypeQueryRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleQueryRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleEObjectQueryRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: plugin.xml
+SHA1-Digest: H9/FslFLtBAiIwHFisckM2p2Iuc=
+
+Name: model/ui/SingleAttributeColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SinglePrimitiveTypeQueryRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleQueryRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: org/eclipse/papyrus/infra/table/properties/provider/FillingQueri
+ esContentProvider.class
+SHA1-Digest: b7BCbd9pPXqUHjTFFqHIU00znWw=
+
+Name: model/ui/SingleEObjectQueryRow.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: org/eclipse/papyrus/infra/table/properties/provider/FacetLabelPr
+ ovider.class
+SHA1-Digest: EJepsznyZkr9H0SB6cwmts/+KDI=
+
+Name: model/ui/MultipleContextColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleValueColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/papyrustableinstanceFieldSelection.xmi
+SHA1-Digest: YvVDaAooNoyIzIUjneg1GPa2j/4=
+
+Name: model/ui/MultipleMetaClassColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: model/papyrustableinstance.ctx
+SHA1-Digest: O8NEI8iAl5AElcQjq3oYzwlPvY4=
+
+Name: model/ui/Description.xwt
+SHA1-Digest: BXaNYNpRTQtEVGLb2jta11npFXk=
+
+Name: model/ui/MultipleFeatureColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleContextColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleValueColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SinglePapyrusTableInstance.xwt
+SHA1-Digest: EDYv/mOLGGS7bV+9aNsxY1DzZBI=
+
+Name: model/ui/SingleMetaClassColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleFeatureColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/SingleEContainerColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultiplePapyrusTableInstance.xwt
+SHA1-Digest: ml4+bAHc3wkrxgzn/FdeW108CLM=
+
+Name: model/ui/SingleColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+
+Name: model/ui/MultipleEContainerColumn.xwt
+SHA1-Digest: hc9meZsqLGChK1NyxPpXRa4KXAk=
+

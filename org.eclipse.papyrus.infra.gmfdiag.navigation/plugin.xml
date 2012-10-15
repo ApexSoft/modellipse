@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="navigationRules" name="navigationRules" schema="schema/navigationRules.exsd"/>
+   <extension-point id="navigationDecoratorRules" name="navigationDecoratorRules" schema="schema/navigationDecoratorRules.exsd"/>
+   <extension-point id="navigationColorProviders" name="navigationColorProviders" schema="schema/navigationColorProviders.exsd"/>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.infra.gmfdiag.navigation.preference.NavigationPreferencePage"
+            id="org.eclipse.papyrus.navigation"
+            name="Navigation">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.papyrus.infra.gmfdiag.navigation.preference.NavigationPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <decoratorProvider
+            class="org.eclipse.papyrus.infra.gmfdiag.navigation.decorator.NavigationDecoratorProvider">
+         <Priority
+               name="Medium">
+         </Priority>
+      </decoratorProvider>
+   </extension>
+  
+   <!--commented for the build Juno M4, because perspective doesn't work-->
+   
+   <!--<extension
+         point="org.eclipse.papyrus.editor.perspectiveconfiguration">
+      <configuration
+            perspectiveID="org.eclipse.papyrus.infra.core.perspective">
+         <toolbar
+               toolbarID="org.eclipse.papyrus.navigation.toolbars.navigationToolbar">
+         </toolbar>
+         <command
+               commandID="org.eclipse.papyrus.navigation.commands.backNavigationCommand">
+         </command>
+         <command
+               commandID="org.eclipse.papyrus.navigation.commands.nextNavigationCommand">
+         </command>
+         <command
+               commandID="org.eclipse.papyrus.navigation.commands.topNavigationCommand">
+         </command>
+         <command
+               commandID="org.eclipse.papyrus.navigation.commands.upNavigationCommand">
+         </command>
+      </configuration>
+   </extension>
+   -->
+</plugin>

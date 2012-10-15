@@ -1,0 +1,145 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.ui.resources;singleton:
+ =true
+Bundle-Activator: org.eclipse.papyrus.infra.ui.resources.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.infra.core;bundle-version="0.9.1";visibility:=reexport,org.ecli
+ pse.ltk.core.refactoring;bundle-version="3.5.200",org.eclipse.papyrus
+ .infra.services.controlmode;bundle-version="0.9.1",org.eclipse.papyru
+ s.infra.services.controlmode.history;bundle-version="0.9.1",org.eclip
+ se.core.resources;bundle-version="3.7.100",org.eclipse.emf.transactio
+ n;bundle-version="1.4.0",org.eclipse.gmf.runtime.notation;bundle-vers
+ ion="1.5.0",org.eclipse.ui.forms;bundle-version="3.5.100"
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/messages.p
+ roperties
+SHA1-Digest: J+ZE+thlx4OS+/F9P6S2JSZyOwM=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/ScopeChoos
+ er.class
+SHA1-Digest: NosR25RJoUUicMbzoDefHmaEzKg=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/Messages.c
+ lass
+SHA1-Digest: MelmNu6mmmmSS21m43RFp/Bc1BY=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/RenameModelCh
+ ange$1.class
+SHA1-Digest: mMu6c79ylAK0DI41r3MsKXGe9LU=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/RenameModelCh
+ ange$2.class
+SHA1-Digest: uQ3xf38zmHo+hNqsbo8Lu73JAx4=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/RenameModelCh
+ ange$3.class
+SHA1-Digest: sFZ+mRUygQ8MeKexW8I8VLq+VrI=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/RenameModelCh
+ ange$4.class
+SHA1-Digest: hYrOHSgkSwbmJ6LawsmiKdcZ+1M=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/messages.prop
+ erties
+SHA1-Digest: Lz6jTGy3rbBsV1A5KDTD8lZSa6I=
+
+Name: plugin.properties
+SHA1-Digest: aKZ+5j0SkcfO03S8+hBTg+HGmQ4=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/MoveModelPart
+ icipant.class
+SHA1-Digest: 6AGB+PjlYJSifOkJC1gHq5uEm/k=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/DirtyEditorCh
+ ange.class
+SHA1-Digest: 0N8HtQ5hKraP2COTmrtor5g4fT0=
+
+Name: plugin.xml
+SHA1-Digest: uVSDXYlfpXCrpT8OkzB1oPvbGCM=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/DirtyEditorCh
+ ange$1.class
+SHA1-Digest: iihmyMPi2spvA5o6IUSpDOcyepo=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/Messages.clas
+ s
+SHA1-Digest: KQDZXXscgs5mcUEib2ONmNni3RA=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog.class
+SHA1-Digest: 7vCzH0NpJfXzyxETba5VRjbJGpg=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/ui/resources/Activator.class
+SHA1-Digest: jRJmO5kk3rcStqqe6bzX6EOyqHQ=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/ScopeChoos
+ er$ScopeChooserVisitor.class
+SHA1-Digest: xUGFfsbmaq7NMVuE6aoU2/DWxFs=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/DeleteModelPa
+ rticipant.class
+SHA1-Digest: l6xtXXjlkqX97g3I30gPSEzo7wY=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/IScopeChoo
+ ser.class
+SHA1-Digest: c+7PNn4JZH8o+uDXPL4iLXic4ug=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog$1.class
+SHA1-Digest: JZ+/JKNRKvJLE1xq0CuHdhgl8e0=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog$2.class
+SHA1-Digest: kMLjEz4so851wSXN+IFChBoeR/g=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog$3.class
+SHA1-Digest: VOZvtUQU1JS5Z4BwCPRX/pwn5CI=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog$4.class
+SHA1-Digest: 5f9yt/wiomWdsx7Ugq0H316uuuw=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog$5.class
+SHA1-Digest: ZaE6FsrPN24lsrN0K/bPiY8aatE=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ui/RenamePart
+ icipantsDialog$6.class
+SHA1-Digest: fcikigyT0IHPcppUi5JsnuSJGzU=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/DeleteModelPa
+ rticipant$InternalDeleteResourceChange.class
+SHA1-Digest: 77bFOwkuFTt95iwBE5xYHCe/+9w=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/RenameModelPa
+ rticipant.class
+SHA1-Digest: k9DHkVzrgKc3J8GFotzmJTCOUKQ=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ModelParticip
+ antHelpers.class
+SHA1-Digest: xdXQKM7DBdL/pgNs/H9RS5PLaAI=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/RenameModelCh
+ ange.class
+SHA1-Digest: mLh3I+/Z7gq4gbgaxDVVhTGBr/Y=
+
+Name: org/eclipse/papyrus/infra/ui/resources/refactoring/ModelParticip
+ antHelpers$RenameDialogRunnable.class
+SHA1-Digest: QHh2l4fpZStnsK+9E1apj6fuGzg=
+

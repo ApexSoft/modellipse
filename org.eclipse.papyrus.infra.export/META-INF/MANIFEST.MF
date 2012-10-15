@@ -1,0 +1,122 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.export;singleton:=true
+Require-Bundle: org.eclipse.ui.ide;bundle-version="3.7.0",org.eclipse.
+ gmf.runtime.diagram.ui.render;bundle-version="1.4.1",org.eclipse.gmf.
+ runtime.diagram.ui;bundle-version="1.5.0",org.eclipse.core.expression
+ s;bundle-version="3.4.300",org.eclipse.emf.common.ui;bundle-version="
+ 2.7.0",org.eclipse.papyrus.infra.onefile;bundle-version="0.9.1",org.e
+ clipse.papyrus.infra.gmfdiag.commands;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.export.internal.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.export
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/export/wizard/messages.properties
+SHA1-Digest: pRLUZb5v+y9a7qcVsH+nlV4zyAE=
+
+Name: org/eclipse/papyrus/infra/export/wizard/ExportDiagramsPage.class
+SHA1-Digest: k/CW+7JBH2w4oBv9g9iGt5gU0F0=
+
+Name: org/eclipse/papyrus/infra/export/messages.properties
+SHA1-Digest: gZU2maWiwk33H1fZKxtu6RXiPUI=
+
+Name: org/eclipse/papyrus/infra/export/Messages.class
+SHA1-Digest: HYKJhX/c1dp0LxA/wnJtyzL5M3Q=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams.class
+SHA1-Digest: gpFF1jzk23BwHTWnm20JKuSIhic=
+
+Name: org/eclipse/papyrus/infra/export/actions/ExportComposite$1.class
+SHA1-Digest: Yzh/WX1J6/f4Dp9TYQU3e7lWI4w=
+
+Name: org/eclipse/papyrus/infra/export/actions/ExportComposite$2.class
+SHA1-Digest: twtG9B46rNrdUoL0ywBpHqjFp2E=
+
+Name: org/eclipse/papyrus/infra/export/wizard/Messages.class
+SHA1-Digest: +mjq4sEaddeJ1k89GQVcTh2atNY=
+
+Name: org/eclipse/papyrus/infra/export/actions/ExportComposite$3.class
+SHA1-Digest: mvwBoXyJTdd8/DIRySE7AuYIepU=
+
+Name: org/eclipse/papyrus/infra/export/internal/Activator$1.class
+SHA1-Digest: nmIj3KFJXSa3auMMw7ybK23Ir/E=
+
+Name: org/eclipse/papyrus/infra/export/actions/ExportAllDiagramsAction
+ .class
+SHA1-Digest: h9ndpERbSNX3qz8EZsLbkC2t9gY=
+
+Name: org/eclipse/papyrus/infra/export/internal/Activator$2.class
+SHA1-Digest: DkHHpMIHsLAL/jqPh+LEmILgGOE=
+
+Name: org/eclipse/papyrus/infra/export/internal/Activator$3.class
+SHA1-Digest: SSbXEHA/n5xvQhSfCs0KDvhb+rU=
+
+Name: plugin.properties
+SHA1-Digest: w3Eg+eaTZuOrpEi6vphlHM49ygg=
+
+Name: icons/exportAll.png
+SHA1-Digest: 42hwC5u0FIN/QltVvr4LrIsIkJ8=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams$1.class
+SHA1-Digest: Jt/vODx+/tnxqG0JpAI3jNZTy10=
+
+Name: org/eclipse/papyrus/infra/export/ExportException.class
+SHA1-Digest: XoE7P6r3O7Ha7Rg66BavMYDHe2I=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams$2.class
+SHA1-Digest: ++Q4j2IjehiDeFfbkKnP2zjfpZ4=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams$3.class
+SHA1-Digest: kkOorAQTm5IqtVtJyDRN5mg0LrE=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams$4.class
+SHA1-Digest: Y5OJbPAuzvO1dzlDn3mW/4fZbcs=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams$5.class
+SHA1-Digest: yh7bQEh0O9kB3z57EFyYg3mXXzg=
+
+Name: org/eclipse/papyrus/infra/export/actions/Messages.class
+SHA1-Digest: 2Vp5ztdXOJnGzKoanMlYmBw2XY0=
+
+Name: org/eclipse/papyrus/infra/export/wizard/ExportDiagramsErrorPage.
+ class
+SHA1-Digest: PxKRuO4ShNDdFMQhDN2MNBHq1v8=
+
+Name: org/eclipse/papyrus/infra/export/ExportAllDiagrams$6.class
+SHA1-Digest: yBY+Stz4yORzhEgCBplnuCS9jEU=
+
+Name: plugin.xml
+SHA1-Digest: 7ZIFLiXFhGUCN5pCxrp40KkMf/0=
+
+Name: org/eclipse/papyrus/infra/export/actions/ExportAllDiagramsDialog
+ .class
+SHA1-Digest: eUpKplIJPGQnaX8sDhnryKHzgCw=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/export/wizard/ExportAllWizard.class
+SHA1-Digest: MnQIil5G26hmA4cxiVlQyUqtEDU=
+
+Name: org/eclipse/papyrus/infra/export/PropertyTester.class
+SHA1-Digest: D1MRm1r57qRz5zfUO9pM2zgI6D8=
+
+Name: org/eclipse/papyrus/infra/export/actions/messages.properties
+SHA1-Digest: 3jYqxoSsTzZw0aRK2GpgjzPaQg4=
+
+Name: org/eclipse/papyrus/infra/export/actions/ExportComposite.class
+SHA1-Digest: AQuXqTgrWQH1F4ZsNViy2c2oT4Q=
+
+Name: org/eclipse/papyrus/infra/export/internal/Activator.class
+SHA1-Digest: LGxRM3wZnmoFf1pvgfvMeT0XW/s=
+

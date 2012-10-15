@@ -1,0 +1,345 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.views.properties.model;single
+ ton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;bundle-
+ version="2.7.0";visibility:=reexport,org.eclipse.papyrus.infra.constr
+ aints;bundle-version="0.9.1"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.views.properties.contexts,org.ecli
+ pse.papyrus.views.properties.contexts.impl,org.eclipse.papyrus.views.
+ properties.contexts.util,org.eclipse.papyrus.views.properties.environ
+ ment,org.eclipse.papyrus.views.properties.environment.impl,org.eclips
+ e.papyrus.views.properties.environment.util,org.eclipse.papyrus.views
+ .properties.ui,org.eclipse.papyrus.views.properties.ui.impl,org.eclip
+ se.papyrus.views.properties.ui.util
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/views/properties/ui/ValueAttribute.class
+SHA1-Digest: SguYx7LJkkyFbMaFS54HDOSam1Y=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/Environmen
+ tPackageImpl.class
+SHA1-Digest: Ao+lDFo4crtU7f37VDnszYYbpRw=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/ViewImpl.clas
+ s
+SHA1-Digest: w9mt4UJf+YynqW6Tz6fyXaQ1454=
+
+Name: org/eclipse/papyrus/views/properties/environment/ModelElementFac
+ toryDescriptor.class
+SHA1-Digest: VhQY8AKCXGaraDWKLHo0KtesL9s=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/ContextImpl.c
+ lass
+SHA1-Digest: eJxH9ks1R6qn3uowoBszmzE4H/8=
+
+Name: org/eclipse/papyrus/views/properties/contexts/util/ContextsAdapt
+ erFactory$1.class
+SHA1-Digest: PVe6nqxgeXnnIF15VLZN1kMr2ig=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/StandardWi
+ dgetTypeImpl.class
+SHA1-Digest: BrPFXW6qUv0DaWtreactRhUmmaE=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/PropertyEd
+ itorTypeImpl.class
+SHA1-Digest: WCU3N7PBF4rQ1lMPrPJO+NAlSXg=
+
+Name: Model/Properties.genmodel
+SHA1-Digest: 7NKm6LSYqAfnYZh+J7PvGmGfY1w=
+
+Name: org/eclipse/papyrus/views/properties/environment/util/Environmen
+ tSwitch.class
+SHA1-Digest: Ng0V5Be3lzh4dDNNgcvTXmU1DM0=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/UIComponentImpl.cla
+ ss
+SHA1-Digest: xGXSNVMHM7sjsUWO8UcQKnz2n4I=
+
+Name: org/eclipse/papyrus/views/properties/ui/UiPackage.class
+SHA1-Digest: RK7pczJqpn71wakPcz+J6do/YGg=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/LayoutType
+ Impl.class
+SHA1-Digest: JqgmiWlHyNB9Kny4NNYi2V+eWEM=
+
+Name: org/eclipse/papyrus/views/properties/environment/WidgetType.clas
+ s
+SHA1-Digest: /R/iaU1zC8ygD/2jvS3quxbqcs8=
+
+Name: org/eclipse/papyrus/views/properties/contexts/ContextsFactory.cl
+ ass
+SHA1-Digest: ScrWbleyBmLqgMo1YZGrA7t1oCs=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/UnknownProper
+ tyImpl.class
+SHA1-Digest: h1f8nDKj1BphdKccf/F3Cs2wM50=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/ContextsPacka
+ geImpl.class
+SHA1-Digest: uBfRXjKJ8jS4szG40a1pbmuwiUc=
+
+Name: org/eclipse/papyrus/views/properties/ui/util/UiAdapterFactory.cl
+ ass
+SHA1-Digest: uHGIKzDExkoleFegZA0mljzNMbs=
+
+Name: org/eclipse/papyrus/views/properties/contexts/DataContextElement
+ .class
+SHA1-Digest: Gs3DhMAX8gOBK+YfLcTBJvKt2ec=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/WidgetAttributeImpl
+ .class
+SHA1-Digest: G8by1F0A6GLmSEkRE61Dn34rM7g=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/NamespaceI
+ mpl.class
+SHA1-Digest: 66sHAgwCri+220kNaPmDvc4UHM0=
+
+Name: org/eclipse/papyrus/views/properties/environment/util/Environmen
+ tAdapterFactory$1.class
+SHA1-Digest: mjrhNO+HOUAuEcKNVquBgyqD7jg=
+
+Name: org/eclipse/papyrus/views/properties/contexts/Tab.class
+SHA1-Digest: GeS8N3SSdFEgZ5eBz5yjeyZfSE8=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/views/properties/ui/UIComponent.class
+SHA1-Digest: tHDSi1nl8/1+sTVeNMukikpn2nM=
+
+Name: org/eclipse/papyrus/views/properties/ui/UnknownComponent.class
+SHA1-Digest: ZkJRUvv9QyQOQwV4p52QAt2W/cY=
+
+Name: org/eclipse/papyrus/views/properties/contexts/View.class
+SHA1-Digest: dENgKQbYxwPpuGdMToEPiT1uj3w=
+
+Name: org/eclipse/papyrus/views/properties/environment/MiscClass.class
+SHA1-Digest: vE6jafA0aGRdHCaeP2dWrDMVth4=
+
+Name: org/eclipse/papyrus/views/properties/ui/UiPackage$Literals.class
+SHA1-Digest: nZ2r2KshFqq5aMLtivZB+DG0W8E=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/WidgetType
+ Impl.class
+SHA1-Digest: 1OsTvwcs/JnshRlHmq7ffr1EWGg=
+
+Name: org/eclipse/papyrus/views/properties/environment/EnvironmentFact
+ ory.class
+SHA1-Digest: R3+cp7qiqePWuWwmCPAKVdt/RH0=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/StandardWidgetImpl.
+ class
+SHA1-Digest: OW8xVuMiHDcSQekAo/i4/aHvosg=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/PropertyEditorImpl.
+ class
+SHA1-Digest: gYke5ZwrjC7AKo8PeCN10S93XaA=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/PropertyImpl.
+ class
+SHA1-Digest: DsWKhnjjHUuEvmQPOVmD1j+Qjio=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/DataContextEl
+ ementImpl.class
+SHA1-Digest: ygPCdDtmBLFenxG/IvQIxIRHPis=
+
+Name: org/eclipse/papyrus/views/properties/contexts/DataContextRoot.cl
+ ass
+SHA1-Digest: vkx3lBWMKNsWkdPBOrXm/R34QGs=
+
+Name: org/eclipse/papyrus/views/properties/ui/WidgetAttribute.class
+SHA1-Digest: aGZobVylNvL1jhSLJjLxnkzQpro=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/LayoutImpl.class
+SHA1-Digest: PuWLVOYYP5ghyOU2mJA6lMlhgvI=
+
+Name: org/eclipse/papyrus/views/properties/ui/StandardWidget.class
+SHA1-Digest: Za70VTY1zLLbzca9pmtXaDeQuAs=
+
+Name: org/eclipse/papyrus/views/properties/ui/PropertyEditor.class
+SHA1-Digest: XBB2UzLnIf5KrQFGy51VHVwwMCU=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/UiPackageImpl.class
+SHA1-Digest: b5pJRPENgQc76/g1KI1HYKtyymg=
+
+Name: org/eclipse/papyrus/views/properties/contexts/util/ContextsAdapt
+ erFactory.class
+SHA1-Digest: UAmaB+x7gxngnLDGmyj1nGeaNJY=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/SectionImpl.c
+ lass
+SHA1-Digest: uH6Ood6Wup/nsuR2ZSzeSFkRZ+o=
+
+Name: org/eclipse/papyrus/views/properties/contexts/Context.class
+SHA1-Digest: SgrIWeUGB/StVeUupMKGaoOJEa0=
+
+Name: org/eclipse/papyrus/views/properties/ui/Layout.class
+SHA1-Digest: ZhJnNrJF+4FquOnHWHkxgjkrsIg=
+
+Name: org/eclipse/papyrus/views/properties/environment/CompositeWidget
+ Type.class
+SHA1-Digest: 1rGHoU+TPETCnXL3vT6LlmZGJo8=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/Environmen
+ tFactoryImpl.class
+SHA1-Digest: Msug0RNpggngpP8ivNK+E7aEuHQ=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/CompositeW
+ idgetTypeImpl.class
+SHA1-Digest: BbMS6p1lP05mfbbBDm8XsIyuZ1o=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/ModelEleme
+ ntFactoryDescriptorImpl.class
+SHA1-Digest: CWf8dFAtxdN5iektB7I+Q1xiswE=
+
+Name: org/eclipse/papyrus/views/properties/contexts/UnknownProperty.cl
+ ass
+SHA1-Digest: 3vNkx2q+wVLBbyxmTg7zlCmJ4k8=
+
+Name: plugin.properties
+SHA1-Digest: KJZ108l8tttqN8wiHrfSdPaZyTU=
+
+Name: org/eclipse/papyrus/views/properties/contexts/ContextsPackage.cl
+ ass
+SHA1-Digest: Zp7Ki0Ynn8+vWPPCG3N1FPP6COQ=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/WidgetImpl.class
+SHA1-Digest: NaT68Z64rCDIEog35y42Ef88JpA=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/CompositeWidgetImpl
+ .class
+SHA1-Digest: uTRazgQHhwVGj55IJpOMsIEr+uc=
+
+Name: org/eclipse/papyrus/views/properties/environment/Environment.cla
+ ss
+SHA1-Digest: S4yhvR/C5uRttPAHWXSFq86Ep1Q=
+
+Name: org/eclipse/papyrus/views/properties/ui/util/UiSwitch.class
+SHA1-Digest: FHsNonCRDzyZeFWnGjTQNZT0oGc=
+
+Name: org/eclipse/papyrus/views/properties/ui/UiFactory.class
+SHA1-Digest: kvJGoViUERrcjWC3Aq+bFlT0d14=
+
+Name: org/eclipse/papyrus/views/properties/environment/EnvironmentPack
+ age$Literals.class
+SHA1-Digest: h3M2ik4o2aChN7DHdGS/JEPUgDA=
+
+Name: org/eclipse/papyrus/views/properties/environment/util/Environmen
+ tAdapterFactory.class
+SHA1-Digest: 69M1Ju8PIRO5BdaDbnUZG0SB37w=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/Environmen
+ tImpl.class
+SHA1-Digest: NC5IuIGIETKkMLZRw1sstH29u8c=
+
+Name: org/eclipse/papyrus/views/properties/ui/Widget.class
+SHA1-Digest: FLyDPloJq9KFznFoW3x19vewdYo=
+
+Name: org/eclipse/papyrus/views/properties/environment/Namespace.class
+SHA1-Digest: sBhutcQztCqCLdrvqyBM9140f5U=
+
+Name: org/eclipse/papyrus/views/properties/contexts/Property.class
+SHA1-Digest: 09/CuyUNRDIUvnDPT0daHREBDws=
+
+Name: plugin.xml
+SHA1-Digest: OiGND1XuLjYG1PdIc2rgREcfH/k=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/ContextsFacto
+ ryImpl.class
+SHA1-Digest: YoS536uRGeWrEcB3H7k4aHcrSYI=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/ReferenceAttributeI
+ mpl.class
+SHA1-Digest: GPNU5rAO2hDCQS8LeZcyQUsSvQU=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/UnknownComponentImp
+ l.class
+SHA1-Digest: NzRxkIG6jedPY+B5PfBcDg/XRqU=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/ElementImpl.class
+SHA1-Digest: fxm/U3mDRFC57DcqXEcBgO0zcMM=
+
+Name: org/eclipse/papyrus/views/properties/ui/util/UiAdapterFactory$1.
+ class
+SHA1-Digest: UmOet+P3pzcnTQWgJbrBHQN2RuI=
+
+Name: org/eclipse/papyrus/views/properties/ui/ReferenceAttribute.class
+SHA1-Digest: CcxB4NwnUL3VpKnuM2UJIeJcFRw=
+
+Name: org/eclipse/papyrus/views/properties/contexts/DataContextPackage
+ .class
+SHA1-Digest: c3U6fx+tx9Ck5R+zp9AgHxD0FT8=
+
+Name: org/eclipse/papyrus/views/properties/environment/EnvironmentPack
+ age.class
+SHA1-Digest: MkDHDQAqcXEcMtArSRxf5NewfO4=
+
+Name: org/eclipse/papyrus/views/properties/ui/CompositeWidget.class
+SHA1-Digest: NmVq5v8DbznaQuZ7M/w0biWa3As=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/views/properties/contexts/ContextsPackage$Li
+ terals.class
+SHA1-Digest: UUn6Kv3aIIakPgBs56mDOxtPaUk=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/TabImpl.class
+SHA1-Digest: zF62MIv80Zmxr0B2Vb7CzxvwciU=
+
+Name: Model/Properties.ecore
+SHA1-Digest: CTbJiOYArTRCUgE4SJULSHwrwH4=
+
+Name: org/eclipse/papyrus/views/properties/environment/Type.class
+SHA1-Digest: crtVz5WIyD2gudPjVtF7bmPUdZQ=
+
+Name: org/eclipse/papyrus/views/properties/environment/StandardWidgetT
+ ype.class
+SHA1-Digest: 5RLj4FZA/BicrOBLvziVUmfzUPA=
+
+Name: org/eclipse/papyrus/views/properties/environment/PropertyEditorT
+ ype.class
+SHA1-Digest: Gz9ssvacNGdQ42ARlqNGz+hQJvk=
+
+Name: org/eclipse/papyrus/views/properties/environment/impl/MiscClassI
+ mpl.class
+SHA1-Digest: utypzz/fZp5LEQSYCGT+4xXsQrk=
+
+Name: org/eclipse/papyrus/views/properties/contexts/Section.class
+SHA1-Digest: uukFiL3Qvh7sq4dC+k6jyFQtyio=
+
+Name: org/eclipse/papyrus/views/properties/contexts/util/ContextsSwitc
+ h.class
+SHA1-Digest: bH8nsvrGuJBosMaCa+KTgu9eHuE=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/ValueAttributeImpl.
+ class
+SHA1-Digest: jsbWb3DzOQ5gZZUTY6dlFR45zOU=
+
+Name: org/eclipse/papyrus/views/properties/environment/LayoutType.clas
+ s
+SHA1-Digest: jgvVBLQy7gk4mVZjHYV3bd5mgAA=
+
+Name: org/eclipse/papyrus/views/properties/ui/Element.class
+SHA1-Digest: b4YRuNOxYXqxUFwey5MBmwwmV7I=
+
+Name: org/eclipse/papyrus/views/properties/ui/impl/UiFactoryImpl.class
+SHA1-Digest: pssTADUHwGSrrDjhWmQbj3fiQo4=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/DataContextRo
+ otImpl.class
+SHA1-Digest: 0//QGb58TGjioOq/pSewLEAHIp4=
+
+Name: org/eclipse/papyrus/views/properties/contexts/impl/DataContextPa
+ ckageImpl.class
+SHA1-Digest: HnjMCesqv+XsFUkPwiz6bIhUMz8=
+

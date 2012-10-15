@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.services.markerlistener
+ ;singleton:=true
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.infra.core;bundle-version="0.9.1",org.eclipse.core.resources;bu
+ ndle-version="3.7.0",org.eclipse.emf.transaction;bundle-version="1.4.
+ 0",org.eclipse.gmf.runtime.common.ui;bundle-version="1.5.0",org.eclip
+ se.papyrus.infra.services.decoration;bundle-version="0.9.1",org.eclip
+ se.papyrus.uml.diagram.common;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.services.markerlistener.Ac
+ tivator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.services.markerlistener
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/services/markerlistener/MarkersMonitor
+ Service.class
+SHA1-Digest: voGqb+ojMIEWv4t3sBq/rDNuI2E=
+
+Name: org/eclipse/papyrus/infra/services/markerlistener/Activator.clas
+ s
+SHA1-Digest: FjaTvPz9dgYhiVKtKTchFJDnlX4=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/services/markerlistener/MarkersMonitor
+ Service$MarkerObserver.class
+SHA1-Digest: UpPRwNm2DFW3eNsdV/YgFHjXyP0=
+
+Name: org/eclipse/papyrus/infra/services/markerlistener/util/MarkerLis
+ tenerUtils.class
+SHA1-Digest: JG7IQnPTLHsWnN2aS78g2ulBhJQ=
+
+Name: plugin.xml
+SHA1-Digest: AISHKCJZyz5PL2NVwp9B5kG1pxI=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: plugin.properties
+SHA1-Digest: v6i6o7nqGBFeeYeko/4oLxFsmb0=
+

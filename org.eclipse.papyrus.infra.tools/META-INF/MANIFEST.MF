@@ -1,0 +1,51 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.tools
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.core.databind
+ ing;bundle-version="1.4.1"
+Bundle-Activator: org.eclipse.papyrus.infra.tools.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.tools.databinding,org.eclips
+ e.papyrus.infra.tools.util
+Ant-Version: Apache Ant 1.8.2
+Eclipse-BuddyPolicy: dependent
+Bundle-Vendor: Eclipse Modeling Project
+Bundle-ActivationPolicy: lazy
+Bundle-Name: Papyrus Tools (Incubation)
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/tools/Activator.class
+SHA1-Digest: JFXxPUam5wxrd0WeM5qyRRkZtHw=
+
+Name: org/eclipse/papyrus/infra/tools/databinding/MultipleObservableVa
+ lue$1.class
+SHA1-Digest: ZJH+XMTT2ncp7HsCjHrMcKwhSHQ=
+
+Name: org/eclipse/papyrus/infra/tools/util/EditorHelper.class
+SHA1-Digest: IqdRxeNJERdxLHJpgF6ANczsBZU=
+
+Name: org/eclipse/papyrus/infra/tools/util/ListHelper.class
+SHA1-Digest: Ns5mdsgy61NWpD6qW/l/7Njwzjo=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/tools/util/ClassLoaderHelper.class
+SHA1-Digest: UQmZuWnxLW4ea2gvjaNX8tTWhIU=
+
+Name: org/eclipse/papyrus/infra/tools/databinding/MultipleObservableVa
+ lue.class
+SHA1-Digest: wNUflOti8wG8KV2bdAdGkdomPaw=
+
+Name: org/eclipse/papyrus/infra/tools/databinding/AggregatedObservable
+ .class
+SHA1-Digest: w2ZVaIm2soTKR7ESbJDAVkNCYTQ=
+
+Name: org/eclipse/papyrus/infra/tools/util/ReflectHelper.class
+SHA1-Digest: 5sxHtculkGjx5aYQ13pN6y0OZK4=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+

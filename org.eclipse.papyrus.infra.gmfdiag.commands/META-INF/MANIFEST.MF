@@ -1,0 +1,101 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.gmfdiag.commands;single
+ ton:=true
+Bundle-Activator: org.eclipse.papyrus.commands.Activator
+Require-Bundle: org.eclipse.ui.workbench,org.eclipse.papyrus.infra.cor
+ e.log;bundle-version="0.9.1",org.eclipse.gmf.runtime.common.core,org.
+ eclipse.emf.common,org.eclipse.gef,org.eclipse.emf.workspace;bundle-v
+ ersion="1.4.0",org.eclipse.emf.transaction.ui;bundle-version="1.4.0",
+ org.eclipse.gmf.runtime.emf.commands.core;bundle-version="1.4.0",org.
+ eclipse.gmf.runtime.diagram.ui;bundle-version="1.5.0"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.commands,org.eclipse.papyrus.comma
+ nds.wrappers
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/commands/wrappers/GEFtoEMFCommandWrapper.cla
+ ss
+SHA1-Digest: hYRm+qZpfTbggZ9x5YtSeOZtOSw=
+
+Name: org/eclipse/papyrus/commands/CheckedOperationHistory.class
+SHA1-Digest: YBoZgD2yRMdbDGDHkHKqHaRpuw8=
+
+Name: org/eclipse/papyrus/commands/wrappers/CommandProxyWithResult.cla
+ ss
+SHA1-Digest: hJLugrcUS3/CFbr6LHTShH0UL+A=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/commands/Activator.class
+SHA1-Digest: aT1Pon9R6el+EUQfIQT/qZoeKBs=
+
+Name: org/eclipse/papyrus/commands/wrappers/GMFtoEMFCommandWrapper.cla
+ ss
+SHA1-Digest: yFzvpmO5/tIS21p/D0IRpz21/7Q=
+
+Name: org/eclipse/papyrus/commands/NotifyingWorkspaceCommandStack$1.cl
+ ass
+SHA1-Digest: +ENI9tiPpp6pm2k/tN/xSlHhSno=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/commands/wrappers/OperationToGEFCommandWrapp
+ er.class
+SHA1-Digest: d1quktOk0KfSb/+aKw4zAZHA/S8=
+
+Name: org/eclipse/papyrus/commands/NotifyingWorkspaceCommandStack$2.cl
+ ass
+SHA1-Digest: G/bxCHlAiaReCGXvV2Ce8jvTdtw=
+
+Name: org/eclipse/papyrus/commands/wrappers/EMFtoGMFCommandWrapper.cla
+ ss
+SHA1-Digest: giIutD2g9/W7Gd+YR1Ocq1+Ob5Q=
+
+Name: org/eclipse/papyrus/commands/NotifyingWorkspaceCommandStack$3.cl
+ ass
+SHA1-Digest: mdBF4XjNkMJkrNlO2AG2h5h7N4U=
+
+Name: plugin.properties
+SHA1-Digest: WbAaDoefHwkDKi/VHy7Llljt32w=
+
+Name: org/eclipse/papyrus/commands/CheckedDiagramCommandStack.class
+SHA1-Digest: v4qyCzEuQHzobd++LkNaRkJnBsg=
+
+Name: org/eclipse/papyrus/commands/NotifyingWorkspaceCommandStack$Doma
+ inListener.class
+SHA1-Digest: U4YIEx/l64vUjSzREsGZQ2As00k=
+
+Name: schema/operationApprover.exsd
+SHA1-Digest: RXR8Pg1hO0hnznCruWeDoDx8C0w=
+
+Name: org/eclipse/papyrus/commands/wrappers/EMFtoGEFCommandWrapper.cla
+ ss
+SHA1-Digest: FGaDQesinyBGU+mzoMMlDCUrsYc=
+
+Name: org/eclipse/papyrus/commands/CheckedOperationHistory$ApproverPri
+ orityPair.class
+SHA1-Digest: Sb4C1exywtxRP8hsyFYAjZeISjI=
+
+Name: plugin.xml
+SHA1-Digest: 91LgOyToHLd6JURNBg1frc3+y3M=
+
+Name: org/eclipse/papyrus/commands/DestroyElementPapyrusCommand.class
+SHA1-Digest: riAQH2lsDWNamRrTrqup9z7x5Yo=
+
+Name: org/eclipse/papyrus/commands/NotifyingWorkspaceCommandStack.clas
+ s
+SHA1-Digest: gfeMaPkj/osrPpgxmpz2ow+4neY=
+
+Name: org/eclipse/papyrus/commands/CheckedOperationHistory$CheckedOper
+ ationHistoryHolder.class
+SHA1-Digest: e4eyWQlPSYpIGZVy7q5qt1JLYqA=
+

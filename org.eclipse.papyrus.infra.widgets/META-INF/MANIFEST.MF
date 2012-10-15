@@ -1,0 +1,509 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.widgets
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
+ re.databinding.property;bundle-version="1.3.0",org.eclipse.core.datab
+ inding,org.eclipse.jface.databinding,org.eclipse.papyrus.infra.core.l
+ og;bundle-version="0.9.1",org.eclipse.ui.views.properties.tabbed;bund
+ le-version="3.5.100",org.eclipse.core.resources;bundle-version="3.7.1
+ 00",org.eclipse.ui.ide;bundle-version="3.7.0",com.ibm.icu;bundle-vers
+ ion="4.4.2",org.eclipse.papyrus.infra.core;bundle-version="0.9.1",org
+ .eclipse.papyrus.infra.tools;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.widgets.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.widgets,org.eclipse.papyrus.
+ infra.widgets.creation,org.eclipse.papyrus.infra.widgets.databinding,
+ org.eclipse.papyrus.infra.widgets.editors,org.eclipse.papyrus.infra.w
+ idgets.providers,org.eclipse.papyrus.infra.widgets.selectors,org.ecli
+ pse.papyrus.infra.widgets.strategy,org.eclipse.papyrus.infra.widgets.
+ util
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/IntegerSelector.clas
+ s
+SHA1-Digest: h6VshOwASVbT9af9Ip78hghlXdE=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/GrayedCheckboxObse
+ rvableValue$1.class
+SHA1-Digest: yk/Keoix9IE3kyUFLLpPBe+lEds=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IElementSelectionListe
+ ner.class
+SHA1-Digest: D6HkolObA9e8B4kl1xuBBzH9Roc=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleValueEditor.cl
+ ass
+SHA1-Digest: asm2IjYzferYK+Q5Yhgtm32yJbQ=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/IHierarchicContentPr
+ ovider.class
+SHA1-Digest: 9R6W2/3J4nN0DQxogCH9LuPUYZQ=
+
+Name: icons/Down_12x12.gif
+SHA1-Digest: RVDZxja+zDoO/w8ddCCTm8nmsQI=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/CLabelObservableVa
+ lue.class
+SHA1-Digest: oS2tTUFRyDODwItMtav2A6e9Fdc=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/ComboObservableVal
+ ue.class
+SHA1-Digest: 5E88uVEOz/1LmRMRNKpsSEiyPN4=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/AbstractEditor.class
+SHA1-Digest: OtA0totKtgnzUY5EdtJvjvMGg28=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/BooleanToggle.class
+SHA1-Digest: PdZQNLWneiPJEq59lgTyRvmi0Nc=
+
+Name: org/eclipse/papyrus/infra/widgets/strategy/TreeBrowseStrategy.cl
+ ass
+SHA1-Digest: tjFS5X6C6g105DC4KaVX5e4P6kw=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/ComboObservableVal
+ ue$1.class
+SHA1-Digest: dmIzgjv38fUDDnsEDvXwtr85EoA=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringFileSelector$1.c
+ lass
+SHA1-Digest: kU+/3BvvUrB81+I4aDUnAlecgwY=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/AbstractEditor$1.class
+SHA1-Digest: PeGlrVcGZN7mDNvFVGO8R5gLi1M=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleValueSelectorD
+ ialog.class
+SHA1-Digest: uejupLBi+KdQ53Q0RfYzvXY/BpQ=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/CompactMultipleReferen
+ ceEditor.class
+SHA1-Digest: nALcAZqclZrj1Qmr61FTYMBZnMk=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IntegerSpinner$2.class
+SHA1-Digest: tBqnxn8R7EanMT83E/WOieT8EIU=
+
+Name: icons/error.gif
+SHA1-Digest: dKlEezESemxdXGAOHjJPXnHdtTk=
+
+Name: org/eclipse/papyrus/infra/widgets/creation/ReferenceValueFactory
+ .class
+SHA1-Digest: 59mX2y/LgEHnZ1SFwn5avjmmwDI=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/MapLabelProvider.cla
+ ss
+SHA1-Digest: dxyVAyDovHfisFAUir4JOqBIDFk=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/TreeSelectorDialog$1.c
+ lass
+SHA1-Digest: +8gTR+FoGf8mrDZDThbKJEKZ0hQ=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/BooleanCombo$1.class
+SHA1-Digest: /eT8HMVTcgm3xKFE4tJGUN+ZMGI=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/AbstractValueEditor.cl
+ ass
+SHA1-Digest: Qr0n+gKcgdtz5+/1LeFiSNrrG7M=
+
+Name: org/eclipse/papyrus/infra/widgets/Activator.class
+SHA1-Digest: 3q7hyVf8wUJL0J+Yb5/ZzywzaVM=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/InputDialog$2.class
+SHA1-Digest: ZgrqBrJpTxDHfOt8XCV6atcHIf0=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/TextObservableValu
+ e$1.class
+SHA1-Digest: SZxM/eVTgxGbIFe+fVCSMs3U+2E=
+
+Name: icons/browse-workspace_12x12.png
+SHA1-Digest: RGT78tIbpNw91EPwmHrBqF6oQfU=
+
+Name: icons/Add_12x12.gif
+SHA1-Digest: l2FeR1nAFLoH4bRO9d5WXbvDFo8=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/DoubleEditor.class
+SHA1-Digest: BNUSSuthSvOB3GXATGzXyeMJuBI=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/CollectionContentPro
+ vider.class
+SHA1-Digest: zvWLYEj5gYO3KoQzoe/Tuetz1Zc=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringCombo$CComboObse
+ rvableValue$1.class
+SHA1-Digest: zyVc9D3nzLdBPe0eUeUxQ7ITlrU=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IntegerMask.class
+SHA1-Digest: GWXTsrdKr1zrxsJLSLTi7XSALKQ=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/BooleanCheckbox.class
+SHA1-Digest: ydit2E3WgqLH7uTYrR8G5a8fvsk=
+
+Name: icons/arrow_right.gif
+SHA1-Digest: SUSocWQGQBuR4g6KB7Ttf3f3Kss=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/EncapsulatedContentP
+ rovider.class
+SHA1-Digest: k3pKHY8BsS/WNN+qqFiej2SNsSg=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/ICommitListener.class
+SHA1-Digest: CyTQUyZQgpQFpe2W4gR/3/PcQjA=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringFileSelector.cla
+ ss
+SHA1-Digest: XceP3oJ4JavFfN+i1f9X9olhR2c=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/HierarchicToFlatCont
+ entProvider.class
+SHA1-Digest: zQNXqju7DdHoBXHAwGOSn+XuHE0=
+
+Name: org/eclipse/papyrus/infra/widgets/strategy/WorkspaceRevealStrate
+ gy.class
+SHA1-Digest: H6utCe6G1DavcMyELohcC2Vxl5E=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleIntegerEditor.
+ class
+SHA1-Digest: Yh3i7BuvWkW1cV+duw/bTQ+XuBs=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/WorkspaceContentProv
+ ider.class
+SHA1-Digest: CVRWuetn//g4a726bfvZCF+nVVI=
+
+Name: org/eclipse/papyrus/infra/widgets/strategy/AbstractTreeBrowseStr
+ ategy.class
+SHA1-Digest: fAGUdZQFvcbotnGZa9AmrBPFtmU=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringFileSelector$2.c
+ lass
+SHA1-Digest: e0alpEGqhHdw4vu3GY44jZcRiZE=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/AbstractTreeFilter.c
+ lass
+SHA1-Digest: pCC02zyA9WJVTp2tZnQWZtHJFeU=
+
+Name: icons/papyrus.png
+SHA1-Digest: qRVOaQq19Qq/T2+hjrQ+xwWOo8k=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/StringSelector.class
+SHA1-Digest: Lsx1R3oalOuyForBwRrhvKCKpa0=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/WrappedLabelProvider
+ .class
+SHA1-Digest: jWQ+xqUIICKDxdNaF8SziyLFDTM=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/AbstractFilteredCont
+ entProvider.class
+SHA1-Digest: AtKhzCbIoouBoA2O2yaWKp9paOI=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/FilteredContentProvi
+ der.class
+SHA1-Digest: 9haovhepKtZW9nykakTXWfD+SSw=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/LongEditor.class
+SHA1-Digest: NKjsgfop4rKN7n6LhIDNJ5mPYj8=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/IFilteredLabelProvid
+ er.class
+SHA1-Digest: XePFKby3b+6wF+86/7YaBYa27Kg=
+
+Name: icons/arrow_left.gif
+SHA1-Digest: qx89HZcOfCNP8URrsbXsnJSbNro=
+
+Name: org/eclipse/papyrus/infra/widgets/util/FileUtil.class
+SHA1-Digest: W9NermyhpkwN2nG+i5MxJqHKvCA=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: icons/browse-filesystem_12x12.png
+SHA1-Digest: qQS66HwApP3hXFYrb9/uoNHdOHo=
+
+Name: icons/Edit_12x12.gif
+SHA1-Digest: 31uFs3RIFjWLRupZgb1u+bYVDj0=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/StaticContentProvide
+ r.class
+SHA1-Digest: n/f36zF9gcrBTezeGuiVnzVTza8=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/EnumRadio.class
+SHA1-Digest: hGsou6Ly9UdxCt09SHTc1AgCK44=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/TreeSelectorDialog$2.c
+ lass
+SHA1-Digest: spPvPNf1BvjEp0/oXWRcRhaZLZg=
+
+Name: icons/arrow_double.gif
+SHA1-Digest: besxvPoqe/Y8kNJymXV8q7+djTk=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringCombo$CComboObse
+ rvableValue.class
+SHA1-Digest: bbSH+cLLS6HCrLU75D8rEpopQjc=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/FilteredContentProvi
+ der$1.class
+SHA1-Digest: DiEgJubdBoByyae5XjTPudGjUbk=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringEditor.class
+SHA1-Digest: 8nELi2SHDhgEWmRZyhgQflYCd8s=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/ExtensibleLabelProvi
+ der.class
+SHA1-Digest: wkYXC0oi//KfjkWDF0AFfJJiJBQ=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IntegerEditor.class
+SHA1-Digest: zEVophROChL8h5fQXGvf+ab53Nw=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/ITreeSelectorDialog.cl
+ ass
+SHA1-Digest: 48PuC+LLvCvK8gpjdwCGsPf+oZM=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/ReferenceDialogObs
+ ervableValue.class
+SHA1-Digest: uImA/VDME4opdJnoCoh6+EWOEB0=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/CompactMultipleStringE
+ ditor.class
+SHA1-Digest: rFTnCgvgO+JhJzIzwleaBP52jeU=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/TreeToFlatContentPro
+ vider.class
+SHA1-Digest: YfG4rgadsXiAES99oKJ4WrV3CbE=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/StandardSelector.cla
+ ss
+SHA1-Digest: y0/nYw8KIGsv//2HxOA8lOh8/jI=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/PatternViewerFilter.
+ class
+SHA1-Digest: tTW76LceSXf/Hfujb+9vjrKZ36I=
+
+Name: icons/browse_12x12.gif
+SHA1-Digest: copyQWx83jgopzj07DSauvW7oz0=
+
+Name: org/eclipse/papyrus/infra/widgets/messages/Messages.class
+SHA1-Digest: 7jYN6dL/5AX6pirnyWkBdAf8dA8=
+
+Name: icons/Delete_12x12.gif
+SHA1-Digest: Nj/v8Qq1SwweGplanUGyZ7MVmd0=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/BooleanRadio.class
+SHA1-Digest: ci2j5/De3iXImfLdbr81Vtp7fEc=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringLabel.class
+SHA1-Digest: RzF+J1uqtr3f4KSgIhjwn6W2evo=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/ReferenceSelector$1.
+ class
+SHA1-Digest: 5tB0qLBcuAC9UUkFcDAW79YeIIk=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/FloatEditor.class
+SHA1-Digest: 7si5rZdGIWIuH2PW6xGPNMo8Rr8=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/EmptyContentProvider
+ .class
+SHA1-Digest: 1Z3aWvtcqf8S85wcyoCdZ3+0FsI=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/TreeSelectorDialog.cla
+ ss
+SHA1-Digest: hM6+0OtZzvO3CLHi40YmVvL9ekc=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/widgets/strategy/StrategyBasedContentP
+ rovider.class
+SHA1-Digest: Fjuhhpgg1sKBTqvb/VhxVchAUtA=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringLabel$1.class
+SHA1-Digest: dE/tSEthNNiF5W8VNQ78guvj9m0=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/InputDialog.class
+SHA1-Digest: kvsaxGPqnImIQmtO84HblTJxOn0=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/ReferenceDialog.class
+SHA1-Digest: gYX6/oUqvPEbus88U/zrNADrqcE=
+
+Name: org/eclipse/papyrus/infra/widgets/strategy/IStrategyBasedContent
+ Provider.class
+SHA1-Digest: evzKo33Oen3EPHawV9qZY55R3Ys=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleStringEditor.c
+ lass
+SHA1-Digest: Fzme6K5CoUHT2Xq2CN5genhwtHs=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/StringSelector$1.cla
+ ss
+SHA1-Digest: wCYmBlXNm/WwA7KP/5OSqO2Rq/E=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/IDetailLabelProvider
+ .class
+SHA1-Digest: Q0kD/j5cySjOygmdHaopZ7utTUE=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/IGraphicalContentPro
+ vider.class
+SHA1-Digest: thEhrrq+Q7WrRIb4QaZ7aLX6GWQ=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringCombo.class
+SHA1-Digest: YJrfUq+kvDlip0Nbey2zA7Pzspg=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/GrayedCheckboxObse
+ rvableValue.class
+SHA1-Digest: X8Og8FoalIOLLTKVw/jZWVZX4AM=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/ReferenceDialog$1.clas
+ s
+SHA1-Digest: Lc0D/HsVECXdwicB7ONGYtyyDRc=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/ComboLabelProvider.c
+ lass
+SHA1-Digest: ey1yX6PjnEtLYFaLMtArRw7yyCA=
+
+Name: icons/refresh.gif
+SHA1-Digest: VHUDPMiwiKJcwN0BG7ABhxxFfrA=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/SemanticWorkspaceCon
+ tentProvider.class
+SHA1-Digest: 72wGbeWzpjxqBCJ8TEk9UJzcWjY=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/TreeCollectionConten
+ tProvider.class
+SHA1-Digest: NFg+9M/huCXfi929xpTf9RWXTMg=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/EnumCombo.class
+SHA1-Digest: 8+wFDfULeusjTPuflKcFNUycxwI=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleStringFileEdit
+ or.class
+SHA1-Digest: bdMMowzugGXWxFztVO/+HdbSKiA=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/CompactMultipleValueEd
+ itor.class
+SHA1-Digest: I+hjV6N+v9YwInRBhwiZ01fYlOY=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringEditor$1.class
+SHA1-Digest: 4L/J7yWCdpxP3A/UOjG42ASai/s=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/SemanticWorkspaceCon
+ tentProvider$1.class
+SHA1-Digest: jSSTpJaMxq665y1w0tvzwp8topw=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/AbstractListEditor.cla
+ ss
+SHA1-Digest: tgryKGRfh74rwNHz0H/iR2S24Cs=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/UnchangedObject.clas
+ s
+SHA1-Digest: Kzet3/U6bCHWWSSJzL5/G4r5tpM=
+
+Name: plugin.properties
+SHA1-Digest: G/Vv5bjn6Fr0lq9w1yP2aUS/05c=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/ReferenceSelector.cl
+ ass
+SHA1-Digest: lzZ1wpPbOeS7jXccRT7eijGiiI4=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/SelectionEditor.class
+SHA1-Digest: nrnaoapWNV9BZNLwIg4WdAJ09og=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/NullSelector.class
+SHA1-Digest: WNoDieMaDwI7XUhTcSvfYHYRFVI=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/CompactMultipleInteger
+ Editor.class
+SHA1-Digest: GMfuFrN/UAaow8DPZPOJuCEmsDA=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/StringEditor$1$1.class
+SHA1-Digest: EilhXS9cRl8tGpre0Oy7gW8d+QI=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/StandardSelector$1.c
+ lass
+SHA1-Digest: KH6/hnxnDBCQ6Ccmsx3s+6KIs68=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IntegerSpinner.class
+SHA1-Digest: K8rA42uKsFmnDrhJMBPtdfRpzus=
+
+Name: org/eclipse/papyrus/infra/widgets/selectors/ReferenceSelector$2.
+ class
+SHA1-Digest: +Ez36N+97bI2fLSJfyenvfnQHeA=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleReferenceEdito
+ r.class
+SHA1-Digest: KANHGFtsFKK41QZ5TWIGQgD+T4c=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/BooleanToggle$1.class
+SHA1-Digest: 8Uhiz/4Y4MF5SGHavKNDuhEFIBg=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/ReferenceCombo.class
+SHA1-Digest: ZpzaHdebt1MbHyFAwWC+KzyuSm4=
+
+Name: icons/PapyrusLogo16x16.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/BooleanCombo.class
+SHA1-Digest: 57nAJi2CVOsrzCU/7GteoQE/NY0=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IntegerSpinner$1.class
+SHA1-Digest: 0sVBhVDoykW/79v44V0a4kl7Fac=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/IAdaptableContentPro
+ vider.class
+SHA1-Digest: Bg3P2sZxnr5xcgevBxoZ3njcOIk=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/TextObservableValu
+ e.class
+SHA1-Digest: xm4i4+wHCMWQt9FfgFFMxLmPn6g=
+
+Name: org/eclipse/papyrus/infra/widgets/creation/StringEditionFactory.
+ class
+SHA1-Digest: i2BrDsr5nc2zluXtf/XmM2n6r90=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/AbstractStaticConten
+ tProvider.class
+SHA1-Digest: sSbH+xC1FehYoP3j6aQbxp9Cp+I=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/IElementSelector.class
+SHA1-Digest: HZfW85QK26AtnxFsIKbpDN7KJPE=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/AbstractFilteredCont
+ entProvider$1.class
+SHA1-Digest: ikTtRXocL2Xw+DB8bi4ashOQ3Ws=
+
+Name: icons/arrow_left_double.gif
+SHA1-Digest: YskH4AfN/cVMhABh/veJ1HZ4Apg=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/InputDialog$1.class
+SHA1-Digest: 9cp+qc+t9Fze/naGzUosqa7QUto=
+
+Name: org/eclipse/papyrus/infra/widgets/databinding/UnknownValueDiff.c
+ lass
+SHA1-Digest: ehk1ZtGIqmJLb1DUOvBZO5pzmnI=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/IStaticContentProvid
+ er.class
+SHA1-Digest: volCJLVRbkRWzDeQOrbnsdW7YaU=
+
+Name: org/eclipse/papyrus/infra/widgets/strategy/ProviderBasedBrowseSt
+ rategy.class
+SHA1-Digest: ywKkIpGhxmk2K1Bb0zhn6r7bTh0=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/MultipleStringEditor$1
+ .class
+SHA1-Digest: h0KCEOkH27a0ZZcWxknswhAM6KY=
+
+Name: org/eclipse/papyrus/infra/widgets/providers/UnsetObject.class
+SHA1-Digest: R+1mG6MMMh6utDSlYc/hL6EBDo0=
+
+Name: org/eclipse/papyrus/infra/widgets/messages/messages.properties
+SHA1-Digest: Slc18FJZ4PBfs/g8mpYfU846VfY=
+
+Name: icons/Up_12x12.gif
+SHA1-Digest: FhCTSlwiishTu7WF9m96rlFL9v4=
+
+Name: org/eclipse/papyrus/infra/widgets/editors/AbstractValueEditor$1.
+ class
+SHA1-Digest: AQ9x9G6A3ZT4VAENKoKXvOfM2Os=
+

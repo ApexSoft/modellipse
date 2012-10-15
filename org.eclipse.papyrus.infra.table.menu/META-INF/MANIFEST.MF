@@ -1,0 +1,153 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.table.menu;singleton:=t
+ rue
+Require-Bundle: org.eclipse.core.expressions,org.eclipse.papyrus.uml.t
+ able.default;bundle-version="0.9.1",org.eclipse.papyrus.uml.diagram.c
+ ommon;bundle-version="0.9.1",org.eclipse.papyrus.uml.diagram.menu;bun
+ dle-version="0.9.1",org.eclipse.emf.facet.infra.common.core;bundle-ve
+ rsion="0.1.0",org.eclipse.papyrus.infra.table.common;bundle-version="
+ 0.9.1",org.eclipse.emf.facet.widgets.nattable,org.eclipse.emf.facet.w
+ idgets.nattable.instance;bundle-version="0.1.0",org.eclipse.emf.facet
+ .widgets.nattable.workbench;bundle-version="0.1.0",org.eclipse.gmf.ru
+ ntime.diagram.ui;bundle-version="1.5.0"
+Bundle-Activator: org.eclipse.papyrus.infra.table.menu.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.table.menu,org.eclipse.papyr
+ us.infra.table.menu.handler,org.eclipse.papyrus.infra.table.menu.prov
+ iders
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInT
+ ableMenuContributionItem$1.class
+SHA1-Digest: zlV8g0EgfMuaQhH9XUOqlLdXbsI=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInT
+ ableMenuContributionItem$2.class
+SHA1-Digest: 3YHLNPMs381Wx5mwvcqd5DfqxHc=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInT
+ ableMenuContributionItem$3.class
+SHA1-Digest: gX96qAKKuvXlgH6r0G54e0D2FxI=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInT
+ ableMenuContributionItem$4.class
+SHA1-Digest: yw90P8EKGcrFl4N/3/OlZOrQQVU=
+
+Name: icons/select_column_to_hide.png
+SHA1-Digest: qW81jkvgc7mQ7qQAAPNEYLZaFe4=
+
+Name: icons/not_NA.gif
+SHA1-Digest: wAIuTUkL1UqgdCJbrtn/ebXTKUw=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CommonColumnHandler
+ .class
+SHA1-Digest: V8BffmrXjnNW4PqDJQnCckYhaLQ=
+
+Name: plugin.properties
+SHA1-Digest: BtL7aCKGIuJZJpjxp6zAirJt0xA=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInT
+ ableMenuContributionItem$2$1.class
+SHA1-Digest: JGyrBicaJYuXmu5KTIJr/pLT2p4=
+
+Name: icons/empty.png
+SHA1-Digest: mK1RtECBcQQ6w63CxgaJ7GSvTxo=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInP
+ opupContributionItem.class
+SHA1-Digest: DJnQSUUj0zABdefyyNIGTuhLSPA=
+
+Name: icons/select_column_to_hide_2.gif
+SHA1-Digest: eCQhocXiiq1m4WWpWdVSZsa86Kc=
+
+Name: org/eclipse/papyrus/infra/table/menu/messages/Messages.class
+SHA1-Digest: S2/g91UvNYFO/9uMfgO6/reYmpo=
+
+Name: org/eclipse/papyrus/infra/table/menu/messages/messages.propertie
+ s
+SHA1-Digest: eCW10aMYAxmS6bzVv1eefAN11lo=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/HideEmptyColumnsHan
+ dler.class
+SHA1-Digest: Ah1qRsGq2t8LXrSoFySZ5/JV2xU=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/states/OnlyCommonCo
+ lumnsState.class
+SHA1-Digest: ZYuR5tmW+Q9iDp5VetXYAxX1q9Q=
+
+Name: plugin.xml
+SHA1-Digest: 3teGNibJEUAHrGEx30JNDmGhIOY=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInP
+ opupContributionItem$1.class
+SHA1-Digest: ma+k3F+c9APyLk0efdzZ10srGU4=
+
+Name: icons/select_column_to_hide.gif
+SHA1-Digest: Awm2m7J4tyrws7yKXVYFYMSipK4=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInP
+ opupContributionItem$2.class
+SHA1-Digest: GIFfNu9/LaaTYJmLGCDu6EyPODE=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInP
+ opupContributionItem$3.class
+SHA1-Digest: en+b8+bZk+Jx4/Q5IUnl1sYV3F4=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/table/menu/providers/TableTester.class
+SHA1-Digest: NS+xOrJjNynzi3RnUk6tvx5cl6I=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/AbstractTableExtens
+ ionContributionFactory.class
+SHA1-Digest: Sd0ffoNNEq6S7WPnowNa8Lq3Pmo=
+
+Name: icons/rename.gif
+SHA1-Digest: mS/l+FYNG7YxINYiuATz3coUq3c=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: icons/empty.gif
+SHA1-Digest: zjvFqWE0dZ6ZJNXmx9emWt2mIVA=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInP
+ opupContributionItem$2$1.class
+SHA1-Digest: Mhv7yiOIadzxDPM8/gT7CDLa3sY=
+
+Name: icons/table.gif
+SHA1-Digest: 5sswQTiyRrUqbfxCKAM7S9QSEus=
+
+Name: icons/not_NA.png
+SHA1-Digest: ip3Yby5tpnpqPmaZDpYiYFF4vWY=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/states/AbstractTogg
+ leStateProvider.class
+SHA1-Digest: mu08cJN0R/HqE/sgz8NggIY7AlY=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/CreateNewElementInT
+ ableMenuContributionItem.class
+SHA1-Digest: MTeH316NDmb2/RTr3xo+X/Pv/QI=
+
+Name: icons/select_column_to_hide_2.png
+SHA1-Digest: m9+a5BABJakhKTRhPH2yGvmVyvE=
+
+Name: org/eclipse/papyrus/infra/table/menu/Activator.class
+SHA1-Digest: RyEVt9qbM6y1R74eD3+4fis6NTI=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/states/HideEmptyCol
+ umnState.class
+SHA1-Digest: NEZ3zuwW2JdICvA1iyIQyybFAQ8=
+
+Name: org/eclipse/papyrus/infra/table/menu/handler/states/AbstractTogg
+ leStateProvider$1.class
+SHA1-Digest: 9tEBNSl/6AUwvpjUwYRCQx4n4vg=
+

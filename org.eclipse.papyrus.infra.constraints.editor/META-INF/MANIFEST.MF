@@ -1,0 +1,345 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.constraints.editor;sing
+ leton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;vi
+ sibility:=reexport,org.eclipse.papyrus.infra.constraints.edit;bundle-
+ version="0.9.1";visibility:=reexport,org.eclipse.emf.ecore.xmi;visibi
+ lity:=reexport,org.eclipse.emf.edit.ui;visibility:=reexport,org.eclip
+ se.ui.ide;visibility:=reexport
+Bundle-Activator: org.eclipse.papyrus.infra.constraints.presentation.C
+ onstraintsEditorPlugin$Implementation
+Export-Package: org.eclipse.papyrus.infra.constraints.environment.pres
+ entation,org.eclipse.papyrus.infra.constraints.presentation
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsMo
+ delWizard$ConstraintsModelWizardNewFileCreationPage.class
+SHA1-Digest: WNhhQ+5r69ZkFsIQ8iOP+FAueFE=
+
+Name: icons/full/obj16/ConstraintsModelFile.gif
+SHA1-Digest: MpG79cy2QpQvXmm+ySw9RxKg074=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$1MyContentOutlinePage.class
+SHA1-Digest: 0ye5AwIf/qpaEKqS57/8XirsFmI=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$2.class
+SHA1-Digest: 6vbre42p4BuLrS7Ap0UR/1jz/2c=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$4.class
+SHA1-Digest: DVO5uNZr6WWWUE78+ztDBggGX84=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$6.class
+SHA1-Digest: kIiPqhyLQpMdjrCiqsGZWDA06R0=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itorPlugin.class
+SHA1-Digest: /KXMi1bkDVZ34nIXYrVhHEBVBRU=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$8.class
+SHA1-Digest: rdtPbpO8ehWK+BwyqU83aTWsehk=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentActionBarContributor$1.class
+SHA1-Digest: ZlqOu6lP4uRyeR9EMX9b941Iv1A=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$3$1ResourceDeltaVisitor.class
+SHA1-Digest: 2+IEtb8ZwRZRyBjIR6wV5rKt7oY=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentActionBarContributor$3.class
+SHA1-Digest: rr4a91ZqqRCn2LQ5ocJTpmR5m6M=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$3$2.class
+SHA1-Digest: JmL8uYntaC3/8NCd/MfvWIR4WRA=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentModelWizard$EnvironmentModelWizardInitialObjectCreationPage
+ $1.class
+SHA1-Digest: 9AZMJGr1PGLAhI1KVZtU9W9JY58=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$11.class
+SHA1-Digest: +4mfHSrDvL5n/FHp87EYca7avOA=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$13.class
+SHA1-Digest: NRcy47ATPoL16SJNGts2z900qH0=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentModelWizard.class
+SHA1-Digest: Pf4MYZ3d8hGcGIrzLu0WN9hWq7s=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$15.class
+SHA1-Digest: qrlYGXtZfRFqpHBni/48i47Thz0=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$17.class
+SHA1-Digest: sIvqtjllJz5tHTDBJGswnHRFGk8=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$2.class
+SHA1-Digest: pMaoHA9L4WHCkp9kkmO/2xyvCtU=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$11.class
+SHA1-Digest: 99/vtvaL/9saeKDGDbbRCWMO8uI=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$4.class
+SHA1-Digest: ZlpiWpoJupNr0BLnEBMd1MXY/GI=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$13.class
+SHA1-Digest: hzr5Rtk5Biq1fKCKk2HTX2lrYrg=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsMo
+ delWizard$2.class
+SHA1-Digest: LYI6MJzz1b2cy5X2ZN83QuXen0A=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$15.class
+SHA1-Digest: QBzu32e8j6rp/X8kHKCe7E8VGIo=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$6.class
+SHA1-Digest: Xa7vAqWgAbkJL8L8bbbPztZ7XjU=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$17.class
+SHA1-Digest: w2TNPF7gzY5yNTBonRpZQ4X3dwM=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$8.class
+SHA1-Digest: L7hcRiAiURI1ny14kftRYOVbE04=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsAc
+ tionBarContributor.class
+SHA1-Digest: WufK5jI0LrEhfQJrz3QLXt8r2sw=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentModelWizard$2.class
+SHA1-Digest: e1hjPRyswt+QHodH1sit3OhGNsg=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$2$1.class
+SHA1-Digest: eAhhd9hVGayB7f5qyB44tLlovkE=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$ReverseAdapterFactoryContentProvider.class
+SHA1-Digest: OJaH+j++BOGoU547PJvHoRI4geM=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$3$1.class
+SHA1-Digest: sFYHQP7TgoCqKoTUTmaPwAngbqk=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$4$1.class
+SHA1-Digest: Xqzjl+Tj/ymwilAY3tAzoPw+p7U=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsMo
+ delWizard$ConstraintsModelWizardInitialObjectCreationPage$1.class
+SHA1-Digest: 3W6FolOMRi2TwjZ3e7+iWxSEhSI=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsAc
+ tionBarContributor$1.class
+SHA1-Digest: kVV/1cxrBv4TKEp3gEDco49i9Zs=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$3$1ResourceDeltaVisitor.class
+SHA1-Digest: iz/uzytksVg4rVjJX4JYu5qBrAA=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsAc
+ tionBarContributor$3.class
+SHA1-Digest: hiWL7gkiuQoPvSQ4UAU+bWNkYwM=
+
+Name: icons/full/wizban/NewEnvironment.gif
+SHA1-Digest: V9KXQzETCn7Fnt2RiqisQYUWkeE=
+
+Name: icons/full/obj16/EnvironmentModelFile.gif
+SHA1-Digest: ibCudXJqKpPufLBQyBr1RRfkpMY=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentActionBarContributor.class
+SHA1-Digest: EvksAXnRujYg0PdqxXmRbMLOt5M=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$1.class
+SHA1-Digest: JISFScMWV5TzS/aY3fxh+Dgbybg=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$3.class
+SHA1-Digest: 4tcX7JVk/ADrE1sfDY0J/zHWJe4=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentModelWizard$EnvironmentModelWizardInitialObjectCreationPage
+ .class
+SHA1-Digest: 6VX6muW2e4PdCNfe78j+EgoxtPo=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$5.class
+SHA1-Digest: cMj3GU4nJvuYxFThaZOnbaPPwj4=
+
+Name: plugin.properties
+SHA1-Digest: dZqYhInbGxmU63HrJlknO25k0Tw=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$7.class
+SHA1-Digest: 2VHulLvsOZIeUyNc4fqwfVgPADs=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$9.class
+SHA1-Digest: QRWLEq/7BDJuTu3knvMFkmtOUps=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentActionBarContributor$2.class
+SHA1-Digest: cV5HhZEPMq1X212eQrY+DeE+FJo=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor.class
+SHA1-Digest: pL6EOWLVMEFZ1Xcxy6Frui2t6Jg=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$2$1.class
+SHA1-Digest: hEstqGDKuzaMwvQWmG5ZEm6T92I=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$3$1.class
+SHA1-Digest: LcXt1dAs7hrlzxj4yvVltsQcsRk=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsMo
+ delWizard.class
+SHA1-Digest: +uITbQVlUwvjZAqnO8TEod5yvo8=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$4$1.class
+SHA1-Digest: ww3YmvnbrAGQNanwQ4xsVsZekWo=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itorPlugin$Implementation.class
+SHA1-Digest: rszlANSxCj/LuFGf3rTemSa75Hk=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$10.class
+SHA1-Digest: b6EJqMiJhEp78buu93BStNi1eAI=
+
+Name: plugin.xml
+SHA1-Digest: jesxLdVX9f1copnNHr6E776CfmA=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$12.class
+SHA1-Digest: k0hYyogKNoOeqOCU2whRv+JrpNY=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$14.class
+SHA1-Digest: lHWY5ty04phiHi2w6YZ6jJPKnLs=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$16.class
+SHA1-Digest: JpQfRPe6X1oT3s1l1J5YLirZ/sw=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$1.class
+SHA1-Digest: e7aiZa65PKXd4rqd6wOV62FtmBU=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$10.class
+SHA1-Digest: Zu4lOTLXTGm1sXh+bkfqTglm8o0=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$18.class
+SHA1-Digest: FvGBvfZs+3fD1BgsSroKuz+bt0U=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$3.class
+SHA1-Digest: x+mhj1+YE5iIeIVFfUBWhcAlU9Q=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$12.class
+SHA1-Digest: jBBfdNfZJPYhzQud8u5dodl6i5g=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentModelWizard$EnvironmentModelWizardNewFileCreationPage.class
+SHA1-Digest: qyIjgEBFcCmdqaXSMul0SyFq3hI=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsMo
+ delWizard$1.class
+SHA1-Digest: Le1lZyalzFE1bR7axr3DOo/Bqm4=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$14.class
+SHA1-Digest: GOAvqJXDbc8PMs7ijLpy67fRkys=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$5.class
+SHA1-Digest: hFlY9JPN38vf+FgNQvxXMxC8RLU=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsMo
+ delWizard$ConstraintsModelWizardInitialObjectCreationPage.class
+SHA1-Digest: gWlRFj3n2W0F4qRxVHri46GsWlw=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$16.class
+SHA1-Digest: Bw5O8TcgOAQEqcD/Mo5rVWpJMwA=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$7.class
+SHA1-Digest: ulXMQo94nBkh57rsSEiYfugWkVE=
+
+Name: icons/full/wizban/NewConstraints.gif
+SHA1-Digest: /AzTQ/VZB1AJCtnjyphpnlsAtDs=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$ReverseAdapterFactoryContentProvider.class
+SHA1-Digest: BBiGuldVY9623WuQ0I9IWBUBbQo=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$18.class
+SHA1-Digest: R7FbL0fxAPEygndNq24mDMnveN8=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$9.class
+SHA1-Digest: cAglx7+/fsw1U0BOlIG1mG7dnrg=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor$1MyContentOutlinePage.class
+SHA1-Digest: q4FceZ7XNc/NxbKzADx34bfBq00=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentModelWizard$1.class
+SHA1-Digest: s7PRcbmUOGYzcir9pT8MKh7z5Gw=
+
+Name: org/eclipse/papyrus/infra/constraints/environment/presentation/E
+ nvironmentEditor$3$2.class
+SHA1-Digest: WnkBZZjWSIGXGG4RTVxQ2uSMqyI=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsAc
+ tionBarContributor$2.class
+SHA1-Digest: zLIRVnL9ZWBPaQvvo4DbjAAdRPo=
+
+Name: org/eclipse/papyrus/infra/constraints/presentation/ConstraintsEd
+ itor.class
+SHA1-Digest: jWr4ganJY0STZQL12eXYhzLdsH4=
+

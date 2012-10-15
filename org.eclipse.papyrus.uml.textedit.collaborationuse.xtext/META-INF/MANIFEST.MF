@@ -1,0 +1,222 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.textedit.collaborationuse
+ .xtext;singleton:=true
+Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.generator;resoluti
+ on:=optional,org.apache.commons.logging;resolution:=optional,org.ecli
+ pse.emf.codegen.ecore;resolution:=optional,org.eclipse.emf.mwe.utils;
+ resolution:=optional,org.eclipse.emf.mwe2.launch;resolution:=optional
+ ,com.ibm.icu;resolution:=optional,org.eclipse.xtext.xtend;resolution:
+ =optional,org.eclipse.xtext.util,org.eclipse.emf.ecore,org.eclipse.em
+ f.common,org.antlr.runtime,org.eclipse.uml2.codegen.ecore;bundle-vers
+ ion="1.6.0",org.eclipse.uml2.uml;bundle-version="3.1.0",org.eclipse.p
+ apyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.papyrus.uml.
+ textedit.common.xtext;bundle-version="0.9.1";visibility:=reexport,org
+ .eclipse.xtext.gmf.glue;bundle-version="0.8.0",org.apache.log4j;bundl
+ e-version="1.2.15"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.textedit.collaborationuse.xtex
+ t,org.eclipse.papyrus.uml.textedit.collaborationuse.xtext.formatting,
+ org.eclipse.papyrus.uml.textedit.collaborationuse.xtext.generator,org
+ .eclipse.papyrus.uml.textedit.collaborationuse.xtext.parser.antlr,org
+ .eclipse.papyrus.uml.textedit.collaborationuse.xtext.parser.antlr.int
+ ernal,org.eclipse.papyrus.uml.textedit.collaborationuse.xtext.scoping
+ ,org.eclipse.papyrus.uml.textedit.collaborationuse.xtext.serializer,o
+ rg.eclipse.papyrus.uml.textedit.collaborationuse.xtext.services,org.e
+ clipse.papyrus.uml.textedit.collaborationuse.xtext.umlCollaborationUs
+ e,org.eclipse.papyrus.uml.textedit.collaborationuse.xtext.umlCollabor
+ ationUse.impl,org.eclipse.papyrus.uml.textedit.collaborationuse.xtext
+ .umlCollaborationUse.util,org.eclipse.papyrus.uml.textedit.collaborat
+ ionuse.xtext.validation
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/util/UmlCollaborationUseSwitch.class
+SHA1-Digest: TeX5djFw9573tV9+HpFUrcSbo20=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUse.ecore
+SHA1-Digest: ivXfy3i/RhQrZaIchAYF/3NgVYA=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/generato
+ r/UmlCollaborationUseGenerator.class
+SHA1-Digest: FV/y9g5VQ5j3icsSHgpJfQL1jeY=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/util/UmlCollaborationUseXMLProcessor.class
+SHA1-Digest: zfSZeIgXVZILznI1kgaPaUukOhc=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/util/UmlCollaborationUseAdapterFactory.class
+SHA1-Digest: VfueebE/pZSF2A48aaW0TBwZjlw=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/UmlCollaborationUseAntlrTokenFileProvider.class
+SHA1-Digest: hyf+kBJUYtTrw9f2jfBjeYknUPQ=
+
+Name: plugin.properties
+SHA1-Digest: E1djxdy0huhwuizp4VIJ0BkR1oU=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/impl/TypeRuleImpl.class
+SHA1-Digest: aFjgE6jYzfTf8wcNvUyDt+N8PDU=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUseStandaloneSetupGenerated.class
+SHA1-Digest: HyEOMPWncw0TdBgaFBsqUNherc0=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/validati
+ on/UmlCollaborationUseJavaValidator.class
+SHA1-Digest: UwQF/2T6Jx0dJFauSxaAbQCILe8=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/validati
+ on/AbstractUmlCollaborationUseJavaValidator.class
+SHA1-Digest: idZOYrKrz40LdqrPIFlL9CuGps8=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUse.xmi
+SHA1-Digest: Nbcoxx0LKi2jAXXmbV4S7me4lKs=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUse.genmodel
+SHA1-Digest: X3EmkJYIzWwGq6Eyx/ShdGSad48=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/impl/CollaborationUseRuleImpl.class
+SHA1-Digest: 6CKeP0zI0684llTtu5zNpGJVJF0=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/serializ
+ er/AbstractUmlCollaborationUseSyntacticSequencer.class
+SHA1-Digest: xf5mSF3Dg7t8vqp+YqmRKxYyeb8=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/util/UmlCollaborationUseAdapterFactory$1.class
+SHA1-Digest: 8brSpew8wOPr0ETAfv08P+rWnwg=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/services
+ /UmlCollaborationUseGrammarAccess$TypeRuleElements.class
+SHA1-Digest: 6SOJvcWKKRZJTb8zsXeK3e+o09M=
+
+Name: plugin.xml
+SHA1-Digest: LhLjD4NGkKYJAne5A+1YN7YoSgs=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/scoping/
+ UmlCollaborationUseScopeProvider.class
+SHA1-Digest: Vw+nJrTXQn96NpoQk+mLp+Puiwk=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/util/UmlCollaborationUseResourceFactoryImpl.class
+SHA1-Digest: r631cnwEbVk3ffL7f4oFzdRCYPU=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUseRuntimeModule.class
+SHA1-Digest: UYI3BV+vcroRYciW/ZobuSXBH5U=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/TypeRule.class
+SHA1-Digest: 6lSh57KWvfBqfs00otI48dtW634=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/internal/InternalUmlCollaborationUseLexer$DFA12.class
+SHA1-Digest: H0Yq6MF6wCDt75Yo5SeKBASTcNc=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/util/UmlCollaborationUseResourceImpl.class
+SHA1-Digest: o5X16kLSKVWXG671dj2sBQNTnq4=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/Abstract
+ UmlCollaborationUseRuntimeModule.class
+SHA1-Digest: qw7W5pM0UCT/0sYZu3SWulTziCM=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/formatti
+ ng/UmlCollaborationUseFormatter.class
+SHA1-Digest: Q7VJbrH+REiE4DS4I3VDn7LHAFI=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/UmlCollaborationUsePackage$Literals.class
+SHA1-Digest: HON9+DFraEduF1K2R6z4jFfrgCs=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/internal/InternalUmlCollaborationUseLexer.class
+SHA1-Digest: UKs5bkU0rWM5es0SHqntpA6SSVU=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/services
+ /UmlCollaborationUseGrammarAccess$CollaborationUseRuleElements.class
+SHA1-Digest: vOvMcRxD50u2eRsHp3+na0p2Xi0=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/validati
+ on/SemanticValidator.class
+SHA1-Digest: PWUta1wek6b8McgeFEPOCfb3uIY=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/CollaborationUseRule.class
+SHA1-Digest: rGMSxPD/R5HceFt6APXV7U6wB2k=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUse.xtext
+SHA1-Digest: j9JS7CXUdGIe5yCD9yX6/gN4kv8=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/impl/UmlCollaborationUsePackageImpl.class
+SHA1-Digest: 5pfTdLDrb5E7kGZ1poUauKK56VY=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/services
+ /UmlCollaborationUseGrammarAccess.class
+SHA1-Digest: Msf7Kw1Areq6IAtssSAnGHgZuCA=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/Generate
+ UmlCollaborationUse.mwe2
+SHA1-Digest: JDHS6ZDKLc0hxNqP4QQH6WZncfI=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/internal/InternalUmlCollaborationUse.g
+SHA1-Digest: jYubCy7djtAJQI+gnyT+pB9/LWk=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/impl/UmlCollaborationUseFactoryImpl.class
+SHA1-Digest: 8Zns0sue+M8etVa29suCMBu6ZkM=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/generato
+ r/UmlCollaborationUseGenerator.xtend
+SHA1-Digest: Yu/ldKNygZe4zKdO3SuU4NEjb4U=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/UmlColla
+ borationUseStandaloneSetup.class
+SHA1-Digest: 8vY16Jn2OR0fX2/Cr+S5ijR2eiE=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/UmlCollaborationUseParser.class
+SHA1-Digest: vOuDroDRb+4C7s64A/RfxExsLdU=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/internal/InternalUmlCollaborationUse.tokens
+SHA1-Digest: khISsbCUwoK/FdrT5yMvF5Kzcnw=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/serializ
+ er/AbstractUmlCollaborationUseSemanticSequencer.class
+SHA1-Digest: l1Yayf/Q6IFuFw/6g4Uqdh+7Fok=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/UmlCollaborationUsePackage.class
+SHA1-Digest: 1rRjejLK24qRLLFM//t+jX53pfU=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/parser/a
+ ntlr/internal/InternalUmlCollaborationUseParser.class
+SHA1-Digest: zWjCjH6hpNHp4dUB3VuCprvtOqE=
+
+Name: org/eclipse/papyrus/uml/textedit/collaborationuse/xtext/umlColla
+ borationUse/UmlCollaborationUseFactory.class
+SHA1-Digest: M/7YVZBfm4rD0thtJHRp+e4pUwI=
+

@@ -1,0 +1,145 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.queries.core.configurat
+ ion;singleton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil
+ ity:=reexport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.ecli
+ pse.emf.facet.infra.query;visibility:=reexport,org.eclipse.uml2.uml;v
+ isibility:=reexport
+Bundle-Activator: org.eclipse.papyrus.infra.queries.core.configuration
+ .plugin.Activator$Implementation
+Export-Package: org.eclipse.papyrus.infra.queries.core.configuration,o
+ rg.eclipse.papyrus.infra.queries.core.configuration.impl,org.eclipse.
+ papyrus.infra.queries.core.configuration.plugin,org.eclipse.papyrus.i
+ nfra.queries.core.configuration.util
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/util/Config
+ urationXMLProcessor.class
+SHA1-Digest: iB6Dqe52Y6jgylrQX9OG+McsSz4=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/util/Config
+ urationAdapterFactory.class
+SHA1-Digest: 2su3g88rB00WSV3rGJixLCMja7Q=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/ListParamet
+ erValue.class
+SHA1-Digest: f0NSu2ppP09Xej6/wgrEe9PiuWU=
+
+Name: model/Configuration.ecore
+SHA1-Digest: Pmgyr++79Lj1/Ut4k2zSc6xAm2E=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/ParameterVa
+ lue.class
+SHA1-Digest: 4nLA+tleuVjKn5ynt06mtkwDfSk=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/ListPa
+ rameterValueImpl.class
+SHA1-Digest: EkATaXfscQjGoPRG5el1HVDMUYI=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/ConstantPar
+ ameterValue.class
+SHA1-Digest: FoWZIqT6Mkj498Ym6/pxRhKoR2c=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/Parame
+ terValueImpl.class
+SHA1-Digest: YH7mVL0RnjdWXWuIHVHXgBdxfM8=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/QueryConfig
+ uration.class
+SHA1-Digest: bysIFbhl43jbg/Bhd4c7tojLHrc=
+
+Name: plugin.properties
+SHA1-Digest: //8GoBWpUWO73GCV/Ls6w9uj1fY=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/Consta
+ ntParameterValueImpl.class
+SHA1-Digest: eG7alguXKaDbWMal+8gmCVwYWTo=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/util/Config
+ urationAdapterFactory$1.class
+SHA1-Digest: 5Bd2AGRuKuDh5g4zT0x+NYpgHMc=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/QueryC
+ onfigurationImpl.class
+SHA1-Digest: Sg754JUcm40wLO33tjkAcuWak7E=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/plugin/Acti
+ vator$Implementation.class
+SHA1-Digest: j7C5HFOzlGCRWmVP9JRFEBWpTXg=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/QueryExecut
+ ionValue.class
+SHA1-Digest: CE1RMydq0HHHrugZOae3D/I2z3M=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/Modisc
+ oQueryConfigurationImpl.class
+SHA1-Digest: 2GNqntoA4qwh1d2HNAviWZLlwZw=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/util/Config
+ urationResourceImpl.class
+SHA1-Digest: tvna5bIAcLok/iGGZGYohn+2FKA=
+
+Name: model/Configuration.genmodel
+SHA1-Digest: k20C88crCu2q5Jaao646u9YDHQI=
+
+Name: plugin.xml
+SHA1-Digest: PWHW4ni7VZKeOoqBgC5/JhcDDVc=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/util/Config
+ urationResourceFactoryImpl.class
+SHA1-Digest: 4FfaFELuEXpZRG8NDLWYIq+yDjA=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/Configurati
+ onPackage$Literals.class
+SHA1-Digest: yJOAWnNF0Rduse7eRLI2l/mh2hQ=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/Configurati
+ onPackage.class
+SHA1-Digest: x5hy24Y9yYDtEiG7j++wXkKR6GI=
+
+Name: model/Configuration.ecorediag
+SHA1-Digest: P+Or11u+zwuaRjFOU9Ry3l9OEQY=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/QueryE
+ xecutionValueImpl.class
+SHA1-Digest: XQRJJ7XsRSHmHSvy3KSYyH7dAh8=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/Configurati
+ onFactory.class
+SHA1-Digest: 87+XACPeGzrm5joSyPEqMFGk6Fo=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/Config
+ urationPackageImpl.class
+SHA1-Digest: P8U3swsvlvonGXELIPXXF/vIDHY=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/impl/Config
+ urationFactoryImpl.class
+SHA1-Digest: d4n3kmJR+1CcfXIQ3MWbqWzIHCk=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/plugin/Acti
+ vator.class
+SHA1-Digest: HQC7cPe1hwJtKeLbKzaew40fjRY=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/ModiscoQuer
+ yConfiguration.class
+SHA1-Digest: kFPfwaFtq7kflKJsub1dPTy434w=
+
+Name: org/eclipse/papyrus/infra/queries/core/configuration/util/Config
+ urationSwitch.class
+SHA1-Digest: zZ9faaVZGU22LIsygGhuOfCNHWU=
+

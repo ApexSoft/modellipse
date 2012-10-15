@@ -1,0 +1,203 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.textedit.message.xtext;si
+ ngleton:=true
+Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.generator;resoluti
+ on:=optional,org.apache.commons.logging;resolution:=optional,org.ecli
+ pse.emf.codegen.ecore;resolution:=optional,org.eclipse.emf.mwe.utils;
+ resolution:=optional,org.eclipse.emf.mwe2.launch;resolution:=optional
+ ,com.ibm.icu;resolution:=optional,org.eclipse.xtext.xtend;resolution:
+ =optional,org.eclipse.xtext.util,org.eclipse.emf.ecore,org.eclipse.em
+ f.common,org.antlr.runtime,org.eclipse.uml2.codegen.ecore;bundle-vers
+ ion="1.6.0",org.eclipse.uml2.uml;bundle-version="3.1.0",org.eclipse.p
+ apyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.xtext.gmf.gl
+ ue;bundle-version="0.9.0",org.apache.log4j;bundle-version="1.2.15"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.textedit.message.xtext,org.ecl
+ ipse.papyrus.uml.textedit.message.xtext.formatting,org.eclipse.papyru
+ s.uml.textedit.message.xtext.generator,org.eclipse.papyrus.uml.texted
+ it.message.xtext.parser.antlr,org.eclipse.papyrus.uml.textedit.messag
+ e.xtext.parser.antlr.internal,org.eclipse.papyrus.uml.textedit.messag
+ e.xtext.scoping,org.eclipse.papyrus.uml.textedit.message.xtext.serial
+ izer,org.eclipse.papyrus.uml.textedit.message.xtext.services,org.ecli
+ pse.papyrus.uml.textedit.message.xtext.umlMessage,org.eclipse.papyrus
+ .uml.textedit.message.xtext.umlMessage.impl,org.eclipse.papyrus.uml.t
+ extedit.message.xtext.umlMessage.util,org.eclipse.papyrus.uml.textedi
+ t.message.xtext.validation
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/UmlMes
+ sagePackage.class
+SHA1-Digest: cePzJ0wrW45AFEd5Ucxvt1pWSTY=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/services/UmlMessa
+ geGrammarAccess$RecurrenceRuleElements.class
+SHA1-Digest: vtn8wzMwynqqy/Df64+KUvkHLuw=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/UmlMes
+ sageFactory.class
+SHA1-Digest: p/meJQTPg1SdiPhAqWlvd2ol9vk=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/impl/S
+ equenceTermRuleImpl.class
+SHA1-Digest: SI5hIwLKCeT8rkKutg1vEHc3J6w=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/UmlM
+ essageParser.class
+SHA1-Digest: AdfPixD1iIyh6cPfGhK/8OTwBVk=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/Sequen
+ ceTermRule.class
+SHA1-Digest: X1lggrLGANWnpfVVpG88E8aweSk=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessageStandal
+ oneSetup.class
+SHA1-Digest: P1VAqnxQeoAYkY6jd8WZlq1sL+4=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessage.xtext
+SHA1-Digest: 0JGleB1H4xFjIf4qb3LbTsCss64=
+
+Name: plugin.properties
+SHA1-Digest: onndH46A/KkjQVw2XsA7zaa7mFE=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/generator/UmlMess
+ ageGenerator.xtend
+SHA1-Digest: YijrnuK9IWU1jqVBEi6FFwdoxNo=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/impl/M
+ essageRuleImpl.class
+SHA1-Digest: fxpifQ90HBAdWCGaSGinxtdow/w=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/formatting/UmlMes
+ sageFormatter.class
+SHA1-Digest: gepJbnNMtLu7KYr+/St+aGkz8p4=
+
+Name: plugin.xml
+SHA1-Digest: bxnFrffXPqUm/TpiySyXm6EygYs=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/inte
+ rnal/InternalUmlMessageLexer$DFA13.class
+SHA1-Digest: A3Mq06c6nSDy3kz2SCCfvp7r5gw=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/inte
+ rnal/InternalUmlMessageLexer.class
+SHA1-Digest: /mvZPa+U/WUJate07EQkYRmCIjQ=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/services/UmlMessa
+ geGrammarAccess$SequenceTermRuleElements.class
+SHA1-Digest: 5xgXjUwtEJ3UVMLbgHGIKwUEl+Q=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/util/U
+ mlMessageSwitch.class
+SHA1-Digest: X4wnQ2iKWK8L70bIxzVeb4cGtwY=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/UmlM
+ essageAntlrTokenFileProvider.class
+SHA1-Digest: enhv+wYKFXIlBHTP0yzhGt2WdTQ=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/serializer/Abstra
+ ctUmlMessageSemanticSequencer.class
+SHA1-Digest: yWkD89uwa8y1OM0VXJ0tC8tS+Kk=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/impl/U
+ mlMessagePackageImpl.class
+SHA1-Digest: ibb9RyrCTAt+9vXKUsfUJLaJ2T8=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/services/UmlMessa
+ geGrammarAccess$MessageRuleElements.class
+SHA1-Digest: vKPA/WrbTUDd/8ay+/35QuTZR2U=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/serializer/Abstra
+ ctUmlMessageSyntacticSequencer.class
+SHA1-Digest: D1KayiYk7Jx/TuIYDVVU70XmTAo=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/impl/U
+ mlMessageFactoryImpl.class
+SHA1-Digest: d5h1cZiqxLzZCzR2I4dxxILm4/E=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/generator/UmlMess
+ ageGenerator.class
+SHA1-Digest: HQ8oNAHZi/vljGUI252JDfDE2gE=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/util/U
+ mlMessageAdapterFactory.class
+SHA1-Digest: SdUvUos9zbIwlN4vLoE3oZBnCzE=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessage.ecore
+SHA1-Digest: z9YZ614/flgznqyDjdJcQ8sfy1w=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/inte
+ rnal/InternalUmlMessage.g
+SHA1-Digest: Qw0m/hR0Kob41SltdlRLMOce3lI=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessage.genmod
+ el
+SHA1-Digest: f76lYMbwN/bHknmNpdkzdn+QXu0=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/validation/Abstra
+ ctUmlMessageJavaValidator.class
+SHA1-Digest: UMg3RIpX2jny7Z3Q0gn6A177YNE=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/validation/UmlMes
+ sageJavaValidator.class
+SHA1-Digest: tl6QiSg2kuSE0MKKoKsGlzrKY5U=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/Messag
+ eRule.class
+SHA1-Digest: QMlrbiCtZDujejwQI7LYlJgH5Do=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/services/UmlMessa
+ geGrammarAccess.class
+SHA1-Digest: miOP5I+u5rph5MP8vOdYidg9DV0=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/inte
+ rnal/InternalUmlMessage.tokens
+SHA1-Digest: +GUDf5cfoT2AE+wFl7wam9mls+Y=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/AbstractUmlMessag
+ eRuntimeModule.class
+SHA1-Digest: A3fHIdYgGQfl5bwaobuGnoK+eio=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessageStandal
+ oneSetupGenerated.class
+SHA1-Digest: wxzJUcKH41dT03iBZPczdA8U+ew=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/UmlMes
+ sagePackage$Literals.class
+SHA1-Digest: tlaP/tpBS8pVP4+mnEx6zSbhf/A=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessageRuntime
+ Module.class
+SHA1-Digest: C2G9dCBEk44C+r89/d1h9pklceQ=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/umlMessage/util/U
+ mlMessageAdapterFactory$1.class
+SHA1-Digest: ZDIRNRREtyawCSgG5yVcl0F1g1I=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/GenerateUmlMessag
+ e.mwe2
+SHA1-Digest: r6tdXMXZ0HKnEEK9EQ34SDyHsH8=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/scoping/UmlMessag
+ eScopeProvider.class
+SHA1-Digest: KVZZ2Q4Hg1QtFNq10Ss1oS3OmjM=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/UmlMessage.xmi
+SHA1-Digest: K3WiOF7i+kK5TUa/ZIgTX/Aw+fY=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/parser/antlr/inte
+ rnal/InternalUmlMessageParser.class
+SHA1-Digest: GEYPGMCvMPmq7enRWwrLbXW85HI=
+

@@ -1,0 +1,73 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.discovery.ui.menu;singl
+ eton:=true
+Require-Bundle: org.eclipse.ui;bundle-version="3.8.0",org.eclipse.core
+ .runtime;bundle-version="3.8.0",org.eclipse.papyrus.infra.discovery.u
+ i;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.infra.discovery.ui.menu.Activato
+ r
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.discovery.ui.menu,org.eclips
+ e.papyrus.infra.discovery.ui.menu.handler
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/discovery/ui/menu/Activator.class
+SHA1-Digest: YzL5+FI8uOkzCNYqgJd7G3/OYn8=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: icons/Papyrus_32x32_t.gif
+SHA1-Digest: TnCj8MUUFLEDzL99Tpw3E0gUW4I=
+
+Name: intro/papyrusDiscovery.xml
+SHA1-Digest: CdDQlZhS63i8sVVwnO+StpUCg1Y=
+
+Name: intro/images/banner-discovery-papyrus.png
+SHA1-Digest: AzBVqukixBYjx7LTm9eocZf3qbg=
+
+Name: icons/PapyrusLogo32x32.png
+SHA1-Digest: Sj/4hAoWLl0iukYocWMAD9cdbrY=
+
+Name: about.html
+SHA1-Digest: ztzTKONYJdfqz4aa9yHkuSdsVnE=
+
+Name: plugin.properties
+SHA1-Digest: ctE5puvGOcrps76UpvfCBwH6FnA=
+
+Name: icons/Papyrus_16x16.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/menu/handler/PapyrusDisco
+ veryHandler.class
+SHA1-Digest: frQRtIORugulZ3BIw0oQNeaZny4=
+
+Name: intro/css/overview.properties
+SHA1-Digest: uhfPgATQqDYddvtgeLVF2j2JqhI=
+
+Name: plugin.xml
+SHA1-Digest: Qr/TUa8hvW3AwXRQ5X8y+XMWlLU=
+
+Name: icons/papyrus.png
+SHA1-Digest: qRVOaQq19Qq/T2+hjrQ+xwWOo8k=
+
+Name: intro/css/overview.css
+SHA1-Digest: lki8a2ktLNArL5ONK8jOlBMVnZM=
+
+Name: intro/images/banner-discovery.png
+SHA1-Digest: PRjm7eHzyk7VJ5FwKvovVeMDbpY=
+
+Name: org/eclipse/papyrus/infra/discovery/ui/menu/handler/PapyrusDisco
+ veryAction.class
+SHA1-Digest: EAwfWpAdi5jTCQ/SQpvrdrmohi8=
+
+Name: doc/ToDo.txt
+SHA1-Digest: caf9Nb35zXNTjIrN+OfIDWXbJiY=
+

@@ -1,0 +1,63 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.customization.properties.mode
+ l.xwt;singleton:=true
+Bundle-Activator: org.eclipse.papyrus.customization.properties.model.x
+ wt.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.m2
+ m.qvt.oml;bundle-version="3.1.0",org.eclipse.gmt.modisco.xml;bundle-v
+ ersion="0.9.0",org.eclipse.gmt.modisco.xml.discoverer;bundle-version=
+ "0.9.0",org.eclipse.papyrus.views.properties;bundle-version="0.9.1",o
+ rg.eclipse.papyrus.views.properties.model;bundle-version="0.9.1",org.
+ eclipse.papyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.wst
+ .xml.core;bundle-version="1.1.600",org.eclipse.core.resources;bundle-
+ version="3.7.100",org.eclipse.m2m.qvt.oml.project;bundle-version="3.1
+ .0"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.customization.properties.model.xwt
+ .resource
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %Bundle-Vendor
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %Bundle-Name
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/customization/properties/model/xwt/resource/
+ XWTResource.class
+SHA1-Digest: XXycOAdhQOQpmJCwf1jcfQMNAok=
+
+Name: org/eclipse/papyrus/customization/properties/model/xwt/format/XM
+ LFormatter.class
+SHA1-Digest: cGtU9KiQs3ZvoMWItuDyd4Oor6A=
+
+Name: org/eclipse/papyrus/customization/properties/model/xwt/resource/
+ XWTModelFactory.class
+SHA1-Digest: jwRZ9FkdSdN8hQhPfGBqeD8caUU=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: otYavOe4NXpPLIEgreA8Z2NFNVw=
+
+Name: org/eclipse/papyrus/customization/properties/model/xwt/Activator
+ .class
+SHA1-Digest: jupdlWgps3gthaUwEo9qzg5pf6k=
+
+Name: plugin.xml
+SHA1-Digest: zlA9FvdFLFfznjd6q5p8lkJfr1Y=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: Transformation/UIToXML.qvto
+SHA1-Digest: fIGBQ8sRSlHq+thla8V9LrQHVwg=
+
+Name: org/eclipse/papyrus/customization/properties/model/xwt/resource/
+ XWTResource$1.class
+SHA1-Digest: 4I6l15nODpge3uVwNZT5yjI/yZ4=
+
+Name: Transformation/XMLToUI.qvto
+SHA1-Digest: dEmjQ/6aQCR5LSpMU4FA4fIlr6s=
+

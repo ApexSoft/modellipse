@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+   <extension-point 
+   		id="nestedEditor" 
+   		name="NestedEditor" 
+   		schema="schema/nestedEditor.exsd"/>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.papyrus.infra.core.sasheditor.internal.preferences.TabTooltipPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.infra.core.sasheditor.internal.preferences.TabTooltipPreferencePage"
+            id="org.eclipse.papyrus.sasheditor.preferences.tabtooltip"
+            name="SashWindows Tab Tooltips">
+      </page>
+   </extension>
+</plugin>

@@ -1,0 +1,123 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.textedit.message.xtext.ui
+ ;singleton:=true
+Bundle-Activator: org.eclipse.papyrus.uml.textedit.message.xtext.ui.in
+ ternal.UmlMessageActivator
+Require-Bundle: org.eclipse.papyrus.uml.textedit.message.xtext;bundle-
+ version="0.9.1";visibility:=reexport,org.eclipse.xtext.ui,org.eclipse
+ .ui.editors;bundle-version="3.5.0",org.eclipse.ui.ide;bundle-version=
+ "3.5.0",org.eclipse.xtext.ui.shared,org.eclipse.ui,org.eclipse.xtext.
+ builder,org.antlr.runtime,org.eclipse.papyrus.extensionpoints.editors
+ ;bundle-version="0.9.1",org.eclipse.uml2.codegen.ecore;bundle-version
+ ="1.6.0",org.eclipse.uml2.uml;bundle-version="3.1.0",org.eclipse.gmf.
+ runtime.emf.commands.core;bundle-version="1.4.0",org.eclipse.core.exp
+ ressions;bundle-version="3.4.200",org.eclipse.papyrus.infra.core;bund
+ le-version="0.9.1",org.eclipse.xtext.gmf.glue;bundle-version="0.9.0",
+ org.apache.log4j;bundle-version="1.2.15"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.textedit.message.xtext.ui.cont
+ entassist.antlr
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/UmlMessageParser.class
+SHA1-Digest: WUS4CSDLlscngWDsIMvq2h5eTPE=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/outline/UmlMes
+ sageOutlineTreeProvider.class
+SHA1-Digest: g2NLXUYvsZkpUc8A+f6BTqhjBRI=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/internal/InternalUmlMessageParser.class
+SHA1-Digest: jC2d71xqg5zhkXnFQ27X+3etQOs=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/quickfix/UmlMe
+ ssageQuickfixProvider.class
+SHA1-Digest: HwdsjjtS/gLS3AnH8Oh2Qxbkxuw=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ UmlMessageProposalProvider.class
+SHA1-Digest: YJXQktVa+iForrQEjVoOH6jJYqg=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ AbstractUmlMessageProposalProvider.class
+SHA1-Digest: Z5+iwmqobBcKgrOrKz478pvpvso=
+
+Name: icons/Diagram_Communication.gif
+SHA1-Digest: svhx4OdzXQ4q8KrgSozPMIox5yU=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contributions/
+ MessagePopupEditor$UpdateUMLMessageCommand.class
+SHA1-Digest: IxlR+qaO58FVZQeuiveVQ6/4oc4=
+
+Name: plugin.properties
+SHA1-Digest: 1pNDUWP298ukfYt6raYEgNzEV/s=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/UmlMessageParser$1.class
+SHA1-Digest: 2w1kga7xuVIPVoLJanM5b7p+zOk=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/labeling/UmlMe
+ ssageLabelProvider.class
+SHA1-Digest: Mw9Fv1dzWdMq6f0yBjKVKx4Td4k=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/UmlMessageUiMo
+ dule.class
+SHA1-Digest: RxvCBZCC4Zg4MOi5w4Dr/Ty8hJM=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/AbstractUmlMes
+ sageUiModule.class
+SHA1-Digest: ld+8Adcb+oKgkkiWS7kxMmUURBc=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/internal/InternalUmlMessageLexer$DFA13.class
+SHA1-Digest: y+8Qa12vFARb03utXYTviEFCy3E=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/internal/InternalUmlMessageLexer.class
+SHA1-Digest: /CxRfNy4BIyvLj2Tzl9+AWHoouI=
+
+Name: plugin.xml
+SHA1-Digest: EgS7TPhWvhsHTVR9+azlDCXzQy4=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contributions/
+ MessagePopupEditor.class
+SHA1-Digest: +93fa0afLeQumi/7kDPMdm2ECQk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/UmlMessageExec
+ utableExtensionFactory.class
+SHA1-Digest: JbWFHNxh2P/7gurBdYVPTLvcVeI=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/internal/InternalUmlMessage.tokens
+SHA1-Digest: 5xoTsF1X/HqRGlAQmhF1m5U8utI=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contributions/
+ MessagePopupEditor$1.class
+SHA1-Digest: +p9PCBdLdfJPu7mHLX2apaTh5zg=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/labeling/UmlMe
+ ssageDescriptionLabelProvider.class
+SHA1-Digest: nfJwBCoiwrx6cnXrOH9kZ2KuecM=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/internal/UmlMe
+ ssageActivator.class
+SHA1-Digest: Ii9hbGapSTeENIG6C4dL5Y0uGaA=
+
+Name: org/eclipse/papyrus/uml/textedit/message/xtext/ui/contentassist/
+ antlr/internal/InternalUmlMessage.g
+SHA1-Digest: bRVh6r/8KIL09bmvflkncKmit5Q=
+

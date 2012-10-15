@@ -1,0 +1,201 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.diagram.common.groups;sin
+ gleton:=true
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.gm
+ f.runtime.diagram.ui.properties,org.eclipse.papyrus.uml.diagram.commo
+ n;bundle-version="0.9.1",org.eclipse.papyrus.infra.widgets.toolbox;bu
+ ndle-version="0.9.1",org.eclipse.papyrus.infra.gmfdiag.preferences;bu
+ ndle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.uml.diagram.common.groups.Activa
+ tor
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.diagram.common.groups.commands
+ ,org.eclipse.papyrus.uml.diagram.common.groups.core.utils,org.eclipse
+ .papyrus.uml.diagram.common.groups.edit.policies,org.eclipse.papyrus.
+ uml.diagram.common.groups.groupcontainment,org.eclipse.papyrus.uml.di
+ agram.common.groups.preferences,org.eclipse.papyrus.uml.diagram.commo
+ n.groups.tabbedproperties.appearance,org.eclipse.papyrus.uml.diagram.
+ common.groups.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/groupcontainm
+ ent/GroupContainmentRegistry.class
+SHA1-Digest: qdarReUwiVBvjl6DyKb4w1ufqPg=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/Activator.class
+SHA1-Digest: Dvc3ggWRenayQskErVgMDVgN2fQ=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/ChangeGra
+ phicalParentCommand$Mode.class
+SHA1-Digest: 5Sf+ayl8rNYXwK8P3VUW6c74Qe4=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/utils/Utils.c
+ lass
+SHA1-Digest: GEySKrtd6fEGGTmuBW1oxpvY69M=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/CommandRe
+ sultMessagesError.class
+SHA1-Digest: 7KLLMeNXY22/fn+TZP0FtAiEGdc=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/Notificati
+ onConfigurator$Mode.class
+SHA1-Digest: sQxwbbAK9ggl7LC+lZfSnFGZEf8=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/GroupNotifica
+ tionBuilderFactory.class
+SHA1-Digest: KF9cgIIFnKx7MbTG06omYgct3RM=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/PendingGroupN
+ otificationsManager.class
+SHA1-Digest: du7dzWoLqaACNh/knhq9GJbgSsQ=
+
+Name: plugin.properties
+SHA1-Digest: TvDVx+dtNaFAreqbtIC/aCJmEE8=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/preferences/Opacit
+ yGroup.class
+SHA1-Digest: VT2f4trdKzFQ+ojeCvPru62apQQ=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/Notificati
+ onConfigurator.class
+SHA1-Digest: kRTHm+aDP5AR6h1bkhQ3yqXIsSA=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/edit/policies/Crea
+ teInGroupEditPolicy.class
+SHA1-Digest: Rgh7yeueh19gkDFDZS/7Gbtp9WU=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/ChoosePare
+ ntNotificationConfigurator.class
+SHA1-Digest: gbjZs2jpepxT/jTgf0+aqEBiSnk=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/edit/policies/XYLa
+ youtEditGroupPolicy.class
+SHA1-Digest: CXyC4RH+lzUyBujN95ECA7wQMno=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/utils/Crea
+ torUtils.class
+SHA1-Digest: xUdNxmMiulr/KDCH8pDiqSlLD4g=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/ChangeGra
+ phicalParentCommand.class
+SHA1-Digest: Oy3qjvNsGXl1d9RCmhcDV8uEE5E=
+
+Name: messages.properties
+SHA1-Digest: 6mnx1dX8RavoCnEWL8NcYOQwns0=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/groupcontainment/A
+ bstractContainerNodeDescriptor.class
+SHA1-Digest: I0V/kV8N3SPNv7AOTFTkGZeER5k=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/ChoosePar
+ entNotificationCommand.class
+SHA1-Digest: /oEUUMggcAQFma2lIfX05iS2zeg=
+
+Name: schema/org.eclipse.papyrus.uml.diagram.common.groups.groupcontai
+ nment.exsd
+SHA1-Digest: P2W51Qd6YMCj1f7MA7AlWOpXg+c=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/ChoosePare
+ ntNotificationConfigurator$1.class
+SHA1-Digest: YY0fApVzlafoQH8+13y8coYxn98=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/SetUpRefe
+ rencesCommand.class
+SHA1-Digest: RNBu4txEFRd1SEQOOaJnurV56ug=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/tabbedproperties/a
+ ppearance/ChooseGraphicalParentSection.class
+SHA1-Digest: C0gYwaaYm2brt5DBGK/YQIveHsM=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/utils/Crea
+ torUtils$1.class
+SHA1-Digest: gczDhlGwwl7cBrXAdgsk1GnjAqE=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/CompositeC
+ reatorWithCommand.class
+SHA1-Digest: Aylyzkl1yFd/quRCZ2KYWLFp+dA=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/ChooseChil
+ drenNotificationConfigurator.class
+SHA1-Digest: Ea8AYxI641uhUu8UlGUHWhch+AM=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/ChooseChi
+ ldrenNotificationCommand.class
+SHA1-Digest: 8o3DDg61/5hbY6+Hb5osUtvIMYc=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/preferences/Opacit
+ yFactoryHelper.class
+SHA1-Digest: ezvudHOiFGVIQCRe6+cRH6ccSWo=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/utils/GraphicalAnd
+ ModelElementComparator$Mode.class
+SHA1-Digest: Ye7FRkv7Hu8U4DNDXHofQxWzlJ8=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/utlis/Com
+ mandsUtils.class
+SHA1-Digest: x9G50LBZ3TqpBonmqCcFWAzMyIE=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/utils/GraphicalAnd
+ ModelElementComparator.class
+SHA1-Digest: eZXLUOZ3uXumfVbAiZHHP+anNZs=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/utils/Default
+ ModelParent.class
+SHA1-Digest: AYh/KYmZKCWXM5/+gZHYUJZm9X0=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/Messages.class
+SHA1-Digest: cBHtO3QuqCtdwL6nsJ1BWuu2zvs=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/utils/GroupRequest
+ Constants.class
+SHA1-Digest: bKEoy8y8BxDJ+iKlh8qFkmD+YEo=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/CompositeC
+ reatorWithCommand$1.class
+SHA1-Digest: GDJuTpIIWFtrcLMTBHlvmS6xnwk=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/ChooseChil
+ drenNotificationConfigurator$1.class
+SHA1-Digest: w4y1KKYOs6u5RRP/li1R9QdcOpM=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/ChooseChil
+ drenNotificationConfigurator$2.class
+SHA1-Digest: xRtldji68dGYtTxw7HLdtLHtui8=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/preferences/Opacit
+ yFactoryHelper$1.class
+SHA1-Digest: zFKtX5rljO++JmOaTiJ2GiCw1lg=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/tabbedproperties/a
+ ppearance/ChooseGraphicalParentSectionFilter.class
+SHA1-Digest: E4T/bbwbBniFrEsUS2yg4R7esEA=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/UpdateRef
+ erencesCommand.class
+SHA1-Digest: OxInxkzPUbrN0DNCivMnvwVzisU=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/GroupNotifica
+ tionBuilderFactory$NotificationBuilderAndResultingCommand.class
+SHA1-Digest: LI2QaQRb99+DvaRufgGa/27u8+k=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/core/ui/CheckboxIG
+ raphicalFocusListenner.class
+SHA1-Digest: Gl6i4jxXE0C0X1XU3g3uzkarhto=
+
+Name: org/eclipse/papyrus/uml/diagram/common/groups/commands/ChangeMod
+ elParentCommand.class
+SHA1-Digest: mm9lePp3fCdOWrid8uj3efe/dlk=
+

@@ -1,0 +1,563 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.diagram.menu;singleton:=t
+ rue
+Require-Bundle: org.eclipse.ui,org.eclipse.papyrus.infra.gmfdiag.commo
+ n;bundle-version="0.9.1",org.eclipse.papyrus.infra.gmfdiag.preference
+ s;bundle-version="0.9.1",org.eclipse.gmf.runtime.diagram.ui.actions,o
+ rg.eclipse.gmf.runtime.draw2d.ui.render;bundle-version="1.4.0",org.ec
+ lipse.core.expressions,org.eclipse.gmf.runtime.diagram.ui.resources.e
+ ditor,org.eclipse.gmf.runtime.diagram.ui.providers;bundle-version="1.
+ 1.0",org.eclipse.gmf.runtime.diagram.ui.properties;bundle-version="1.
+ 2.0",org.eclipse.gmf.runtime.diagram.ui.actions,org.eclipse.gmf.runti
+ me.diagram.ui.render;bundle-version="1.2.0",org.eclipse.papyrus.uml.d
+ iagram.wizards;bundle-version="0.9.1",org.eclipse.papyrus.uml.diagram
+ .common;bundle-version="0.9.1",org.eclipse.ui.views.log,org.eclipse.p
+ apyrus.infra.gmfdiag.commands;bundle-version="0.9.1",org.eclipse.papy
+ rus.uml.tools;bundle-version="0.9.1"
+Bundle-Activator: org.eclipse.papyrus.uml.diagram.menu.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.diagram.menu,org.eclipse.papyr
+ us.uml.diagram.menu.actions,org.eclipse.papyrus.uml.diagram.menu.acti
+ ons.handlers
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractShowHideAct
+ ion.class
+SHA1-Digest: GtIGBRZ82xVGx4ck+Cn02Ga0wQM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractGraphicalPa
+ rametricAction.class
+SHA1-Digest: JnCD86l9QRV40lPBBQ40paT+L0k=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/SortFilterCompartme
+ ntItemsAction.class
+SHA1-Digest: xB/tSV/AtFiJNSmuXo4EgP0dF0A=
+
+Name: icons/fantomContents.gif
+SHA1-Digest: Rf8InfYXuW7W2e2UzmwDhDuidKI=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/Recalculat
+ ePageBreaksHandler.class
+SHA1-Digest: ZYlcuJkjLym1BnElpG9T0PAyghQ=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ViewPageBr
+ eaksHandler.class
+SHA1-Digest: krNKFDE542OUSfcpf17gQtvf4dU=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/AbstractVi
+ ewHandler.class
+SHA1-Digest: 2S+zsfQbEsqFsndhe9YPKwR+VyM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DiagramUIActionsMes
+ sages.class
+SHA1-Digest: DZ0pM8gsCvqeHLnNCTN7PJMHGqU=
+
+Name: icons/colors/light_gray.gif
+SHA1-Digest: LnU6DxSBlYwQ6FxkhAwz3wZ3w8w=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/LineColorH
+ andler.class
+SHA1-Digest: kRq6eCgeTwJlqnq5hvouROWhZEY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideLabelSelect
+ ionDialog$TextLabelProvider.class
+SHA1-Digest: MHF8NS/sqeJD/MpbpnXSo/4gFSQ=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ArrangeHan
+ dler.class
+SHA1-Digest: XEqoak9XscGgMH/Z8zj+PZ9S+fg=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/toolbar/ZoomToolbar.class
+SHA1-Digest: hXmsfd+8neyWy2JIS7KZg27sgjs=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ZOrderAction.class
+SHA1-Digest: n09mcOSH+w77XmPhsboZxITb5GA=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/CustomAlignAction.c
+ lass
+SHA1-Digest: I+TTFyTUkbAeQWxkvuOkJqpZdfs=
+
+Name: icons/colors/pink.gif
+SHA1-Digest: NAEbUe3FrcB4/9qqK0Uaf3gUi6c=
+
+Name: icons/zoomplus.gif
+SHA1-Digest: v7vm2rrg/DsczLGm1eIWmyIEI2s=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/SelectAction.class
+SHA1-Digest: t2lTrTEqK7mkf0V7fa2TzPu6ntY=
+
+Name: icons/fantomInherited.gif
+SHA1-Digest: CptqiGG6ctcbKsFWIkIJ/KrRKxQ=
+
+Name: icons/alignright.gif
+SHA1-Digest: ha7I4OBquG2lDmlnuX/m3L1E66c=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeNodeActio
+ n.class
+SHA1-Digest: ca0zawVzI9P0IqcCbp85KHI0Rkc=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideLabelsActio
+ n$ContentProvider.class
+SHA1-Digest: 2mRaSU210Px/MLA7cFuRWkZRCKA=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideLabelSelect
+ ionDialog$RoleLabelProvider.class
+SHA1-Digest: ut5wUTkEFjXbl0n4qL8MM7shRRg=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideCompartment
+ SelectionDialog$CompartmentNameProvider.class
+SHA1-Digest: Q+DU4HrSGollL1Az8Vwsy6TrvSo=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/CopyAppearancePrope
+ rtiesAction.class
+SHA1-Digest: t3HmzaNzrm0Zykkvzi/CyyrSa0c=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/SizeHandle
+ r.class
+SHA1-Digest: 6a7+OUAzCRuoeHT1qjQRiepMbMw=
+
+Name: icons/alignleft.gif
+SHA1-Digest: zxRtMuRff5n+0w00gziGcJPQKR4=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ArrangeAction.class
+SHA1-Digest: CtGUKgALdkHFM26qBfm/oVW8VAg=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/Alignement
+ Handler.class
+SHA1-Digest: aeFvXUXU4AUplOTh2n/WJLefHG8=
+
+Name: icons/distribute_horizontally.gif
+SHA1-Digest: orvDXFuhmhJeqOm+t4KoF9Dml3Q=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ZoomAction.class
+SHA1-Digest: YBwwKocVsAldIrZxBWtUt/SLUao=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideLabelsActio
+ n$ManageLabelsAction.class
+SHA1-Digest: jeWVPxj847ctdxsmUGE8CXlW1aQ=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/RoutingHan
+ dler.class
+SHA1-Digest: WYD015kpK59NECuRCDCK1YbnfL8=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeAffixedCh
+ ildNodeLinkAction$CoordinatesComparator.class
+SHA1-Digest: rDBCU0TgoDw7/16zlGz0E/Vogf4=
+
+Name: icons/size_to_control_height.gif
+SHA1-Digest: pi7w5z2ONTbuXa7iOOH/Ww+Y+c4=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeLinkNodeA
+ ction.class
+SHA1-Digest: evm2kp3fcjyqpP/fX6HUUQAUCtI=
+
+Name: icons/size_to_control_width.gif
+SHA1-Digest: vMDNdG10BrrtS5r9lkCxLOvjj+E=
+
+Name: icons/horizontal_by_left.gif
+SHA1-Digest: Gj7Nb9eQVfIPwr9AIM0lja2by2g=
+
+Name: icons/colors/cyan.gif
+SHA1-Digest: 9g477nojCSt4yeeEijmsqG4Wi7g=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/selection/SelectTypeAction.
+ class
+SHA1-Digest: leorA5UBgQb4sy6FahfAoJiFntY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/AbstractLineStyle
+ ToggleState.class
+SHA1-Digest: B0PL4SeX2zw8OUXjO3cVn2+NuhQ=
+
+Name: icons/arrow_right.gif
+SHA1-Digest: SUSocWQGQBuR4g6KB7Ttf3f3Kss=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/DropDownTo
+ olBarSameSizeHandler.class
+SHA1-Digest: H2GWvu3WvUwIemc/JNjPiWhJBKk=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/gmf/CustomCreateSha
+ peViewAction.class
+SHA1-Digest: y91RrID9cpepxtlkz2vY/A4Pze8=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractShowHideAct
+ ion$1.class
+SHA1-Digest: 5uIcGf4CY+EEl4tDiZj1xhFcFzQ=
+
+Name: icons/colors/orange.gif
+SHA1-Digest: YHlVNHKfUj27E/tYDJpOHI7T73o=
+
+Name: icons/alignmid.gif
+SHA1-Digest: UHEfAF05gRd6jWf+VP96xa1xmUY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ShowHideLa
+ belsHandler.class
+SHA1-Digest: UYrBcARH/BNIpFYGrek3klc7vxs=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/InitTrueToggleSta
+ te.class
+SHA1-Digest: cxD6GBC9fzi/VOay9scRzfUsaco=
+
+Name: icons/horizontal_by_right.gif
+SHA1-Digest: KzXIf8ZYR2c5traxyu8+vfb/zTw=
+
+Name: icons/alignbottom.gif
+SHA1-Digest: Emvq+dT9BiE8uMrzYPbrkVEaXMc=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/AbstractGr
+ aphicalCommandHandler.class
+SHA1-Digest: RmJKrywdWVYUDLLkMmnuZpJo8uk=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/RectilinearToggle
+ State.class
+SHA1-Digest: uLbmZ1CJd2xkceUO6Y3RpCNHoe0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractShowHideAct
+ ion$1$1.class
+SHA1-Digest: Ava7RHGADq240laCUMLrbtEYXQo=
+
+Name: icons/papyrus.png
+SHA1-Digest: qRVOaQq19Qq/T2+hjrQ+xwWOo8k=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideCompartment
+ SelectionDialog.class
+SHA1-Digest: GIIRwhFccBqIpauUXJDAW8BbtJs=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeAffixedCh
+ ildNodeLinkAction$NodeRepresentation.class
+SHA1-Digest: AbKqIz8eWbtmda0UOJCDQGzuJRs=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeAffixedCh
+ ildNodeLinkAction$TypeComparator.class
+SHA1-Digest: 6zlBsCE6GN36jWZTLWZa+B41E3w=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/messages/messages.propertie
+ s
+SHA1-Digest: kNQCykNvJ895ftfGcV7Boq4Ndk8=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/SizeAction.class
+SHA1-Digest: /RDkyapnWlC7zeHe11MdISjZOdU=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractShowHideAct
+ ion$EditPartRepresentation.class
+SHA1-Digest: OBJ1svZIpqz4Z086sGUMl7Tqh/0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ViewGridHa
+ ndler.class
+SHA1-Digest: guiXNJcizAluBtx0XaXE3kayWJ8=
+
+Name: icons/distibute_vertically.gif
+SHA1-Digest: +/+PngaM4x9XowluA40w+LLrPK0=
+
+Name: icons/arrow_left.gif
+SHA1-Digest: qx89HZcOfCNP8URrsbXsnJSbNro=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideCompartment
+ Action$CompartmentEditPartRepresentation.class
+SHA1-Digest: JmlrHT59yXbAzB/6Z7+9hV+FX9E=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractColorAction
+ $InventoryColorDescriptor.class
+SHA1-Digest: s1u+ho4dzZNBJ9cqTuJkW+Nf2yQ=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractColorAction
+ $CustomColorCommand.class
+SHA1-Digest: /PUHTo8VE3d86MFX9lva3/4T/UY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/TreeToggleState.c
+ lass
+SHA1-Digest: Q/SK/k+g4kvupsxweOcPwU2Xtrk=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/selection/AbstractMenuContr
+ ibutionItemProvider.class
+SHA1-Digest: Nv3pzahphOKHvIiMVFboecL59z0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideCompartment
+ Action$RootEditPartRepresentation.class
+SHA1-Digest: oDYU+bAlZYbRo5KN23FaT6aj5/A=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/ObliqueToggleStat
+ e.class
+SHA1-Digest: LaVu3zqTApQ+s/JAEPWUJ1IpNN4=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideCompartment
+ Action.class
+SHA1-Digest: +AfYk9ecAI/pWB3iDjjLMDH7SJA=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/selection/SelectByTypeHandl
+ er.class
+SHA1-Digest: /rFVziK7ylKEwYc51owGAm7RMb0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/DiagramPropertyTe
+ ster.class
+SHA1-Digest: NBdkAG7oc9o7rBN6QaEGPq4RkFM=
+
+Name: icons/size_to_control.gif
+SHA1-Digest: k9iV5gnzSCA4O8p2VwORKuAwyUo=
+
+Name: icons/aligncenter.gif
+SHA1-Digest: 6e7+rpHMUyd94QqFUmNPBebV/k4=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/FontAction$1.class
+SHA1-Digest: UAx5uqWWBaFx3kvwAdeygOonDI4=
+
+Name: icons/distribute_vertically_between_nodes.gif
+SHA1-Digest: n/z0iD8kSNDONNbr1s1tcc6r3rw=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/LineStyleH
+ andler.class
+SHA1-Digest: 547wh1g+jAACf/R10FBhlVbsdlc=
+
+Name: icons/colors/gray.gif
+SHA1-Digest: bx/cwYHopSwCMIAEyJLzbfOXfmY=
+
+Name: icons/arrow_down.gif
+SHA1-Digest: RQXpLCwGwO2SKbD5h5J894Eotis=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideCompartment
+ SelectionDialog$PropagateSelectionAdapter.class
+SHA1-Digest: fI2VEA9cnD2T/Is5XA8efvSRBjM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/Distributi
+ onHandler.class
+SHA1-Digest: iEX3PkGtWqvz6rS/MQHVhQk/4AM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/RouteAction.class
+SHA1-Digest: So6rWPt7yGW6U9lbMMLLb5InJ90=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/LineColorAction.cla
+ ss
+SHA1-Digest: /xp+hpJ2qwisba4oJ+XGGJpmC4c=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/DropDownTo
+ olBarHandler.class
+SHA1-Digest: uwfyxWXZItK0UoWjQk9NmkWEMkI=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/Activator.class
+SHA1-Digest: kBvPj6cGj7D041el8INWCRkCe3E=
+
+Name: icons/manage_connector_label.gif
+SHA1-Digest: mw5zPAi7ykWNbk2kfshGXgPCZic=
+
+Name: icons/fantomCompartment.gif
+SHA1-Digest: lbyv5gH17bmJkfII8EbN+F7fzJ8=
+
+Name: icons/colors/yellow.gif
+SHA1-Digest: pQdP2tzVvpnd3/LpkPfpkVCkGwI=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ShowHideCo
+ ntentsHandler.class
+SHA1-Digest: 13xkRjXWwgEwQvYslf9mZg+nB+M=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideCompartment
+ SelectionDialog$TitleVisibilityLabelProvider.class
+SHA1-Digest: t14ltcXj3uDpzzVR9w56yZUNWq0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideLabelsActio
+ n$LabelRoleComparator.class
+SHA1-Digest: RTmbWLlBMMB6mFcad2I88D9Q1mw=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ZoomHandle
+ r.class
+SHA1-Digest: zxYmfbMX0jU6NJFu4n+69SwGnDU=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/gmf/CustomContribut
+ ionItemProvider.class
+SHA1-Digest: uplVXQzjsU2ztz4ZBFyOETZPeko=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/FontHandle
+ r.class
+SHA1-Digest: xOmYPqKn2rmjsLL1L8yOoU6uSZ4=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractColorAction
+ .class
+SHA1-Digest: cg+COFY05JhKa3c8wCMuDNImshQ=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/SelectAction$1.clas
+ s
+SHA1-Digest: zibbUUxFcTV1O+4h4nCFTPSo70k=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ShowHideCo
+ mpartmentHandler.class
+SHA1-Digest: /lbhJ9LQW3PcIO8TpDizR3CMdsY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/FontAction.class
+SHA1-Digest: Qxz7fR6JxBzeFFDPgWXl3jDhEOk=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/SnapBackAction.clas
+ s
+SHA1-Digest: nsiMSHqnJuWvsxj0z6Ywd2YwlTY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideCompartment
+ SelectionDialog$NameVisibilityEditingSupport.class
+SHA1-Digest: CH1QaUH8FR9h6f6NDM2gjRAFwuo=
+
+Name: icons/vertical_by_top.gif
+SHA1-Digest: ySw5FR0Ki2Uzu+8fWKZgKp1pr94=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideCompartment
+ Action$ContentProvider.class
+SHA1-Digest: jR/mcyoHKlhTDNJydqrvQ4rVBnU=
+
+Name: icons/no_bendpoints.gif
+SHA1-Digest: YDJ1UVUkX42CwlaCAzuDTsuTQqk=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/AbstractPa
+ rametricHandler.class
+SHA1-Digest: 860p6pm/rtWI0Wn/IwkgWgH+ODk=
+
+Name: icons/arrow_up.gif
+SHA1-Digest: nUGy85EowQLrI5hDomzojsZItS4=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/toolbar/ZoomToolbar$CustomP
+ artListener.class
+SHA1-Digest: M0iPSOQ2FbJVtcq23dN8rDIPrek=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideCompartment
+ Action$1.class
+SHA1-Digest: RLqo267/qAYDxMi33CB/Ycsezkc=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/CopyAppear
+ ancePropertiesHandler.class
+SHA1-Digest: UuEOAV3Bj71gk98N38+8Qr3a3Qs=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractDistributeA
+ ction.class
+SHA1-Digest: fEtD+j91Z/j50VTNA3scY6VGXvM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeAffixedCh
+ ildNodeLinkAction.class
+SHA1-Digest: elXvx0VhHRoj9QoJTH/NUTWErlg=
+
+Name: icons/fantom.gif
+SHA1-Digest: IjWOSMlsB2zSRt6EG5BrPBAR7Lg=
+
+Name: icons/colors/black.gif
+SHA1-Digest: 50E7d0DOPZ0nSOt4ZZA5LfCB8NQ=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ViewRulers
+ Handler.class
+SHA1-Digest: 7WxvJEYHvLr37LmZdUw3C3W5DHA=
+
+Name: plugin.properties
+SHA1-Digest: KFFAYCPY0+05N4Fx6G5N/ZTBA10=
+
+Name: icons/colors/green.gif
+SHA1-Digest: 9g477nojCSt4yeeEijmsqG4Wi7g=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeNodeActio
+ n$CoordinatesComparator.class
+SHA1-Digest: FLLtQaDBBlbDEG9XlMj9LgjPfiY=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/SelectHand
+ ler.class
+SHA1-Digest: 5IBwXhuQutpNAGbnYIkEauyJsvY=
+
+Name: icons/colors/dark_gray.gif
+SHA1-Digest: nBDOuv8/jLP23uwqjCvLHF1gTjA=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/gmf/CustomCreateSha
+ peViewAction$1.class
+SHA1-Digest: 2a+fo6ZfNgcBRm3/4F/VZRqdnTw=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/ZOrderHand
+ ler.class
+SHA1-Digest: /mtGK+Nrha5cRNVpMkWrPB7NyQ8=
+
+Name: icons/autosize.gif
+SHA1-Digest: PdSutq8UFGuttgsntMSCIEf8zWE=
+
+Name: icons/aligntop.gif
+SHA1-Digest: C0I2l3QchkVOsCGfdE3MXZS3/bM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/FillColorH
+ andler.class
+SHA1-Digest: WkgAVCDtHsPgmahQyJfjFx1/Dog=
+
+Name: plugin.xml
+SHA1-Digest: f7pmN08fqAoYoPPJhCK3xWfYAr0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/SnapBackHa
+ ndler.class
+SHA1-Digest: 04XF/46iTZ5it2ahxwCQeb09I0M=
+
+Name: icons/colors/red.gif
+SHA1-Digest: Z9d2CvXWm5TXwJPTmyot2Gl5VqU=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/ShowHideLabelsActio
+ n.class
+SHA1-Digest: uNmH/6PnGLpWshlncNAn3PFUkQ0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/LineStyleAction.cla
+ ss
+SHA1-Digest: u0Kr2ruse9USfpsOf57MNOSQpTA=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/selection/PolicyClass.class
+SHA1-Digest: z3lmnvTk+IdWDqnSPrZNI+qcvvg=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/FillColorAction.cla
+ ss
+SHA1-Digest: ceTv5kg5ZabT7yBQG64IJTTP+GA=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/SnapToGrid
+ Handler.class
+SHA1-Digest: iIfYxIhgq2FB7cqE/MxN4qFRUwU=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/handlers/SortFilter
+ CompartmentItemsHandler.class
+SHA1-Digest: 9nwAJy7aYO4N/Tu1aW5WAclB6Ng=
+
+Name: icons/distribute_horizontally_between_nodes.gif
+SHA1-Digest: 5asyir/KIx3CcJ83nmRBXi/XB0A=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/DistributeAffixedCh
+ ildNodeLinkAction$AffixedChildNodeRepresentation.class
+SHA1-Digest: IOfUDK/1gtak9/G/p9/D9sCihIM=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/messages/Messages.class
+SHA1-Digest: KfNOvVgmtunVm36iORQK7zaklWo=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/actions/AbstractParametricA
+ ction.class
+SHA1-Digest: xYUMgwydxtxzkOarkQ6t85w1iaI=
+
+Name: icons/vertical_by_bottom.gif
+SHA1-Digest: C9shfKpG1TD0/04Y7SVcZJDRbnY=
+
+Name: icons/colors/white.gif
+SHA1-Digest: 93XoUnbzNU6z0vH5QkdQEJCQQuw=
+
+Name: icons/colors/magenta.gif
+SHA1-Digest: whT+84BrPjlhJA1Gkt1z1fN5Bn0=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/providers/HandlerStateSourc
+ eProvider.class
+SHA1-Digest: pLVvi3MDXc1mr38kG4am4D2aXls=
+
+Name: icons/colors/blue.gif
+SHA1-Digest: ufagacluPzoFNZWTtBXOj277SUs=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/selection/SelectionContribu
+ tionItemProvider.class
+SHA1-Digest: 17DJTAOALm5lYPgJPBCrccM42BI=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/dialogs/ShowHideLabelSelect
+ ionDialog.class
+SHA1-Digest: u7AjhG1IW0Pojuy+0IFlVvqyZIE=
+
+Name: org/eclipse/papyrus/uml/diagram/menu/selection/SelectByTypePrope
+ rtyTester.class
+SHA1-Digest: BrXxET/6HlKokXuahXnBBDjxyu8=
+

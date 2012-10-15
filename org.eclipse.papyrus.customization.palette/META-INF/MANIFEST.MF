@@ -1,0 +1,538 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.customization.palette;singlet
+ on:=true
+Require-Bundle: org.eclipse.pde;bundle-version="3.6.0",org.eclipse.pde
+ .ui;bundle-version="3.6.0",org.eclipse.emf.facet.infra.browser;bundle
+ -version="0.1.0",org.eclipse.emf.facet.infra.browser.custom;bundle-ve
+ rsion="0.1.0",org.eclipse.emf.facet.infra.browser.uicore;bundle-versi
+ on="0.1.0",org.eclipse.emf.facet.infra.facet.core;bundle-version="0.1
+ .0",org.eclipse.emf.facet.infra.browser.custom.core;bundle-version="0
+ .1.0",org.eclipse.emf.facet.infra.common.core;bundle-version="0.1.0",
+ org.eclipse.papyrus.uml.diagram.paletteconfiguration;bundle-version="
+ 0.9.1",org.eclipse.core.runtime;bundle-version="3.8.0",org.eclipse.pa
+ pyrus.uml.diagram.common;bundle-version="0.9.1",org.eclipse.ui.views.
+ properties.tabbed;bundle-version="3.5.200",org.eclipse.gmf.runtime.di
+ agram.ui;bundle-version="1.5.0"
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.customization.palette,org.eclipse.
+ papyrus.customization.palette.dialog,org.eclipse.papyrus.customizatio
+ n.palette.proxies
+Ant-Version: Apache Ant 1.8.2
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$4.class
+SHA1-Digest: c3jU1XzFdgbzXD247naMdAfMCPY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleIconExplo
+ rerDialog$1.class
+SHA1-Digest: umwSonFdMKlQLvb0uuqt1zxUv0o=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ InformationPage.class
+SHA1-Digest: cgZYWCwOWW0dS8AmCxvm/jDt1pQ=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$4.class
+SHA1-Digest: 2fA+2uwefmaYfyOJvkrHRRNQh50=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteEntryPro
+ xyInformationComposite$DescriptionFocusListener.class
+SHA1-Digest: 8YPfdNBNL7MHRAmPYiOuGnpoxtk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage.class
+SHA1-Digest: fHCIV3GjuSRiiGOLk5iTZmGFwrc=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$11.class
+SHA1-Digest: XXPgaoA1sA1b3cyBRW6tBLnn8+c=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ConfigurationIn
+ formationComposite$IconFocusListener.class
+SHA1-Digest: cOkGgXtSTBROqu5ad9WRpgLUWU4=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteEntryPro
+ xyInformationComposite$IconFocusListener.class
+SHA1-Digest: wB3OteOakJYPR5EWcCGW7J97oiw=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$15.class
+SHA1-Digest: iWR/34f8r1IHJiMvZ2YQTysMrpY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$11.class
+SHA1-Digest: h4A9uX06RyyDWzaTayWxtNJ+PVg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$15.class
+SHA1-Digest: K4azOt7eS4CKek/eTA1oYWF3GwI=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$3.class
+SHA1-Digest: NfPlXLnm6oGgBiEN7d7ebpqWw80=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteContaine
+ rProxy.class
+SHA1-Digest: 57D7nJoXaoxC3qmMkVWLvkZ3I6M=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$PaletteLabelProvider.class
+SHA1-Digest: /ctz5jThJd9IcOQsj+3xTynPjis=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$1.class
+SHA1-Digest: qZZ5psp/LyKZFS0E7z7yVtUO0Dg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$7.class
+SHA1-Digest: lG0ZOXCFn7sN58hq2+fLa8+7I28=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleExplorerD
+ ialog$PluginSearchComparator.class
+SHA1-Digest: ksmmaykV0+jNHsz/QN7GhK2bEVE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$PaletteLabelProvider.class
+SHA1-Digest: U5kz3JZ/WM0Q7jt8XgrVCtKFhHA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$5.class
+SHA1-Digest: y8E1R5JT7ilWXgKG1qIx/Esfswo=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$LabelViewerComparator.class
+SHA1-Digest: LKQvwOa+NC7aSL7az24njd8C/84=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$9.class
+SHA1-Digest: s9TUwRUTxyFVkOOJeb1veiC0ypY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog.class
+SHA1-Digest: Ajm00/GFEXcdp16tnXc3OuFwJY0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteEntryPro
+ xyInformationComposite.class
+SHA1-Digest: 7XSIQ8dOXtWKb94g/5w1U67ID8E=
+
+Name: org/eclipse/papyrus/customization/palette/Messages.class
+SHA1-Digest: SmN8tkBMnf5VFpeeaz89z6uVS6Y=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ConfigurationIn
+ formationComposite$DescriptionFocusListener.class
+SHA1-Digest: TC56hffZ8IIbznkSVhwhATcELOE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$UMLToolsTreeContentProvider.class
+SHA1-Digest: 1puT4ktTSzKjqrGpxpo8X/bgpWY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ConfigurationIn
+ formationComposite$1.class
+SHA1-Digest: x5gkllexNnCD6F/Djrmj0dfgxE0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$PaletteContentProvider$1.class
+SHA1-Digest: ajvma6Hwsp6oLmKtO7JZEnHXXa4=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$1.class
+SHA1-Digest: 15Pb/J398xuBC08cgHTgSFt3OPA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteEntryPro
+ xyInformationComposite$1.class
+SHA1-Digest: z632Q3TxiW6F2hSm3Dh8yEheq5E=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ExtendedPaletteLabelProvider.class
+SHA1-Digest: rmVFP4vZw3EMkrF/ABXnpYulxzc=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ToolBarItemValidator.class
+SHA1-Digest: gNHr0Sn3AniH3KfuR5zdp9XNpe0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$5.class
+SHA1-Digest: u2sjjYkWHCIjTR4tt6cFFfNu7Ro=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleIconExplo
+ rerDialog$2.class
+SHA1-Digest: Ar6oTyqGtj6wxK9zvMnNQeZHVn8=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$ToolBarItemValidator.class
+SHA1-Digest: Sp2dYo8QDfVT6NCC84lNgiq4Gw0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$AvailablePalettesCheckStateProvider.class
+SHA1-Digest: mVjf7zELyRyx1Q5lb5PIeH+ohnI=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$1.class
+SHA1-Digest: mYxoOsTBTxobLH3xDwE+X9T5EUk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ToolFilter.class
+SHA1-Digest: P00VnuGi7MnSqgszYvCLOtd7s6U=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$5.class
+SHA1-Digest: VuBwDceJrtqvV78Dm8LkYIpzZY4=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$PaletteLabelProvider.class
+SHA1-Digest: c5WRyjT3zoISr3ZKQ1dasLxlf+k=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$ToolFilter.class
+SHA1-Digest: K9y1kBlVweQ4kc6Ojy/cK3V1SRc=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ProfileComboSelectionListener.class
+SHA1-Digest: sVGasQ91cG5tSRcoQjYiQDCKWsk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleIconExplo
+ rerDialog$ImageProxy.class
+SHA1-Digest: xgLbmJiaJeAyQ1GsZ4uyVDooQNk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ProfileToolsMetaclassStereotypeTreeContentProvider.class
+SHA1-Digest: sh98FIP0BhcqW1W1VLLWXNotx28=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteInf
+ ormationPage$1.class
+SHA1-Digest: g9qoPrgMDw2kjtYIQP6fS/ys/dI=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/UpdateLocalPale
+ tteWizard.class
+SHA1-Digest: vGMQs///V8GMIGB8CCGSsSngFfg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$ProfileToolsMetaclassStereotypeTreeContentProvider.class
+SHA1-Digest: h3bHHa+UnKTXZXrTNaGNVug7Nck=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$12.class
+SHA1-Digest: sz6Ho1/kLcnPSYLOpjNRlIvteEU=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$16.class
+SHA1-Digest: JpXm6W4AdyF0uU6Vb7WlwsWsttA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$12.class
+SHA1-Digest: nj3BdsyxOCaa57aRUUXiZP8T18A=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/UpdateExtendedP
+ aletteWizard.class
+SHA1-Digest: QiyhD7lzsbdML5aSAuUx3QGwIO8=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$DrawerFilter.class
+SHA1-Digest: jpG7kXPOlX97nypF55S8e7n7uFA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$16.class
+SHA1-Digest: 3KnuXpZq4/hDafUYJ4cR3XlliGc=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$4.class
+SHA1-Digest: uWhVp2tvjGdHw71asyfV/anENgg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$2.class
+SHA1-Digest: Vp+H4ys1G4pT2gQMlDQuJlPQcGM=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$EditElementToolBarItemValidator.class
+SHA1-Digest: 3MtsMvD2rJD/XxYptMT4EKriEOA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$DrawerFilter.class
+SHA1-Digest: otEJRlqJ2BPG7+zf0IpfchY7Bmo=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteLocalSta
+ ckProxy.class
+SHA1-Digest: g7mt/4oNfJD8yDiSUjBaKnzgMDU=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$8.class
+SHA1-Digest: XmUzlSKuFOLBAAPrG2YYGEHAh9Y=
+
+Name: about.html
+SHA1-Digest: y0N4Xo0SWk7dkT2S3XYFPomfO1U=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$6.class
+SHA1-Digest: ch8tpkBJ/5JoA7XS/fwOd4qdJxU=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteLocalSep
+ aratorProxy.class
+SHA1-Digest: JXAqF3WyMVf5IZmlr7jdKO4QGRs=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$AspectActionLabelProvider.class
+SHA1-Digest: C0X8Ku4tPgcoiXYi/7N45AeFSZY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$AspectActionContentProvider.class
+SHA1-Digest: yPJn4FrsPZJsfEF58ev9Bqa2dwI=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleIconExplo
+ rerDialog.class
+SHA1-Digest: sjjOqPKwYVUFXZ7PyCiMk8CTNtg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$4$1.class
+SHA1-Digest: JiCWFb3TpBDkYgXbRJg5fpCnlcw=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ProfileToolsStereotypeMetaclassTreeContentProvider.class
+SHA1-Digest: tQAh7ojjAtNghVoMsYKaH4x+L/g=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ConfigurationSelectedValidator.class
+SHA1-Digest: akGyOEA7mfli5ghtDkW3IA20R7k=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$ProfileToolsStereotypeMetaclassTreeContentProvider.class
+SHA1-Digest: haJl8bKGLp7aVNl96Aq5afzEvEQ=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$2.class
+SHA1-Digest: kDEFCpxH8SBB1Xnn6D0tPEs/VUQ=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$6.class
+SHA1-Digest: /w9pDW6txpBS6pyu9AcljFAGgWc=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleIconExplo
+ rerDialog$3.class
+SHA1-Digest: kgMwl6aLOKtw6pATLapVFr6MDlU=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/DrawerInformati
+ onPage.class
+SHA1-Digest: 9lYIIH+VluN+xQ7bn7Ojb8mMeDo=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteInf
+ ormationPage.class
+SHA1-Digest: rqE27uwlHmdJWt8JgA5rec7oY/8=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteLocalDra
+ werProxy.class
+SHA1-Digest: VxX++7W69Z4culeiDOiirkLP0DI=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$2.class
+SHA1-Digest: CBI5IUPlQRz3ACARZc+w6NOIwrA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$6.class
+SHA1-Digest: RUpFryBPN/9Mi/37z+maqXzC4Io=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteEntryPro
+ xy.class
+SHA1-Digest: vXKm1+4gHqaTa4qk9iNr/Ob8+3g=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/DrawerInformati
+ onPage$1.class
+SHA1-Digest: 83sIf2Og1ROfqPdXaTf/Hq6Aaq0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/NewDrawerWizard
+ .class
+SHA1-Digest: WQcZV4LYRZs4lDfKPWPR3e16jpg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage.class
+SHA1-Digest: CZD7DsdFryd1d4cwbVeAma8lDSA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/UpdateLocalDraw
+ erWizard.class
+SHA1-Digest: hntIL2Q1sL6+Y6F7n9EePOruCrQ=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$13.class
+SHA1-Digest: 53/P3hLNuqL2hBChERBUg/5HzEg=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$17.class
+SHA1-Digest: dtOcl9FIepsCqowGbC20ZU7faFA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$13.class
+SHA1-Digest: 39XU0/tJ4yO0AGza/YkA8xFzdxk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$1.class
+SHA1-Digest: fFa5XXtidIeYbJDo9VvHGqQAysw=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$PaletteProxyLabelProvider.class
+SHA1-Digest: 82IOCs9dA4jvlqu/xbb+2Y/TyMA=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$17.class
+SHA1-Digest: kcnC9wfvgP8w/6LVjXm5DEhr/4M=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$5.class
+SHA1-Digest: mByFzCVvaUIzfcetNenq11DFgng=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$3.class
+SHA1-Digest: yaBe/nzYm8prgZlokRcSZ6Y5LGc=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$9.class
+SHA1-Digest: ym1eXf2wILMEXr+bpVRZCcLvJrs=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$7.class
+SHA1-Digest: LUU44ZVTM01MbYbsZ/nSXaCV3b0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$LabelViewerComparator.class
+SHA1-Digest: 83t1RD3KPV3bIqpgT8eqCVo6yvY=
+
+Name: org/eclipse/papyrus/customization/palette/proxies/XMLDefinitionP
+ aletteProxyFactory.class
+SHA1-Digest: rKTdKn3Z0LTlBHQcz7oLe5I4GTk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$UMLToolsTreeContentProvider.class
+SHA1-Digest: g15tXE+PDV4SXfe90MKQHl1D/RY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite.class
+SHA1-Digest: WBh8eqrCOONlD3d+YjX41zs0D94=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$3.class
+SHA1-Digest: 0xPRBStNogNszVqUlsVPAsoTVy0=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$ExtendedPaletteContentProvider.class
+SHA1-Digest: 40PmJLSjgIuhUoLZTtzMiET8qaE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteAspectTo
+ olEntryProxy.class
+SHA1-Digest: wKUB0ZectQRX5DY959YYyZQbpGo=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ConfigurationIn
+ formationComposite$NameFocusListener.class
+SHA1-Digest: gXP1gUBrV5g+KOb7M2Hh70CyER4=
+
+Name: plugin.properties
+SHA1-Digest: NaX+YyQC/uqHx8BTGhnb1sgcFSk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PaletteEntryPro
+ xyInformationComposite$NameFocusListener.class
+SHA1-Digest: dwR1cdo948lDBCU/p+dSnaZS84M=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/AspectActionsIn
+ formationComposite$3.class
+SHA1-Digest: j95sXUkf4TDwbF5iy3I0/wkV/2c=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$ProfileComboSelectionListener.class
+SHA1-Digest: /R301WEtkIewWV2pmn127cjVzsQ=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$DrawerConfigurationSelectedValidator.class
+SHA1-Digest: 6EXR1Z5c9NPaskcSmNJERx+0Ww8=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/DrawerInformati
+ onPage$2.class
+SHA1-Digest: qofjKP4uhevbUWwc2ylQUo6upoI=
+
+Name: org/eclipse/papyrus/customization/palette/messages.properties
+SHA1-Digest: O+lkO11391TdsMQPptSPwetzgvY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/PapyrusPaletteC
+ ustomizerDialog$PalettesTableContentProvider.class
+SHA1-Digest: AZtOJeITxeJY5V+c+RPLbbCpiJU=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ InformationPage$1.class
+SHA1-Digest: y4nxKBa8K9daOQYR9MMl/ku93cc=
+
+Name: plugin.xml
+SHA1-Digest: CWFLKNJupuGpqhyUXZShs/Ts9NE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$10.class
+SHA1-Digest: 4zwzOiWHGVUMR1QdaEB4k4Y2Ock=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleIconExplo
+ rerDialog$BundleIconLabelProvider.class
+SHA1-Digest: YIHvNVdYseVZ4UlrwCqm1UspZcw=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleExplorerD
+ ialog.class
+SHA1-Digest: RmZQob7jcoqom1NFhP+yMQ3WQj4=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$EntryType.class
+SHA1-Digest: Ouj6iI2ASKHzcKQ567YI3Jl8Qy4=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$14.class
+SHA1-Digest: U/4/ZU3i3tFA+SYAdNN6UNcpFyw=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$10.class
+SHA1-Digest: I7Wu6SZfA+hUCMF6akj1QcZhXqE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$PaletteEntryProxySelectedValidator.class
+SHA1-Digest: V55jN8gRjf+8A8Kb9hWovU8xkEk=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$18.class
+SHA1-Digest: bggkcHpy7hGM+vnxdX0EUgiLDvY=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$14.class
+SHA1-Digest: hGgapHbXWSecAxwkl1fzDJ5+o2k=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$2.class
+SHA1-Digest: 3hn7PVy0c9lnDVP0CU4fdazJops=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$6.class
+SHA1-Digest: 7jWPo8P+kIU8BNjgzSWTvVQREqE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$4.class
+SHA1-Digest: 6vojOuqlBc4Io4LZADyrR60Z+tE=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ExtendedPalette
+ ContentPage$8.class
+SHA1-Digest: XT5QNzSOZohY1OczBtvN9hUS5is=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/ConfigurationIn
+ formationComposite.class
+SHA1-Digest: 9pZNIIOmeFj2HWfhSyQM3muipuM=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/LocalPaletteCon
+ tentPage$PaletteContentProvider.class
+SHA1-Digest: bwVcR7MHQLuMdOq7P9nfVdhyP3g=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/BundleExplorerD
+ ialog$PluginSearchItemsFilter.class
+SHA1-Digest: NGsn3CH3RXM2ar0uGxNe+QQuv6U=
+
+Name: org/eclipse/papyrus/customization/palette/dialog/NewLocalPalette
+ Wizard.class
+SHA1-Digest: wWFlYG/zARr1HrZ0XZfc1YhTHi0=
+

@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.diagram.emftree;singleton
+ :=true
+Bundle-Activator: org.eclipse.papyrus.uml.diagram.emftree.Activator
+Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
+ org.eclipse.uml2.uml.editor;bundle-version="3.0.0",org.eclipse.core.r
+ untime;bundle-version="3.7.0",org.eclipse.emf.transaction;bundle-vers
+ ion="1.4.0",org.eclipse.gmf.runtime.notation;bundle-version="1.5.0",o
+ rg.eclipse.papyrus.infra.emf.diagram.common;bundle-version="0.9.1"
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/UMLEditor$1.class
+SHA1-Digest: G9Ha0YQhbspeK6rp4KlA+PI5Efc=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/UMLEditor.class
+SHA1-Digest: tVusiiWY7ub5r6iDqHIkKr0kAi0=
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/Activator.class
+SHA1-Digest: ckBtlRpHkrYXbOKJ6m3RzQ3ORIY=
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/EmfTreeDiagramEditorFact
+ ory.class
+SHA1-Digest: UMunjtY79X9XR43z/Popt79M510=
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/CreateEMFTreeDiagramHand
+ ler.class
+SHA1-Digest: HsHQJwCnLJNk8E5+MAy1HF33+Vo=
+
+Name: plugin.xml
+SHA1-Digest: 0C7rztjttu9Ecz7wqsA7VdO15kc=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: icons/EmfTree.gif
+SHA1-Digest: YxnCPB6o4Rk9iZST61P5WCTrN9U=
+
+Name: plugin.properties
+SHA1-Digest: gwNxUwIOMKLHql1McDgGuiRdNMc=
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/EmfTreeDiagramEditorFact
+ ory$EmfTreeEditorModel.class
+SHA1-Digest: ZUhpKahg0Xy3bmeI2fVjYGi7rB8=
+
+Name: org/eclipse/papyrus/uml/diagram/emftree/UMLEditor$1$1.class
+SHA1-Digest: v8o4D+O5fh+c9HYrHOuJQg9SbAE=
+

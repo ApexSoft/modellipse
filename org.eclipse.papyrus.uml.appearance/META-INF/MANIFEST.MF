@@ -1,0 +1,68 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.appearance
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.pa
+ pyrus.infra.emf;bundle-version="0.9.1",org.eclipse.emf.ecore;bundle-v
+ ersion="2.8.0",org.eclipse.papyrus.infra.core.log;bundle-version="0.9
+ .1",org.eclipse.emf.transaction;bundle-version="1.4.0",org.eclipse.um
+ l2.uml;bundle-version="4.0.0"
+Bundle-Activator: org.eclipse.papyrus.uml.appearance.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.uml.appearance,org.eclipse.papyrus
+ .uml.appearance.commands,org.eclipse.papyrus.uml.appearance.helper
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %Bundle-Vendor
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %Bundle-Name
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/RemoveAppliedStereot
+ ypePropertiesToDisplayCommand.class
+SHA1-Digest: wi59ghrtAVmIQJd3vQU0JMCi0C4=
+
+Name: org/eclipse/papyrus/uml/appearance/helper/AppliedStereotypeHelpe
+ r.class
+SHA1-Digest: Sm9rSVufoi0LtnI7U7nKu5y/O2U=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: plugin.properties
+SHA1-Digest: 4ekTB2MaTQAo2jIW569udYAc3ss=
+
+Name: org/eclipse/papyrus/uml/appearance/helper/UMLVisualInformationPa
+ pyrusConstant.class
+SHA1-Digest: sIKEogEYnvun5RC1yoHL0GHMqLk=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/AddAppliedStereotype
+ PropertiesToDisplayCommand.class
+SHA1-Digest: paGYkD8IBRxGKmapPtNiPZ+nqjQ=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/RemoveAppliedStereot
+ ypeToDisplayCommand.class
+SHA1-Digest: KDevRpwvac8fXx9sNKYLJNAGClk=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/SetAppliedStereotype
+ PropertiesLocalizationCommand.class
+SHA1-Digest: 7XYNUXMw0ulrFjx14/qmMnFgFYo=
+
+Name: org/eclipse/papyrus/uml/appearance/Activator.class
+SHA1-Digest: oYzLU3KYsIYvsdELvG1ZjsieJdQ=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/AddAppliedQNStereoty
+ peToDisplayCommand.class
+SHA1-Digest: gDHPsWgM3Ns1iTDgTX6MyEhHYJM=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/SetAppliedStereotype
+ ToDisplayCommand.class
+SHA1-Digest: xCNeyQ/R9QXMTSaxF3AyVzPXxgE=
+
+Name: org/eclipse/papyrus/uml/appearance/commands/AddAppliedStereotype
+ ToDisplayCommand.class
+SHA1-Digest: Ie2U3xwfnG/gQW57jWT6xzoh7L0=
+

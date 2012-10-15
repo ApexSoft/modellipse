@@ -1,0 +1,673 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.infra.core;singleton:=true
+Require-Bundle: org.eclipse.papyrus.infra.core.sasheditor;bundle-versi
+ on="0.9.1";visibility:=reexport,org.eclipse.papyrus.infra.core.sashed
+ itor.di;bundle-version="0.9.1";visibility:=reexport,org.eclipse.ui.id
+ e;bundle-version="3.4.0";visibility:=reexport,org.eclipse.emf.edit.ui
+ ;bundle-version="2.6.0";visibility:=reexport,org.eclipse.core.runtime
+ ,org.eclipse.gmf.runtime.common.core,org.eclipse.gmf.runtime.diagram.
+ ui,org.eclipse.papyrus.infra.gmfdiag.commands;bundle-version="0.9.1";
+ visibility:=reexport
+Bundle-Activator: org.eclipse.papyrus.infra.core.Activator
+Bundle-Version: 0.9.1.v201209190809
+Export-Package: org.eclipse.papyrus.infra.core,org.eclipse.papyrus.inf
+ ra.core.contentoutline,org.eclipse.papyrus.infra.core.editor,org.ecli
+ pse.papyrus.infra.core.editorsfactory,org.eclipse.papyrus.infra.core.
+ extension,org.eclipse.papyrus.infra.core.extension.commands,org.eclip
+ se.papyrus.infra.core.extension.diagrameditor,org.eclipse.papyrus.inf
+ ra.core.lifecycleevents,org.eclipse.papyrus.infra.core.listenerservic
+ e,org.eclipse.papyrus.infra.core.markers,org.eclipse.papyrus.infra.co
+ re.modelsetquery,org.eclipse.papyrus.infra.core.modelsetquery.impl;x-
+ friends:="org.eclipse.papyrus.uml.resourceloading.profile",org.eclips
+ e.papyrus.infra.core.multidiagram.actionbarcontributor,org.eclipse.pa
+ pyrus.infra.core.resource,org.eclipse.papyrus.infra.core.resource.add
+ itional,org.eclipse.papyrus.infra.core.resource.notation,org.eclipse.
+ papyrus.infra.core.resource.sasheditor,org.eclipse.papyrus.infra.core
+ .resource.uml,org.eclipse.papyrus.infra.core.services,org.eclipse.pap
+ yrus.infra.core.ui,org.eclipse.papyrus.infra.core.utils
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/infra/core/ui/IRevealSemanticElement.class
+SHA1-Digest: FN7G+fNHCMZ+ORuVgIQxDFnHmoA=
+
+Name: schema/transactionalEditingDomainProvider.exsd
+SHA1-Digest: X8So3HK8aOyKnx8Pk6M7mhYP9rU=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceDescriptor$Servic
+ eTypeKind.class
+SHA1-Digest: 9+nkyZGXAixe3hnyRHLLl07q1zU=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/AbstractE
+ ditorFactory.class
+SHA1-Digest: qqdUGTASM/OyXFnXOvQ1CqG68MA=
+
+Name: about.ini
+SHA1-Digest: AsjKn6Zz1xhStr/MfZOoSesKuTc=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/IModelCreation
+ Command.class
+SHA1-Digest: J/cAHkR1PL3l71eWosLQdEdbe9s=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/LifeCycleEventsPr
+ ovider$AbstractEventListenersLazyList.class
+SHA1-Digest: CE0OmxV4yLrwmRrnVT3qZowBBGE=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/EditorIco
+ nFactory.class
+SHA1-Digest: epYj5QJHAZ6WrxXVSL3C+vNCXxE=
+
+Name: org/eclipse/papyrus/infra/core/utils/AbstractServiceUtils.class
+SHA1-Digest: 7bnW14jFuPLA9sOEwbuC3YR8k1w=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/ServiceEntry.cl
+ ass
+SHA1-Digest: 1i1AEletNQOyI8D2xynCV5bmXNA=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/LifeCycleEventsPr
+ ovider.class
+SHA1-Digest: I1P3zkVddQ7vjjD6Am1NqG3ZGc0=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/ServiceStartupE
+ ntry.class
+SHA1-Digest: ZpILvITtK4fJlIH5C3TWkS44k3U=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/IModelSetQueryAdapt
+ er.class
+SHA1-Digest: RZ2X0txwVS+ln3E2SEGNiTgyx/Q=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/IPageIconsRegistry
+ .class
+SHA1-Digest: vyra7HEt+RBC1omom9cMr/Wy+9k=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/ISaveAndDirtyServ
+ ice.class
+SHA1-Digest: GKbBG31NUShmiYo3JNoAqvjYQM0=
+
+Name: org/eclipse/papyrus/infra/core/contentoutline/ContentOutlineRegi
+ stry.class
+SHA1-Digest: SMs4I3kZpj0JzzAblBe701NB2+M=
+
+Name: org/eclipse/papyrus/infra/core/resource/AbstractDynamicModel.cla
+ ss
+SHA1-Digest: WHYmli7uLb0yQR8BfcDX+PJcn08=
+
+Name: schema/model.exsd
+SHA1-Digest: 3Pl+lcxeFU9fJ7NOqPYo6HZKjxw=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/IPluggabl
+ eEditorFactory.class
+SHA1-Digest: 66OsdKyBr8F0FuoY8twYdoNtJ4o=
+
+Name: schema/contentOutline.exsd
+SHA1-Digest: DA1hX7VIYDPFy4SsrZI5EApEMQA=
+
+Name: org/eclipse/papyrus/infra/core/utils/DisplayUtils.class
+SHA1-Digest: oYw127grztGiWXQVvRvQEZmxzYE=
+
+Name: org/eclipse/papyrus/infra/core/services/IServiceFactory.class
+SHA1-Digest: iL7QylQHnsW/brpAVnnrSrfc0lM=
+
+Name: org/eclipse/papyrus/infra/core/editor/CoreMultiDiagramEditor$4.c
+ lass
+SHA1-Digest: 1r+holeCfBk7O74FLTo5MxLL/jI=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/ModelCreationC
+ ommandBase$1.class
+SHA1-Digest: L0qQ7a+9dMsR7/GF5l1msilAxS0=
+
+Name: org/eclipse/papyrus/infra/core/services/BadStateException.class
+SHA1-Digest: 8zKh6rzCQE4tdbOA0H+pCd3OUBc=
+
+Name: org/eclipse/papyrus/infra/core/resource/IModelSetSnippet.class
+SHA1-Digest: ZM4w1cxviT9DczKtx6tB9Yi2rFY=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/SaveAndDirtyServi
+ ce$ISaveablePartList.class
+SHA1-Digest: QEHjBW3PI82QbYhEEAviBavWP0I=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/IEditorIconFactory
+ Extended.class
+SHA1-Digest: VWpsaENkPsM1XP3OR0CKvy2cf2c=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/ILifeCycleEventsP
+ rovider.class
+SHA1-Digest: 8sKRAapeKm+eHtCgWYHSIiUZ2x4=
+
+Name: org/eclipse/papyrus/infra/core/editor/CoreMultiDiagramEditor$1$1
+ .class
+SHA1-Digest: RkLfTrC57VjfB0qjYlLoIHFAz5g=
+
+Name: org/eclipse/papyrus/infra/core/resource/TransactionalEditingDoma
+ inManager.class
+SHA1-Digest: TX3PeE/51KOTxPNlqKewhNshKjg=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceMultiException.cl
+ ass
+SHA1-Digest: HRlXOxbI9hkw/wHQFTUBmJI5Gmc=
+
+Name: org/eclipse/papyrus/infra/core/utils/PapyrusEcoreUtils.class
+SHA1-Digest: ZZZlc2l4J7LyW9ae5J5uVd5tTI8=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/IEditorInputChang
+ edListener.class
+SHA1-Digest: kSuwukEgwkJn99YuXmVrJxdGQTU=
+
+Name: org/eclipse/papyrus/infra/core/listenerservice/ModelListenerMana
+ ger.class
+SHA1-Digest: g5UqfRdDcxVttHOurXAEj+wzFbs=
+
+Name: org/eclipse/papyrus/infra/core/editor/DiSashModelMngrServiceFact
+ ory.class
+SHA1-Digest: fNK74+71AXVVJfJA+3AsVPO0350=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/ICreationCondi
+ tion.class
+SHA1-Digest: xyXdKb1nkJ770UW1Fkp/wjobflU=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceState.class
+SHA1-Digest: hYJgKf81BYt2UcKJ35zQ3SSGh0E=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredListView$FilteredLi
+ stIterator.class
+SHA1-Digest: FXFEBhMNw+usLSZ+6TDYuXZ7WZc=
+
+Name: about.properties
+SHA1-Digest: /fUlaPWEWDjudeyHC3dPg6gr7Uo=
+
+Name: org/eclipse/papyrus/infra/core/resource/uml/UmlModel.class
+SHA1-Digest: cf5OiTSc2NpxUCNsmY7uOqAzdjk=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredCollectionViewFromI
+ terator.class
+SHA1-Digest: mW4+Bd9GiKzmWLSlfg3fJSSPQCQ=
+
+Name: org/eclipse/papyrus/infra/core/services/ComposedService.class
+SHA1-Digest: 584Ax13VnIYdVuiwsbjxIEVpe2s=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceDescriptor.class
+SHA1-Digest: XAwn2s+MdnqbnCcnjXhC7MgSodk=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/ISaveEventListene
+ r.class
+SHA1-Digest: rE7dAALlsENYpNjKDBPL2UeeVqE=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/SaveAndDirtyServi
+ ce$1.class
+SHA1-Digest: VjkhnX9vl1A8l/uQU/3EJJILOBs=
+
+Name: org/eclipse/papyrus/infra/core/resource/AbstractBaseModel.class
+SHA1-Digest: SYmHBT0gXwKFS2w6D6xY6HQVa5M=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/PerspectiveCon
+ textDependence.class
+SHA1-Digest: GJinqAMEeVZNq0KFEFgOuRoWtfA=
+
+Name: org/eclipse/papyrus/infra/core/resource/AbstractModelWithSharedR
+ esource$ModelKind.class
+SHA1-Digest: xj6WM0jVQqOk/LeaeRI6QX5dfOQ=
+
+Name: org/eclipse/papyrus/infra/core/utils/ServiceUtils.class
+SHA1-Digest: 6sKev/PTnME2OvPrguyQ/ch37IM=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/IFillableModelSetQu
+ eryAdapter.class
+SHA1-Digest: 75QnUO3cSNq8LmXAU6fOnv26J/o=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelException.class
+SHA1-Digest: 5z8SqAUz2USxf1xFBFdpdkFtbyU=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelMultiException.clas
+ s
+SHA1-Digest: uGE1Mdnuobak5eDG9kgfs8viUeU=
+
+Name: org/eclipse/papyrus/infra/core/editor/CoreMultiDiagramEditor.cla
+ ss
+SHA1-Digest: U/Q/Lh+xohZtCzCUKtcxU/Wd0gU=
+
+Name: org/eclipse/papyrus/infra/core/multidiagram/actionbarcontributor
+ /IActionBarContributorFactory.class
+SHA1-Digest: 49tFBRJz1GmyNIKskDabLvh5TIY=
+
+Name: org/eclipse/papyrus/infra/core/IElementWithSemantic.class
+SHA1-Digest: KSVIjLOF02wgU9QUFNI1t5OKI9A=
+
+Name: org/eclipse/papyrus/infra/core/services/ServicesRegistry$LookupM
+ ap.class
+SHA1-Digest: S+o+GtllbtuNg+QCDq0Mx4EsQw8=
+
+Name: org/eclipse/papyrus/infra/core/editor/ModelSetServiceFactory.cla
+ ss
+SHA1-Digest: gqOWuJuhdjvlEw1PSME9e7HzFUk=
+
+Name: org/eclipse/papyrus/infra/core/extension/NotFoundException.class
+SHA1-Digest: isiZOkyMfmOm2GXTAtkTvvQPCZg=
+
+Name: org/eclipse/papyrus/infra/core/utils/BusinessModelResolver.class
+SHA1-Digest: /3H18Sf0TWgIBACcQMEpGHSujNo=
+
+Name: org/eclipse/papyrus/infra/core/editor/PageMngrServiceFactory.cla
+ ss
+SHA1-Digest: P5a+pNJuucJRFX+mZB+XdzDcdK8=
+
+Name: org/eclipse/papyrus/infra/core/editor/CoreMultiDiagramEditor$1.c
+ lass
+SHA1-Digest: ppxwp9kwf3PaQQcdIvGsTuxPvo4=
+
+Name: org/eclipse/papyrus/infra/core/utils/PapyrusTrace.class
+SHA1-Digest: MAX9+/rRdbWve6tDsdBcnCMGzzY=
+
+Name: schema/readme.txt
+SHA1-Digest: QbDjIEuJnpjXKXKXQ6Hw/m6BBKM=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/ModelCreationC
+ ommandBase$2.class
+SHA1-Digest: S+9HuxCM77wcjePvPwGxqa2J8eY=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelSet.class
+SHA1-Digest: H92BHzZHHUxOBsiFasLJWxXN+rM=
+
+Name: org/eclipse/papyrus/infra/core/resource/EditingDomainServiceFact
+ ory.class
+SHA1-Digest: x2dKolc1PD0mf3u1q2+ffyzea+c=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/ServiceFactoryE
+ ntry.class
+SHA1-Digest: 1hzN8Xy6sXYPS3FzOCQM60z38IY=
+
+Name: org/eclipse/papyrus/infra/core/services/IService.class
+SHA1-Digest: fJnjeYjGaAP0wv3WgDcDozkl9MU=
+
+Name: org/eclipse/papyrus/infra/core/markers/MarkerConstants.class
+SHA1-Digest: NfjIRzTqXfATbb89BK3aPF+JiPY=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/impl/ModelSetQueryA
+ dapterTimeMatters.class
+SHA1-Digest: xGJF1+Z144wlLmK6VO0S7S0WvRs=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredCollectionView.clas
+ s
+SHA1-Digest: WR/krJpS+EHWeCK61DHmTjOcm0s=
+
+Name: org/eclipse/papyrus/infra/core/utils/IFilter.class
+SHA1-Digest: SggkeUO2plfSp9JL9K7Bd4B4k1c=
+
+Name: org/eclipse/papyrus/infra/core/resource/notation/NotationUtils.c
+ lass
+SHA1-Digest: DTtZZT49GsCS7ZqRIclcDzqBg5g=
+
+Name: org/eclipse/papyrus/infra/core/resource/uml/UmlSnippet.class
+SHA1-Digest: FaVDZmvBUQmvGMGkQ5/RuB6jMBI=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/infra/core/resource/AbstractModelWithSharedR
+ esource.class
+SHA1-Digest: 2IvIlSxEtFJ9rch1KivUIRzMolU=
+
+Name: org/eclipse/papyrus/infra/core/utils/OpenDiagramCommand.class
+SHA1-Digest: DySYOsmLxA+Wzo0JSNm1rEZLd6w=
+
+Name: org/eclipse/papyrus/infra/core/extension/ExtensionUtils.class
+SHA1-Digest: t+TAXv4iv1klw8Y913JFqkI2L4U=
+
+Name: org/eclipse/papyrus/infra/core/utils/ServiceUtilsForActionHandle
+ rs.class
+SHA1-Digest: P5NKQCzxDGlDmIXywZX9ADUKKpw=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredCollectionView$Filt
+ eredIterator.class
+SHA1-Digest: NV054KUPMg22XyNu0GvdjWqDzDY=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/SaveAndDirtyServi
+ ce.class
+SHA1-Digest: xhnDbSE2xmVBXbjMiDXWkSy+UjQ=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceStartKind.class
+SHA1-Digest: 2q4icQzy7lP9Nz/EfsOj+0ACglc=
+
+Name: org/eclipse/papyrus/infra/core/multidiagram/actionbarcontributor
+ /CoreComposedActionBarContributor.class
+SHA1-Digest: FgsLUu7Xs3mEWALyotKMUOxiXAE=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/ICreationComma
+ ndRegistry.class
+SHA1-Digest: yWIFEoHni6ZnYQu2q4GQizjMDp8=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/PageModelFactoryRe
+ gistry.class
+SHA1-Digest: zNLELjNWbMyCfxPeimHLw0SIuqQ=
+
+Name: org/eclipse/papyrus/infra/core/editor/IMultiDiagramEditor.class
+SHA1-Digest: 2ffLu5UtPZ+TWkbGXITsef+kkVY=
+
+Name: org/eclipse/papyrus/infra/core/extension/ExtensionUtils$1.class
+SHA1-Digest: d8oPLApVDY5MKuUNHjVDOFuMiAs=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceNotFoundException
+ .class
+SHA1-Digest: TT0aRmLz+WNy9Y7q8ozdBPQl5rE=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/CreationComman
+ dRegistry.class
+SHA1-Digest: cDM2dzdAA8hGp0F5zC6LBfWwD8w=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/IEditorFactory.cla
+ ss
+SHA1-Digest: aAGrQWXgsxke4I8YVm1EwV0j2Ik=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/SaveAndDirtyServi
+ ce$2.class
+SHA1-Digest: IOmVD6VY5FcjxyMgTe3tLO3bmm4=
+
+Name: org/eclipse/papyrus/infra/core/resource/sasheditor/DiModel.class
+SHA1-Digest: JIfCSh5JxhjiLtYJePe2PlCPzdI=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/IEditorIconFactory
+ .class
+SHA1-Digest: SrdMZayBwXdNetECgejC+8UgTqI=
+
+Name: schema/service.exsd
+SHA1-Digest: 1xOVq87tyw7CNsS0ubS7UtXYNYA=
+
+Name: org/eclipse/papyrus/infra/core/editor/ContentProviderServiceFact
+ ory.class
+SHA1-Digest: wuxBDbBOO4p7vK1NKCuw9mJOJfo=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/LifeCycleEventsPr
+ ovider$SaveEventListenerLazyList.class
+SHA1-Digest: cirS5o0s+WaKnW1OBh97KS7haKs=
+
+Name: org/eclipse/papyrus/infra/core/resource/NotFoundException.class
+SHA1-Digest: fBktZxX0XjEAtO3yE/WZZGQudCY=
+
+Name: org/eclipse/papyrus/infra/core/extension/ExtensionException.clas
+ s
+SHA1-Digest: w00yR/A4gL4fUWLLIwQvELNIvdM=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/CreationComman
+ dExtensionFactory.class
+SHA1-Digest: G+y5fRNaqI8TuErY6rBsQuqWCLo=
+
+Name: org/eclipse/papyrus/infra/core/services/ComposedServicePart.clas
+ s
+SHA1-Digest: wXZXXg+UqOwQoXrbqaD6bFsOIiM=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/EditorDes
+ criptorExtensionFactory.class
+SHA1-Digest: PpnrtM7lPXKgZPF7tjcSEO2OqSI=
+
+Name: org/eclipse/papyrus/infra/core/utils/DiResourceSet.class
+SHA1-Digest: jgQ9Bk6ox/G0hbBIOWr9+WhejzU=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelSnippetList.class
+SHA1-Digest: 4DLlALDT+eXbAnboJZLlGrZk4Wo=
+
+Name: org/eclipse/papyrus/infra/core/Activator.class
+SHA1-Digest: 19iiI85mEpdhsoPOB8fYs0EXv/0=
+
+Name: org/eclipse/papyrus/infra/core/editor/CoreMultiDiagramEditor$2.c
+ lass
+SHA1-Digest: TU/FnEfeACdzGT6qmFbLCqjs5aE=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredCollectionViewFromI
+ terator$FilteredIterator.class
+SHA1-Digest: 2k6MGPR/IGRCEsbD8a0Jbk1Ymx4=
+
+Name: org/eclipse/papyrus/infra/core/utils/IDebugChannel.class
+SHA1-Digest: dIExxzgDFB5Y8AwpCMnPIYY6XPE=
+
+Name: org/eclipse/papyrus/infra/core/undocontext/UndoContextServiceFac
+ tory.class
+SHA1-Digest: /GVPChYswagYGbG3ygeF2kpq4HI=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/impl/ModelSetQueryA
+ dapterSimple.class
+SHA1-Digest: 38mM/ecQ0qD19hGsBmc0el1s/lQ=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/impl/ModelSetQueryI
+ nitializer.class
+SHA1-Digest: nf9mLwGiq/UjG9/f/5NH/o4kQ7Y=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/IPageIconsRegistry
+ Extended.class
+SHA1-Digest: 6c2E4vHCCSflUKczOonfpianoEo=
+
+Name: org/eclipse/papyrus/infra/core/utils/EditorUtils.class
+SHA1-Digest: Y9/EChQjCkrm+YPOaMdstgdMMGg=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelUtils.class
+SHA1-Digest: 77TrTvQBE9JnUxDTg9nNBNoAal8=
+
+Name: .options
+SHA1-Digest: UsO497eIXS8Xst14Af5yP9E6J4Q=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/PojoServiceEntr
+ y.class
+SHA1-Digest: B3Ga+W0Wdpp/lHXSlEIprO2hKws=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/impl/ModelSetQueryA
+ dapterSizeMatters.class
+SHA1-Digest: Dw+pZJ7o3SLLOqYuQ6f4RJvtXIA=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelsReader.class
+SHA1-Digest: vNMP2BddRB6SMipUBAopF6UOO+M=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/CreationComman
+ dDescriptor.class
+SHA1-Digest: adMX4UEJh5e5yr+bXBLEaQ8zBb4=
+
+Name: icons/papyrus/32x32/Papyrus_32x32_t.gif
+SHA1-Digest: TnCj8MUUFLEDzL99Tpw3E0gUW4I=
+
+Name: icons/papyrus/Papyrus_16x16.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/MultiDiag
+ ramException.class
+SHA1-Digest: rjP4pwbDQOFcSqR/ez+9Y00Gljo=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelSet$ModelSetSnippet
+ List.class
+SHA1-Digest: g5rrrubobP26UF9Z9cRmZbGtNzU=
+
+Name: org/eclipse/papyrus/infra/core/resource/uml/UmlUtils.class
+SHA1-Digest: JmpGue8DEmSfz4rf4p1lp43Y6Qs=
+
+Name: org/eclipse/papyrus/infra/core/listenerservice/IPapyrusListener.
+ class
+SHA1-Digest: x64osJ8lewJdnsnMO4K7/+bJ/9s=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/LifeCycleEventsPr
+ oviderServiceFactory.class
+SHA1-Digest: +N6EDppQPP/FmyYpYZ/AA/5K4L0=
+
+Name: schema/modelListener.exsd
+SHA1-Digest: NKvLpvqi4Y9rMCCLLqBbzgLjdmM=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/SaveAndDirtyServi
+ ce$3.class
+SHA1-Digest: UU/RYQyzQ/x0yjlXW2A0fYW87uU=
+
+Name: org/eclipse/papyrus/infra/core/extension/BadClassNameException.c
+ lass
+SHA1-Digest: XN4hq9ODQGK+3HUMrXF80XXP+/I=
+
+Name: schema/papyrusDiagram.exsd
+SHA1-Digest: UXbvfounLo9NLIi2BGV7DlTqcMc=
+
+Name: org/eclipse/papyrus/infra/core/lifecycleevents/DoSaveEvent.class
+SHA1-Digest: O6s+dQ/ERZtGP9P+kHHhXie6Ewc=
+
+Name: plugin.properties
+SHA1-Digest: NK//c6yJshiNiGdmKnyGc7ykTE0=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/ErrorServiceTyp
+ eEntry.class
+SHA1-Digest: eFdSSZa2tJ8LNpC1Gnk9l1wiHxA=
+
+Name: org/eclipse/papyrus/infra/core/resource/uml/ExtendedUmlModel.cla
+ ss
+SHA1-Digest: UvSK0Uuxt8mLR0HLYuRwcKQdjR4=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/ModelCreationC
+ ommandBase.class
+SHA1-Digest: 1dUiE2LKHrJLuVWwEMBJXn6JzPI=
+
+Name: org/eclipse/papyrus/infra/core/services/ServicesRegistry.class
+SHA1-Digest: Pa6p+tQ/oC49jv9hxpEZjILs2jM=
+
+Name: org/eclipse/papyrus/infra/core/resource/BadStateException.class
+SHA1-Digest: a84g8+2q9tEh7yG+9Rzu3SfUtjk=
+
+Name: org/eclipse/papyrus/infra/core/modelsetquery/ModelSetQuery.class
+SHA1-Digest: m/Z6tWqtNUjFK2JfEVHUg3zSWA0=
+
+Name: org/eclipse/papyrus/infra/core/extension/BadNameExtensionExcepti
+ on.class
+SHA1-Digest: jFELQ+RWN4dQ9D7nfWXWlTY/M0A=
+
+Name: org/eclipse/papyrus/infra/core/services/ExtensionServicesRegistr
+ y.class
+SHA1-Digest: gHTP4nstovpxvmD/owXzx7B/lH8=
+
+Name: org/eclipse/papyrus/infra/core/resource/sasheditor/SashModelUtil
+ s.class
+SHA1-Digest: QWcpvTFglDhOhNcsujhwHfyrGMs=
+
+Name: org/eclipse/papyrus/infra/core/multidiagram/actionbarcontributor
+ /ActionBarContributorDescriptor.class
+SHA1-Digest: QbL+/i72Z8D081GVsKjMUTM2HL4=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/LazyStartupEntr
+ y.class
+SHA1-Digest: zoZkKfZOYcHjHYc+KxhLzv8e9N4=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/EditorNot
+ FoundException.class
+SHA1-Digest: GTJu4LuE2TI9746+7a1fEiWFtCI=
+
+Name: org/eclipse/papyrus/infra/core/editor/CoreMultiDiagramEditor$3.c
+ lass
+SHA1-Digest: ia1RonGtf3Cq7PCwg1sANgvBpGo=
+
+Name: plugin.xml
+SHA1-Digest: dLsTd4NlQOUB+jUpNTHsjDXR2tU=
+
+Name: icons/papyrus/Papyrus.gif
+SHA1-Digest: 03GOz6+LQbCoWZ+xxCwpaFVDAdQ=
+
+Name: org/eclipse/papyrus/infra/core/resource/TransactionalEditingDoma
+ inManager$ProviderPriorityPair.class
+SHA1-Digest: +R9E2YHKWY+/dFvTi3Nqm0gy528=
+
+Name: org/eclipse/papyrus/infra/core/extension/commands/ICreationComma
+ nd.class
+SHA1-Digest: 0UW0djafZt8H9izlYk79KYYZjfw=
+
+Name: org/eclipse/papyrus/infra/core/resource/notation/NotationModel.c
+ lass
+SHA1-Digest: RuhG8L6p2XBdKSRgS0k6I9Y8rDA=
+
+Name: org/eclipse/papyrus/infra/core/resource/additional/AdditionalRes
+ ourcesModel.class
+SHA1-Digest: /dNiHun0sVkT+jXUWKNM+zeeeqk=
+
+Name: org/eclipse/papyrus/infra/core/editor/PageIconRegistryServiceFac
+ tory.class
+SHA1-Digest: SRUg3swd1OfZUwy1wNHlbH0kMrY=
+
+Name: org/eclipse/papyrus/infra/core/resource/IModel.class
+SHA1-Digest: yO0C/x8/g103HpaeLfbZ0TJwQCU=
+
+Name: org/eclipse/papyrus/infra/core/multidiagram/actionbarcontributor
+ /ActionBarContributorRegistry.class
+SHA1-Digest: 17Mkl3iQ5I2rdBpmjKKGoN5VIQs=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredListView.class
+SHA1-Digest: NO7/FvlwAagAFclXOFx9LMgvFSw=
+
+Name: org/eclipse/papyrus/infra/core/resource/ModelIdentifiers.class
+SHA1-Digest: GcwxMxHFvJ9PM/BeqhILFVhUngA=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/EditorDes
+ criptor.class
+SHA1-Digest: yubWHLNPLirtNTgP6hDZyKDQQDg=
+
+Name: org/eclipse/papyrus/infra/core/resource/IModelSnippet.class
+SHA1-Digest: 8DHwN/f80w/uz1iI9GawyZRmIBw=
+
+Name: org/eclipse/papyrus/infra/core/editorsfactory/PageIconsRegistry.
+ class
+SHA1-Digest: CzeBFxQLPjtwBVerwrwMg+ciHkc=
+
+Name: org/eclipse/papyrus/infra/core/resource/sasheditor/SashModel.cla
+ ss
+SHA1-Digest: sFtTfI7XNc72IyJDoHNbQreHGsk=
+
+Name: org/eclipse/papyrus/infra/core/services/ServiceException.class
+SHA1-Digest: q62O51G4EjrmdVzB4kzu3w8k1jM=
+
+Name: org/eclipse/papyrus/infra/core/contentoutline/IPapyrusContentOut
+ linePage.class
+SHA1-Digest: Q5xkXVwvgRP+QzSnsDBE9rK8W8A=
+
+Name: org/eclipse/papyrus/infra/core/editor/DiResourceSetServiceFactor
+ y.class
+SHA1-Digest: PHBGFVM30AUGuiCMrA3xzZxgZ/c=
+
+Name: org/eclipse/papyrus/infra/core/editor/BackboneException.class
+SHA1-Digest: S6tRqis3a19IZwpljLrez2izjsc=
+
+Name: org/eclipse/papyrus/infra/core/utils/PapyrusImageUtils.class
+SHA1-Digest: 18FW8pBwSiJLtbF3mLq8XeToja8=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/ServiceTypeEntr
+ y.class
+SHA1-Digest: LgqEBrx/oTjcyLr+eFQUPGGBhag=
+
+Name: org/eclipse/papyrus/infra/core/multidiagram/actionbarcontributor
+ /ActionBarContributorExtensionFactory.class
+SHA1-Digest: uAaqjh44XlXvDuu7Lwf4+YZS1CE=
+
+Name: icons/papyrus/32x32/PapyrusLogo32x32.png
+SHA1-Digest: Sj/4hAoWLl0iukYocWMAD9cdbrY=
+
+Name: org/eclipse/papyrus/infra/core/utils/FilteredCollectionViewFromI
+ terator$IteratorProvider.class
+SHA1-Digest: vUNvAGPAxWL6tmJ0l0ujzYzL2HI=
+
+Name: org/eclipse/papyrus/infra/core/resource/sasheditor/DiModelUtils.
+ class
+SHA1-Digest: rTJ3M0hlxyBACBAdtdPtdoWc5lk=
+
+Name: org/eclipse/papyrus/infra/core/services/internal/StartStartupEnt
+ ry.class
+SHA1-Digest: /qhGQBGU680w28GleOIwr8Wpa4A=
+
+Name: org/eclipse/papyrus/infra/core/resource/ITransactionalEditingDom
+ ainProvider.class
+SHA1-Digest: h3jzJshpX1+39jx7KnlvALigUzw=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/Pluggable
+ EditorFactoryReader.class
+SHA1-Digest: +HnlMt4dTHV8CfGQ8ZNSVkj1Jaw=
+
+Name: org/eclipse/papyrus/infra/core/contentoutline/ContentOutlineRegi
+ stry$ContentOutlineDescriptor.class
+SHA1-Digest: nxTOEcdlQG24olYjt1bXc7DZSyI=
+
+Name: org/eclipse/papyrus/infra/core/extension/diagrameditor/EditorFac
+ toryProxy.class
+SHA1-Digest: HRkO/dBssdefeQHPh3A0DnqLREY=
+

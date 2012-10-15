@@ -1,0 +1,151 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.eclipse.papyrus.uml.table.widgets.celleditors
+ ;singleton:=true
+Bundle-Activator: org.eclipse.papyrus.uml.table.widget.celleditors.Act
+ ivator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.em
+ f.facet.widgets.celleditors,org.eclipse.emf.facet.widgets.celleditors
+ .ecore;bundle-version="0.1.0",org.eclipse.emf.facet.util.core,org.ecl
+ ipse.papyrus.infra.core.log;bundle-version="0.9.1",org.eclipse.uml2.u
+ ml,org.eclipse.emf.facet.widgets,org.eclipse.emf.facet.infra.common.c
+ ore,org.eclipse.papyrus.uml.tools.utils;bundle-version="0.9.1",org.ec
+ lipse.papyrus.uml.tools;bundle-version="0.9.1",org.eclipse.papyrus.in
+ fra.widgets;bundle-version="0.9.1",org.eclipse.papyrus.infra.emf;bund
+ le-version="0.9.1",org.eclipse.papyrus.infra.core;bundle-version="0.9
+ .1"
+Bundle-Version: 0.9.1.v201209190809
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Name: %pluginName
+Created-By: 1.5.0_22-b03 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/EnumC
+ omposite$1.class
+SHA1-Digest: aXF/Z+uYHq8kTPsu0VXfUXvkc84=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/EnumC
+ omposite$2.class
+SHA1-Digest: sNKm9o+U4Z4tg2ix/lcteaRx7sk=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/UnaryRe
+ ferencePapyrusCellEditor$1.class
+SHA1-Digest: sZj7HoErDxR+eaXG+QqO63F17Hg=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/EnumC
+ omposite$3.class
+SHA1-Digest: BkArUDJs48UdmHipG58TW/W2H5c=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/StringM
+ ultiCellEditor.class
+SHA1-Digest: 8Mo4V2RY6xFppVQdh2ZnkZWWq60=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/EnumC
+ omposite$4.class
+SHA1-Digest: x6f0C8pQn62aDH+AjGOIJQ8Ik/Y=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Boolean
+ CellEditor.class
+SHA1-Digest: GiUus9VsJoMsW0eOF9SBqHRlSYQ=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite$1.class
+SHA1-Digest: XchXCQEM0Tffb4kmJDuG5VYpcnI=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite$2.class
+SHA1-Digest: nTkXBVNBJ4zmAwN7corYbXY70f0=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Papyr
+ usEnumeratorComposite.class
+SHA1-Digest: JI9wmQVCA2J/rZsauAMlGcwFooA=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite$3.class
+SHA1-Digest: GNzigh/cl6YKJShTsTfkeDSbzMI=
+
+Name: plugin.properties
+SHA1-Digest: m3rLU3c36JVBEUd9xl+W8xxk/Aw=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite$4.class
+SHA1-Digest: a1Na9xmtUgPOr3z23qTmEFAbPX4=
+
+Name: resources/umlCellEditors.modelcelleditors
+SHA1-Digest: eJBK0Opg2Y8EnB2U+hCBapKPkWM=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite$5.class
+SHA1-Digest: lCktgIlFyeMkmGpQHm7exnH97n0=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/IntCell
+ Editor.class
+SHA1-Digest: N2BAEkiAZ3j67uS+5NrctfsDJgE=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/Activator.class
+SHA1-Digest: bxC3KCaBiiH0/EEdWd8vlot+DNQ=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/StringM
+ ultiCellEditor$1.class
+SHA1-Digest: Htr5hVTIp5GNhmNMnzArUxPULAc=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Boolean
+ CellEditor$1.class
+SHA1-Digest: iYrDvaqpZjkXHeUFQ8keLlqXxfo=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Enumera
+ tionLiteralCellEditor.class
+SHA1-Digest: wozWlaq6Z432/6oGtmhn+IKd3sk=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite$2$1.class
+SHA1-Digest: jYKlDTp3OREA2h8Y2WnZBXALAzQ=
+
+Name: plugin.xml
+SHA1-Digest: Pz/gCfTLXKFQlSVmGF1huKQPW9I=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/IntCell
+ Editor$1.class
+SHA1-Digest: 5aJfIFwio7Pl6idFp6U0Pg6XhJU=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Enume
+ rationComposite.class
+SHA1-Digest: Em6zsoPplYRpjNowDzLNOAd1dtI=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Enumera
+ tionLiteralCellEditor$1.class
+SHA1-Digest: dtK3gDY76NxrahbZeydEAX/xa8w=
+
+Name: about.html
+SHA1-Digest: a2Fk5/pDnCvlEfl7QwDZj/FCgFc=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Enumera
+ torEditor.class
+SHA1-Digest: RPy16nIlYH3fLIwVphPLKCd1lO0=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Literal
+ UnlimitedNaturalCellEditor.class
+SHA1-Digest: MWjZsLLt8WaqqCY6EiQu2llCbr0=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/EnumC
+ omposite.class
+SHA1-Digest: yLuRUs339+bgDXNbMyGwUa15phE=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/UnaryRe
+ ferencePapyrusCellEditor.class
+SHA1-Digest: OCtgE1kTRkfJrMZprWlZjtJ+6IE=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/composite/Unary
+ ReferencePapyrusCellEditorComposite.class
+SHA1-Digest: rLaJvJBQP+D0xPdR4aPI8mZK3cE=
+
+Name: org/eclipse/papyrus/uml/table/widget/celleditors/editors/Enumera
+ torEditor$1.class
+SHA1-Digest: of0jllBZPuxVnEbb0VGmizvDSqc=
+
