@@ -15,14 +15,19 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.CombinedFragmentEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 
 /**
@@ -43,6 +48,11 @@ public class InteractionOperandLayoutEditPolicy extends XYLayoutEditPolicy {
 	}
 
 	/**
+	 * apex updated
+	 * 
+	 * 중첩된 child CombinedFragment 이동 시
+	 * REQ_ORPHAN_CHILDREN에 대한 처리 로직 추가
+	 * 
 	 * Handle create InteractionOperand hover InteractionOperand {@inheritDoc}
 	 */
 	@Override
@@ -72,8 +82,48 @@ public class InteractionOperandLayoutEditPolicy extends XYLayoutEditPolicy {
 			return null;
 		}else if (REQ_RESIZE_CHILDREN.equals(request.getType())){
 			return interactionCompartment.getCommand(request);
+		} 
+		 /* apex added start */
+		else if (REQ_ORPHAN_CHILDREN.equals(request.getType())) {
+			request.setType(REQ_MOVE_CHILDREN);
+			return getResizeChildrenCommand((ChangeBoundsRequest)request);
 		}
+		/* apex added end */
 		return super.getCommand(request);
+	}
+	
+	/**
+	 * apex updated
+	 * 
+	 * Handle combined fragment resize
+	 */
+	@Override
+	protected Command getResizeChildrenCommand(ChangeBoundsRequest request) {
+		CompoundCommand compoundCmd = new CompoundCommand();
+		compoundCmd.setLabel("Move or Resize");
+
+		for(Object o : request.getEditParts()) {
+			GraphicalEditPart child = (GraphicalEditPart)o;
+			Object constraintFor = getConstraintFor(request, child);
+			if(constraintFor != null) {
+				if(child instanceof CombinedFragmentEditPart) {
+					Command resizeChildrenCommand = InteractionCompartmentXYLayoutEditPolicy.getCombinedFragmentResizeChildrenCommand(request, (CombinedFragmentEditPart)child);
+					if(resizeChildrenCommand != null && resizeChildrenCommand.canExecute()) {
+						compoundCmd.add(resizeChildrenCommand);
+					}
+					/* apex added start */
+					else compoundCmd.add(UnexecutableCommand.INSTANCE);
+					/* apex added end */
+				}
+
+				Command changeConstraintCommand = createChangeConstraintCommand(request, child, translateToModelConstraint(constraintFor));
+				compoundCmd.add(changeConstraintCommand);
+			}
+		}
+		if(compoundCmd.isEmpty()) {
+			return null;
+		}
+		return compoundCmd.unwrap();
 	}
 
 //	/**

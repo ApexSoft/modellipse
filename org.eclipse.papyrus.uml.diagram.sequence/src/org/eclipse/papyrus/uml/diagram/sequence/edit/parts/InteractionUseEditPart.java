@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.notify.Notification;
@@ -52,6 +53,7 @@ import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.GradientPreferenceCon
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.PreferenceConstantHelper;
 import org.eclipse.papyrus.uml.diagram.common.helper.PreferenceInitializerForElementHelper;
 import org.eclipse.papyrus.uml.diagram.common.providers.UIAdapterImpl;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexResizableShapeEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.InteractionUseItemSemanticEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.OpenDiagramEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.InteractionUseRectangleFigure;
@@ -162,6 +164,18 @@ public class InteractionUseEditPart extends InteractionFragmentEditPart {
 		};
 		return lep;
 	}
+	
+	/**
+	 * apex updated
+	 * 
+	 * @Override
+	 */
+	/* apex added start */
+	public EditPolicy getPrimaryDragEditPolicy() {		
+		EditPolicy result = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+		return result != null ? result : new ApexResizableShapeEditPolicy(PositionConstants.NORTH_SOUTH, false, false);		 
+	}
+	/* apex added end */
 
 	/**
 	 * @generated

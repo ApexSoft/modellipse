@@ -1430,6 +1430,10 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 			}
 		}
 		super.handleNotificationEvent(notification);
+		
+		// InteractionOperandEditPart에서
+		// if (notification.getNotifier() instanceof Bounds) { } 부분은 없음
+		// util패키지의 OperandBoundsComputeHelper에서 처리
 	}
 	
 	protected void refreshBackgroundColor() {

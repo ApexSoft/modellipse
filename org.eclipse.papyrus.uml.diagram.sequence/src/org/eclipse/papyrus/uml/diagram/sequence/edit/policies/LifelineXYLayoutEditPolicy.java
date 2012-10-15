@@ -29,7 +29,6 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.commands.UnexecutableCommand;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
@@ -47,16 +46,14 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.commands.PreserveAnchorsPositionCommand;
 import org.eclipse.papyrus.uml.diagram.common.draw2d.LifelineDotLineFigure;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.command.ApexPreserveAnchorsPositionCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.command.CustomZOrderCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ActionExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.BehaviorExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.CombinedFragment2EditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.DestructionOccurrenceSpecificationEditPart;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.DurationConstraintEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.StateInvariantEditPart;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.TimeConstraintEditPart;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.TimeObservationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.OccurrenceSpecificationMoveHelper;
@@ -362,6 +359,8 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Useful operation to know where the figure of a ExecutionSpecification EditPart should be
 	 * positioned within a Lifeline EditPart. The notToCheckList is needed to avoid checking those
 	 * ExecutionSpecification EditParts. The returned bounds are relative to the Lifeline figure so
@@ -411,9 +410,14 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 				Rectangle esBounds = esPart.getFigure().getBounds();
 				int esYBottom = esBounds.y + esBounds.height;
 				if(esPart != oldParent) {
+					/* apex improved start */
+					// 하단에 ExecutionSpecification이 있으면 더 이상 확장이 불가능
+					/* apex improved end */
+					/* apex replaced					 
 					if(((oldBounds.y + oldBounds.height) <= esBounds.y && (newBounds.y + newBounds.height) >= esBounds.y) || (oldBounds.y >= esYBottom && newBounds.y <= esYBottom)) {
 						return null;
 					}
+					// */
 				}
 			}
 		}
@@ -454,6 +458,16 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 		return command;
 	}
 
+	/**
+	 * apex updated
+	 * 
+	 * @param lifelineEP
+	 * @param request
+	 * @param isMove
+	 * @param updateEnclosingInteraction
+	 * @param useFixedXPos
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public static Command getResizeOrMoveChildrenCommand(LifelineEditPart lifelineEP, ChangeBoundsRequest request, boolean isMove, boolean updateEnclosingInteraction, boolean useFixedXPos) {
 		List<EditPart> editParts = request.getEditParts();
@@ -517,6 +531,15 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 
 						compoundCmd.add(createZOrderCommand(lifelineEP, executionSpecificationEP, newBounds, notToCheckExecutionSpecificationList));
 					}
+					/* apex added start */
+					else {
+						Object data = request.getExtendedData().get(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS);
+						if (!Boolean.TRUE.equals(data)) {
+							compoundCmd.add(apexCreateMovingAffixedExecutionSpecificationCommand(executionSpecificationEP, realMoveDelta, newBounds));
+							compoundCmd.add(createZOrderCommand(lifelineEP, executionSpecificationEP, newBounds, notToCheckExecutionSpecificationList));
+						}
+					}
+					/* apex added end */
 
 					// Move also linked Time elements
 					compoundCmd = OccurrenceSpecificationMoveHelper.completeMoveExecutionSpecificationCommand(compoundCmd, executionSpecificationEP, newBounds, request);
@@ -532,7 +555,15 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 					}
 
 					// keep absolute position of anchors
+					/* apex improved start */
+					Object relative = request.getExtendedData().get(SequenceRequestConstant.PRESERVE_ANCHOR_RELATIVE_BOUNDS);
+					ApexPreserveAnchorsPositionCommand command = new ApexPreserveAnchorsPositionCommand(executionSpecificationEP, new Dimension(realMoveDelta.width, realMoveDelta.height),
+							PreserveAnchorsPositionCommand.PRESERVE_Y, executionSpecificationEP.getFigure(), request.getResizeDirection(), relative);
+					compoundCmd.add(new ICommandProxy(command));
+					/* apex improved end */
+					/* apex replaced
 					compoundCmd.add(new ICommandProxy(new LifelineEditPart.PreserveAnchorsPositionCommandEx(executionSpecificationEP, new Dimension(realMoveDelta.width, realMoveDelta.height), PreserveAnchorsPositionCommand.PRESERVE_Y, executionSpecificationEP.getFigure(), request.getResizeDirection())));
+					*/
 				}
 
 				if(ep instanceof CombinedFragment2EditPart) {
@@ -557,6 +588,44 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 					SetBoundsCommand setBoundsCmd = new SetBoundsCommand(cf2EP.getEditingDomain(), "Resize of a CoRegion", cf2EP, getNewBoundsForCoRegion(lifelineEP, bounds));
 					compoundCmd.add(new ICommandProxy(setBoundsCmd));
 				}
+				
+				/* apex added start */
+				if(ep instanceof StateInvariantEditPart) {
+					StateInvariantEditPart siEP = (StateInvariantEditPart)ep;
+					IFigure siFigure = siEP.getFigure();
+					Rectangle newBounds = siFigure.getBounds().getCopy();
+
+					// Get the dotline figure
+					LifelineDotLineFigure figureLifelineDotLineFigure = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
+
+					Point moveDelta = request.getMoveDelta();
+					if(moveDelta != null) {
+						newBounds.translate(moveDelta);
+						newBounds.y -= 10;
+					}
+					
+					// Create and add the set bounds command to the compound command
+					SetBoundsCommand setBoundsCmd = new SetBoundsCommand(siEP.getEditingDomain(), "Apex Move of a StateInvariant", siEP, newBounds);
+					compoundCmd.add(new ICommandProxy(setBoundsCmd));
+					
+					InteractionCompartmentXYLayoutEditPolicy.apexMoveBelowItems(request, siEP, compoundCmd);
+				}
+				
+				if(ep instanceof DestructionOccurrenceSpecificationEditPart) {
+					DestructionOccurrenceSpecificationEditPart doEP = (DestructionOccurrenceSpecificationEditPart)ep;
+					IFigure siFigure = doEP.getFigure();
+					Rectangle bounds = siFigure.getBounds().getCopy();
+
+					Point moveDelta = request.getMoveDelta();
+					if(moveDelta != null) {
+						bounds.translate(moveDelta);
+					}
+
+					// Create and add the set bounds command to the compound command
+					SetBoundsCommand setBoundsCmd = new SetBoundsCommand(doEP.getEditingDomain(), "Apex Move of a DestructionEvent", doEP, bounds);
+					compoundCmd.add(new ICommandProxy(setBoundsCmd));
+				}
+				/* apex added end */
 			}
 
 			if(!compoundCmd.isEmpty()) {
@@ -658,11 +727,23 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 			Rectangle externalExecutionSpecificationBounds = externalExecutionSpecificationEP.getFigure().getBounds();
 			externalBounds.x = externalExecutionSpecificationBounds.x;
 			externalBounds.width = externalExecutionSpecificationBounds.width;
+			
+			/* apex improved start */
+			if (externalExecutionSpecificationBounds.touches(externalBounds)					
+				&& externalExecutionSpecificationBounds.y < externalBounds.y) {  // start 위치가 더 하단일 경우에만 우측으로 이동
+					
+				if(parent == null || externalExecutionSpecificationBounds.x > parent.getFigure().getBounds().x) {
+					parent = externalExecutionSpecificationEP;
+				}
+			}
+			/* apex improved start */
+			/* apex replaced
 			if(externalExecutionSpecificationBounds.touches(externalBounds) && externalExecutionSpecificationBounds.x < childBounds.x) {
 				if(parent == null || externalExecutionSpecificationBounds.x > parent.getFigure().getBounds().x) {
 					parent = externalExecutionSpecificationEP;
 				}
 			}
+			*/
 		}
 		return parent;
 	}
@@ -753,6 +834,72 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 		// To the ExecutionSpecification list
 		return affixedExecutionSpecificationList;
 	}
+	
+	/**
+	 * Returns all the ExecutionSpecification EditParts that are affixed to the right side of the
+	 * given ExecutionSpecification EditPart. Not only the ones directly affixed to the
+	 * executionSpecificationEP are returned, but the ones that are indirectly affixed as well (this
+	 * is done recursively)
+	 * 
+	 * @param executionSpecificationEP
+	 *        the execution specification ep
+	 * @param newBounds
+	 *        new bounds of executionSpecificationEP
+	 * 
+	 * @return the list of affixed ExecutionSpecification. If there is no affixed
+	 *         ExecutionSpecification, then an empty list will be returned
+	 */
+	protected final static List<ShapeNodeEditPart> apexGetAffixedExecutionSpecificationEditParts(ShapeNodeEditPart executionSpecificationEP, Rectangle newBounds) {
+		List<ShapeNodeEditPart> notToCheckExecutionSpecificationList = new ArrayList<ShapeNodeEditPart>();
+		return apexGetAffixedExecutionSpecificationEditParts(executionSpecificationEP, newBounds, notToCheckExecutionSpecificationList);
+
+	}
+	
+	/**
+	 * Operation used by the above operation. It's main goal is to obtain, recursively, all the
+	 * affixed ExecutionSpecification. In order to do so, it is needed a ExecutionSpecification
+	 * EditPart and the notToCheckList.
+	 * 
+	 * @param executionSpecificationEP
+	 *        the execution specification ep
+	 * @param newBounds
+	 *        new bounds of executionSpecificationEP
+	 * @param notToCheckExecutionSpecificationList
+	 *        the not to check ExecutionSpecification list
+	 * 
+	 * @return the list of affixed ExecutionSpecification. If there is no affixed
+	 *         ExecutionSpecification, then an empty list will be returned
+	 */
+	protected final static List<ShapeNodeEditPart> apexGetAffixedExecutionSpecificationEditParts(ShapeNodeEditPart executionSpecificationEP, Rectangle newBounds, List<ShapeNodeEditPart> notToCheckExecutionSpecificationList) {
+		if (newBounds == null) {
+			return getAffixedExecutionSpecificationEditParts(executionSpecificationEP, notToCheckExecutionSpecificationList);
+		}
+		
+		// Add itself to the notToCheck list
+		List<ShapeNodeEditPart> newNotToCheckExecutionSpecificationList = new ArrayList<ShapeNodeEditPart>(notToCheckExecutionSpecificationList);
+		newNotToCheckExecutionSpecificationList.add(executionSpecificationEP);
+
+		// LifelineEditPart where the ExecutionSpecification EditPart is contained
+		LifelineEditPart lifelineEP = (LifelineEditPart)executionSpecificationEP.getParent();
+
+		// ExecutionSpecification EditParts list
+		List<ShapeNodeEditPart> executionSpecificationList = lifelineEP.getChildShapeNodeEditPart();
+		executionSpecificationList.removeAll(newNotToCheckExecutionSpecificationList);
+
+		// List to store the Affixed ExecutionSpecification
+		List<ShapeNodeEditPart> affixedExecutionSpecificationList = new ArrayList<ShapeNodeEditPart>();
+
+		// Loop ExecutionSpecificationough the ExecutionSpecification list
+		for(ShapeNodeEditPart childExecutionSpecificationEP : executionSpecificationList) {
+			Rectangle childBounds = getRelativeBounds(childExecutionSpecificationEP.getFigure());
+			if(newBounds.touches(childBounds) && newBounds.y < childBounds.y) {
+				affixedExecutionSpecificationList.add(childExecutionSpecificationEP);
+			}
+		}
+
+		// To the ExecutionSpecification list
+		return affixedExecutionSpecificationList;
+	}
 
 	/**
 	 * Checks whether the right EditPart is affixed to the left EditPart. In order to do so, the
@@ -770,6 +917,22 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 	protected final static boolean isAffixedToRight(Rectangle leftFigure, Rectangle rightFigure) {
 		return leftFigure.touches(rightFigure) && leftFigure.x < rightFigure.x;
 	}
+	
+	/**
+	 * apex updated
+	 */
+	@Override
+	/* apex added start */
+	protected Command createAddCommand(ChangeBoundsRequest request,
+			EditPart child, Object constraint) {
+		
+		if (child instanceof LifelineEditPart) {
+			return null;
+		}
+		
+		return super.createAddCommand(request, child, constraint);
+	}
+	/* apex added end */
 
 	/**
 	 * If a ExecutionSpecification EditPart is going to be moved according to a moveDelta, this
@@ -820,7 +983,82 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 		return null;
 	}
 
+	/**
+	 * If a ExecutionSpecification EditPart is going to be moved according to a moveDelta, this
+	 * operation returns a compoundCommand that also moves the affixed ExecutionSpecification
+	 * according to that delta.
+	 * 
+	 * @param executionSpecificationEP
+	 *        The ExecutionSpecification EditPart that is going to be moved
+	 * @param moveDelta
+	 *        The moveDelta of the previous EditPart
+	 * @param newBounds
+	 *        the new bounds
+	 * 
+	 * @return the compound command
+	 */
+	protected final static CompoundCommand apexCreateMovingAffixedExecutionSpecificationCommand(ShapeNodeEditPart executionSpecificationEP, Rectangle moveDelta, Rectangle newBounds) {
+//		if(moveDelta.y != 0 || moveDelta.height != 0) {
+			CompoundCommand compoundCmd = new CompoundCommand();
+			
+			List<ShapeNodeEditPart> newAffixedExecutionSpecificationEditParts = apexGetAffixedExecutionSpecificationEditParts(executionSpecificationEP, newBounds);
+			for(ShapeNodeEditPart childExecutionSpecificationEP : newAffixedExecutionSpecificationEditParts) {
+				// Get Relative Bounds
+				Rectangle childBounds = getRelativeBounds(childExecutionSpecificationEP.getFigure());
+				Rectangle childNewBounds = childBounds.getCopy();
+				// Apply delta
+				childNewBounds.x = newBounds.x + newBounds.width / 2 + 1;
 
+				// Create the child's SetBoundsCommand
+				SetBoundsCommand childSetBoundsCmd = new SetBoundsCommand(executionSpecificationEP.getEditingDomain(), "Movement of affixed ExecutionSpecification", childExecutionSpecificationEP, childNewBounds);
+				compoundCmd.add(new ICommandProxy(childSetBoundsCmd));
+
+				// change the enclosing interaction of the moved affixed child if necessary
+				compoundCmd.add(SequenceUtil.createUpdateEnclosingInteractionCommand(childExecutionSpecificationEP, moveDelta.getLocation(), moveDelta.getSize()));
+
+				// Move it's children as well
+//				if(!apexGetAffixedExecutionSpecificationEditParts(childExecutionSpecificationEP, childNewBounds).isEmpty()) {
+					Rectangle childMoveDelta = new Rectangle();
+					childMoveDelta.x = childNewBounds.x - childBounds.x;
+					compoundCmd.add(apexCreateMovingAffixedExecutionSpecificationCommand(childExecutionSpecificationEP, childMoveDelta, childNewBounds));
+//				}
+			}
+			
+			LifelineEditPart lifelineEP = (LifelineEditPart)executionSpecificationEP.getParent();
+			Rectangle dotLineBounds = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure().getBounds();
+			int width = newBounds.width > 0 ? newBounds.width : EXECUTION_INIT_WIDTH;
+			
+			Rectangle oldBounds = getRelativeBounds(executionSpecificationEP.getFigure());
+			
+			List<ShapeNodeEditPart> oldAffixedExecutionSpecificationEditParts = apexGetAffixedExecutionSpecificationEditParts(executionSpecificationEP, oldBounds);
+			oldAffixedExecutionSpecificationEditParts.removeAll(newAffixedExecutionSpecificationEditParts);
+			for (ShapeNodeEditPart childExecutionSpecificationEP : oldAffixedExecutionSpecificationEditParts) {
+				// Get Relative Bounds
+				Rectangle oldChildBounds = getRelativeBounds(childExecutionSpecificationEP.getFigure());
+				Rectangle newChildBounds = oldChildBounds.getCopy();
+				
+				if (moveDelta.x != 0) {
+					newChildBounds.x = oldChildBounds.x + moveDelta.x ;
+				}
+				else {
+					newChildBounds.x = dotLineBounds.x + dotLineBounds.width / 2 - width / 2;
+					newChildBounds.x -= dotLineBounds.x;
+				}
+				
+				// Create the child's SetBoundsCommand
+				SetBoundsCommand childSetBoundsCmd = new SetBoundsCommand(executionSpecificationEP.getEditingDomain(), "Movement of affixed ExecutionSpecification", childExecutionSpecificationEP, newChildBounds);
+				compoundCmd.add(new ICommandProxy(childSetBoundsCmd));
+				
+				Rectangle childMoveDelta = getRealMoveDelta(oldChildBounds, newChildBounds);
+				
+				compoundCmd.add(apexCreateMovingAffixedExecutionSpecificationCommand(childExecutionSpecificationEP, childMoveDelta, newChildBounds));
+			}
+			if(!compoundCmd.isEmpty()) {
+				return compoundCmd;
+			}
+//		}
+		return null;
+	}
 
 	/**
 	 * Given an AbstractGraphialEditPart and the new relative bounds that the EditPart will have, it

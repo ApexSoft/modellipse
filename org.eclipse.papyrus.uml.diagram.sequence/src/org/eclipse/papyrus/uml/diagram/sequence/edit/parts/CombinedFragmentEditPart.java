@@ -21,13 +21,12 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences.PreferenceChangeEvent;
 import org.eclipse.core.runtime.preferences.InstanceScope;
-import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -40,7 +39,6 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -64,10 +62,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.BaseSlidableAnchor;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -78,7 +74,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.gmf.runtime.gef.ui.figures.SlidableAnchor;
 import org.eclipse.gmf.runtime.gef.ui.internal.parts.TextCellEditorEx;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.FillStyle;
@@ -99,6 +94,7 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.ShowHideCompartmentEd
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.helper.PreferenceInitializerForElementHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexCombinedFragmentResizableShapeEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentItemComponentEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentItemSemanticEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.SequenceGraphicalNodeEditPolicy;
@@ -110,7 +106,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.InteractionOperatorKindCompatibleMapping;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineCoveredByUpdater;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
@@ -209,6 +204,16 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 			}
 		};
 		return lep;
+	}
+	
+	/**
+	 * apex added
+	 * 
+	 * @Override
+	 */
+	public EditPolicy getPrimaryDragEditPolicy() {		
+		EditPolicy result = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+		return result != null ? result : new ApexCombinedFragmentResizableShapeEditPolicy(PositionConstants.NORTH_SOUTH, PositionConstants.NSEW);		 
 	}
 
 	/**
@@ -1181,6 +1186,8 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Handle for interaction operator, operator kind and covered lifelines
 	 */
 	protected void handleNotificationEvent(Notification notification) {
@@ -1273,6 +1280,52 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 			}
 		}
 		super.handleNotificationEvent(notification);
+		
+		/* apex improved start */
+		//fixed bug (id=364711) when bounds changed update coveredBys with the figure's bounds.		
+		if (notification.getNotifier() instanceof Bounds) {
+			final Bounds newBounds = (Bounds)notification.getNotifier();
+			updateCoveredLifelines(newBounds);
+			
+			/*8
+			System.out
+					.println("CombinedFragmentEditPart.handleNotificationEvent(), line : "
+							+ Thread.currentThread().getStackTrace()[1]
+									.getLineNumber());
+			System.out.println("newBounds          : " + newBounds);
+			Rectangle rect = new Rectangle(newBounds.getX(),
+					                       newBounds.getY(),
+					                       newBounds.getWidth(),
+					                       newBounds.getHeight());
+			System.out.println("rect before abs    : " + rect);
+			figure.translateToAbsolute(rect);
+			System.out.println("rect after abs     : " + rect);
+			figure.translateToRelative(rect);
+			System.out.println("rect after rel     : " + rect);
+			figure.translateToParent(rect);
+			System.out.println("rect after toParent: " + rect);
+			figure.translateFromParent(rect);
+			System.out.println("rect from toParent : " + rect);
+			
+			System.out.println("figure.getBounds() : " + figure.getBounds().getCopy());
+			//*/
+			
+			// 아래 로직은 Lifeline의 경계 변경 시 해당 lifeline의 coveredBy를 수정하는 것으로
+			// LifelineEditPart.handleNotification()에서 호출되어 수행되므로 제외처리
+			// CombinedFragment의 경계 변경에 따른 해당 lifeline의 coveredBy는
+			// CombinedFragment의 covered에 의한 notification에 따라 맞게 수정됨
+			/* apex replaced
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					LifelineCoveredByUpdater updater = new LifelineCoveredByUpdater(); 
+					updater.update(CombinedFragmentEditPart.this);
+				}
+			});
+			//*/
+		}		
+		/* apex improved end */
+		
+		/* apex replaced
 		//fixed bug (id=364711) when bounds changed update coveredBys with the figure's bounds.
 		if (notification.getNotifier() instanceof Bounds) {
 			if (notification.getNotifier() instanceof Bounds) {
@@ -1284,6 +1337,7 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 				});
 			}
 		}
+		*/
 		
 		if((getModel() != null) && (getModel() == notification.getNotifier())) {
 			if(NotationPackage.eINSTANCE.getLineStyle_LineWidth().equals(feature)) {

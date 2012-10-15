@@ -180,15 +180,30 @@ public class PreserveAnchorsPositionCommand extends AbstractTransactionalCommand
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Return the bounds of the ShapeNodeEditPart's figure
 	 * 
 	 * @return The bounds
 	 */
 	public Rectangle getFigureBounds() {
+		/* apex improved start */
+		Rectangle rect = null;
+		if (figure != null) {
+			rect = figure.getBounds().getCopy();
+		}
+		else {
+			rect = getShapeEP().getFigure().getBounds().getCopy();
+		}
+		figure.translateToAbsolute(rect);
+		return rect;
+		/* apex improved end */
+		/* apex replaced
 		if(figure != null) {
 			return figure.getBounds();
 		}
 		return getShapeEP().getFigure().getBounds();
+		*/
 	}
 
 	/**
@@ -218,6 +233,12 @@ public class PreserveAnchorsPositionCommand extends AbstractTransactionalCommand
 	public Dimension getSizeDelta() {
 		return sizeDelta;
 	}
+	
+	/* apex added start*/
+	public int getResizeDirection() {
+		return resizeDirection;
+	}
+	/* apex added end */
 
 	/**
 	 * Execution of the command

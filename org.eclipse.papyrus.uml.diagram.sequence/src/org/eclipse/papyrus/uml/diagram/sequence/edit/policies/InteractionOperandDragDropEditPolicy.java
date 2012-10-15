@@ -36,10 +36,28 @@ public class InteractionOperandDragDropEditPolicy extends ResizableEditPolicy {
 	}
 
 	/**
+	 * apex updated
+	 * 최상단 Op의 상변에서의 처리도 OperandBoundsComputeHelper에서 모두 처리하도록 변경
+	 * 
 	 * Handle resize InteractionOperand {@inheritDoc}
 	 */
 	@Override
 	protected Command getResizeCommand(ChangeBoundsRequest request) {
+		/* apex improved start */
+		if (this.getHost() instanceof InteractionOperandEditPart
+				&& this.getHost().getParent() instanceof CombinedFragmentCombinedFragmentCompartmentEditPart) {
+			int heightDelta = request.getSizeDelta().height();
+			int widthDelta = request.getSizeDelta().width();
+			int direction = request.getResizeDirection();			
+			
+			InteractionOperandEditPart currentIOEP = (InteractionOperandEditPart)this.getHost();
+			CombinedFragmentCombinedFragmentCompartmentEditPart compartEP = (CombinedFragmentCombinedFragmentCompartmentEditPart)this.getHost().getParent();
+			
+			return OperandBoundsComputeHelper.createIOEPResizeCommand(request, currentIOEP);
+		}
+		return null;
+		/* apex improved end */
+		/* apex replaced
 		if ((request.getResizeDirection() & PositionConstants.EAST_WEST) != 0) {
 			EditPart parent = getHost().getParent().getParent();
 			return parent.getCommand(request);
@@ -66,6 +84,7 @@ public class InteractionOperandDragDropEditPolicy extends ResizableEditPolicy {
 			}
 			return null;
 		}
+		*/
 	}
 
 }

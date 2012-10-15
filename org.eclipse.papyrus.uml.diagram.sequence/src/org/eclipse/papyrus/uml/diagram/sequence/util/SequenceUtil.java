@@ -171,21 +171,57 @@ public class SequenceUtil {
 	private static final String BLOCK_SORT_MODIFICATION_MSG = "It's impossible to change the message sort."; //$NON-NLS-1$
 
 	/**
+	 * apex added
+	 * 
+	 * @param location
+	 * @param hostEditPart
+	 * @return
+	 */
+	public static InteractionFragment findInteractionFragmentContainerAt(Point location, EditPart hostEditPart) {
+		return findInteractionFragmentContainerAt(location, hostEditPart, true);
+	}
+	
+	/**
+	 * apex updated
+	 * 
 	 * Find the container interaction fragment at the given location.
 	 * The elements are drawn under the lifeline, but their model container is an interaction.
 	 * It can be of type Interaction or InteractionOperand.
 	 * 
 	 * @param location
 	 *        the location
+	 * @param hostEditPart
+	 * @param isIncluding
+	 *        true일 경우 hostEditPart가 IOEP가 하나인 CombinedFragmentEditPart일 경우 그 CFEP의 container로 그 CFEP의 자식인 IO를 반환한다
+	 *        false일 경우 CF의 자식인 IO는 반환하지 않음
 	 * @return the interaction or null
 	 */
-	public static InteractionFragment findInteractionFragmentContainerAt(Point location, EditPart hostEditPart) {
+	public static InteractionFragment findInteractionFragmentContainerAt(Point location, EditPart hostEditPart, boolean isIncludingCFItself) {
 		Rectangle bounds = new Rectangle();
 		bounds.setLocation(location);
+		/* apex improved start */
+		return findInteractionFragmentContainerAt(bounds, hostEditPart, isIncludingCFItself);
+		/* apex improved end */
+		/* apex replaced
 		return findInteractionFragmentContainerAt(bounds, hostEditPart);
+		*/
+	}
+	
+	/**
+	 * apex added
+	 * 
+	 * @param bounds
+	 * @param hostEditPart
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static InteractionFragment findInteractionFragmentContainerAt(Rectangle bounds, EditPart hostEditPart) {
+		return findInteractionFragmentContainerAt(bounds, hostEditPart, true);
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Find the container interaction fragment for the given bounds.
 	 * The elements are drawn under the lifeline, but their model container is an interaction.
 	 * It can be of type Interaction or InteractionOperand.
@@ -194,14 +230,23 @@ public class SequenceUtil {
 	 *        the bounds
 	 * @param hostEditPart
 	 *        any adit part in the corresponding diagram
+     * @param isIncludingCFItself
+	 *        true일 경우 hostEditPart가 IOEP가 하나인 CombinedFragmentEditPart일 경우 그 CFEP의 container로 그 CFEP의 자식인 IO를 반환한다
+	 *        false일 경우 CF의 자식인 IO는 반환하지 않음
 	 * @return the interaction or null
 	 */
 	@SuppressWarnings("unchecked")
-	public static InteractionFragment findInteractionFragmentContainerAt(Rectangle bounds, EditPart hostEditPart) {
+	public static InteractionFragment findInteractionFragmentContainerAt(Rectangle bounds, EditPart hostEditPart, boolean isIncludingCFItself) {
 
 		if(hostEditPart == null) {
 			return null;
 		}
+		/* apex added start */
+		// 지워진 EditPart의 경우 getViewer()가 null을 반환하여 NullPointException 발생시킴
+		if ( hostEditPart.getViewer() == null ) {
+			return null;
+		}
+		/* apex added end */
 
 		InteractionFragment container = null;
 		Set<InteractionFragment> coveredInteractions = new HashSet<InteractionFragment>();
@@ -237,7 +282,14 @@ public class SequenceUtil {
 			List<InteractionOperand> operands = cf.getOperands();
 			if(operands.size() > 0 && Collections.disjoint(operands, coveredInteractions)) {
 				// bounds are in the header, add the first operand
+				/* apex improved started */
+				if ( isIncludingCFItself ) {
+					coveredInteractions.add(operands.get(0));
+				}
+				/* apex improved end */
+				/* apex replaced
 				coveredInteractions.add(operands.get(0));
+				*/
 			}
 		}
 
