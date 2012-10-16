@@ -17,7 +17,6 @@ import org.eclipse.draw2d.ArrowLocator;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionLocator;
-import org.eclipse.draw2d.Cursors;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -33,11 +32,12 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.AppliedStereotypeLinkLabelDisplayEditPolicy;
 import org.eclipse.papyrus.uml.diagram.common.figure.edge.UMLEdgeFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexConnectionMoveEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexMessageConnectionLineSegEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CreationOnMessageEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineChildGraphicalNodeEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.Message6ItemSemanticEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageConnectionEditPolicy;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageConnectionLineSegEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.EllipseDecoration;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
@@ -66,13 +66,20 @@ implements ITreeBranchEditPart {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Installs a specific message router on the edit part.
 	 * 
 	 * @generated NOT
 	 */
 	protected void installRouter() {
 		getConnectionFigure().setConnectionRouter(LifelineChildGraphicalNodeEditPolicy.messageRouter);
+		/* apex improved start */
+		getConnectionFigure().setCursor(org.eclipse.gmf.runtime.gef.ui.internal.l10n.Cursors.CURSOR_SEG_MOVE);
+		/* apex improved end */
+		/* apex replaced
 		getConnectionFigure().setCursor(Cursors.ARROW);
+		*/
 		refreshBendpoints();
 	}
 
@@ -91,7 +98,13 @@ implements ITreeBranchEditPart {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationOnMessageEditPolicy());
 		installEditPolicy(EditPolicy.CONNECTION_ROLE, new MessageConnectionEditPolicy());
 		installEditPolicy(AppliedStereotypeLinkLabelDisplayEditPolicy.STEREOTYPE_LABEL_POLICY, new AppliedStereotypeLinkLabelDisplayEditPolicy());
+		/* apex improved start */
+		installEditPolicy(ApexConnectionMoveEditPolicy.CONNECTION_MOVE_ROLE, new ApexConnectionMoveEditPolicy());
+		installEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE, new ApexMessageConnectionLineSegEditPolicy());
+		/* apex improved end */
+		/* apex replaced
 		installEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE, new MessageConnectionLineSegEditPolicy());
+		*/
 	}
 
 	/**
@@ -161,10 +174,13 @@ implements ITreeBranchEditPart {
 	public MessageLost getPrimaryShape() {
 		return (MessageLost)getFigure();
 	}
-		/**
+	
+	/**
+	 * apex updated. implements MessageFigure
+	 * 
 	 * @generated NOT inherits from UMLEdgeFigure to manage stereotype label
 	 */
-	public class MessageLost extends UMLEdgeFigure {
+	public class MessageLost extends UMLEdgeFigure implements MessageFigure {
 
 		/**
 		 * @generated

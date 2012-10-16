@@ -40,7 +40,6 @@ import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
@@ -56,8 +55,6 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
-import org.eclipse.gmf.runtime.common.core.util.Log;
-import org.eclipse.gmf.runtime.common.core.util.Trace;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
@@ -67,9 +64,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIDebugOptions;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIPlugin;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIStatusCodes;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
@@ -83,9 +77,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.SlidableAnchor;
-import org.eclipse.gmf.runtime.notation.Anchor;
 import org.eclipse.gmf.runtime.notation.Bounds;
-import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.IdentityAnchor;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
@@ -104,6 +96,7 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEd
 import org.eclipse.papyrus.uml.diagram.common.figure.node.RectangularShadowBorder;
 import org.eclipse.papyrus.uml.diagram.common.providers.UIAdapterImpl;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexLifelineConnectionHandleEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CustomDiagramDragDropEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ElementCreationWithMessageEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineAppliedStereotypeNodeLabelDisplayEditPolicy;
@@ -113,6 +106,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineLabelEditP
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineSelectionEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineXYLayoutEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.RemoveOrphanViewPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.figures.ApexCustomLifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.locator.CenterLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionLocator;
@@ -192,6 +186,8 @@ public class LifelineEditPart extends NamedElementEditPart {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,6 +231,11 @@ public class LifelineEditPart extends NamedElementEditPart {
 		installEditPolicy(EditPolicy.COMPONENT_ROLE, new LifelineMessageCreateHelper.ComponentEditPolicyEx());
 		// custom label, fix bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=383722
 		installEditPolicy(IMaskManagedLabelEditPolicy.MASK_MANAGED_LABEL_EDIT_POLICY, new LifelineLabelEditPolicy());
+		
+		/* apex added start */
+		// jiho - ConnectionHandle을 DashLine에 위치시키는 EditPolicy
+		installEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE, new ApexLifelineConnectionHandleEditPolicy());
+		/* apex added end*/
 	}
 
 	/**
@@ -1384,6 +1385,8 @@ public class LifelineEditPart extends NamedElementEditPart {
 		}
 
 		/**
+		 * apex updated
+		 * 
 		 * Create the composite structure.
 		 * 
 		 * @see org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure#createCompositeFigureStructure()
@@ -1393,7 +1396,12 @@ public class LifelineEditPart extends NamedElementEditPart {
 			BorderLayout layoutThis = new BorderLayout();
 			this.setLayoutManager(layoutThis);
 			this.setOpaque(false);
+			/* apex improved start */
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100), getMapMode().DPtoLP(800)));
+			/* apex improved end */
+			/* apex replaced
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100), getMapMode().DPtoLP(200)));
+			*/
 			createContents();
 		}
 
@@ -1461,6 +1469,8 @@ public class LifelineEditPart extends NamedElementEditPart {
 		}
 
 		/**
+		 * apex updated
+		 * 
 		 * @generated NOT remove label creation, change layout
 		 */
 		private void createContents() {
@@ -1507,7 +1517,12 @@ public class LifelineEditPart extends NamedElementEditPart {
 			this.add(fFigureExecutionsContainerFigure, BorderLayout.CENTER);
 			fFigureExecutionsContainerFigure.setLayoutManager(new StackLayout());
 
+			/* apex improved start */
+			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
+			/* apex improved end */
+			/* apex replaced
 			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
+			 */
 
 			fFigureExecutionsContainerFigure.add(fFigureLifelineDotLineFigure);
 
@@ -1541,6 +1556,9 @@ public class LifelineEditPart extends NamedElementEditPart {
 			return fFigureLifelineDotLineFigure;
 		}
 		
+		/**
+		 * apex updated
+		 */
 		public boolean containsPoint(int x, int y) {
 			boolean contains = super.containsPoint(x, y);
 			if (!contains) {
@@ -1552,7 +1570,12 @@ public class LifelineEditPart extends NamedElementEditPart {
 			} else if (fFigureLifelineDotLineFigure != null) {
 				Rectangle bounds = fFigureLifelineDotLineFigure
 						.getDashLineRectangle().getBounds().getCopy();
+				/* apex improved start */
+				bounds.expand(10, 0);
+				/* apex improved end */
+				/* apex replaced
 				bounds.expand(4, 0);
+				 */
 				if (bounds.contains(x, y))
 					return true;
 			}

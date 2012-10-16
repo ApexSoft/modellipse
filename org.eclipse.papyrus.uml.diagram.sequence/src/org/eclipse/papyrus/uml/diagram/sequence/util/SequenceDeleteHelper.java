@@ -23,6 +23,7 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
@@ -31,10 +32,12 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
@@ -43,6 +46,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.infra.services.edit.service.ElementEditServiceUtils;
 import org.eclipse.papyrus.infra.services.edit.service.IElementEditService;
 import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ObservationLinkEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.TimeObservationLabelEditPart;
@@ -252,6 +256,8 @@ public class SequenceDeleteHelper {
 	}
 	
 	/**
+	 * apex updated
+	 * 
 	 * Add complete delete message command
 	 * @param req
 	 * @param editPart
@@ -286,6 +292,17 @@ public class SequenceDeleteHelper {
 						receiveEvent,true);
 				addDeleteMessageRelatedTimeObservationLinkCommand(req.getEditingDomain(), editPart, command,
 						sendEvent,true);
+				
+				/* apex added start */
+				// connection의 Target EditPart(ExecutionSpecification)도 함께 삭제
+				if (editPart instanceof ConnectionEditPart) {
+					EditPart target = ((ConnectionEditPart)editPart).getTarget();
+					if (target instanceof AbstractExecutionSpecificationEditPart) {
+						Command tgtDeleteCommand = target.getCommand(new EditCommandRequestWrapper(new DestroyElementRequest(false)));
+						command.add(new CommandProxy(tgtDeleteCommand));
+					}
+				}
+				/* apex added end */
 
 				return new ICommandProxy(command);
 			}

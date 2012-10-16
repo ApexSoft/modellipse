@@ -5,8 +5,8 @@
  * Eclipse Public License v1.0 which accompanies this distribution, and is
  * available at http://www.eclipse.org/legal/epl-v10.html
  * 
- * Contributors: Gabriel Merin Cubero (Prodevelop) – Sequence Diagram Implementation
- * Thibault Landré (Atos Origin) - Add crossAtEnd and dashLine figure
+ * Contributors: Gabriel Merin Cubero (Prodevelop) ��Sequence Diagram Implementation
+ * Thibault Landr챕 (Atos Origin) - Add crossAtEnd and dashLine figure
  *
  ******************************************************************************/
 package org.eclipse.papyrus.uml.diagram.common.draw2d;
@@ -38,17 +38,32 @@ public class LifelineDotLineFigure extends Shape {
 	// Methods
 
 	/**
+	 * apex updated
+	 * 
 	 * Instantiates a new lifeline dot line figure.
 	 */
 	public LifelineDotLineFigure() {
 		super();
 
+		/* apex improved start */
+		dashLineRectangle = apexCreateDashLineRectangle();
+		/* apex improved end */
+		/* apex replaced
 		// Init dashLineRectangle
-		dashLineRectangle = new NodeFigure();
+		dashLineRectangle = new Nodefigure();
+		 */
 		dashLineRectangle.setParent(this);
 
 	}
 
+	/**
+	 * Create Dash Line Figure
+	 * @return
+	 */
+	protected NodeFigure apexCreateDashLineRectangle() {
+		return new NodeFigure();
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 

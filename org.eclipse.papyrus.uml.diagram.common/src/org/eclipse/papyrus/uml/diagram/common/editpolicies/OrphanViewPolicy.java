@@ -414,7 +414,12 @@ public class OrphanViewPolicy extends AbstractEditPolicy implements Notification
 					// contributing to the delete action
 					// if add, checks it does not need to be watched
 					if(Notification.REMOVE == notification.getEventType()) {
+						/* apex improved start */
+						if(notification.getOldValue() instanceof View) {
+						/* apex improved end */
+						/* apex replaced
 						if(notification.getNewValue() instanceof View) {
+						 */
 							View oldView = (View)notification.getOldValue();
 							removeListenerForView(oldView);
 						}

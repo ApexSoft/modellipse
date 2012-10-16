@@ -7,7 +7,6 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Locator;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RelativeLocator;
-import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.TreeSearch;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -22,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.FillStyle;
@@ -32,9 +30,13 @@ import org.eclipse.gmf.runtime.notation.datatype.GradientData;
 import org.eclipse.papyrus.infra.emf.appearance.helper.ShadowFigureHelper;
 import org.eclipse.papyrus.infra.gmfdiag.common.figure.node.IPapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.figures.ApexCustomDefaultSizeNodeFigure;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 
+/**
+ * apex updated
+ */
 public abstract class AbstractExecutionSpecificationEditPart extends
 		ShapeNodeEditPart {
 	private List executionSpecificationEndParts;
@@ -43,6 +45,24 @@ public abstract class AbstractExecutionSpecificationEditPart extends
 		super(view);
 	}
 
+	/* apex added start */
+	public View apexFindChildByModel(EObject model) {
+		List list = getModelChildren();
+		if(list != null && list.size() > 0) {
+			for(Object o : list) {
+				if(!(o instanceof View) )
+					continue;
+				
+				View view = (View) o;
+				if(view.getElement() == model){
+					return view;
+				}
+			}
+		}
+		return null;
+	}
+	/* apex added end */
+	
 	@Override
 	public List getChildren() {
 		if (executionSpecificationEndParts == null) {
@@ -83,13 +103,20 @@ public abstract class AbstractExecutionSpecificationEditPart extends
 	}
 	
 	/**
+	 * apex updated
+	 * 
 	 * Overrides to disable the defaultAnchorArea. The edge is now more stuck with the middle of the
 	 * figure.
 	 * 
 	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
+		/* apex improved start */
+		ApexCustomDefaultSizeNodeFigure result = new ApexCustomDefaultSizeNodeFigure(16, 50) {
+		/* apex improved end */
+		/* apex replaced
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(16, 60) {
+		 */
 			/**
 			 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#isDefaultAnchorArea(org.eclipse.draw2d.geometry.PrecisionPoint)
 			 */
@@ -218,8 +245,16 @@ public abstract class AbstractExecutionSpecificationEditPart extends
 	
 	public class ExecutionSpecificationRectangleFigure extends PapyrusNodeFigure{ //RectangleFigure {
 
+		/**
+		 * apex updated
+		 */
 		public ExecutionSpecificationRectangleFigure() {
+			/* apex improved start */
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(16), getMapMode().DPtoLP(50)));
+			/* apex improved end */
+			/* apex replaced
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(16), getMapMode().DPtoLP(60)));
+			*/
 			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(16), getMapMode().DPtoLP(20)));
 		}
 

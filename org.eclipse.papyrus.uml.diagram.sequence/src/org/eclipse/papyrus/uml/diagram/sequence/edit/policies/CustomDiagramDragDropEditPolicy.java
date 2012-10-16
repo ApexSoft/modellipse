@@ -46,6 +46,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescrip
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
 import org.eclipse.gmf.runtime.diagram.ui.requests.DropObjectsRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -54,6 +55,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.commands.wrappers.CommandProxyWithResult;
+import org.eclipse.papyrus.infra.services.edit.service.ElementEditServiceUtils;
+import org.eclipse.papyrus.infra.services.edit.service.IElementEditService;
 import org.eclipse.papyrus.uml.diagram.common.commands.DeferredCreateCommand;
 import org.eclipse.papyrus.uml.diagram.common.commands.SemanticAdapter;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.CommonDiagramDragDropEditPolicy;
@@ -96,11 +99,13 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.TimeObservationEditPa
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
+import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceLinkMappingHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.uml2.uml.Collaboration;
 import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.DestructionOccurrenceSpecification;
@@ -121,6 +126,7 @@ import org.eclipse.uml2.uml.OccurrenceSpecification;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.StateInvariant;
 import org.eclipse.uml2.uml.TimeObservation;
+import org.eclipse.uml2.uml.Type;
 
 /**
  * A policy to support dNd from the Model Explorer in the sequence diagram
@@ -196,7 +202,9 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		return elementsVisualId;
 	}
 
-	
+	/**
+	 * apex updated
+	 */
 	@Override
 	protected IUndoableOperation getDropObjectCommand(
 			DropObjectsRequest dropRequest, final EObject
@@ -211,6 +219,11 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 			return doDropConnectableElement(dropRequest,
 					(ConnectableElement) droppedObject);
 		}
+		/* apex added start */
+		if (droppedObject instanceof Type) {
+			return apexDoDropType(dropRequest, (Type) droppedObject);
+		}
+		/* apex added end */
 	 
 		return dropObjectCommand;
 	}
@@ -240,6 +253,58 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		return org.eclipse.gmf.runtime.common.core.command.UnexecutableCommand.INSTANCE;
 	}
 		
+	/**
+	 * uml2.uml.Type 모델을 drop한 경우
+	 * @param dropRequest
+	 * @param droppedObject
+	 * @return
+	 */
+	private IUndoableOperation apexDoDropType(DropObjectsRequest dropRequest, final Type droppedObject) {
+		Point location = dropRequest.getLocation();
+		CreateViewRequest createShapeRequest = CreateViewRequestFactory
+				.getCreateShapeRequest(UMLElementTypes.Lifeline_3001,
+				UMLDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+		createShapeRequest.setLocation(location);
+		
+		ViewDescriptor viewDescriptor = createShapeRequest.getViewDescriptors().get(0);
+		CreateElementRequestAdapter elementAdapter = (CreateElementRequestAdapter)viewDescriptor.getElementAdapter();
+		CreateElementRequest createElementRequest = (CreateElementRequest)elementAdapter.getAdapter(CreateElementRequest.class);
+		
+		EObject container = getHostObject();
+		while (container != null && container instanceof Collaboration == false) {
+			container = container.eContainer();
+		}
+		if (container == null) {
+			container = getHostObject();
+		}
+		
+		ICommand createPropertyCmd = apexGetCreatePropertyCommand(container);
+		if (createPropertyCmd != null) {
+			createElementRequest.setParameter(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_CREATE_COMMAND, createPropertyCmd);
+			createElementRequest.setParameter(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_TYPE, droppedObject);
+		}
+		
+		EditPart host = getHost();
+		Command theRealCmd = ((IGraphicalEditPart) host)
+				.getCommand(createShapeRequest);
+
+		if (theRealCmd != null && theRealCmd.canExecute()) {
+			return new CommandProxy(theRealCmd);
+		}
+		
+		return org.eclipse.gmf.runtime.common.core.command.UnexecutableCommand.INSTANCE;
+	}
+
+	private ICommand apexGetCreatePropertyCommand(EObject container) {
+		IElementType type = ElementTypeRegistry.getInstance().getType("org.eclipse.papyrus.uml.Property"); //$NON-NLS-1$
+		
+		IElementEditService provider = ElementEditServiceUtils.getCommandProvider(container);
+		CreateElementRequest createRequest = new CreateElementRequest(container, type);
+		
+		ICommand createCommand = provider.getEditCommand(createRequest);
+		return createCommand;
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */

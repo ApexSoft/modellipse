@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.ElementInitializers;
+import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.uml2.uml.ConnectableElement;
@@ -37,6 +38,7 @@ import org.eclipse.uml2.uml.InteractionOperand;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.PartDecomposition;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
 
 /**
@@ -158,6 +160,8 @@ public class LifelineCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * @generated NOT
 	 */
 	protected void doConfigure(Lifeline newElement, IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -171,6 +175,25 @@ public class LifelineCreateCommand extends EditElementCommand {
 		if(object instanceof ConnectableElement){
 			newElement.setRepresents((ConnectableElement) object);
 		}
+		
+		/* apex added start */
+		Object cmd = getRequest().getParameters().get(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_CREATE_COMMAND);
+		Object type = getRequest().getParameters().get(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_TYPE);
+		if (cmd instanceof ICommand && ((ICommand) cmd).canExecute()) {
+			ICommand iCmd = (ICommand)cmd;
+			((ICommand) cmd).execute(monitor, info);
+			CommandResult result = iCmd.getCommandResult();
+			if (result != null && result.getReturnValue() != null) {
+				Object returnValue = result.getReturnValue();
+				if (returnValue instanceof ConnectableElement) {
+					if (type instanceof Type) {
+						((ConnectableElement)returnValue).setType((Type)type);
+					}
+					newElement.setRepresents((ConnectableElement)returnValue);
+				}
+			}
+		}
+		/* apex added end */
 		
 		ICommand configureCommand = elementType.getEditCommand(configureRequest);
 		if(configureCommand != null && configureCommand.canExecute()) {

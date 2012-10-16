@@ -91,8 +91,19 @@ public class ExecutionSpecificationEndEditPart extends GraphicalEditPart
 		addToResource(parent.getNotationView(), this.getNotationView());
 	}
 	
+	/**
+	 * apex updated
+	 */
 	private static EObject createDummyView(ShapeNodeEditPart parent,
 			EObject model) {
+		/* apex added start */
+		if (parent instanceof AbstractExecutionSpecificationEditPart) {
+			View view = ((AbstractExecutionSpecificationEditPart)parent).apexFindChildByModel(model);
+			if(view != null)
+				return view;
+		}
+		/* apex added end */
+		
 		final Shape node = new ShapeImpl() {
 			public boolean eNotificationRequired() {
 				return true;  

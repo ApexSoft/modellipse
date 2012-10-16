@@ -32,8 +32,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.internal.routers.ObliqueRouter;
 import org.eclipse.gmf.runtime.draw2d.ui.internal.routers.OrthogonalRouterUtilities;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractMessageEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart.LifelineFigure;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.Message2EditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.Message4EditPart.MessageCreate;
 
 /**
@@ -62,9 +62,16 @@ public class MessageRouter extends ObliqueRouter {
 		}
 
 		private static boolean isHorizontalConnection(Connection conn, PointList newLine) {
+			/* apex improved start */
+			if (!(conn instanceof AbstractMessageEditPart.MessageFigure)) {
+				return false;
+			}
+			/* apex improved end */
+			/* apex replaced
 			if(!(conn instanceof Message2EditPart.MessageAsync)) {
 				return false;
 			}
+			*/
 			Point sourcePoint = newLine.getFirstPoint();
 			Point targetPoint = newLine.getLastPoint();
 			return Math.abs(sourcePoint.y - targetPoint.y) <= MAX_DELTA;

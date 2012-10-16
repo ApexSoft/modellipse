@@ -93,6 +93,29 @@ public interface ApexSequenceRequestConstants {
 	 */
 	public static final String APEX_KEY_IS_RESIZE_BY_MESSAGE_MOVE = "Resize IO by message Move or activation Resize"; //$NON-NLS-1$
 
+	/**
+	 * connectable element create command
+	 */
+	public static final String APEX_CONNECTABLE_ELEMENT_CREATE_COMMAND = "Connectable Element Create Command"; //$NON-NLS-1$
 
+	/**
+	 * update connectable element's type reference
+	 */
+	public static final String APEX_CONNECTABLE_ELEMENT_TYPE = "Connectable Element Type"; //$NON-NLS-1$
+
+	/**
+	 * Execution의 bounds가 변경될 때 anchor가 변경/변경되지 않는 기준점
+	 */
+	public static final String APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS = "Preserve Anchor Relative bounds"; //$NON-NLS-1$
+
+	/**
+	 * SHIFT 키가 눌렸는지 여부
+	 */
+	public static final String APEX_MODIFIER_CONSTRAINED_MOVE = "modifier for constrained move"; //$NON-NLS-1$
+	
+	/**
+	 * CTRL 키가 눌렸는지 여부
+	 */
+	public static final String APEX_MODIFIER_REORDERING = "modifier for sequence of messages"; //$NON-NLS-1$
 
 }

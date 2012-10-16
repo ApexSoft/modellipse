@@ -64,6 +64,9 @@ public class PromptCreateElementAndNodeCommand extends
 		command.add(createCommand);
 	}
 
+	/**
+	 * apex updated
+	 */
 	protected CommandResult doExecuteWithResult(
 			IProgressMonitor progressMonitor, IAdaptable info)
 			throws ExecutionException {
@@ -85,6 +88,12 @@ public class PromptCreateElementAndNodeCommand extends
 				container);
 		command.add(new ICommandProxy(createExecutionSpecificationCommand));
 
+		/* apex added start */
+		ApexCreateAndMoveInteractionFragmentsCommand mifCmd = new ApexCreateAndMoveInteractionFragmentsCommand(
+				editingDomain, createExecutionSpecificationCommand, descriptor, sourceEP.getViewer(), container, location.getCopy().translate(0, 1));
+		command.add(new ICommandProxy(mifCmd));
+		/* apex added end */
+		
 		// put the anchor at the top of the figure
 		ChangeEdgeTargetCommand changeTargetCommand = new ChangeEdgeTargetCommand(
 				editingDomain, createExecutionSpecificationCommand, descriptor,

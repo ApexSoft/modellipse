@@ -14,11 +14,14 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.editpolicies.ConnectionEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceDeleteHelper;
 
@@ -37,6 +40,8 @@ public class MessageConnectionEditPolicy extends ConnectionEditPolicy {
 	}
 	
 	/**
+	 * apex updated
+	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -47,6 +52,14 @@ public class MessageConnectionEditPolicy extends ConnectionEditPolicy {
 		if(getHost() instanceof ConnectionNodeEditPart) {
 			TransactionalEditingDomain editingDomain = ((ConnectionNodeEditPart)getHost()).getEditingDomain();
 			SequenceDeleteHelper.completeDeleteMessageViewCommand(deleteViewsCommand, editingDomain, getHost());
+			
+			/* apex added start */
+			EditPart target = ((ConnectionNodeEditPart)getHost()).getTarget();
+			if (target instanceof AbstractExecutionSpecificationEditPart) {
+				Command deleteTargetViewCommand = target.getCommand(new GroupRequest(RequestConstants.REQ_DELETE));
+				deleteViewsCommand.add(deleteTargetViewCommand);
+			}
+			/* apex added end */
 		}
 		
 		return LifelineMessageCreateHelper.restoreLifelineOnMessageDelete(deleteViewsCommand, getHost());

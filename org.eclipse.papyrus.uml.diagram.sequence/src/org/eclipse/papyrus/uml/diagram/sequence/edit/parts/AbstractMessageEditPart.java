@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.ConnectionEditPart;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.ReconnectRequest;
@@ -17,9 +18,16 @@ import org.eclipse.papyrus.infra.gmfdiag.common.editpolicies.IMaskManagedLabelEd
 import org.eclipse.papyrus.uml.diagram.common.figure.edge.UMLEdgeFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageLabelEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
+import org.eclipse.papyrus.uml.diagram.sequence.tools.ApexSelectConnectionEditPartTracker;
 import org.eclipse.uml2.uml.Message;
 
 public abstract class AbstractMessageEditPart extends ConnectionNodeEditPart {
+	
+	/* apex added start */
+	// Jiho: MessageSync~MessageFound의 공용 인터페이스
+	public interface MessageFigure {
+	}
+	/* apex added end */
 	
 	private List messageEventParts;
 	
@@ -98,4 +106,18 @@ public abstract class AbstractMessageEditPart extends ConnectionNodeEditPart {
 		}
 		return super.getTargetEditPart(request);
 	}
+	
+	/**
+	 * apex updated
+	 */
+	@Override
+	public DragTracker getDragTracker(Request req) {
+		/* apex improved start */
+		return new ApexSelectConnectionEditPartTracker(this);
+		/* apex improved end */
+		/* apex replaced
+		return super.getDragTracker(req);
+		//*/
+	}
+	
 }
