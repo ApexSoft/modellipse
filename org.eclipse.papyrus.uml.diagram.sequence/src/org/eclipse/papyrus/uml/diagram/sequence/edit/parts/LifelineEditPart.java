@@ -39,7 +39,10 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
@@ -57,6 +60,7 @@ import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -112,6 +116,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.locator.CenterLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
+import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineCoveredByUpdater;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
@@ -119,7 +124,10 @@ import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.NotificationHelper;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.ConnectableElement;
+import org.eclipse.uml2.uml.InteractionFragment;
+import org.eclipse.uml2.uml.InteractionOperand;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.Property;
@@ -1734,15 +1742,171 @@ public class LifelineEditPart extends NamedElementEditPart {
 		// fixed bug (id=364711) when bounds changed update coveredBys with the
 		// figure's bounds.
 		if (notification.getNotifier() instanceof Bounds) {
+
+			/* apex improved start */
+			Bounds afterBounds = (Bounds)notification.getNotifier();
+			
+			// afterBounds 는 테스트해 본 결과 상대좌표임			
+			final Rectangle afterRect = new Rectangle(afterBounds.getX(), afterBounds.getY(), afterBounds.getWidth(), afterBounds.getHeight());
+			
+			updateCoveringInteractionFragments(afterRect);
+			/* apex improved start */
+			
+			// 아래를 실행할 경우 해당 Lifeline 외의 모든 Lifeline에 대해 불필요하게 동작하므로 주석처리
+			/* apex replaced
 			Display.getDefault().asyncExec(new Runnable() {
+				
 				public void run() {
 					LifelineCoveredByUpdater updater = new LifelineCoveredByUpdater(); 
-					updater.update(LifelineEditPart.this);
+					updater.update(LifelineEditPart.this, afterRect);
 				}
 			});
+			*/
+ 		}
+	}
+	
+	/**
+	 * apex updated
+	 * 
+	 * @param this
+	 * @param centralLineRect 중간 dashline의 절대좌표
+	 * @param afterRect 옮겨진 후 좌표
+	 */
+	public void updateCoveringInteractionFragments(Rectangle afterRect) {
+		
+		TransactionalEditingDomain editingDomain = getEditingDomain();
+		
+		Rectangle lifelineRect = ApexSequenceUtil.apexGetAbsoluteRectangle(this);
+		Rectangle centralLineRect = new Rectangle(lifelineRect.x() +  lifelineRect.width() / 2, lifelineRect.y(), 
+				                                  1,  lifelineRect.height());
+		
+		Lifeline lifeline = (Lifeline) this.resolveSemanticElement();
+		EList<InteractionFragment> coveringInteractionFragments = lifeline.getCoveredBys();
+		
+		List<InteractionFragment> coveringInteractionFragmentsToAdd = new ArrayList<InteractionFragment>();
+		List<InteractionFragment> coveringInteractionFragmentsToRemove = new ArrayList<InteractionFragment>();
+
+		Rectangle beforeRect = this.getFigure().getBounds().getCopy();
+				
+		this.getFigure().translateToAbsolute(beforeRect);
+		this.getFigure().translateToAbsolute(afterRect);
+		
+		List<CombinedFragment> coveringCombinedFragmentsToAdd = new ArrayList<CombinedFragment>();
+		List<CombinedFragment> coveringCombinedFragmentsToRemove = new ArrayList<CombinedFragment>();
+		
+		/* apex improved start */			
+		List<CombinedFragmentEditPart> cfEditPartsToCheck = new ArrayList<CombinedFragmentEditPart>();
+		if (beforeRect.width == 0 && beforeRect.height == 0) { // 새 Lifeline 생성하는 경우 Interaction 내 모든 CF을 check			
+			cfEditPartsToCheck = ApexSequenceUtil.apexGetAllCombinedFragmentEditParts(this);			
+		} else { // 새로 생성이 아닌 lifeline 경계 변경인 경우
+			
+			if (afterRect.x != beforeRect.x ) { // 좌우측으로 이동 시 lifeline의 이동 전후 위치를 포함하던 CF을 check
+
+				List<CombinedFragmentEditPart> cfEnclosingBeforeRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(beforeRect, this);
+				List<CombinedFragmentEditPart> cfEnclosingAfterRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(afterRect, this);
+
+				// 중복 제거
+				cfEnclosingBeforeRect.removeAll(cfEnclosingAfterRect);
+				
+				cfEditPartsToCheck.addAll(cfEnclosingBeforeRect);
+				cfEditPartsToCheck.addAll(cfEnclosingAfterRect);
+			} else { // 확대/축소가 아닌 경우, 즉 상하이동의 경우
+				cfEditPartsToCheck = null;
+			}
+		}
+		
+		// 상하이동의 경우 covereds가 바뀔 일이 없으므로
+		// 상하이동이 아닌 경우만 updateCoveringCombinedFragment 호출
+		if ( cfEditPartsToCheck != null ) { 
+			for(CombinedFragmentEditPart cfEditPartToCheck : cfEditPartsToCheck) {
+				updateCoveringCombinedFragment(cfEditPartToCheck,
+	                                           beforeRect,
+                                               afterRect, 
+						                       coveringCombinedFragmentsToAdd, 
+						                       coveringCombinedFragmentsToRemove, 
+						                       coveringInteractionFragments);
+			}
+			coveringInteractionFragmentsToAdd.addAll(coveringCombinedFragmentsToAdd);
+			coveringInteractionFragmentsToRemove.addAll(coveringCombinedFragmentsToRemove);
+		}		
+		/* apex improved end */
+					
+		for (InteractionFragment interactionFragment : coveringInteractionFragments) {
+			GraphicalEditPart interactionFragmentEditPart = (GraphicalEditPart)ApexSequenceUtil.getEditPart(interactionFragment, this);
+			Rectangle ifRect = ApexSequenceUtil.apexGetAbsoluteRectangle(interactionFragmentEditPart);
+			
+			if ( !(interactionFragment instanceof CombinedFragment)
+				 && !(interactionFragment instanceof InteractionOperand) ) {			
+				if (centralLineRect.intersects(ifRect)) {
+					if (!coveringInteractionFragments.contains(interactionFragment)) {
+						coveringInteractionFragmentsToAdd.add(interactionFragment);
+					}
+				} else if (coveringInteractionFragments.contains(interactionFragment)) {
+					coveringInteractionFragmentsToRemove.add(interactionFragment);
+				}
+			}
+		}
+
+		if (!coveringInteractionFragmentsToAdd.isEmpty()) {
+			CommandHelper.executeCommandWithoutHistory(editingDomain,
+					                                   AddCommand.create(editingDomain, 
+					                                		             lifeline,
+							                                             UMLPackage.eINSTANCE.getLifeline_CoveredBy(),
+							                                             coveringInteractionFragmentsToAdd), 
+							                           true);
+		}
+		if (!coveringInteractionFragmentsToRemove.isEmpty()) {
+			CommandHelper.executeCommandWithoutHistory(editingDomain,
+					                                   RemoveCommand.create(editingDomain, 
+					                                		                lifeline,
+					                                		                UMLPackage.eINSTANCE.getLifeline_CoveredBy(),
+					                                		                coveringInteractionFragmentsToRemove), 
+					                                   true);
 		}
 	}
 
+	/**
+	 * apex updated
+	 * 
+	 * 
+	 * @param combinedFragmentEditPart
+	 * @param beforeLifelineRect lifeline의 변경 전 절대좌표경계
+	 * @param newLifelineRect lifeline의 변경 후 절대좌표경계
+	 * @param coveredByCombinedFragmentsToAdd
+	 * @param coveredByCombinedFragmentsToRemove
+	 * @param coveredByLifelines
+	 */
+	private void updateCoveringCombinedFragment(CombinedFragmentEditPart combinedFragmentEditPart, 
+                                                Rectangle beforeLifelineRect,
+			                                    Rectangle newLifelineRect, 
+			                                    List<CombinedFragment> coveredByCombinedFragmentsToAdd, 
+			                                    List<CombinedFragment> coveredByCombinedFragmentsToRemove, 
+			                                    EList<InteractionFragment> coveredByLifelines) {
+		CombinedFragment combinedFragment = (CombinedFragment)combinedFragmentEditPart.resolveSemanticElement();
+		/* apex improved start */	
+		Rectangle cfRect = ApexSequenceUtil.apexGetAbsoluteRectangle(combinedFragmentEditPart);
+		
+		// 새 lifeline 경계와 CF 경계가 교차되고
+		if ( newLifelineRect.right() >= cfRect.x && newLifelineRect.x <= cfRect.right() ) {
+		//if (cfRect.intersects(newLifelineRect)) { 
+			
+			// 원래의 coveredBy에 없던 combinedFragment이면
+			if(!coveredByLifelines.contains(combinedFragment)) {
+				// 원래 lifeline과 교차되었으면서 coveredByLifelines에 없는 것은
+				// Property창에서 수동으로 coveredBy에서 제외한 것이므로
+				// 원래 lifeline과 교차되지 않았던 CF만 add
+				// beforeLifelineRect의 경우 height=-1인 경우도 있으므로 intersect가 아닌 x좌표로 비교
+				if ( beforeLifelineRect.right() < cfRect.x || beforeLifelineRect.x > cfRect.right() ) {
+					coveredByCombinedFragmentsToAdd.add(combinedFragment);
+				}						
+			}
+		// 새로 생성된 lifeline이 아니면서도 새 lifeline 경계와 CF 경계가 교차되지 않고
+		// 원래 coveredBy에 있던 combinedFragment이면 remove
+		} else if ( newLifelineRect.width != 0 && newLifelineRect.height != 0) {
+			coveredByCombinedFragmentsToRemove.add(combinedFragment);			
+		}
+		/* apex improved end */
+	}	
 
 	/**
 	 * Update the rectangle bounds.

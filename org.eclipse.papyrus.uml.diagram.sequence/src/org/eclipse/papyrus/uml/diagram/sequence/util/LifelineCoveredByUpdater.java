@@ -34,6 +34,10 @@ import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
+ * apex updated
+ * 
+ * 사용 안 함 - LifelineEditPart.handleNotificationEvent() 참조
+ * 
  * This class updates the property CoveredBy of Lifeline when a Lifeline gets created, moved/resize and also the resize of moving of each CombinedFragment  
  * 
  * @author yyang
