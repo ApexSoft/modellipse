@@ -37,11 +37,13 @@ import org.eclipse.gmf.runtime.gef.ui.internal.editpolicies.LineMode;
 import org.eclipse.papyrus.uml.diagram.sequence.command.ApexMoveInteractionFragmentsCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.draw2d.routers.MessageRouter.RouterKind;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractExecutionSpecificationEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionOperandEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.part.Messages;
 import org.eclipse.papyrus.uml.diagram.sequence.util.ApexOccurrenceSpecificationMoveHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.util.OperandBoundsComputeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
@@ -91,8 +93,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 			cbRequest.setLocation(location);
 			cbRequest.setExtendedData(request.getExtendedData());
 
-//			Command result = apexGetMoveConnectionCommand(cbRequest, connectionPart, isConstrainedMove(cbRequest));
-			Command result = getXXXCommand(cbRequest);
+			Command result = apexGetMoveConnectionCommand(cbRequest, connectionPart, isConstrainedMove(cbRequest));
+//			Command result = getXXXCommand(cbRequest);
 			return result;
 		}
 		return UnexecutableCommand.INSTANCE;
@@ -266,7 +268,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 			EditPart tgtPart = connectionPart.getTarget();
 			LifelineEditPart tgtLifelinePart = SequenceUtil.getParentLifelinePart(tgtPart);
 
-			CompoundCommand compoudCmd = new CompoundCommand(Messages.MoveMessageCommand_Label);
+			CompoundCommand compoundCmd = new CompoundCommand(Messages.MoveMessageCommand_Label);
 			
 			if(send instanceof OccurrenceSpecification && rcv instanceof OccurrenceSpecification && srcLifelinePart != null && tgtLifelinePart != null) {
 				Point moveDelta = request.getMoveDelta().getCopy();
@@ -359,8 +361,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 							newBounds.height = y + PADDING - newBounds.y;
 						}
 						
-						compoudCmd.add( createChangeBoundsCommand(srcExecSpecEP, oldBounds, newBounds, true) );
-						compoudCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+						compoundCmd.add( createChangeBoundsCommand(srcExecSpecEP, oldBounds, newBounds, true) );
+						compoundCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 								(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty) );
 					}
 					else if (srcPart.equals(srcLifelinePart)) { // source : LifelineEditPart
@@ -372,8 +374,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 							newBounds.height = y + MARGIN - oldBounds.y;
 						}
 						
-						compoudCmd.add( createChangeBoundsCommand(srcLifelinePart, oldBounds, newBounds, true) );
-						compoudCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+						compoundCmd.add( createChangeBoundsCommand(srcLifelinePart, oldBounds, newBounds, true) );
+						compoundCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 								(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty) );
 					}
 					
@@ -385,7 +387,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 						newBounds.y = y;
 						newBounds.height -= moveDeltaY; 
 						
-						compoudCmd.add( createChangeBoundsCommand(tgtExecSpecEP, oldBounds, newBounds, true) );
+						compoundCmd.add( createChangeBoundsCommand(tgtExecSpecEP, oldBounds, newBounds, true) );
 					}
 				}
 				else {
@@ -400,7 +402,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 						Rectangle newBounds = oldBounds.getCopy();
 						newBounds.height += (y - realMinY); 
 						
-						compoudCmd.add( createChangeBoundsCommand(realPrevPart, oldBounds, newBounds, true) );
+						compoundCmd.add( createChangeBoundsCommand(realPrevPart, oldBounds, newBounds, true) );
 					}
 					
 					Command sendMessageMoveCmd = null;
@@ -430,7 +432,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 
 						if (connectionPart.equals(lastConnPart)) {
 							newBounds.height = oldBounds.height + moveDeltaY;
-							compoudCmd.add( createChangeBoundsCommand(srcExecSpecEP, oldBounds, newBounds, true) );
+							compoundCmd.add( createChangeBoundsCommand(srcExecSpecEP, oldBounds, newBounds, true) );
 						}
 						
 						if (moveDeltaY > 0) {
@@ -448,8 +450,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 							newBounds.height = y + MARGIN - oldBounds.y;
 						}
 						
-						compoudCmd.add( createChangeBoundsCommand(srcLifelinePart, oldBounds, newBounds, true) );
-						compoudCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+						compoundCmd.add( createChangeBoundsCommand(srcLifelinePart, oldBounds, newBounds, true) );
+						compoundCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 								(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty) );
 					}
 
@@ -459,30 +461,41 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 						Rectangle newBounds = oldBounds.getCopy();
 						newBounds.y += moveDeltaY;
 						
-						compoudCmd.add( createChangeBoundsCommand(linkedPart, oldBounds, newBounds, false) );
+						compoundCmd.add( createChangeBoundsCommand(linkedPart, oldBounds, newBounds, false) );
 					}
 					
 					if (moveDeltaY > 0) {
 						linkedParts = ApexSequenceUtil.apexGetLinkedEditPartList(connectionPart, true, true, false);
+						
+						// containing Operand Resize 처리 - omw
+						InteractionOperandEditPart ioep = ApexSequenceUtil.apexGetEnclosingInteractionOperandEditpart(connectionPart);
+						if ( ioep != null ) {
+
+							ChangeBoundsRequest cbRequest = new ChangeBoundsRequest();
+							cbRequest.setSizeDelta(new Dimension(0, moveDeltaY));
+							cbRequest.setResizeDirection(PositionConstants.SOUTH);
+							compoundCmd.add(OperandBoundsComputeHelper.createIOEPResizeCommand(cbRequest, ioep));	
+						}	
+						
 						nextParts.removeAll(linkedParts);
 						if (nextParts.size() > 0) {
 							IGraphicalEditPart nextSiblingEditPart = nextParts.get(0);
 							if (nextSiblingEditPart instanceof ConnectionNodeEditPart) {
 								Command nextCmd = apexGetMoveConnectionCommand(request, (ConnectionNodeEditPart) nextSiblingEditPart, moveAlone);
-								compoudCmd.add(nextCmd);
+								compoundCmd.add(nextCmd);
 							}
 							else {
 								Command nextCmd = nextSiblingEditPart.getCommand(request);
-								compoudCmd.add(nextCmd);
+								compoundCmd.add(nextCmd);
 //								apexGetResizeOrMoveBelowItemsCommand(request, nextSiblingEditPart);
 							}
 						}
 					}
 					
-					compoudCmd.add(sendMessageMoveCmd);
+					compoundCmd.add(sendMessageMoveCmd);
 				}
 
-				return compoudCmd.size() > 0 ? compoudCmd : null;
+				return compoundCmd.size() > 0 ? compoundCmd : null;
 			}
 		}
 		

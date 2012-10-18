@@ -51,6 +51,7 @@ import org.eclipse.uml2.uml.OccurrenceSpecification;
 /**
  * @author Jiho
  *
+ * @deprecated
  */
 public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 	
