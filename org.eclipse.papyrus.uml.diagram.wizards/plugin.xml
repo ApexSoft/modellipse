@@ -8,7 +8,7 @@
 	<wizard
          category="org.eclipse.papyrus.wizards.category"
          class="org.eclipse.papyrus.uml.diagram.wizards.NewPapyrusProjectWizard"
-         finalPerspective="org.eclipse.papyrus.infra.core.perspective"         
+         finalPerspective="kr.co.apexsoft.modellipse.perspective.perspective"         
          icon="icons/Logo-16-8bit.bmp"
          id="org.eclipse.papyrus.uml.diagram.wizards.1createproject"
          name="Modellipse Project"
@@ -20,7 +20,7 @@
     <wizard
          category="org.eclipse.papyrus.wizards.category"
          class="org.eclipse.papyrus.uml.diagram.wizards.InitModelWizard"
-         finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+         finalPerspective="kr.co.apexsoft.modellipse.perspective.perspective"
          icon="icons/Logo-16-8bit.bmp"
          id="org.eclipse.papyrus.uml.diagram.wizards.createmodel"
          name="Modellipse Model">
