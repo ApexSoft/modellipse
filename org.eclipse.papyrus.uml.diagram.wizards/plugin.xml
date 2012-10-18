@@ -3,15 +3,15 @@
 <extension point="org.eclipse.ui.newWizards">
 	<category 
 		id="org.eclipse.papyrus.wizards.category"
-    	name="Papyrus">
+    	name="Modellipse">
 	</category>
 	<wizard
          category="org.eclipse.papyrus.wizards.category"
          class="org.eclipse.papyrus.uml.diagram.wizards.NewPapyrusProjectWizard"
          finalPerspective="org.eclipse.papyrus.infra.core.perspective"         
-         icon="icons/papyrus/new_papyrus_project.gif"
+         icon="icons/Logo-16-8bit.bmp"
          id="org.eclipse.papyrus.uml.diagram.wizards.1createproject"
-         name="Papyrus Project"
+         name="Modellipse Project"
          project="true">
       <description>
          %NewWizards.project.description
@@ -21,9 +21,9 @@
          category="org.eclipse.papyrus.wizards.category"
          class="org.eclipse.papyrus.uml.diagram.wizards.InitModelWizard"
          finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-         icon="icons/papyrus/new_papyrus_model.gif"
+         icon="icons/Logo-16-8bit.bmp"
          id="org.eclipse.papyrus.uml.diagram.wizards.createmodel"
-         name="Papyrus Model">
+         name="Modellipse Model">
    </wizard>
 </extension>
 
