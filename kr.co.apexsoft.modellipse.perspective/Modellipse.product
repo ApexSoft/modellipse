@@ -237,6 +237,7 @@
       <plugin id="org.eclipse.gmf.runtime.emf.ui.properties"/>
       <plugin id="org.eclipse.gmf.runtime.gef.ui"/>
       <plugin id="org.eclipse.gmf.runtime.notation"/>
+      <plugin id="org.eclipse.gmf.tooling.runtime"/>
       <plugin id="org.eclipse.gmt.modisco.infra.common.core"/>
       <plugin id="org.eclipse.gmt.modisco.infra.common.ui"/>
       <plugin id="org.eclipse.gmt.modisco.infra.discoverymanager"/>
@@ -265,6 +266,8 @@
       <plugin id="org.eclipse.m2m.qvt.oml.cst.parser"/>
       <plugin id="org.eclipse.m2m.qvt.oml.ecore.imperativeocl"/>
       <plugin id="org.eclipse.m2m.qvt.oml.emf.util"/>
+      <plugin id="org.eclipse.m2m.qvt.oml.project"/>
+      <plugin id="org.eclipse.m2m.qvt.oml.runtime"/>
       <plugin id="org.eclipse.modisco.infra.discovery"/>
       <plugin id="org.eclipse.modisco.infra.discovery.core"/>
       <plugin id="org.eclipse.modisco.infra.discovery.ui"/>
