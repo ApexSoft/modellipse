@@ -60,7 +60,7 @@
   <types metaclassName="uml.NamedElement">
     <customizedFeatures customizedFeature="label">
       <defaultValue xsi:type="uicustom:DerivedFeatureValue">
-        <valueCalculator xsi:type="query:JavaModelQuery" href="emffacet:/query/PapyrusBrowserQuery#GetComplexName"/>
+        <valueCalculator xsi:type="query:JavaModelQuery" href="emffacet:/query/ApexBrowserQuery#GetComplexName"/>
       </defaultValue>
     </customizedFeatures>
     <references referenceName="ownedElement">
@@ -83,12 +83,12 @@
     <customizedFeatures customizedFeature="color">
       <valueCases>
         <value xsi:type="uicustom:StaticFeatureValue" value="(192,192,192)"/>
-        <condition xsi:type="query:JavaModelQuery" href="emffacet:/query/PapyrusBrowserQuery#IsReadOnly"/>
+        <condition xsi:type="query:JavaModelQuery" href="emffacet:/query/ApexBrowserQuery#IsReadOnly"/>
       </valueCases>
     </customizedFeatures>
     <customizedFeatures customizedFeature="italic">
       <defaultValue xsi:type="uicustom:DerivedFeatureValue">
-        <valueCalculator xsi:type="query:JavaModelQuery" href="emffacet:/query/PapyrusBrowserQuery#IsReadOnly"/>
+        <valueCalculator xsi:type="query:JavaModelQuery" href="emffacet:/query/ApexBrowserQuery#IsReadOnly"/>
       </defaultValue>
     </customizedFeatures>
     <customizedFeatures customizedFeature="hideMetaclassName">
@@ -2981,11 +2981,6 @@
     </references>
   </types>
   <types metaclassName="uml.Collaboration">
-    <references referenceName="ownedElement">
-      <customizedFeatures>
-        <defaultValue xsi:type="uicustom:StaticFeatureValue" value="false"/>
-      </customizedFeatures>
-    </references>
     <references referenceName="owner">
       <customizedFeatures>
         <defaultValue xsi:type="uicustom:StaticFeatureValue" value="false"/>
@@ -3056,7 +3051,12 @@
         <defaultValue xsi:type="uicustom:StaticFeatureValue" value="false"/>
       </customizedFeatures>
     </references>
-    <references referenceName="ownedBehavior">
+    <references referenceName="ownedElement">
+      <customizedFeatures>
+        <defaultValue xsi:type="uicustom:StaticFeatureValue" value="false"/>
+      </customizedFeatures>
+    </references>
+    <references referenceName="classifierBehavior">
       <customizedFeatures>
         <defaultValue xsi:type="uicustom:StaticFeatureValue" value="false"/>
       </customizedFeatures>

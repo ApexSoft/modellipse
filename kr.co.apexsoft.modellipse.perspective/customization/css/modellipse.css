@@ -1,0 +1,15 @@
+﻿SashForm {
+  background-color: #c1d5ef;
+}
+
+/* background uses a gradient */
+
+.MTrimBar {
+  background-color: #DADDE3 #BFCADB;
+  color: white;
+  font: Verdana 9px;
+}
+
+CTabFolder {
+  swt-tab-height : 23px;
+}
