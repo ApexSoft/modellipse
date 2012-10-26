@@ -532,7 +532,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		if ( request.getMoveDelta().x > 0 ) {
 			apexGetPushNextLifeline(compoundCmd, request, lifelineEditPart);
 		}	
-		/* apex added end */
+		/* apex added end */		
 	}	
 	
 	/**
