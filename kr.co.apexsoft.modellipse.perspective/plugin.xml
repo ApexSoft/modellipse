@@ -19,8 +19,12 @@
          <property name="startupMessageRect" value="7,255,445,20">
          </property>
          <property
-               name="applicationCSS"
-               value="kr.co.apexsoft.modellipse.perspective.theme.Modellipse">
+               name="cssTheme"
+               value="org.eclipse.e4.ui.css.theme.e4_default">
+         </property>
+         <property
+               name="applicationCSSResources"
+               value="platform:/plugin/org.eclipse.platform/images/">
          </property>
       </product>
    </extension>
@@ -37,6 +41,26 @@
             basestylesheeturi="customization/css/modellipse.css"
             id="kr.co.apexsoft.modellipse.perspective.theme.Modellipse"
             label="Modellipse">
+      </theme>
+      <theme
+            basestylesheeturi="customization/css/adwaita.css"
+            id="kr.co.apexsoft.modellipse.perspective.theme.adwaita"
+            label="adwaita">
+      </theme>
+      <theme
+            basestylesheeturi="customization/css/coffee.css"
+            id="kr.co.apexsoft.modellipse.perspective.theme.coffee"
+            label="coffee">
+      </theme>
+      <theme
+            basestylesheeturi="customization/css/lime.css"
+            id="kr.co.apexsoft.modellipse.perspective.theme.lime"
+            label="lime">
+      </theme>
+      <theme
+            basestylesheeturi="customization/css/ocean.css"
+            id="kr.co.apexsoft.modellipse.perspective.theme.ocean"
+            label="ocean">
       </theme>
    </extension>
    <extension
