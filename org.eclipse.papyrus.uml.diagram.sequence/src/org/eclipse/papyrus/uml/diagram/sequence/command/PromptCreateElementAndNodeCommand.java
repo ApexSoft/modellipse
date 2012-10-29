@@ -73,12 +73,17 @@ public class PromptCreateElementAndNodeCommand extends
 		sourceEP.eraseSourceFeedback(request);
 		targetEP.eraseSourceFeedback(request);
 		
+		/* apex improved start */
+		IHintedType connectionType = (IHintedType) UMLElementTypes.BehaviorExecutionSpecification_3003;
+		/* apex improved end */
+		/* apex replaced
 		CommandResult cmdResult = super.doExecuteWithResult(progressMonitor,
 				info);
 		if (!cmdResult.getStatus().isOK()) {
 			return cmdResult;
 		}
 		IHintedType connectionType = (IHintedType) cmdResult.getReturnValue();
+		*/
 
 		CreateElementAndNodeCommand createExecutionSpecificationCommand = new CreateElementAndNodeCommand(
 				editingDomain, (ShapeNodeEditPart) targetEP, target,
