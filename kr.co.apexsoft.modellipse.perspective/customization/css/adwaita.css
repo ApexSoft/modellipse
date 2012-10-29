@@ -1,0 +1,122 @@
+/*
+ *  Chrome Theme generate css dynamically, So do not inspect this file, See "ChromeCSSGenerator.xtend" instead
+ */
+.jeeeyul-chrome-theme{
+	/*
+	 * This selector rule is exist for detect Chrome Theme to find rewrite target. 
+	 * See "RewriteChormeCSS.java"
+	 */	
+}
+
+.MTrimmedWindow.topLevel {
+	margin-top: 7px;
+	margin-bottom: 2px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.MPartStack {
+	font-size: 9;
+	font-family: 'Segoe UI';
+	swt-simple: true;
+	swt-tab-renderer:
+		url('bundleclass://net.jeeeyul.eclipse.themes/net.jeeeyul.eclipse.themes.rendering.ChromeTabRendering');
+
+	padding: 1px 6px 8px 6px; /* top left bottom right */
+	swt-tab-outline: #b6bccc;
+	swt-outer-keyline-color: #b6bccc;
+	swt-unselected-tabs-color: #ededed #dfdfdf #ffffff 99% 100%;
+	swt-shadow-visible: true;
+	
+	swt-selected-tab-fill: #ffffff;
+	chrome-selected-tab-fill-highlight: #ffffff;
+	
+	chrome-selected-tab-color: #000000;
+	chrome-unselected-tab-color: #000000;
+	
+	swt-shadow-color: #a8a8a8;
+	
+	chrome-shiney-shadow: true;
+	swt-mru-visible: true;
+	
+	swt-corner-radius: 14px;
+}
+
+.MPartStack.active {
+	swt-inner-keyline-color: #FFFFFF;
+	swt-tab-outline: #9d9d9d;
+	swt-outer-keyline-color: #9d9d9d;
+	swt-unselected-tabs-color: #dddddd #cecece #ffffff 99% 100%;
+	
+	swt-selected-tab-fill: #ffffff;
+	chrome-selected-tab-fill-highlight: #ffffff;
+	
+	chrome-selected-tab-color: #000000;
+	chrome-unselected-tab-color: #000000;
+	chrome-shiney-shadow: true;
+}
+
+.MPartStack.empty {
+	swt-unselected-tabs-color: #dedede #dedede #dedede 99% 100%;
+	swt-tab-outline: #b8becc;
+	swt-outer-keyline-color: #b8becc;
+}
+
+.MTrimmedWindow {
+  	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+	background-color: #eeeeee;
+}
+
+.MTrimBar {
+	background-color: #eeeeee;
+}
+
+.MTrimBar#org-eclipse-ui-main-toolbar {
+	background-color: #dedede #fdfdfd;
+}
+
+CTabFolder.MArea .MPartStack,CTabFolder.MArea .MPartStack.active {
+	swt-shadow-visible: false;
+}
+
+CTabFolder Canvas {
+	background-color: #F8F8F8;
+}
+
+#org-eclipse-ui-editorss {
+	swt-tab-renderer:
+		url('bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.CTabRendering');
+	swt-unselected-tabs-color: #F0F0F0 #F0F0F0 #F0F0F0 100% 100%;
+	swt-outer-keyline-color: #B4B4B4;
+	swt-inner-keyline-color: #F0F0F0;
+	swt-tab-outline: #F0F0F0;
+	color: #F0F0F0;
+	swt-tab-height: 8px;
+	padding: 0px 5px 7px;
+}
+
+#org-eclipse-ui-trim-status{
+	chrome-border-top-visible: false;
+	chrome-padding-top: 0;
+}
+
+.MToolControl.TrimStack {
+	frame-image: url('images/frame.png');
+	frame-cuts: 5px 1px 5px 16px;
+	
+	handle-image: url('images/handle.png');
+}
+
+
+#org-eclipse-ui-main-toolbar #PerspectiveSwitcher {
+	eclipse-perspective-keyline-color: #aab0bf;
+	background-color: #f5f7fc #eeeeee 100%;
+	chrome-show-perspective-name: false;
+}
+
+
+/* User CSS */
+
