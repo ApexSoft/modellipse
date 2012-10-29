@@ -8,7 +8,7 @@
       <product application="org.eclipse.ui.ide.workbench" name="Modellipse">
          <property name="appName" value="Modellipse">
          </property>
-         <property name="windowImages" value="icons/Logo-windowImage-16.png">
+         <property name="windowImages" value="icons/Modellipse-windowImage-16.png">
          </property>
          <property name="startupProgressRect" value="5,280,445,15">
          </property>
@@ -68,6 +68,37 @@
       <modelqueryset
             file="customization/modelexplorer/ApexBrowserQuery.querySet">
       </modelqueryset>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/Modellipse-windowImage-16.png"
+            id="kr.co.apexsoft.modellipse.perspective.intro">
+      </intro>
+      <introProductBinding
+            introId="kr.co.apexsoft.modellipse.perspective.intro"
+            productId="kr.co.apexsoft.modellipse.perspective.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="customization/intro/introContent.xml"
+            id="kr.co.apexsoft.modellipse.perspective.intro.config"
+            introId="kr.co.apexsoft.modellipse.perspective.intro">
+         <presentation
+               home-page-id="root"
+               standby-page-id="standby">
+            <implementation
+                  kind="html"
+                  style="customization/intro/sample.css">
+            </implementation>
+            <implementation
+                  kind="swt">
+            </implementation>
+         </presentation>
+      </config>
    </extension>
 
 </plugin>
