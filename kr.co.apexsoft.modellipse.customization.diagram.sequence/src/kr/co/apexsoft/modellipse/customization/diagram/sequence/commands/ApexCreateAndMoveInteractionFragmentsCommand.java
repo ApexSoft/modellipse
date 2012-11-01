@@ -1,6 +1,9 @@
-package org.eclipse.papyrus.uml.diagram.sequence.command;
+package kr.co.apexsoft.modellipse.customization.diagram.sequence.commands;
 
 import java.util.Collection;
+
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceDiagramConstants;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -16,7 +19,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceDiagramConstants;
+
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionFragment;
@@ -97,7 +100,7 @@ public class ApexCreateAndMoveInteractionFragmentsCommand extends
 			if (ift instanceof ExecutionSpecification) {
 				ExecutionSpecification execution = (ExecutionSpecification)ift;
 				IGraphicalEditPart editPart = getEditPart(execution);
-				Rectangle bounds = SequenceUtil.getAbsoluteBounds(editPart);
+				Rectangle bounds = ApexSequenceUtil.getAbsoluteBounds(editPart);
 				
 				if (bounds.y < getExtent().y && bounds.bottom() >= getExtent().y) {
 					if (bounds.bottom() < getExtent().y + PADDING) {

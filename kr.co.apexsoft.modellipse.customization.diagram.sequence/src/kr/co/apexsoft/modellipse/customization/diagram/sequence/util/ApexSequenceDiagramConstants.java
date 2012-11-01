@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
+package kr.co.apexsoft.modellipse.customization.diagram.sequence.util;
 
 import org.eclipse.swt.graphics.Color;
 
