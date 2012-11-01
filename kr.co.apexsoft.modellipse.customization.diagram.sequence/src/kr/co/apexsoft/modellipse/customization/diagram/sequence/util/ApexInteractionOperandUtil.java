@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import kr.co.apexsoft.modellipse.separation.diagram.sequence.util.OperandBoundsComputeHelper;
-
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
@@ -20,6 +18,19 @@ import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionOperand;
 
 public class ApexInteractionOperandUtil {
+	
+	/**
+	 * Default height of Interaction Operand
+	 */
+	public static final int DEFAULT_INTERACTION_OPERAND_HEIGHT = 61;
+	/**
+	 * Default width of Interaction Operand
+	 */
+	public static final int DEFAULT_INTERACTION_OPERAND_WIDTH = 210;
+	/**
+	 * Border width of CombinedFragmentFigure
+	 */
+	public static final int COMBINED_FRAGMENT_FIGURE_BORDER = 1;
 	
 	/**
 	 * Find first Interaction Operand EditpPart of CombinedFragmentCombinedFragmentCompartmentEditPart
@@ -305,11 +316,9 @@ public class ApexInteractionOperandUtil {
 		ShapeNodeEditPart targetIOEP = null;
 		
 		if ((direction & PositionConstants.NORTH) != 0) {
-			targetIOEP = OperandBoundsComputeHelper.findPreviousIOEP(compartEP,
-					currentIOEP);
+			targetIOEP = findPreviousIOEP(compartEP, currentIOEP);
 		} else if ((direction & PositionConstants.SOUTH) != 0) {
-			targetIOEP = OperandBoundsComputeHelper.findLatterIOEP(compartEP,
-					currentIOEP);
+			targetIOEP = findLatterIOEP(compartEP, currentIOEP);
 		}
 		
 		if ( targetIOEP != null ) {
@@ -327,7 +336,7 @@ public class ApexInteractionOperandUtil {
 					if ( lowestTargetChildEP != null ) {			
 						int bottomTargetIOEPLowestChild = ApexSequenceUtil.apexGetAbsolutePosition(lowestTargetChildEP, SWT.BOTTOM);
 						
-						if ( topNewCurrentIOEP < bottomTargetIOEPLowestChild + OperandBoundsComputeHelper.COMBINED_FRAGMENT_FIGURE_BORDER) {
+						if ( topNewCurrentIOEP < bottomTargetIOEPLowestChild + COMBINED_FRAGMENT_FIGURE_BORDER) {
 							isInvadingTargetChildren = true;
 						}
 					}
@@ -337,7 +346,7 @@ public class ApexInteractionOperandUtil {
 						int bottomNewLowestCurrentChildEP = ApexSequenceUtil.apexGetAbsolutePosition(lowestCurrentChildEP, SWT.BOTTOM) + Math.abs(heightDelta);				
 						int bottomCurrentIOEP = ApexSequenceUtil.apexGetAbsolutePosition(currentIOEP, SWT.BOTTOM);
 						
-						if ( (bottomNewLowestCurrentChildEP + OperandBoundsComputeHelper.COMBINED_FRAGMENT_FIGURE_BORDER) >= bottomCurrentIOEP ) {
+						if ( (bottomNewLowestCurrentChildEP + COMBINED_FRAGMENT_FIGURE_BORDER) >= bottomCurrentIOEP ) {
 							isInvadingTargetChildren = true;
 						}	
 					}				
@@ -350,7 +359,7 @@ public class ApexInteractionOperandUtil {
 						int bottomNewLowestTargetChildEP = ApexSequenceUtil.apexGetAbsolutePosition(lowestTargetChildEP, SWT.BOTTOM) + Math.abs(heightDelta);
 						int bottomTargetIOEP = ApexSequenceUtil.apexGetAbsolutePosition(targetIOEP, SWT.BOTTOM);
 						
-						if ( (bottomNewLowestTargetChildEP + OperandBoundsComputeHelper.COMBINED_FRAGMENT_FIGURE_BORDER) >= bottomTargetIOEP ) {
+						if ( (bottomNewLowestTargetChildEP + COMBINED_FRAGMENT_FIGURE_BORDER) >= bottomTargetIOEP ) {
 							isInvadingTargetChildren = true;
 						}
 					}
@@ -360,7 +369,7 @@ public class ApexInteractionOperandUtil {
 						int bottomNewCurrentIOEP = ApexSequenceUtil.apexGetAbsolutePosition(currentIOEP, SWT.BOTTOM) - Math.abs(heightDelta);
 						int bottomCurrentIOEPLowestChild = ApexSequenceUtil.apexGetAbsolutePosition(lowestCurrentChildEP, SWT.BOTTOM);
 						
-						if ( bottomNewCurrentIOEP < bottomCurrentIOEPLowestChild + OperandBoundsComputeHelper.COMBINED_FRAGMENT_FIGURE_BORDER) {
+						if ( bottomNewCurrentIOEP < bottomCurrentIOEPLowestChild + COMBINED_FRAGMENT_FIGURE_BORDER) {
 							isInvadingTargetChildren = true;
 						}	
 					}				
@@ -375,7 +384,7 @@ public class ApexInteractionOperandUtil {
 					int bottomNewLowestCurrentChildEP = ApexSequenceUtil.apexGetAbsolutePosition(lowestCurrentChildEP, SWT.BOTTOM) + Math.abs(heightDelta);				
 					int bottomCurrentIOEP = ApexSequenceUtil.apexGetAbsolutePosition(currentIOEP, SWT.BOTTOM);
 					
-					if ( (bottomNewLowestCurrentChildEP + OperandBoundsComputeHelper.COMBINED_FRAGMENT_FIGURE_BORDER) >= bottomCurrentIOEP ) {
+					if ( (bottomNewLowestCurrentChildEP + COMBINED_FRAGMENT_FIGURE_BORDER) >= bottomCurrentIOEP ) {
 						isInvadingTargetChildren = true;
 					}	
 				}

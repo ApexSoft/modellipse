@@ -3,6 +3,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
+
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
@@ -13,7 +15,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractExecutionSpecificationEditPart;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceUtil;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionFragment;
 
@@ -70,9 +71,9 @@ public class ApexExecutionSpecificationSelectionEditPolicy extends
 //		}
 //		compoundCmd.add(super.getResizeCommand(request));
 //		return compoundCmd;
-		
+
 		Command command = null;
-		
+
 		View view = (View)getHost().getModel();
 		EObject element = view.getElement();
 		if (element instanceof ExecutionSpecification) {

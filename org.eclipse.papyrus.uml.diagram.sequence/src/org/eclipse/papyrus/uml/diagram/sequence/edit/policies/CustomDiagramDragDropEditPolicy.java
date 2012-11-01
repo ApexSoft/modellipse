@@ -19,6 +19,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
+
 import org.eclipse.core.commands.operations.IUndoableOperation;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -99,7 +101,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.TimeObservationEditPa
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceLinkMappingHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
@@ -134,7 +135,7 @@ import org.eclipse.uml2.uml.Type;
  */
 public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPolicy {
 	public static final String LIFELINE_MISSING = "There is no representation of lifeline {0}";
-	
+
 	public static final String DIALOG_TITLE = "Element missing";
 
 	public CustomDiagramDragDropEditPolicy() {
@@ -150,19 +151,19 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		elementsVisualId.add(LifelineEditPart.VISUAL_ID);
  		elementsVisualId.add(ActionExecutionSpecificationEditPart.VISUAL_ID);
 		elementsVisualId.add(BehaviorExecutionSpecificationEditPart.VISUAL_ID);
-		
+
 		elementsVisualId.add(InteractionUseEditPart.VISUAL_ID);
 		elementsVisualId.add(InteractionEditPart.VISUAL_ID);
 		elementsVisualId.add(InteractionOperandEditPart.VISUAL_ID);
-		
+
 		elementsVisualId.add(CombinedFragmentEditPart.VISUAL_ID);
-		
+
 		// CoRegion
 		elementsVisualId.add(CombinedFragment2EditPart.VISUAL_ID);
-		
+
 		elementsVisualId.add(CommentAnnotatedElementEditPart.VISUAL_ID);
 		elementsVisualId.add(ConsiderIgnoreFragmentEditPart.VISUAL_ID);
-		
+
 		elementsVisualId.add(ContinuationEditPart.VISUAL_ID);
 		elementsVisualId.add(StateInvariantEditPart.VISUAL_ID);
 		elementsVisualId.add(CommentEditPart.VISUAL_ID);
@@ -176,7 +177,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		elementsVisualId.add(TimeConstraintEditPart.VISUAL_ID);
 		elementsVisualId.add(TimeObservationEditPart.VISUAL_ID);
 		elementsVisualId.add(DurationConstraintEditPart.VISUAL_ID);
-		
+
 		elementsVisualId.add(PackageEditPart.VISUAL_ID);
 
 		elementsVisualId.add(MessageEditPart.VISUAL_ID);
@@ -224,7 +225,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 			return apexDoDropType(dropRequest, (Type) droppedObject);
 		}
 		/* apex added end */
-	 
+
 		return dropObjectCommand;
 	}
 
@@ -236,7 +237,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 				.getCreateShapeRequest(UMLElementTypes.Lifeline_3001,
 				UMLDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 		createShapeRequest.setLocation(location);
-		
+
 		ViewDescriptor viewDescriptor =createShapeRequest.getViewDescriptors().get(0);
 		CreateElementRequestAdapter elementAdapter =(CreateElementRequestAdapter) viewDescriptor.getElementAdapter();
 		CreateElementRequest createElementRequest = (CreateElementRequest)elementAdapter.getAdapter(CreateElementRequest.class);
@@ -252,9 +253,9 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		}
 		return org.eclipse.gmf.runtime.common.core.command.UnexecutableCommand.INSTANCE;
 	}
-		
+
 	/**
-	 * uml2.uml.Type ¸ðµ¨À» dropÇÑ °æ¿ì
+	 * uml2.uml.Type ï¿½ï¿½ï¿½ï¿½ dropï¿½ï¿½ ï¿½ï¿½ï¿½
 	 * @param dropRequest
 	 * @param droppedObject
 	 * @return
@@ -265,11 +266,11 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 				.getCreateShapeRequest(UMLElementTypes.Lifeline_3001,
 				UMLDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 		createShapeRequest.setLocation(location);
-		
+
 		ViewDescriptor viewDescriptor = createShapeRequest.getViewDescriptors().get(0);
 		CreateElementRequestAdapter elementAdapter = (CreateElementRequestAdapter)viewDescriptor.getElementAdapter();
 		CreateElementRequest createElementRequest = (CreateElementRequest)elementAdapter.getAdapter(CreateElementRequest.class);
-		
+
 		EObject container = getHostObject();
 		while (container != null && container instanceof Collaboration == false) {
 			container = container.eContainer();
@@ -277,13 +278,13 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		if (container == null) {
 			container = getHostObject();
 		}
-		
+
 		ICommand createPropertyCmd = apexGetCreatePropertyCommand(container);
 		if (createPropertyCmd != null) {
 			createElementRequest.setParameter(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_CREATE_COMMAND, createPropertyCmd);
 			createElementRequest.setParameter(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_TYPE, droppedObject);
 		}
-		
+
 		EditPart host = getHost();
 		Command theRealCmd = ((IGraphicalEditPart) host)
 				.getCommand(createShapeRequest);
@@ -291,20 +292,20 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		if (theRealCmd != null && theRealCmd.canExecute()) {
 			return new CommandProxy(theRealCmd);
 		}
-		
+
 		return org.eclipse.gmf.runtime.common.core.command.UnexecutableCommand.INSTANCE;
 	}
 
 	private ICommand apexGetCreatePropertyCommand(EObject container) {
 		IElementType type = ElementTypeRegistry.getInstance().getType("org.eclipse.papyrus.uml.Property"); //$NON-NLS-1$
-		
+
 		IElementEditService provider = ElementEditServiceUtils.getCommandProvider(container);
 		CreateElementRequest createRequest = new CreateElementRequest(container, type);
-		
+
 		ICommand createCommand = provider.getEditCommand(createRequest);
 		return createCommand;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -459,15 +460,15 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 						return new ICommandProxy(getDefaultDropNodeCommand(parentEditPart, nodeVISUALID, location, combinedFragment));
 					}
 					location.x = bounds.x;
-					
+
 					return new ICommandProxy(dropCombinedFragment(getHost(), nodeVISUALID, location, new Dimension(bounds.width, 100), combinedFragment));
 				}
 			}
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
-	
-	
+
+
 	/*
 	 * To extend the method in superclass with an option Dimension size,
 	 * 
@@ -516,7 +517,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 
 		return org.eclipse.gmf.runtime.common.core.command.UnexecutableCommand.INSTANCE;
 	}
-	
+
 	/**
 	 * Get the drop command in case the element can be handled as an element in a CombinedFragment
 	 * 
@@ -542,7 +543,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
-	
+
 	/**
 	 * Get the drop command in case the element can be handled as a node on a message
 	 * 
@@ -933,7 +934,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 
 		return UnexecutableCommand.INSTANCE;
 	}	
-	
+
 	/**
 	 * Get the advised bounds to drop an execution specification
 	 * 

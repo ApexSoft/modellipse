@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
+
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.Connection;
@@ -69,7 +71,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -111,19 +112,16 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineLabelEditP
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineSelectionEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineXYLayoutEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.RemoveOrphanViewPolicy;
-import org.eclipse.papyrus.uml.diagram.sequence.figures.ApexCustomLifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.locator.CenterLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceUtil;
+
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.NotificationHelper;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.ConnectableElement;
@@ -202,7 +200,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 	@Override
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy() {
-			
+
 			@Override
 			protected Command getCreateElementAndViewCommand(
 					CreateViewAndElementRequest request) {
@@ -213,7 +211,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 					ICommand realCmd = proxy.getICommand();
 					compositeCommand.add(realCmd);
 				}
-				
+
 				return command;
 			}
 		});
@@ -233,14 +231,14 @@ public class LifelineEditPart extends NamedElementEditPart {
 		installEditPolicy(AppliedStereotypeLabelDisplayEditPolicy.STEREOTYPE_LABEL_POLICY, new LifelineAppliedStereotypeNodeLabelDisplayEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-		
+
 		//Fixed bug: https://bugs.eclipse.org/bugs/show_bug.cgi?id=364608
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new LifelineSelectionEditPolicy());
-		
+
 		installEditPolicy(EditPolicy.COMPONENT_ROLE, new LifelineMessageCreateHelper.ComponentEditPolicyEx());
 		// custom label, fix bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=383722
 		installEditPolicy(IMaskManagedLabelEditPolicy.MASK_MANAGED_LABEL_EDIT_POLICY, new LifelineLabelEditPolicy());
-		
+
 		/* apex added start */
 		// jiho - ConnectionHandle을 DashLine에 위치시키는 EditPolicy
 		installEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE, new ApexLifelineConnectionHandleEditPolicy());
@@ -312,7 +310,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 							Rectangle newBounds = childFig.getBounds().getCopy();
 							Rectangle childConstraint = (Rectangle)parentFig.getLayoutManager().getConstraint(childFig);
 							newBounds.setLocation(childConstraint.getLocation().getCopy());
-							
+
 							newBounds.translate(request.getMoveDelta());
 							if (!request.getType().equals(RequestConstants.REQ_MOVE_CHILDREN)) {
 								newBounds.resize(request.getSizeDelta());
@@ -491,7 +489,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 			protected boolean isDefaultAnchorArea(PrecisionPoint p) {
 				return false;
 			}
-			
+
 			public boolean containsPoint(int x, int y) {
 				if (primaryShape != null) {
 					return primaryShape.containsPoint(x, y);
@@ -1526,12 +1524,12 @@ public class LifelineEditPart extends NamedElementEditPart {
 			this.add(fFigureExecutionsContainerFigure, BorderLayout.CENTER);
 			fFigureExecutionsContainerFigure.setLayoutManager(new StackLayout());
 
-			/* apex improved start */
+			/* apex improved start - ignored omw
 			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
-			/* apex improved end */
-			/* apex replaced
+			/* apex improved end - ignored omw */
+
 			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
-			 */
+
 
 			fFigureExecutionsContainerFigure.add(fFigureLifelineDotLineFigure);
 
@@ -1564,7 +1562,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 		public LifelineDotLineCustomFigure getFigureLifelineDotLineFigure() {
 			return fFigureLifelineDotLineFigure;
 		}
-		
+
 		/**
 		 * apex updated
 		 */
@@ -1591,7 +1589,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 
 			return isChildLifelineSelected(x,y);
 		}
-		
+
 		@Override
 		public void setLineWidth(int w) {		
 			if(w < 0)
@@ -1600,7 +1598,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 			fFigureLifelineNameContainerFigure.setLineWidth(w);
 			fFigureLifelineDotLineFigure.setLineWidth(w);
 		}
-		
+
 		@Override
 		public void setShadow(boolean shadow) {
 			if(!shadow)
@@ -1746,13 +1744,13 @@ public class LifelineEditPart extends NamedElementEditPart {
 
 			/* apex improved start */
 			Bounds afterBounds = (Bounds)notification.getNotifier();
-			
+
 			// afterBounds 는 테스트해 본 결과 상대좌표임			
 			final Rectangle afterRect = new Rectangle(afterBounds.getX(), afterBounds.getY(), afterBounds.getWidth(), afterBounds.getHeight());
-			
+
 			updateCoveringInteractionFragments(afterRect);
 			/* apex improved start */
-			
+
 			// 아래를 실행할 경우 해당 Lifeline 외의 모든 Lifeline에 대해 불필요하게 동작하므로 주석처리
 			/* apex replaced
 			Display.getDefault().asyncExec(new Runnable() {
@@ -1765,7 +1763,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 			*/
  		}
 	}
-	
+
 	/**
 	 * apex updated
 	 * 
@@ -1774,52 +1772,52 @@ public class LifelineEditPart extends NamedElementEditPart {
 	 * @param afterRect 옮겨진 후 좌표
 	 */
 	public void updateCoveringInteractionFragments(Rectangle afterRect) {
-		
+
 		TransactionalEditingDomain editingDomain = getEditingDomain();
-		
+
 		Rectangle lifelineRect = ApexSequenceUtil.apexGetAbsoluteRectangle(this);
 		Rectangle centralLineRect = new Rectangle(lifelineRect.x() +  lifelineRect.width() / 2, lifelineRect.y(), 
 				                                  1,  lifelineRect.height());
-		
+
 		Lifeline lifeline = (Lifeline) this.resolveSemanticElement();
 		EList<InteractionFragment> coveringInteractionFragments = lifeline.getCoveredBys();
-		
+
 		List<InteractionFragment> coveringInteractionFragmentsToAdd = new ArrayList<InteractionFragment>();
 		List<InteractionFragment> coveringInteractionFragmentsToRemove = new ArrayList<InteractionFragment>();
 
 		Rectangle beforeRect = this.getFigure().getBounds().getCopy();
-				
+
 		this.getFigure().translateToAbsolute(beforeRect);
 		this.getFigure().translateToAbsolute(afterRect);
-		
+
 		List<CombinedFragment> coveringCombinedFragmentsToAdd = new ArrayList<CombinedFragment>();
 		List<CombinedFragment> coveringCombinedFragmentsToRemove = new ArrayList<CombinedFragment>();
-		
+
 		/* apex improved start */			
-		List<CombinedFragmentEditPart> cfEditPartsToCheck = new ArrayList<CombinedFragmentEditPart>();
+		List<ShapeNodeEditPart> cfEditPartsToCheck = new ArrayList<ShapeNodeEditPart>();
 		if (beforeRect.width == 0 && beforeRect.height == 0) { // 새 Lifeline 생성하는 경우 Interaction 내 모든 CF을 check			
 			cfEditPartsToCheck = ApexSequenceUtil.apexGetAllCombinedFragmentEditParts(this);			
 		} else { // 새로 생성이 아닌 lifeline 경계 변경인 경우
-			
+
 			if (afterRect.x != beforeRect.x ) { // 좌우측으로 이동 시 lifeline의 이동 전후 위치를 포함하던 CF을 check
 
-				List<CombinedFragmentEditPart> cfEnclosingBeforeRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(beforeRect, this);
-				List<CombinedFragmentEditPart> cfEnclosingAfterRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(afterRect, this);
+				List<ShapeNodeEditPart> cfEnclosingBeforeRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(beforeRect, this);
+				List<ShapeNodeEditPart> cfEnclosingAfterRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(afterRect, this);
 
 				// 중복 제거
 				cfEnclosingBeforeRect.removeAll(cfEnclosingAfterRect);
-				
+
 				cfEditPartsToCheck.addAll(cfEnclosingBeforeRect);
 				cfEditPartsToCheck.addAll(cfEnclosingAfterRect);
 			} else { // 확대/축소가 아닌 경우, 즉 상하이동의 경우
 				cfEditPartsToCheck = null;
 			}
 		}
-		
+
 		// 상하이동의 경우 covereds가 바뀔 일이 없으므로
 		// 상하이동이 아닌 경우만 updateCoveringCombinedFragment 호출
 		if ( cfEditPartsToCheck != null ) { 
-			for(CombinedFragmentEditPart cfEditPartToCheck : cfEditPartsToCheck) {
+			for(ShapeNodeEditPart cfEditPartToCheck : cfEditPartsToCheck) {
 				updateCoveringCombinedFragment(cfEditPartToCheck,
 	                                           beforeRect,
                                                afterRect, 
@@ -1831,11 +1829,11 @@ public class LifelineEditPart extends NamedElementEditPart {
 			coveringInteractionFragmentsToRemove.addAll(coveringCombinedFragmentsToRemove);
 		}		
 		/* apex improved end */
-					
+
 		for (InteractionFragment interactionFragment : coveringInteractionFragments) {
 			GraphicalEditPart interactionFragmentEditPart = (GraphicalEditPart)ApexSequenceUtil.getEditPart(interactionFragment, this);
 			Rectangle ifRect = ApexSequenceUtil.apexGetAbsoluteRectangle(interactionFragmentEditPart);
-			
+
 			if ( !(interactionFragment instanceof CombinedFragment)
 				 && !(interactionFragment instanceof InteractionOperand) ) {			
 				if (centralLineRect.intersects(ifRect)) {
@@ -1877,7 +1875,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 	 * @param coveredByCombinedFragmentsToRemove
 	 * @param coveredByLifelines
 	 */
-	private void updateCoveringCombinedFragment(CombinedFragmentEditPart combinedFragmentEditPart, 
+	private void updateCoveringCombinedFragment(ShapeNodeEditPart combinedFragmentEditPart, 
                                                 Rectangle beforeLifelineRect,
 			                                    Rectangle newLifelineRect, 
 			                                    List<CombinedFragment> coveredByCombinedFragmentsToAdd, 
@@ -1886,11 +1884,11 @@ public class LifelineEditPart extends NamedElementEditPart {
 		CombinedFragment combinedFragment = (CombinedFragment)combinedFragmentEditPart.resolveSemanticElement();
 		/* apex improved start */	
 		Rectangle cfRect = ApexSequenceUtil.apexGetAbsoluteRectangle(combinedFragmentEditPart);
-		
+
 		// 새 lifeline 경계와 CF 경계가 교차되고
 		if ( newLifelineRect.right() >= cfRect.x && newLifelineRect.x <= cfRect.right() ) {
 		//if (cfRect.intersects(newLifelineRect)) { 
-			
+
 			// 원래의 coveredBy에 없던 combinedFragment이면
 			if(!coveredByLifelines.contains(combinedFragment)) {
 				// 원래 lifeline과 교차되었으면서 coveredByLifelines에 없는 것은
@@ -2075,7 +2073,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 		getPrimaryShape().getFigureLifelineNameContainerFigure().setFill(false);
 		super.setGradient(gradient);
 	}
-	
+
 	/**
 	 * Create specific anchor to handle connection on top, on center and on bottom of the lifeline
 	 */
@@ -2085,7 +2083,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 			// Create message
 			return new LifelineAnchor(getPrimaryShape().getFigureLifelineNameContainerFigure());
 		}
-		
+
 		if(connEditPart instanceof Message2EditPart){
 			String terminal = AnchorHelper.getAnchorId(getEditingDomain(), connEditPart, false);
 			if(terminal.length() > 0){
@@ -2121,19 +2119,6 @@ public class LifelineEditPart extends NamedElementEditPart {
 					return LifelineMessageCreateHelper.getCreateMessageAnchor(this, request, ((CreateUnspecifiedTypeConnectionRequest) request).getLocation().getCopy());
 				}
 			}
-			
-			/* apex added start */
-			// jiho - 복수 ElementType에 대한 처리
-			for (Object elementType : relationshipTypes) {
-				Request createConnectionRequest = createRequest.getRequestForType((IElementType)elementType);
-				if (createConnectionRequest instanceof CreateConnectionViewRequest) {
-					ConnectionAnchor targetAnchor = getTargetConnectionAnchor(createConnectionRequest);
-					createRequest.setLocation(((CreateConnectionViewRequest) createConnectionRequest).getLocation());
-					if (targetAnchor != null)
-						return targetAnchor;
-				}
-			}
-			/* apex added end */
 		} else if(request instanceof ReconnectRequest) {
 			ReconnectRequest reconnectRequest = (ReconnectRequest)request;
 			ConnectionEditPart connectionEditPart = reconnectRequest.getConnectionEditPart();
@@ -2142,25 +2127,6 @@ public class LifelineEditPart extends NamedElementEditPart {
 			}
 		}
 
-		/* apex added start */
-		// jiho - Message을 Horizontal로 생성
-		if (request instanceof CreateConnectionViewRequest) {
-			EditPart sourceEditPart = ((CreateConnectionViewRequest) request).getSourceEditPart();
-			LifelineEditPart srcLifeline = SequenceUtil.getParentLifelinePart(sourceEditPart);
-			if (!this.equals(srcLifeline)) {
-				
-			CreateConnectionViewRequest createRequest = (CreateConnectionViewRequest)request;
-			Point sourceLocation = (Point)createRequest.getExtendedData().get(SequenceRequestConstant.SOURCE_LOCATION_DATA);
-			Point location = createRequest.getLocation().getCopy();
-			location.setY(sourceLocation.y());
-
-			// ExecutionSpecification생성 시 location 이용
-			createRequest.setLocation(location);
-			return getNodeFigure().getTargetConnectionAnchorAt(location);
-			}
-		}
-		/* apex added end */
-		
 		ConnectionAnchor anchor = super.getTargetConnectionAnchor(request);
 		if(anchor instanceof SlidableAnchor) {
 			return createSideAnchor(request, (SlidableAnchor)anchor);
@@ -2173,7 +2139,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 		PrecisionPoint pt = SlidableAnchor.parseTerminalString(	sa.getTerminal());
 		if(loc == null || pt == null)
 			return sa;
-		
+
 		IFigure fig = this.getDashLineFigure();
 		Rectangle bounds = fig.getBounds().getCopy();
 		fig.translateToAbsolute(bounds);
@@ -2182,7 +2148,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 			rightHand = false;
 		return new AnchorHelper.SideAnchor(getNodeFigure(), pt, rightHand);
 	}
-	
+
 
 	/**
 	 * Create the dashLine figure
@@ -2386,7 +2352,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 
 		return null;
 	}
-	
+
 	public static class PreserveAnchorsPositionCommandEx extends PreserveAnchorsPositionCommand{
 
 		public PreserveAnchorsPositionCommandEx(ShapeNodeEditPart shapeEP, Dimension sizeDelta, int preserveAxis) {
@@ -2404,7 +2370,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 			int start = id.indexOf('{');
 			if(start > 0)
 				res = res + id.substring(start);
-			
+
 			return res;
 		}
 	}

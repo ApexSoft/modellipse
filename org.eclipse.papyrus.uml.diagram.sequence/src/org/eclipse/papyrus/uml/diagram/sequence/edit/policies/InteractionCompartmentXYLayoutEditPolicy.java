@@ -14,13 +14,17 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexInteractionCompartmentXYLayoutEditPolicy;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexOperandBoundsComputeHelper;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -78,8 +82,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionUseEditPar
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.MessageEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.util.HighlightUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.OperandBoundsComputeHelper;
@@ -100,7 +102,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 	protected Command getCreateCommand(CreateRequest request) {
 		CreateViewRequest req = (CreateViewRequest) request;
 		Command cmd = super.getCreateCommand(request);
-		
+
 		if(cmd != null && req.getSize() != null){ // create lifeline with specific size
 			TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
 			Iterator iter = req.getViewDescriptors().iterator();
@@ -113,7 +115,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		}
 		return cmd;
 	}
-	
+
 	/**
 	 * apex updated
 	 * 
@@ -125,7 +127,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 	protected Command getResizeChildrenCommand(ChangeBoundsRequest request) {
 		CompoundCommand compoundCmd = new CompoundCommand();
 		compoundCmd.setLabel(ApexSequenceRequestConstants.APEX_COMMAND_LABLE_MOVE_OR_RESIZE);
-		
+
 		IFigure figure = getHostFigure();
 		Rectangle hostBounds = figure.getBounds();
 
@@ -142,7 +144,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				if (childBounds.x < 0 || childBounds.y < 0) {
 //					return UnexecutableCommand.INSTANCE;
 				}
-				
+
 				if(child instanceof LifelineEditPart) {
 					if (isHorizontalMove(request)) {						
 						addLifelineResizeChildrenCommand(compoundCmd, request, (LifelineEditPart)child, 1);
@@ -178,7 +180,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 //					}
 					*/
 				}
-				
+
 				/* apex improved start */
 				// Lifeline이나 CF의 move는 위에서 처리 
 				else if ( isHorizontalMove(request)) {		
@@ -199,13 +201,13 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 					OperandBoundsComputeHelper.createUpdateIOBoundsForCFResizeCommand(compoundCmd,request,(CombinedFragmentEditPart)child);
 				}
 				*/
-				
+
 				/* apex added start */
 				if(child instanceof InteractionUseEditPart) {
 					InteractionCompartmentXYLayoutEditPolicy.apexMoveBelowItems(request, (InteractionUseEditPart)child, compoundCmd);
 				}
 				/* apex added end */
-				
+
 				int right = childBounds.right();
 				int bottom = childBounds.bottom();
 				int deltaX = 0;
@@ -334,11 +336,11 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				return false;
 			}
 		}
-		
+
 		Point point = request.getMoveDelta();
 		return point.y == 0;
 	}
-	
+
 	/**
 	 * Resize children of LifelineEditPart (Execution specification and lifeline)
 	 * 
@@ -423,12 +425,12 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		for (Object obj : children) {
 			EditPart et = (EditPart) obj;
 			View sp = (View) et.getModel();
-			
+
 			/* apex improved start */
 			EObject eObj = sp.getElement();
 			if (covereds.contains(eObj)) {
 				ChangeBoundsRequest req = null;
-								
+
 				if ( eObj instanceof CombinedFragment ) { // Lifeline을 커버하고 있는 CF의 이동은 아래에서 별도 처리
 					continue;
 				} else {
@@ -436,7 +438,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 					req.setEditParts(et);
 					req.setMoveDelta(request.getMoveDelta());	
 				}
-				
+
 				Command command = et.getCommand(req);
 				if (command != null && command.canExecute()) {
 					compoundCmd.add(command);
@@ -456,85 +458,12 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			} 
 			*/
 		}
-		
+
 		/* apex added start */
-		// Lifeline을 커버하고 있는 CF의 이동 처리
-		int deltaX = request.getMoveDelta().x;						
-		ChangeBoundsRequest req = null;
-		List<CombinedFragmentEditPart> coveringCFEPs = ApexSequenceUtil.apexGetCoveringCombinedFragmentEditParts(lifelineEditPart);
-		
-		for ( CombinedFragmentEditPart cfep : coveringCFEPs ) {
-			List<LifelineEditPart> coveredLifelineEditParts = ApexSequenceUtil.apexGetCoveredLifelineEditParts(cfep, true);
-			List sortedCoveredLifelineEditParts = ApexSequenceUtil.apexGetSortedGraphicalEditPartList(coveredLifelineEditParts, SWT.LEFT);
-			
-			Map apexMoveInfo = new HashMap();
-			
-			if ( sortedCoveredLifelineEditParts.size() > 0 ) {
-				LifelineEditPart leftestLifelineEditPart = (LifelineEditPart)sortedCoveredLifelineEditParts.get(0);
-				LifelineEditPart rightestLifelineEditPart = (LifelineEditPart)sortedCoveredLifelineEditParts.get(sortedCoveredLifelineEditParts.size()-1);
-				
-				boolean isLeftestLifelineEditPart = lifelineEditPart.equals(leftestLifelineEditPart);
-				boolean isRightestLifelineEditPart = lifelineEditPart.equals(rightestLifelineEditPart);
-				
-				if ( isLeftestLifelineEditPart && deltaX < 0 ) { // 맨왼쪽 Lifeline을 좌측으로 이동하는 경우
-					req = new ChangeBoundsRequest(REQ_RESIZE);
-					req.setEditParts(cfep);
-					req.setMoveDelta(new Point(deltaX, 0)); // WEST의 경우 resize 시에도 moveDelta 필요
-					req.setSizeDelta(new Dimension(Math.abs(deltaX), 0));
-					req.setResizeDirection(PositionConstants.WEST);		
-				} else if ( isLeftestLifelineEditPart && deltaX > 0 ) { // 맨왼쪽 Lifeline을 우측으로 이동하는 경우
-					if ( isRightestLifelineEditPart ) { // 유일한 Lifeline인 경우
-						req = new ChangeBoundsRequest(REQ_RESIZE);
-						req.setEditParts(cfep);
-						req.setMoveDelta(new Point(deltaX, 0)); // WEST의 경우 resize 시에도 moveDelta 필요
-						req.setSizeDelta(new Dimension(-deltaX, 0));
-						req.setResizeDirection(PositionConstants.WEST);	
-					} else { // 우측에 Lifeline이 있는 경우 아래의 apexGetPushNextLifeline()을 통해 이동시킴
-						continue;
-					}
-						
-				} else if ( isRightestLifelineEditPart && deltaX < 0 ) { // 맨우측 Lifeline을 좌측으로 이동하는 경우
-					req = new ChangeBoundsRequest(REQ_RESIZE);
-					req.setEditParts(cfep);
-					req.setSizeDelta(new Dimension(deltaX, 0));
-					req.setResizeDirection(PositionConstants.EAST);
-				} else if ( isRightestLifelineEditPart && deltaX > 0 ) { // 맨우측 Lifeline을 우측으로 이동하는 경우에만 CF Resize(안그러면 Resize가 누적됨)
-					req = new ChangeBoundsRequest(REQ_RESIZE);
-					req.setEditParts(cfep);
-					req.setSizeDelta(new Dimension(deltaX, 0));
-					req.setResizeDirection(PositionConstants.EAST);						
-				} else { // 그 외 중간 Lifeline을 좌측으로 이동 시 CF에는 아무런 변화 없음
-					continue;
-				}				
-			}
-
-			// cfep가 중첩된 CF인 경우
-			// lifeline이 parent CF의 최좌측 covered Lifeline 인지 여부 확인(Resize 시 parent의 resize를 유발하냐 마냐에 필요)
-			if ( cfep.getParent() instanceof InteractionOperandEditPart ) {
-				List<LifelineEditPart> parentCFCoveredLifelineEditParts = ApexSequenceUtil.apexGetCoveredLifelineEditParts((ShapeNodeEditPart)cfep.getParent().getParent().getParent(), true);
-				List parentCFSortedCoveredLifelineEditParts = ApexSequenceUtil.apexGetSortedGraphicalEditPartList(parentCFCoveredLifelineEditParts, SWT.LEFT);
-				boolean isLeftestLifelineOfParent = lifelineEditPart.equals((LifelineEditPart)parentCFSortedCoveredLifelineEditParts.get(0));
-				
-				apexMoveInfo.put(ApexSequenceRequestConstants.APEX_KEY_IS_LEFTESTLIFELINE_OF_PARENT_COMBINEDFRAGMENT, 
-						         new Boolean(isLeftestLifelineOfParent));	
-			}			
-			
-			apexMoveInfo.put(ApexSequenceRequestConstants.APEX_KEY_MOVING_LIFELINEEDITPART, lifelineEditPart);
-
-			req.setExtendedData(apexMoveInfo);			
-			
-			Command command = cfep.getCommand(req);
-			if (command != null && command.canExecute()) {
-				compoundCmd.add(command);
-			}
-		}
-		
-		if ( request.getMoveDelta().x > 0 ) {
-			apexGetPushNextLifeline(compoundCmd, request, lifelineEditPart);
-		}	
-		/* apex added end */		
+		ApexInteractionCompartmentXYLayoutEditPolicy.resizeCombinedFragmentByMovingLifelineCommand(compoundCmd, request, lifelineEditPart);		
+		/* apex added end */
 	}	
-	
+
 	/**
 	 * apex updated
 	 * 
@@ -555,7 +484,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		// cpCmd를 분해하여 넘겨받은 원래의 ccmd 에 add
 		ApexSequenceUtil.apexCompoundCommandToCompoundCommand(getCombinedFragmentResizeChildrenCommand(request, combinedFragmentEditPart, childEditPart), compoundCmd);
 	}
-	
+
     /**
      * Lifeline 이동 시 우측의 Lifeline을 함께 이동
      * 
@@ -565,7 +494,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
      */
 	public static void apexGetPushNextLifeline(CompoundCommand compoundCmd, ChangeBoundsRequest request, LifelineEditPart lifelineEditPart) {
 		List nextLifelineEditParts = ApexSequenceUtil.apexGetNextLifelineEditParts(lifelineEditPart);
-		
+
 		if ( nextLifelineEditParts.size() > 0 ) {
 			LifelineEditPart nextLifelineEditPart = (LifelineEditPart)ApexSequenceUtil.apexGetNextLifelineEditParts(lifelineEditPart).get(0);
 			// Type을 REQ_MOVE로 바꿔주지 않으면 REQ_MOVE_CHILDREN인 상태로 다른 로직을 타게 됨
@@ -574,7 +503,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			compoundCmd.add(cmd);	
 		}		
 	}
-	
+
 	/**
 	 * CF bound의 resize 처리
 	 * Child CF의 right, bottom 보다 작게 Resize 방지
@@ -587,26 +516,26 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			                                                                 GraphicalEditPart combinedFragmentEditPart, 
 			                                                                 GraphicalEditPart childEditPart, 
 			                                                                 boolean byMove) {
-				
+
 		CompoundCommand compoundCmd = new CompoundCommand(ApexSequenceRequestConstants.APEX_COMMAND_LABEL_RESIZE_THE_CF_BOUNDS);		
-		
+
 		// request 에서 size 뽑아서 처리
 		IFigure cfFigure = combinedFragmentEditPart.getFigure();
 		Rectangle origCFBounds = cfFigure.getBounds().getCopy();
-		
+
 		cfFigure.translateToAbsolute(origCFBounds);
-		
+
 		Point moveDelta = request.getMoveDelta();
 		Dimension sizeDelta = request.getSizeDelta();
 		int direction = request.getResizeDirection();
-		
+
 		origCFBounds.translate(moveDelta);
 		origCFBounds.resize(sizeDelta);
-		
+
 		// 상향 move 시 침범 방지
 		if ( moveDelta.y < 0 ) {
 			int yAfterMove = ApexSequenceUtil.apexGetAbsolutePosition(combinedFragmentEditPart, SWT.TOP)+moveDelta.y;
-			
+
 			// 상향 move 시 Interaction 또는 InteractionOperand 침범 방지
 			EditPart ep = combinedFragmentEditPart.getParent();
 			IGraphicalEditPart parentCompartmentEditPart  = null;
@@ -625,18 +554,18 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 
 			// 상향 move 시 aboveEditPart 침범 방지 
 			List higherEditPartList = ApexSequenceUtil.apexGetHigherEditPartList(combinedFragmentEditPart);
-			
+
 			if ( higherEditPartList.size() > 0 ) {		
 				IGraphicalEditPart aboveEditPart  = ApexSequenceUtil.apexGetAboveEditPart(combinedFragmentEditPart, higherEditPartList);
 				int yAbove = ApexSequenceUtil.apexGetAbsolutePosition(aboveEditPart, SWT.BOTTOM);
-									
+
 				if ( yAfterMove <= yAbove ) {
 					compoundCmd.add(UnexecutableCommand.INSTANCE);
 					return compoundCmd;
 				}					
 			}	
 		}
-		
+
 		// resize 없는 순수 move 시 좌우 move 금지 (ApexCombinedFragmentResizableShapeEditPolicy에서 처리)
 		/*
 		if(sizeDelta.equals(0, 0)) {
@@ -645,17 +574,17 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			}			
 		}
 		*/
-		
-		
+
+
 		// 상향 확대 resize 시 AboveEditPart 침범 방지
 		if ( sizeDelta.height > 0 && (request.getResizeDirection() & PositionConstants.NORTH) != 0) {
 			List higherEditParts = ApexSequenceUtil.apexGetHigherEditPartList(combinedFragmentEditPart);
-			
+
 			if ( higherEditParts.size() > 0 ) {
 				IGraphicalEditPart igep = ApexSequenceUtil.apexGetAboveEditPart(combinedFragmentEditPart, higherEditParts);
 				int bottomAboveEP = ApexSequenceUtil.apexGetAbsolutePosition(igep, SWT.BOTTOM);
 				int topIgep = ApexSequenceUtil.apexGetAbsolutePosition(combinedFragmentEditPart, SWT.TOP)-sizeDelta.height;
-				
+
 				if ( topIgep <= bottomAboveEP ) {
 					compoundCmd.add(UnexecutableCommand.INSTANCE);
 					return compoundCmd;
@@ -667,7 +596,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		List children = ApexSequenceUtil.apexGetChildEditPartList(combinedFragmentEditPart);
 
 		Iterator it1 = children.iterator();
-		
+
 		while ( it1.hasNext()) {
 			EditPart childEp = (EditPart)it1.next();
 			if ( childEp instanceof CombinedFragmentEditPart ) {
@@ -675,7 +604,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 
 				Rectangle childRect = cfep.getFigure().getBounds().getCopy();
 				cfep.getFigure().translateToAbsolute(childRect);
-				
+
 				// child.right보다 작으면 X
 				if ( origCFBounds.right() <= childRect.right() ) {		
 					compoundCmd.add(UnexecutableCommand.INSTANCE);
@@ -698,11 +627,11 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				}
 			}			
 		}
-		
+
 		// CF 경계 변경 실제 처리 부분 - 중첩된 CF의 move/resize에 의한 포함하는 CF의 경계 resize/move 처리 
 		cfFigure.translateToRelative(origCFBounds);
 //		System.out.println(byMove ? "byMove" : "byResize");
-		
+
 		// parent 보다 좌측으로 resize하는 경우 자동으로 move되므로 위에서 translate해준 값 원상복구
 		TransactionalEditingDomain editingDomain = combinedFragmentEditPart.getEditingDomain();
 		ICommand resizeOrMoveCFCommand = null;
@@ -731,7 +660,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 						isLeftestLifelineOfParent = ((Boolean)value).booleanValue();
 					}					
 				}
-				
+
 				if ( isMoveRequestFromLifelineMove 
 					 && moveDelta.x < 0
 					// 이 lifeline 이 parentCF의 최좌측 lifeline인 경우
@@ -747,7 +676,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
                                                          //new Dimension(origCFBounds.width, origCFBounds.height));
                                                          origCFBounds);
 		}
-		
+
 //		ICommand resizeOrMoveCFCommand = byMove ? new SetBoundsCommand(editingDomain, 
 //                                                                       "Apex_CF_Move",
 //                                                                       new EObjectAdapter((View) combinedFragmentEditPart.getModel()),
@@ -767,18 +696,18 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				if ( aCfChild instanceof CombinedFragmentCombinedFragmentCompartmentEditPart ) {
 					CombinedFragmentCombinedFragmentCompartmentEditPart cfcfcep = (CombinedFragmentCombinedFragmentCompartmentEditPart)aCfChild;
 					List cfcfcChildren = cfcfcep.getChildren();
-					
+
 					for ( Object aCfcfcChild : cfcfcChildren ) {
 						if ( aCfcfcChild instanceof InteractionOperandEditPart ) {
 							InteractionOperandEditPart ioep1 = (InteractionOperandEditPart)aCfcfcChild;
 							List childCFs = ioep1.getChildren();
-							
+
 							for ( Object aOpChild : childCFs ) {
 								if ( aOpChild instanceof CombinedFragmentEditPart ) {									
 									CombinedFragmentEditPart childCfep = (CombinedFragmentEditPart)aOpChild;
 									IFigure childCfFigure = childCfep.getFigure();
 									Rectangle childCfRect = childCfFigure.getBounds().getCopy();
-									
+
 									// resizeParent에 의해 호출된 경우 childEditPart가 아닌 것은 따라 이동되지 않도록 x 값 보정
 									if ( childEditPart != null && !childCfep.equals(childEditPart) ) {
 										childCfRect.x += sizeDelta.width;				
@@ -798,7 +727,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 	                                            childCfRect);
 	                                    compoundCmd.add(new ICommandProxy(childAdjustment));
 									}
-									
+
 								}
 							}								
 						}
@@ -812,10 +741,10 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 
 		Map reqExtMap = request.getExtendedData();
 		Set<Entry<Object, Object>> entrySet = reqExtMap.entrySet();
-		
+
 		for (Entry<Object, Object> aExtendedDataEntry : entrySet ) {
 			Object value = aExtendedDataEntry.getValue();
-			
+
 			if ( value instanceof LifelineEditPart ) {
 				isResizeByLifelineMove = true;
 				//lep = (LifelineEditPart)value;
@@ -826,10 +755,10 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		if ( !byMove && (isResizeByLifelineMove || !isResizeByInteractionOperandResize) ) {
 			apexUpdateChildrenIOBoundsByLifelineOrCombinedFragment(request, combinedFragmentEditPart, childEditPart, compoundCmd);	
 		}
-		
+
 		return compoundCmd;
 	}
-	
+
 	/**
 	 * abstractGraphicalEditPart보다 아래에 있는 item들 모두의 좌표를 request내의 delta만 이동
 	 * 
@@ -883,8 +812,8 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 							cbRequest.setEditParts(beneathEditPart);
 							ApexSequenceUtil.apexCompoundCommandToCompoundCommand(mEditPart.getCommand(cbRequest), compoundCmd);
 							//compoundCmd.add(mEditPart.getCommand(cbRequest));
-							
-							
+
+
 							// ApexConnectionMoveEditPolicy.apexGetMoveConnectionCommand(request, connectionPart, false);
 
 						} else { // CF도 Message도 아닌 경우
@@ -904,7 +833,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 									                                             beneathEditPart, 
 									                                             rect);
 							compoundCmd.add(new ICommandProxy(setBoundsCmd));
-							
+
 							// beneathEditPart가 CombinedFragment가 아닐 경우 beneathEditPart 아래의 beneathEditPart에 대한 처리							
 							apexMoveBelowItems(request, (GraphicalEditPart)beneathEditPart, compoundCmd);
 						}
@@ -916,7 +845,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			}
 		}		
 	}
-	
+
 	/**
 	 * 넘겨받은 GraphicalEditPart가 중첩되어 있는 child 인 경우
 	 * parent CF의 경계 변경여부 결정
@@ -933,7 +862,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 
 		IFigure cfFigure = graphicalEditPart.getFigure();
 		Rectangle origCFBounds = cfFigure.getBounds().getCopy();
-		
+
 		// origCFBounds 를 화면 좌상단을 원점으로 하는 절대좌표값으로 변경
 		cfFigure.translateToAbsolute(origCFBounds);
 
@@ -945,13 +874,13 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 
 		newBoundsCF.translate(moveDelta);
 		newBoundsCF.resize(sizeDelta);
-		
+
 		// parent Operand(또는 InteractionInteractionCompartmentEditPart)가 있고, 즉 중첩되어 있고
 		EditPart pEditPart = graphicalEditPart.getParent();
 		if ( pEditPart instanceof InteractionOperandEditPart || pEditPart instanceof InteractionInteractionCompartmentEditPart ) {
-			
+
 			GraphicalEditPart parentEditPart = (GraphicalEditPart)pEditPart.getParent().getParent();
-			
+
 			// Resize결과 parentOperand보다 크면 parentCF도 Resize 처리
 			if ( pEditPart instanceof InteractionOperandEditPart ) {
 				InteractionOperandEditPart ioep = (InteractionOperandEditPart)pEditPart;
@@ -962,9 +891,9 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				if ( newBoundsCF.x < parentOperandBounds.x ) {
 					ChangeBoundsRequest cbRequest = new ChangeBoundsRequest(ApexSequenceRequestConstants.APEX_REQUEST_MOVE_AND_RESIZE_COMBINEDFRAGMENT);
 					cbRequest.setEditParts(parentEditPart);
-					
+
 					int deltaX = 0;
-					
+
 					// Child CF가 좌측으로 resize 확대된 경우
 					if ( sizeDelta.width > 0 ) { // resize 시에도 moveDelta가 존재한다.
 						if ( (direction & PositionConstants.WEST) == 0 ) {
@@ -975,7 +904,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 							cbRequest.setResizeDirection(direction);
 						}
 					}
-					
+
 					apexCombinedFragmentResizeChildren(cbRequest, parentEditPart, graphicalEditPart, compoundCmd);
 					int a = 0;
 					// parent의 좌측이동에 따라 child도 함께 자동이동되므로
@@ -994,7 +923,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 //							                                               graphicalEditPart, 
 //							                                               origCFBounds);
 //					compoundCmd.add(new ICommandProxy(moveChildRight));
-					
+
 				} else if ( newBoundsCF.right() > parentOperandBounds.right()					 
 				     || newBoundsCF.bottom() > parentOperandBounds.bottom() ) {		
 					ChangeBoundsRequest cbRequest = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
@@ -1006,7 +935,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			}
 		} else if ( pEditPart instanceof LifelineEditPart ) { // ApexConnectionMoveEditPolicy.apexGetMoveConnectionCommand()에서 호출된 경우 ActivationEP가 넘어옴
 
-			InteractionOperandEditPart ioep = ApexSequenceUtil.apexGetEnclosingInteractionOperandEditpart(graphicalEditPart);
+			ShapeNodeEditPart ioep = ApexSequenceUtil.apexGetEnclosingInteractionOperandEditpart(graphicalEditPart);
 			if ( ioep != null ) {
 				Rectangle parentOperandBounds = ioep.getFigure().getBounds().getCopy();
 				ioep.getFigure().translateToAbsolute(parentOperandBounds);
@@ -1022,7 +951,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			}
 		}
 	}
-	
+
 	/**
 	 * Lifeline 이나 CombinedFragment 에 의한 InteractionOperand 의 경계 변경 처리
 	 * 
@@ -1035,28 +964,28 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
             GraphicalEditPart combinedFragmentEditPart, 
             GraphicalEditPart childEditPart,
             CompoundCommand compoundCmd) {
-	
+
 		Point moveDelta = request.getMoveDelta();
 		Dimension sizeDelta = request.getSizeDelta();
 		int direction = request.getResizeDirection();			
-		
+
 		EditPart parentEP = childEditPart!=null ? childEditPart.getParent() : combinedFragmentEditPart.getParent();
-		
-		InteractionOperandEditPart ioep = null;
-		
+
+		ShapeNodeEditPart ioep = null;
+
 		// CF의 상변에서의 resize의 경우 아래의 Op들이 이동되지 않도록 하는 flag
 		boolean isResizeByNorthOfCombinedFragment = false;
-		
+
 		// CF의 하변에서의 resize의 경우 위의 Op들의 width도 수정되도록 하는 flag
 		boolean isResizeBySouthOfCombinedFragment = false;
-		
+
 		// 자기 CF의 resize이면서 message move에 의한 resize가 아닌 경우
 		// message move에 의한 resize는 ApexConnectionMoveEditPolicy에서 ioep.getCommand()를 통해 수행됨
 		if ( childEditPart == null ) { 
-		
+
 		CombinedFragmentCombinedFragmentCompartmentEditPart cfcfep = (CombinedFragmentCombinedFragmentCompartmentEditPart)combinedFragmentEditPart.getChildren().get(0);
 		List ioeps = cfcfep.getChildren();
-		
+
 		if ( (direction & PositionConstants.NORTH) != 0 ) {
 			ioep = (InteractionOperandEditPart)ioeps.get(0);
 			isResizeByNorthOfCombinedFragment = true;
@@ -1071,10 +1000,10 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		} else if ( parentEP instanceof LifelineEditPart ) { // Activation 이 CF의 resize를 유발한 경우
 			ioep = ApexSequenceUtil.apexGetEnclosingInteractionOperandEditpart(childEditPart);
 		}
-		
-		compoundCmd.add(OperandBoundsComputeHelper.createIOEPResizeCommand(request, ioep, true));
+
+		compoundCmd.add(ApexOperandBoundsComputeHelper.createIOEPResizeCommand(request, ioep, true));
 	}
-	
+
 	/**
 	 * apex updated
 	 * 
@@ -1088,7 +1017,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 	public static Command getCombinedFragmentResizeChildrenCommand(ChangeBoundsRequest request, GraphicalEditPart combinedFragmentEditPart) {
 		return getCombinedFragmentResizeChildrenCommand(request, combinedFragmentEditPart, null);
 	}
-	
+
 	/**
 	 * apex updated
 	 * 
@@ -1107,10 +1036,10 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
             GraphicalEditPart childEditPart) {
 		Point moveDelta = request.getMoveDelta();
 		Dimension sizeDelta = request.getSizeDelta();
-		
+
 		IFigure cfFigure = combinedFragmentEditPart.getFigure();
 		Rectangle origCFBounds = cfFigure.getBounds().getCopy();
-		
+
 		/* apex improved start */
 		cfFigure.translateToAbsolute(origCFBounds);		
 		/* apex improved end */
@@ -1118,9 +1047,9 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		cfFigure.getParent().translateToAbsolute(origCFBounds);
 		origCFBounds.translate(cfFigure.getParent().getBounds().getLocation());
 		*/
-		
+
 		CompoundCommand compoundCmd = new CompoundCommand(ApexSequenceRequestConstants.APEX_COMMAND_LABEL_RESIZE_MOVE_COMBINEDFRAGMENT);
-		
+
 		// specific case for move :
 		// we want the execution specifications graphically owned by the lifeline to move with the combined fragment, and the contained messages too
 		/* apex replaced
@@ -1128,14 +1057,14 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		*/
 		if ( (childEditPart != null  && ( moveDelta.x != 0 || moveDelta.y != 0 )) // resizeParent로 온 경우 moveDelta값이 있으면 수행
 		     || ( childEditPart == null && sizeDelta.equals(0, 0) && !moveDelta.equals(0, 0) ) ) { // childEditPart없이 직접 자기 CF를 변경하는 경우 sizeDelta값이 없고 moveDelta 값이 있을 때만 수행
-		
+
 			/* apex added start */
 			//this CF, IO의 bound Resize
 			//boolean isResizeByChild = false;
 			//if ( childEditPart != null ) {
 			//isResizeByChild = true;
 			//}			
-			
+
 			CompoundCommand ccmd = apexGetResizeCombinedFragmentBoundsCommand(request, combinedFragmentEditPart, childEditPart, true);
 			List<Command> resizeCmds = ccmd.getCommands();
 			for ( Command cmd : resizeCmds ) {
@@ -1146,7 +1075,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				}	
 			}			
 			/* apex added end */
-			
+
 			// retrieve all the edit parts in the registry
 			/* apex replaced
 			Set<Entry<Object, EditPart>> allEditPartEntries = combinedFragmentEditPart.getViewer().getEditPartRegistry().entrySet();			
@@ -1155,16 +1084,16 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			List<EditPart> coveredChildrenEditParts = ApexSequenceUtil.apexGetCombinedFragmentChildrenEditParts((CombinedFragmentEditPart)combinedFragmentEditPart);
 			for ( EditPart ep : coveredChildrenEditParts ) {
 				//EditPart ep = epEntry.getValue();
-				
+
 				// handle move of object graphically owned by the lifeline
 				// ExecSpec은 아래 로직을 따라 이동
 				if(ep instanceof ShapeEditPart) {
 					ShapeEditPart sep = (ShapeEditPart)ep;
 					EObject elem = sep.getNotationView().getElement();
-					
+
 					if(elem instanceof InteractionFragment) {
 						IFigure figure = sep.getFigure();
-						
+
 						Rectangle figureBounds = figure.getBounds().getCopy();
 						/* apex improved start */
 						figure.translateToAbsolute(figureBounds);
@@ -1179,14 +1108,14 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 						    || (origCFBounds.intersects(figureBounds) 
 						    && (sep instanceof ActionExecutionSpecificationEditPart || sep instanceof BehaviorExecutionSpecificationEditPart))) {
 							EditPart parentEP = sep.getParent();
-							
+
 							if(parentEP instanceof LifelineEditPart) {
 								ChangeBoundsRequest esRequest = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
 								esRequest.setEditParts(sep);
 								esRequest.setMoveDelta(moveDelta);
-								
+
 								Command moveESCommand = LifelineXYLayoutEditPolicy.getResizeOrMoveChildrenCommand((LifelineEditPart)parentEP, esRequest, true, false, true);
-								
+
 								if(moveESCommand != null && !moveESCommand.canExecute()) {
 									// forbid move if the es can't be moved correctly
 									return UnexecutableCommand.INSTANCE;
@@ -1196,7 +1125,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 							}
 						}
 						/* apex improved end */
-						
+
 						/* apex replaced
 						if(origCFBounds.contains(figureBounds)) {
 							EditPart parentEP = sep.getParent();
@@ -1219,21 +1148,21 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 						*/
 					}
 				}
-				
+
 				// handle move of messages directly attached to a lifeline
 				if(ep instanceof ConnectionEditPart) {
 					ConnectionEditPart cep = (ConnectionEditPart)ep;
-					
+
 					Connection msgFigure = cep.getConnectionFigure();
-					
+
 					ConnectionAnchor sourceAnchor = msgFigure.getSourceAnchor();
 					ConnectionAnchor targetAnchor = msgFigure.getTargetAnchor();
-					
+
 					Point sourcePoint = sourceAnchor.getReferencePoint();
 					Point targetPoint = targetAnchor.getReferencePoint();
-					
+
 					Edge edge = (Edge)cep.getModel();
-					
+
 					if(origCFBounds.contains(sourcePoint) && cep.getSource() instanceof LifelineEditPart) {
 						IdentityAnchor gmfAnchor = (IdentityAnchor)edge.getSourceAnchor();
 						Rectangle figureBounds = sourceAnchor.getOwner().getBounds();
@@ -1254,7 +1183,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 						IFigure execSpecFigure = snep.getFigure();
 						Rectangle execSpecBounds = snep.getFigure().getBounds().getCopy();
 						execSpecFigure.translateToAbsolute(execSpecBounds);
-						
+
 						// ExecSpec이 CF에 포함되지 않고 잘려있는 경우에만 anchor 이동
 						if(!origCFBounds.contains(execSpecBounds) &&
 						origCFBounds.intersects(execSpecBounds)) {
@@ -1282,10 +1211,10 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			/* apex replaced
 			newBoundsCF.translate(moveDelta);
 			*/
-			
+
 			/* apex added start */
 			//this CF, IO의 bound Resize
-			
+
 			//boolean isResizeByChild = false;
 			//if ( childEditPart != null ) {
 			//isResizeByChild = true;
@@ -1304,43 +1233,43 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			newBoundsCF.resize(sizeDelta);
 			*/
 			CombinedFragment cf = (CombinedFragment)((CombinedFragmentEditPart)combinedFragmentEditPart).resolveSemanticElement();
-			
+
 			// 아래 기존 로직은 CF의 첫번째 InteractionOperand의 상단에서의 resize 처리, 즉 두번째 이후 IOEP는 아래 로직 타지 않음
 			// 최종적인 IOEP의 경계처리는 CF생성때처럼 OperandBoundsComputeHelper.createUpdateIOBoundsForCFResizeCommand()에 의해 수행됨 - 146line 참조
 			// 그 외의 IOEP resize(첫번째 Op의 하단에서의 resize 나 두번째 이후 Op의 상/하단에서의 resize 처리는
 			// OperandBoundsComputeHelper.createIOEPResizeCommand()에 의해 처리
 			// InteractionOperandDragDropEditPolicy.getResizeCommand() 참조
 			if(combinedFragmentEditPart.getChildren().size() > 0 && combinedFragmentEditPart.getChildren().get(0) instanceof CombinedFragmentCombinedFragmentCompartmentEditPart) {
-			
+
 				CombinedFragmentCombinedFragmentCompartmentEditPart compartment = (CombinedFragmentCombinedFragmentCompartmentEditPart)combinedFragmentEditPart.getChildren().get(0);
 				List<EditPart> combinedFragmentChildrenEditParts = compartment.getChildren();
 				List<InteractionOperandEditPart> interactionOperandEditParts = new ArrayList<InteractionOperandEditPart>();
-				
+
 				InteractionOperand firstOperand = cf.getOperands().get(0);
-				
+
 				// interaction fragments which will not be covered by the operands
 				Set<InteractionFragment> notCoveredAnymoreInteractionFragments = new HashSet<InteractionFragment>();
 				int headerHeight = 0;
-				
+
 				// InteractionOperands 에 대해
 				for(EditPart ep : combinedFragmentChildrenEditParts) {
 					if(ep instanceof InteractionOperandEditPart) {
 						InteractionOperandEditPart ioEP = (InteractionOperandEditPart)ep;
 						InteractionOperand io = (InteractionOperand)ioEP.resolveSemanticElement();
-						
+
 						// 이 InteractionOperand가 넘겨받은 CF의 Operands에 포함되는 경우
 						if(cf.getOperands().contains(io)) {
 							// interactionOperandEditParts에 이 InteractonOperandEditPart를 add하고
 							interactionOperandEditParts.add(ioEP);
-							
+
 							// 이 Operand의 모든 Fragments를 notCovered List에 추가
 							// fill with all current fragments (filter later)
 							notCoveredAnymoreInteractionFragments.addAll(io.getFragments());
-							
+
 							// 이 Operand가 첫번째 Operand이면
 							if(firstOperand.equals(io)) {
 								Rectangle boundsIO = ioEP.getFigure().getBounds().getCopy();
-								
+
 								/* apex improved start */								
 								// 이 Operand의 좌표를 절대좌표로 변환
 								ioEP.getFigure().translateToAbsolute(boundsIO);
@@ -1354,26 +1283,26 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 						}
 					}
 				}
-				
+
 				double heightRatio = (double)(newBoundsCF.height - headerHeight) / (double)(origCFBounds.height - headerHeight);
 				double widthRatio = (double)newBoundsCF.width / (double)origCFBounds.width;
-				
+
 				for(InteractionOperandEditPart ioEP : interactionOperandEditParts) {
 				InteractionOperand io = (InteractionOperand)ioEP.resolveSemanticElement();
-				
+
 				// 이 IO의 절대좌표
 				Rectangle newBoundsIO = SequenceUtil.getAbsoluteBounds(ioEP);
-				
+
 				// moveDelta만큼 이동
 				// apply the move delta which will impact all operands
 				//newBoundsIO.translate(moveDelta);
-				
+
 				// 경계값 변경
 				// calculate the new bounds of the interaction operand
 				// scale according to the ratio
 				newBoundsIO.height = (int)(newBoundsIO.height * heightRatio);
 				newBoundsIO.width = (int)(newBoundsIO.width * widthRatio);
-				
+
 				// 첫번째 Operand의 경우 Header영역도 Operand에 포함(io의 y값은 감소시키고, 그만큼 height는 확장)
 				if(firstOperand.equals(io)) {
 					// ioep 의 highestChild의 top 아래로 축소 resize 금지
@@ -1382,7 +1311,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 						if ( highestChildEditPart != null ) {
 							int topHighestChildEP = ApexSequenceUtil.apexGetAbsolutePosition(highestChildEditPart, SWT.TOP);
 							int topCurrentIOEP = ApexSequenceUtil.apexGetAbsolutePosition(ioEP, SWT.TOP) - sizeDelta.height;
-							
+
 							if ( topCurrentIOEP >= topHighestChildEP ) {
 								return UnexecutableCommand.INSTANCE;
 							}	
@@ -1392,30 +1321,30 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 					if ( OperandBoundsComputeHelper.apexIsInvadingTargetChildren(ioEP, compartment, PositionConstants.NORTH, sizeDelta.height) ) {
 						return UnexecutableCommand.INSTANCE;
 					}
-					
+
 					// used to compensate the height of the "header" where the OperandKind is stored
 					newBoundsIO.y -= headerHeight;
 					newBoundsIO.height += headerHeight;
 				}
-				
+
 				// 넘겨받은 CF와 그 Operands를 ignoreSet에 추가(새 경계에 새로 포함되는 fragment만 나중에 추출하기 위해 기존 Fragment는 ignoreSet에 추가)
 				// ignore current CF and enclosed IO
 				Set<InteractionFragment> ignoreSet = new HashSet<InteractionFragment>();
 				ignoreSet.add(cf);
 				ignoreSet.addAll(cf.getOperands());
-				
+
 				// 새 경계에 포함되는 Fragments 추출
 				Set<InteractionFragment> coveredInteractionFragments = SequenceUtil.getCoveredInteractionFragments(newBoundsIO, combinedFragmentEditPart, ignoreSet);
-				
+
 				// 새 경계에 잘리는 Fragments가 있을 경우 null
 				if(coveredInteractionFragments == null) {
 					return UnexecutableCommand.INSTANCE;
 				}
-				
+
 				// notCovered에서 새 경계에 포함되는 Fragments는 제외, 즉 기존 경계에 포함되었던 Fragment를 notCovered에서 제외, 즉 covered로 처리
 				// remove fragments that are covered by this operand from the notCovered set
 				notCoveredAnymoreInteractionFragments.removeAll(coveredInteractionFragments);
-				
+
 				// 새 경계에 포함되는 Fragments의 EnclosingInteraction으로 io를 setting
 				// set the enclosing operand to the moved/resized one if the current enclosing interaction is the enclosing interaction
 				// of the moved/resized operand or of another.
@@ -1424,7 +1353,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 					if(!cf.equals(ift)) {
 						Interaction interactionOwner = ift.getEnclosingInteraction();
 						InteractionOperand ioOwner = ift.getEnclosingOperand();
-						
+
 						// 포함하는 op가 null이 아니고 (포함하는 op가 cf를 포함하는 op와 같거나-이럴경우가 있나? cf가 포함하는 op의 owner인 경우)
 						// 또는
 						// 포함하는 interaction이 null이 아니고 (포함하는 interaction이 cf를 포함하는 interaction과 같거나 cf가 포함하는 interaction의 owner인 경우-이럴경우가 있나?)
@@ -1449,7 +1378,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				}
 				*/
 				}
-				
+
 				// notCovered에 포함된 ift는 원래 포함하는 operand나 interaction을 EnclosingInteraction으로 setting
 				for(InteractionFragment ift : notCoveredAnymoreInteractionFragments) {
 					if(cf.getEnclosingOperand() != null) {
@@ -1459,7 +1388,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 					}
 				}
 			}
-			
+
 			/* apex added start */
 			// 하향 확대 resize 시 아래에 있는 요소 이동 처리
 			if ( sizeDelta.height > 0 && (request.getResizeDirection() & PositionConstants.SOUTH) != 0) {
@@ -1476,7 +1405,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			}
 			/* apex added end */
 		}
-		
+
 		/* apex replaced
 		// CombinedFragmentCombinedFragmentCompartmentItemSemanticEditPolicy 에서
 		// operand가 복수인 경우에 대한 validation이 있으므로
@@ -1511,8 +1440,8 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		}
 		return compoundCmd;
 	}
-	
-	
+
+
 	/* apex replaced
 	public static Command getCombinedFragmentResizeChildrenCommand(ChangeBoundsRequest request, CombinedFragmentEditPart combinedFragmentEditPart) {
 		Point moveDelta = request.getMoveDelta();
@@ -1729,7 +1658,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		return compoundCmd;
 	}
 	*/
-	
+
 	private static void moveCoveredDurationConstraint(DurationConstraintEditPart dcp, CompoundCommand compoundCmd,
 			Rectangle origCFBounds, Point moveDelta) {
 		Rectangle r = dcp.getFigure().getBounds().getCopy();
@@ -1800,7 +1729,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			boolean skipMinSize = false;
 			if(child instanceof LifelineEditPart)// && LifelineResizeHelper.isManualSize((LifelineEditPart)child))
 				skipMinSize = true;
-				
+
 			Dimension minSize = getMinimumSizeFor(child);
 			if(rect.width < minSize.width && !skipMinSize) { // In manual mode, there is no minimal width
 				return null;
@@ -1947,7 +1876,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		// sizeDelta modified in order to preserve the links' anchors positions
 		return cmd;
 	}
-	
+
 	/**
 	 * Align lifeline in vertical direction
 	 * Fix https://bugs.eclipse.org/bugs/show_bug.cgi?id=364688
@@ -1964,7 +1893,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 
 		return target;
 	}
-	
+
 	@Override
 	protected void showSizeOnDropFeedback(CreateRequest request) {
 		super.showSizeOnDropFeedback(request);
@@ -1974,7 +1903,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				IFigure feedback = getSizeOnDropFeedback(request);
 				Rectangle b = feedback.getBounds().getCopy();
 				feedback.translateToAbsolute(b);
-				
+
 				HighlightUtil.showSizeOnDropFeedback(request, getHost(),feedback,b);				
 			}
 		}

@@ -905,7 +905,7 @@ public class ApexInteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPo
 									esRequest.setEditParts(sep);
 									esRequest.setMoveDelta(moveDelta);
 									
-									Command moveESCommand = LifelineXYLayoutEditPolicy.getResizeOrMoveChildrenCommand((LifelineEditPart)parentEP, esRequest, true, false, true);
+									Command moveESCommand = ApexLifelineXYLayoutEditPolicy.getResizeOrMoveChildrenCommand((LifelineEditPart)parentEP, esRequest, true, false, true);
 									
 									if(moveESCommand != null && !moveESCommand.canExecute()) {
 										// forbid move if the es can't be moved correctly

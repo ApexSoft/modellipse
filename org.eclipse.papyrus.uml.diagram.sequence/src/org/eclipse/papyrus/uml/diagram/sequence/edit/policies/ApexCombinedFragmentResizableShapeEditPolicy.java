@@ -3,6 +3,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 import java.util.HashMap;
 import java.util.Map;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -12,31 +14,30 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
 
 public class ApexCombinedFragmentResizableShapeEditPolicy extends
 		ResizableShapeEditPolicy {
 
 	private int moveDirection;
-	
+
 	private int resizeDirections;
-	
-	
+
+
 	public ApexCombinedFragmentResizableShapeEditPolicy(int moveDirection, int resizeDirections) {
 		super();
 		setMoveDirection(moveDirection);
 		setResizeDirections(resizeDirections);
 	}
-	
+
 	@Override
 	protected void showChangeBoundsFeedback(ChangeBoundsRequest request) {
-		
+
 		Point moveDelta = request.getMoveDelta();
 		Dimension sizeDelta = request.getSizeDelta();
 		int direction = request.getResizeDirection();
-		
+
 		Point movePoint = moveDelta;
-		
+
 		IFigure feedback = getDragSourceFeedbackFigure();
         
         PrecisionRectangle rect = new PrecisionRectangle(getInitialFeedbackBounds().getCopy());
@@ -70,7 +71,7 @@ public class ApexCombinedFragmentResizableShapeEditPolicy extends
         feedback.translateToRelative(rect);
         feedback.setBounds(rect);		
 	}
-	
+
 	@Override
 	protected Command getMoveCommand(ChangeBoundsRequest request) {
 		ChangeBoundsRequest req = new ChangeBoundsRequest(REQ_MOVE_CHILDREN);
@@ -82,7 +83,7 @@ public class ApexCombinedFragmentResizableShapeEditPolicy extends
 		req.setResizeDirection(request.getResizeDirection());
 		return getHost().getParent().getCommand(req);
 	}
-	
+
 	/**
 	 * Returns the command contribution for the given resize request. By
 	 * default, the request is re-dispatched to the host's parent as a
@@ -102,7 +103,7 @@ public class ApexCombinedFragmentResizableShapeEditPolicy extends
 		req.setMoveDelta(request.getMoveDelta());
 		req.setSizeDelta(request.getSizeDelta());
 		req.setLocation(request.getLocation());
-		
+
 		/* apex improved */
 		Map apexResizeInfo = new HashMap();
 		apexResizeInfo.put(ApexSequenceRequestConstants.APEX_KEY_RESIZING_COMBINEDFRAGMENTEDITPART, getHost());
@@ -115,7 +116,7 @@ public class ApexCombinedFragmentResizableShapeEditPolicy extends
 		req.setResizeDirection(request.getResizeDirection());
 		return getHost().getParent().getCommand(req);
 	}
-	
+
 
 
 	/**
@@ -148,5 +149,5 @@ public class ApexCombinedFragmentResizableShapeEditPolicy extends
 	public void setResizeDirections(int resizeDirections) {
 		this.resizeDirections = resizeDirections;
 	}
-	
+
 }

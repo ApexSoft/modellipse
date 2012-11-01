@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
+
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -32,7 +34,7 @@ import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceUtil;
+
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Lifeline;
@@ -159,15 +161,15 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 			Rectangle newRect = newBound.getCopy();
 			this.getFigure().translateToAbsolute(origRect);
 			this.getFigure().translateToAbsolute(newRect);
-			
+
 			List lifelineEditPartsToCheck = null;
-			
+
 			if (origRect.width == 0 && origRect.height == 0) { // 새 CombinedFragment 생성하는 경우 Interaction 내 모든 Lifeline을 check
-				
+
 				Set<Entry<Object, EditPart>> allEditPartEntries = getViewer().getEditPartRegistry().entrySet();
-				
+
 				lifelineEditPartsToCheck = new ArrayList();
-				
+
 				for(Entry<Object, EditPart> epEntry : allEditPartEntries) {
 					EditPart ep = epEntry.getValue();
 					if( ep instanceof LifelineEditPart ) {
@@ -177,7 +179,7 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 					}
 				}
 			} else { // 새로 생성이 아닌 CF 경계 변경인 경우
-				
+
 				if (origRect.width > newRect.width ) { // width 축소 시 원래 경계 내에 있던 lifeline을 check
 					lifelineEditPartsToCheck = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(origRect, this);	
 				} else if (origRect.width < newRect.width) { // width 확대 시 새 경계내에 있는 lifeline을 check
@@ -186,7 +188,7 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 					lifelineEditPartsToCheck = null;
 				}
 			}
-			
+
 			// 상하이동의 경우 covereds가 바뀔 일이 없으므로
 			// 상하이동이 아닌 경우만 updateCoveredLifelines 호출
 			if ( lifelineEditPartsToCheck != null ) { 
@@ -197,7 +199,7 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 					}
 				}	
 			}
-			
+
 			/* apex improved end */
 			/* apex replaced
 			this.getFigure().translateToAbsolute(newBound);
@@ -238,19 +240,19 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 		Rectangle dotLineBounds = dotLineFigure.getBounds().getCopy();
 		Rectangle centralLineBounds = new Rectangle(dotLineBounds.x() + dotLineBounds.width() / 2, dotLineBounds.y(), 1, dotLineBounds.height());
 		dotLineFigure.translateToAbsolute(centralLineBounds);
-		
+
 		/* apex improved start */
 		Rectangle origRect = this.getFigure().getBounds().getCopy();
 		Rectangle newRect = newCFBounds.getCopy();
 		this.getFigure().translateToAbsolute(origRect);
 		this.getFigure().translateToAbsolute(newRect);
-		
+
 		Rectangle lifelineRect = lifelineEditPart.getFigure().getBounds().getCopy();
 		lifelineEditPart.getFigure().translateToAbsolute(lifelineRect);
-		
+
 		// 새 경계와 lifeline 경계가 교차되고
 		if(newRect.intersects(lifelineRect)) {
-			
+
 			// 원래의 covered에 없던 lifeline이면
 			if(!coveredLifelines.contains(lifeline)) {
 				// 원래 CF에 포함되어 있으면서 coveredLifelines에 없는 것은
@@ -266,7 +268,7 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 			coveredLifelinesToRemove.add(lifeline);			
 		}
 		/* apex improved end */
-		
+
 		/* apex replaced
 		if(newBound.intersects(centralLineBounds)) {
 			if(!coveredLifelines.contains(lifeline)) {
@@ -287,7 +289,7 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 			}
 		}
 	}
-	
+
 	/**
 	 * Find parent editpart of lifeline
 	 * @return EditPart

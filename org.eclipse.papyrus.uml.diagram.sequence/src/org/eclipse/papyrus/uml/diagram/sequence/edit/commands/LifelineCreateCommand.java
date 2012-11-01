@@ -15,6 +15,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.commands;
 
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -28,7 +30,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.ElementInitializers;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.uml2.uml.ConnectableElement;
@@ -169,13 +170,13 @@ public class LifelineCreateCommand extends EditElementCommand {
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest)getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		
+
 		// fix bug 364696(https://bugs.eclipse.org/bugs/show_bug.cgi?id=364696) 
 		Object object = getRequest().getParameters().get(SequenceRequestConstant.CONNECTABLE_ELEMENT);
 		if(object instanceof ConnectableElement){
 			newElement.setRepresents((ConnectableElement) object);
 		}
-		
+
 		/* apex added start */
 		Object cmd = getRequest().getParameters().get(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_CREATE_COMMAND);
 		Object type = getRequest().getParameters().get(ApexSequenceRequestConstants.APEX_CONNECTABLE_ELEMENT_TYPE);
@@ -194,7 +195,7 @@ public class LifelineCreateCommand extends EditElementCommand {
 			}
 		}
 		/* apex added end */
-		
+
 		ICommand configureCommand = elementType.getEditCommand(configureRequest);
 		if(configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
