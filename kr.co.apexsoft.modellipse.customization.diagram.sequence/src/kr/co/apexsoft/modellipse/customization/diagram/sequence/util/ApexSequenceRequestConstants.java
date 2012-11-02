@@ -117,5 +117,11 @@ public interface ApexSequenceRequestConstants {
 	 * CTRL Ű�� ���ȴ��� ����
 	 */
 	public static final String APEX_MODIFIER_REORDERING = "modifier for sequence of messages"; //$NON-NLS-1$
+	
+	/** Tag signifying that the edit parts must not be moved when an occurrence specification is moved (to avoid loop in chain effects) */
+	public static final String DO_NOT_MOVE_EDIT_PARTS = "Do not move these edit parts"; //$NON-NLS-1$
+	
+	/**  */
+	public static final String PRESERVE_ANCHOR_RELATIVE_BOUNDS = "Preserve Anchor Relative bounds"; //$NON-NLS-1$
 
 }

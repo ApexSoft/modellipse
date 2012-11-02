@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexLifelineConnectionHandleEditPolicy;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineEditPart;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineFigure;
 import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.draw2d.Border;
@@ -102,7 +105,6 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEd
 import org.eclipse.papyrus.uml.diagram.common.figure.node.RectangularShadowBorder;
 import org.eclipse.papyrus.uml.diagram.common.providers.UIAdapterImpl;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexLifelineConnectionHandleEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CustomDiagramDragDropEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ElementCreationWithMessageEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.LifelineAppliedStereotypeNodeLabelDisplayEditPolicy;
@@ -137,7 +139,7 @@ import org.eclipse.uml2.uml.UMLPackage;
 /**
  * @generated
  */
-public class LifelineEditPart extends NamedElementEditPart {
+public class LifelineEditPart extends NamedElementEditPart implements IApexLifelineEditPart {
 
 	/**
 	 * @generated
@@ -1339,7 +1341,7 @@ public class LifelineEditPart extends NamedElementEditPart {
 	/**
 	 * @generated
 	 */
-	public class LifelineFigure extends LifelineDotLineCustomFigure.NodeNamedElementFigureEx {
+	public class LifelineFigure extends LifelineDotLineCustomFigure.NodeNamedElementFigureEx implements IApexLifelineFigure {
 
 		/**
 		 * @generated

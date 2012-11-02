@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineEditPart;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexOccurrenceSpecificationMoveHelper;
 import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
 import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
@@ -35,11 +37,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
-import org.eclipse.papyrus.uml.diagram.sequence.util.ApexOccurrenceSpecificationMoveHelper;
-
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.Interaction;
@@ -167,7 +164,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 				} else if (extent.y < bounds.bottom()) {	// 이동범위를 상단에 걸쳐있거나 이동범위를 포함하는 EditPart의 경우
 					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
 					request.getExtendedData().put(ApexSequenceRequestConstants.APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS, extent);
-					request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
+					request.getExtendedData().put(ApexSequenceRequestConstants.DO_NOT_MOVE_EDIT_PARTS, true);
 					request.setResizeDirection(PositionConstants.NORTH);
 					request.setSizeDelta(new Dimension(0, realMoveDelta.y));
 					command.add(editPart.getCommand(request));
@@ -248,7 +245,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 			
 			EObject eObj = editPart.resolveSemanticElement();
 			if ( eObj instanceof Lifeline ) {
-				IFigure figure = ((ShapeNodeEditPart)editPart).getNodeFigure();
+				IFigure figure = ((IApexLifelineEditPart)editPart).getNodeFigure();
 				oldBounds = figure.getBounds().getCopy();
 				figure.translateToAbsolute(oldBounds);
 			}
@@ -268,7 +265,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 			
 			if (!newBounds.equals(oldBounds)) {
 				ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
-				request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
+				request.getExtendedData().put(ApexSequenceRequestConstants.DO_NOT_MOVE_EDIT_PARTS, true);
 				request.setResizeDirection(PositionConstants.SOUTH);
 				request.setSizeDelta(new Dimension(0, newBounds.bottom() - oldBounds.bottom()));
 				compCmd.add(editPart.getCommand(request));
@@ -283,7 +280,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 					Point edge = ApexSequenceUtil.getAbsoluteEdgeExtremity(messageEP, true);
 					
 					List<EditPart> empty = Collections.emptyList();
-					LifelineEditPart lifelineEP = ApexSequenceUtil.getParentLifelinePart(editPart);
+					ShapeNodeEditPart lifelineEP = ApexSequenceUtil.getParentLifelinePart(editPart);
 					if (lifelineEP != null) {
 						compCmd.add(ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 								occurrenceSpecification, edge.y + realMoveDelta.y, newBounds, editPart, lifelineEP, empty));

@@ -16,6 +16,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.commands.ApexPreserveAnchorsPositionCommand;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -46,7 +48,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.commands.PreserveAnchorsPositionCommand;
 import org.eclipse.papyrus.uml.diagram.common.draw2d.LifelineDotLineFigure;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEditPolicy;
-import org.eclipse.papyrus.uml.diagram.sequence.command.ApexPreserveAnchorsPositionCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.command.CustomZOrderCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ActionExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.BehaviorExecutionSpecificationEditPart;
@@ -696,11 +697,9 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 	 * they can be used, directly, within a SetBoundsCommand.
 	 * 
 	 * @param lifelineDotLineFigure
-	 *        TODO
 	 * @param newBounds
 	 *        The new initial bounds
 	 * @param executionSpecifactionEditPart
-	 *        TODO
 	 * @param notToCheckExecutionSpecificationList
 	 *        The ExecutionSpecification EditPart's List that won't be checked
 	 * 

@@ -84,6 +84,12 @@ import org.eclipse.uml2.uml.Message;
 import org.eclipse.uml2.uml.MessageEnd;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.OccurrenceSpecification;
+import org.eclipse.uml2.uml.internal.impl.CombinedFragmentImpl;
+import org.eclipse.uml2.uml.internal.impl.ContinuationImpl;
+import org.eclipse.uml2.uml.internal.impl.InteractionImpl;
+import org.eclipse.uml2.uml.internal.impl.InteractionOperandImpl;
+import org.eclipse.uml2.uml.internal.impl.InteractionUseImpl;
+import org.eclipse.uml2.uml.internal.impl.MessageImpl;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class ApexSequenceUtil {
@@ -808,13 +814,13 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 	}
 	
 	/**
-	 * SequenceUtil���덈뜕 硫붿꽌�쒖�留��꾨Т���몄텧�섏� �딆븘
-	 * ApexSequenceUtil 濡�媛�졇��꽌 媛쒖“ �ъ슜
-	 * Property��covered �ㅼ젙怨�愿�퀎�놁씠
-	 * �대떦 Rectangle��intersect�섎뒗 紐⑤뱺 Lifeline 諛섑솚
-	 * �덈�醫뚰몴濡�鍮꾧탳
+	 * SequenceUtil에 있던 메서드지만 아무도 호출하지 않아
+	 * ApexSequenceUtil 로 가져와서 개조 사용
+	 * Property의 covered 설정과 관계없이
+	 * 해당 Rectangle에 intersect되는 모든 Lifeline 반환
+	 * 절대좌표로 비교
 	 * 
-	 * @param selectionRect �덈�醫뚰몴�붾맂 �좏깮�곸뿭
+	 * @param selectionRect 절대좌표화된 선택영역
 	 * @param hostEditPart
 	 * @return
 	 */
@@ -832,7 +838,7 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 			if ( ep instanceof IGraphicalEditPart ) {
 				EObject eObj = ((IGraphicalEditPart) ep).resolveSemanticElement();
 				
-				if ( eObj instanceof Lifeline ) {
+				if ( eObj instanceof Lifeline && ep instanceof ShapeNodeEditPart ) {
 					Rectangle lifelineRect = ApexSequenceUtil.apexGetAbsoluteRectangle((ShapeNodeEditPart)ep);
 
 					if(selectionRect.intersects(lifelineRect)) {
@@ -858,7 +864,7 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 //						+ Thread.currentThread().getStackTrace()[1]
 //								.getLineNumber());
 //		System.out.println("lifelineRect in apexGetPosition.. : " + lifelineRect);
-		
+		CompartmentEditPart abc;
 		
 		List<ShapeNodeEditPart> positionallyLifelineCoveringCFEditParts = new ArrayList<ShapeNodeEditPart>();
 
@@ -870,7 +876,7 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 			if ( ep instanceof IGraphicalEditPart ) {
 				EObject eObj = ((IGraphicalEditPart) ep).resolveSemanticElement();
 				
-				if (eObj instanceof CombinedFragment ) {					
+				if (eObj instanceof CombinedFragment && ep instanceof ShapeNodeEditPart) {					
 					Rectangle cfRect = ApexSequenceUtil.apexGetAbsoluteRectangle((ShapeNodeEditPart)ep);
 
 					if(lifelineRect.right() >= cfRect.x && lifelineRect.x <= cfRect.right()) {
@@ -1016,8 +1022,7 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 			List<View> views = findViews(parseElement, viewer);
 			for (View view : views) {
 				
-				EObject eObj = view.getElement();								
-				
+				EObject eObj = view.getElement();
 				boolean isCombinedFragment = eObj instanceof CombinedFragment;
 				boolean isContinuation = eObj instanceof Continuation;
 				boolean isInteractionOperand = eObj instanceof InteractionOperand;
@@ -1027,7 +1032,8 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 				boolean isActivation = eObj instanceof ExecutionSpecification;
 				boolean isSameEditPart = parent.equals(view.getElement());
 				if(isCombinedFragment || isContinuation || isInteractionOperand || isInteractionUse || isInteraction || isMessage || isActivation) {
-					if (!result.contains(eObj) && !isSameEditPart) {
+					if (!result.contains(eObj) && !isSameEditPart 
+							&& (eObj instanceof ShapeNodeEditPart || eObj instanceof ConnectionNodeEditPart)) {
 						result.add((IGraphicalEditPart) eObj);
 					}
 				}

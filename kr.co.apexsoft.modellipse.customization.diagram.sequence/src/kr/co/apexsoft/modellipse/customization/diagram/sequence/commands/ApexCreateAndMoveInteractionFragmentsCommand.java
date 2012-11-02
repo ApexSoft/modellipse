@@ -2,6 +2,7 @@ package kr.co.apexsoft.modellipse.customization.diagram.sequence.commands;
 
 import java.util.Collection;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexCreateElementAndNodeCommand;
 import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceDiagramConstants;
 import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
@@ -19,8 +20,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Message;
@@ -38,9 +37,10 @@ public class ApexCreateAndMoveInteractionFragmentsCommand extends
 	
 	private ViewDescriptor descriptor;
 	
-	private CreateElementAndNodeCommand createElementAndNodeCommand;
+//	private CreateElementAndNodeCommand createElementAndNodeCommand;
+	private IApexCreateElementAndNodeCommand createElementAndNodeCommand;
 	
-	public ApexCreateAndMoveInteractionFragmentsCommand(TransactionalEditingDomain domain, CreateElementAndNodeCommand command,
+	public ApexCreateAndMoveInteractionFragmentsCommand(TransactionalEditingDomain domain, IApexCreateElementAndNodeCommand command,
 			ViewDescriptor descriptor, EditPartViewer viewer, InteractionFragment fragment, Point location) {
 		super(domain, viewer, fragment, location, null, MARGIN);
 	

@@ -17,6 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexCreateElementAndNodeCommand;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -42,7 +44,7 @@ import org.eclipse.gmf.runtime.notation.View;
  * @author Mathieu Velten
  * 
  */
-public class CreateElementAndNodeCommand extends AbstractTransactionalCommand {
+public class CreateElementAndNodeCommand extends AbstractTransactionalCommand implements IApexCreateElementAndNodeCommand {
 
 	protected ShapeNodeEditPart nodeEditPart;
 

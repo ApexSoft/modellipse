@@ -195,7 +195,7 @@ public class ApexInteractionOperandUtil {
 	}
 
 	/**
-	 * IOEP媛�cover�섎뒗 Lifeline��Activation 諛�Connection 以�IOEP��寃쎄퀎媛��ы븿�섎뒗 EditPartList 諛섑솚
+	 * IOEP가 cover하는 Lifeline의 Activation 및 Connection 중 IOEP에 경계가 포함되는 EditPartList 반환
 	 * 
 	 * @param ioep
 	 * @return
@@ -205,9 +205,9 @@ public class ApexInteractionOperandUtil {
 	}
 
 	/**
-	 * coveredOnly媛�false��寃쎌슦 IOEP��寃쎄퀎媛�援먯감�섎뒗 Lifeline��Activation 諛�Connection 以�IOEP��寃쎄퀎媛��ы븿�섎뒗 EditPartList 諛섑솚
+	 * coveredOnly가 false인 경우 IOEP와 경계가 교차하는 Lifeline의 Activation 및 Connection 중 IOEP에 경계가 포함되는 EditPartList 반환
 	 * 
-	 * coveredOnly媛�true��寃쎌슦 IOEP媛�cover�섎뒗 Lifeline��Activation 諛�Connection 以�IOEP��寃쎄퀎媛��ы븿�섎뒗 EditPartList 諛섑솚 
+	 * coveredOnly가 true인 경우 IOEP가 cover하는 Lifeline의 Activation 및 Connection 중 IOEP에 경계가 포함되는 EditPartList 반환 
 	 * 
 	 * @param ioep
 	 * @param coveredOnly
@@ -221,33 +221,39 @@ public class ApexInteractionOperandUtil {
 		
 		Rectangle ioepRect = ApexSequenceUtil.apexGetAbsoluteRectangle(ioep);
 		
-		// LifelineEditPart��children editpart 以�IOEP���ы븿�섏뼱���섎뒗 寃�泥섎━
+		// LifelineEditPart의 children editpart 중 IOEP에 포함되어야 하는 것 처리
 		for ( ShapeNodeEditPart lep : coveredLifelineEditParts ) {
-			List<ShapeNodeEditPart> lepChildren = lep.getChildren();
+			List lepChildren = lep.getChildren();
 			
-			for ( ShapeNodeEditPart ep : lepChildren ) {
-				EObject eObj = ep.resolveSemanticElement();
+			for ( Object ep : lepChildren ) {
 				
-				if ( eObj instanceof ExecutionSpecification ) {
-//					AbstractExecutionSpecificationEditPart aesep = (AbstractExecutionSpecificationEditPart)ep;
-					Rectangle activationRect = ApexSequenceUtil.apexGetAbsoluteRectangle(ep);
+				if ( ep instanceof IGraphicalEditPart ) {
+					EObject eObj = ((IGraphicalEditPart)ep).resolveSemanticElement();
 					
-					if ( ioepRect.contains(activationRect) ) {
-						containedEditParts.add(ep);
+					if ( eObj instanceof ExecutionSpecification ) {
+//						AbstractExecutionSpecificationEditPart aesep = (AbstractExecutionSpecificationEditPart)ep;
+						Rectangle activationRect = ApexSequenceUtil.apexGetAbsoluteRectangle((IGraphicalEditPart)ep);
+						
+						if ( ioepRect.contains(activationRect) ) {
+							containedEditParts.add((IGraphicalEditPart)ep);
+						}	
 					}	
-				}				
+				}
+								
 			}
 			
-			List<EditPart> sourceConnections = lep.getSourceConnections();
+			List sourceConnections = lep.getSourceConnections();
 			
-			for ( EditPart ep : sourceConnections ) {
+			for ( Object ep : sourceConnections ) {
+				
 				if ( ep instanceof ConnectionEditPart ) {
 					ConnectionEditPart cep = (ConnectionEditPart)ep;
 					Rectangle cepRect = ApexSequenceUtil.apexGetAbsoluteRectangle(cep);
+				
 					if ( ioepRect.contains(cepRect) ) {
 						containedEditParts.add(cep);
-						// 遺�냽�섎뒗 MessageSyncAppliedStereotypeEditPart瑜�異붿텧�섏뿬 
-						// containedEditParts��add
+						// 부속되는 MessageSyncAppliedStereotypeEditPart를 추출하여 
+						// containedEditParts에 add
 					}	
 				}
 			}

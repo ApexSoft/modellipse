@@ -3,6 +3,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.commands.ApexCreateAndMoveInteractionFragmentsCommand;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;

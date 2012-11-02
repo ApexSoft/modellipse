@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
+package kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,11 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Handle;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractExecutionSpecificationEditPart;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionFragment;
 
@@ -52,10 +53,17 @@ public class ApexExecutionSpecificationSelectionEditPolicy extends
 	@Override
 	protected void showChangeBoundsFeedback(ChangeBoundsRequest request) {
 		/* apex added start */
-		if (getHost() instanceof AbstractExecutionSpecificationEditPart) {
-			// north로 resize할 경우에도 south 방향으로 resize되도록 변경 해주는 기능
-			request.getMoveDelta().y = 0;
+		EditPart hostEP = getHost();
+		
+		if ( hostEP instanceof IGraphicalEditPart ) {
+			EObject eObj = ((IGraphicalEditPart) hostEP).resolveSemanticElement();
+			
+			if (eObj instanceof ExecutionSpecification && hostEP instanceof ShapeNodeEditPart) {
+				// north로 resize할 경우에도 south 방향으로 resize되도록 변경 해주는 기능
+				request.getMoveDelta().y = 0;
+			}	
 		}
+		
 		/* apex added end */
 		super.showChangeBoundsFeedback(request);
 	}

@@ -15,7 +15,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.papyrus.uml.diagram.common;bundle-version="0.9.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: kr.co.apexsoft.modellipse.customization.diagram.sequence.draw2d.anchors,
+Export-Package: kr.co.apexsoft.modellipse.customization.diagram.sequence.commands,
+ kr.co.apexsoft.modellipse.customization.diagram.sequence.draw2d.anchors,
  kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies,
  kr.co.apexsoft.modellipse.customization.diagram.sequence.figures,
+ kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces,
+ kr.co.apexsoft.modellipse.customization.diagram.sequence.tools,
  kr.co.apexsoft.modellipse.customization.diagram.sequence.util

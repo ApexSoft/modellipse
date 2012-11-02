@@ -3,6 +3,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.parts;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.tools.ApexSelectConnectionEditPartTracker;
+
 import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.ConnectionEditPart;
@@ -18,13 +20,12 @@ import org.eclipse.papyrus.infra.gmfdiag.common.editpolicies.IMaskManagedLabelEd
 import org.eclipse.papyrus.uml.diagram.common.figure.edge.UMLEdgeFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageLabelEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
-import org.eclipse.papyrus.uml.diagram.sequence.tools.ApexSelectConnectionEditPartTracker;
 import org.eclipse.uml2.uml.Message;
 
 public abstract class AbstractMessageEditPart extends ConnectionNodeEditPart {
 	
 	/* apex added start */
-	// Jiho: MessageSync~MessageFoundÀÇ °ø¿ë ÀÎÅÍÆäÀÌ½º
+	// Jiho: MessageSync~MessageFoundï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½
 	public interface MessageFigure {
 	}
 	/* apex added end */

@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.uml.diagram.sequence.tools;
+package kr.co.apexsoft.modellipse.customization.diagram.sequence.tools;
 
 import java.util.Map;
 

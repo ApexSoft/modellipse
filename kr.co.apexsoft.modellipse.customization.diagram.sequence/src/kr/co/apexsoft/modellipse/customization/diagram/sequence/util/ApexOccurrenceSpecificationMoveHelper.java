@@ -1,13 +1,18 @@
-package org.eclipse.papyrus.uml.diagram.sequence.util;
+package kr.co.apexsoft.modellipse.customization.diagram.sequence.util;
 
 import java.util.Collection;
 import java.util.List;
+
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.draw2d.anchors.ApexHorizontalAnchor;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexLifelineXYLayoutEditPolicy;
+import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineEditPart;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
@@ -18,15 +23,15 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.BaseSlidableAnchor;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
-import org.eclipse.papyrus.uml.diagram.sequence.draw2d.anchors.ApexHorizontalAnchor;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.uml2.common.util.CacheAdapter;
 import org.eclipse.uml2.uml.InteractionFragment;
+import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.Message;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.OccurrenceSpecification;
@@ -59,12 +64,12 @@ public class ApexOccurrenceSpecificationMoveHelper {
 	 * @return command to move all edit parts linked to the occurrence specifications or null
 	 */
 
-	public static Command getMoveMessageOccurrenceSpecificationsCommand(OccurrenceSpecification movedOccurrenceSpecification, int yLocation, Rectangle newBounds, EditPart childToReconnectTo, LifelineEditPart lifelinePart, List<EditPart> notToMoveEditParts) {
+	public static Command getMoveMessageOccurrenceSpecificationsCommand(OccurrenceSpecification movedOccurrenceSpecification, int yLocation, Rectangle newBounds, EditPart childToReconnectTo, ShapeNodeEditPart lifelinePart, List<EditPart> notToMoveEditParts) {
 		// the global command which shall be completed and returned
 		CompoundCommand command = new CompoundCommand();
 		
 		if (newBounds == null) {
-			return OccurrenceSpecificationMoveHelper.getMoveOccurrenceSpecificationsCommand(movedOccurrenceSpecification, null, yLocation, -1, lifelinePart, notToMoveEditParts);
+			return ApexLifelineXYLayoutEditPolicy.getMoveOccurrenceSpecificationsCommand(movedOccurrenceSpecification, null, yLocation, -1, lifelinePart, notToMoveEditParts);
 		}
 		
 		if(movedOccurrenceSpecification instanceof MessageOccurrenceSpecification) {
@@ -84,6 +89,26 @@ public class ApexOccurrenceSpecificationMoveHelper {
 								SetConnectionAnchorsCommand scaCmd = new SetConnectionAnchorsCommand(((IGraphicalEditPart)childToReconnectTo).getEditingDomain(), StringStatics.BLANK);
 								PrecisionPoint pt = BaseSlidableAnchor.getAnchorRelativeLocation(referencePoint, newBounds);
 								IFigure figure = ((IGraphicalEditPart)childToReconnectTo).getFigure();
+								
+								/* apex improved start */
+								EObject eObj = ((IGraphicalEditPart) childToReconnectTo).resolveSemanticElement();
+								
+								if ( eObj instanceof Lifeline ) {
+									figure = ((IApexLifelineEditPart)childToReconnectTo).getNodeFigure();
+								}
+								
+								ConnectionAnchor sourceAnchor = new ApexHorizontalAnchor(figure, pt);
+								scaCmd.setEdgeAdaptor(new EObjectAdapter(view));
+								scaCmd.setNewSourceTerminal(((INodeEditPart)part).mapConnectionAnchorToTerminal(sourceAnchor));
+								command.add(new ICommandProxy(scaCmd));
+								// update enclosing interaction fragment
+								Command updateIFrag = ApexLifelineXYLayoutEditPolicy.createUpdateEnclosingInteractionCommand((MessageOccurrenceSpecification)movedOccurrenceSpecification, referencePoint, lifelinePart);
+								if(updateIFrag != null && updateIFrag.canExecute()) {
+									command.add(updateIFrag);
+								}
+
+								/* apex improved end */
+								/* apex replaced
 								if (childToReconnectTo instanceof LifelineEditPart) {
 									figure = ((LifelineEditPart)childToReconnectTo).getNodeFigure();
 								}
@@ -97,6 +122,7 @@ public class ApexOccurrenceSpecificationMoveHelper {
 								if(updateIFrag != null && updateIFrag.canExecute()) {
 									command.add(updateIFrag);
 								}
+								*/
 							}
 						}
 					}
@@ -113,6 +139,23 @@ public class ApexOccurrenceSpecificationMoveHelper {
 								SetConnectionAnchorsCommand scaCmd = new SetConnectionAnchorsCommand(((IGraphicalEditPart)childToReconnectTo).getEditingDomain(), StringStatics.BLANK);
 								PrecisionPoint pt = BaseSlidableAnchor.getAnchorRelativeLocation(referencePoint, newBounds);
 								IFigure figure = ((IGraphicalEditPart)childToReconnectTo).getFigure();
+								
+								/* apex improved start */
+								EObject eObj = ((IGraphicalEditPart) childToReconnectTo).resolveSemanticElement();
+								if (eObj instanceof Lifeline) {
+									figure = ((IApexLifelineEditPart)childToReconnectTo).getNodeFigure();
+								}
+								ConnectionAnchor targetAnchor = new ApexHorizontalAnchor(figure, pt);
+								scaCmd.setEdgeAdaptor(new EObjectAdapter(view));
+								scaCmd.setNewSourceTerminal(((INodeEditPart)part).mapConnectionAnchorToTerminal(targetAnchor));
+								command.add(new ICommandProxy(scaCmd));
+								// update enclosing interaction fragment
+								Command updateIFrag = ApexLifelineXYLayoutEditPolicy.createUpdateEnclosingInteractionCommand((MessageOccurrenceSpecification)movedOccurrenceSpecification, referencePoint, lifelinePart);
+								if(updateIFrag != null && updateIFrag.canExecute()) {
+									command.add(updateIFrag);
+								}
+								/* apex improved end */
+								/* apex replaced
 								if (childToReconnectTo instanceof LifelineEditPart) {
 									figure = ((LifelineEditPart)childToReconnectTo).getNodeFigure();
 								}
@@ -125,6 +168,7 @@ public class ApexOccurrenceSpecificationMoveHelper {
 								if(updateIFrag != null && updateIFrag.canExecute()) {
 									command.add(updateIFrag);
 								}
+								*/
 							}
 						}
 					}
@@ -150,8 +194,8 @@ public class ApexOccurrenceSpecificationMoveHelper {
 	 *        y location
 	 * @return reference point on the lifeline
 	 */
-	private static Point getReferencePoint(LifelineEditPart lifelinePart, OccurrenceSpecification movedOccurrenceSpecification, int yLocation) {
-		Point referencePoint = SequenceUtil.findLocationOfEvent(lifelinePart, movedOccurrenceSpecification);
+	private static Point getReferencePoint(ShapeNodeEditPart lifelinePart, OccurrenceSpecification movedOccurrenceSpecification, int yLocation) {
+		Point referencePoint = ApexLifelineXYLayoutEditPolicy.findLocationOfEvent(lifelinePart, movedOccurrenceSpecification);
 		if(referencePoint == null) {
 			referencePoint = lifelinePart.getFigure().getBounds().getCenter().getCopy();
 		}
