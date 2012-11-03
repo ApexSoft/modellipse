@@ -14,17 +14,13 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexInteractionCompartmentXYLayoutEditPolicy;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexOperandBoundsComputeHelper;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -71,6 +67,8 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.commands.PreserveAnchorsPositionCommand;
 import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeCreationTool.CreateAspectUnspecifiedTypeRequest;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ActionExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.BehaviorExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.CombinedFragmentCombinedFragmentCompartmentEditPart;
@@ -460,9 +458,109 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 		}
 
 		/* apex added start */
-		ApexInteractionCompartmentXYLayoutEditPolicy.resizeCombinedFragmentByMovingLifelineCommand(compoundCmd, request, lifelineEditPart);		
+		resizeCombinedFragmentByMovingLifelineCommand(compoundCmd, request, lifelineEditPart);		
 		/* apex added end */
 	}	
+	
+	/**
+	 * apex update
+	 * 
+	 * Lifeline 좌우 이동 시 CF의 Resize 처리 
+	 * 
+	 * Resize InteractionFragments if the Lifeline has CoveredBys, while
+	 * Lifeline moving.
+	 * 
+	 * @param compoundCmd
+	 * @param request
+	 * @param lifelineEditPart
+	 */
+	public static void resizeCombinedFragmentByMovingLifelineCommand(
+			CompoundCommand compoundCmd, ChangeBoundsRequest request,
+			LifelineEditPart lifelineEditPart) {
+
+
+		/* apex added start */
+		// Lifeline을 커버하고 있는 CF의 이동 처리
+		int deltaX = request.getMoveDelta().x;						
+		ChangeBoundsRequest req = null;
+		List<CombinedFragmentEditPart> coveringCFEPs = ApexSequenceUtil.apexGetCoveringCombinedFragmentEditParts(lifelineEditPart);
+
+		for ( CombinedFragmentEditPart cfep : coveringCFEPs ) {
+			List<LifelineEditPart> coveredLifelineEditParts = ApexSequenceUtil.apexGetCoveredLifelineEditParts(cfep, true);
+			List sortedCoveredLifelineEditParts = ApexSequenceUtil.apexGetSortedGraphicalEditPartList(coveredLifelineEditParts, SWT.LEFT);
+
+			Map apexMoveInfo = new HashMap();
+
+			if ( sortedCoveredLifelineEditParts.size() > 0 ) {
+				ShapeNodeEditPart leftestLifelineEditPart = (ShapeNodeEditPart)sortedCoveredLifelineEditParts.get(0);
+				ShapeNodeEditPart rightestLifelineEditPart = (ShapeNodeEditPart)sortedCoveredLifelineEditParts.get(sortedCoveredLifelineEditParts.size()-1);
+
+				boolean isLeftestLifelineEditPart = lifelineEditPart.equals(leftestLifelineEditPart);
+				boolean isRightestLifelineEditPart = lifelineEditPart.equals(rightestLifelineEditPart);
+
+				if ( isLeftestLifelineEditPart && deltaX < 0 ) { // 맨왼쪽 Lifeline을 좌측으로 이동하는 경우
+					req = new ChangeBoundsRequest(REQ_RESIZE);
+					req.setEditParts(cfep);
+					req.setMoveDelta(new Point(deltaX, 0)); // WEST의 경우 resize 시에도 moveDelta 필요
+					req.setSizeDelta(new Dimension(Math.abs(deltaX), 0));
+					req.setResizeDirection(PositionConstants.WEST);		
+				} else if ( isLeftestLifelineEditPart && deltaX > 0 ) { // 맨왼쪽 Lifeline을 우측으로 이동하는 경우
+					if ( isRightestLifelineEditPart ) { // 유일한 Lifeline인 경우
+						req = new ChangeBoundsRequest(REQ_RESIZE);
+						req.setEditParts(cfep);
+						req.setMoveDelta(new Point(deltaX, 0)); // WEST의 경우 resize 시에도 moveDelta 필요
+						req.setSizeDelta(new Dimension(-deltaX, 0));
+						req.setResizeDirection(PositionConstants.WEST);	
+					} else { // 우측에 Lifeline이 있는 경우 아래의 apexGetPushNextLifeline()을 통해 이동시킴
+						continue;
+					}
+
+				} else if ( isRightestLifelineEditPart && deltaX < 0 ) { // 맨우측 Lifeline을 좌측으로 이동하는 경우
+					req = new ChangeBoundsRequest(REQ_RESIZE);
+					req.setEditParts(cfep);
+					req.setSizeDelta(new Dimension(deltaX, 0));
+					req.setResizeDirection(PositionConstants.EAST);
+				} else if ( isRightestLifelineEditPart && deltaX > 0 ) { // 맨우측 Lifeline을 우측으로 이동하는 경우에만 CF Resize(안그러면 Resize가 누적됨)
+					req = new ChangeBoundsRequest(REQ_RESIZE);
+					req.setEditParts(cfep);
+					req.setSizeDelta(new Dimension(deltaX, 0));
+					req.setResizeDirection(PositionConstants.EAST);						
+				} else { // 그 외 중간 Lifeline을 좌측으로 이동 시 CF에는 아무런 변화 없음
+					continue;
+				}				
+			}
+
+			// cfep가 중첩된 CF인 경우
+			// lifeline이 parent CF의 최좌측 covered Lifeline 인지 여부 확인(Resize 시 parent의 resize를 유발하냐 마냐에 필요)
+			EditPart pEditPart = cfep.getParent();
+			if ( pEditPart instanceof IGraphicalEditPart ) {
+				EObject eObj = ((IGraphicalEditPart) pEditPart).resolveSemanticElement();
+
+				if ( eObj instanceof InteractionOperand ) {
+					List<LifelineEditPart> parentCFCoveredLifelineEditParts = ApexSequenceUtil.apexGetCoveredLifelineEditParts((ShapeNodeEditPart)cfep.getParent().getParent().getParent(), true);
+					List parentCFSortedCoveredLifelineEditParts = ApexSequenceUtil.apexGetSortedGraphicalEditPartList(parentCFCoveredLifelineEditParts, SWT.LEFT);
+					boolean isLeftestLifelineOfParent = lifelineEditPart.equals((ShapeNodeEditPart)parentCFSortedCoveredLifelineEditParts.get(0));
+
+					apexMoveInfo.put(ApexSequenceRequestConstants.APEX_KEY_IS_LEFTESTLIFELINE_OF_PARENT_COMBINEDFRAGMENT, 
+							         new Boolean(isLeftestLifelineOfParent));
+				}
+			}			
+
+			apexMoveInfo.put(ApexSequenceRequestConstants.APEX_KEY_MOVING_LIFELINEEDITPART, lifelineEditPart);
+
+			req.setExtendedData(apexMoveInfo);			
+
+			Command command = cfep.getCommand(req);
+			if (command != null && command.canExecute()) {
+				compoundCmd.add(command);
+			}
+		}
+
+		if ( request.getMoveDelta().x > 0 ) {
+			apexGetPushNextLifeline(compoundCmd, request, lifelineEditPart);
+		}	
+		/* apex added end */
+	}
 
 	/**
 	 * apex updated
@@ -1001,7 +1099,7 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 			ioep = ApexSequenceUtil.apexGetEnclosingInteractionOperandEditpart(childEditPart);
 		}
 
-		compoundCmd.add(ApexOperandBoundsComputeHelper.createIOEPResizeCommand(request, ioep, true));
+		compoundCmd.add(OperandBoundsComputeHelper.createIOEPResizeCommand(request, (InteractionOperandEditPart)ioep, true));
 	}
 
 	/**

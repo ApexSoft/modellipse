@@ -1,9 +1,7 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -14,6 +12,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
 
 public class ApexCombinedFragmentResizableShapeEditPolicy extends
 		ResizableShapeEditPolicy {

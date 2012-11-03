@@ -1,7 +1,7 @@
 /**
  * 
  */
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces;
 
 import org.eclipse.papyrus.uml.diagram.common.draw2d.LifelineDotLineFigure;
 

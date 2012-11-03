@@ -17,11 +17,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexLifelineConnectionHandleEditPolicy;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineEditPart;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineFigure;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
-
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.Connection;
@@ -104,6 +99,10 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.AppliedStereotypeLabe
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEditPolicy;
 import org.eclipse.papyrus.uml.diagram.common.figure.node.RectangularShadowBorder;
 import org.eclipse.papyrus.uml.diagram.common.providers.UIAdapterImpl;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexLifelineConnectionHandleEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CustomDiagramDragDropEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ElementCreationWithMessageEditPolicy;
@@ -119,7 +118,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.locator.CenterLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionLocator;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
-
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
@@ -1796,15 +1794,15 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 		List<CombinedFragment> coveringCombinedFragmentsToRemove = new ArrayList<CombinedFragment>();
 
 		/* apex improved start */			
-		List<ShapeNodeEditPart> cfEditPartsToCheck = new ArrayList<ShapeNodeEditPart>();
+		List<CombinedFragmentEditPart> cfEditPartsToCheck = new ArrayList<CombinedFragmentEditPart>();
 		if (beforeRect.width == 0 && beforeRect.height == 0) { // 새 Lifeline 생성하는 경우 Interaction 내 모든 CF을 check			
 			cfEditPartsToCheck = ApexSequenceUtil.apexGetAllCombinedFragmentEditParts(this);			
 		} else { // 새로 생성이 아닌 lifeline 경계 변경인 경우
 
 			if (afterRect.x != beforeRect.x ) { // 좌우측으로 이동 시 lifeline의 이동 전후 위치를 포함하던 CF을 check
 
-				List<ShapeNodeEditPart> cfEnclosingBeforeRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(beforeRect, this);
-				List<ShapeNodeEditPart> cfEnclosingAfterRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(afterRect, this);
+				List<CombinedFragmentEditPart> cfEnclosingBeforeRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(beforeRect, this);
+				List<CombinedFragmentEditPart> cfEnclosingAfterRect = ApexSequenceUtil.apexGetPositionallyLifelineCoveringCFEditParts(afterRect, this);
 
 				// 중복 제거
 				cfEnclosingBeforeRect.removeAll(cfEnclosingAfterRect);

@@ -1,10 +1,10 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.figures;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.figures;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.draw2d.anchors.ApexHorizontalAnchor;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.draw2d.anchors.ApexHorizontalAnchor;
 
 /**
  * @author Jiho

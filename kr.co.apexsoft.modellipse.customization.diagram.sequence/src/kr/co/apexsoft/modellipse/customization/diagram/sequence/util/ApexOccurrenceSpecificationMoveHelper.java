@@ -3,9 +3,6 @@ package kr.co.apexsoft.modellipse.customization.diagram.sequence.util;
 import java.util.Collection;
 import java.util.List;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.draw2d.anchors.ApexHorizontalAnchor;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexLifelineXYLayoutEditPolicy;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineEditPart;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
@@ -29,6 +26,9 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.draw2d.ApexHorizontalAnchor;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexLifelineXYLayoutEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.interfaces.IApexLifelineEditPart;
 import org.eclipse.uml2.common.util.CacheAdapter;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Lifeline;

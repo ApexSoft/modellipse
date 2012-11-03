@@ -1,9 +1,7 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
@@ -16,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionFragment;
 

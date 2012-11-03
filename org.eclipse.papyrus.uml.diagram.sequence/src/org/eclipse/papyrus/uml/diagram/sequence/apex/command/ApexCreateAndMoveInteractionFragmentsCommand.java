@@ -1,10 +1,6 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.commands;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.command;
 
 import java.util.Collection;
-
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexCreateElementAndNodeCommand;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceDiagramConstants;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -20,6 +16,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexCreateElementAndNodeCommand;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceDiagramConstants;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Message;

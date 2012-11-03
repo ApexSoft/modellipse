@@ -1,16 +1,9 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.commands.ApexMoveInteractionFragmentsCommand;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.interfaces.IApexLifelineEditPart;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexOccurrenceSpecificationMoveHelper;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceDiagramConstants;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceUtil;
 
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.FigureCanvas;
@@ -40,6 +33,15 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.command.ApexMoveInteractionFragmentsCommand;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceDiagramConstants;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.InteractionCompartmentXYLayoutEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.util.OccurrenceSpecificationMoveHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
+import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.uml2.uml.ExecutionSpecification;
@@ -166,9 +168,9 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 			MessageEnd send = ((Message)message).getSendEvent();
 			MessageEnd rcv = ((Message)message).getReceiveEvent();
 			EditPart srcPart = connectionPart.getSource();
-			ShapeNodeEditPart srcLifelinePart = ApexSequenceUtil.getParentLifelinePart(srcPart);
+			LifelineEditPart srcLifelinePart = SequenceUtil.getParentLifelinePart(srcPart);
 			EditPart tgtPart = connectionPart.getTarget();
-			ShapeNodeEditPart tgtLifelinePart = ApexSequenceUtil.getParentLifelinePart(tgtPart);
+			LifelineEditPart tgtLifelinePart = SequenceUtil.getParentLifelinePart(tgtPart);
 
 			CompoundCommand compoudCmd = new CompoundCommand("Move Message");
 
@@ -283,7 +285,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 							}
 
 							compoudCmd.add( createChangeBoundsCommand(srcExecSpecEP, oldBounds, newBounds, true) );
-							compoudCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+							compoudCmd.add( OccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 									(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty) );
 						}
 						else if (srcPart.equals(srcLifelinePart)) { // source : LifelineEditPart
@@ -296,7 +298,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 							}
 
 							compoudCmd.add( createChangeBoundsCommand(srcLifelinePart, oldBounds, newBounds, true) );
-							compoudCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+							compoudCmd.add( OccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 									(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty) );
 						}	
 					}					
@@ -349,7 +351,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 								EObject semanticElement = srcConnPart.resolveSemanticElement();
 								if (semanticElement instanceof Message) {
 									MessageEnd sendEvent = ((Message)semanticElement).getSendEvent();
-									Point location = ApexLifelineXYLayoutEditPolicy.findLocationOfMessageOccurrence((GraphicalEditPart) srcExecSpecEP, (MessageOccurrenceSpecification) sendEvent);
+									Point location = SequenceUtil.findLocationOfMessageOccurrence((GraphicalEditPart) srcExecSpecEP, (MessageOccurrenceSpecification) sendEvent);
 //									Point location = ApexSequenceUtil.apexGetAbsoluteRectangle(srcConnPart).getLocation();
 									if (lastY < location.y) {
 										lastY = location.y;
@@ -369,7 +371,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 							if (moveDeltaY > 0) {
 								newBounds.height = oldBounds.height + moveDeltaY;
 							}
-							sendMessageMoveCmd = ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+							sendMessageMoveCmd = OccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 									(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty);
 						}
 						else if (srcPart.equals(srcLifelinePart)) { // source : LifelineEditPart
@@ -382,7 +384,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 							}
 
 							compoudCmd.add( createChangeBoundsCommand(srcLifelinePart, oldBounds, newBounds, true) );
-							compoudCmd.add( ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+							compoudCmd.add( OccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 									(OccurrenceSpecification)send, y, newBounds, srcPart, srcLifelinePart, empty) );
 						}
 					}
@@ -433,7 +435,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 	private static Command apexGetResizeOrMoveBelowItemsCommand(ChangeBoundsRequest request, IGraphicalEditPart gep) {
 		CompoundCommand command = new CompoundCommand();
 		gep.getCommand(request);
-		command.add(ApexInteractionCompartmentXYLayoutEditPolicy.getCombinedFragmentResizeChildrenCommand(request, (GraphicalEditPart)gep));
+		command.add(InteractionCompartmentXYLayoutEditPolicy.getCombinedFragmentResizeChildrenCommand(request, (GraphicalEditPart)gep));
 		return command;
 	}
 
@@ -483,7 +485,7 @@ public class ApexConnectionMoveEditPolicy extends SelectionHandlesEditPolicy {
 		request.setMoveDelta(moveDelta);
 		request.setSizeDelta(sizeDelta);
 		// execution 이동에 의해 editpart들이 겹치는 현상 방지
-		request.getExtendedData().put(ApexSequenceRequestConstants.DO_NOT_MOVE_EDIT_PARTS, true);
+		request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
 		if (oldBounds.y == newBounds.y)
 			request.setResizeDirection(PositionConstants.SOUTH);
 		else if (oldBounds.bottom() == newBounds.bottom())

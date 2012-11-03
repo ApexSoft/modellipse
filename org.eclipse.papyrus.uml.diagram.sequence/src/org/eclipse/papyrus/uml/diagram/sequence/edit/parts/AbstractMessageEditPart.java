@@ -3,7 +3,6 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.parts;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.tools.ApexSelectConnectionEditPartTracker;
 
 import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.emf.ecore.EObject;
@@ -18,6 +17,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.infra.gmfdiag.common.editpolicies.IMaskManagedLabelEditPolicy;
 import org.eclipse.papyrus.uml.diagram.common.figure.edge.UMLEdgeFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.tools.ApexSelectConnectionEditPartTracker;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageLabelEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.uml2.uml.Message;

@@ -1,13 +1,12 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.tools;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.tools;
 
 import java.util.Map;
-
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.util.ApexSequenceRequestConstants;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.gef.ui.internal.tools.SelectConnectionEditPartTracker;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
 import org.eclipse.swt.SWT;
 
 /**

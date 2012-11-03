@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.uml.diagram.sequence.util;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.util;
 
 public interface ApexSequenceRequestConstants {
 
@@ -104,17 +104,17 @@ public interface ApexSequenceRequestConstants {
 	public static final String APEX_CONNECTABLE_ELEMENT_TYPE = "Connectable Element Type"; //$NON-NLS-1$
 
 	/**
-	 * ExecutionÀÇ bounds°¡ º¯°æµÉ ¶§ anchor°¡ º¯°æ/º¯°æµÇÁö ¾Ê´Â ±âÁØÁ¡
+	 * Executionï¿½ï¿½ boundsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ anchorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static final String APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS = "Preserve Anchor Relative bounds"; //$NON-NLS-1$
 
 	/**
-	 * SHIFT Å°°¡ ´­·È´ÂÁö ¿©ºÎ
+	 * SHIFT Å°ï¿½ï¿½ ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static final String APEX_MODIFIER_CONSTRAINED_MOVE = "modifier for constrained move"; //$NON-NLS-1$
 	
 	/**
-	 * CTRL Å°°¡ ´­·È´ÂÁö ¿©ºÎ
+	 * CTRL Å°ï¿½ï¿½ ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static final String APEX_MODIFIER_REORDERING = "modifier for sequence of messages"; //$NON-NLS-1$
 

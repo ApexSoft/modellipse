@@ -11,7 +11,7 @@
  *   ApexSoft - Initial API and implementation
  *
  *****************************************************************************/
-package org.eclipse.papyrus.uml.diagram.sequence.util;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,11 +25,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.draw2d.AbstractPointListShape;
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
+import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
@@ -48,6 +51,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.BaseSlidableAnchor;
+import org.eclipse.gmf.runtime.notation.Anchor;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.IdentityAnchor;
+import org.eclipse.gmf.runtime.notation.LayoutConstraint;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
@@ -61,6 +71,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionInteractio
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionOperandEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionUseEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.uml2.common.util.CacheAdapter;
 import org.eclipse.uml2.uml.CombinedFragment;
@@ -1792,5 +1803,116 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 		}
 		
 		return bottom - linkedBounds.height;
+	}
+	
+	/**
+	 * IGraphicalEditPart의 절대좌표 Rect 반환
+	 * 
+	 * @param gep
+	 *        edit part to find bounds
+	 * @return part's bounds in absolute coordinates
+	 */
+	public static Rectangle getAbsoluteBounds(IGraphicalEditPart gep) {
+		// take bounds from figure
+		Rectangle rect = gep.getFigure().getBounds().getCopy();
+		View view = gep.getNotationView();
+		
+		if ( view instanceof Node ) {
+			Node node = (Node)view;
+			LayoutConstraint lc = node.getLayoutConstraint();
+			
+			if ( lc instanceof Bounds ) {
+				Bounds bounds = (Bounds)lc;
+				Rectangle parentRect = gep.getFigure().getParent().getBounds().getCopy();
+				
+				if ( bounds.getX() > 0 ) {
+					rect.x = bounds.getX() + parentRect.x; 
+				}
+				if ( bounds.getY() > 0 ) {
+					rect.y = bounds.getY() + parentRect.y; 
+				}
+				if ( bounds.getWidth() != -1 ) {
+					rect.width = bounds.getWidth();
+				}
+				if ( bounds.getHeight() != -1 ) {
+					rect.width = bounds.getHeight();
+				}
+			}			
+		}
+		gep.getFigure().getParent().translateToAbsolute(rect);
+		
+		return rect;
+	}
+	
+	/**
+	 * Get the extremity of a connection edit part
+	 * 
+	 * @param connection
+	 *        the connection edit part to find extremity
+	 * @param isStart
+	 *        true to find the start, false for the end
+	 * @return connection's extremity in absolute coordinates or null
+	 */
+	public static Point getAbsoluteEdgeExtremity(ConnectionNodeEditPart connection, boolean isStart) {
+		Connection msgFigure = connection.getConnectionFigure();
+		View view = connection.getNotationView();
+		
+		if(view instanceof Edge) {
+			// rather take up to date model information
+			Edge edge = (Edge)view;
+			Anchor idAnchor = null;
+			ConnectionAnchor conAnchor = null;
+			Object part = null;
+			
+			EditPart sourceEditPart = connection.getSource();
+			EditPart targetEditPart = connection.getTarget();
+			
+			Map editPartRegistry = sourceEditPart.getViewer().getEditPartRegistry();
+			
+			if(isStart && sourceEditPart instanceof IGraphicalEditPart) {
+				View linkedFigure = edge.getSource();
+				
+				// connection.getSource() may be not up to date, get part for linkedFigure
+				part = editPartRegistry.get(linkedFigure);
+				idAnchor = edge.getSourceAnchor();
+				conAnchor = msgFigure.getSourceAnchor();
+			} else if(!isStart && targetEditPart instanceof IGraphicalEditPart) {
+				View linkedFigure = edge.getTarget();
+				
+				// connection.getTarget() may be not up to date, get part for linkedFigure
+				part = editPartRegistry.get(linkedFigure);
+				idAnchor = edge.getTargetAnchor();
+				conAnchor = msgFigure.getTargetAnchor();
+			}
+			
+			if(part instanceof IGraphicalEditPart && idAnchor instanceof IdentityAnchor && conAnchor != null) {
+				// take up to date bounds of the linked part in case it is moved
+				Rectangle linkedPartBounds = getAbsoluteBounds((IGraphicalEditPart)part);
+
+				IFigure anchorOwningFigure = conAnchor.getOwner();
+				IFigure partFigure = ((IGraphicalEditPart)part).getFigure();
+				Dimension delta = anchorOwningFigure.getBounds().getLocation().getDifference(partFigure.getBounds().getLocation());
+				// get position from anchor id
+				String oldTerminal = ((IdentityAnchor)idAnchor).getId();
+				PrecisionPoint pp = BaseSlidableAnchor.parseTerminalString(oldTerminal);
+				int xPos = linkedPartBounds.x + delta.width + (int)Math.round(anchorOwningFigure.getBounds().width * pp.preciseX);
+				int yPos = linkedPartBounds.y + delta.height + (int)Math.round(anchorOwningFigure.getBounds().height * pp.preciseY);
+				return new Point(xPos, yPos);
+			}
+		}
+		// can not get from model, rely on figure
+		if(msgFigure instanceof AbstractPointListShape) {
+			Point extremity;
+			if(isStart) {
+				// start event of the message
+				extremity = ((AbstractPointListShape)msgFigure).getStart().getCopy();
+			} else {
+				// finish event of the message
+				extremity = ((AbstractPointListShape)msgFigure).getEnd().getCopy();
+			}
+			msgFigure.getParent().translateToAbsolute(extremity);
+			return extremity;
+		}
+		return null;
 	}
 }

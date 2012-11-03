@@ -3,7 +3,6 @@ package org.eclipse.papyrus.uml.diagram.sequence.command;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.commands.ApexCreateAndMoveInteractionFragmentsCommand;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -23,6 +22,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest.C
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.command.ApexCreateAndMoveInteractionFragmentsCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ActionExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.BehaviorExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.part.Messages;

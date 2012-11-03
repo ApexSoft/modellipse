@@ -1,4 +1,4 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies;
 
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.Request;

@@ -1,4 +1,4 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.commands;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.command;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;

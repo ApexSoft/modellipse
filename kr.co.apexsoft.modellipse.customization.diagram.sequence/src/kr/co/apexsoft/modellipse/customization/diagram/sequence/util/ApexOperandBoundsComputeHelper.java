@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.edit.policies.ApexInteractionCompartmentXYLayoutEditPolicy;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -22,6 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ApexInteractionCompartmentXYLayoutEditPolicy;
 import org.eclipse.uml2.uml.CombinedFragment;
 
 public class ApexOperandBoundsComputeHelper {

@@ -1,4 +1,4 @@
-package kr.co.apexsoft.modellipse.customization.diagram.sequence.draw2d.anchors;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.draw2d.anchors;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;

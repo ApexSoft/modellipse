@@ -3,7 +3,6 @@ package org.eclipse.papyrus.uml.diagram.sequence.edit.parts;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.apexsoft.modellipse.customization.diagram.sequence.figures.ApexCustomDefaultSizeNodeFigure;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Locator;
@@ -32,6 +31,7 @@ import org.eclipse.gmf.runtime.notation.datatype.GradientData;
 import org.eclipse.papyrus.infra.emf.appearance.helper.ShadowFigureHelper;
 import org.eclipse.papyrus.infra.gmfdiag.common.figure.node.IPapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomDefaultSizeNodeFigure;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 
