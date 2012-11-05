@@ -20,6 +20,7 @@ import java.util.List;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
@@ -67,6 +68,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.OneLineBorder;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
@@ -87,6 +89,7 @@ import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.papyrus.infra.gmfdiag.common.figure.node.IPapyrusNodeFigure;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.GradientPreferenceConverter;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.PreferenceConstantHelper;
+import org.eclipse.papyrus.uml.diagram.common.draw2d.OneLineDashedBorder;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEditPolicy;
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.helper.PreferenceInitializerForElementHelper;
@@ -236,7 +239,7 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 	 * @generated
 	 */
 	public CustomInteractionOperandFigure getPrimaryShape() {
-		return (CustomInteractionOperandFigure)primaryShape;
+		return (CustomInteractionOperandFigure)primaryShape;		
 	}
 
 	/**
@@ -408,6 +411,8 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 		private WrappingLabel fInteractionConstraintLabel;
 
 		/**
+		 * apex updated
+		 * 
 		 * @generated
 		 */
 		public CustomInteractionOperandFigure() {
@@ -418,7 +423,14 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 
 			this.setLineStyle(Graphics.LINE_DASH);
 
+			/* apex improved start */
+			OneLineBorder border = new OneLineBorder(ColorConstants.lightGray, this.getLineWidth(), PositionConstants.TOP);
+			border.setStyle(Graphics.LINE_DASH);			
+			this.setBorder(border);
+			/* apex improved end */
+			/* apex replaced
 			this.setBorder(null);
+			 */
 
 			this.setLineSeparator(!firstOperand);
 
