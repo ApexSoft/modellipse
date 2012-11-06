@@ -38,6 +38,7 @@ import org.eclipse.emf.transaction.impl.TransactionalCommandStackImpl;
 import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.Tool;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.menus.PopupMenu;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
@@ -46,11 +47,13 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.papyrus.infra.core.editor.CoreMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
+import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.uml.diagram.common.util.MessageDirection;
 import org.eclipse.papyrus.uml.diagram.sequence.part.Messages;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLPaletteFactory.AspectUnspecifiedTypeConnectionToolEx;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.ElementInitializers;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -338,7 +341,7 @@ public class CommandHelper {
 
 		// fix bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=383420, remove connection feedbacks before opening dialog
 		clearConnectionFeedback();
-		
+
 		// Open the selection dialog
 		SelectOrCreateDialog dialog = new SelectOrCreateDialog(Display.getCurrent().getActiveShell(), Messages.CommandHelper_CreateMessage, createTypeLabelProvider(), new AdapterFactoryLabelProvider(UMLDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory()), EditorUtils.getTransactionalEditingDomain(), existingElements, mapTypesPossibleParents, types);
 
@@ -1189,5 +1192,242 @@ public class CommandHelper {
 		return false;
 	}
 
+	
+	/**
+	 * apex
+	 * {@link #createTypeLabelProvider()}를 변형
+	 * 
+	 * @return
+	 */
+	private static AdapterFactoryLabelProvider apexCreateTypeLabelProvider() {
+		AdapterFactoryLabelProvider typeLabelProvider = new AdapterFactoryLabelProvider(UMLDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory()) {
 
+			@Override
+			public Image getImage(Object object) {
+				Image image = super.getImage(object);
+				if (object instanceof String) {
+					image = null;
+				}
+				return image;
+			}
+
+			@Override
+			public String getText(Object object) {
+				String text = super.getText(object);
+				if (object instanceof String) {
+					return text;
+				}
+				int index = text.indexOf(" "); //$NON-NLS-1$
+				if (index != -1) {
+					text = text.substring(0, index);
+				}
+				return text;
+			}
+			
+		};
+		return typeLabelProvider;
+	}
+	
+	/**
+	 * apex
+	 * {@link #doCreateMessage(Interaction, MessageSort, Element, Element, InteractionFragment, InteractionFragment, MessageEnd, MessageEnd)}를 변형
+	 * 
+	 * @param container
+	 *        the interaction containing the message.
+	 * @param messageSort
+	 *        the messageSort of the message, it can be null
+	 * @param source
+	 *        the source of the message, it can be null
+	 * @param target
+	 *        the target of the message, it can be null
+	 * @param sendMessageEnd
+	 *        the existing Send MessageEnd of the message
+	 * @param receiveMessageEnd
+	 *        the existing Receive MessageEnd of the message
+	 * @return the created message
+	 */
+	public static Message apexDoCreateMessage(Interaction container, MessageSort messageSort, Element source, Element target, InteractionFragment sourceContainer, InteractionFragment targetContainer, MessageEnd sendMessageEnd, MessageEnd receiveMessageEnd) {
+
+		NamedElement signature = null;
+
+		// Get the correct MessageSort
+		messageSort = getMessageSort(signature, messageSort);
+
+		// Create the message
+		Message message = doCreateMessage(container, messageSort, signature);
+
+		// Create the two message ends
+		if(sendMessageEnd == null && source != null) {
+			sendMessageEnd = createMessageEnd(sourceContainer, EventHelper.doCreateSendEvent(messageSort, container, signature), source, MessageDirection.OUT);
+		}
+		if(receiveMessageEnd == null && target != null) {
+			receiveMessageEnd = createMessageEnd(targetContainer, EventHelper.doCreateReceiveEvent(messageSort, container, signature), target, MessageDirection.IN);
+		}
+
+		// Update the messages end with the message
+		if(sendMessageEnd != null) {
+			sendMessageEnd.setMessage(message);
+			ElementInitializers.init_NamedElement(sendMessageEnd, "", message.getName(), "Send"); //$NON-NLS-1$ //$NON-NLS-2$
+			// Update the message with the messages end
+			message.setSendEvent(sendMessageEnd);
+		}
+		if(receiveMessageEnd != null) {
+			receiveMessageEnd.setMessage(message);
+			ElementInitializers.init_NamedElement(receiveMessageEnd, "", message.getName(), "Recv"); //$NON-NLS-1$ //$NON-NLS-2$
+			// Update the message with the messages end
+			message.setReceiveEvent(receiveMessageEnd);
+		}
+
+		return message;
+	}
+
+	/**
+	 * apex
+	 * {@link #doCreateMessage(Interaction, MessageSort, Element, Element, InteractionFragment, InteractionFragment)}를 변형
+	 * 
+	 * @param container
+	 *        the interaction containing the message.
+	 * @param messageSort
+	 *        the messageSort of the message, it can be null
+	 * @param source
+	 *        the source of the message, it can be null
+	 * @param target
+	 *        the target of the message, it can be null
+	 * @return the created message
+	 */
+	public static Message apexDoCreateMessage(Interaction container, MessageSort messageSort, Element source, Element target, InteractionFragment sourceContainer, InteractionFragment targetContainer) {
+		return apexDoCreateMessage(container, messageSort, source, target, sourceContainer, targetContainer, null, null);
+	}
+
+	/**
+	 * apex
+	 * {@link #doCreateMessage(Interaction, MessageSort, Element, Element, Map)}를 변형
+	 * 
+	 * @param interaction
+	 *        the interaction containing the message.
+	 * @param messageSort
+	 *        the messageSort of the message, it can be null
+	 * @param source
+	 *        the source of the message, it can be null
+	 * @param target
+	 *        the target of the message, it can be null
+	 * @param params
+	 *        a map of params. It must at least contain the source and target container;
+	 * @return the created message.
+	 */
+	public static Message apexDoCreateMessage(Interaction interaction, MessageSort messageSort, Element source, Element target, Map<Object, Object> params) {
+		InteractionFragment sourceContainer = (InteractionFragment)params.get(SequenceRequestConstant.SOURCE_MODEL_CONTAINER);
+		InteractionFragment targetContainer = (InteractionFragment)params.get(SequenceRequestConstant.TARGET_MODEL_CONTAINER);
+
+		Lifeline lifeline = (Lifeline)params.get(SequenceRequestConstant.LIFELINE_GRAPHICAL_CONTAINER);
+		if(lifeline != null) {
+			if(source instanceof CombinedFragment) {
+				CombinedFragment cf = (CombinedFragment)source;
+
+				if(InteractionOperatorKind.PAR_LITERAL.equals(cf.getInteractionOperator())) {
+					InteractionOperand interactionOperand = getCoRegionInteractionOperand(cf);
+					sourceContainer = interactionOperand;
+					targetContainer = interactionOperand;
+					source = lifeline;
+					if(target instanceof Lifeline) {
+						addCoveredLifelineToCombinedFragment((Lifeline)target, cf);
+					}
+				}
+			} else if(target instanceof CombinedFragment) {
+				CombinedFragment cf = (CombinedFragment)target;
+				if(InteractionOperatorKind.PAR_LITERAL.equals(cf.getInteractionOperator())) {
+					InteractionOperand interactionOperand = getCoRegionInteractionOperand(cf);
+					sourceContainer = interactionOperand;
+					targetContainer = interactionOperand;
+					target = lifeline;
+					if(source instanceof Lifeline) {
+						addCoveredLifelineToCombinedFragment((Lifeline)source, cf);
+					}
+				}
+			}
+		}
+		return doCreateMessage(interaction, messageSort, source, target, sourceContainer, targetContainer);
+	}
+
+	/**
+	 * apex
+	 * {@link #getSignature(Element, Element, Element)}를 변형
+	 * 
+	 * @param model
+	 *        The model
+	 * @param source
+	 *        The source of the message
+	 * @param target
+	 *        The target of the message
+	 * @param messageSort
+	 *        true if message sort is set
+	 * @return null, if cancel has been pressed. An empty list if the null Element has been
+	 *         selected, or a list with the selected element.
+	 */
+	public static List<NamedElement> apexGetSignature(Element model, Element source, Element target, MessageSort messageSort) {
+
+		// element where to look for parents
+		Element parentsOwner = target;
+
+		// default values
+		// used for asynch message where messageSort = null
+		boolean useOperations = true;
+		boolean useSignals = true;
+
+		// according to the type of the message
+		// choose which types we should care of
+		if(MessageSort.SYNCH_CALL_LITERAL.equals(messageSort)) {
+			useSignals = false;
+		} else if(MessageSort.CREATE_MESSAGE_LITERAL.equals(messageSort) || MessageSort.DELETE_MESSAGE_LITERAL.equals(messageSort)) {
+			useOperations = false;
+		} else if(MessageSort.REPLY_LITERAL.equals(messageSort)) {
+			parentsOwner = source;
+			useSignals = false;
+		}
+
+		LinkedHashMap<EClass, List<EObject>> mapTypesPossibleParents = new LinkedHashMap<EClass, List<EObject>>();
+
+		if(useSignals) {
+			mapTypesPossibleParents.put(UMLPackage.eINSTANCE.getSignal(), new LinkedList<EObject>());
+		}
+		if(useOperations) {
+			mapTypesPossibleParents.put(UMLPackage.eINSTANCE.getOperation(), new LinkedList<EObject>());
+		}
+
+		// add the parents we can find
+		boolean existingParent = false;
+		List<Type> types = new ArrayList<Type>();
+		if(parentsOwner instanceof InteractionFragment) {
+			EList<Lifeline> lifelines = ((InteractionFragment)parentsOwner).getCovereds();
+			for(Lifeline l : lifelines) {
+				if(l.getRepresents() != null && l.getRepresents().getType() != null)
+					types.add(l.getRepresents().getType());
+				boolean result = addParentsFromLifeline(l, mapTypesPossibleParents);
+				if(result) {
+					existingParent = true;
+				}
+			}
+		} else if(parentsOwner instanceof Lifeline) {
+			Lifeline l = (Lifeline)parentsOwner;
+			if(l.getRepresents() != null && l.getRepresents().getType() != null)
+				types.add(l.getRepresents().getType());
+			existingParent = addParentsFromLifeline(l, mapTypesPossibleParents);
+		}
+
+
+		// if no parent available => no signature
+		if(!existingParent) {
+			return new ArrayList<NamedElement>();
+		}
+
+		Set<EObject> existingElements = getExistingElementsFromParents(mapTypesPossibleParents);
+
+		List<NamedElement> returnElements = new ArrayList<NamedElement>();
+		for (EObject element : existingElements) {
+			if(element instanceof NamedElement) {
+				returnElements.add((NamedElement)element);
+			}
+		}
+		return returnElements;
+	}
 }
