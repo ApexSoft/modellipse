@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Message
+Bundle-SymbolicName: kr.co.apexsoft.modellipse.custom.editors.message;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: kr.co.apexsoft.modellipse.custom.editors.message.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text,
+ org.eclipse.uml2.uml,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.papyrus.extensionpoints.editors;bundle-version="0.9.1",
+ org.eclipse.emf.edit.ui,
+ org.eclipse.uml2.uml.edit,
+ kr.co.apexsoft.modellipse.custom.editors;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
