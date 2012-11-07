@@ -208,6 +208,22 @@ public class MessageLabelEditPolicy extends AbstractMaskManagedEditPolicy {
 		if(e == null || e.getSignature() == null) {
 			return;
 		}
+		
+		/* apex added start */
+		if (UMLPackage.eINSTANCE.getNamedElement_Name().equals(notification.getFeature())) {
+			refreshDisplay();
+		} else if (UMLPackage.eINSTANCE.getMessage_Signature().equals(notification.getFeature())) {
+			if (notification.getNewValue() instanceof NamedElement) {
+				NamedElement ne = (NamedElement)notification.getNewValue();
+				getDiagramEventBroker().addNotificationListener(ne, this);
+			}
+			if (notification.getOldValue() instanceof NamedElement) {
+				NamedElement ne = (NamedElement)notification.getOldValue();
+				getDiagramEventBroker().removeNotificationListener(ne, this);
+			}
+			refreshDisplay();
+		}
+		/* apex added end */
 		if(UMLPackage.Literals.MESSAGE__ARGUMENT.equals( notification.getFeature())){
 			parameterListChange(notification);
 			return;
