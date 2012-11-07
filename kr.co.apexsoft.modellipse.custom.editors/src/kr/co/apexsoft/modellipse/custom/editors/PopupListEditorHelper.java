@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.papyrus.extensionpoints.editors.ui.IPopupEditorHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
@@ -28,7 +29,7 @@ import org.eclipse.ui.dialogs.FilteredList;
 
 public class PopupListEditorHelper implements IPopupEditorHelper {
 
-	private static IGraphicalEditPart hostEditPart;
+	private IGraphicalEditPart hostEditPart;
 	
 	private static boolean ignoreFocusLost;
 	
@@ -53,8 +54,6 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 	
 	private FilteredList filteredList;
 	
-	private static EObject context;
-
 	@Override
 	public void showEditor() {
 		try {
@@ -62,7 +61,6 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 			if (semanticElement == null) {
 				return;
 			}
-			context = semanticElement;
 			
 			Resource semanticResource = semanticElement.eResource();
 			semanticElementFragment = semanticResource.getURIFragment(semanticElement);
@@ -106,22 +104,46 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 		
 		listEditorComposite = new Shell(SWT.RESIZE);
 		GridLayout layout = new GridLayout();
-		layout.horizontalSpacing = 0;
-		layout.verticalSpacing = 0;
 		layout.marginWidth = 0;
 		layout.marginHeight = 0;
 		listEditorComposite.setLayout(layout);
 		
 		setEditorBounds();
 		
-		filteredList = new FilteredList(listEditorComposite, SWT.SINGLE,
+		filteredList = new FilteredList(listEditorComposite, SWT.SINGLE | SWT.FULL_SELECTION | SWT.BORDER,
 				factory.getLabelProvider(), fIgnoreCase, fMatchEmptyString, fAllowDuplicates);
 		GridData gridData = new GridData(GridData.FILL_BOTH);
 		filteredList.setLayoutData(gridData);
 		
 		filteredList.setComparator(factory.getComparator());
+		
+		Control[] children = filteredList.getChildren();
+		for (Control control : children) {
+			control.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					int keyCode = e.keyCode;
+					if (keyCode == SWT.ESC) {
+						PopupListEditorHelper.this.closeEditor(false);
+					}
+				}
+			});
 
-		Control control = filteredList;
+			control.addFocusListener(new FocusAdapter() {
+				@Override
+				public void focusLost(FocusEvent e) {
+					PopupListEditorHelper.this.checkedClose();
+				}
+			});
+
+			control.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseDoubleClick(MouseEvent e) {
+					PopupListEditorHelper.this.closeEditor(true);
+				}
+			});
+		}
+		
 		Object input = factory.getInput();
 		Object[] elements = null;
 		if (input instanceof Collection<?>) {
@@ -133,39 +155,16 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 		}
 		filteredList.setElements(elements);
 		
-		control.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				int keyCode = e.keyCode;
-				if (keyCode == SWT.ESC) {
-					PopupListEditorHelper.this.closeEditor(false);
-				}
-			}
-		});
+		TableViewer viewer = new TableViewer(listEditorComposite, SWT.SINGLE | SWT.FULL_SELECTION | SWT.BORDER);
+		viewer.setLabelProvider(factory.getLabelProvider());
+		viewer.setContentProvider(factory.getContentprovider());
+		viewer.setInput(input);
+		viewer.getTable().setLinesVisible(true);
 		
-		control.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				context = semanticElement;
-				super.focusGained(e);
-			}
-
-			@Override
-			public void focusLost(FocusEvent e) {
-				PopupListEditorHelper.this.checkedClose();
-			}
-		});
-		
-		control.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				closeEditor(true);
-			}
-		});
+		viewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
 		
 		listEditorComposite.setVisible(true);
-		
-		control.setFocus();
+		filteredList.setFocus();
 	}
 	
 	private void setEditorBounds() {

@@ -1346,7 +1346,7 @@ public class CommandHelper {
 				}
 			}
 		}
-		return doCreateMessage(interaction, messageSort, source, target, sourceContainer, targetContainer);
+		return apexDoCreateMessage(interaction, messageSort, source, target, sourceContainer, targetContainer);
 	}
 
 	/**

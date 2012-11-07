@@ -10,16 +10,26 @@ import java.util.Map;
 import kr.co.apexsoft.modellipse.custom.editors.IPopupEditorInputFactory;
 import kr.co.apexsoft.modellipse.custom.editors.PopupEditorConfiguration;
 
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.papyrus.commands.wrappers.GMFtoEMFCommandWrapper;
 import org.eclipse.papyrus.extensionpoints.editors.ui.IPopupEditorHelper;
+import org.eclipse.papyrus.uml.tools.databinding.PapyrusObservableValue;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InteractionFragment;
@@ -43,7 +53,11 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		// TODO Auto-generated constructor stub
 	}
 	
+	private TransactionalEditingDomain editingDomain;
+	
 	private Message message;
+	
+	private IObservableValue modelProperty;
 
 	@Override
 	public IPopupEditorHelper createPopupEditorHelper(Object editPart) {
@@ -67,7 +81,10 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		Element source = (Element)sourceEditPart.getAdapter(Element.class);
 		Element target = (Element)targetEditPart.getAdapter(Element.class);
 		
+		editingDomain = graphicalEditPart.getEditingDomain();
 		message = (Message)graphicalEditPart.getTopGraphicEditPart().resolveSemanticElement();
+		
+		modelProperty = new PapyrusObservableValue(message, UMLPackage.eINSTANCE.getMessage_Signature(), editingDomain);
 
 		final List<Object> contents = new ArrayList<Object>();
 		List<EObject> signatures = getSignature(source, target, message.getMessageSort());
@@ -108,7 +125,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 					System.out.println(object);
 				} else if (object instanceof NamedElement) {
 					NamedElement element = (NamedElement)object;
-					System.out.println(element);
+					handleChangedSignature(element);
 				}
 			}
 
@@ -136,6 +153,16 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 				};
 			}
 		};
+	}
+	
+	private void handleChangedSignature(NamedElement element) {
+		if (modelProperty != null) {
+			modelProperty.setValue(element);
+		}
+//		if (message != null && editingDomain != null) {
+//			Command command = new GMFtoEMFCommandWrapper(new UpdateSignatureCommand(editingDomain, message, element));
+//			editingDomain.getCommandStack().execute(command);
+//		}
 	}
 	
 	private Map<EClass, List<EObject>> getTypesPossibleParents(Element source, Element target, MessageSort messageSort) {
@@ -228,5 +255,25 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		}
 
 		return existingElements;
+	}
+	
+	public class UpdateSignatureCommand extends AbstractTransactionalCommand {
+
+		private Message message;
+		private NamedElement signature;
+		
+		public UpdateSignatureCommand(TransactionalEditingDomain domain, Message message, NamedElement signature) {
+			super(domain, "update signature command", null);
+			this.message = message;
+			this.signature = signature;
+		}
+
+		@Override
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
+			message.setSignature(signature);
+			return CommandResult.newOKCommandResult(message);
+		}
+		
 	}
 }
