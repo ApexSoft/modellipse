@@ -115,7 +115,12 @@ public class Message2CreateCommand extends EditElementCommand {
 		}
 
 		Map<Object, Object> parameters = getRequest().getParameters();
+		/* apex improved start */
+		Message message = CommandHelper.apexDoCreateMessage(container, null, getSource(), getTarget(), parameters);
+		/* apex improved end */
+		/* apex replaced
 		Message message = CommandHelper.doCreateMessage(container, null, getSource(), getTarget(), parameters);
+		*/
 		if(message != null) {
 			doConfigure(message, monitor, info);
 			((CreateElementRequest)getRequest()).setNewElement(message);

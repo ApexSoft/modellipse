@@ -130,9 +130,12 @@ public class Message5CreateCommand extends EditElementCommand {
 			lifeline = (Lifeline)getTarget();
 		}
 
-		// Create the message
+		/* apex improved start */
+		Message message = CommandHelper.apexDoCreateMessage(container, MessageSort.DELETE_MESSAGE_LITERAL, getSource(), lifeline, sourceContainer, targetContainer, null, receiveMessageEnd);
+		/* apex improved end */
+		/* apex replaced
 		Message message = CommandHelper.doCreateMessage(container, MessageSort.DELETE_MESSAGE_LITERAL, getSource(), lifeline, sourceContainer, targetContainer, null, receiveMessageEnd);
-
+		 */
 		if(message != null) {
 			doConfigure(message, monitor, info);
 			((CreateElementRequest)getRequest()).setNewElement(message);

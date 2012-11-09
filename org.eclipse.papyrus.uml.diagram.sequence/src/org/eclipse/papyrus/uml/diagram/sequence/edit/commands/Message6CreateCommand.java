@@ -107,7 +107,12 @@ public class Message6CreateCommand extends EditElementCommand {
 		InteractionFragment sourceContainer = (InteractionFragment)getRequest().getParameters().get(SequenceRequestConstant.SOURCE_MODEL_CONTAINER);
 		InteractionFragment targetContainer = (InteractionFragment)getRequest().getParameters().get(SequenceRequestConstant.TARGET_MODEL_CONTAINER);
 
+		/* apex improved start */
+		Message message = CommandHelper.apexDoCreateMessage(container, MessageSort.ASYNCH_SIGNAL_LITERAL, getSource(), null, sourceContainer, targetContainer);
+		/* apex improved end */
+		/* apex replaced
 		Message message = CommandHelper.doCreateMessage(container, MessageSort.ASYNCH_SIGNAL_LITERAL, getSource(), null, sourceContainer, targetContainer);
+		 */
 		if(message != null) {
 			doConfigure(message, monitor, info);
 			((CreateElementRequest)getRequest()).setNewElement(message);
