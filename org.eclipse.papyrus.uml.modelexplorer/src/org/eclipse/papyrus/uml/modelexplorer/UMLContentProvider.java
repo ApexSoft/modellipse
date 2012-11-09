@@ -16,6 +16,7 @@ package org.eclipse.papyrus.uml.modelexplorer;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
@@ -34,6 +35,8 @@ public class UMLContentProvider extends MoDiscoContentProvider {
 
 
 	/**
+	 * apex updated
+	 * 
 	 * Return the initial values from the input.
 	 * Input should be of type {@link UmlModel}.
 	 * 
@@ -52,6 +55,7 @@ public class UMLContentProvider extends MoDiscoContentProvider {
 		EList<EObject> contents = umlModel.getResource().getContents();
 		ArrayList<EObject> result = new ArrayList<EObject>();
 		Iterator<EObject> iterator = contents.iterator();
+
 		while(iterator.hasNext()) {
 			EObject eObject = iterator.next();
 			//functionality that comes from UML2 plugins
@@ -59,6 +63,7 @@ public class UMLContentProvider extends MoDiscoContentProvider {
 				result.add(eObject);
 			}
 		}
-		return result.toArray(new EObject[result.size()]);
+		
+		return result.toArray(new EObject[result.size()]);		
 	}
 }

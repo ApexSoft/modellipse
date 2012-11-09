@@ -97,21 +97,21 @@
 -->
 <extension point="org.eclipse.ui.menus">
 
-	<!-- ModelExplorer toolbar -->
-	<menuContribution allPopups="false" locationURI="toolbar:org.eclipse.papyrus.views.modelexplorer.modelexplorer">
+    <!-- ModelExplorer toolbar -->
+    <menuContribution allPopups="false" locationURI="toolbar:org.eclipse.papyrus.views.modelexplorer.modelexplorer">
 
-		<!-- Load modisco browser customization command -->		
-		<command commandId="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization" icon="icons/etool16/uiCustom.gif" label="Load browser customization" style="push">
-		</command>
+        <!-- Load modisco browser customization command -->     
+        <command commandId="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization" icon="icons/etool16/uiCustom.gif" label="Load browser customization" style="push">
+        </command>
 
-		<!-- Search element command -->	
-		<command commandId="org.eclipse.papyrus.views.modelexplorer.searchelement" icon="icons/etool16/search.gif" label="Search element" style="push">
-		</command>
-		
-		<!-- Sort elements command -->	
-		<command commandId="org.eclipse.papyrus.views.modelexplorer.sortelement" icon="icons/etool16/sort.gif" label="sort" style="toggle">
-		</command>
-	</menuContribution>
+        <!-- Search element command --> 
+        <command commandId="org.eclipse.papyrus.views.modelexplorer.searchelement" icon="icons/etool16/search.gif" label="Search element" style="push">
+        </command>
+        
+        <!-- Sort elements command -->  
+        <command commandId="org.eclipse.papyrus.views.modelexplorer.sortelement" icon="icons/etool16/sort.gif" label="sort" style="toggle">
+        </command>
+    </menuContribution>
  <menuContribution allPopups="false" locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
     <menu id="org.eclipse.papyrus.views.modelexplorer.popupmenu.createchild" label="New Child">
     </menu>
@@ -193,34 +193,34 @@
        </visibleWhen>
     </command>
  </menuContribution>
-	<!-- ModelExplorer Contextual menu -->       
+    <!-- ModelExplorer Contextual menu -->       
        
 </extension>
 
 <!-- Command declarations (for model explorer toolbar and contextual menu -->
 <extension point="org.eclipse.ui.commands">
 
-	<!-- Command declaration : Load modisco browser customization command -->			
-	<command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.LoadBrowserCustomization" description="Load a customization for the papyrus browser" id="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization" name="loadBrowserCustomization">
-	</command>
-	
-	<!-- Command declaration : Search element command -->			
-	<command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.SearchElementHandler" description="Search an element in the model explorer" id="org.eclipse.papyrus.views.modelexplorer.searchelement" name="searchelement">
-	</command>
-	
-	<!-- Command declaration : Sort elements command -->			
-	<command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.SortElementHandler" description="Sort elements" id="org.eclipse.papyrus.views.modelexplorer.sortelement" name="SortElement">
-	</command>
+    <!-- Command declaration : Load modisco browser customization command -->           
+    <command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.LoadBrowserCustomization" description="Load a customization for the papyrus browser" id="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization" name="loadBrowserCustomization">
+    </command>
+    
+    <!-- Command declaration : Search element command -->           
+    <command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.SearchElementHandler" description="Search an element in the model explorer" id="org.eclipse.papyrus.views.modelexplorer.searchelement" name="searchelement">
+    </command>
+    
+    <!-- Command declaration : Sort elements command -->            
+    <command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.SortElementHandler" description="Sort elements" id="org.eclipse.papyrus.views.modelexplorer.sortelement" name="SortElement">
+    </command>
        
-	<!-- Command declaration : Delete element command -->
-	<command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.DeleteCommandHandler" description="Delete" id="org.eclipse.papyrus.uml.service.creation.DeleteCommand" name="Delete">
-	</command>       
+    <!-- Command declaration : Delete element command -->
+    <command categoryId="org.eclipse.papyrus.editor.category" defaultHandler="org.eclipse.papyrus.views.modelexplorer.handler.DeleteCommandHandler" description="Delete" id="org.eclipse.papyrus.uml.service.creation.DeleteCommand" name="Delete">
+    </command>       
 </extension>
     
     
    <extension point="org.eclipse.core.runtime.preferences">
-		<?gmfgen generated="false"?>
-		<initializer class="org.eclipse.papyrus.views.modelexplorer.preferences.NavigatorPreferenceInitializer"/>
+        <?gmfgen generated="false"?>
+        <initializer class="org.eclipse.papyrus.views.modelexplorer.preferences.NavigatorPreferenceInitializer"/>
    </extension>
    <extension point="org.eclipse.ui.preferencePages">
       <page category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory" class="org.eclipse.papyrus.views.modelexplorer.preferences.NavigatorPreferencePage" id="org.eclipse.papyrus.views.modelexplorer.preferences.NavigatorPreferencePage" name="Papyrus Model Explorer">
@@ -232,7 +232,7 @@
      and to mask the command in case it is not supported or executable.
   -->
 <extension point="org.eclipse.ui.startup">
-	<startup class="org.eclipse.papyrus.views.modelexplorer.Activator"/>
+    <startup class="org.eclipse.papyrus.views.modelexplorer.Activator"/>
 </extension>
 <extension point="org.eclipse.ui.navigator.linkHelper">
    <linkHelper class="org.eclipse.papyrus.views.modelexplorer.LinkHelper" id="org.eclipse.papyrus.views.modelexplorer.linkHelper">
@@ -250,8 +250,8 @@
 <!-- This handler is activated when deleteInModelExplorer variable is valid.
   -->
 <extension point="org.eclipse.ui.handlers">
-	<handler class="org.eclipse.papyrus.views.modelexplorer.handler.DeleteCommandHandler" commandId="org.eclipse.ui.edit.delete">
-		<activeWhen>
+    <handler class="org.eclipse.papyrus.views.modelexplorer.handler.DeleteCommandHandler" commandId="org.eclipse.ui.edit.delete">
+        <activeWhen>
      <with
            variable="selection">
         <and>
@@ -267,8 +267,8 @@
            </test>
         </and>
      </with>
-		</activeWhen>
-	</handler>
+        </activeWhen>
+    </handler>
 </extension>
 <extension point="org.eclipse.ui.commands">
    <command categoryId="org.eclipse.papyrus.editor.category" description="The command to open in a tab" id="org.eclipse.papyrus.views.modelexplorer.popup.open.command" name="Open Command">

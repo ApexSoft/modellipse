@@ -328,7 +328,7 @@ public class UMLPaletteFactory extends PaletteFactory.Adapter {
 	 */
 	private Tool createCombinedFragment5CreationTool() {
 		List<IElementType> types = new ArrayList<IElementType>(2);
-		//types.add(UMLElementTypes.ConsiderIgnoreFragment_3007);
+//		types.add(UMLElementTypes.ConsiderIgnoreFragment_3007);
 		types.add(UMLElementTypes.CombinedFragment_3004);
 
 		Tool tool = new AspectUnspecifiedTypeCreationTool(types);

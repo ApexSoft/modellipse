@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.facet.infra.browser.uicore.CustomizableModelContentProvider;
@@ -137,6 +139,8 @@ public class MoDiscoContentProvider extends CustomizableModelContentProvider {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Get the roots elements from the {@link ModelSet} provided as input.
 	 * 
 	 * @return
@@ -148,8 +152,8 @@ public class MoDiscoContentProvider extends CustomizableModelContentProvider {
 			return null;
 		}
 
-		EList<EObject> contents = umlModel.getResource().getContents();
-		ArrayList<EObject> result = new ArrayList<EObject>();
+		EList<EObject> contents = umlModel.getResource().getContents();				
+		ArrayList<EObject> result = new ArrayList<EObject>();		
 		Iterator<EObject> iterator = contents.iterator();
 		while(iterator.hasNext()) {
 			EObject eObject = iterator.next();
