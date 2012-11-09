@@ -1,31 +1,27 @@
 package kr.co.apexsoft.modellipse.custom.editors;
 
-import java.util.Collection;
-
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.papyrus.extensionpoints.editors.ui.IPopupEditorHelper;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.FocusAdapter;
-import org.eclipse.swt.events.FocusEvent;
-import org.eclipse.swt.events.KeyAdapter;
-import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.dialogs.FilteredList;
 
 public class PopupListEditorHelper implements IPopupEditorHelper {
 
@@ -52,7 +48,26 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 	
 	private Composite listEditorComposite;
 	
-	private FilteredList filteredList;
+	private TableViewer viewer;
+	
+	private Listener popupListener = new Listener() {
+		@Override
+		public void handleEvent(Event event) {
+			switch(event.type) {
+			case SWT.KeyDown:
+				if (event.keyCode == SWT.ESC) {
+					PopupListEditorHelper.this.closeEditor(false);
+				}
+				break;
+			case SWT.MouseUp:
+				PopupListEditorHelper.this.closeEditor(true);
+				break;
+			case SWT.FocusOut:
+				PopupListEditorHelper.this.checkedClose();
+				break;
+			}
+		}
+	};
 	
 	@Override
 	public void showEditor() {
@@ -83,22 +98,23 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 	 */
 	public void closeEditor(boolean isReconcile) {
 		if (isReconcile) {
-			if (filteredList.getSelection().length > 0) {
-				factory.update(filteredList.getSelection()[0]);
+			if (viewer.getSelection() instanceof IStructuredSelection) {
+				IStructuredSelection selection = (IStructuredSelection)viewer.getSelection();
+				ignoreFocusLost = true;
+				factory.update(selection.getFirstElement());
+				ignoreFocusLost = false;
 			}
 		}
+//		if (ignoreFocusLost) {
+//			return;
+//		}
 		
-		listEditorComposite.setVisible(false);
-		listEditorComposite.dispose();
+		if (listEditorComposite != null && !listEditorComposite.isDisposed()) {
+			listEditorComposite.setVisible(false);
+			listEditorComposite.dispose();
+		}
 	}
 	
-	
-    private boolean fIgnoreCase = true;
-
-    private boolean fMatchEmptyString = true;
-
-    private boolean fAllowDuplicates = true;
-    
 	private void createListEditor() {
 		diagramShell = diagramEditor.getSite().getShell();
 		
@@ -108,63 +124,24 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 		layout.marginHeight = 0;
 		listEditorComposite.setLayout(layout);
 		
-		setEditorBounds();
-		
-		filteredList = new FilteredList(listEditorComposite, SWT.SINGLE | SWT.FULL_SELECTION | SWT.BORDER,
-				factory.getLabelProvider(), fIgnoreCase, fMatchEmptyString, fAllowDuplicates);
-		GridData gridData = new GridData(GridData.FILL_BOTH);
-		filteredList.setLayoutData(gridData);
-		
-		filteredList.setComparator(factory.getComparator());
-		
-		Control[] children = filteredList.getChildren();
-		for (Control control : children) {
-			control.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyPressed(KeyEvent e) {
-					int keyCode = e.keyCode;
-					if (keyCode == SWT.ESC) {
-						PopupListEditorHelper.this.closeEditor(false);
-					}
-				}
-			});
-
-			control.addFocusListener(new FocusAdapter() {
-				@Override
-				public void focusLost(FocusEvent e) {
-					PopupListEditorHelper.this.checkedClose();
-				}
-			});
-
-			control.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseDoubleClick(MouseEvent e) {
-					PopupListEditorHelper.this.closeEditor(true);
-				}
-			});
-		}
-		
 		Object input = factory.getInput();
-		Object[] elements = null;
-		if (input instanceof Collection<?>) {
-			elements = ((Collection<?>)input).toArray();
-		} else if (input instanceof Object[]) {
-			elements = (Object[])input;
-		} else {
-			elements = new Object[] { input };
-		}
-		filteredList.setElements(elements);
 		
-		TableViewer viewer = new TableViewer(listEditorComposite, SWT.SINGLE | SWT.FULL_SELECTION | SWT.BORDER);
+		Table table = new Table(listEditorComposite, SWT.SINGLE | SWT.FULL_SELECTION);
+		table.setLayoutData(new GridData(GridData.FILL_BOTH));
+
+		viewer = new TableViewer(table);
 		viewer.setLabelProvider(factory.getLabelProvider());
 		viewer.setContentProvider(factory.getContentprovider());
 		viewer.setInput(input);
-		viewer.getTable().setLinesVisible(true);
 		
-		viewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
+		table.addListener(SWT.KeyDown, popupListener);
+		table.addListener(SWT.MouseUp, popupListener);
+		table.addListener(SWT.FocusOut, popupListener);
+		
+		setEditorBounds();
 		
 		listEditorComposite.setVisible(true);
-		filteredList.setFocus();
+		table.setFocus();
 	}
 	
 	private void setEditorBounds() {
@@ -175,7 +152,13 @@ public class PopupListEditorHelper implements IPopupEditorHelper {
 		bounds.x = newCoord.x;
 		bounds.y = newCoord.y;
 		
-		listEditorComposite.setBounds(bounds.x, bounds.y, 200, 200);
+		Control control = listEditorComposite;
+		if (viewer != null) {
+			control = viewer.getTable();
+		}
+		Dimension size = new Dimension(control.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		
+		listEditorComposite.setBounds(bounds.x, bounds.y, size.width, size.height);
 	}
 	
 	private void checkedClose() {

@@ -1,4 +1,4 @@
-package kr.co.apexsoft.modellipse.custom.editors.message;
+package kr.co.apexsoft.modellipse.custom.editors.message.providers;
 
 import java.util.ArrayList;
 import java.util.List;

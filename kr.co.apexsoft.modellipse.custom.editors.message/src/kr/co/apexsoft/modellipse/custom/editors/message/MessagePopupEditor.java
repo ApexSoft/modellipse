@@ -9,9 +9,10 @@ import java.util.Map;
 
 import kr.co.apexsoft.modellipse.custom.editors.IPopupEditorInputFactory;
 import kr.co.apexsoft.modellipse.custom.editors.PopupEditorConfiguration;
+import kr.co.apexsoft.modellipse.custom.editors.message.dialogs.CreateOrModifySignatureDialog;
+import kr.co.apexsoft.modellipse.custom.editors.message.providers.MessagePopupEditorLabelProvider;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
@@ -23,13 +24,15 @@ import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.papyrus.commands.wrappers.GMFtoEMFCommandWrapper;
 import org.eclipse.papyrus.extensionpoints.editors.ui.IPopupEditorHelper;
-import org.eclipse.papyrus.uml.tools.databinding.PapyrusObservableValue;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InteractionFragment;
@@ -46,8 +49,8 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 public class MessagePopupEditor extends PopupEditorConfiguration {
 	
-	private static final String CREATE_LABEL = "Create";
-	private static final String SELECT_LABEL = "Select";
+	private static final String CREATE_LABEL = "Create...";
+	private static final String DESELECT_LABEL = "Deselect";
 
 	public MessagePopupEditor() {
 		// TODO Auto-generated constructor stub
@@ -57,11 +60,19 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 	
 	private Message message;
 	
-	private IObservableValue modelProperty;
+	private ILabelProvider elementLabelProvider;
+	
+	private Map<EClass, List<EObject>> mapTypesPossibleParents;
+	
+	private List<EObject> signatures;
+	
+	private IGraphicalEditPart graphicalEditPart;
+	
+//	private IObservableValue modelProperty;
 
 	@Override
 	public IPopupEditorHelper createPopupEditorHelper(Object editPart) {
-		IGraphicalEditPart graphicalEditPart = null;
+		graphicalEditPart = null;
 		if(!(editPart instanceof IGraphicalEditPart)) {
 			return null;
 		}
@@ -84,15 +95,17 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		editingDomain = graphicalEditPart.getEditingDomain();
 		message = (Message)graphicalEditPart.getTopGraphicEditPart().resolveSemanticElement();
 		
-		modelProperty = new PapyrusObservableValue(message, UMLPackage.eINSTANCE.getMessage_Signature(), editingDomain);
+//		modelProperty = new PapyrusObservableValue(message, UMLPackage.eINSTANCE.getMessage_Signature(), editingDomain);
 
 		final List<Object> contents = new ArrayList<Object>();
-		List<EObject> signatures = getSignature(source, target, message.getMessageSort());
+		signatures = getSignature(source, target, message.getMessageSort());
 		contents.add(CREATE_LABEL);
-		contents.add(SELECT_LABEL);
+		contents.add(DESELECT_LABEL);
 		if (signatures != null && signatures.size() > 0) {
 			contents.addAll(signatures);
 		}
+		
+		elementLabelProvider = new MessagePopupEditorLabelProvider();
 		
 		IPopupEditorInputFactory factory = getPopupEditorInputFactory(contents);
 		
@@ -104,7 +117,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 			
 			@Override
 			public ILabelProvider getLabelProvider() {
-				return new MessagePopupEditorLabelProvider();
+				return elementLabelProvider;
 			}
 			
 			@Override
@@ -120,12 +133,11 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 			@Override
 			public void update(Object object) {
 				if (CREATE_LABEL.equals(object)) {
-					System.out.println(object);
-				} else if (SELECT_LABEL.equals(object)) {
-					System.out.println(object);
+					handleCreateSignature(null);
+				} else if (DESELECT_LABEL.equals(object)) {
+					handleChangedSignature(null);
 				} else if (object instanceof NamedElement) {
-					NamedElement element = (NamedElement)object;
-					handleChangedSignature(element);
+					handleChangedSignature(object);
 				}
 			}
 
@@ -138,7 +150,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 							return 0;
 						} else if (CREATE_LABEL.equals(arg0)) {
 							return -1;
-						} else if (SELECT_LABEL.equals(arg0)) {
+						} else if (DESELECT_LABEL.equals(arg0)) {
 							if (CREATE_LABEL.equals(arg1)) {
 								return 1;
 							}
@@ -155,14 +167,49 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		};
 	}
 	
-	private void handleChangedSignature(NamedElement element) {
-		if (modelProperty != null) {
-			modelProperty.setValue(element);
+	private void handleCreateSignature(Object object) {
+		try {
+			IEditorPart editor = ((DiagramEditDomain)graphicalEditPart.getDiagramEditDomain()).getEditorPart();
+			CreateOrModifySignatureDialog dialog = new CreateOrModifySignatureDialog(
+					editor.getSite().getShell(), "Create a new Signature", createTypeLabelProvider(), elementLabelProvider,
+					editingDomain, mapTypesPossibleParents, null);
+			if (IDialogConstants.OK_ID == dialog.open()) {
+				EObject selectedElement = dialog.getSelected();
+				if (selectedElement instanceof NamedElement) {
+					handleChangedSignature(selectedElement);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-//		if (message != null && editingDomain != null) {
-//			Command command = new GMFtoEMFCommandWrapper(new UpdateSignatureCommand(editingDomain, message, element));
-//			editingDomain.getCommandStack().execute(command);
+	}
+	
+	private void handleChangedSignature(Object object) {
+//		if (modelProperty != null) {
+//			modelProperty.setValue(object);
 //		}
+		if (message != null && editingDomain != null) {
+			if (object == null || object instanceof NamedElement) {
+				Command command = new GMFtoEMFCommandWrapper(
+						new UpdateSignatureCommand(editingDomain, message, (NamedElement)object));
+				editingDomain.getCommandStack().execute(command);
+			}
+		}
+	}
+	
+	private ILabelProvider createTypeLabelProvider() {
+		return new MessagePopupEditorLabelProvider() {
+
+			@Override
+			public String getText(Object object) {
+				String text = super.getText(object);
+				int index = text.indexOf(" "); //$NON-NLS-1$
+				if(index != -1) {
+					text = text.substring(0, index);
+				}
+				return text;
+			}
+		};
 	}
 	
 	private Map<EClass, List<EObject>> getTypesPossibleParents(Element source, Element target, MessageSort messageSort) {
@@ -228,7 +275,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 	private List<EObject> getSignature(Element source, Element target, MessageSort messageSort) {
 
 		List<EObject> existingElements = new ArrayList<>();
-		Map<EClass, List<EObject>> mapTypesPossibleParents = getTypesPossibleParents(source, target, messageSort);
+		mapTypesPossibleParents = getTypesPossibleParents(source, target, messageSort);
 		
 		for(EClass eClass : mapTypesPossibleParents.keySet()) {
 			List<EObject> parents = mapTypesPossibleParents.get(eClass);
@@ -263,7 +310,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		private NamedElement signature;
 		
 		public UpdateSignatureCommand(TransactionalEditingDomain domain, Message message, NamedElement signature) {
-			super(domain, "update signature command", null);
+			super(domain, "update signature command", null); //$NON-NLS-1$
 			this.message = message;
 			this.signature = signature;
 		}
