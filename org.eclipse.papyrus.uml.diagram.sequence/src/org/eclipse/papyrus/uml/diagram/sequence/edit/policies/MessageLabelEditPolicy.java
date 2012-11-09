@@ -204,10 +204,18 @@ public class MessageLabelEditPolicy extends AbstractMaskManagedEditPolicy {
 		super.notifyChanged(notification);
 		final Object object = notification.getNotifier();
 		Message e = getUMLElement();
+		
+		/* apex improved start */
+		if (e == null) {
+			return;
+		}
+		/* apex improved end */
+		/* apex replaced
 		// check host semantic element is not null
 		if(e == null || e.getSignature() == null) {
 			return;
 		}
+		 */
 		
 		/* apex added start */
 		if (UMLPackage.eINSTANCE.getNamedElement_Name().equals(notification.getFeature())) {
@@ -224,6 +232,7 @@ public class MessageLabelEditPolicy extends AbstractMaskManagedEditPolicy {
 			refreshDisplay();
 		}
 		/* apex added end */
+		
 		if(UMLPackage.Literals.MESSAGE__ARGUMENT.equals( notification.getFeature())){
 			parameterListChange(notification);
 			return;
