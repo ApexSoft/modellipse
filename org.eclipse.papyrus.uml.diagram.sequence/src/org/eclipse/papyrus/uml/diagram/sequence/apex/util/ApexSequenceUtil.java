@@ -1835,7 +1835,7 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 					rect.width = bounds.getWidth();
 				}
 				if ( bounds.getHeight() != -1 ) {
-					rect.width = bounds.getHeight();
+					rect.height = bounds.getHeight();
 				}
 			}			
 		}
