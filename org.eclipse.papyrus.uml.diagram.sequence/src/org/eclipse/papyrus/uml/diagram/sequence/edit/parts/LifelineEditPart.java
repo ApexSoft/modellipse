@@ -100,6 +100,7 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEd
 import org.eclipse.papyrus.uml.diagram.common.figure.node.RectangularShadowBorder;
 import org.eclipse.papyrus.uml.diagram.common.providers.UIAdapterImpl;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexLifelineConnectionHandleEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomLifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
@@ -1524,11 +1525,12 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			this.add(fFigureExecutionsContainerFigure, BorderLayout.CENTER);
 			fFigureExecutionsContainerFigure.setLayoutManager(new StackLayout());
 
-			/* apex improved start - ignored omw
+			/* apex improved start */
 			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
-			/* apex improved end - ignored omw */
-
+			/* apex improved end */
+			/* apex replaced
 			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
+			 */
 
 
 			fFigureExecutionsContainerFigure.add(fFigureLifelineDotLineFigure);
