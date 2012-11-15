@@ -69,7 +69,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -124,8 +123,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.NotificationHelper;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.ConnectableElement;
@@ -1528,11 +1525,12 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			this.add(fFigureExecutionsContainerFigure, BorderLayout.CENTER);
 			fFigureExecutionsContainerFigure.setLayoutManager(new StackLayout());
 
-			/* apex improved start - ignored omw */
-//			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
-			/* apex improved end - ignored omw */
-
+			/* apex improved start */
+			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
+			/* apex improved end */
+			/* apex replaced
 			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
+			 */
 
 
 			fFigureExecutionsContainerFigure.add(fFigureLifelineDotLineFigure);
@@ -2123,19 +2121,6 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 					return LifelineMessageCreateHelper.getCreateMessageAnchor(this, request, ((CreateUnspecifiedTypeConnectionRequest) request).getLocation().getCopy());
 				}
 			}
-			
-			/* apex added start */
-			// jiho - 복수 ElementType에 대한 처리
-			for (Object elementType : relationshipTypes) {
-				Request createConnectionRequest = createRequest.getRequestForType((IElementType)elementType);
-				if (createConnectionRequest instanceof CreateConnectionViewRequest) {
-					ConnectionAnchor targetAnchor = getTargetConnectionAnchor(createConnectionRequest);
-					createRequest.setLocation(((CreateConnectionViewRequest) createConnectionRequest).getLocation());
-//					if (targetAnchor != null)
-//						return targetAnchor;
-				}
-			}
-			/* apex added end */
 		} else if(request instanceof ReconnectRequest) {
 			ReconnectRequest reconnectRequest = (ReconnectRequest)request;
 			ConnectionEditPart connectionEditPart = reconnectRequest.getConnectionEditPart();
@@ -2143,24 +2128,6 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 				return LifelineMessageCreateHelper.getCreateMessageAnchor(this, request, ((ReconnectRequest)request).getLocation().getCopy() );
 			}
 		}
-		
-		/* apex added start */
-		// jiho - Message을 Horizontal로 생성
-		if (request instanceof CreateConnectionViewRequest) {
-			CreateConnectionViewRequest createRequest = (CreateConnectionViewRequest)request;
-			EditPart sourceEditPart = createRequest.getSourceEditPart();
-			LifelineEditPart srcLifeline = SequenceUtil.getParentLifelinePart(sourceEditPart);
-			if (!this.equals(srcLifeline)) {
-				Point sourceLocation = (Point)createRequest.getExtendedData().get(SequenceRequestConstant.SOURCE_LOCATION_DATA);
-				Point location = createRequest.getLocation().getCopy();
-				location.setY(sourceLocation.y());
-
-				// ExecutionSpecification생성 시 location 이용
-				createRequest.setLocation(location);
-//				return getNodeFigure().getTargetConnectionAnchorAt(location);
-			}
-		}
-		/* apex added end */
 
 		ConnectionAnchor anchor = super.getTargetConnectionAnchor(request);
 		if(anchor instanceof SlidableAnchor) {
