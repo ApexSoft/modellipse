@@ -1040,7 +1040,9 @@ public class BehaviorExecutionSpecificationEditPart extends AbstractExecutionSpe
 				if(UMLElementTypes.Message_4003.equals(obj)) {
 					// Sync Message
 					if(!createRequest.getTargetEditPart().equals(createRequest.getSourceEditPart())) {
+						/* apex replaced
 						return new AnchorHelper.FixedAnchorEx(getFigure(), FixedAnchor.TOP);
+						 */
 					}
 					// otherwise, this is a recursive call, let destination free
 				}
@@ -1050,7 +1052,9 @@ public class BehaviorExecutionSpecificationEditPart extends AbstractExecutionSpe
 			ConnectionEditPart connectionEditPart = reconnectRequest.getConnectionEditPart();
 			if(connectionEditPart instanceof MessageEditPart) {
 				// Sync Message
+				/* apex replaced
 				return new AnchorHelper.FixedAnchorEx(getFigure(), FixedAnchor.TOP);
+				 */
 			}
 		}
 
@@ -1069,7 +1073,9 @@ public class BehaviorExecutionSpecificationEditPart extends AbstractExecutionSpe
 	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connEditPart) {
 		if(connEditPart instanceof MessageEditPart) {
 			// Sync Message
+			/* apex replaced
 			return new AnchorHelper.FixedAnchorEx(getFigure(), FixedAnchor.TOP);
+			 */
 		}
 		return super.getTargetConnectionAnchor(connEditPart);
 	}
