@@ -1,5 +1,6 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.helpers;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;

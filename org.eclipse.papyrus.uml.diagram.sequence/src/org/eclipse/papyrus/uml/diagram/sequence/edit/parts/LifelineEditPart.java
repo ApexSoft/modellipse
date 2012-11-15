@@ -1529,10 +1529,10 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			fFigureExecutionsContainerFigure.setLayoutManager(new StackLayout());
 
 			/* apex improved start - ignored omw */
-			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
+//			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
 			/* apex improved end - ignored omw */
 
-//			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
+			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
 
 
 			fFigureExecutionsContainerFigure.add(fFigureLifelineDotLineFigure);
@@ -2131,8 +2131,8 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 				if (createConnectionRequest instanceof CreateConnectionViewRequest) {
 					ConnectionAnchor targetAnchor = getTargetConnectionAnchor(createConnectionRequest);
 					createRequest.setLocation(((CreateConnectionViewRequest) createConnectionRequest).getLocation());
-					if (targetAnchor != null)
-						return targetAnchor;
+//					if (targetAnchor != null)
+//						return targetAnchor;
 				}
 			}
 			/* apex added end */
@@ -2147,17 +2147,17 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 		/* apex added start */
 		// jiho - Message을 Horizontal로 생성
 		if (request instanceof CreateConnectionViewRequest) {
-			EditPart sourceEditPart = ((CreateConnectionViewRequest) request).getSourceEditPart();
+			CreateConnectionViewRequest createRequest = (CreateConnectionViewRequest)request;
+			EditPart sourceEditPart = createRequest.getSourceEditPart();
 			LifelineEditPart srcLifeline = SequenceUtil.getParentLifelinePart(sourceEditPart);
 			if (!this.equals(srcLifeline)) {
-				CreateConnectionViewRequest createRequest = (CreateConnectionViewRequest)request;
 				Point sourceLocation = (Point)createRequest.getExtendedData().get(SequenceRequestConstant.SOURCE_LOCATION_DATA);
 				Point location = createRequest.getLocation().getCopy();
 				location.setY(sourceLocation.y());
 
 				// ExecutionSpecification생성 시 location 이용
 				createRequest.setLocation(location);
-				return getNodeFigure().getTargetConnectionAnchorAt(location);
+//				return getNodeFigure().getTargetConnectionAnchorAt(location);
 			}
 		}
 		/* apex added end */

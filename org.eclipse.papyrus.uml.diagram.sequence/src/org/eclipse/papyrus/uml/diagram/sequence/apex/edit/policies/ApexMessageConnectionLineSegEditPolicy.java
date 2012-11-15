@@ -91,8 +91,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 			cbRequest.setLocation(location);
 			cbRequest.setExtendedData(request.getExtendedData());
 
-			Command result = ApexMessageConnectionLineSegmentEditPolicy.apexGetMoveConnectionCommand(cbRequest, connectionPart, isConstrainedMove(cbRequest));
-//			Command result = getXXXCommand(cbRequest);
+//			Command result = ApexMessageConnectionLineSegmentEditPolicy.apexGetMoveConnectionCommand(cbRequest, connectionPart, isConstrainedMove(cbRequest));
+			Command result = getXXXCommand(cbRequest);
 			return result;
 		}
 		return UnexecutableCommand.INSTANCE;
