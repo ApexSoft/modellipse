@@ -12,7 +12,8 @@
       </viewer>
       <viewerContentBinding viewerId="org.eclipse.papyrus.views.modelexplorer.modelexplorer">
          <includes>
-            <contentExtension pattern="org.eclipse.papyrus.views.modelexplorer.*">
+            <contentExtension
+                  pattern="org.eclipse.papyrus.uml.modelexplorer.UMLnavigatorContent">
             </contentExtension>
          </includes>
       </viewerContentBinding>
