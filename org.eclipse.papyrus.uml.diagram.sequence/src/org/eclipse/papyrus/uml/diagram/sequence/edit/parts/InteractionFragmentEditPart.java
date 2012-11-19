@@ -34,6 +34,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
+import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.PartDecomposition;
@@ -160,13 +161,54 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 			this.getFigure().translateToAbsolute(origRect);
 			this.getFigure().translateToAbsolute(newRect);
 
-			List lifelineEditPartsToCheck = null;
+			List<LifelineEditPart> lifelineEditPartsToCheck = new ArrayList<LifelineEditPart>();
+			
+			// Jiho start
+			EObject container = resolveSemanticElement().eContainer();
+			List<Lifeline> coveredLifelinesByParent = new ArrayList<Lifeline>();
+			if (container instanceof Interaction) {
+				coveredLifelinesByParent.addAll(((Interaction)container).getLifelines());
+			} else if (container instanceof InteractionFragment) {
+				coveredLifelinesByParent.addAll(((InteractionFragment)container).getCovereds());
+			}
+			
+			if (origRect.width == 0 && origRect.height == 0) { // 새 CombinedFragment 생성하는 경우 Interaction 내 모든 Lifeline을 check
+				Set<Entry<Object, EditPart>> allEditPartEntries = getViewer().getEditPartRegistry().entrySet();
 
+				for(Entry<Object, EditPart> epEntry : allEditPartEntries) {
+					EditPart ep = epEntry.getValue();
+					if (ep instanceof LifelineEditPart) {
+						LifelineEditPart lifelineEP = (LifelineEditPart)ep;
+						Lifeline lifeline = (Lifeline)lifelineEP.resolveSemanticElement();
+						if (coveredLifelinesByParent.contains(lifeline)) {
+							lifelineEditPartsToCheck.add(lifelineEP);
+							coveredLifelinesToAdd.add((Lifeline)lifelineEP.resolveSemanticElement());
+						}
+					}
+				}
+			} else { // 새로 생성이 아닌 CF 경계 변경인 경우
+				List<LifelineEditPart> coveredLifelineEditParts = null;
+				if (origRect.width > newRect.width) { // width 축소 시 원래 경계 내에 있던 lifeline을 check
+					coveredLifelineEditParts = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(origRect, this);	
+				} else if (origRect.width < newRect.width) { // width 확대 시 새 경계내에 있는 lifeline을 check
+					coveredLifelineEditParts = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(newRect, this);
+				} else {
+					coveredLifelineEditParts = new ArrayList<LifelineEditPart>(0);
+				}
+				
+				for (LifelineEditPart lifelineEP : coveredLifelineEditParts) {
+					Lifeline lifeline = (Lifeline)lifelineEP.resolveSemanticElement();
+					if (coveredLifelinesByParent.contains(lifeline)) {
+						lifelineEditPartsToCheck.add(lifelineEP);
+					}
+				}
+			}
+			// Jiho end
+
+			/*
 			if (origRect.width == 0 && origRect.height == 0) { // 새 CombinedFragment 생성하는 경우 Interaction 내 모든 Lifeline을 check
 
 				Set<Entry<Object, EditPart>> allEditPartEntries = getViewer().getEditPartRegistry().entrySet();
-
-				lifelineEditPartsToCheck = new ArrayList();
 
 				for(Entry<Object, EditPart> epEntry : allEditPartEntries) {
 					EditPart ep = epEntry.getValue();
@@ -182,21 +224,18 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 					lifelineEditPartsToCheck = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(origRect, this);	
 				} else if (origRect.width < newRect.width) { // width 확대 시 새 경계내에 있는 lifeline을 check
 					lifelineEditPartsToCheck = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(newRect, this);
-				} else { // 확대/축소가 아닌 경우, 즉 상하이동의 경우
-					lifelineEditPartsToCheck = null;
 				}
 			}
-
+			*/
+			
 			// 상하이동의 경우 covereds가 바뀔 일이 없으므로
 			// 상하이동이 아닌 경우만 updateCoveredLifelines 호출
-			if ( lifelineEditPartsToCheck != null ) { 
-				for(Object lifelineEditPartToCheck : lifelineEditPartsToCheck) {
-					if(lifelineEditPartToCheck instanceof LifelineEditPart) {
-						LifelineEditPart lifelineEditPart = (LifelineEditPart)lifelineEditPartToCheck;
-						updateCoveredLifelines(lifelineEditPart, newBound, coveredLifelinesToAdd, coveredLifelinesToRemove, coveredLifelines);
-					}
-				}	
-			}
+			for(Object lifelineEditPartToCheck : lifelineEditPartsToCheck) {
+				if(lifelineEditPartToCheck instanceof LifelineEditPart) {
+					LifelineEditPart lifelineEditPart = (LifelineEditPart)lifelineEditPartToCheck;
+					updateCoveredLifelines(lifelineEditPart, newBound, coveredLifelinesToAdd, coveredLifelinesToRemove, coveredLifelines);
+				}
+			}	
 
 			/* apex improved end */
 			/* apex replaced
