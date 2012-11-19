@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences.PreferenceChangeEvent;
@@ -87,6 +86,7 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ICellEditorValidator;
+import org.eclipse.papyrus.commands.wrappers.GMFtoEMFCommandWrapper;
 import org.eclipse.papyrus.infra.emf.appearance.helper.ShadowFigureHelper;
 import org.eclipse.papyrus.infra.gmfdiag.common.figure.node.IPapyrusNodeFigure;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.GradientPreferenceConverter;
@@ -95,6 +95,7 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.ShowHideCompartmentEd
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.helper.PreferenceInitializerForElementHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexCombinedFragmentResizableShapeEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.command.CustomZOrderCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentItemComponentEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentItemSemanticEditPolicy;
@@ -106,7 +107,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.InteractionOperatorKindCompatibleMapping;
-import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineCoveredByUpdater;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
@@ -1274,6 +1274,38 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 						}
 					}
 				}
+				
+				/* apex added start */
+				View view = getNotationView();
+				View containerView = ViewUtil.getContainerView(view);
+				List<View> bringForwardViews = new ArrayList<View>();
+				if (containerView != null) {
+					EList childViews = containerView.getChildren();
+					int index = childViews.contains(view) ? childViews.indexOf(view)
+							: childViews.size() - 1;
+
+					for (int i = 0; i < childViews.size(); i++) {
+						if (childViews.get(i) instanceof View) {
+							View childView = (View)childViews.get(i);
+							if (combinedFragmentCoveredLifelines.contains(childView.getElement())) {
+								index = Math.min(index, childViews.indexOf(childView));
+							} else if (childView != view) {
+								bringForwardViews.add(childView);
+							}
+						}
+					}
+
+					TransactionalEditingDomain editingDomain = getEditingDomain();
+					if (index != childViews.indexOf(view)) {
+						CommandHelper.executeCommandWithoutHistory(editingDomain, new GMFtoEMFCommandWrapper(new CustomZOrderCommand(editingDomain, view, index)));
+					}
+					
+					for (View bringForwardView : bringForwardViews) {
+						if (childViews.indexOf(bringForwardView) > index)
+							CommandHelper.executeCommandWithoutHistory(editingDomain, new GMFtoEMFCommandWrapper(new CustomZOrderCommand(editingDomain, bringForwardView, index++)));
+					}
+				}
+				/* apex added end */
 			}
 		} else if(UMLPackage.eINSTANCE.getNamedElement_Name().equals(feature)) {
 			if(notification.getNotifier() instanceof CombinedFragment) {
