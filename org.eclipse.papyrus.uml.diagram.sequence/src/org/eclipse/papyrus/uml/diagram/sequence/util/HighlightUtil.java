@@ -24,8 +24,10 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.CommentEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ConstraintEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionOperandEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.InteractionOperandLayoutEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.CombinedFragmentFigure;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.uml2.uml.Lifeline;
 
 
 public class HighlightUtil {
@@ -56,6 +58,41 @@ public class HighlightUtil {
 			lifelines.put(lp, centralLineBounds);					
 		}
 		return lifelines;
+	}
+	
+	/**
+	 * CF내부에 그려지는 CF에 대한 feedback
+	 * @param request
+	 * @param host
+	 * @param feedback
+	 * @param bounds
+	 * @param coveredLifelines
+	 * 
+	 * @author Jiho
+	 * 
+	 * @see {@link InteractionOperandLayoutEditPolicy#showSizeOnDropFeedback(CreateRequest request)}
+	 */
+	public static void apexShowSizeOnDropFeedback(CreateRequest request, EditPart host, IFigure feedback, Rectangle bounds, List<Lifeline> coveredLifelines) {
+		showSizeOnDropFeedback(request, host, feedback, bounds);
+		
+		List<LifelineEditPart> removeLifelines = new ArrayList<LifelineEditPart>();
+		for (LifelineEditPart lp : highlightLifelines) {
+			if (!coveredLifelines.contains(lp.resolveSemanticElement())) {
+				removeLifelines.add(lp);
+			}
+		}
+		
+		highlightLifelines.removeAll(removeLifelines);
+		
+		for (LifelineEditPart lp : removeLifelines) {
+			FigureState s = figureState.get(lp);
+			if(s == null)
+				continue;
+			
+			RectangleFigure rect = lp.getPrimaryShape().getFigureLifelineNameContainerFigure();			
+			rect.setBackgroundColor(s.bgColor);
+			rect.setFill(true);
+		}
 	}
 	
 	public static void showSizeOnDropFeedback(CreateRequest request,EditPart host, IFigure feedback, Rectangle bounds){

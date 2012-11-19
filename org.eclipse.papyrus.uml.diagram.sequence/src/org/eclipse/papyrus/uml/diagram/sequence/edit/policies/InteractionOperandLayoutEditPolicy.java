@@ -13,6 +13,10 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -22,13 +26,20 @@ import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateConnectionRequest;
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.papyrus.uml.diagram.common.service.AspectUnspecifiedTypeCreationTool.CreateAspectUnspecifiedTypeRequest;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.CombinedFragmentEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionFragmentEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionOperandEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
+import org.eclipse.papyrus.uml.diagram.sequence.util.HighlightUtil;
+import org.eclipse.uml2.uml.InteractionFragment;
+import org.eclipse.uml2.uml.Lifeline;
 
 /**
  * The customn LayoutEditPolicy for InteractionOperandEditPart.
@@ -126,6 +137,33 @@ public class InteractionOperandLayoutEditPolicy extends XYLayoutEditPolicy {
 			return null;
 		}
 		return compoundCmd.unwrap();
+	}
+
+	/**
+	 * apex updated
+	 * 
+	 * CF내부에 CF그릴 때 Lifeline의 색변경 Feedback
+	 */
+	protected void showSizeOnDropFeedback(CreateRequest request) {
+		super.showSizeOnDropFeedback(request);
+		/* apex added start */
+		if (request instanceof CreateAspectUnspecifiedTypeRequest) {
+			CreateAspectUnspecifiedTypeRequest req = (CreateAspectUnspecifiedTypeRequest)request;
+			if (req.getElementTypes().contains(UMLElementTypes.CombinedFragment_3004) || req.getElementTypes().contains(UMLElementTypes.ConsiderIgnoreFragment_3007)) {
+				IFigure feedback = getSizeOnDropFeedback(request);
+				Rectangle b = feedback.getBounds().getCopy();
+				feedback.translateToAbsolute(b);
+				
+				if (getHost() instanceof InteractionOperandEditPart) {
+					EObject element = ((InteractionOperandEditPart)getHost()).resolveSemanticElement();
+					if (element instanceof InteractionFragment) {
+						EList<Lifeline> coveredLifelines = ((InteractionFragment)element).getCovereds();
+						HighlightUtil.apexShowSizeOnDropFeedback(request, getHost(), feedback, b, coveredLifelines);
+					}
+				}
+			}
+		}
+		/* apex added end */
 	}
 
 //	/**
