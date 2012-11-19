@@ -1226,8 +1226,20 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 
 		List<LifelineEditPart> coveredLifelineEditParts = new ArrayList<LifelineEditPart>();
 
-		List<Lifeline> coveredLifelines = null;
+		if (snep instanceof CombinedFragmentEditPart || snep instanceof InteractionOperandEditPart) {
+			if (coveredOnly) {
+				InteractionFragment ift = (InteractionFragment)snep.resolveSemanticElement();
+				for (Lifeline lifeline : ift.getCovereds()) {
+					coveredLifelineEditParts.add((LifelineEditPart)apexGetEditPart(lifeline, snep.getViewer()));
+				}
+			} else {
+				return apexGetPositionallyCoveredLifelineEditParts(apexGetAbsoluteRectangle(snep), snep);
+			}
+		}
 
+		/*
+		List<Lifeline> coveredLifelines = null;
+		
 		if ( snep instanceof CombinedFragmentEditPart ) {
 			CombinedFragment cf = (CombinedFragment)snep.resolveSemanticElement();
 			if ( coveredOnly ) {
@@ -1260,7 +1272,7 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 
 		for ( Lifeline ll : coveredLifelines ) {
 			coveredLifelineEditParts.add((LifelineEditPart)apexGetEditPart(ll, snep.getViewer()));
-		}
+		}*/
 		/*
 		RootEditPart rootEP = snep.getRoot();
 		EditPart contents = rootEP.getContents();
