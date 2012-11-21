@@ -44,6 +44,12 @@ public class SearchElementHandler extends AbstractHandler {
 		return null;
 	}
 
+	/**
+	 * apex updated
+	 * 
+	 * @param event
+	 * @return
+	 */
 	protected TreeViewer getSelectedTreeViewer(ExecutionEvent event) {
 
 		IWorkbenchPart activePart;
@@ -69,6 +75,12 @@ public class SearchElementHandler extends AbstractHandler {
 				return ((ModelExplorerView)viewPart).getCommonViewer();
 			}
 		}
+		/* apex added start */
+		if( activePart instanceof CommonNavigator)
+		{			
+			return ((CommonNavigator)activePart).getCommonViewer();
+		}
+		/* apex added end */
 
 		// Not found
 		return null;

@@ -13,6 +13,8 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.modelexplorer.apex;
 
+import static org.eclipse.papyrus.infra.core.Activator.log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,23 +25,32 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.commands.operations.IUndoContext;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -53,18 +64,25 @@ import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
 import org.eclipse.papyrus.infra.core.editor.IMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.lifecycleevents.IEditorInputChangedListener;
 import org.eclipse.papyrus.infra.core.lifecycleevents.ISaveAndDirtyService;
+import org.eclipse.papyrus.infra.core.multidiagram.actionbarcontributor.ActionBarContributorRegistry;
+import org.eclipse.papyrus.infra.core.resource.ModelMultiException;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.additional.AdditionalResourcesModel;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
 import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.IPageMngr;
+import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.ISashWindowsContentProvider;
+import org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.DiSashModelMngr;
+import org.eclipse.papyrus.infra.core.services.ExtensionServicesRegistry;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
-import org.eclipse.papyrus.infra.emf.providers.MoDiscoContentProvider;
 import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
+import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
+import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
+import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.views.modelexplorer.Activator;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
 import org.eclipse.papyrus.views.modelexplorer.DecoratingLabelProviderWTooltips;
@@ -79,6 +97,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.ISelectionListener;
@@ -87,6 +106,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.WorkbenchException;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.internal.navigator.NavigatorContentService;
 import org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor;
 import org.eclipse.ui.navigator.CommonNavigator;
@@ -118,14 +139,12 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	 * */
 	//	private IMultiDiagramEditor editorPart;
 
-	private IProject[] _projects;
-	private Map<String, ServicesRegistry> _servicesRegistryMap;
-	
 	/**
 	 * The {@link ServicesRegistry} associated to the Editor. This view is associated to the
 	 * ServicesRegistry rather than to the EditorPart.
-	 */
+	 */	
 	private ServicesRegistry serviceRegistry;
+	
 
 	/** The save aservice associated to the editor. */
 	private ISaveAndDirtyService saveAndDirtyService;
@@ -137,19 +156,28 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	private TransactionalEditingDomain editingDomain;
 
 	/** Flag to avoid reentrant call to refresh. */
-	private AtomicBoolean isRefreshing = new AtomicBoolean(false);
+	private AtomicBoolean isRefreshing = new AtomicBoolean(false);	
+
+	/** Undo action handler */
+	UndoActionHandler undoHandler;
+
+	/** Redo action handler */
+	RedoActionHandler redoHandler;
+
+	/** The {@link IPropertySheetPage} this model explorer will use. */
+	private IPropertySheetPage propertySheetPage = null;
 
 	/**
 	 * A listener on page (all editors) selection change. This listener is set
 	 * in {@link ApexModellipseExplorerView#init(IViewSite)}. It should be dispose to remove
 	 * hook to the Eclipse page.
 	 */
-	private ISelectionListener pageSelectionListener = new ISelectionListener() {
-
-		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-			handleSelectionChangedFromDiagramEditor(part, selection);
-		}
-	};
+//	private ISelectionListener pageSelectionListener = new ISelectionListener() {
+//
+//		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+//			handleSelectionChangedFromDiagramEditor(part, selection);
+//		}
+//	};
 
 	/**
 	 * Listener on {@link ISaveAndDirtyService#addInputChangedListener(IEditorInputChangedListener)}
@@ -180,73 +208,34 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	};
 
 
-	/** Undo action handler */
-	UndoActionHandler undoHandler;
-
-	/** Redo action handler */
-	RedoActionHandler redoHandler;
-
-
-	/** The {@link IPropertySheetPage} this model explorer will use. */
-	private IPropertySheetPage propertySheetPage = null;
 
 	public ApexModellipseExplorerView() {
+		super();
 		//serviceRegistry = ApexModellipseExplorerRoot.getServicesRegistryList().get(0);
-		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		serviceRegistry = activeEditor.getServicesRegistry();
+//		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+//		serviceRegistry = activeEditor.getServicesRegistry();
 //		serviceRegistry = (ServicesRegistry)ApexModellipseExplorerRoot.getProjectMap()
 //				              .get(ResourcesPlugin.getWorkspace().getRoot().getProject().getName()).getChildren().get(0);
-		
-		if(serviceRegistry == null) {
-			throw new IllegalArgumentException("The part should have a ServiceRegistry.");
-		}
-		
-		/* apex added start */
-		addToGlobalRoot(serviceRegistry);
-		/* apex added end */
-		
-		setLinkingEnabled(true);
-
-		// Get required services from ServicesRegistry
-		try {
-			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
-			undoContext = serviceRegistry.getService(IUndoContext.class);
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		}		  
-	}	
-
-	/**
-	 * apex added
-	 * 
-	 * @param servicesRegistry
-	 */
-	private void addToGlobalRoot(ServicesRegistry servicesRegistry) {
-		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-		
-		for ( IProject project : projects) {
-			String projectName = project.getName();
-			ApexProjectWrapper projectWrapper = null;
-			UmlModel umlModel = UmlUtils.getUmlModel(servicesRegistry);
-			
-			if ( ApexModellipseExplorerRoot.getProjectMap().containsKey(projectName) ) {
-				projectWrapper = (ApexProjectWrapper) ApexModellipseExplorerRoot.getProjectMap().get(projectName);
-			
-				if ( !projectWrapper.getChildren().contains(umlModel) ) {
-					projectWrapper.addChildren(umlModel);	
-				}
-				
-			} else {
-				projectWrapper = new ApexProjectWrapper(project);
-				ApexModellipseExplorerRoot.getProjectMap().put(projectName, projectWrapper);
-				projectWrapper.addChildren(umlModel);
-			}
-			
-//			projectWrapper.addChildren(servicesRegistry);
-//			ApexModellipseExplorerRoot.getServicesRegistryList().add(servicesRegistry);	
-		}
+//		Object o = super.getInitialInput();
+//		setUpServicesRegistries(o);
+//		if(serviceRegistry == null) {
+//			throw new IllegalArgumentException("The part should have a ServiceRegistry.");
+//		}
+//		
+//		/* apex added start */
+//		addToGlobalRoot(serviceRegistry);
+//		/* apex added end */
+//		
+//		setLinkingEnabled(true);
+//
+//		// Get required services from ServicesRegistry
+//		try {
+//			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
+//			undoContext = serviceRegistry.getService(IUndoContext.class);
+//		} catch (ServiceException e) {
+//			e.printStackTrace();
+//		}		  
 	}
-
 	
 	/**
 	 * 
@@ -474,7 +463,7 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		super.createPartControl(aParent);
 		getCommonViewer().setSorter(null);
 		((CustomCommonViewer)getCommonViewer()).getDropAdapter().setFeedbackEnabled(true);
-		getCommonViewer().addDoubleClickListener(new DoubleClickListener());
+		getCommonViewer().addDoubleClickListener(new ApexDoubleClickListener());
 		Tree tree = getCommonViewer().getTree();
 		Activator.getDefault().getCustomizationManager().installCustomPainter(tree);
 	}
@@ -511,10 +500,10 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	@Override
 	public void init(IViewSite site) throws PartInitException {
 		super.init(site);
-		IWorkbenchPage page = site.getPage();
+//		IWorkbenchPage page = site.getPage();
 		// an ISelectionListener to react to workbench selection changes.
 
-		page.addSelectionListener(pageSelectionListener);
+//		page.addSelectionListener(pageSelectionListener);
 	}
 
 	/**
@@ -600,24 +589,29 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	@Override
 	protected Object getInitialInput() {
 
-//		if(serviceRegistry != null) {
-//			return serviceRegistry;
-//		} else {
-//			return super.getInitialInput();
-//		}
 		if(serviceRegistry != null) {
 			return serviceRegistry;
 		} else {
 			return super.getInitialInput();
 		}
-
+		
+//		return super.getInitialInput();
 	}
 
 	/**
 	 * Activate specified Part.
 	 */
 	private void activate() {
-
+		
+		setUpTreeElements(getInitialInput());
+		
+		// 테스트용 고정 servicesRegistry
+//		String diPath = "/C:/Apex/EclipseWorkspaces/Modellipse-0.9.1/runtime-Modellipse-0.9.1/aaa/model2.di"; 
+//		ApexProjectWrapper apw = (ApexProjectWrapper)ApexModellipseExplorerRoot.getProjectMap().get(diPath);
+//		serviceRegistry = (ServicesRegistry)apw.getServicesRegistry(diPath);
+		
+		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		serviceRegistry = activeEditor.getServicesRegistry();
 
 		try {
 			this.editingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(serviceRegistry);
@@ -630,6 +624,14 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		} catch (ServiceException e) {
 			// Can't get EditingDomain, skip
 		}
+		
+		// Get required services from ServicesRegistry
+		try {
+			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
+			undoContext = serviceRegistry.getService(IUndoContext.class);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}		  
 
 		// Listen to isDirty flag
 		saveAndDirtyService.addInputChangedListener(editorInputChangedListener);
@@ -647,6 +649,301 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		}
 
 	}
+	
+	private void setUpTreeElements(Object inputElement) {
+		IProject[] projects = null;
+		if(inputElement instanceof IWorkspaceRoot) {
+			projects = ((IWorkspaceRoot) inputElement).getProjects();			
+		}
+	
+		if ( projects != null ) {
+			List<Object> result = new ArrayList<Object>();
+			
+			for ( IProject project : projects) {
+				try {
+					if(project instanceof IPapyrusFile) {
+						IPapyrusFile file = (IPapyrusFile)project;
+						for(IResource r : file.getAssociatedResources()) {
+							result.add(PapyrusModelHelper.getPapyrusModelFactory().createISubResourceFile(file, (IFile)r));
+						}
+					} else {
+						IResource[] members = null;
+						if(project instanceof IContainer) {
+							members = ((IContainer)project).members();
+						}
+						if(members != null) {
+							for(IResource r : members) {
+								if(r instanceof IContainer && !(r instanceof IProject)) {
+									IContainer cont = (IContainer)r;
+									result.add(cont);
+								} else if(r instanceof IFile) {
+									if(OneFileUtils.isDi(r)) {
+										IPapyrusFile createIPapyrusFile = PapyrusModelHelper.getPapyrusModelFactory().createIPapyrusFile((IFile)r);
+										result.add(createIPapyrusFile);
+										
+										
+										
+										try {
+											IEditorPart papyrusEditor = IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile)r, true);
+											setServicesRegistries(r, papyrusEditor, result);
+										} catch (WorkbenchException e) {
+										}
+										
+										
+										
+									} else {
+										if(!OneFileUtils.diExists(r.getName(), r.getParent())) {
+											result.add(r);
+										}
+									}
+								} else {
+									result.add(r);
+								}
+							}
+						}
+					}
+			
+				} catch (CoreException e) {
+				} 
+			}
+		}
+		int a = 0;		a = a++;
+	}
+	
+	public void setServicesRegistries(IResource r, IEditorPart editorPart, List<Object> result) throws PartInitException {
+		/* apex added start */
+		ServicesRegistry servicesRegistry = null;
+		try {
+			servicesRegistry = new ExtensionServicesRegistry("org.eclipse.papyrus.infra.core");
+			
+			
+			
+//			// Start the ModelSet first, and load if from the specified File
+//			List<Class<?>> servicesToStart = new ArrayList<Class<?>>(1);
+//			servicesToStart.add(ModelSet.class);
+//
+//			servicesRegistry.startServicesByClassKeys(servicesToStart);
+//			ModelSet resourceSet = servicesRegistry.getService(ModelSet.class);
+//
+//			resourceSet.loadModels((IFile)r);
+//			
+//			UmlModel umlModel = (UmlUtils.getUmlModel(servicesRegistry));
+//			EList<EObject> contents = umlModel.getResource().getContents();				
+//				
+//			Iterator<EObject> iterator = contents.iterator();
+//			while(iterator.hasNext()) {
+//				EObject eObject = iterator.next();
+//				result.add(eObject);
+//			}
+//			System.out
+//					.println("PapyrusContentProvider.getElements, line "
+//							+ Thread.currentThread()
+//									.getStackTrace()[1]
+//									.getLineNumber());
+//			System.out.println("servicesRegistry : " + servicesRegistry);
+//			System.out.println("umlModel : " + umlModel);
+			
+			
+			
+			// Create ServicesRegistry and register services
+			//servicesRegistry = createServicesRegistry();
+//			String diPath = r.getLocationURI().getPath();
+//			ApexProjectWrapper aProjectWrapper = (ApexProjectWrapper)ApexModellipseExplorerRoot.getProjectMap().get(diPath);
+//			servicesRegistry = aProjectWrapper.getServicesRegistry(diPath);
+
+			// Add itself as a service
+			servicesRegistry.add(IMultiDiagramEditor.class, 1, (IMultiDiagramEditor)editorPart);
+
+			// Create lifeCycle event provider and the event that is used when the editor fire a save event.
+			//		lifeCycleEventsProvider = new LifeCycleEventsProvider();
+			//		lifeCycleEvent = new DoSaveEvent(servicesRegistry, this);
+			//		servicesRegistry.add(ILifeCycleEventsProvider.class, 1, lifeCycleEventsProvider);
+
+			// register services
+//			servicesRegistry.add(ActionBarContributorRegistry.class, 1, getActionBarContributorRegistry());
+			//		servicesRegistry.add(TransactionalEditingDomain.class, 1, transactionalEditingDomain);
+			//		servicesRegistry.add(DiResourceSet.class, 1, resourceSet);
+
+			// Create and initalize editor icons service
+			//		PageIconsRegistry pageIconsRegistry = new PageIconsRegistry();
+			//		PluggableEditorFactoryReader editorReader = new PluggableEditorFactoryReader(Activator.PLUGIN_ID);
+			//		editorReader.populate(pageIconsRegistry);
+			//		servicesRegistry.add(IPageIconsRegistry.class, 1, pageIconsRegistry);
+
+
+			// Create PageModelRegistry requested by content provider.
+			// Also populate it from extensions.
+			//		PageModelFactoryRegistry pageModelRegistry = new PageModelFactoryRegistry();
+			//		editorReader.populate(pageModelRegistry, servicesRegistry);
+
+			// TODO : create appropriate Resource for the contentProvider, and pass it here.
+			// This will allow to remove the old sash stuff.
+			//		setContentProvider(createPageProvider(pageModelRegistry, resourceSet.getDiResource(), transactionalEditingDomain));
+			//		servicesRegistry.add(ISashWindowsContentProvider.class, 1, getContentProvider());
+			//		servicesRegistry.add(IPageMngr.class, 1, getIPageMngr());
+
+			// register a basic label provider
+			// adapter factory used by EMF objects
+			AdapterFactory factory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+			/** label provider for EMF objects */
+			ILabelProvider labelProvider = new AdapterFactoryLabelProvider(factory) {
+
+				/**
+				 * This implements {@link ILabelProvider}.getText by forwarding it to an object that implements {@link IItemLabelProvider#getText
+				 * IItemLabelProvider.getText}
+				 */
+				@Override
+				public String getText(Object object) {
+					// Get the adapter from the factory.
+					//
+					IItemLabelProvider itemLabelProvider = (IItemLabelProvider)adapterFactory.adapt(object, IItemLabelProvider.class);
+					if(object instanceof EObject) {
+						if(((EObject)object).eIsProxy()) {
+							return "Proxy - " + object;
+						}
+					}
+					return itemLabelProvider != null ? itemLabelProvider.getText(object) : object == null ? "" : object.toString();
+				}
+			};
+			servicesRegistry.add(ILabelProvider.class, 1, labelProvider);
+
+			// Start servicesRegistry
+			try {
+				// Start the ModelSet first, and load if from the specified File
+				List<Class<?>> servicesToStart = new ArrayList<Class<?>>(1);
+				servicesToStart.add(ModelSet.class);
+
+				servicesRegistry.startServicesByClassKeys(servicesToStart);
+				ModelSet resourceSet = servicesRegistry.getService(ModelSet.class);
+				resourceSet.loadModels((IFile)r);
+
+				UmlModel umlModel = (UmlUtils.getUmlModel(servicesRegistry));
+				EList<EObject> contents = umlModel.getResource().getContents();				
+					
+				Iterator<EObject> iterator = contents.iterator();
+				while(iterator.hasNext()) {
+					EObject eObject = iterator.next();
+					result.add(eObject);
+				}
+				
+				// start remaining services
+				servicesRegistry.startRegistry();
+			} catch (ModelMultiException e) {
+				try {
+					// with the ModelMultiException it is still possible to open the editors that's why the service registry is still started 
+					servicesRegistry.startRegistry();
+					warnUser(e);
+				} catch (ServiceException e1) {
+					log.error(e);
+					throw new PartInitException("could not initialize services", e); //$NON-NLS-1$
+				}
+			} catch (ServiceException e) {
+				log.error(e);
+				e.printStackTrace();
+				throw new PartInitException("could not initialize services", e);
+			}
+
+
+			// Get required services
+			ISashWindowsContentProvider contentProvider = null;
+			try {
+				editingDomain = servicesRegistry.getService(TransactionalEditingDomain.class);
+//				DiSashModelMngr sashModelMngr = servicesRegistry.getService(DiSashModelMngr.class);
+//				contentProvider = servicesRegistry.getService(ISashWindowsContentProvider.class);
+				saveAndDirtyService = servicesRegistry.getService(ISaveAndDirtyService.class);
+				undoContext = servicesRegistry.getService(IUndoContext.class);
+			} catch (ServiceException e) {
+				log.error("A required service is missing.", e);
+				// if one of the services above fail to start, the editor can't run => stop
+				throw new PartInitException("could not initialize services", e);
+			}
+
+			// Set the content provider providing editors.
+//			setContentProvider(contentProvider);
+
+			// Set editor name
+			setPartName(((IFile)r).getName());
+
+			// Listen on contentProvider changes
+//			sashModelMngr.getSashModelContentChangedProvider().addListener(contentChangedListener);
+
+			// Listen on input changed from the ISaveAndDirtyService
+			saveAndDirtyService.addInputChangedListener(editorInputChangedListener);
+			
+			/* apex added end */
+		} catch (ServiceException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		addToGlobalRoot((IFile)r, servicesRegistry, saveAndDirtyService, editingDomain, undoContext);
+	}
+	
+	/**
+	 * apex added
+	 * 
+	 * @param servicesRegistry
+	 */
+	private void addToGlobalRoot(IFile diFile, 
+			                     ServicesRegistry servicesRegistry,
+			                     ISaveAndDirtyService saveAndDirtyService,
+			                     TransactionalEditingDomain transactionalEditingDomain,
+			                     IUndoContext undoContext) {
+//			                     IPropertySheetPage propertySheetPage) {
+		
+			String diPath = diFile.getLocationURI().getPath();
+			String projectPath = diFile.getParent().getLocationURI().getPath();
+			ApexProjectWrapper projectWrapper = null;
+			UmlModel umlModel = UmlUtils.getUmlModel(servicesRegistry);
+			
+			if ( ApexModellipseExplorerRoot.getProjectMap().containsKey(projectPath) ) {
+				projectWrapper = (ApexProjectWrapper) ApexModellipseExplorerRoot.getProjectMap().get(projectPath);
+			
+
+				if ( !projectWrapper.getDiFileMap().containsKey(diPath) ) {
+					projectWrapper.put(diPath, umlModel);
+					projectWrapper.addChildren(umlModel);	
+				}
+				if ( !projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
+					projectWrapper.put(diPath, servicesRegistry);
+					projectWrapper.addServicesRegistryChildren(servicesRegistry);
+				}
+				if ( !projectWrapper.getSaveAndDirtyServiceMap().containsKey(diPath) ) {
+					projectWrapper.put(diPath, saveAndDirtyService);
+				}
+				if ( !projectWrapper.getTransactionalEditingDomainMap().containsKey(diPath) ) {
+					projectWrapper.put(diPath, transactionalEditingDomain);
+				}
+				if ( !projectWrapper.getUndoContextMap().containsKey(diPath) ) {
+					projectWrapper.put(diPath, undoContext);
+				}
+				if ( !projectWrapper.getDiFileMap().containsKey(diPath) ) {
+					projectWrapper.put(diPath, diFile);
+				}
+//				if ( !projectWrapper.getPropertySheetPageMap().containsKey(diPath) ) {
+//					projectWrapper.put(diPath, propertySheetPage);
+//				}
+				
+			} else {
+				projectWrapper = new ApexProjectWrapper(diFile.getProject());
+				ApexModellipseExplorerRoot.getProjectMap().put(projectPath, projectWrapper);
+				projectWrapper.addChildren(umlModel);
+				projectWrapper.addServicesRegistryChildren(servicesRegistry);
+				projectWrapper.put(diPath, servicesRegistry);
+				projectWrapper.put(diPath, saveAndDirtyService);
+				projectWrapper.put(diPath, transactionalEditingDomain);
+				projectWrapper.put(diPath, undoContext);
+				projectWrapper.put(diPath, diFile);
+				projectWrapper.put(diPath, umlModel);
+//				projectWrapper.put(diPath, propertySheetPage);
+			}
+			
+//			projectWrapper.addChildren(servicesRegistry);
+//			ApexModellipseExplorerRoot.getServicesRegistryList().add(servicesRegistry);	
+//		}
+	}
+	
+	
 
 	/**
 	 * Deactivate the Model Explorer.
@@ -658,7 +955,7 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		}
 
 		// Stop listening on change events
-		getSite().getPage().removeSelectionListener(pageSelectionListener);
+//		getSite().getPage().removeSelectionListener(pageSelectionListener);
 		// Stop Listening to isDirty flag
 		saveAndDirtyService.removeInputChangedListener(editorInputChangedListener);
 
@@ -875,6 +1172,12 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		} else {
 			viewer.setSelection(selection);
 		}
+	}
+	
+	protected void warnUser(ModelMultiException e) {
+		MessageDialog.openError(getSite().getShell(), "Error", String.format("Your model is corrupted, invalid links have been found :\n"
+			+ "%s"
+			+ "It is recommended to fix it before editing it", e.getMessage()));
 	}
 
 }

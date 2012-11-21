@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewerSorter;
 /**
  * this handler is used to set a sorter on the model explorer
@@ -62,6 +63,8 @@ public class SortElementHandler extends AbstractHandler {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * used to obtain the tree viewer of the model explorer
 	 * @param event
 	 * @return
@@ -94,6 +97,12 @@ public class SortElementHandler extends AbstractHandler {
 				return ((ModelExplorerView)viewPart).getCommonViewer();
 			}
 		}
+		/* apex added start */
+		if( activePart instanceof CommonNavigator)
+		{			
+			return ((CommonNavigator)activePart).getCommonViewer();
+		}
+		/* apex added end */
 
 		// Not found
 		return null;

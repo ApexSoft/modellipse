@@ -14,6 +14,7 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.modelexplorer.apex;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -26,6 +27,8 @@ import org.eclipse.papyrus.infra.core.editorsfactory.PageIconsRegistry;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.emf.Activator;
+import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
+import org.eclipse.papyrus.infra.onefile.model.ISubResourceFile;
 import org.eclipse.papyrus.infra.services.decoration.DecorationService;
 import org.eclipse.papyrus.infra.services.decoration.util.Decoration;
 import org.eclipse.papyrus.infra.services.decoration.util.IPapyrusDecoration;
@@ -37,6 +40,7 @@ import org.eclipse.swt.graphics.Image;
  * the label provider that inherits of modisco label provider.
  */
 public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
+//public class ApexMoDiscoLabelProvider extends MoDiscoLabelProvider {
 
 	/** icon registry. */
 	private IPageIconsRegistry editorRegistry;
@@ -146,6 +150,16 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	@Override
 	public String getText(Object element) {
 		String text = null;
+		if (element instanceof IPapyrusFile) {
+			IPapyrusFile papyFile = (IPapyrusFile) element;
+			return papyFile.getText();
+		}
+		if (element instanceof ISubResourceFile) {
+			return ((ISubResourceFile) element).getText();
+		}
+		if (element instanceof IResource) {
+			return ((IResource) element).getName();
+		}
 		if(element instanceof Diagram) {
 			Diagram diagram = (Diagram)element;
 			text = diagram.getName();

@@ -678,6 +678,12 @@ public class ServicesRegistry {
 				try {
 					map.getChecked(key);
 				} catch (ServiceNotFoundException e) {
+					System.out
+							.println("ServicesRegistry.checkDependencies, line "
+									+ Thread.currentThread().getStackTrace()[1]
+											.getLineNumber());
+					System.out.println("RequiringService : " + service);
+					System.out.println("RequiredService : " + key);
 					errors.addException(desc.getKey(), e);
 				}
 			}

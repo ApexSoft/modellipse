@@ -229,6 +229,7 @@ public class ApexMoDiscoContentProvider extends CustomizableModelContentProvider
 		UmlModel umlModel = (UmlUtils.getUmlModel(servicesRegistry));
 System.out.println("ApexMoDiscoContentProvider.getRootElements, line "
 		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+System.out.println("servicesRegistry in ApexMoDisco : " + servicesRegistry);
 System.out.println("umlModel in ApexMoDisco : " + umlModel);
 		if(umlModel == null) {
 			return null;

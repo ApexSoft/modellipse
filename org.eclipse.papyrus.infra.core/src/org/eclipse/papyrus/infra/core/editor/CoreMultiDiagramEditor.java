@@ -43,6 +43,8 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.papyrus.infra.core.Activator;
+import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
+import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
 import org.eclipse.papyrus.infra.core.contentoutline.ContentOutlineRegistry;
 import org.eclipse.papyrus.infra.core.lifecycleevents.DoSaveEvent;
 import org.eclipse.papyrus.infra.core.lifecycleevents.IEditorInputChangedListener;
@@ -247,6 +249,24 @@ public class CoreMultiDiagramEditor extends AbstractMultiPageSashEditor implemen
 		try {
 			ServicesRegistry servicesRegistry = new ExtensionServicesRegistry(Activator.PLUGIN_ID);
 			//			servicesRegistry.startRegistry();
+			
+			
+//			System.out
+//					.println("CoreMultiDiagramEditor.createServicesRegistry, line "
+//							+ Thread.currentThread().getStackTrace()[1]
+//									.getLineNumber());
+//			UmlModel umlModel = UmlUtils.getUmlModel(servicesRegistry);
+//			System.out.println("umlModel from createServicesRegistry : " + umlModel);
+//			System.out.println("umlModel.getResourceURI() : " + umlModel.getResourceURI());
+//			System.out.println("umlModel.getResource() : " + umlModel.getResource());
+//			try {
+//				System.out.println("umlModel.lookupRoot() : " + umlModel.lookupRoot());
+//			} catch (NotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
+			
 			return servicesRegistry;
 		} catch (ServiceException e) {
 			// Show log and error
@@ -440,6 +460,11 @@ public class CoreMultiDiagramEditor extends AbstractMultiPageSashEditor implemen
 
 		// Create ServicesRegistry and register services
 		servicesRegistry = createServicesRegistry();
+		/* apex added start */
+//		String diPath = ((FileEditorInput)input).getURI().getPath();
+//		ApexProjectWrapper aProjectWrapper = (ApexProjectWrapper)ApexModellipseExplorerRoot.getProjectMap().get(diPath);
+//		servicesRegistry = aProjectWrapper.getServicesRegistry(diPath);
+		/* apex added start */
 
 		// Add itself as a service
 		servicesRegistry.add(IMultiDiagramEditor.class, 1, this);

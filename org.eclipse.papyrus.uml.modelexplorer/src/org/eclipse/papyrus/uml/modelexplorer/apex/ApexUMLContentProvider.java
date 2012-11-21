@@ -20,23 +20,40 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.security.auth.kerberos.KerberosKey;
+
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.AppearanceConfiguration;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ItemsFactory;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
+import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
+import org.eclipse.papyrus.infra.core.resource.ModelMultiException;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.ModelUtils;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
 import org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.DiSashModelMngr;
+import org.eclipse.papyrus.infra.core.services.ExtensionServicesRegistry;
+import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.emf.apex.providers.ApexMoDiscoContentProvider;
+import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
+import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
+import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
+import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.uml2.uml.internal.impl.ModelImpl;
-import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * this is a specific content provider used to not display UML stereotype applications
@@ -45,6 +62,8 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 @Deprecated
 public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
+	
+	private CommonViewer common;
 
 	private final AppearanceConfiguration appearanceConfiguration;	
 	
@@ -65,9 +84,9 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 	 * @return
 	 */
 	@Override
-	public Object[] getRootElements(Object inputElement) {
+	public Object[] getRootElements(Object inputElement) {		
 		/* apex improved start */
-		List<Object> result = new ArrayList<Object>();	
+		List<Object> result = new ArrayList<Object>();
 		try {
 			if(inputElement instanceof ServicesRegistry) {				
 //				_servicesRegistry = ApexModellipseExplorerRoot.getServicesRegistryList();
@@ -90,6 +109,7 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 				UmlModel umlModel = UmlUtils.getUmlModel(servicesRegistry);
 System.out.println("ApexUMLContentProvider.getRootElements, line "
 		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+System.out.println("servicesRegistry in ApexUMLContentProvider : \n    " + servicesRegistry);
 System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
 
 				modelSet = ModelUtils.getModelSetChecked(servicesRegistry);
@@ -106,7 +126,8 @@ System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
 //		return new EObject[0];
 		/* apex improved end */	
 	}
-
+	
+	
 	/**
 	 * apex updated
 	 * 
@@ -117,57 +138,59 @@ System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
 	 * 
 	 * @param inputElement
 	 * @return
+	 * 
+	 * 호출 안됨
 	 */
-	@Override
-	protected EObject[] getRootElements(ModelSet modelSet) {
-		UmlModel umlModel = (UmlUtils.getUmlModel(modelSet));
-System.out.println("ApexUMLContentProvider.getRootElements, line "
-		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
-System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
-		if(umlModel == null)
-			return null;
-
-		EList<EObject> contents = umlModel.getResource().getContents();
-		ArrayList<EObject> result = new ArrayList<EObject>();
-		Iterator<EObject> iterator = contents.iterator();
-
-		while(iterator.hasNext()) {
-			EObject eObject = iterator.next();
-			//functionality that comes from UML2 plugins
-			if(UMLUtil.getStereotype(eObject) == null) {
-				result.add(eObject);
-			}
-		}
-		
-		return result.toArray(new EObject[result.size()]);		
-	}	
+//	@Override
+//	protected EObject[] getRootElements(ModelSet modelSet) {
+//		UmlModel umlModel = (UmlUtils.getUmlModel(modelSet));
+//System.out.println("ApexUMLContentProvider.getRootElements, line "
+//		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+//System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
+//		if(umlModel == null)
+//			return null;
+//
+//		EList<EObject> contents = umlModel.getResource().getContents();
+//		ArrayList<EObject> result = new ArrayList<EObject>();
+//		Iterator<EObject> iterator = contents.iterator();
+//
+//		while(iterator.hasNext()) {
+//			EObject eObject = iterator.next();
+//			//functionality that comes from UML2 plugins
+//			if(UMLUtil.getStereotype(eObject) == null) {
+//				result.add(eObject);
+//			}
+//		}
+//		
+//		return result.toArray(new EObject[result.size()]);		
+//	}	
 	
 	/**
 	 * apex added
 	 * Get the roots elements from the {@link ModelSet} provided as input.
-	 * 
+	 * 호출 안됨
 	 * @return
 	 */
-//	protected EObject[] getRootElements(ServicesRegistry servicesRegistry) {
-	protected Object[] getRootElements(ServicesRegistry servicesRegistry) {
-		UmlModel umlModel = (UmlUtils.getUmlModel(servicesRegistry));
-System.out.println("ApexMoDiscoContentProvider.getRootElements, line "
-		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
-System.out.println("umlModel in ApexMoDisco : " + umlModel);
-		if(umlModel == null) {
-			return null;
-		}
-
-		EList<EObject> contents = umlModel.getResource().getContents();				
-		ArrayList<EObject> result = new ArrayList<EObject>();		
-		Iterator<EObject> iterator = contents.iterator();
-		while(iterator.hasNext()) {
-			EObject eObject = iterator.next();
-			result.add(eObject);
-		}
-		return result.toArray(new Object[result.size()]);
-//		return result.toArray(new EObject[result.size()]);
-	}
+////	protected EObject[] getRootElements(ServicesRegistry servicesRegistry) {
+//	protected Object[] getRootElements(ServicesRegistry servicesRegistry) {
+//		UmlModel umlModel = (UmlUtils.getUmlModel(servicesRegistry));
+//System.out.println("ApexMoDiscoContentProvider.getRootElements, line "
+//		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+//System.out.println("umlModel in ApexMoDisco : " + umlModel);
+//		if(umlModel == null) {
+//			return null;
+//		}
+//
+//		EList<EObject> contents = umlModel.getResource().getContents();				
+//		ArrayList<EObject> result = new ArrayList<EObject>();		
+//		Iterator<EObject> iterator = contents.iterator();
+//		while(iterator.hasNext()) {
+//			EObject eObject = iterator.next();
+//			result.add(eObject);
+//		}
+//		return result.toArray(new Object[result.size()]);
+////		return result.toArray(new EObject[result.size()]);
+//	}
 	
 	@Override
 	public Object[] getChildren(final Object parentElement) {
@@ -182,7 +205,15 @@ System.out.println("umlModel in ApexMoDisco : " + umlModel);
 					
 					for ( EObject eObj : contents ) {
 						if ( eObj instanceof ModelImpl ) {
-							result.add(new ModelElementItem(eObj, null, this.appearanceConfiguration));			
+							ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
+							result.add(modelItem);	
+							System.out
+									.println("ApexUMLContentProvider.getChildren, line "
+											+ Thread.currentThread()
+													.getStackTrace()[1]
+													.getLineNumber());
+							System.out.println("added eObj : " + eObj);
+							System.out.println("added modelItem : " + modelItem);
 						}
 					}
 				} else {
@@ -212,4 +243,12 @@ System.out.println("umlModel in ApexMoDisco : " + umlModel);
 		}
 		return result.toArray();
 	}
+	
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		super.inputChanged(viewer, oldInput, newInput);
+		if(viewer instanceof CommonViewer) {
+			common = (CommonViewer)viewer;
+		}
+	}
+	
 }
