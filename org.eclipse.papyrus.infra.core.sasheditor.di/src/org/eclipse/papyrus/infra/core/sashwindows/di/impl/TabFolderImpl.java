@@ -213,6 +213,11 @@ public class TabFolderImpl extends AbstractPanelImpl implements TabFolder {
 			newIndex = 0;
 		}
 
+		/* apex added start */
+		if(oldIndex < 0)
+			return;
+		/* apex added end */
+		
 		if(oldIndex == newIndex)
 			return;
 

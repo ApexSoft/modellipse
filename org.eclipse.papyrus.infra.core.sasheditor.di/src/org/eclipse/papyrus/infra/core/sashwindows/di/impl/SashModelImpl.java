@@ -461,7 +461,11 @@ public class SashModelImpl extends EObjectImpl implements SashModel {
 	 * @generated NOT
 	 */
 	public void movePage(TabFolder srcParentFolder, int srcIndex, TabFolder targetParentFolder) {
-
+		/* apex added start */
+		if (srcIndex < 0)
+			return;
+		/* apex added end */
+		
 		PageRef pageRef = srcParentFolder.getChildren().remove(srcIndex);
 
 		List<PageRef> targetChildrens = targetParentFolder.getChildren();
