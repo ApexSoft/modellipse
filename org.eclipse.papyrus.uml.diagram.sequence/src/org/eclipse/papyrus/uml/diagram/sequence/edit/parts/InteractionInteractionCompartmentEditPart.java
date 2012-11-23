@@ -131,17 +131,19 @@ public class InteractionInteractionCompartmentEditPart extends ShapeCompartmentE
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Generated not for send to back CombinedFragment and InteractionUse {@inheritDoc}
 	 */
 	// TODO Use transparency instead of send to back method
 	@Override
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if(childEditPart instanceof CombinedFragmentEditPart || childEditPart instanceof ConsiderIgnoreFragmentEditPart || childEditPart instanceof InteractionUseEditPart) {
-			/* apex replaced
+			//* apex replaced
 			// index==0 인 경우, Figure의 ZOrder가 가장 하위(back)이 되므로 이부분 삭제
 			// Lifeline과 CF의 ZOrder에 대한 처리는 CombinedFragmentEditPart.handleNotificationEvent(Notification)에서 처리하도록 수정			
 			index = 0;
-			 */
+			// */
 		}
 		super.addChildVisual(childEditPart, index);
 	}

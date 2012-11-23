@@ -31,9 +31,12 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexLifelineConnectionHandleEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomLifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Lifeline;
@@ -252,9 +255,29 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 			CommandHelper.executeCommandWithoutHistory(getEditingDomain(), AddCommand.create(getEditingDomain(), combinedFragment, UMLPackage.eINSTANCE.getInteractionFragment_Covered(), coveredLifelinesToAdd), true);
 		}
 		if(!coveredLifelinesToRemove.isEmpty()) {
+			/* apex added start */
+			// Jiho - bounds에서 제외되어 삭제되는 lifeline이 이미 covered가 아닌 경우
+			Rectangle origRect = this.getFigure().getBounds().getCopy();
+			for (Lifeline lifeline : coveredLifelinesToRemove) {
+				LifelineEditPart lifelineEP = (LifelineEditPart)SequenceUtil.getEditPart(this, lifeline, LifelineEditPart.class);
+				if (!coveredLifelines.contains(lifeline) && lifelineEP != null) {
+					LifelineDotLineCustomFigure customFigure = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
+					if (customFigure instanceof ApexCustomLifelineDotLineCustomFigure) {
+						((ApexCustomLifelineDotLineCustomFigure)customFigure).showRegion(origRect);
+					}
+				}
+			}
+			/* apex added end */
 			CommandHelper.executeCommandWithoutHistory(getEditingDomain(), RemoveCommand.create(getEditingDomain(), combinedFragment, UMLPackage.eINSTANCE.getInteractionFragment_Covered(), coveredLifelinesToRemove), true);
 		}
-
+		/* apex added start */
+		if (coveredLifelinesToAdd.isEmpty() && coveredLifelinesToRemove.isEmpty() && !coveredLifelines.isEmpty()) {
+			coveredLifelinesToRemove.addAll(coveredLifelines);
+			coveredLifelinesToAdd.addAll(coveredLifelines);
+			CommandHelper.executeCommandWithoutHistory(getEditingDomain(), RemoveCommand.create(getEditingDomain(), combinedFragment, UMLPackage.eINSTANCE.getInteractionFragment_Covered(), coveredLifelinesToRemove), true);
+			CommandHelper.executeCommandWithoutHistory(getEditingDomain(), AddCommand.create(getEditingDomain(), combinedFragment, UMLPackage.eINSTANCE.getInteractionFragment_Covered(), coveredLifelinesToAdd), true);
+		}
+		/* apex added end */
 	}
 
 	/**
@@ -288,14 +311,14 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 		lifelineEditPart.getFigure().translateToAbsolute(lifelineRect);
 
 		// 새 경계와 lifeline 경계가 교차되고
-		if(newRect.intersects(lifelineRect)) {
+		if (newRect.intersects(centralLineBounds)) {	// Jiho: lifelineRect -> centralLineBounds
 
 			// 원래의 covered에 없던 lifeline이면
 			if(!coveredLifelines.contains(lifeline)) {
 				// 원래 CF에 포함되어 있으면서 coveredLifelines에 없는 것은
 				// Property창에서 수동으로 covereds에서 제외한 것이므로
 				// 원래 CF에 포함되지 않았던 경우에만 add
-				if (!origRect.intersects(lifelineRect)) {
+				if (!origRect.intersects(centralLineBounds)) {	// Jiho: lifelineRect -> centralLineBounds
 					coveredLifelinesToAdd.add(lifeline);
 				}						
 			}
