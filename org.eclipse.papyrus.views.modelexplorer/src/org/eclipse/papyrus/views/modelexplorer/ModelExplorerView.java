@@ -512,7 +512,13 @@ public class ModelExplorerView extends CommonNavigator implements IRevealSemanti
 		if(this.getCommonViewer() != null) {
 			refresh();
 		}
-
+System.out.println("ModelExplorerView.activate, line "
+		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+System.out.println("  serviceRegistry : " + serviceRegistry);
+System.out.println("  editingDomain : " + editingDomain);
+System.out.println("  resourceSetListener : " + resourceSetListener);
+System.out.println("  saveAndDirtyService : " + saveAndDirtyService);
+System.out.println("  undoContext : " + undoContext);
 	}
 
 	/**

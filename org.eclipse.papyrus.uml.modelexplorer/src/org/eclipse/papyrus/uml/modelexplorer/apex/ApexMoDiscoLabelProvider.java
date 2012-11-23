@@ -17,9 +17,11 @@ package org.eclipse.papyrus.uml.modelexplorer.apex;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.facet.infra.browser.uicore.CustomizableModelLabelProvider;
+import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.infra.core.editorsfactory.IPageIconsRegistry;
@@ -35,6 +37,7 @@ import org.eclipse.papyrus.infra.services.decoration.util.IPapyrusDecoration;
 import org.eclipse.papyrus.views.modelexplorer.Messages;
 import org.eclipse.papyrus.views.modelexplorer.core.ui.pagebookview.ModelExplorerDecorationAdapter;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 
 /**
  * the label provider that inherits of modisco label provider.
@@ -169,6 +172,17 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 				InternalEObject internal = (InternalEObject)obj;
 				text = NLS.bind(Messages.MoDiscoLabelProvider_ProxyLabel, obj.getClass().getSimpleName(), internal.eProxyURI().trimFragment());
 				// Messages.MoDiscoLabelProvider_0 +  + Messages.MoDiscoLabelProvider_1 + ;;
+			} else if ( element instanceof ModelElementItem ) {
+				ModelElementItem mItem = (ModelElementItem)element;
+				EObject eObj = mItem.getEObject();
+				
+				if ( eObj instanceof ModelImpl ) {
+					URI uri = eObj.eResource().getURI();
+					String modelFileName = uri.lastSegment();
+					return modelFileName.substring(0, modelFileName.lastIndexOf("."));
+				} else {
+					text = super.getText(element);
+				}
 			} else {
 				text = super.getText(element);
 			}
