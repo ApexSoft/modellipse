@@ -15,8 +15,7 @@
 package org.eclipse.papyrus.uml.modelexplorer.apex;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -25,15 +24,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.facet.infra.browser.uicore.CustomizableModelLabelProvider;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.editorsfactory.IPageIconsRegistry;
 import org.eclipse.papyrus.infra.core.editorsfactory.PageIconsRegistry;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
+import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.emf.Activator;
-import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
-import org.eclipse.papyrus.infra.onefile.model.ISubResourceFile;
-import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.infra.services.decoration.DecorationService;
 import org.eclipse.papyrus.infra.services.decoration.util.Decoration;
@@ -41,6 +40,9 @@ import org.eclipse.papyrus.infra.services.decoration.util.IPapyrusDecoration;
 import org.eclipse.papyrus.views.modelexplorer.Messages;
 import org.eclipse.papyrus.views.modelexplorer.core.ui.pagebookview.ModelExplorerDecorationAdapter;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 
 /**
@@ -50,22 +52,60 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 //public class ApexMoDiscoLabelProvider extends MoDiscoLabelProvider {
 
 	/** icon registry. */
-	private IPageIconsRegistry editorRegistry;
+	private IPageIconsRegistry editorRegistry = null;
 
 	/** Decoration Service *. */
-	private DecorationService decorationService;
+	private DecorationService decorationService = null;
+	
+	/** ServicesRegistry */
+	private ServicesRegistry servicesRegistry = null;
 
 	/**
 	 * Creates a new MoDiscoLabelProvider.
 	 */
 	public ApexMoDiscoLabelProvider() {
 		super(Activator.getDefault().getCustomizationManager());
-		try {
-			decorationService = EditorUtils.getServiceRegistry().getService(DecorationService.class);
-			/* OR : decorationService = ServiceUtilsForActionHandlers.getInstance().getServiceRegistry().getService(DecorationService.class); */
-		} catch (ServiceException ex) {
-			Activator.log.error(ex);
+		servicesRegistry = getServicesRegistry();
+		decorationService = getDecorationService();		
+	}
+
+	private DecorationService getDecorationService() {
+		DecorationService result = null;
+		
+		if ( decorationService != null ) {
+			result = decorationService;
+		} else {
+			try {
+				servicesRegistry = getServicesRegistry();
+				
+				if ( servicesRegistry != null ) {
+					result = getServicesRegistry().getService(DecorationService.class);	
+				}				
+				
+				if ( result != null ) {
+					decorationService = result;
+				}
+			} catch (ServiceException e) {
+				Activator.log.error(e);
+			}	
+		}		
+		
+		return result;
+	}
+
+	private ServicesRegistry getServicesRegistry() {
+		
+		if ( servicesRegistry != null ) {
+			return servicesRegistry;
+		} else {
+			IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+			
+			if ( editorPart != null && editorPart instanceof PapyrusMultiDiagramEditor ) {
+				servicesRegistry = ((PapyrusMultiDiagramEditor)editorPart).getServicesRegistry();
+			}	
 		}
+		
+		return servicesRegistry;
 	}
 
 	/**
@@ -76,8 +116,17 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	 * @return the message of the marker for the specified element
 	 */
 	public String getMarkerMessage(Object element) {
-		EList<IPapyrusDecoration> decorations = decorationService.getDecorations(element, true);
-		return Decoration.getMessageFromDecorations(decorations);
+		String markerMessage = null;
+		decorationService = getDecorationService();
+				
+		if (decorationService != null) {
+			EList<IPapyrusDecoration> decorations = decorationService.getDecorations(element, true);
+			markerMessage = Decoration.getMessageFromDecorations(decorations);
+		} else {
+			markerMessage = "";
+		}
+		
+		return markerMessage;
 	}
 
 	/**
@@ -90,34 +139,58 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	 */
 	@Override
 	public Image getImage(Object element) {
-
-		// Get the Model Explorer Adapter
-		ModelExplorerDecorationAdapter adapter = new ModelExplorerDecorationAdapter(null);
-
-
-		//Set the decoration target
-		/**
-		 * Useless since EMF Facet integration with bug 358732
-		 */
-		if(element instanceof Diagram) {
-			adapter.setDecoratorTarget(getEditorRegistry().getEditorIcon(element));
+		Image image = null;		
+		ImageDescriptor imgDesc = null;
+		decorationService = getDecorationService();
+		
+		if ( element instanceof IProject ) {
+			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(
+                      org.eclipse.papyrus.uml.modelexplorer.Activator.PLUGIN_ID, 
+                      "icons/Modellipse-windowImage-16.png");
+			image = imgDesc.createImage();
+		} else if ( element instanceof IFile ) {
+			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(
+                      org.eclipse.papyrus.uml.modelexplorer.Activator.PLUGIN_ID, 
+                      "icons/class_hi.gif");	
+			image = imgDesc.createImage();
 		} else {
-			adapter.setDecoratorTarget(super.getImage(element));
-		}
+			if ( decorationService != null ) {
+				// Get the Model Explorer Adapter
+				ModelExplorerDecorationAdapter adapter = new ModelExplorerDecorationAdapter(null);
 
-		//Set the adapter decoration with position as indicated by decoration (from decoration service)
-		if(element != null) {
-			if(element instanceof EObject || (element instanceof IAdaptable && ((IAdaptable)element).getAdapter(EObject.class) != null)) {
-				EList<IPapyrusDecoration> decorations = decorationService.getDecorations(element, true);
-				if(decorations != null) {
-					adapter.setDecorations(decorations);
+
+				//Set the decoration target
+				/**
+				 * Useless since EMF Facet integration with bug 358732
+				 */
+				if(element instanceof Diagram) {
+					adapter.setDecoratorTarget(getEditorRegistry().getEditorIcon(element));
+				} else {
+					adapter.setDecoratorTarget(super.getImage(element));
 				}
+
+				
+				//Set the adapter decoration with position as indicated by decoration (from decoration service)
+				if(element != null) {
+					if(element instanceof EObject || (element instanceof IAdaptable && ((IAdaptable)element).getAdapter(EObject.class) != null)) {
+						EList<IPapyrusDecoration> decorations = decorationService.getDecorations(element, true);
+						if(decorations != null) {
+							adapter.setDecorations(decorations);
+						}
+					}
+				}
+
+				//return the target decorated
+				image = adapter.getDecoratedImage();
+			} else {	
+				imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(
+	                      org.eclipse.papyrus.uml.modelexplorer.Activator.PLUGIN_ID, 
+	                      "icons/errorwarning_tab.gif");	
+				image = imgDesc.createImage();			
 			}
 		}
-
-		//return the target decorated
-		return adapter.getDecoratedImage();
-
+		
+		return image;
 	}
 
 	/**
@@ -142,8 +215,10 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	 * @return the EditorRegistry for nested editor descriptors
 	 */
 	protected IPageIconsRegistry createEditorRegistry() {
+		servicesRegistry = getServicesRegistry();
+		
 		try {
-			return EditorUtils.getServiceRegistry().getService(IPageIconsRegistry.class);
+			return servicesRegistry.getService(IPageIconsRegistry.class);
 		} catch (ServiceException e) {
 			// Not found, return an empty one which return null for each
 			// request.
@@ -157,24 +232,15 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	@Override
 	public String getText(Object element) {
 		String text = null;
-		if (element instanceof IFile) {
+		if ( element instanceof IProject ) {
+			text = ((IProject) element).getName();
+		} else if (element instanceof IFile) {
 			IFile file = (IFile)element;
 			if(OneFileUtils.isDi(file)) {
 				String fileName = file.getName();
-				return fileName.substring(0, fileName.lastIndexOf('.'));
+				text = fileName.substring(0, fileName.lastIndexOf('.'));
 			}			
-		}
-		if (element instanceof ISubResourceFile) {
-			return ((ISubResourceFile) element).getText();
-		}
-		
-		if (element instanceof IWorkspaceRoot) {
-			return ((IWorkspaceRoot)element).getFullPath().toString();
-		} else if (element instanceof IResource) {
-			return ((IResource) element).getName();
-		}
-		
-		if(element instanceof Diagram) {
+		} else if(element instanceof Diagram) {
 			Diagram diagram = (Diagram)element;
 			text = diagram.getName();
 		} else if(element instanceof IAdaptable) {

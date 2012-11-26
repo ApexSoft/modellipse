@@ -31,7 +31,9 @@ import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ItemsFactory;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
+import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.ModelUtils;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
@@ -40,13 +42,8 @@ import org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.DiSashModelM
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.emf.apex.providers.ApexMoDiscoContentProvider;
-import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
-import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.WorkbenchException;
-import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 
@@ -210,7 +207,28 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 //		}
 //		return result.toArray(new Object[result.size()]);
 ////		return result.toArray(new EObject[result.size()]);
-//	}
+//	}	
+	@Override
+	public boolean hasChildren(Object element) {
+		boolean hasChildren = false;
+		if ( element instanceof IProject ) {
+			IProject project = (IProject)element;
+			try {
+				hasChildren = project.members().length > 0;
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if ( element instanceof IFile ) {
+			IFile diFile = (IFile)element;
+			if(OneFileUtils.isDi(diFile)) {
+				hasChildren = true;
+			}
+		} else {
+			hasChildren = super.getChildren(element).length > 0;
+		}
+		return hasChildren;
+	}
 	
 	@Override
 	public Object[] getChildren(final Object parentElement) {
@@ -229,18 +247,7 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 						String fileNameWithExt = file.getName();
 						
 						if(OneFileUtils.isDi(file)) {
-//							IPapyrusFile createIPapyrusFile = PapyrusModelHelper.getPapyrusModelFactory().createIPapyrusFile(file);
 							result.add(file);
-							
-							
-							
-//							try {
-//								IEditorPart papyrusEditor = IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile)r, true);
-////								setServicesRegistries(r, papyrusEditor, result);
-//							} catch (WorkbenchException e) {
-//							}							
-							
-							
 						}
 					} 
 				}
@@ -248,16 +255,53 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else {
-			super.getChildren(parentElement);
-			Object[] arrayObject = super.getChildren(parentElement);
+		} else if ( parentElement instanceof IFile ) {
+			IFile diFile = (IFile)parentElement;
 			
+			if(OneFileUtils.isDi(diFile)) {
+				// diFile에서 ApexProjectWrapper 가져와서 super.getChildren(wrapper); 호출 후 아래 로직 태움
+				String diFilePath = diFile.getLocationURI().getPath();
+				String projectPath = diFile.getParent().getLocationURI().getPath();
+				Map<String, ITreeElement> projectMap = ApexModellipseExplorerRoot.getProjectMap();
+				ITreeElement aTreeElement = projectMap.get(projectPath);
+				
+				if ( aTreeElement == null ) {
+					IEditorPart editor = ApexModellipseExplorerRoot.openEditor(diFile);
+					if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
+						ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
+						ApexModellipseExplorerRoot.addToGlobalRoot(diFile, servicesRegistry);
+						aTreeElement = projectMap.get(projectPath);
+					}		
+				}
+				if ( aTreeElement instanceof ApexProjectWrapper ) {
+					ApexProjectWrapper aProjectWrapper = (ApexProjectWrapper)aTreeElement;
+					UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);					
+					EList<EObject> contents = umlModel.getResource().getContents();
+					
+					for ( EObject eObj : contents ) {
+						if ( eObj instanceof ModelImpl ) {
+							ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
+							result.add(modelItem);	
+//							System.out
+//									.println("ApexUMLContentProvider.getChildren, line "
+//											+ Thread.currentThread()
+//													.getStackTrace()[1]
+//													.getLineNumber());
+//							System.out.println("added eObj : " + eObj);
+//							System.out.println("added modelItem : " + modelItem);
+						}
+					}
+				}	
+			}			
+		} else {
+			Object[] arrayObject = super.getChildren(parentElement);
+
 			if(arrayObject != null) {
 				for(int i = 0; i < arrayObject.length; i++) {
 					if ( arrayObject[i] instanceof UmlModel ) {
 						UmlModel umlModel = (UmlModel) arrayObject[i];
 						EList<EObject> contents = umlModel.getResource().getContents();
-						
+
 						for ( EObject eObj : contents ) {
 							if ( eObj instanceof ModelImpl ) {
 								ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
@@ -276,7 +320,6 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 					}
 				}
 			}
-			
 		}
 		return result.toArray();
 	}	
@@ -301,6 +344,7 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 		}
 		return result.toArray();
 	}
+	
 	
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		super.inputChanged(viewer, oldInput, newInput);
