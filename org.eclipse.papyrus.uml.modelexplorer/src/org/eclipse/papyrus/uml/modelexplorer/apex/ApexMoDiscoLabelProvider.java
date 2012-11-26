@@ -14,7 +14,9 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.modelexplorer.apex;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -31,6 +33,8 @@ import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.papyrus.infra.onefile.model.ISubResourceFile;
+import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
+import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.infra.services.decoration.DecorationService;
 import org.eclipse.papyrus.infra.services.decoration.util.Decoration;
 import org.eclipse.papyrus.infra.services.decoration.util.IPapyrusDecoration;
@@ -153,16 +157,23 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	@Override
 	public String getText(Object element) {
 		String text = null;
-		if (element instanceof IPapyrusFile) {
-			IPapyrusFile papyFile = (IPapyrusFile) element;
-			return papyFile.getText();
+		if (element instanceof IFile) {
+			IFile file = (IFile)element;
+			if(OneFileUtils.isDi(file)) {
+				String fileName = file.getName();
+				return fileName.substring(0, fileName.lastIndexOf('.'));
+			}			
 		}
 		if (element instanceof ISubResourceFile) {
 			return ((ISubResourceFile) element).getText();
 		}
-		if (element instanceof IResource) {
+		
+		if (element instanceof IWorkspaceRoot) {
+			return ((IWorkspaceRoot)element).getFullPath().toString();
+		} else if (element instanceof IResource) {
 			return ((IResource) element).getName();
 		}
+		
 		if(element instanceof Diagram) {
 			Diagram diagram = (Diagram)element;
 			text = diagram.getName();

@@ -29,6 +29,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -47,7 +48,6 @@ import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.impl.TransactionalEditingDomainImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -93,6 +93,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.IViewSite;
@@ -204,8 +205,31 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 
 	public ApexModellipseExplorerView() {
 		super();
-		//serviceRegistry = ApexModellipseExplorerRoot.getServicesRegistryList().get(0);
-//		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		
+		serviceRegistry = getServiceRegistry();		
+		
+		if(serviceRegistry == null) {
+			throw new IllegalArgumentException("The part should have a ServiceRegistry.");
+		}
+		
+		
+//		IEditorReference[] editors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+//		
+//		for ( IEditorReference editor : editors ) {
+//			IEditorPart editorPart = editor.getEditor(false);
+//			
+//			if ( editorPart instanceof PapyrusMultiDiagramEditor ) {
+//				System.out
+//						.println("ApexModellipseExplorerView.ApexModellipseExplorerView, line "
+//								+ Thread.currentThread().getStackTrace()[1]
+//										.getLineNumber());
+//				System.out.println("editorPart : " + editorPart);
+//			}
+//		}
+		
+		
+				
+		
 //		serviceRegistry = activeEditor.getServicesRegistry();
 //		serviceRegistry = (ServicesRegistry)ApexModellipseExplorerRoot.getProjectMap()
 //				              .get(ResourcesPlugin.getWorkspace().getRoot().getProject().getName()).getChildren().get(0);
@@ -219,15 +243,15 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 //		addToGlobalRoot(serviceRegistry);
 //		/* apex added end */
 //		
-//		setLinkingEnabled(true);
+		setLinkingEnabled(true);
 //
-//		// Get required services from ServicesRegistry
-//		try {
-//			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
-//			undoContext = serviceRegistry.getService(IUndoContext.class);
-//		} catch (ServiceException e) {
-//			e.printStackTrace();
-//		}		  
+		// Get required services from ServicesRegistry
+		try {
+			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
+			undoContext = serviceRegistry.getService(IUndoContext.class);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}		  
 	}
 	
 	/**
@@ -311,6 +335,15 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 //			e.printStackTrace();
 //		}
 //	}
+
+	private ServicesRegistry getServiceRegistry() {
+		ServicesRegistry servicesRegistry = null;
+		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if ( activeEditor != null ) {
+			servicesRegistry = activeEditor.getServicesRegistry();
+		}
+		return servicesRegistry;
+	}
 
 	/**
 	 * Handle a selection change in the editor.
@@ -581,14 +614,17 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	 */
 	@Override
 	protected Object getInitialInput() {
-
-		if(serviceRegistry != null) {
-			return serviceRegistry;
-		} else {
-			return super.getInitialInput();
-		}
+		Object initialInput = null;
+//		if(serviceRegistry != null) {
+//			initialInput = serviceRegistry;
+//		} else {
+//			initialInput = super.getInitialInput();
+//		}
 		
-//		return super.getInitialInput();
+		
+		initialInput = super.getInitialInput();
+		
+		return initialInput;
 	}
 
 	/**
@@ -596,15 +632,15 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 	 */
 	private void activate() {
 		
-		setUpTreeElements(getInitialInput());
+//		setUpTreeElements(getInitialInput());
 		
 		// 테스트용 고정 servicesRegistry
 //		String diPath = "/C:/Apex/EclipseWorkspaces/Modellipse-0.9.1/runtime-Modellipse-0.9.1/aaa/model2.di"; 
 //		ApexProjectWrapper apw = (ApexProjectWrapper)ApexModellipseExplorerRoot.getProjectMap().get(diPath);
 //		serviceRegistry = (ServicesRegistry)apw.getServicesRegistry(diPath);
 		
-		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		serviceRegistry = activeEditor.getServicesRegistry();
+//		PapyrusMultiDiagramEditor activeEditor = (PapyrusMultiDiagramEditor)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+//		serviceRegistry = activeEditor.getServicesRegistry();
 
 		try {
 			this.editingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(serviceRegistry);
@@ -619,12 +655,12 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		}
 		
 		// Get required services from ServicesRegistry
-		try {
-			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
-			undoContext = serviceRegistry.getService(IUndoContext.class);
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		}		  
+//		try {
+//			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
+//			undoContext = serviceRegistry.getService(IUndoContext.class);
+//		} catch (ServiceException e) {
+//			e.printStackTrace();
+//		}		  
 
 		// Listen to isDirty flag
 		saveAndDirtyService.addInputChangedListener(editorInputChangedListener);
