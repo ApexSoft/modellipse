@@ -14,6 +14,7 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.parts;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,6 +41,7 @@ import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -84,7 +86,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.SlidableAnchor;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.IdentityAnchor;
-import org.eclipse.gmf.runtime.notation.LayoutConstraint;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -122,6 +123,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionL
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.NotificationHelper;
@@ -130,6 +132,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.ConnectableElement;
+import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.InteractionOperand;
 import org.eclipse.uml2.uml.Lifeline;
@@ -1733,50 +1736,62 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 				//				}
 			}
 			
-			/* apex added start 
-			if (newValue instanceof CombinedFragment) {
-				GraphicalEditPart cfEditPart = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)newValue, GraphicalEditPart.class, getViewer());
-				if (cfEditPart != null) {
-					View cfView = cfEditPart.getNotationView();
-					Rectangle rect = null;
-					if (cfView instanceof Node) {
-						LayoutConstraint constraint = ((Node)cfView).getLayoutConstraint();
-						if (constraint instanceof Bounds) {
-							Bounds b = (Bounds)constraint;
-							rect = new Rectangle(0, b.getY(), 0, b.getHeight());
-						}
-					}
+			/* apex added start */
+			List<Object> newValues = new ArrayList<Object>();
+			if (newValue instanceof Collection) {
+				newValues.addAll((Collection<? extends Object>) newValue);
+			} else if (newValue != null) {
+				newValues.add(newValue);
+			}
+			
+			for (Object value : newValues) {
+				GraphicalEditPart graphicalEP = null;
+				if (value instanceof CombinedFragment) {
+					notifier.listenObject((CombinedFragment)value);
+					graphicalEP = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)value, GraphicalEditPart.class, getViewer());
+				}
+				
+				if (graphicalEP != null) {
+					View notationView = graphicalEP.getNotationView();
+					Rectangle rect = apexGetViewBounds(notationView);
 					
-					if (getPrimaryShape().getFigureLifelineDotLineFigure() instanceof ApexCustomLifelineDotLineCustomFigure) {
-						ApexCustomLifelineDotLineCustomFigure apexDotLineFigure = (ApexCustomLifelineDotLineCustomFigure)getPrimaryShape().getFigureLifelineDotLineFigure();
-						apexDotLineFigure.showRegion(rect);
-					}
+					IFigure dotLineFigure = getPrimaryShape().getFigureLifelineDotLineFigure();
+					LifelineFigureHelper.showRegion(dotLineFigure, rect);
 				}
 			}
 			
 			Object oldValue = notification.getOldValue();
-			if (oldValue instanceof CombinedFragment) {
-				GraphicalEditPart cfEditPart = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)oldValue, GraphicalEditPart.class, getViewer());
-				if (cfEditPart != null) {
-					IFigure cfFigure = cfEditPart.getFigure();
-					Rectangle rect = cfFigure.getBounds().getCopy();
-					if (rect.width == 0 && rect.height == 0) {
-						View cfView = cfEditPart.getNotationView();
-						if (cfView instanceof Node) {
-							LayoutConstraint constraint = ((Node)cfView).getLayoutConstraint();
-							if (constraint instanceof Bounds) {
-								Bounds b = (Bounds)constraint;
-								rect = new Rectangle(0, b.getY(), 0, b.getHeight());
-							}
-						}
-					} else {
-						rect = new Rectangle(0, rect.y, 0, rect.height);
-					}
+			
+			List<Object> oldValues = new ArrayList<Object>();
+			if (oldValue instanceof Collection) {
+				oldValues.addAll((Collection<? extends Object>) oldValue);
+			} else if (oldValue != null) {
+				oldValues.add(oldValue);
+			}
+
+			for (Object value : oldValues) {
+				GraphicalEditPart graphicalEP = null;
+				if (value instanceof CombinedFragment) {
+					notifier.unlistenObject((CombinedFragment)value);
+					graphicalEP = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)value, GraphicalEditPart.class, getViewer());
+				}
+				
+				if (graphicalEP != null) {
+					IFigure figure = graphicalEP.getFigure();
+					Rectangle origRect = figure.getBounds().getCopy();
 					
-					if (getPrimaryShape().getFigureLifelineDotLineFigure() instanceof ApexCustomLifelineDotLineCustomFigure) {
-						ApexCustomLifelineDotLineCustomFigure apexDotLineFigure = (ApexCustomLifelineDotLineCustomFigure)getPrimaryShape().getFigureLifelineDotLineFigure();
-						apexDotLineFigure.hideRegion(rect);
+					View notationView = graphicalEP.getNotationView();
+					Rectangle newRect = apexGetViewBounds(notationView);
+					
+					boolean isShow = origRect.isEmpty() || ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(origRect, this).contains(this);
+					isShow &= !ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(newRect, this).contains(this);
+
+					if ((origRect.width > 0 || origRect.height > 0) && isShow) {
+						newRect = origRect;
 					}
+						
+					IFigure dotLineFigure = getPrimaryShape().getFigureLifelineDotLineFigure();
+					LifelineFigureHelper.showRegion(dotLineFigure, newRect, isShow);
 				}
 			}
 			/* apex added end */
@@ -2288,6 +2303,9 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 	public void activate() {
 		//updateCrossEnd();
 		super.activate();
+		/* apex added start */
+		apexUpdateCoveringFigures();
+		/* apex added end */
 	}
 
 	/**
@@ -2296,6 +2314,10 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 	 */
 	@Override
 	public void deactivate() {
+		/* apex added start */
+		IFigure figure = getPrimaryShape().getFigureLifelineDotLineFigure();
+		LifelineFigureHelper.removeAllRegion(figure);
+		/* apex added end */
 		notifier.unlistenAll();
 		super.deactivate();
 	}
@@ -2323,10 +2345,85 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 		configure(isInlineMode(), false);
 		super.refresh();
 	}
-
-	@Override
-	protected void refreshVisuals() {
-		super.refreshVisuals();
+	
+	/**
+	 * View의 Bounds 프로퍼티를 구함
+	 * 
+	 * @param view
+	 * @return
+	 */
+	private Rectangle apexGetViewBounds(View view) {
+		if (view instanceof Node && ((Node)view).getLayoutConstraint() instanceof Bounds) {
+			Bounds b = (Bounds)((Node)view).getLayoutConstraint();
+			return new Rectangle(b.getX(), b.getY(), b.getWidth(), b.getHeight());
+		}
+		return new Rectangle(0, 0, 0, 0);
+	}
+	
+	/**
+	 * Lifeline이 생성될 때 coveredBys인 InteractionFragment에 따라 hide될 region을 등록
+	 * InteractionFragment의 EditPart/Figure가 생성이 안되었을 수도 있으므로 View의 Bounds를 통해 영역을 구함
+	 */
+	private void apexUpdateCoveringFigures() {
+		Lifeline lifeline = (Lifeline)resolveSemanticElement();
+		Interaction interaction = lifeline.getInteraction();
+		View view = getNotationView();
+		EObject container = view.eContainer();
+		while (container != null && container instanceof View) {
+			if (interaction == ((View)container).getElement()) {
+				break;
+			}
+			container = container.eContainer();
+		}
+		
+		if (container instanceof View == false) {
+			return;
+		}
+		
+		Rectangle lifelineRect = apexGetViewBounds(view);
+		Rectangle centralLineRect = new Rectangle(lifelineRect.x() +  lifelineRect.width() / 2, lifelineRect.y(), 
+				1,  lifelineRect.height());
+		
+		View interactionView = (View)container;
+		for (Object child : interactionView.getChildren()) {
+			if (child instanceof View) {
+				apexUpdateCoveringFigure((View)child, lifeline, centralLineRect);
+			}
+		}
+	}
+	
+	/**
+	 * Lifeline이 생성될 때 coveredBys인 InteractionFragment에 따라 hide될 region을 등록
+	 * InteractionFragment의 EditPart/Figure가 생성이 안되었을 수도 있으므로 View의 Bounds를 통해 영역을 구함
+	 * 
+	 * @param view InteractionFragment의 View
+	 * @param lifeline 현재 선택된 lifeline
+	 * @param bounds lifeline의 central bounds
+	 */
+	private void apexUpdateCoveringFigure(View view, Lifeline lifeline, Rectangle bounds) {
+		EObject element = view.getElement();
+		if (element instanceof CombinedFragment == false) {
+			return;
+		}
+		
+		IFigure figure = getPrimaryShape().getFigureLifelineDotLineFigure();
+		
+		Rectangle region = apexGetViewBounds(view);
+		if (region.width > 0 && region.height > 0) {
+			if (bounds.height <= 0) {
+				bounds.height = region.height;
+			}
+			
+			if (region.intersects(bounds) && !lifeline.getCoveredBys().contains(element)) {
+				LifelineFigureHelper.showRegion(figure, region, false);
+			}
+		}
+		
+		for (Object child : view.getChildren()) {
+			if (child instanceof View) {
+				apexUpdateCoveringFigure((View)child, lifeline, bounds);
+			}
+		}
 	}
 
 	/**

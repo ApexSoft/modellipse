@@ -14,7 +14,6 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.parts;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -78,8 +77,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.internal.parts.TextCellEditorEx;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.FillStyle;
-import org.eclipse.gmf.runtime.notation.LayoutConstraint;
-import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.datatype.GradientData;
@@ -97,21 +94,18 @@ import org.eclipse.papyrus.uml.diagram.common.editpolicies.ShowHideCompartmentEd
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.helper.PreferenceInitializerForElementHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexCombinedFragmentResizableShapeEditPolicy;
-import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomLifelineDotLineCustomFigure;
-import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentItemComponentEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentItemSemanticEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.SequenceGraphicalNodeEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.CombinedFragmentFigure;
-import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.parsers.MessageFormatParser;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.InteractionOperatorKindCompatibleMapping;
-import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
@@ -1280,7 +1274,7 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 					}
 				}
 
-				/* apex added start */
+				/* apex added start 
 				View view = getNotationView();
 				Rectangle newRect = null;
 				if (view instanceof Node) {
@@ -1295,7 +1289,7 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 				Object newValue = notification.getNewValue();
 				if (newValue instanceof Collection) {
 					newValues.addAll((Collection<? extends Object>) newValue);
-				} else {
+				} else if (newValue != null) {
 					newValues.add(newValue);
 				}
 				
@@ -1308,11 +1302,8 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 					
 					LifelineEditPart lifelineEP = (LifelineEditPart)SequenceUtil.getEditPart(this, lifeline, LifelineEditPart.class);
 					if (lifelineEP != null) {
-						if (lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure() instanceof ApexCustomLifelineDotLineCustomFigure) {
-							ApexCustomLifelineDotLineCustomFigure apexDotLineFigure = (ApexCustomLifelineDotLineCustomFigure)
-									lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
-							apexDotLineFigure.showRegion(newRect);
-						}
+						IFigure dotLineFigure = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
+						LifelineFigureHelper.showRegion(dotLineFigure, newRect);
 					}
 				}
 				
@@ -1332,46 +1323,8 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 							newRect = origRect;
 						}
 						
-						if (lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure() instanceof ApexCustomLifelineDotLineCustomFigure) {
-							ApexCustomLifelineDotLineCustomFigure apexDotLineFigure = (ApexCustomLifelineDotLineCustomFigure)
-									lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
-							apexDotLineFigure.showRegion(newRect, isShow);
-						}
-					}
-				}
-				/*
-				EObject container = combinedFragment.eContainer();
-				List<Lifeline> coveredLifelinesByParent = new ArrayList<Lifeline>();
-				if (container instanceof Interaction) {
-					coveredLifelinesByParent.addAll(((Interaction)container).getLifelines());
-				} else if (container instanceof InteractionFragment) {
-					coveredLifelinesByParent.addAll(((InteractionFragment)container).getCovereds());
-				}
-				
-				Rectangle rect = null;
-				View view = getNotationView();
-				if (view instanceof Node) {
-					LayoutConstraint constraint = ((Node)view).getLayoutConstraint();
-					if (constraint instanceof Bounds) {
-						Bounds b = (Bounds)constraint;
-						rect = new Rectangle(b.getX(), b.getY(), b.getWidth(), b.getHeight());
-					}
-				}
-				
-				List<LifelineEditPart> coveredLifelineEditParts = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(rect, this);
-				
-				for (Lifeline coveredLifeline : coveredLifelinesByParent) {
-					LifelineEditPart coveredLifelineEP = (LifelineEditPart)SequenceUtil.getEditPart(this, coveredLifeline, LifelineEditPart.class);
-					if (coveredLifelineEP != null) {
-						LifelineDotLineCustomFigure dotLineFigure = coveredLifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
-						if (dotLineFigure instanceof ApexCustomLifelineDotLineCustomFigure) {
-							ApexCustomLifelineDotLineCustomFigure apexDotLineFigure = (ApexCustomLifelineDotLineCustomFigure)dotLineFigure;
-							if (coveredLifelineEditParts.contains(coveredLifelineEP) && !combinedFragmentCoveredLifelines.contains(coveredLifeline)) {
-								apexDotLineFigure.hideRegion(rect);
-							} else {
-								apexDotLineFigure.showRegion(rect);
-							}
-						}
+						IFigure dotLineFigure = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
+						LifelineFigureHelper.showRegion(dotLineFigure, newRect, isShow);
 					}
 				}
 				/* apex added end */
@@ -1559,7 +1512,7 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 		super.refreshVisuals();
 		refreshLabel();
 	}
-
+	
 	// update label visibility and text
 	private void refreshLabel() {
 		Object element = resolveSemanticElement();
@@ -1815,4 +1768,5 @@ public class CombinedFragmentEditPart extends InteractionFragmentEditPart implem
 			return null;
 		}
 	}
+
 }

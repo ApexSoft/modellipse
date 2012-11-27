@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -29,14 +30,15 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexLifelineConnectionHandleEditPolicy;
-import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomLifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
+import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Lifeline;
@@ -49,6 +51,102 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 		super(view);
 	}
 
+	@Override
+	public void activate() {
+		super.activate();
+		/* apex added start */
+		apexUpdateCoveredFigures();
+		/* apex added end */
+	}
+
+	@Override
+	public void deactivate() {
+		/* apex added start */
+		Rectangle region = getFigure().getBounds().getCopy();
+		LifelineFigureHelper.showAllRegion(region);
+		/* apex added end */
+		super.deactivate();
+	}
+	
+	/**
+	 * View의 Bounds 프로퍼티를 구함
+	 * 
+	 * @param view
+	 * @return
+	 */
+	private Rectangle apexGetViewBounds(View view) {
+		if (view instanceof Node && ((Node)view).getLayoutConstraint() instanceof Bounds) {
+			Bounds b = (Bounds)((Node)view).getLayoutConstraint();
+			return new Rectangle(b.getX(), b.getY(), b.getWidth(), b.getHeight());
+		}
+		return new Rectangle(0, 0, 0, 0);
+	}
+	
+	/**
+	 * InteractionFragment가 생성될 때 covereds가 아닌 Lifeline들에 hide될 region을 등록
+	 * InteractionFragment의 EditPart/Figure가 생성이 안되었을 수도 있으므로 View의 Bounds를 통해 영역을 구함
+	 */
+	private void apexUpdateCoveredFigures() {
+		InteractionFragment ift = (InteractionFragment)resolveSemanticElement();
+		Interaction interaction = ift.getEnclosingInteraction();
+		EList<Lifeline> coveredLifelines = ift.getCovereds();
+		
+		View view = getNotationView();
+		EObject container = view.eContainer();
+		while (container != null && container instanceof View == false) {
+			if (interaction == ((View)container).getElement()) {
+				break;
+			}
+			container = container.eContainer();
+		}
+		
+		if (container instanceof View == false) {
+			return;
+		}
+		
+		View parent = (View)container;
+		for (Object child : parent.getChildren()) {
+			if (child instanceof View) {
+				Rectangle lifelineRect = apexGetViewBounds(view);
+				Rectangle centralLineRect = new Rectangle(lifelineRect.x() +  lifelineRect.width() / 2, lifelineRect.y(), 
+						1,  lifelineRect.height());
+
+				EObject element = ((View)child).getElement();
+				if (element instanceof Lifeline && !coveredLifelines.contains(element)) {
+					apexUpdateCoveredFigure(view, (Lifeline)element, centralLineRect);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * InteractionFragment가 생성될 때 covereds가 아닌 Lifeline들에 hide될 region을 등록
+	 * InteractionFragment의 EditPart/Figure가 생성이 안되었을 수도 있으므로 View의 Bounds를 통해 영역을 구함
+	 * 
+	 * @param view InteractionFragment의 View
+	 * @param lifeline 현재 선택된 lifeline
+	 * @param bounds lifeline의 central bounds
+	 */
+	private void apexUpdateCoveredFigure(View view, Lifeline lifeline, Rectangle bounds) {
+		LifelineEditPart lifelineEP = (LifelineEditPart)SequenceUtil.getEditPart(this, lifeline, LifelineEditPart.class);
+		if (lifelineEP == null) {
+			return;
+		}
+		
+		IFigure figure = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
+		
+		Rectangle region = apexGetViewBounds(view);
+		if (region.width > 0 && region.height > 0) {
+			if (bounds.height <= 0) {
+				bounds.height = region.height;
+			}
+			
+			if (region.intersects(bounds)) {
+				LifelineFigureHelper.showRegion(figure, region, false);
+			}
+		}
+	}
+	
 	/**
 	 * Resize the InteractionFragmentFigure when the covered lifelines are selected in the
 	 * properties view.
@@ -257,14 +355,12 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 		if(!coveredLifelinesToRemove.isEmpty()) {
 			/* apex added start */
 			// Jiho - bounds에서 제외되어 삭제되는 lifeline이 이미 covered가 아닌 경우
-			Rectangle origRect = this.getFigure().getBounds().getCopy();
+			Rectangle origRect = getFigure().getBounds().getCopy();
 			for (Lifeline lifeline : coveredLifelinesToRemove) {
 				LifelineEditPart lifelineEP = (LifelineEditPart)SequenceUtil.getEditPart(this, lifeline, LifelineEditPart.class);
 				if (!coveredLifelines.contains(lifeline) && lifelineEP != null) {
 					LifelineDotLineCustomFigure customFigure = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure();
-					if (customFigure instanceof ApexCustomLifelineDotLineCustomFigure) {
-						((ApexCustomLifelineDotLineCustomFigure)customFigure).showRegion(origRect);
-					}
+					LifelineFigureHelper.showRegion(customFigure, origRect);
 				}
 			}
 			/* apex added end */
@@ -319,7 +415,9 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 				// Property창에서 수동으로 covereds에서 제외한 것이므로
 				// 원래 CF에 포함되지 않았던 경우에만 add
 				if (!origRect.intersects(centralLineBounds)) {	// Jiho: lifelineRect -> centralLineBounds
-					coveredLifelinesToAdd.add(lifeline);
+					if (!coveredLifelinesToAdd.contains(lifeline)) {
+						coveredLifelinesToAdd.add(lifeline);
+					}
 				}						
 			}
 		// 새 경계와 lifeline 경계가 교차되지 않고
