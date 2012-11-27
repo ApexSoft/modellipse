@@ -13,7 +13,11 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.diagram.sequence.edit.policies;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
@@ -25,9 +29,12 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ComponentEditPolicy;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
+import org.eclipse.papyrus.commands.wrappers.EMFtoGMFCommandWrapper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.CombinedFragmentEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CombinedFragmentDeleteHelper;
 import org.eclipse.uml2.uml.CombinedFragment;
+import org.eclipse.uml2.uml.Lifeline;
+import org.eclipse.uml2.uml.UMLPackage;
 
 public class CombinedFragmentItemComponentEditPolicy extends ComponentEditPolicy {
 
@@ -48,6 +55,14 @@ public class CombinedFragmentItemComponentEditPolicy extends ComponentEditPolicy
 				
 				ICommand prompt = CombinedFragmentDeleteHelper.createDeleteViewCommand(cf, getEditingDomain(), host);
 				cmd.add(prompt);
+				
+				/* apex added start */
+				List<Lifeline> coveredLifelines = new ArrayList<Lifeline>(cf.getCovereds());
+				ICommand removeCovered = new EMFtoGMFCommandWrapper(RemoveCommand.create(getEditingDomain(), cf, UMLPackage.eINSTANCE.getInteractionFragment_Covered(), coveredLifelines));
+				if (removeCovered.canExecute()) {
+					cmd.add(removeCovered);
+				}
+				/* apex added end */
 			}
 			cmd.add(deleteView);
 			return new ICommandProxy(cmd.reduce());

@@ -20,18 +20,17 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.requests.DropRequest;
 import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
@@ -39,9 +38,13 @@ import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.papyrus.commands.wrappers.EMFtoGEFCommandWrapper;
 import org.eclipse.papyrus.uml.diagram.common.draw2d.anchors.LifelineAnchor;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.Message4EditPart;
+import org.eclipse.uml2.uml.InteractionFragment;
+import org.eclipse.uml2.uml.Lifeline;
+import org.eclipse.uml2.uml.UMLPackage;
 
 public class LifelineMessageCreateHelper {
 
@@ -52,6 +55,18 @@ public class LifelineMessageCreateHelper {
 			Command command = super.createDeleteViewCommand(deleteRequest);
 			if(command != null && getHost() instanceof LifelineEditPart)
 				command = restoreLifelineOnDelete(command, (LifelineEditPart)getHost());
+			
+			/* apex added start */
+			// Jiho - Lifeline 삭제시 coveredBys(InteractionFragment)의 covereds에서 해당 Lifeline삭제
+			if (command != null && getHost() instanceof LifelineEditPart) {
+				LifelineEditPart lifelineEP = (LifelineEditPart)getHost();
+				Lifeline lifeline = (Lifeline) lifelineEP.resolveSemanticElement();
+				List<InteractionFragment> coveredBysToRemove = new ArrayList<InteractionFragment>(lifeline.getCoveredBys());
+				Command removeCmd = new EMFtoGEFCommandWrapper(RemoveCommand.create(lifelineEP.getEditingDomain(),
+						lifeline, UMLPackage.eINSTANCE.getLifeline_CoveredBy(), coveredBysToRemove));
+				command = command.chain(removeCmd);
+			}
+			/* apex added end */
 			return command;
 		}
 	}
