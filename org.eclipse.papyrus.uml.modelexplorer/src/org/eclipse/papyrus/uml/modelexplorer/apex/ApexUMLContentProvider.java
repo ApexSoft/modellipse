@@ -16,8 +16,6 @@ package org.eclipse.papyrus.uml.modelexplorer.apex;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -26,6 +24,7 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.facet.infra.browser.uicore.CustomizableModelContentProvider;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.AppearanceConfiguration;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ItemsFactory;
@@ -35,13 +34,10 @@ import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
 import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
-import org.eclipse.papyrus.infra.core.resource.ModelUtils;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
-import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
-import org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.DiSashModelMngr;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.Activator;
-import org.eclipse.papyrus.infra.emf.apex.providers.ApexMoDiscoContentProvider;
+import org.eclipse.papyrus.infra.emf.providers.MoDiscoContentProvider;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.navigator.CommonViewer;
@@ -53,14 +49,15 @@ import org.eclipse.uml2.uml.internal.impl.ModelImpl;
  * @deprecated Use {@link org.eclipse.papyrus.uml.ApexUMLContentProvider.providers.UMLContentProvider} instead
  */
 @Deprecated
-public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
+public class ApexUMLContentProvider extends CustomizableModelContentProvider {
 	
 	private CommonViewer common;
 
 	private final AppearanceConfiguration appearanceConfiguration;	
 	
 	public ApexUMLContentProvider() {
-		super();
+//		super();
+		super(Activator.getDefault().getCustomizationManager());
 		appearanceConfiguration = new AppearanceConfiguration(new ItemsFactory());
 	}
 
@@ -80,37 +77,7 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 		/* apex improved start */
 		List<Object> result = new ArrayList<Object>();
 		try {
-			if(inputElement instanceof ServicesRegistry) {	
-//				_servicesRegistry = ApexModellipseExplorerRoot.getServicesRegistryList();
-//				
-//				for ( ServicesRegistry servicesRegistry : _servicesRegistry ) {
-//					// getRootElements()는 언제나 length 가 1인 배열 반환
-//					result.add(getRootElements(servicesRegistry)[0]);
-//				}
-//
-				Map<String, ITreeElement> projectMap = ApexModellipseExplorerRoot.getProjectMap();
-				Set<Entry<String, ITreeElement>> entrySet = projectMap.entrySet();
-				
-				for ( Entry<String, ITreeElement> aProject : entrySet ) {
-					// getRootElements()는 언제나 length 가 1인 배열 반환
-					result.add(aProject.getValue());
-				}
-			
-				
-				ServicesRegistry servicesRegistry = (ServicesRegistry)inputElement;
-				UmlModel umlModel = UmlUtils.getUmlModel(servicesRegistry);
-//System.out.println("ApexUMLContentProvider.getRootElements, line "
-//		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
-//System.out.println("servicesRegistry in ApexUMLContentProvider : \n    " + servicesRegistry);
-//System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
-
-				modelSet = ModelUtils.getModelSetChecked(servicesRegistry);
-				pageMngr = servicesRegistry.getService(DiSashModelMngr.class).getIPageMngr();
-
-				return result.toArray(new Object[result.size()]);
-//				return result.toArray(new EObject[result.size()]);
-//				return getRootElements(modelSet);	
-			} else if ( inputElement instanceof IWorkspaceRoot ) {
+			if ( inputElement instanceof IWorkspaceRoot ) {
 				IWorkspaceRoot root = (IWorkspaceRoot)inputElement;
 				IProject[] projects = root.getProjects();
 				
@@ -267,6 +234,7 @@ public class ApexUMLContentProvider extends ApexMoDiscoContentProvider {
 				
 				if ( aTreeElement == null ) {
 					IEditorPart editor = ApexModellipseExplorerRoot.openEditor(diFile);
+					
 					if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
 						ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
 						ApexModellipseExplorerRoot.addToGlobalRoot(diFile, servicesRegistry);

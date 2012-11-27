@@ -48,9 +48,7 @@ public class UMLContentProvider extends MoDiscoContentProvider {
 	@Override
 	protected EObject[] getRootElements(ModelSet modelSet) {
 		UmlModel umlModel = (UmlUtils.getUmlModel(modelSet));
-System.out.println("UMLContentProvider.getRootElements, line "
-		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
-System.out.println("umlModel in UMLContentProvider : \n    " + umlModel);
+		
 		if(umlModel == null)
 			return null;
 

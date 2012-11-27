@@ -13,8 +13,6 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.modelexplorer.apex;
 
-import static org.eclipse.papyrus.infra.core.Activator.log;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,25 +22,15 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.commands.operations.IUndoContext;
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
@@ -52,34 +40,27 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
-import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
-import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
 import org.eclipse.papyrus.infra.core.editor.IMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.lifecycleevents.IEditorInputChangedListener;
 import org.eclipse.papyrus.infra.core.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.core.resource.ModelMultiException;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.additional.AdditionalResourcesModel;
-import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
-import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
 import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.IPageMngr;
-import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.ISashWindowsContentProvider;
-import org.eclipse.papyrus.infra.core.services.ExtensionServicesRegistry;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
-import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
-import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
-import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.views.modelexplorer.Activator;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
 import org.eclipse.papyrus.views.modelexplorer.DecoratingLabelProviderWTooltips;
@@ -93,15 +74,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.WorkbenchException;
-import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.internal.navigator.NavigatorContentService;
 import org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor;
 import org.eclipse.ui.navigator.CommonNavigator;
@@ -123,7 +101,7 @@ import com.google.common.collect.Lists;
  * source when the current Editor change. To allow to explore different Model, use a {@link ModelExplorerPageBookView}.
  * 
  */
-public class ApexModellipseExplorerView extends CommonNavigator implements IRevealSemanticElement, IEditingDomainProvider {
+public class ApexModellipseExplorerView extends CommonNavigator implements IRevealSemanticElement, IEditingDomainProvider, ISelectionChangedListener {
 
 	/** ID of the view, as given in the plugin.xml file */
 	public static final String VIEW_ID = "org.eclipse.papyrus.uml.modelexplorer.modellipseexplorer"; //$NON-NLS-1$
@@ -608,6 +586,18 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		}
 
 	}
+	
+	@Override
+	public void doSave(IProgressMonitor monitor) {
+		System.out.println("ApexModellipseExplorerView.doSave(), line "
+				+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+	}
+	
+	@Override
+	public void doSaveAs() {
+		System.out.println("ApexModellipseExplorerView.doSaveAs(), line "
+				+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -689,6 +679,7 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 //System.out.println("  resourceSetListener : " + resourceSetListener);
 //System.out.println("  saveAndDirtyService : " + saveAndDirtyService);
 //System.out.println("  undoContext : " + undoContext);
+		
 	}
 	
 	/**
@@ -926,4 +917,14 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 			+ "It is recommended to fix it before editing it", e.getMessage()));
 	}
 
+	public void selectionChanged(SelectionChangedEvent event) {
+		// TODO Auto-generated method stub
+		System.out
+				.println("ApexModellipseExplorerView.selectionChanged(), line "
+						+ Thread.currentThread().getStackTrace()[1]
+								.getLineNumber());
+	}
+
+	// Active Editor 가 바뀔 때 마다
+	// editingDomain.addResourceSetListener(resourceSetListener);
 }
