@@ -1,6 +1,5 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.figures;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.draw2d.Graphics;
@@ -8,6 +7,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 
 public class ApexCustomLifelineDotLineCustomFigure extends
 		LifelineDotLineCustomFigure {
@@ -19,8 +19,6 @@ public class ApexCustomLifelineDotLineCustomFigure extends
 	private final int DASHED_SIZE = 10;
 	
 	private final int MARGIN = 2;
-	
-	private Collection<Rectangle> hideRegions;
 	
 	private boolean inlineMode;
 	
@@ -48,7 +46,9 @@ public class ApexCustomLifelineDotLineCustomFigure extends
 
 		// Create the dash line
 		pAux = pStart.getCopy();
-		
+
+		Collection<Rectangle> hideRegions = LifelineFigureHelper.getHideRegions(this);
+
 		while(pAux.y <= pEnd.y) {
 			// The drawing limit is pEnd.y
 			int yEnd = pAux.y + SOLID_SIZE;
@@ -60,18 +60,13 @@ public class ApexCustomLifelineDotLineCustomFigure extends
 			boolean isHide = false;
 			if (hideRegions != null) {
 				for (Rectangle region: hideRegions) {
-//					if ((yStart > region.y && yStart < region.bottom()) ||
-//							(yEnd > region.y && yEnd < region.bottom())) {
-//						isHide = true;
-//						break;
-//					}
 					if (yStart < region.y && yEnd >= region.y) {
 						yEnd = region.y - MARGIN;
 						break;
 					} else if (yStart >= region.y && yEnd <= region.bottom()) {
 						isHide = true;
 						break;
-					} else if (pAux.y <= region.bottom() && yEnd > region.bottom()) {
+					} else if (yStart <= region.bottom() && yEnd > region.bottom()) {
 						yStart = region.bottom() + MARGIN;
 						break;
 					}
@@ -95,26 +90,4 @@ public class ApexCustomLifelineDotLineCustomFigure extends
 		this.inlineMode = inlineMode;
 	}
 
-	public void showRegion(Rectangle rect) {
-		showRegion(rect, true);
-	}
-	
-	public void showRegion(Rectangle rect, boolean isShow) {
-		if (rect == null) {
-			return;
-		}
-		
-		if (hideRegions == null) {
-			if (isShow)
-				return;
-			else
-				hideRegions = new ArrayList<Rectangle>();
-		}
-		
-		if (isShow)
-			hideRegions.remove(rect);
-		else
-			hideRegions.add(rect);
-	}
-	
 }
