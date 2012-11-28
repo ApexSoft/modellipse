@@ -3,10 +3,13 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-SymbolicName: org.eclipse.papyrus.infra.onefile;singleton:=true
 Require-Bundle: org.eclipse.papyrus.infra.core;bundle-version="0.9.1",
- org.eclipse.ui.navigator,org.eclipse.team.ui,org.eclipse.ui.navigator
- .resources,org.eclipse.papyrus.infra.ui.resources;bundle-version="0.9
- .1",org.eclipse.core.resources;bundle-version="3.7.0",org.eclipse.cor
- e.runtime;bundle-version="3.7.0"
+ org.eclipse.ui.navigator,
+ org.eclipse.team.ui,
+ org.eclipse.ui.navigator.resources,
+ org.eclipse.papyrus.infra.ui.resources;bundle-version="0.9.1",
+ org.eclipse.core.resources;bundle-version="3.7.0",
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.uml2.uml;bundle-version="4.0.1"
 Bundle-Activator: org.eclipse.papyrus.infra.onefile.Activator
 Bundle-Version: 0.9.1.v201209190809
 Export-Package: org.eclipse.papyrus.infra.onefile.model,org.eclipse.pa

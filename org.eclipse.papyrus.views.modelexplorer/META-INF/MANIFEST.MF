@@ -32,15 +32,19 @@ Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui
  m.google.guava;bundle-version="10.0.1"
 Bundle-Activator: org.eclipse.papyrus.views.modelexplorer.Activator
 Bundle-Version: 0.9.1.v201209190809
-Export-Package: org.eclipse.papyrus.views.modelexplorer,org.eclipse.pa
- pyrus.views.modelexplorer.actionprovider,org.eclipse.papyrus.views.mo
- delexplorer.actions,org.eclipse.papyrus.views.modelexplorer.commands,
- org.eclipse.papyrus.views.modelexplorer.core.ui.pagebookview,org.ecli
- pse.papyrus.views.modelexplorer.dialog,org.eclipse.papyrus.views.mode
- lexplorer.dnd,org.eclipse.papyrus.views.modelexplorer.factory,org.ecl
- ipse.papyrus.views.modelexplorer.handler,org.eclipse.papyrus.views.mo
- delexplorer.matching,org.eclipse.papyrus.views.modelexplorer.preferen
- ces,org.eclipse.papyrus.views.modelexplorer.queries
+Export-Package: org.eclipse.papyrus.views.modelexplorer,
+ org.eclipse.papyrus.views.modelexplorer.actionprovider,
+ org.eclipse.papyrus.views.modelexplorer.actions,
+ org.eclipse.papyrus.views.modelexplorer.commands,
+ org.eclipse.papyrus.views.modelexplorer.core.ui.pagebookview,
+ org.eclipse.papyrus.views.modelexplorer.dialog,
+ org.eclipse.papyrus.views.modelexplorer.dnd,
+ org.eclipse.papyrus.views.modelexplorer.factory,
+ org.eclipse.papyrus.views.modelexplorer.handler,
+ org.eclipse.papyrus.views.modelexplorer.listener,
+ org.eclipse.papyrus.views.modelexplorer.matching,
+ org.eclipse.papyrus.views.modelexplorer.preferences,
+ org.eclipse.papyrus.views.modelexplorer.queries
 Ant-Version: Apache Ant 1.8.2
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy

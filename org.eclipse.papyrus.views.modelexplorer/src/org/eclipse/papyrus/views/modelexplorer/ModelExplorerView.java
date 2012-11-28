@@ -512,7 +512,6 @@ public class ModelExplorerView extends CommonNavigator implements IRevealSemanti
 		if(this.getCommonViewer() != null) {
 			refresh();
 		}
-
 	}
 
 	/**
