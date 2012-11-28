@@ -22,7 +22,6 @@ Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.em
  rg.eclipse.emf.facet.util.emf.core
 Bundle-Version: 0.9.1.v201209190809
 Export-Package: org.eclipse.papyrus.infra.emf,
- org.eclipse.papyrus.infra.emf.apex.providers,
  org.eclipse.papyrus.infra.emf.commands,
  org.eclipse.papyrus.infra.emf.databinding,
  org.eclipse.papyrus.infra.emf.providers,

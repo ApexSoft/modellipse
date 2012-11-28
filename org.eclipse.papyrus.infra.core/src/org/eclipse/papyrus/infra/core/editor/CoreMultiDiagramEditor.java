@@ -43,8 +43,7 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.papyrus.infra.core.Activator;
-import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
-import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
+import org.eclipse.papyrus.infra.core.apex.ApexModellipseProjectMap;
 import org.eclipse.papyrus.infra.core.contentoutline.ContentOutlineRegistry;
 import org.eclipse.papyrus.infra.core.lifecycleevents.DoSaveEvent;
 import org.eclipse.papyrus.infra.core.lifecycleevents.IEditorInputChangedListener;
@@ -460,11 +459,6 @@ public class CoreMultiDiagramEditor extends AbstractMultiPageSashEditor implemen
 
 		// Create ServicesRegistry and register services
 		servicesRegistry = createServicesRegistry();
-		/* apex added start */
-//		String diPath = ((FileEditorInput)input).getURI().getPath();
-//		ApexProjectWrapper aProjectWrapper = (ApexProjectWrapper)ApexModellipseExplorerRoot.getProjectMap().get(diPath);
-//		servicesRegistry = aProjectWrapper.getServicesRegistry(diPath);
-		/* apex added start */
 
 		// Add itself as a service
 		servicesRegistry.add(IMultiDiagramEditor.class, 1, this);
@@ -638,6 +632,12 @@ public class CoreMultiDiagramEditor extends AbstractMultiPageSashEditor implemen
 	}
 
 	/**
+	 * apex updated
+	 * servicesRegistry.disposeRegistry()를 호출하지 않게 주석 처리
+	 * servicesRegistry가 dispose되면 ModellipseExplorer의 해당 모델이 사용할 수 없게 됨
+	 * 기존에는 Editor가 꺼지면 ModelExplorer도 No Model Available이 떴으나
+	 * ModellipseExplorer는 Editor가 꺼져도 살아있어야 함
+	 *  
 	 * @see org.eclipse.papyrus.infra.core.sasheditor.editor.AbstractMultiPageSashEditor#dispose()
 	 * 
 	 */
@@ -662,7 +662,7 @@ public class CoreMultiDiagramEditor extends AbstractMultiPageSashEditor implemen
 				log.error(e);
 			}
 		}
-
+		
 		super.dispose();
 	}
 

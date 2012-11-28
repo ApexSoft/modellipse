@@ -31,7 +31,7 @@ import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ItemsFactory;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
-import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
+import org.eclipse.papyrus.infra.core.apex.ApexModellipseProjectMap;
 import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
@@ -59,6 +59,32 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider {
 //		super();
 		super(Activator.getDefault().getCustomizationManager());
 		appearanceConfiguration = new AppearanceConfiguration(new ItemsFactory());
+	}	
+
+	/**
+	 * apex updated
+	 */
+	@Override
+	public Object[] getElements(final Object inputElement) {
+		
+		Object[] rootElements = getRootElements(inputElement);
+		
+		if (rootElements == null) {
+			return null;
+		}
+		
+		List<Object> result = new ArrayList<Object>();
+		
+		for (Object element : rootElements) {
+		
+			if (element instanceof EObject) {
+				EObject eObject = (EObject) element;
+				result.add(new ModelElementItem(eObject, null, this.appearanceConfiguration));
+			} else {
+				result.add(element);
+			}
+		}
+		return result.toArray();
 	}
 
 	/**
@@ -81,122 +107,20 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider {
 				IWorkspaceRoot root = (IWorkspaceRoot)inputElement;
 				IProject[] projects = root.getProjects();
 				
-				for ( IProject project : projects ) {
-//					System.out
-//							.println("ApexUMLContentProvider.getRootElements, line "
-//									+ Thread.currentThread().getStackTrace()[1]
-//											.getLineNumber());
-//					System.out.println("  project.getName() : " + project.getName());
-					
+				for ( IProject project : projects ) {					
 					result.add(project);
-					try {
-						IResource[] resources = project.members();
-						
-						for ( IResource resource : resources ) {
-//							System.out.println("    resource.getName() : " + resource.getName());
-						}
-					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
 				}
 			}
 		} catch (Exception e) {
 			Activator.log.error(e);
 		}
 		return result.toArray();
-//		return new Object[0];
-//		return new EObject[0];
 		/* apex improved end */	
-	}
-	
+	}	
 	
 	/**
 	 * apex updated
-	 * 
-	 * Return the initial values from the input.
-	 * Input should be of type {@link UmlModel}.
-	 * 
-	 * @see org.eclipse.gmt.modisco.infra.browser.uicore.CustomizableModelContentProvider#getRootElements(java.lang.Object)
-	 * 
-	 * @param inputElement
-	 * @return
-	 * 
-	 * 호출 안됨
 	 */
-//	@Override
-//	protected EObject[] getRootElements(ModelSet modelSet) {
-//		UmlModel umlModel = (UmlUtils.getUmlModel(modelSet));
-//System.out.println("ApexUMLContentProvider.getRootElements, line "
-//		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
-//System.out.println("umlModel in ApexUMLContentProvider : \n    " + umlModel);
-//		if(umlModel == null)
-//			return null;
-//
-//		EList<EObject> contents = umlModel.getResource().getContents();
-//		ArrayList<EObject> result = new ArrayList<EObject>();
-//		Iterator<EObject> iterator = contents.iterator();
-//
-//		while(iterator.hasNext()) {
-//			EObject eObject = iterator.next();
-//			//functionality that comes from UML2 plugins
-//			if(UMLUtil.getStereotype(eObject) == null) {
-//				result.add(eObject);
-//			}
-//		}
-//		
-//		return result.toArray(new EObject[result.size()]);		
-//	}	
-	
-	/**
-	 * apex added
-	 * Get the roots elements from the {@link ModelSet} provided as input.
-	 * 호출 안됨
-	 * @return
-	 */
-////	protected EObject[] getRootElements(ServicesRegistry servicesRegistry) {
-//	protected Object[] getRootElements(ServicesRegistry servicesRegistry) {
-//		UmlModel umlModel = (UmlUtils.getUmlModel(servicesRegistry));
-//System.out.println("ApexMoDiscoContentProvider.getRootElements, line "
-//		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
-//System.out.println("umlModel in ApexMoDisco : " + umlModel);
-//		if(umlModel == null) {
-//			return null;
-//		}
-//
-//		EList<EObject> contents = umlModel.getResource().getContents();				
-//		ArrayList<EObject> result = new ArrayList<EObject>();		
-//		Iterator<EObject> iterator = contents.iterator();
-//		while(iterator.hasNext()) {
-//			EObject eObject = iterator.next();
-//			result.add(eObject);
-//		}
-//		return result.toArray(new Object[result.size()]);
-////		return result.toArray(new EObject[result.size()]);
-//	}	
-	@Override
-	public boolean hasChildren(Object element) {
-		boolean hasChildren = false;
-		if ( element instanceof IProject ) {
-			IProject project = (IProject)element;
-			try {
-				hasChildren = project.members().length > 0;
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if ( element instanceof IFile ) {
-			IFile diFile = (IFile)element;
-			if(OneFileUtils.isDi(diFile)) {
-				hasChildren = true;
-			}
-		} else {
-			hasChildren = super.getChildren(element).length > 0;
-		}
-		return hasChildren;
-	}
-	
 	@Override
 	public Object[] getChildren(final Object parentElement) {
 		ArrayList<Object> result = new ArrayList<Object>();
@@ -211,7 +135,6 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider {
 					
 					if ( r instanceof IFile ) {
 						IFile file = (IFile)r;
-						String fileNameWithExt = file.getName();
 						
 						if(OneFileUtils.isDi(file)) {
 							result.add(file);
@@ -226,63 +149,57 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider {
 			IFile diFile = (IFile)parentElement;
 			
 			if(OneFileUtils.isDi(diFile)) {
-				// diFile에서 ApexProjectWrapper 가져와서 super.getChildren(wrapper); 호출 후 아래 로직 태움
 				String diFilePath = diFile.getLocationURI().getPath();
 				String projectPath = diFile.getParent().getLocationURI().getPath();
-				Map<String, ITreeElement> projectMap = ApexModellipseExplorerRoot.getProjectMap();
-				ITreeElement aTreeElement = projectMap.get(projectPath);
+
+				Map<String, ApexProjectWrapper> projectMap = ApexModellipseProjectMap.getProjectMap();
+				ApexProjectWrapper aProjectWrapper = projectMap.get(projectPath);
 				
-				if ( aTreeElement == null ) {
-					IEditorPart editor = ApexModellipseExplorerRoot.openEditor(diFile);
+				// 최초 뷰 구성 시
+				// 프로젝트 래퍼가 없고,
+				// diPath에 대한 umlModel 도 없다.
+				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
+				
+				// refresh() 시
+				// 프로젝트 래퍼가 있고,
+				// diPath에 대한 umlModel 은 없다.
+				// 아무일도 안 함
+				
+				// 더블클릭 시
+				// 더블클릭 리스너에서 ServiceReg를 세팅
+				// 프로젝트 래퍼가 있고,
+				// diPath에 대한 umlModel도 있다.
+				
+				if ( aProjectWrapper == null ) { // 최초 뷰 구성 시
+					IEditorPart editor = ApexModellipseProjectMap.openEditor(diFile);
 					
 					if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
 						ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
-						ApexModellipseExplorerRoot.addToGlobalRoot(diFile, servicesRegistry);
-						aTreeElement = projectMap.get(projectPath);
+						aProjectWrapper = ApexModellipseProjectMap.setUpModelServices(diFile, servicesRegistry);
+						
+						UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);					
+						EList<EObject> contents = umlModel.getResource().getContents();
+						
+						makeModelElementItemList(umlModel, result);
 					}		
-				}
-				if ( aTreeElement instanceof ApexProjectWrapper ) {
-					ApexProjectWrapper aProjectWrapper = (ApexProjectWrapper)aTreeElement;
-					UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);					
-					EList<EObject> contents = umlModel.getResource().getContents();
+				} else {
+					UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
 					
-					for ( EObject eObj : contents ) {
-						if ( eObj instanceof ModelImpl ) {
-							ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
-							result.add(modelItem);	
-//							System.out
-//									.println("ApexUMLContentProvider.getChildren, line "
-//											+ Thread.currentThread()
-//													.getStackTrace()[1]
-//													.getLineNumber());
-//							System.out.println("added eObj : " + eObj);
-//							System.out.println("added modelItem : " + modelItem);
-						}
+					if ( umlModel != null ) { // doubleClick() 인 경우
+						makeModelElementItemList(umlModel, result);
 					}
-				}	
+				}
 			}			
 		} else {
 			Object[] arrayObject = super.getChildren(parentElement);
 
 			if(arrayObject != null) {
+
 				for(int i = 0; i < arrayObject.length; i++) {
+				
 					if ( arrayObject[i] instanceof UmlModel ) {
 						UmlModel umlModel = (UmlModel) arrayObject[i];
-						EList<EObject> contents = umlModel.getResource().getContents();
-
-						for ( EObject eObj : contents ) {
-							if ( eObj instanceof ModelImpl ) {
-								ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
-								result.add(modelItem);	
-//								System.out
-//										.println("ApexUMLContentProvider.getChildren, line "
-//												+ Thread.currentThread()
-//														.getStackTrace()[1]
-//														.getLineNumber());
-//								System.out.println("added eObj : " + eObj);
-//								System.out.println("added modelItem : " + modelItem);
-							}
-						}
+						makeModelElementItemList(umlModel, result);
 					} else {
 						result.add(arrayObject[i]);
 					}
@@ -291,34 +208,50 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider {
 		}
 		return result.toArray();
 	}	
-
-	/**
-	 * apex updated
-	 */
+	
 	@Override
-	public Object[] getElements(final Object inputElement) {
-		Object[] rootElements = getRootElements(inputElement);
-		if (rootElements == null) {
-			return null;
-		}
-		List<Object> result = new ArrayList<Object>();
-		for (Object element : rootElements) {
-			if (element instanceof EObject) {
-				EObject eObject = (EObject) element;
-				result.add(new ModelElementItem(eObject, null, this.appearanceConfiguration));
-			} else {
-				result.add(element);
+	public boolean hasChildren(Object element) {
+		
+		boolean hasChildren = false;
+		
+		if ( element instanceof IProject ) {
+			IProject project = (IProject)element;
+		
+			try {
+				hasChildren = project.members().length > 0;
+			} catch (CoreException e) {
+				e.printStackTrace();
 			}
+		} else if ( element instanceof IFile ) {
+			IFile diFile = (IFile)element;
+			
+			if(OneFileUtils.isDi(diFile)) {
+				hasChildren = true;
+			}
+		} else {
+			hasChildren = super.getChildren(element).length > 0;
 		}
-		return result.toArray();
+		return hasChildren;
 	}
 	
-	
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+
 		super.inputChanged(viewer, oldInput, newInput);
+		
 		if(viewer instanceof CommonViewer) {
 			common = (CommonViewer)viewer;
 		}
 	}
 	
+	private void makeModelElementItemList(UmlModel umlModel, List<Object> result) {
+		EList<EObject> contents = umlModel.getResource().getContents();
+
+		for ( EObject eObj : contents ) {
+	
+			if ( eObj instanceof ModelImpl ) {
+				ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
+				result.add(modelItem);	
+			}
+		}
+	}
 }

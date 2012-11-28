@@ -48,7 +48,7 @@ import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 /**
  * the label provider that inherits of modisco label provider.
  */
-public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
+public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 //public class ApexMoDiscoLabelProvider extends MoDiscoLabelProvider {
 
 	/** icon registry. */
@@ -63,7 +63,7 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	/**
 	 * Creates a new MoDiscoLabelProvider.
 	 */
-	public ApexMoDiscoLabelProvider() {
+	public ApexUMLLabelProvider() {
 		super(Activator.getDefault().getCustomizationManager());
 		servicesRegistry = getServicesRegistry();
 		decorationService = getDecorationService();		
@@ -93,6 +93,10 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 		return result;
 	}
 
+	/**
+	 * apex updated
+	 * @return
+	 */
 	private ServicesRegistry getServicesRegistry() {
 		
 		if ( servicesRegistry != null ) {
@@ -109,6 +113,8 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Returns the message of the marker for the specified element.
 	 * 
 	 * @param element
@@ -130,6 +136,8 @@ public class ApexMoDiscoLabelProvider extends CustomizableModelLabelProvider {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * return the image of an element in the model browser
 	 * evaluates error markers.
 	 * 

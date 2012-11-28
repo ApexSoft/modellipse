@@ -3,7 +3,7 @@
 <plugin>
    <extension point="org.eclipse.ui.editors">
       <editor
-            class="org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor"
+            class="org.eclipse.papyrus.editor.apex.ModellipseMultiDiagramEditor"
             contributorClass="org.eclipse.papyrus.editor.PapyrusActionBarContributor"
             default="true"
             extensions="di"

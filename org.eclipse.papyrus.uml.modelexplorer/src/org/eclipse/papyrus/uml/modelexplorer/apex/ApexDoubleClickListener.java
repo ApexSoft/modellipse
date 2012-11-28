@@ -1,35 +1,18 @@
 package org.eclipse.papyrus.uml.modelexplorer.apex;
 
 import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.Set;
 
-import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
-import org.eclipse.papyrus.infra.core.apex.ApexModellipseExplorerRoot;
-import org.eclipse.papyrus.infra.core.apex.ApexProjectWrapper;
-import org.eclipse.papyrus.infra.core.lifecycleevents.ISaveAndDirtyService;
-import org.eclipse.papyrus.infra.core.resource.NotFoundException;
-import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
-import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
+import org.eclipse.papyrus.infra.core.apex.ApexModellipseProjectMap;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
-import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
-import org.eclipse.papyrus.views.modelexplorer.NavigatorUtils;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.WorkbenchException;
-import org.eclipse.ui.ide.IDE;
-import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 
 public class ApexDoubleClickListener implements IDoubleClickListener {
 
@@ -53,12 +36,16 @@ public class ApexDoubleClickListener implements IDoubleClickListener {
 					// 에디터 열고
 					IEditorPart editor = null;
 					IFile diFile = (IFile)currentObject;
+					
 					if(OneFileUtils.isDi(diFile)) {
-						editor = ApexModellipseExplorerRoot.openEditor(diFile);
+						editor = ApexModellipseProjectMap.openEditor(diFile);
 					}
+					
 					if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
 						ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
-						ApexModellipseExplorerRoot.addToGlobalRoot(diFile, servicesRegistry);
+						ApexModellipseProjectMap.setUpModelServices(diFile, servicesRegistry);
+						Viewer aViewer = event.getViewer();
+						aViewer.refresh();
 					}					
 				} 
 //				else {

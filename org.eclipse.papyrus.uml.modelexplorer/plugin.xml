@@ -46,7 +46,7 @@
             contentProvider="org.eclipse.papyrus.uml.modelexplorer.apex.ApexUMLContentProvider"
             icon="icons/Modellipse-windowImage-16.png"
             id="org.eclipse.papyrus.uml.modelexplorer.ModellipseNavigatorContent"
-            labelProvider="org.eclipse.papyrus.uml.modelexplorer.apex.ApexMoDiscoLabelProvider"
+            labelProvider="org.eclipse.papyrus.uml.modelexplorer.apex.ApexUMLLabelProvider"
             name="Modellipse Model Contents"
             priority="lower">
          <triggerPoints>
