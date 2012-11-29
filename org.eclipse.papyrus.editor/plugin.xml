@@ -5,10 +5,10 @@
       <editor
             class="org.eclipse.papyrus.editor.apex.ModellipseMultiDiagramEditor"
             contributorClass="org.eclipse.papyrus.editor.PapyrusActionBarContributor"
-            default="true"
+            default="false"
             extensions="di"
             icon="icons/papyrus/Papyrus_16x16.gif"
-            id="org.eclipse.papyrus.infra.core.papyrusEditor"
+            id="org.eclipse.papyrus.infra.core.papyrusEditor1"
             matchingStrategy="org.eclipse.papyrus.editor.PapyrusMatchingStrategy"
             name="Papyrus Editor Core">
       </editor>
