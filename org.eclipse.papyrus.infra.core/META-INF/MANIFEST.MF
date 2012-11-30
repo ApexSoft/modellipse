@@ -15,7 +15,6 @@ Require-Bundle: org.eclipse.papyrus.infra.core.sasheditor;bundle-version="0.9.1"
 Bundle-Activator: org.eclipse.papyrus.infra.core.Activator
 Bundle-Version: 0.9.1.v201209190809
 Export-Package: org.eclipse.papyrus.infra.core,
- org.eclipse.papyrus.infra.core.apex,
  org.eclipse.papyrus.infra.core.contentoutline,
  org.eclipse.papyrus.infra.core.editor,
  org.eclipse.papyrus.infra.core.editorsfactory,

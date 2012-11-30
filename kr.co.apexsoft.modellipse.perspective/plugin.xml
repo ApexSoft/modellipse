@@ -29,13 +29,6 @@
       </product>
    </extension>
    <extension
-         point="org.eclipse.emf.facet.infra.browser.custom.core.registration">
-      <browserCustomization
-            file="customization/modelexplorer/ApexModelExplorerDefault.uiCustom"
-            loadByDefault="true">
-      </browserCustomization>
-   </extension>
-   <extension
          point="org.eclipse.e4.ui.css.swt.theme">
       <theme
             basestylesheeturi="customization/css/modellipse.css"
@@ -62,12 +55,6 @@
             id="kr.co.apexsoft.modellipse.perspective.theme.ocean"
             label="ocean">
       </theme>
-   </extension>
-   <extension
-         point="org.eclipse.emf.facet.infra.query.registration">
-      <modelqueryset
-            file="customization/modelexplorer/ApexBrowserQuery.querySet">
-      </modelqueryset>
    </extension>
    <extension
          point="org.eclipse.ui.intro">

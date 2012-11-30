@@ -36,6 +36,7 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="kr.co.apexsoft.modellipse.explorer"/>
       <plugin id="kr.co.apexsoft.modellipse.perspective"/>
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.sourceforge.nattable.core"/>

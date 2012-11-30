@@ -43,7 +43,6 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.papyrus.infra.core.Activator;
-import org.eclipse.papyrus.infra.core.apex.ApexModellipseProjectMap;
 import org.eclipse.papyrus.infra.core.contentoutline.ContentOutlineRegistry;
 import org.eclipse.papyrus.infra.core.lifecycleevents.DoSaveEvent;
 import org.eclipse.papyrus.infra.core.lifecycleevents.IEditorInputChangedListener;

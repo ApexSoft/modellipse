@@ -9,13 +9,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.papyrus.uml.diagram.wizards,
  org.eclipse.ui.ide,
- org.eclipse.emf.facet.infra.browser.custom.core,
  org.eclipse.e4.ui.css.swt.theme,
  javax.inject,
  org.eclipse.e4.core.di,
  org.eclipse.e4.ui.workbench,
- org.eclipse.emf.facet.infra.query.core,
- org.eclipse.papyrus.uml.modelexplorer,
  org.eclipse.ui.intro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
