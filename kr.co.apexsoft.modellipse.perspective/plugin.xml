@@ -87,5 +87,17 @@
          </presentation>
       </config>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="kr.co.apexsoft.modellipse.perspective.perspective">
+         <newWizardShortcut
+               id="org.eclipse.papyrus.uml.diagram.wizards.1createproject">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="org.eclipse.papyrus.uml.diagram.wizards.createmodel">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>
 
 </plugin>

@@ -36,6 +36,8 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="kr.co.apexsoft.modellipse.custom.editors"/>
+      <plugin id="kr.co.apexsoft.modellipse.custom.editors.message"/>
       <plugin id="kr.co.apexsoft.modellipse.explorer"/>
       <plugin id="kr.co.apexsoft.modellipse.perspective"/>
       <plugin id="lpg.runtime.java"/>
@@ -98,6 +100,8 @@
       <plugin id="org.eclipse.e4.core.di"/>
       <plugin id="org.eclipse.e4.core.di.extensions"/>
       <plugin id="org.eclipse.e4.core.services"/>
+      <plugin id="org.eclipse.e4.tools.css.editor"/>
+      <plugin id="org.eclipse.e4.tools.css.editor.ui"/>
       <plugin id="org.eclipse.e4.ui.bindings"/>
       <plugin id="org.eclipse.e4.ui.css.core"/>
       <plugin id="org.eclipse.e4.ui.css.swt"/>
@@ -364,11 +368,7 @@
       <plugin id="org.eclipse.papyrus.infra.services.resourceloading"/>
       <plugin id="org.eclipse.papyrus.infra.services.resourceloading.preferences"/>
       <plugin id="org.eclipse.papyrus.infra.services.validation"/>
-      <plugin id="org.eclipse.papyrus.infra.table.common"/>
       <plugin id="org.eclipse.papyrus.infra.table.instance"/>
-      <plugin id="org.eclipse.papyrus.infra.table.menu"/>
-      <plugin id="org.eclipse.papyrus.infra.table.modelexplorer"/>
-      <plugin id="org.eclipse.papyrus.infra.table.properties"/>
       <plugin id="org.eclipse.papyrus.infra.tools"/>
       <plugin id="org.eclipse.papyrus.infra.ui.resources"/>
       <plugin id="org.eclipse.papyrus.infra.widgets"/>
@@ -406,8 +406,6 @@
       <plugin id="org.eclipse.papyrus.uml.properties"/>
       <plugin id="org.eclipse.papyrus.uml.resourceloading.profile"/>
       <plugin id="org.eclipse.papyrus.uml.service.types"/>
-      <plugin id="org.eclipse.papyrus.uml.table.default"/>
-      <plugin id="org.eclipse.papyrus.uml.table.widgets.celleditors"/>
       <plugin id="org.eclipse.papyrus.uml.templaterepository"/>
       <plugin id="org.eclipse.papyrus.uml.textedit.collaborationuse.xtext"/>
       <plugin id="org.eclipse.papyrus.uml.textedit.collaborationuse.xtext.ui"/>
@@ -444,6 +442,7 @@
       <plugin id="org.eclipse.pde.core"/>
       <plugin id="org.eclipse.pde.launching"/>
       <plugin id="org.eclipse.pde.ui"/>
+      <plugin id="org.eclipse.platform"/>
       <plugin id="org.eclipse.search"/>
       <plugin id="org.eclipse.swt"/>
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
@@ -504,6 +503,8 @@
       <plugin id="org.eclipse.xtext.logging" fragment="true"/>
       <plugin id="org.eclipse.xtext.smap"/>
       <plugin id="org.eclipse.xtext.ui"/>
+      <plugin id="org.eclipse.xtext.ui.codetemplates"/>
+      <plugin id="org.eclipse.xtext.ui.codetemplates.ui"/>
       <plugin id="org.eclipse.xtext.ui.shared"/>
       <plugin id="org.eclipse.xtext.util"/>
       <plugin id="org.eclipse.xtext.xbase"/>
@@ -511,6 +512,7 @@
       <plugin id="org.hamcrest.core"/>
       <plugin id="org.junit"/>
       <plugin id="org.junit4"/>
+      <plugin id="org.polarion.eclipse.team.svn.connector.svnkit17"/>
       <plugin id="org.sat4j.core"/>
       <plugin id="org.sat4j.pb"/>
       <plugin id="org.w3c.css.sac"/>
