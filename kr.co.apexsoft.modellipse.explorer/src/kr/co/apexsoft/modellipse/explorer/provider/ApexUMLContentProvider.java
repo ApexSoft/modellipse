@@ -68,7 +68,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 //		super();
 		super(Activator.getDefault().getCustomizationManager());
 		appearanceConfiguration = new AppearanceConfiguration(new ItemsFactory());
-
+//      아래는 없어도 자동으로 리스너로 등록되는 모양
 //		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}	
 
@@ -305,14 +305,14 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 		}	
 	}
 	
+	/**
+	 * 아래부터 org.eclipse.ui.model.WorkbenchContentProvider에서 가져옴
+	 */
 	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		processDelta(event.getDelta());
-	}
+	}	
 	
-	/**
-	 * from WorkbenchContentProvider
-	 */
 	/**
 	 * Process the resource delta.
 	 * 
