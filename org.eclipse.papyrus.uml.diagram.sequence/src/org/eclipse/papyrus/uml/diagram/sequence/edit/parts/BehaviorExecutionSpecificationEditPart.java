@@ -150,8 +150,8 @@ public class BehaviorExecutionSpecificationEditPart extends AbstractExecutionSpe
 	@Override
 	public EditPolicy getPrimaryDragEditPolicy() {
 		/* apex improved start */
-		EditPolicy policy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-		return policy != null ? policy : new ApexExecutionSpecificationSelectionEditPolicy();
+//		EditPolicy policy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+		return new ApexExecutionSpecificationSelectionEditPolicy();
 		/* apex improved end */
 		/* apex replaced
 		EditPolicy result = super.getPrimaryDragEditPolicy();
