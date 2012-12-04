@@ -26,6 +26,8 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.AccessibleEditPart;
+import org.eclipse.gef.ConnectionEditPart;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
@@ -34,9 +36,11 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -64,17 +68,20 @@ import org.eclipse.papyrus.infra.gmfdiag.common.editpolicies.IMaskManagedLabelEd
 import org.eclipse.papyrus.uml.diagram.common.directedit.MultilineLabelDirectEditManager;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.IDirectEdition;
 import org.eclipse.papyrus.uml.diagram.common.figure.node.ILabelFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageLabelEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.UMLTextSelectionEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLParserProvider;
-import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.MessageLabelEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.uml2.uml.ConnectableElement;
+import org.eclipse.uml2.uml.Lifeline;
 
 /**
  * @generated
@@ -637,9 +644,33 @@ public class MessageName2EditPart extends LabelEditPart implements ITextAwareEdi
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Updates the preference configuration
 	 */
 	protected void updateExtendedEditorConfiguration() {
+		/* apex added start */
+		boolean isExtendedEditor = false;
+		AbstractMessageEditPart parent = (AbstractMessageEditPart)getAdapter(AbstractMessageEditPart.class);
+		if (parent != null) {
+			EditPart target = parent.getTarget();
+			LifelineEditPart targetLifelineEP = SequenceUtil.getParentLifelinePart(target);
+			if (targetLifelineEP != null) {
+				Lifeline lifeline = (Lifeline)targetLifelineEP.getAdapter(Lifeline.class);
+				ConnectableElement represents = lifeline.getRepresents();
+				if (represents != null && represents.getType() != null) {
+					isExtendedEditor = true;
+				}
+			}
+		}
+		if (!isExtendedEditor) {
+			configuration = null;
+			return;
+		} else {
+			initExtendedEditorConfiguration();
+		}
+		/* apex added end */
+		
 		String languagePreferred = Activator.getDefault().getPreferenceStore().getString(IDirectEditorsIds.EDITOR_FOR_ELEMENT + resolveSemanticElement().eClass().getInstanceClassName());
 		if(languagePreferred != null && !languagePreferred.equals("") && languagePreferred != configuration.getLanguage()) {
 			configuration = DirectEditorsUtil.findEditorConfiguration(languagePreferred, resolveSemanticElement().eClass().getInstanceClassName());
