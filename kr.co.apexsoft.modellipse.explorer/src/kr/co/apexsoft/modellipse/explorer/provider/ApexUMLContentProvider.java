@@ -234,7 +234,9 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			IProject project = (IProject)element;
 
 			try {
-				hasChildren = project.members().length > 0;
+				if (project.isAccessible()) {
+					hasChildren = project.members().length > 0;
+				}
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}

@@ -64,32 +64,7 @@ public class DecoratingLabelProviderWTooltips extends NavigatorDecoratingLabelPr
 	 * apex updated
 	 */
 	@Override
-	public void update(ViewerCell cell) {
-		/* apex improved start */
-		Object element = cell.getElement();
-
-		StyledString styledString = getStyledText(element);
-		String newText= styledString.toString();
-		
-		StyleRange[] oldStyleRanges= cell.getStyleRanges();
-		StyleRange[] newStyleRanges= isOwnerDrawEnabled() ? styledString.getStyleRanges() : null;
-		
-		if (!Arrays.equals(oldStyleRanges, newStyleRanges)) {
-			cell.setStyleRanges(newStyleRanges);
-			if (cell.getText().equals(newText)) {
-				// make sure there will be a refresh from a change
-				cell.setText(""); //$NON-NLS-1$
-			}
-		}
-		
-		cell.setText(newText);
-		cell.setImage(getImage(element));
-		cell.setFont(getFont(element));
-		cell.setForeground(getForeground(element));
-		cell.setBackground(getBackground(element));
-		/* apex improved end */
-		/* apex replaced
+	public void update(ViewerCell cell) {		
 		super.update(cell);
-		*/
 	}
 }

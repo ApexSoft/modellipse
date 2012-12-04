@@ -60,7 +60,7 @@
             id="kr.co.apexsoft.modellipse.explorer.ModellipseNavigatorContent"
             labelProvider="kr.co.apexsoft.modellipse.explorer.provider.ApexUMLLabelProvider"
             name="Modellipse Model Contents"
-            priority="lower">
+            priority="normal">
          <triggerPoints>
             <or>
                <instanceof
@@ -158,5 +158,11 @@
      <modelqueryset
            file="resources/ApexBrowserQuery.querySet">
      </modelqueryset>
+  </extension>
+  <extension
+        point="org.eclipse.emf.facet.infra.facet.registration">
+     <facetset
+           file="resources/ApexModellipseUMLFacet.facetSet">
+     </facetset>
   </extension>
 </plugin>

@@ -15,19 +15,16 @@ package kr.co.apexsoft.modellipse.explorer.view;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import kr.co.apexsoft.modellipse.explorer.Activator;
+import kr.co.apexsoft.modellipse.explorer.provider.ApexDecoratingLabelProviderWTooltips;
+
 import org.eclipse.core.commands.operations.IUndoContext;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -42,14 +39,12 @@ import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
@@ -66,9 +61,7 @@ import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
-import org.eclipse.papyrus.views.modelexplorer.Activator;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
-import org.eclipse.papyrus.views.modelexplorer.DecoratingLabelProviderWTooltips;
 import org.eclipse.papyrus.views.modelexplorer.ModelExplorerPageBookView;
 import org.eclipse.papyrus.views.modelexplorer.matching.IMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.LinkItemMatchingItem;
@@ -108,7 +101,10 @@ import com.google.common.collect.Lists;
  * source when the current Editor change. To allow to explore different Model, use a {@link ModelExplorerPageBookView}.
  * 
  */
-public class ApexModellipseExplorerView extends CommonNavigator implements IRevealSemanticElement, IEditingDomainProvider {
+public class ApexModellipseExplorerView extends CommonNavigator 
+                                        implements IRevealSemanticElement, 
+                                                   IEditingDomainProvider,
+                                                   ITabbedPropertySheetPageContributor {
 
 	/** ID of the view, as given in the plugin.xml file */
 	public static final String VIEW_ID = "org.eclipse.papyrus.uml.modelexplorer.modellipseexplorer"; //$NON-NLS-1$
@@ -343,7 +339,7 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 			if(descriptor instanceof NavigatorContentDescriptor) {
 				try {
 					ILabelProvider labelProvider = ((NavigatorContentDescriptor)descriptor).createLabelProvider();
-					viewer.setLabelProvider(new DecoratingLabelProviderWTooltips(labelProvider)); // add for decorator and tooltip support
+					viewer.setLabelProvider(new ApexDecoratingLabelProviderWTooltips(labelProvider)); // add for decorator and tooltip support
 				} catch (CoreException e) {
 					Activator.log.error(e);
 				}
@@ -741,5 +737,14 @@ public class ApexModellipseExplorerView extends CommonNavigator implements IReve
 		MessageDialog.openError(getSite().getShell(), "Error", String.format("Your model is corrupted, invalid links have been found :\n"
 			+ "%s"
 			+ "It is recommended to fix it before editing it", e.getMessage()));
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getContributorId() {
+		// return Activator.PLUGIN_ID;
+		return "ApexModellipseExplorer";
+
 	}
 }
