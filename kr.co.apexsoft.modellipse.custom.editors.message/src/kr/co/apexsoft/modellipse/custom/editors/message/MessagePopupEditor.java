@@ -1,11 +1,14 @@
 package kr.co.apexsoft.modellipse.custom.editors.message;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import kr.co.apexsoft.modellipse.custom.editors.IPopupEditorInputFactory;
 import kr.co.apexsoft.modellipse.custom.editors.PopupEditorConfiguration;
@@ -64,7 +67,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 	
 	private Map<EClass, List<EObject>> mapTypesPossibleParents;
 	
-	private List<EObject> signatures;
+	private Collection<EObject> signatures;
 	
 	private IGraphicalEditPart graphicalEditPart;
 	
@@ -272,9 +275,9 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		return mapTypesPossibleParents;
 	}
 	
-	private List<EObject> getSignature(Element source, Element target, MessageSort messageSort) {
+	private Collection<EObject> getSignature(Element source, Element target, MessageSort messageSort) {
 
-		List<EObject> existingElements = new ArrayList<>();
+		Set<EObject> existingElements = new HashSet<EObject>();
 		mapTypesPossibleParents = getTypesPossibleParents(source, target, messageSort);
 		
 		for(EClass eClass : mapTypesPossibleParents.keySet()) {
