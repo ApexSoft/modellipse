@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 import kr.co.apexsoft.modellipse.custom.editors.IPopupEditorInputFactory;
+import kr.co.apexsoft.modellipse.custom.editors.InitSelectedEditorHelper;
 import kr.co.apexsoft.modellipse.custom.editors.PopupEditorConfiguration;
 import kr.co.apexsoft.modellipse.custom.editors.message.dialogs.CreateOrModifySignatureDialog;
 import kr.co.apexsoft.modellipse.custom.editors.message.providers.MessagePopupEditorLabelProvider;
@@ -65,6 +66,8 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 	
 	private ILabelProvider elementLabelProvider;
 	
+	private ILabelProvider typeLabelProvider;
+	
 	private Map<EClass, List<EObject>> mapTypesPossibleParents;
 	
 	private Collection<EObject> signatures;
@@ -100,19 +103,24 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		
 //		modelProperty = new PapyrusObservableValue(message, UMLPackage.eINSTANCE.getMessage_Signature(), editingDomain);
 
-		final List<Object> contents = new ArrayList<Object>();
 		signatures = getSignature(source, target, message.getMessageSort());
+		
+		EditorType editorType = EditorType.NONE;
+		final List<Object> contents = new ArrayList<Object>();
 		contents.add(CREATE_LABEL);
 		contents.add(DESELECT_LABEL);
 		if (signatures != null && signatures.size() > 0) {
 			contents.addAll(signatures);
+			editorType = EditorType.LIST;
 		}
 		
-		elementLabelProvider = new MessagePopupEditorLabelProvider();
-		
 		IPopupEditorInputFactory factory = getPopupEditorInputFactory(contents);
-		
-		return super.createPopupEditorHelper(editPart, EditorType.LIST, factory);
+
+		IPopupEditorHelper helper = super.createPopupEditorHelper(editPart, editorType, factory);
+		if (helper instanceof InitSelectedEditorHelper) {
+			((InitSelectedEditorHelper)helper).setSelection(CREATE_LABEL);
+		}
+		return helper;
 	}
 	
 	protected IPopupEditorInputFactory getPopupEditorInputFactory(final Object contents) {
@@ -120,7 +128,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 			
 			@Override
 			public ILabelProvider getLabelProvider() {
-				return elementLabelProvider;
+				return getElementLabelProvider();
 			}
 			
 			@Override
@@ -174,7 +182,7 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 		try {
 			IEditorPart editor = ((DiagramEditDomain)graphicalEditPart.getDiagramEditDomain()).getEditorPart();
 			CreateOrModifySignatureDialog dialog = new CreateOrModifySignatureDialog(
-					editor.getSite().getShell(), "Create a new Signature", createTypeLabelProvider(), elementLabelProvider,
+					editor.getSite().getShell(), "Create a new Signature", getTypeLabelProvider(), getElementLabelProvider(),
 					editingDomain, mapTypesPossibleParents, null);
 			if (IDialogConstants.OK_ID == dialog.open()) {
 				EObject selectedElement = dialog.getSelected();
@@ -198,6 +206,20 @@ public class MessagePopupEditor extends PopupEditorConfiguration {
 				editingDomain.getCommandStack().execute(command);
 			}
 		}
+	}
+	
+	private ILabelProvider getElementLabelProvider() {
+		if (elementLabelProvider == null) {
+			elementLabelProvider = new MessagePopupEditorLabelProvider();
+		}
+		return elementLabelProvider;
+	}
+	
+	private ILabelProvider getTypeLabelProvider() {
+		if (typeLabelProvider == null) {
+			typeLabelProvider = createTypeLabelProvider();
+		}
+		return typeLabelProvider;
 	}
 	
 	private ILabelProvider createTypeLabelProvider() {
