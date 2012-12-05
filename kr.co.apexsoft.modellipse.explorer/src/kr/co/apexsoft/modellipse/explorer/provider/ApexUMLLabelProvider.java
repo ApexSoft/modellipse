@@ -14,6 +14,8 @@
  *****************************************************************************/
 package kr.co.apexsoft.modellipse.explorer.provider;
 
+import kr.co.apexsoft.modellipse.explorer.Activator;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IAdaptable;
@@ -31,7 +33,6 @@ import org.eclipse.papyrus.infra.core.editorsfactory.IPageIconsRegistry;
 import org.eclipse.papyrus.infra.core.editorsfactory.PageIconsRegistry;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
-import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.infra.services.decoration.DecorationService;
 import org.eclipse.papyrus.infra.services.decoration.util.Decoration;
@@ -60,7 +61,7 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 	private ServicesRegistry servicesRegistry = null;
 
 	/**
-	 * Creates a new MoDiscoLabelProvider.
+	 * Creates a new ApexUMLLabelProvider.
 	 */
 	public ApexUMLLabelProvider() {
 		super(Activator.getDefault().getCustomizationManager());
@@ -151,13 +152,11 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 		decorationService = getDecorationService();
 
 		if ( element instanceof IProject ) {
-			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(
-					kr.co.apexsoft.modellipse.explorer.Activator.PLUGIN_ID, 
+			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, 
                       "icons/Modellipse-windowImage-16.png");
 			image = imgDesc.createImage();
 		} else if ( element instanceof IFile ) {
-			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(
-					kr.co.apexsoft.modellipse.explorer.Activator.PLUGIN_ID, 
+			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, 
                       "icons/class_hi.gif");	
 			image = imgDesc.createImage();
 		} else {
@@ -190,8 +189,7 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 				//return the target decorated
 				image = adapter.getDecoratedImage();
 			} else {	
-				imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(
-	                      kr.co.apexsoft.modellipse.explorer.Activator.PLUGIN_ID, 
+				imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, 
 	                      "icons/errorwarning_tab.gif");	
 				image = imgDesc.createImage();			
 			}

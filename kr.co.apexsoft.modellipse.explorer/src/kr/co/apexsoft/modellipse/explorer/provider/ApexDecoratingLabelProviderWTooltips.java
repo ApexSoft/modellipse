@@ -5,7 +5,6 @@ import java.util.Arrays;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.ViewerCell;
-import org.eclipse.papyrus.views.modelexplorer.MoDiscoLabelProvider;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider;

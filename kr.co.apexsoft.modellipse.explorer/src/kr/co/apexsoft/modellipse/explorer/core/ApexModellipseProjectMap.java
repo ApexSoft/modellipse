@@ -106,30 +106,33 @@ public class ApexModellipseProjectMap {
 		ApexProjectWrapper projectWrapper = null;
 		projectWrapper = (ApexProjectWrapper) ApexModellipseProjectMap.getProjectMap().get(projectPath);
 
-//		if ( servicesRegsitryMap.containsKey(diPath) ) {
-//			servicesRegsitryMap.remove(diPath);
-//			projectWrapper.addServicesRegistryChildren(servicesRegistry);
-//		}
-//		if ( !projectWrapper.getSaveAndDirtyServiceMap().containsKey(diPath) ) {
-//			projectWrapper.put(diPath, saveAndDirtyService);
-//		}
-//		if ( !projectWrapper.getTransactionalEditingDomainMap().containsKey(diPath) ) {
-//			projectWrapper.put(diPath, transactionalEditingDomain);
-//		}
-//		if ( !projectWrapper.getUndoContextMap().containsKey(diPath) ) {
-//			projectWrapper.put(diPath, undoContext);
-//		}
-//		if ( !projectWrapper.getDiFileMap().containsKey(diPath) ) {
-//			projectWrapper.put(diPath, diFile);					
-//		}
-		if ( projectWrapper.getUmlModelMap().containsKey(diPath) ) {
-			projectWrapper.removeUmlModel(diPath);
-//			projectWrapper.removeChildren(umlModel);	
+		if ( projectWrapper != null ) {
+//			if ( servicesRegsitryMap.containsKey(diPath) ) {
+//				servicesRegsitryMap.remove(diPath);
+//				projectWrapper.addServicesRegistryChildren(servicesRegistry);
+//			}
+//			if ( !projectWrapper.getSaveAndDirtyServiceMap().containsKey(diPath) ) {
+//				projectWrapper.put(diPath, saveAndDirtyService);
+//			}
+//			if ( !projectWrapper.getTransactionalEditingDomainMap().containsKey(diPath) ) {
+//				projectWrapper.put(diPath, transactionalEditingDomain);
+//			}
+//			if ( !projectWrapper.getUndoContextMap().containsKey(diPath) ) {
+//				projectWrapper.put(diPath, undoContext);
+//			}
+//			if ( !projectWrapper.getDiFileMap().containsKey(diPath) ) {
+//				projectWrapper.put(diPath, diFile);					
+//			}
+			if ( projectWrapper.getUmlModelMap().containsKey(diPath) ) {
+				projectWrapper.removeUmlModel(diPath);
+//				projectWrapper.removeChildren(umlModel);	
+			}
+			if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
+				projectWrapper.setIsDisposed(diPath, new Boolean(true));
+//				projectWrapper.removeChildren(umlModel);	
+			}			
 		}
-		if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
-			projectWrapper.setIsDisposed(diPath, new Boolean(true));
-//			projectWrapper.removeChildren(umlModel);	
-		}
+
 	}
 
 	public static IEditorPart openEditor(IFile diFile) {

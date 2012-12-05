@@ -101,7 +101,12 @@ public class Activator extends AbstractUIPlugin implements org.eclipse.ui.IStart
 	 * @return the customization manager in charge to adapt element in modisco
 	 */
 	public CustomizationManager getCustomizationManager() {
-	return org.eclipse.papyrus.infra.emf.Activator.getDefault().getCustomizationManager();
+		return org.eclipse.papyrus.infra.emf.Activator.getDefault().getCustomizationManager();
+//		if(this.fCustomizationManager == null) {
+//			this.fCustomizationManager = new CustomizationManager();
+//			init(this.fCustomizationManager);
+//		}
+//		return this.fCustomizationManager;
 	}
 
 	private void init(final CustomizationManager customizationManager) {
@@ -225,4 +230,11 @@ public class Activator extends AbstractUIPlugin implements org.eclipse.ui.IStart
 
 		return builder.toString();
 	}
+	
+	
+	
+	
+	public static ImageDescriptor getIDEImageDescriptor(String imagePath) {
+        return AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, imagePath);
+    }
 }

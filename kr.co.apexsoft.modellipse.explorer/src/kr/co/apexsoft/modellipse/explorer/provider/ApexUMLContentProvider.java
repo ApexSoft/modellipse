@@ -303,7 +303,11 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			aProjectWrapper = ApexModellipseProjectMap.setUpModelServices(diFile, servicesRegistry);
 
 			UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
-			makeModelElementItemList(umlModel, result);
+			makeModelElementItemList(umlModel, result);			
+			
+			// refresh() 하지 않으면 MultiDiagramEditor보다 ExplorerView가 먼저 실행된 경우
+			// Browser Customization이 작동하지 않음
+			viewer.refresh();
 		}	
 	}
 	

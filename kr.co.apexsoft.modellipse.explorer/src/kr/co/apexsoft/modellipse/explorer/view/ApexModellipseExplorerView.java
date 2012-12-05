@@ -637,6 +637,8 @@ public class ApexModellipseExplorerView extends CommonNavigator
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Expands the given CommonViewer to reveal the given elements
 	 * @param elementList The elements to reveal
 	 * @param commonViewer The CommonViewer they are to be revealed in
@@ -655,7 +657,11 @@ public class ApexModellipseExplorerView extends CommonNavigator
 			matchingItemsToSelect.add(new ModelElementItemMatchingItem(currentEObject));
 
 			// the content provider exist?
-			if(commonViewer.getContentProvider() != null) {
+			if(commonViewer.getContentProvider() != null
+			   /* apex added start */
+			   && !commonViewer.isBusy()) {
+			   /* apex added end */
+					
 				// retrieve the ancestors to reveal them
 				// and allow the selection of the object
 				ArrayList<EObject> parents = new ArrayList<EObject>();
@@ -744,7 +750,9 @@ public class ApexModellipseExplorerView extends CommonNavigator
 	 */
 	public String getContributorId() {
 		// return Activator.PLUGIN_ID;
-		return "ApexModellipseExplorer";
+		// papyrus 내용 재사용. xml에서 TreeOutlinePage 검색으로 분석 가능
+		// 실제는 MultiDiagramEditor의 getContributorId()에 명시되어 있는 것이 유효
+		return "TreeOutlinePage";
 
 	}
 }

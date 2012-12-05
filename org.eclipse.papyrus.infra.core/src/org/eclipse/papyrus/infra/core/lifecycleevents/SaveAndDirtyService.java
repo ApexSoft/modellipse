@@ -450,7 +450,17 @@ public class SaveAndDirtyService extends LifeCycleEventsProvider implements ISav
 	 * @param inputChangedListener
 	 */
 	public void removeInputChangedListener(IEditorInputChangedListener inputChangedListener) {
+		/* apex improved start */
+		// MultiDiagramEditor가 열려있는 상태에서 Eclipse를  닫는 경우
+		// MultiDiagramEditor.dispose()에 의해 SaveAndDirtyService.disposeService()가 먼저 호출되어
+		// inputChangedListeners가 이미 null 인 경우도 있으므로 아래 추가
+		if ( inputChangedListeners != null ) {
+			inputChangedListeners.remove(inputChangedListener);	
+		}
+		/* apex improved end */
+		/* apex replaced
 		inputChangedListeners.remove(inputChangedListener);
+		*/
 	}
 
 	/**
