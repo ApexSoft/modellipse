@@ -48,6 +48,9 @@
             <actionExtension
                   pattern="org.eclipse.ui.navigator.resources.*">
             </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.actions.*">
+            </actionExtension>
          </includes>
       </viewerActionBinding>
    </extension>
@@ -145,6 +148,33 @@
         <command commandId="org.eclipse.papyrus.views.modelexplorer.sortelement" icon="icons/etool16/sort.gif" label="sort" style="toggle">
         </command>
     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <category
+           id="kr.co.apexsoft.modellipse.wizards.category"
+           name="Modellipse">
+     </category>
+     <wizard
+           category="kr.co.apexsoft.modellipse.wizards.category"
+           class="kr.co.apexsoft.modellipse.explorer.wizard.ApexNewProjectWizard"
+           finalPerspective="kr.co.apexsoft.modellipse.perspective.perspective"
+           icon="icons/Logo-16-8bit.bmp"
+           id="org.eclipse.papyrus.uml.diagram.wizards.1createproject"
+           name="Modellipse Project"
+           project="true">
+        <description>
+           %NewWizards.project.description
+        </description>
+     </wizard>
+     <wizard
+           category="kr.co.apexsoft.modellipse.wizards.category"
+           class="kr.co.apexsoft.modellipse.explorer.wizard.ApexInitModelWizard"
+           finalPerspective="kr.co.apexsoft.modellipse.perspective.perspective"
+           icon="icons/Logo-16-8bit.bmp"
+           id="org.eclipse.papyrus.uml.diagram.wizards.createmodel"
+           name="Modellipse Model">
+     </wizard>
   </extension>
   <extension
         point="org.eclipse.emf.facet.infra.browser.custom.core.registration">

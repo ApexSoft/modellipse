@@ -454,6 +454,18 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 		if (addedChildren.length == 0 && removedChildren.length == 0) {
 			return;
 		}
+		
+		/* apex added start */
+		// model wizard에서 추가된 notation, uml 은 Tree에 추가되지 않도록 처리
+		for ( IResourceDelta aChildren : addedChildren ) {
+			String fileExtension = aChildren.getProjectRelativePath().getFileExtension();
+			
+			if ( fileExtension.equals("notation") || fileExtension.equals("uml") ) {
+				return;
+			}
+				 
+		}
+		/* apex added end */
 
 		final Object[] addedObjects;
 		final Object[] removedObjects;
