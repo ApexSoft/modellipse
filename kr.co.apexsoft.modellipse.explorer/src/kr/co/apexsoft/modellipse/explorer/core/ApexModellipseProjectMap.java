@@ -99,6 +99,11 @@ public class ApexModellipseProjectMap {
 		return projectWrapper;
 	}
 
+	/**
+	 * diFile이 close될 때 Services 처리
+	 * 
+	 * @param diFile
+	 */
 	public static void clearModelServices(IFile diFile) {
 
 		String diPath = diFile.getLocationURI().getPath();
@@ -130,6 +135,29 @@ public class ApexModellipseProjectMap {
 			if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
 				projectWrapper.setIsDisposed(diPath, new Boolean(true));
 //				projectWrapper.removeChildren(umlModel);	
+			}			
+		}
+
+	}
+	
+	/**
+	 * diFile이 삭제될 때 Services 처리
+	 * 
+	 * @param diFile
+	 */
+	public static void removeModelServices(IFile diFile) {
+
+		String diPath = diFile.getLocationURI().getPath();
+		String projectPath = diFile.getParent().getLocationURI().getPath();
+		ApexProjectWrapper projectWrapper = null;
+		projectWrapper = (ApexProjectWrapper) ApexModellipseProjectMap.getProjectMap().get(projectPath);
+
+		if ( projectWrapper != null ) {
+			if ( projectWrapper.getUmlModelMap().containsKey(diPath) ) {
+				projectWrapper.removeUmlModel(diPath);
+			}
+			if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
+				projectWrapper.removeIsDisposedMap(diPath);
 			}			
 		}
 

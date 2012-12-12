@@ -2,10 +2,9 @@ package kr.co.apexsoft.modellipse.explorer.core;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.facet.infra.browser.uicore.CustomizationManager;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.infra.core.Activator;
@@ -29,9 +28,11 @@ public class ApexProjectWrapper {
 //	private Map<String, IUndoContext> _undoContextMap;
 //	private Map<String, IPropertySheetPage> _propertySheetPageMap;
 //	private Map<String, IFile> _diFileMap;
+	/**
+	 * key : diPath
+	 */
 	private Map<String, UmlModel> _umlModelMap;
 	private Map<String, Boolean> _isDisposedMap;
-
 
 	public ApexProjectWrapper(IProject project) {
 		_project = project;
@@ -67,8 +68,8 @@ public class ApexProjectWrapper {
 //		return _childrenServicesRegistry;
 //	}
 //	
-//	public void put(String diUri, ServicesRegistry s) {
-//		_servicesRegistryMap.put(diUri, s);		
+//	public void put(String diPath, ServicesRegistry s) {
+//		_servicesRegistryMap.put(diPath, s);		
 //	}
 //	
 //	public ServicesRegistry getServicesRegistry(String diPath) {
@@ -79,8 +80,8 @@ public class ApexProjectWrapper {
 //		return _servicesRegistryMap;
 //	}
 //	
-//	public void put(String diUri, TransactionalEditingDomain t) {
-//		_transactionalEditingDomainMap.put(diUri, t);		
+//	public void put(String diPath, TransactionalEditingDomain t) {
+//		_transactionalEditingDomainMap.put(diPath, t);		
 //	}
 //	
 //	public TransactionalEditingDomain getTransactionalEditingDomain(String diPath) {
@@ -91,8 +92,8 @@ public class ApexProjectWrapper {
 //		return _transactionalEditingDomainMap;
 //	}	
 //	
-//	public void put(String diUri, ISaveAndDirtyService s) {
-//		_saveAndDirtyServiceMap.put(diUri, s);		
+//	public void put(String diPath, ISaveAndDirtyService s) {
+//		_saveAndDirtyServiceMap.put(diPath, s);		
 //	}
 //	
 //	public ISaveAndDirtyService getSaveAndDirtyService(String diPath) {
@@ -103,8 +104,8 @@ public class ApexProjectWrapper {
 //		return _saveAndDirtyServiceMap;
 //	}	
 //	
-//	public void put(String diUri, IUndoContext s) {
-//		_undoContextMap.put(diUri, s);		
+//	public void put(String diPath, IUndoContext s) {
+//		_undoContextMap.put(diPath, s);		
 //	}
 //	
 //	public IUndoContext getUndoContext(String diPath) {
@@ -115,8 +116,8 @@ public class ApexProjectWrapper {
 //		return _undoContextMap;
 //	}
 //	
-//	public void put(String diUri, IPropertySheetPage s) {
-//		_propertySheetPageMap.put(diUri, s);		
+//	public void put(String diPath, IPropertySheetPage s) {
+//		_propertySheetPageMap.put(diPath, s);		
 //	}
 //	
 //	public IPropertySheetPage getPropertySheetPage(String diPath) {
@@ -127,8 +128,8 @@ public class ApexProjectWrapper {
 //		return _propertySheetPageMap;
 //	}
 //	
-//	public void put(String diUri, IFile s) {
-//		_diFileMap.put(diUri, s);		
+//	public void put(String diPath, IFile s) {
+//		_diFileMap.put(diPath, s);		
 //	}
 //	
 //	public IFile getDiFile(String diPath) {
@@ -139,12 +140,12 @@ public class ApexProjectWrapper {
 //		return _diFileMap;
 //	}
 
-	public void put(String diUri, UmlModel s) {
-		_umlModelMap.put(diUri, s);		
+	public void put(String diPath, UmlModel s) {
+		_umlModelMap.put(diPath, s);		
 	}
 
-	public void removeUmlModel(String diUri) {
-		_umlModelMap.remove(diUri);
+	public void removeUmlModel(String diPath) {
+		_umlModelMap.remove(diPath);
 	}
 
 	public UmlModel getUmlModel(String diPath) {
@@ -159,23 +160,27 @@ public class ApexProjectWrapper {
 		return _isDisposedMap;
 	}
 
-	public void put(String diUri, Boolean isDisposed) {
-		_isDisposedMap.put(diUri, isDisposed);
+	public void put(String diPath, Boolean isDisposed) {
+		_isDisposedMap.put(diPath, isDisposed);
 	}	
 
-	public void setIsDisposed(String diUri, Boolean isDisposed) {
-		_isDisposedMap.remove(diUri);
-		_isDisposedMap.put(diUri, isDisposed);
+	public void setIsDisposed(String diPath, Boolean isDisposed) {
+		_isDisposedMap.remove(diPath);
+		_isDisposedMap.put(diPath, isDisposed);
 	}
 
-	public boolean getIsDisposed(String diUri) {
+	public boolean getIsDisposed(String diPath) {
 		boolean isDisposed;
-		if (_isDisposedMap.get(diUri) == null ) {
+		if (_isDisposedMap.get(diPath) == null ) {
 			isDisposed = false;
 		} else {
-			isDisposed = _isDisposedMap.get(diUri).booleanValue(); 
+			isDisposed = _isDisposedMap.get(diPath).booleanValue(); 
 		}
 		return isDisposed;
+	}
+	
+	public void removeIsDisposedMap(String diPath) {
+		_isDisposedMap.remove(diPath);
 	}
 
 	public IProject getProject() {

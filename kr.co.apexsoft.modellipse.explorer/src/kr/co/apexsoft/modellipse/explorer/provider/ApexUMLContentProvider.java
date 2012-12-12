@@ -15,9 +15,11 @@ package kr.co.apexsoft.modellipse.explorer.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import kr.co.apexsoft.modellipse.explorer.core.ApexModellipseProjectMap;
 import kr.co.apexsoft.modellipse.explorer.core.ApexProjectWrapper;
@@ -31,17 +33,27 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.facet.infra.browser.Messages;
+import org.eclipse.emf.facet.infra.browser.custom.MetamodelView;
+import org.eclipse.emf.facet.infra.browser.custom.TypeView;
+import org.eclipse.emf.facet.infra.browser.custom.core.CustomizationsCatalog;
 import org.eclipse.emf.facet.infra.browser.uicore.CustomizableModelContentProvider;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.AppearanceConfiguration;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ItemsFactory;
-import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
+import org.eclipse.emf.facet.infra.facet.Facet;
+import org.eclipse.emf.facet.infra.facet.FacetSet;
+import org.eclipse.emf.facet.infra.facet.core.FacetSetCatalog;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
@@ -49,7 +61,6 @@ import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 
 /**
@@ -61,42 +72,171 @@ import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 public class ApexUMLContentProvider extends CustomizableModelContentProvider implements IResourceChangeListener {
 
 	private Viewer viewer;
-
-	private final AppearanceConfiguration appearanceConfiguration;	
+	private ItemsFactory itemsFactory;
+	private final AppearanceConfiguration appearanceConfiguration;
 
 	public ApexUMLContentProvider() {
-//		super();
-		super(Activator.getDefault().getCustomizationManager());
-		appearanceConfiguration = new AppearanceConfiguration(new ItemsFactory());
+		
+		super(Activator.getDefault().getCustomizationManager());		
+		
+		itemsFactory = new ItemsFactory();
+		appearanceConfiguration = new AppearanceConfiguration(itemsFactory);
+		
+		// CustomizationManager.getAppearanceConfiguration()이 접근불가하므로 아래와 같이
+		// Activator에서 해주는 처리와 동일하게 처리
+		setupAppearanceConfiguration(appearanceConfiguration);
+		
 //      아래는 없어도 자동으로 리스너로 등록되는 모양
 //		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}	
+	
+	private void setupAppearanceConfiguration(AppearanceConfiguration appearanceConfiguration) {
+		
+		appearanceConfiguration.setShowDerivedLinks(true);
+		appearanceConfiguration.setDecorateExternalResources(false);
+		try {
+
+			// load customizations defined as default through the customization
+			// extension
+			List<MetamodelView> registryDefaultCustomizations = CustomizationsCatalog.getInstance().getRegistryDefaultCustomizations();
+			for(MetamodelView metamodelView : registryDefaultCustomizations) {
+				appearanceConfiguration.getCustomizationEngine().registerCustomization(metamodelView);
+			}
+			appearanceConfiguration.getCustomizationEngine().loadCustomizations();
+			loadFacetsForCustomizations(registryDefaultCustomizations,appearanceConfiguration);
+
+		} catch (Throwable e) {
+			Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error initializing customizations", e)); //$NON-NLS-1$
+		}
+	}
+	
+	/**
+	 * load the facets
+	 * 
+	 * @param customizations
+	 *            list of customization
+	 * @param customizationManager
+	 *            the Customization Manager
+	 */
+	protected void loadFacetsForCustomizations(
+		final List<MetamodelView> customizations,
+		final AppearanceConfiguration appearanceConfiguration) {
+		final Set<Facet> referencedFacets = new HashSet<Facet>();
+		final Collection<FacetSet> facetSets = FacetSetCatalog.getSingleton()
+			.getAllFacetSets();
+
+		for (MetamodelView customization : customizations) {
+			String metamodelURI = customization.getMetamodelURI();
+			// find customized FacetSet
+			FacetSet customizedFacetSet = null;
+			if (metamodelURI != null) {
+				for (FacetSet facetSet : facetSets) {
+					if (metamodelURI.equals(facetSet.getNsURI())) {
+						customizedFacetSet = facetSet;
+						break;
+					}
+				}
+			}
+			if (customizedFacetSet == null) {
+				continue;
+			}
+
+			// find customized Facets
+			EList<TypeView> types = customization.getTypes();
+			for (TypeView typeView : types) {
+				String metaclassName = typeView.getMetaclassName();
+				Facet facet = findFacetWithFullyQualifiedName(metaclassName,
+					customizedFacetSet);
+				if (facet != null) {
+					referencedFacets.add(facet);
+				} else {
+					Activator.log.warn(NLS
+						.bind(
+							Messages.BrowserActionBarContributor_missingRequiredFacet,
+							new Object[] {
+								metaclassName,
+								customizedFacetSet
+								.getName(),
+								customization.getName() }));
+				}
+			}
+
+			for (Facet referencedFacet : referencedFacets) {
+				appearanceConfiguration.loadFacet(referencedFacet);
+			}
+		}
+
+		//
+		// for modified facets
+		// customizationManager.getInstancesForMetaclasses().buildDerivationTree();
+		// customizationManager.getAppearanceConfiguration().touch();
+		// customizationManager.refreshDelayed(true);
+	}
+	
+	/**
+	 * fin a facet from
+	 * 
+	 * @param metaclassName
+	 * @param customizedFacetSet
+	 * @return
+	 */
+	private Facet findFacetWithFullyQualifiedName(final String metaclassName,
+		final FacetSet customizedFacetSet) {
+		EList<Facet> facets = customizedFacetSet.getFacets();
+		for (Facet facet : facets) {
+			String facetName = getMetaclassQualifiedName(facet);
+			if (metaclassName.equals(facetName)) {
+				return facet;
+			}
+		}
+		return null;
+	}
+	
+	/** @return the qualified name of the given metaclass */
+	public static String getMetaclassQualifiedName(final EClassifier eClass) {
+		final ArrayList<String> qualifiedNameParts = new ArrayList<String>();
+		final StringBuilder builder = new StringBuilder();
+
+		EPackage ePackage = eClass.getEPackage();
+		while (ePackage != null) {
+			qualifiedNameParts.add(ePackage.getName());
+			ePackage = ePackage.getESuperPackage();
+		}
+
+		for (int i = qualifiedNameParts.size() - 1; i >= 0; i--) {
+			builder.append(qualifiedNameParts.get(i) + "."); //$NON-NLS-1$
+		}
+
+		builder.append(eClass.getName());
+
+		return builder.toString();
+	}
 
 	/**
 	 * apex updated
 	 */
-	@Override
-	public Object[] getElements(final Object inputElement) {
-
-		Object[] rootElements = getRootElements(inputElement);
-
-		if (rootElements == null) {
-			return null;
-		}
-
-		List<Object> result = new ArrayList<Object>();
-
-		for (Object element : rootElements) {
-
-			if (element instanceof EObject) {
-				EObject eObject = (EObject) element;
-				result.add(new ModelElementItem(eObject, null, this.appearanceConfiguration));
-			} else {
-				result.add(element);
-			}
-		}
-		return result.toArray();
-	}
+//	@Override
+//	public Object[] getElements(final Object inputElement) {
+//
+//		Object[] rootElements = getRootElements(inputElement);
+//
+//		if (rootElements == null) {
+//			return null;
+//		}
+//
+//		List<Object> result = new ArrayList<Object>();
+//
+//		for (Object element : rootElements) {
+//
+//			if (element instanceof EObject) {
+//				EObject eObject = (EObject) element;
+//				result.add(new ModelElementItem(eObject, null, this.appearanceConfiguration));
+//			} else {
+//				result.add(element);
+//			}
+//		}
+//		return result.toArray();
+//	}
 
 	/**
 	 * apex updated
@@ -222,6 +362,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 				}
 			}
 		}
+		
 		return result.toArray();
 	}	
 
@@ -288,8 +429,10 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 		for ( EObject eObj : contents ) {
 
 			if ( eObj instanceof ModelImpl ) {
-				ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
-				result.add(modelItem);	
+//				ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
+//				result.add(modelItem);	
+//				
+				result.add(itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration));
 			}
 		}
 	}
@@ -307,7 +450,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			
 			// refresh() 하지 않으면 MultiDiagramEditor보다 ExplorerView가 먼저 실행된 경우
 			// Browser Customization이 작동하지 않음
-			viewer.refresh();
+			//viewer.refresh();
 		}	
 	}
 	

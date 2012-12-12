@@ -48,9 +48,6 @@
             <actionExtension
                   pattern="org.eclipse.ui.navigator.resources.*">
             </actionExtension>
-            <actionExtension
-                  pattern="org.eclipse.ui.navigator.resources.actions.*">
-            </actionExtension>
          </includes>
       </viewerActionBinding>
    </extension>
@@ -148,6 +145,37 @@
         <command commandId="org.eclipse.papyrus.views.modelexplorer.sortelement" icon="icons/etool16/sort.gif" label="sort" style="toggle">
         </command>
     </menuContribution>
+    <menuContribution
+          allPopups="true"
+          locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
+       <command
+             commandId="kr.co.apexsoft.modellipse.apexdelete"
+             icon="icons/errorwarning_tab.gif"
+             label="Menu Label Delete"
+             style="push">
+          <visibleWhen
+                checkEnabled="true">
+             <or>
+                <with
+                      variable="selection">
+                   <iterate>
+                      <adapt
+                            type="org.eclipse.core.resources.IProject">
+                      </adapt>
+                   </iterate>
+                </with>
+                <with
+                      variable="selection">
+                   <iterate>
+                      <adapt
+                            type="org.eclipse.core.resources.IFile">
+                      </adapt>
+                   </iterate>
+                </with>
+             </or>
+          </visibleWhen>
+       </command>
+    </menuContribution>
   </extension>
   <extension
         point="org.eclipse.ui.newWizards">
@@ -194,5 +222,14 @@
      <facetset
            file="resources/ApexModellipseUMLFacet.facetSet">
      </facetset>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           categoryId="org.eclipse.ui.category.edit"
+           defaultHandler="kr.co.apexsoft.modellipse.explorer.handler.ApexResourceDeleteHandler"
+           description="Delete the selection"
+           id="kr.co.apexsoft.modellipse.apexdelete"
+           name="Delete the Selected Resource"/>
   </extension>
 </plugin>
