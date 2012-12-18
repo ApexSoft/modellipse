@@ -37,7 +37,7 @@
                   pattern="kr.co.apexsoft.modellipse.explorer.ModellipseNavigatorContent">
             </contentExtension>
          </includes>
-      </viewerContentBinding>
+      </viewerContentBinding>      
       <dragAssistant
             class="org.eclipse.papyrus.views.modelexplorer.dnd.EObjectDragAdapterAssistant"
             viewerId="org.eclipse.papyrus.views.modelexplorer.modellipseexplorer">
@@ -150,8 +150,8 @@
           locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
        <command
              commandId="kr.co.apexsoft.modellipse.apexdelete"
-             icon="icons/errorwarning_tab.gif"
-             label="Menu Label Delete"
+             icon="icons/delete_edit.gif"
+             label="Delete"
              style="push">
           <visibleWhen
                 checkEnabled="true">

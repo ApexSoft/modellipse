@@ -38,6 +38,8 @@ import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.action.IContributionItem;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -62,7 +64,6 @@ import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
-import org.eclipse.papyrus.views.modelexplorer.ModelExplorerPageBookView;
 import org.eclipse.papyrus.views.modelexplorer.matching.IMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.LinkItemMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.ModelElementItemMatchingItem;
@@ -70,6 +71,7 @@ import org.eclipse.papyrus.views.modelexplorer.matching.ReferencableMatchingItem
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IMemento;
@@ -78,8 +80,10 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.WorkbenchWindow;
 import org.eclipse.ui.internal.navigator.NavigatorContentService;
 import org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor;
 import org.eclipse.ui.navigator.CommonNavigator;
@@ -96,9 +100,7 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 /**
- * Papyrus Model Explorer associated to one {@link IMultiDiagramEditor}.
- * This ModelExplorer is linked to one single {@link IMultiDiagramEditor}. It doesn't change its
- * source when the current Editor change. To allow to explore different Model, use a {@link ModelExplorerPageBookView}.
+ * ApexModellipseExplorer 는 여러개의 IMultiDiagramEditor에 존재하는 여러 모델을 하나의 View에서 보여준다.
  * 
  */
 public class ApexModellipseExplorerView extends CommonNavigator 
@@ -359,6 +361,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 		getCommonViewer().addDoubleClickListener(new ApexDoubleClickListener());
 		Tree tree = getCommonViewer().getTree();
 		Activator.getDefault().getCustomizationManager().installCustomPainter(tree);
+
 	}
 
 	/**

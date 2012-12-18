@@ -603,10 +603,11 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 		for ( IResourceDelta aChildren : addedChildren ) {
 			String fileExtension = aChildren.getProjectRelativePath().getFileExtension();
 			
-			if ( fileExtension.equals("notation") || fileExtension.equals("uml") ) {
-				return;
-			}
-				 
+			if ( aChildren instanceof IFile ) {
+				if ( fileExtension.equals("notation") || fileExtension.equals("uml") ) {
+					return;
+				}	
+			}	 
 		}
 		/* apex added end */
 
