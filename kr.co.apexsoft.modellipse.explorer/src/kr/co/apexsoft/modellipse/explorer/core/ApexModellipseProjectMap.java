@@ -110,6 +110,10 @@ public class ApexModellipseProjectMap {
 		String projectPath = diFile.getParent().getLocationURI().getPath();
 		ApexProjectWrapper projectWrapper = null;
 		projectWrapper = (ApexProjectWrapper) ApexModellipseProjectMap.getProjectMap().get(projectPath);
+		
+		// jiho
+		if (projectWrapper == null)
+			return;
 
 		if ( projectWrapper != null ) {
 //			if ( servicesRegsitryMap.containsKey(diPath) ) {

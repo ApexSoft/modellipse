@@ -22,7 +22,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.infra.core.editor.BackboneException;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
-import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditor;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.part.ApexUMLDiagramEditor;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorPlugin;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
@@ -33,7 +33,7 @@ import org.eclipse.ui.PartInitException;
 /**
  * Editor used in multitabs editor.
  */
-public class UmlSequenceDiagramForMultiEditor extends UMLDiagramEditor {
+public class UmlSequenceDiagramForMultiEditor extends ApexUMLDiagramEditor {
 
 	/**
 	 * The location of diagram icon in the plug-in

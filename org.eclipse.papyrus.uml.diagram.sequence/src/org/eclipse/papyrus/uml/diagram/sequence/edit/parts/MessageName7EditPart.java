@@ -26,6 +26,7 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.AccessibleEditPart;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
@@ -69,12 +70,15 @@ import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.UMLTextSelectionEd
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLParserProvider;
+import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.uml2.uml.ConnectableElement;
+import org.eclipse.uml2.uml.Lifeline;
 
 /**
  * @generated
@@ -637,9 +641,33 @@ public class MessageName7EditPart extends LabelEditPart implements ITextAwareEdi
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Updates the preference configuration
 	 */
 	protected void updateExtendedEditorConfiguration() {
+		/* apex added start */
+		boolean isExtendedEditor = false;
+		AbstractMessageEditPart parent = (AbstractMessageEditPart)getAdapter(AbstractMessageEditPart.class);
+		if (parent != null) {
+			EditPart target = parent.getTarget();
+			LifelineEditPart targetLifelineEP = SequenceUtil.getParentLifelinePart(target);
+			if (targetLifelineEP != null) {
+				Lifeline lifeline = (Lifeline)targetLifelineEP.getAdapter(Lifeline.class);
+				ConnectableElement represents = lifeline.getRepresents();
+				if (represents != null && represents.getType() != null) {
+					isExtendedEditor = true;
+				}
+			}
+		}
+		if (!isExtendedEditor) {
+			configuration = null;
+			return;
+		} else {
+			initExtendedEditorConfiguration();
+		}
+		/* apex added end */
+		
 		String languagePreferred = Activator.getDefault().getPreferenceStore().getString(IDirectEditorsIds.EDITOR_FOR_ELEMENT + resolveSemanticElement().eClass().getInstanceClassName());
 		if(languagePreferred != null && !languagePreferred.equals("") && languagePreferred != configuration.getLanguage()) {
 			configuration = DirectEditorsUtil.findEditorConfiguration(languagePreferred, resolveSemanticElement().eClass().getInstanceClassName());
