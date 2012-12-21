@@ -97,6 +97,10 @@ public class SelectDiagramCategoryPage extends WizardPage {
 			} else {
 				setDefaultDiagramCategories(new String[]{defaultDiagramCategory[0]});
 			}
+		} else {
+			/* apex added start */
+			setDefaultDiagramCategories(new String[]{DEFAULT_EXTENSION});
+			/* apex added end */
 		}
 	}
 
