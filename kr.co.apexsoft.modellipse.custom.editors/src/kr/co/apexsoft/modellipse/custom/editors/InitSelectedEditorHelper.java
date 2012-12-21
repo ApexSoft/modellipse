@@ -3,6 +3,10 @@ package kr.co.apexsoft.modellipse.custom.editors;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.papyrus.extensionpoints.editors.ui.IPopupEditorHelper;
 
+/**
+ * @author Jiho
+ *
+ */
 public class InitSelectedEditorHelper implements IPopupEditorHelper {
 
 	private IPopupEditorInputFactory factory;

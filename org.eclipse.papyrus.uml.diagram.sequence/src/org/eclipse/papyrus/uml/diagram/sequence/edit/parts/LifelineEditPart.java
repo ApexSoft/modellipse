@@ -107,6 +107,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomLifelineD
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CustomDiagramDragDropEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ElementCreationWithMessageEditPolicy;
@@ -123,7 +124,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionL
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
-import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.NotificationHelper;

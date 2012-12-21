@@ -6,8 +6,8 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.figures.LifelineDotLineCustomFigure;
-import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 
 public class ApexCustomLifelineDotLineCustomFigure extends
 		LifelineDotLineCustomFigure {
