@@ -43,12 +43,12 @@
             viewerId="org.eclipse.papyrus.views.modelexplorer.modellipseexplorer">
       </dragAssistant>
       <viewerActionBinding
-            viewerId="kr.co.apexsoft.modellipse.explorer.view">
-         <includes>
-            <actionExtension
-                  pattern="org.eclipse.ui.navigator.resources.*">
-            </actionExtension>
-         </includes>
+        viewerId="kr.co.apexsoft.modellipse.explorer.view">
+        <includes>
+          <actionExtension
+            pattern="org.eclipse.ui.navigator.resources.*">
+          </actionExtension>
+        </includes>
       </viewerActionBinding>
    </extension>
    <extension
@@ -173,6 +173,24 @@
                    </iterate>
                 </with>
              </or>
+          </visibleWhen>
+       </command>
+       <command
+             commandId="org.eclipse.papyrus.export.exportAllDiagrams"
+             label="Export All Diagrams..."
+             style="push">
+          <visibleWhen
+                checkEnabled="true">
+             <and>
+                <with
+                      variable="selection">
+                   <iterate>
+                      <adapt
+                            type="org.eclipse.core.resources.IFile">
+                      </adapt>
+                   </iterate>
+                </with>
+             </and>
           </visibleWhen>
        </command>
     </menuContribution>

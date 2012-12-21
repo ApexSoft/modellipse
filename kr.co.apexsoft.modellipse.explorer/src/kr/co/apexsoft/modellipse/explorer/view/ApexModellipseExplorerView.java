@@ -362,6 +362,132 @@ public class ApexModellipseExplorerView extends CommonNavigator
 		Tree tree = getCommonViewer().getTree();
 		Activator.getDefault().getCustomizationManager().installCustomPainter(tree);
 
+//		makeApexCustomContextMenu(aParent);
+	}
+	
+	private void makeApexCustomContextMenu(Composite aParent) {
+		
+		final List<IContributionItem> contextMenuItemList = new ArrayList<IContributionItem>();
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();		
+		
+		if ( window instanceof WorkbenchWindow ) {
+			MenuManager menuMgr = ((WorkbenchWindow)window).getMenuManager();
+			
+			IContributionItem[] items = menuMgr.getItems();
+			System.out
+					.println("ApexModellipseExplorerView.createPartControl(), line "
+							+ Thread.currentThread().getStackTrace()[1]
+									.getLineNumber());
+			System.out.println("  from Window Menu Manager");
+			
+			for ( IContributionItem item : items ) {
+				String menuId = item.getId();
+				System.out.println("    " + menuId);
+				
+				if ( item != null && item.getId() != null ) {
+					if ( menuId.equals("file") ) {
+						contextMenuItemList.add(item);
+					}
+				}
+			}
+		}
+			
+		MenuManager menuMgr = new MenuManager("#Popup") {
+			@Override
+			public IContributionItem[] getItems() {
+				
+				IContributionItem[] items = super.getItems();
+				System.out.println(" super.getItems().length : " + super.getItems().length);
+				List<IContributionItem> filteredItems = new ArrayList<IContributionItem> ();
+				filteredItems.addAll(contextMenuItemList);
+				System.out.println("filteredItems : " + filteredItems);
+				
+				for ( IContributionItem aItem : filteredItems) {
+					System.out.println("   item from filtered : " + aItem);
+					if ( aItem instanceof MenuManager ) {
+						MenuManager aMenuManager = (MenuManager)aItem;
+						IContributionItem[] aSubofItem = aMenuManager.getItems();
+						
+						for ( IContributionItem aofaItem : aSubofItem ) {
+							System.out.println("    sub of filtered : " + aofaItem);
+						}
+					}
+				}
+				
+				System.out
+				.println("ApexModellipseExplorerView.createPartControl(), line "
+						+ Thread.currentThread().getStackTrace()[1]
+								.getLineNumber());
+				System.out.println("  contextFromMain : " + contextMenuItemList);
+				System.out.println("  from Overriding");
+				
+				for ( IContributionItem menuItem : items ) {
+					String menuId = menuItem.getId();
+					System.out.println("    menuItem : " + menuItem);
+					System.out.println("    menuItem.getId() : " + menuId);
+				
+					if ( menuItem!=null && menuItem.getId()!=null) {
+						if ( !menuId.equals("org.eclipse.papyrus.uml.diagram.ui.menu")
+								 && !menuId.equals("org.eclipse.papyrus.ui.menu")
+								 && !menuId.equals("org.eclipse.debug.ui.contextualLaunch.run.submenu")
+								 && !menuId.equals("org.eclipse.debug.ui.contextualLaunch.debug.submenu")
+								 && !menuId.equals("org.eclipse.ui.projectConfigure")
+								 && !menuId.equals("org.eclipse.modisco.infra.discovery.ui.menu")
+						) {
+								filteredItems.add(menuItem);
+								System.out.println("      added : " + menuItem);
+						} else {
+							System.out.println("      not added : " + menuItem);
+						}	
+					}
+					
+				}	
+				items = new IContributionItem[ filteredItems.size()];
+				return filteredItems.toArray( items );
+			}
+		};
+		Menu menu = menuMgr.createContextMenu(aParent);
+		getCommonViewer().getControl().setMenu(menu);
+		getSite().registerContextMenu(menuMgr, getCommonViewer());
+		
+		
+		
+		
+//		MenuManager menuMgr = new MenuManager("#Popup") {
+//			@Override
+//			public IContributionItem[] getItems() {
+//				
+//				IContributionItem[] items = super.getItems();
+//				List<IContributionItem> filteredItems = new ArrayList<IContributionItem> ();
+//				System.out
+//				.println("ApexModellipseExplorerView.createPartControl(...).new MenuManager() {...}.getItems(), line "
+//						+ Thread.currentThread()
+//								.getStackTrace()[1]
+//								.getLineNumber());
+//				
+//				for( IContributionItem item : items ) {
+//			    	
+//				    if( item != null
+//				         && item.getId() != null
+////				         && !item.getId().startsWith( "org.eclipse.debug.ui.contextualLaunch." )
+////				        	 || item.getId().startsWith("kr.co.apexsoft.")
+////							 || item.getId().startsWith("org.eclipse.ui.navigator.resources.")
+////					     ) 
+//					) {
+//				    	System.out.println("    menuItem : " + item.getId());
+//						filteredItems.add( item );						
+//					}
+//		        
+//				}
+//
+//			  items = new IContributionItem[ filteredItems.size()];
+//			  return filteredItems.toArray( items );
+//			}
+//			
+//		};
+//		Menu menu = menuMgr.createContextMenu(aParent);
+//		getCommonViewer().getTree().setMenu(menu);
+//		getSite().registerContextMenu(menuMgr, getCommonViewer());		
 	}
 
 	/**
