@@ -1,4 +1,4 @@
-package org.eclipse.papyrus.uml.diagram.sequence.util;
+package org.eclipse.papyrus.uml.diagram.sequence.apex.util;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -92,6 +92,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.datatype.GradientData;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceConverter;
+import org.eclipse.papyrus.commands.wrappers.GEFtoEMFCommandWrapper;
 import org.eclipse.papyrus.infra.gmfdiag.common.editpolicies.IMaskManagedLabelEditPolicy;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.GradientPreferenceConverter;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.PreferenceConstantHelper;
@@ -107,6 +108,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.apex.figures.ApexCustomLifelineD
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineFigure;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.helpers.AnchorHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CustomDiagramDragDropEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.ElementCreationWithMessageEditPolicy;
@@ -123,7 +125,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.locator.TimeMarkElementPositionL
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLVisualIDRegistry;
 import org.eclipse.papyrus.uml.diagram.sequence.providers.UMLElementTypes;
 import org.eclipse.papyrus.uml.diagram.sequence.util.CommandHelper;
-import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineFigureHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineMessageCreateHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineResizeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.NotificationHelper;
@@ -2107,9 +2108,17 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			*/
 			Dimension size = getPrimaryShape().getFigureLifelineNameContainerFigure().getPreferredSize(-1, oldNameContainerHeight);
 			if(!LifelineResizeHelper.isManualSize(this)){
-				if(size.width != rect.width){ 
+				if(size.width != rect.width){
+					/* apex improved start */
+					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
+					request.setSizeDelta(new Dimension(size.width - rect.width, -1));
+					Command cmd = getCommand(request);
+					CommandHelper.executeCommandWithoutHistory(getEditingDomain(), new GEFtoEMFCommandWrapper(cmd), true);
+					/* apex improved end */
+					/* apex replaced
 					rect.width = size.width;
 					updateLifelineBounds(rect);
+					 */
 				}
 			}					
 		}

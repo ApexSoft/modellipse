@@ -1192,42 +1192,6 @@ public class CommandHelper {
 		return false;
 	}
 
-	
-	/**
-	 * apex
-	 * {@link #createTypeLabelProvider()}를 변형
-	 * 
-	 * @return
-	 */
-	private static AdapterFactoryLabelProvider apexCreateTypeLabelProvider() {
-		AdapterFactoryLabelProvider typeLabelProvider = new AdapterFactoryLabelProvider(UMLDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory()) {
-
-			@Override
-			public Image getImage(Object object) {
-				Image image = super.getImage(object);
-				if (object instanceof String) {
-					image = null;
-				}
-				return image;
-			}
-
-			@Override
-			public String getText(Object object) {
-				String text = super.getText(object);
-				if (object instanceof String) {
-					return text;
-				}
-				int index = text.indexOf(" "); //$NON-NLS-1$
-				if (index != -1) {
-					text = text.substring(0, index);
-				}
-				return text;
-			}
-			
-		};
-		return typeLabelProvider;
-	}
-	
 	/**
 	 * apex
 	 * {@link #doCreateMessage(Interaction, MessageSort, Element, Element, InteractionFragment, InteractionFragment, MessageEnd, MessageEnd)}를 변형

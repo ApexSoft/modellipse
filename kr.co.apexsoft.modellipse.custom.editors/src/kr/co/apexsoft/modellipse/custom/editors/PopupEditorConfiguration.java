@@ -13,7 +13,7 @@ public abstract class PopupEditorConfiguration implements IPopupEditorConfigurat
 	private String language = "";
 	
 	protected enum EditorType {
-		LIST, TREE, TABLE,
+		NONE, LIST, TREE, TABLE,
 	}
 
 	public PopupEditorConfiguration() {
@@ -88,12 +88,13 @@ public abstract class PopupEditorConfiguration implements IPopupEditorConfigurat
 	public abstract IPopupEditorHelper createPopupEditorHelper(Object editPart);
 	
 	public IPopupEditorHelper createPopupEditorHelper(Object editPart, EditorType editorType, IPopupEditorInputFactory factory) {
-		if(!(editPart instanceof IGraphicalEditPart)) {
-			return null;
-		}
-		
-		if (EditorType.LIST.equals(editorType)) {
-			return new PopupListEditorHelper((IGraphicalEditPart)editPart, factory);
+		if(editPart instanceof IGraphicalEditPart) {
+			if (EditorType.NONE.equals(editorType)) {
+				return new InitSelectedEditorHelper((IGraphicalEditPart) editPart, factory);
+			}
+			if (EditorType.LIST.equals(editorType)) {
+				return new PopupListEditorHelper((IGraphicalEditPart) editPart, factory);
+			}
 		}
 		return null;
 	}
