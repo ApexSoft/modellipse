@@ -92,6 +92,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.datatype.GradientData;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceConverter;
+import org.eclipse.papyrus.commands.wrappers.GEFtoEMFCommandWrapper;
 import org.eclipse.papyrus.infra.gmfdiag.common.editpolicies.IMaskManagedLabelEditPolicy;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.GradientPreferenceConverter;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.PreferenceConstantHelper;
@@ -2107,9 +2108,17 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			*/
 			Dimension size = getPrimaryShape().getFigureLifelineNameContainerFigure().getPreferredSize(-1, oldNameContainerHeight);
 			if(!LifelineResizeHelper.isManualSize(this)){
-				if(size.width != rect.width){ 
+				if(size.width != rect.width){
+					/* apex improved start */
+					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
+					request.setSizeDelta(new Dimension(size.width - rect.width, -1));
+					Command cmd = getCommand(request);
+					CommandHelper.executeCommandWithoutHistory(getEditingDomain(), new GEFtoEMFCommandWrapper(cmd), true);
+					/* apex improved end */
+					/* apex replaced
 					rect.width = size.width;
 					updateLifelineBounds(rect);
+					 */
 				}
 			}					
 		}
