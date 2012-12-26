@@ -18,11 +18,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import kr.co.apexsoft.modellipse.explorer.core.ApexModellipseProjectMap;
-import kr.co.apexsoft.modellipse.explorer.core.ApexProjectWrapper;
+import kr.co.apexsoft.modellipse.explorer.core.ApexDIWrapper;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -38,7 +36,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.facet.infra.browser.Messages;
 import org.eclipse.emf.facet.infra.browser.custom.MetamodelView;
@@ -54,14 +51,10 @@ import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.osgi.util.NLS;
-import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
-import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 
 /**
  * this is a specific content provider used to not display UML stereotype applications
@@ -274,7 +267,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 	 */
 	@Override
 	public Object[] getChildren(final Object parentElement) {
-		ArrayList<Object> result = new ArrayList<Object>();
+		List<Object> result = new ArrayList<Object>();
 
 		if ( parentElement instanceof IProject ) {
 			IProject project = (IProject)parentElement;
@@ -293,7 +286,6 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 					} 
 				}
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -301,49 +293,50 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			IFile diFile = (IFile)parentElement;
 
 			if(OneFileUtils.isDi(diFile)) {
-				String diFilePath = diFile.getLocationURI().getPath();
-				String projectPath = diFile.getParent().getLocationURI().getPath();
-
-				Map<String, ApexProjectWrapper> projectMap = ApexModellipseProjectMap.getProjectMap();
-				ApexProjectWrapper aProjectWrapper = projectMap.get(projectPath);
-
-
-
-				// 프로젝트 내 di를 최초로 펼친 경우 - (1)
-				// 프로젝트 래퍼가 없고,
-				// diPath에 대한 umlModel 도 없다.
-				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
-
-				// 프로젝트 내 di를 한 번 펼친 후 다른 di를 펼친 경우 - (2)
-				// 프로젝트 래퍼는 있고,
-				// diPath에 대한 umlModel은 없다
-				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
-
-				// 더블클릭에 의한 refresh() 시 - (3)
-				// 더블클릭 리스너가 직접 Editor를 열고 ServiceReg를 세팅
-				// 프로젝트 래퍼가 있고,
-				// diPath에 대한 umlModel 도 있다.
-				// 여기선 가져와서 트리 만들어주기만 하믄 됨		
-
-				// 에디터 닫아서 ApexMEView에서 refresh() 호출된 경우 - (4)
-				// 프로젝트 래퍼는 있고
-				// diPath에 대한 umlModel은 없다 (2)와 겹침
-				// 에디터가 닫은 모델은 IsDisposed 가 true 인 것으로 구분
-				// 그냥 지나친다
-
-				if ( aProjectWrapper == null ) { // (1)
-					createEditorAndSetUpTree(aProjectWrapper, diFile, result);
-				} else if (aProjectWrapper.getIsDisposed(diFilePath)) { // (4)
-
-				} else if ( aProjectWrapper.getUmlModel(diFilePath) == null ) { // (2)
-					createEditorAndSetUpTree(aProjectWrapper, diFile, result);						
-				} else { // (3)
-					UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
-
-					if ( umlModel != null ) {
-						makeModelElementItemList(umlModel, result);
-					}
-				}
+				result = new ApexDIWrapper(diFile, itemsFactory, appearanceConfiguration).getChildren();
+//				String diFilePath = diFile.getLocationURI().getPath();
+//				String projectPath = diFile.getParent().getLocationURI().getPath();
+//
+//				Map<String, ApexProjectWrapper> projectMap = ApexModellipseProjectMap.getProjectMap();
+//				ApexProjectWrapper aProjectWrapper = projectMap.get(projectPath);
+//
+//
+//
+//				// 프로젝트 내 di를 최초로 펼친 경우 - (1)
+//				// 프로젝트 래퍼가 없고,
+//				// diPath에 대한 umlModel 도 없다.
+//				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
+//
+//				// 프로젝트 내 di를 한 번 펼친 후 다른 di를 펼친 경우 - (2)
+//				// 프로젝트 래퍼는 있고,
+//				// diPath에 대한 umlModel은 없다
+//				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
+//
+//				// 더블클릭에 의한 refresh() 시 - (3)
+//				// 더블클릭 리스너가 직접 Editor를 열고 ServiceReg를 세팅
+//				// 프로젝트 래퍼가 있고,
+//				// diPath에 대한 umlModel 도 있다.
+//				// 여기선 가져와서 트리 만들어주기만 하믄 됨		
+//
+//				// 에디터 닫아서 ApexMEView에서 refresh() 호출된 경우 - (4)
+//				// 프로젝트 래퍼는 있고
+//				// diPath에 대한 umlModel은 없다 (2)와 겹침
+//				// 에디터가 닫은 모델은 IsDisposed 가 true 인 것으로 구분
+//				// 그냥 지나친다
+//
+//				if ( aProjectWrapper == null ) { // (1)
+//					createEditorAndSetUpTree(aProjectWrapper, diFile, result);
+//				} else if (aProjectWrapper.getIsDisposed(diFilePath)) { // (4)
+//
+//				} else if ( aProjectWrapper.getUmlModel(diFilePath) == null ) { // (2)
+//					createEditorAndSetUpTree(aProjectWrapper, diFile, result);						
+//				} else { // (3)
+//					UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
+//
+//					if ( umlModel != null ) {
+//						makeModelElementItemList(umlModel, result);
+//					}
+//				}
 			}			
 		}
 		else {
@@ -355,7 +348,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 
 					if ( arrayObject[i] instanceof UmlModel ) {
 						UmlModel umlModel = (UmlModel) arrayObject[i];
-						makeModelElementItemList(umlModel, result);
+//						makeModelElementItemList(umlModel, result);
 					} else {
 						result.add(arrayObject[i]);
 					}
@@ -421,37 +414,6 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 						IResourceChangeEvent.POST_CHANGE);
 			}
 		}
-	}
-
-	private void makeModelElementItemList(UmlModel umlModel, List<Object> result) {
-		EList<EObject> contents = umlModel.getResource().getContents();
-
-		for ( EObject eObj : contents ) {
-
-			if ( eObj instanceof ModelImpl ) {
-//				ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
-//				result.add(modelItem);	
-//				
-				result.add(itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration));
-			}
-		}
-	}
-
-	private void createEditorAndSetUpTree(ApexProjectWrapper aProjectWrapper, IFile diFile, List<Object> result) {
-		String diFilePath = diFile.getLocationURI().getPath();
-		IEditorPart editor = ApexModellipseProjectMap.openEditor(diFile);
-
-		if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
-			ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
-			aProjectWrapper = ApexModellipseProjectMap.setUpModelServices(diFile, servicesRegistry);
-
-			UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
-			makeModelElementItemList(umlModel, result);			
-			
-			// refresh() 하지 않으면 MultiDiagramEditor보다 ExplorerView가 먼저 실행된 경우
-			// Browser Customization이 작동하지 않음
-			//viewer.refresh();
-		}	
 	}
 	
 	/**
