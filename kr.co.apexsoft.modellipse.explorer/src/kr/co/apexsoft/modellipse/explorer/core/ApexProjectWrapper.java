@@ -1,6 +1,7 @@
 package kr.co.apexsoft.modellipse.explorer.core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
@@ -15,7 +16,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 //public class ApexProjectWrapper implements ITreeElement {
-public class ApexProjectWrapper {
+public class ApexProjectWrapper implements ITreeElement {
 
 	private IProject _project;
 //	private List<UmlModel> _children;
@@ -216,6 +217,18 @@ public class ApexProjectWrapper {
 	}
 
 	public Font getFont() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean hasChildren() {
+		// TODO Auto-generated method stub
+		return (_umlModelMap.size() - _isDisposedMap.size()) > 0;
+	}
+
+	@Override
+	public List<?> getChildren() {
 		// TODO Auto-generated method stub
 		return null;
 	}
