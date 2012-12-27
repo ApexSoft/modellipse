@@ -68,8 +68,7 @@ public class ApexDIWrapper implements ITreeElement {
 
 	@Override
 	public String getText() {
-		// TODO Auto-generated method stub
-		return null;
+		return _file.getName();
 	}
 
 	@Override
@@ -182,7 +181,15 @@ public class ApexDIWrapper implements ITreeElement {
 //				result.add(modelItem);	
 				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
 				modelItem.setTreeParent(diWrapper);
-				result.add(modelItem);
+				System.out
+						.println("ApexDIWrapper.makeModelElementItemList(), line "
+								+ Thread.currentThread().getStackTrace()[1]
+										.getLineNumber());
+				System.out.println("added modelItem : " + modelItem);
+				System.out.println("added modelItem.getText() : " + modelItem.getText());
+				System.out.println("modelItem.getTreeParent() : " + modelItem.getTreeParent());				
+				
+				result.add((ITreeElement)modelItem);
 			}
 		}
 	}

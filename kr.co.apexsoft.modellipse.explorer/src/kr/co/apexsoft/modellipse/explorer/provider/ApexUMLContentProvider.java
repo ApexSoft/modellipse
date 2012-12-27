@@ -337,7 +337,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 //						makeModelElementItemList(umlModel, result);
 //					}
 //				}
-			}			
+			}
 		}
 		else {
 			Object[] arrayObject = super.getChildren(parentElement);
@@ -565,7 +565,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 		for ( IResourceDelta aChildren : addedChildren ) {
 			String fileExtension = aChildren.getProjectRelativePath().getFileExtension();
 			
-			if ( aChildren instanceof IFile ) {
+			if ( aChildren.getResource() instanceof IFile ) {
 				if ( fileExtension.equals("notation") || fileExtension.equals("uml") ) {
 					return;
 				}	

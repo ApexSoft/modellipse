@@ -22,6 +22,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import kr.co.apexsoft.modellipse.explorer.Activator;
+import kr.co.apexsoft.modellipse.explorer.core.ApexDIWrapper;
 import kr.co.apexsoft.modellipse.explorer.provider.ApexDecoratingLabelProviderWTooltips;
 
 import org.eclipse.core.commands.operations.IUndoContext;
@@ -33,6 +34,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
+import org.eclipse.emf.facet.infra.browser.uicore.internal.model.LinkItem;
+import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
@@ -152,8 +156,9 @@ public class ApexModellipseExplorerView extends CommonNavigator
 
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			handleSelectionChangedFromDiagramEditor(part, selection);
+			handleSelectionChange(part, selection);
 		}
-	};
+	};	
 
 	/**
 	 * Listener on {@link ISaveAndDirtyService#addInputChangedListener(IEditorInputChangedListener)}
@@ -200,6 +205,107 @@ public class ApexModellipseExplorerView extends CommonNavigator
 	 */
 	private void handleSelectionChangedFromDiagramEditor(IWorkbenchPart part, ISelection selection) {
 
+		// Handle selection from diagram editor
+		if(isLinkingEnabled()) {
+			if(part instanceof IEditorPart) {
+				if(selection instanceof IStructuredSelection) {
+					Iterator<?> selectionIterator = ((IStructuredSelection)selection).iterator();
+					ArrayList<Object> semanticElementList = new ArrayList<Object>();
+					while(selectionIterator.hasNext()) {
+						Object currentSelection = selectionIterator.next();
+						if(currentSelection instanceof IAdaptable) {
+							Object semanticElement = ((IAdaptable)currentSelection).getAdapter(EObject.class);
+							if(semanticElement != null) {
+								semanticElementList.add(semanticElement);
+							}
+						}
+
+					}
+					revealSemanticElement(semanticElementList);	
+				}
+			}
+		}
+	}	
+	
+	/**
+	 * Selection 이 바뀌었을 경우 처리
+	 * ModelExplorer의 선택에 따라 해당 요소의 View를 Editor에서 reveal하도록 구현하려 했으나 실패
+	 * 현재 Editor선택에 따라 ServiceRegistry를 구성하는 역할 수행
+	 * 
+	 * @param part
+	 * @param selection
+	 */
+	private void handleSelectionChange(IWorkbenchPart part, ISelection selection) {
+//		if(selection instanceof IStructuredSelection) {
+//System.out.println("ApexModellipseExplorerView.handleSelectionChange(), line "
+//		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
+//
+//			String selectedModelName = null;
+//			IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+//			
+//			Iterator its = structuredSelection.iterator();
+//			for ( int i = 0 ; its.hasNext() ; i++ ) {
+//				Object obj = its.next();
+//				if ( obj instanceof ITreeElement ) {
+//					ITreeElement itree = (ITreeElement)obj;
+//					System.out.println(" structuredSelection["+i+"].getText() : " + itree.getText());
+//					System.out.println(" structuredSelection["+i+"]           : " + itree);
+//				}
+//				
+//			}
+//			
+//			Iterator it = structuredSelection.iterator();
+//			while(it.hasNext()) {
+//				Object obj = it.next();
+//				
+//				if ( obj instanceof EditPart ) {
+//					return;
+//				} else if ( obj instanceof IFile ) {
+//					IFile diFile = (IFile)obj;
+//
+//					if(OneFileUtils.isDi(diFile)) {
+//						selectedModelName = diFile.getName();
+//					}
+//					System.out.println("  obj instanceof IFile");
+//					System.out.println("  obj : " + obj);
+//				} else if ( obj instanceof ITreeElement ) {
+//					ITreeElement modelItem = (ITreeElement)obj;				
+//					ITreeElement modelImplElement = getDiWrapperFromChildren(modelItem);			
+//
+//					if ( modelImplElement instanceof ApexDIWrapper ) {
+//						selectedModelName = ((ApexDIWrapper)modelImplElement).getFile().getName();	
+//					} else {
+//						System.out.println("getDIWrapper()가 DI가 아닌 것을 반환했다!!");
+//						System.out.println(" selected ModelItem.getText() : " + modelItem.getText());
+//						System.out.println(" selected ModelItem           : " + modelItem);
+//						System.out.println(" returned ITreeElement from getDIWrapper() : " + modelImplElement);
+//					}
+//					System.out.println("  obj instanceof ITreeElement");
+//					System.out.println("  obj : " + obj);
+//				} else {
+//					System.out.println(" obj is fucking mess");
+//					System.out.println(" obj : " + obj);
+//				}
+//				
+//				System.out.println("  selectedModelName : " + selectedModelName);
+//			}
+//
+//			IWorkbenchPage workbenchPage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();			
+//			IEditorReference[] editorRefs = workbenchPage.getEditorReferences();
+//
+//			for ( IEditorReference editorRef : editorRefs ) {
+//				IEditorPart editorPart = editorRef.getEditor(true);
+//				String editorName = editorPart.getTitle();
+//				
+//				if ( editorName.equals(selectedModelName) ) {
+//					System.out.println("  editorName : " + editorName);
+//					workbenchPage.activate(editorPart);
+//				}
+//			}
+//		}
+		
+		
+		
 		/* apex added start */
 		if ( part instanceof PapyrusMultiDiagramEditor ) {
 			PapyrusMultiDiagramEditor papyrusEditor = (PapyrusMultiDiagramEditor)part;
@@ -222,28 +328,41 @@ public class ApexModellipseExplorerView extends CommonNavigator
 			}						
 		}
 		/* apex added end */
-
-		// Handle selection from diagram editor
-		if(isLinkingEnabled()) {
-			if(part instanceof IEditorPart) {
-				if(selection instanceof IStructuredSelection) {
-					Iterator<?> selectionIterator = ((IStructuredSelection)selection).iterator();
-					ArrayList<Object> semanticElementList = new ArrayList<Object>();
-					while(selectionIterator.hasNext()) {
-						Object currentSelection = selectionIterator.next();
-						if(currentSelection instanceof IAdaptable) {
-							Object semanticElement = ((IAdaptable)currentSelection).getAdapter(EObject.class);
-							if(semanticElement != null) {
-								semanticElementList.add(semanticElement);
-							}
-						}
-
-					}
-					revealSemanticElement(semanticElementList);
-				}
-			}
-		}
 	}
+
+//	private ITreeElement getDiWrapperFromChildren(ITreeElement modelItem) {
+//
+//		ITreeElement diWrapper = null;
+//		ITreeElement parentItem = modelItem.getTreeParent();
+//
+//		if ( parentItem != null ) {			
+//			System.out.println("    selectedItem.getText()   : " + modelItem.getText());
+//			System.out.println("    selectedItem               : " + modelItem);
+//			System.out.println("    parentItem.getText()     : " + parentItem.getText());
+//			System.out.println("    parentItem                 : " + parentItem);
+//			
+//			
+//			if (parentItem instanceof ModelElementItem
+//				|| parentItem instanceof LinkItem) {
+//				parentItem = getDiWrapperFromChildren((ITreeElement)parentItem);
+//			}
+//			if (parentItem instanceof ApexDIWrapper) {
+//				diWrapper = (ApexDIWrapper)parentItem;			
+//			} else {
+//				System.out
+//						.println("ApexModellipseExplorerView.getDiFileFromChildren(), line "
+//								+ Thread.currentThread().getStackTrace()[1]
+//										.getLineNumber());
+//				System.out.println("  di없다");
+//				System.out.println("  parentItem : " + parentItem);
+//			}
+//		} else {
+//			System.out.println("In getDIWrapper(),  parentItem이 null이다");
+//			System.out.println("  modelItem.getText() : " + modelItem.getText());
+//			System.out.println("  modelItem             : " + modelItem);
+//		}
+//		return diWrapper;
+//	}
 
 	/**
 	 * look for the path the list of element (comes from the content provider) to go the eObject
@@ -367,88 +486,90 @@ public class ApexModellipseExplorerView extends CommonNavigator
 	
 	private void makeApexCustomContextMenu(Composite aParent) {
 		
-		final List<IContributionItem> contextMenuItemList = new ArrayList<IContributionItem>();
-		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();		
+//		final List<IContributionItem> contextMenuItemList = new ArrayList<IContributionItem>();
+//		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();		
+//		
+//		if ( window instanceof WorkbenchWindow ) {
+//			MenuManager menuMgr = ((WorkbenchWindow)window).getMenuManager();
+//			
+//			IContributionItem[] items = menuMgr.getItems();
+//			System.out
+//					.println("ApexModellipseExplorerView.createPartControl(), line "
+//							+ Thread.currentThread().getStackTrace()[1]
+//									.getLineNumber());
+//			System.out.println("  from Window Menu Manager");
+//			
+//			for ( IContributionItem item : items ) {
+//				String menuId = item.getId();
+//				System.out.println("    " + menuId);
+//				
+//				if ( item != null && item.getId() != null ) {
+//					if ( menuId.equals("file") ) {
+//						contextMenuItemList.add(item);
+//					}
+//				}
+//			}
+//		}
+//			
+//		MenuManager menuMgr = new MenuManager("#Popup") {
+//			@Override
+//			public IContributionItem[] getItems() {
+//				
+//				IContributionItem[] items = super.getItems();
+//				System.out.println(" super.getItems().length : " + super.getItems().length);
+//				List<IContributionItem> filteredItems = new ArrayList<IContributionItem> ();
+//				filteredItems.addAll(contextMenuItemList);
+//				System.out.println("filteredItems : " + filteredItems);
+//				
+//				for ( IContributionItem aItem : filteredItems) {
+//					System.out.println("   item from filtered : " + aItem);
+//					if ( aItem instanceof MenuManager ) {
+//						MenuManager aMenuManager = (MenuManager)aItem;
+//						IContributionItem[] aSubofItem = aMenuManager.getItems();
+//						
+//						for ( IContributionItem aofaItem : aSubofItem ) {
+//							System.out.println("    sub of filtered : " + aofaItem);
+//						}
+//					}
+//				}
+//				
+//				System.out
+//				.println("ApexModellipseExplorerView.createPartControl(), line "
+//						+ Thread.currentThread().getStackTrace()[1]
+//								.getLineNumber());
+//				System.out.println("  contextFromMain : " + contextMenuItemList);
+//				System.out.println("  from Overriding");
+//				
+//				for ( IContributionItem menuItem : items ) {
+//					String menuId = menuItem.getId();
+//					System.out.println("    menuItem : " + menuItem);
+//					System.out.println("    menuItem.getId() : " + menuId);
+//				
+//					if ( menuItem!=null && menuItem.getId()!=null) {
+//						if ( !menuId.equals("org.eclipse.papyrus.uml.diagram.ui.menu")
+//								 && !menuId.equals("org.eclipse.papyrus.ui.menu")
+//								 && !menuId.equals("org.eclipse.debug.ui.contextualLaunch.run.submenu")
+//								 && !menuId.equals("org.eclipse.debug.ui.contextualLaunch.debug.submenu")
+//								 && !menuId.equals("org.eclipse.ui.projectConfigure")
+//								 && !menuId.equals("org.eclipse.modisco.infra.discovery.ui.menu")
+//						) {
+//								filteredItems.add(menuItem);
+//								System.out.println("      added : " + menuItem);
+//						} else {
+//							System.out.println("      not added : " + menuItem);
+//						}	
+//					}
+//					
+//				}	
+//				items = new IContributionItem[ filteredItems.size()];
+//				return filteredItems.toArray( items );
+//			}
+//		};
+//		Menu menu = menuMgr.createContextMenu(aParent);
+//		getCommonViewer().getControl().setMenu(menu);
+//		getSite().registerContextMenu(menuMgr, getCommonViewer());
 		
-		if ( window instanceof WorkbenchWindow ) {
-			MenuManager menuMgr = ((WorkbenchWindow)window).getMenuManager();
-			
-			IContributionItem[] items = menuMgr.getItems();
-			System.out
-					.println("ApexModellipseExplorerView.createPartControl(), line "
-							+ Thread.currentThread().getStackTrace()[1]
-									.getLineNumber());
-			System.out.println("  from Window Menu Manager");
-			
-			for ( IContributionItem item : items ) {
-				String menuId = item.getId();
-				System.out.println("    " + menuId);
-				
-				if ( item != null && item.getId() != null ) {
-					if ( menuId.equals("file") ) {
-						contextMenuItemList.add(item);
-					}
-				}
-			}
-		}
-			
-		MenuManager menuMgr = new MenuManager("#Popup") {
-			@Override
-			public IContributionItem[] getItems() {
-				
-				IContributionItem[] items = super.getItems();
-				System.out.println(" super.getItems().length : " + super.getItems().length);
-				List<IContributionItem> filteredItems = new ArrayList<IContributionItem> ();
-				filteredItems.addAll(contextMenuItemList);
-				System.out.println("filteredItems : " + filteredItems);
-				
-				for ( IContributionItem aItem : filteredItems) {
-					System.out.println("   item from filtered : " + aItem);
-					if ( aItem instanceof MenuManager ) {
-						MenuManager aMenuManager = (MenuManager)aItem;
-						IContributionItem[] aSubofItem = aMenuManager.getItems();
-						
-						for ( IContributionItem aofaItem : aSubofItem ) {
-							System.out.println("    sub of filtered : " + aofaItem);
-						}
-					}
-				}
-				
-				System.out
-				.println("ApexModellipseExplorerView.createPartControl(), line "
-						+ Thread.currentThread().getStackTrace()[1]
-								.getLineNumber());
-				System.out.println("  contextFromMain : " + contextMenuItemList);
-				System.out.println("  from Overriding");
-				
-				for ( IContributionItem menuItem : items ) {
-					String menuId = menuItem.getId();
-					System.out.println("    menuItem : " + menuItem);
-					System.out.println("    menuItem.getId() : " + menuId);
-				
-					if ( menuItem!=null && menuItem.getId()!=null) {
-						if ( !menuId.equals("org.eclipse.papyrus.uml.diagram.ui.menu")
-								 && !menuId.equals("org.eclipse.papyrus.ui.menu")
-								 && !menuId.equals("org.eclipse.debug.ui.contextualLaunch.run.submenu")
-								 && !menuId.equals("org.eclipse.debug.ui.contextualLaunch.debug.submenu")
-								 && !menuId.equals("org.eclipse.ui.projectConfigure")
-								 && !menuId.equals("org.eclipse.modisco.infra.discovery.ui.menu")
-						) {
-								filteredItems.add(menuItem);
-								System.out.println("      added : " + menuItem);
-						} else {
-							System.out.println("      not added : " + menuItem);
-						}	
-					}
-					
-				}	
-				items = new IContributionItem[ filteredItems.size()];
-				return filteredItems.toArray( items );
-			}
-		};
-		Menu menu = menuMgr.createContextMenu(aParent);
-		getCommonViewer().getControl().setMenu(menu);
-		getSite().registerContextMenu(menuMgr, getCommonViewer());
+		
 		
 		
 		
@@ -526,6 +647,9 @@ public class ApexModellipseExplorerView extends CommonNavigator
 		// an ISelectionListener to react to workbench selection changes.
 
 		page.addSelectionListener(pageSelectionListener);
+//		ISelectionProvider selectionProvider = site.getSelectionProvider();
+//		selectionProvider.addSelectionChangedListener(selectionChangeListener);
+		
 	}
 
 	/**
@@ -643,7 +767,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 		}
 
 		// Stop listening on change events
-//		getSite().getPage().removeSelectionListener(pageSelectionListener);
+		getSite().getPage().removeSelectionListener(pageSelectionListener);
 		// Stop Listening to isDirty flag
 		saveAndDirtyService.removeInputChangedListener(editorInputChangedListener);
 
@@ -659,7 +783,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 			editingDomain.removeResourceSetListener(resourceSetListener);
 			editingDomain = null;
 		}
-
+		this.removeListenerObject(pageSelectionListener);
 	}
 
 	/**
