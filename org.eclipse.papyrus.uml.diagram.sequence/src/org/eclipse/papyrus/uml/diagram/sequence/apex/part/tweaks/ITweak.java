@@ -5,7 +5,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 public interface ITweak {
-
+	
+	public void init();
+	
 	public Control createContent(Composite parent);
 
 	public ISelectionProvider getSelectionProvider();
@@ -17,5 +19,5 @@ public interface ITweak {
 	public void setInput(Object element);
 
 	public void dispose();
-
+	
 }

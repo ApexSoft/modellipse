@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.NamedElement;
 
+@Deprecated
 public class SimpleEditorTweak extends EditorTweak {
 
 	private UMLDiagramEditor editor;
@@ -132,6 +133,11 @@ public class SimpleEditorTweak extends EditorTweak {
 
 	@Override
 	protected void deactivateTweak() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void init() {
 		// TODO Auto-generated method stub
 		
 	}

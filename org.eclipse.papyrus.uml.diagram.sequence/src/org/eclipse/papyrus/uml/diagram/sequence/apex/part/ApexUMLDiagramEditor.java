@@ -30,16 +30,16 @@ public class ApexUMLDiagramEditor extends UMLDiagramEditor {
 	private boolean fIsTweakVisible;
 
 	private Composite fTweakComposite;
-	
 	private ITweak fTweak;
 	
-	private IPropertyChangeListener fPropertyChangeListener = new PropertyChangeListener();
+	private IPropertyChangeListener fPreferenceStoreChangeListener = new PreferenceStoreChangeListener();
 	
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 		
 		fTweak = createTweak();
+		fTweak.init();
 		fIsTweakVisible = isTweakShown();
 		if (fIsTweakVisible) {
 			showTweak();
@@ -81,7 +81,6 @@ public class ApexUMLDiagramEditor extends UMLDiagramEditor {
 		
 		Control control = sGViewer.getControl();
 		control.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-		
 	}
 
 	@Override
@@ -89,7 +88,7 @@ public class ApexUMLDiagramEditor extends UMLDiagramEditor {
 		super.initializeGraphicalViewer();
 		Object store = getPreferencesHint().getPreferenceStore();
 		if (store instanceof IPreferenceStore) {
-			((IPreferenceStore)store).addPropertyChangeListener(fPropertyChangeListener);
+			((IPreferenceStore)store).addPropertyChangeListener(fPreferenceStoreChangeListener);
 		}
 	}
 
@@ -165,11 +164,10 @@ public class ApexUMLDiagramEditor extends UMLDiagramEditor {
 	}
 
 	
-	private class PropertyChangeListener implements IPropertyChangeListener {
-
+	private class PreferenceStoreChangeListener implements IPropertyChangeListener {
 		public void propertyChange(PropertyChangeEvent event) {
 			handlePreferenceStoreChanged(event);
 		}
-		
 	}
+	
 }

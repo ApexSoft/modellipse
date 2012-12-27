@@ -3,8 +3,8 @@ package org.eclipse.papyrus.uml.diagram.sequence.apex.part;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.core.listener.DiagramEventBroker;
 import org.eclipse.gmf.runtime.diagram.core.listener.NotificationListener;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -15,14 +15,20 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakItem;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakViewer;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.uml2.uml.UMLPackage;
 
 public class SequenceTweakViewer extends TweakViewer {
 
 	private final NotificationListenerImpl fNotificationListener = new NotificationListenerImpl();
 	
+	private EditPartViewer fEditPartViewer;
+	
 	public SequenceTweakViewer(Composite parent, int style) {
 		super(parent, style);
+	}
+	
+	public SequenceTweakViewer(Composite parent, int style, EditPartViewer editPartViewer) {
+		super(parent, style);
+		fEditPartViewer = editPartViewer;
 	}
 
 	@Override
@@ -32,7 +38,6 @@ public class SequenceTweakViewer extends TweakViewer {
 				IGraphicalEditPart editPart = (IGraphicalEditPart)item.getData();
 				EObject element = editPart.resolveSemanticElement();
 				EObject view = editPart.getNotationView();
-				((Node)view).getLayoutConstraint();
 				DiagramEventBroker broker = DiagramEventBroker.getInstance(editPart.getEditingDomain());
 				broker.addNotificationListener(element, fNotificationListener);
 				broker.addNotificationListener(view, fNotificationListener);
@@ -57,12 +62,16 @@ public class SequenceTweakViewer extends TweakViewer {
 	
 	private class NotificationListenerImpl implements NotificationListener {
 		public void notifyChanged(Notification notification) {
-			Object notifier = notification.getNotifier();
-			if (NotationPackage.eINSTANCE.getBounds().equals(notifier)) {
-				
+			Object feature = notification.getFeature();
+			if (NotationPackage.eINSTANCE.getLocation_X().equals(feature)) {
+				refresh(false);
+			} else if (NotationPackage.eINSTANCE.getSize_Width().equals(feature)) {
+				refresh(false);
 			}
-			
-			refresh();
+
+			Object notifier = notification.getNotifier();
+			if (notifier instanceof Bounds) {
+			}
 		}
 	}
 }

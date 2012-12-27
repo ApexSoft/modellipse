@@ -13,6 +13,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakStructuredContentProvider;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.uml2.uml.Interaction;
@@ -30,17 +31,17 @@ public class SequenceTweakContentProvider extends TweakStructuredContentProvider
 	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof EditPart) {
-			return getLifelineEditParts(fEditPartViewer).toArray();
+			return getLifelineEditParts(fEditPartViewer);
 		}
 		if (inputElement instanceof Diagram) {
 			Diagram diagram = (Diagram)inputElement;
 //			return getChildren(diagram).toArray();
-			return getLifelines(diagram).toArray();
+			return getLifelines(fEditPartViewer);
 		}
 		return super.getElements(inputElement);
 	}
 	
-	private Collection<?> getLifelineEditParts(EditPartViewer editPartViewer) {
+	private Object[] getLifelineEditParts(EditPartViewer editPartViewer) {
 		Set<LifelineEditPart> editParts = new HashSet<LifelineEditPart>();
 		Map registry = editPartViewer.getEditPartRegistry();
 		for (Iterator iterator = registry.keySet().iterator(); iterator.hasNext(); ) {
@@ -50,16 +51,20 @@ public class SequenceTweakContentProvider extends TweakStructuredContentProvider
 				editParts.add((LifelineEditPart) value);
 			}
 		}
-		return editParts;
+		return editParts.toArray();
 	}
 
-	private List<Lifeline> getLifelines(View view) {
-		if (view.getElement() instanceof Interaction) {
-			Interaction interaction = (Interaction)view.getElement();
-			List<Lifeline> lifelines = new ArrayList<Lifeline>(interaction.getLifelines());
-			return lifelines;
+	private Object[] getLifelines(EditPartViewer editPartViewer) {
+		Set<View> views = new HashSet<View>();
+		Map registry = editPartViewer.getEditPartRegistry();
+		for (Iterator iterator = registry.keySet().iterator(); iterator.hasNext(); ) {
+			Object key = iterator.next();
+			Object value = registry.get(key);
+			if (value instanceof LifelineEditPart) {
+				views.add(((LifelineEditPart)value).getNotationView());
+			}
 		}
-		return Collections.emptyList();
+		return views.toArray();
 	}
 	
 	private List<View> getChildren(View view) {

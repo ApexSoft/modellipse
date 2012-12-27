@@ -18,7 +18,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -174,16 +173,38 @@ public abstract class TweakViewer extends StructuredViewer {
 
 	@Override
 	protected void internalRefresh(Object element) {
+		internalRefresh(element, true);
+//		disableRedraw();
+//		try {
+//			TweakItem item= (TweakItem) doFindItem(element);
+//			if (item == null) {
+//				for (int i= 0, size= fTweakItems.size(); i < size; i++) {
+//					TweakItem item1= fTweakItems.get(i);
+//					item1.refresh();
+//				}
+//			} else {
+//				item.refresh();
+//			}
+//			if (updateSize())
+//				fContainer.layout(true, true);
+//		} finally {
+//			enableRedraw();
+//		}
+	}
+	
+	@Override
+	protected void internalRefresh(Object element, boolean updateLabels) {
 		disableRedraw();
 		try {
+			boolean changedBounds = !updateLabels;
 			TweakItem item= (TweakItem) doFindItem(element);
 			if (item == null) {
 				for (int i= 0, size= fTweakItems.size(); i < size; i++) {
 					TweakItem item1= fTweakItems.get(i);
-					item1.refresh();
+					item1.refresh(changedBounds);
 				}
 			} else {
-				item.refresh();
+				item.refresh(changedBounds);
 			}
 			if (updateSize())
 				fContainer.layout(true, true);
@@ -228,10 +249,6 @@ public abstract class TweakViewer extends StructuredViewer {
 	@Override
 	public Control getControl() {
 		return fContainer;
-	}
-	
-	protected void refreshBounds() {
-		
 	}
 	
 	private void buildItem(Object input) {

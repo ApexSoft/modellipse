@@ -150,7 +150,7 @@ public abstract class EditorTweak implements ITweak {
 	public boolean isActive() {
 		return fIsActive;
 	}
-
+	
 	public void setInput(Object element) {
 		if (element == null) {
 			return;

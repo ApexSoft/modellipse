@@ -100,6 +100,13 @@ public class TweakItem extends Item {
 	}
 
 	void refresh() {
+		refresh(false);
+	}
+	
+	/**
+	 * @param changedBounds EditPart의 bounds 변경에 의한 refresh. true일 경우 Model의 Bounds에 의해 위치 결정
+	 */
+	void refresh(boolean changedBounds) {
 		String text = fLabelProvider.getText(getData());
 		Image image = fLabelProvider.getImage(getData());
 		String toolTip = fToolTipLabelProvider.getText(getData());
@@ -112,46 +119,32 @@ public class TweakItem extends Item {
 			IGraphicalEditPart editPart = (IGraphicalEditPart) getData();
 			IFigure figure = editPart.getFigure();
 			Rectangle bounds = figure.getBounds().getCopy();
-			figure.translateToAbsolute(bounds);
 			
+			if (changedBounds) {
+				View view = editPart.getNotationView();
+				if (view instanceof Node) {
+					LayoutConstraint constraint = ((Node)view).getLayoutConstraint();
+					if (constraint instanceof Bounds) {
+						bounds.x = ((Bounds)constraint).getX();
+						bounds.width = ((Bounds)constraint).getWidth();
+					}
+				}
+			}
+			
+			figure.translateToAbsolute(bounds);
+
 			Object layoutData = fContainer.getLayoutData();
 			if (layoutData instanceof FormData == false) {
 				layoutData = new FormData();
 			}
 			
-			View view = editPart.getNotationView();
-			if (view instanceof Node) {
-				LayoutConstraint constraint = ((Node)view).getLayoutConstraint();
-				if (constraint instanceof Bounds) {
-					bounds.x = ((Bounds)constraint).getX();
-					bounds.width = ((Bounds)constraint).getWidth();
-				}
-			}
-			((FormData)layoutData).left = new FormAttachment(0, bounds.x);
-			((FormData)layoutData).right = new FormAttachment(0, bounds.right());
+			int hOffset = 0;
+			((FormData)layoutData).left = new FormAttachment(0, bounds.x + hOffset);
+			((FormData)layoutData).right = new FormAttachment(0, bounds.right() + hOffset);
 			fContainer.setLayoutData(layoutData);
 		}
 	}
 	
-	int x = SWT.DEFAULT;
-	int width = SWT.DEFAULT;
-	
-	public void setX(int x) {
-		this.x = x;
-	}
-	
-	public int getX() {
-		return x;
-	}
-	
-	public void setWidth(int width) {
-		this.width = width;
-	}
-	
-	public int getWidth() {
-		return width;
-	}
-
 	boolean hasFocus() {
 		return false;
 	}
