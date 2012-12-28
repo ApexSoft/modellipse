@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
@@ -121,8 +122,9 @@ public class TweakItem extends Item {
 			Node node = (Node)getData();
 			LayoutConstraint constraint = node.getLayoutConstraint();
 			if (constraint instanceof Bounds) {
-				l = ((Bounds)constraint).getX();
-				r = l + ((Bounds)constraint).getWidth();
+				Bounds b = (Bounds)constraint;
+				l = b.getX();
+				r = b.getWidth() == SWT.DEFAULT ? l + LifelineEditPart.DEFAULT_FIGURE_WIDTH : l + ((Bounds)constraint).getWidth();
 			}
 			
 			Object layoutData = fContainer.getLayoutData();

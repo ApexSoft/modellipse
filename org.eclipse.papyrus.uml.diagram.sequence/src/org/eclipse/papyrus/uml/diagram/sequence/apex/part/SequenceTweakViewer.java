@@ -1,6 +1,8 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.part;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
@@ -8,8 +10,9 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.diagram.core.listener.DiagramEventBroker;
 import org.eclipse.gmf.runtime.diagram.core.listener.NotificationListener;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakItem;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakViewer;
 import org.eclipse.swt.widgets.Composite;
@@ -18,6 +21,7 @@ public class SequenceTweakViewer extends TweakViewer {
 
 	private final NotificationListenerImpl fNotificationListener = new NotificationListenerImpl();
 	private TransactionalEditingDomain fEditingDomain;
+	private IDiagramGraphicalViewer fViewer;
 	
 	public SequenceTweakViewer(Composite parent, int style) {
 		super(parent, style);
@@ -26,6 +30,11 @@ public class SequenceTweakViewer extends TweakViewer {
 	public SequenceTweakViewer(Composite parent, int style, TransactionalEditingDomain editingDomain) {
 		super(parent, style);
 		fEditingDomain = editingDomain;
+	}
+	
+	public SequenceTweakViewer(Composite parent, int style, DiagramEditor editor) {
+		super(parent, style);
+		fViewer = editor.getDiagramGraphicalViewer();
 	}
 	
 	@Override
@@ -68,6 +77,15 @@ public class SequenceTweakViewer extends TweakViewer {
 
 	@Override
 	public int getHorizontalOffset() {
+		
+		if (fViewer != null) {
+			Map registry = fViewer.getEditPartRegistry();
+			for (Iterator iterator = registry.keySet().iterator(); iterator.hasNext(); ) {
+				Object key = iterator.next();
+				Object value = registry.get(key);
+				
+			}
+		}
 		return super.getHorizontalOffset();
 	}
 	

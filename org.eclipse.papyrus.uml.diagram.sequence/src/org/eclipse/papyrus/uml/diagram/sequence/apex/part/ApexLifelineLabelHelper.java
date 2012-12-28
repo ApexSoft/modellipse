@@ -379,21 +379,21 @@ public class ApexLifelineLabelHelper extends LifelineLabelHelper {
 		} else if(element != null) {
 			key = element.getClass().getName();
 		}
-		ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
+		ImageRegistry imageRegistry = UMLDiagramEditorPlugin.getInstance().getImageRegistry();
 		Image image = imageRegistry.get(key);
-		ImageDescriptor descriptor = null;
-		if(image == null) {
-			AdapterFactory factory = Activator.getDefault().getItemProvidersAdapterFactory();
-			IItemLabelProvider labelProvider = (IItemLabelProvider)factory.adapt(getUMLElement(view), IItemLabelProvider.class);
-			if(labelProvider != null) {
-				descriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(getUMLElement(view)));
-			}
-			if(descriptor == null) {
-				descriptor = ImageDescriptor.getMissingImageDescriptor();
-			}
-			imageRegistry.put(key, descriptor);
-			image = imageRegistry.get(key);
-		}
+//		ImageDescriptor descriptor = null;
+//		if(image == null) {
+//			AdapterFactory factory = Activator.getDefault().getItemProvidersAdapterFactory();
+//			IItemLabelProvider labelProvider = (IItemLabelProvider)factory.adapt(getUMLElement(view), IItemLabelProvider.class);
+//			if(labelProvider != null) {
+//				descriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(getUMLElement(view)));
+//			}
+//			if(descriptor == null) {
+//				descriptor = ImageDescriptor.getMissingImageDescriptor();
+//			}
+//			imageRegistry.put(key, descriptor);
+//			image = imageRegistry.get(key);
+//		}
 		return image;
 	}
 

@@ -25,7 +25,6 @@ import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.uml2.uml.UMLPackage;
 
 public class SequenceEditorTweak extends EditorTweak implements PropertyChangeListener, NotificationListener {
 
@@ -42,7 +41,7 @@ public class SequenceEditorTweak extends EditorTweak implements PropertyChangeLi
 			FigureCanvas canvas = (FigureCanvas)control;
 			canvas.getViewport().getHorizontalRangeModel().addPropertyChangeListener(this);
 		}
-		
+
 		Diagram diagram = getDiagramEditor().getDiagram();
 		DiagramEventBroker broker = DiagramEventBroker.getInstance(getDiagramEditor().getEditingDomain());
 		List<View> views = DiagramEditPartsUtil.findViews(diagram.getElement(), viewer);
