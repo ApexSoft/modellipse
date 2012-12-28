@@ -10,7 +10,9 @@ public class LifelineLabelProvider extends LabelProvider {
 
 	@Override
 	public Image getImage(Object element) {
-		if (element instanceof GraphicalEditPart) {
+		if (element instanceof View) {
+			return ApexLifelineLabelHelper.getInstance().getImage((View)element);
+		} else if (element instanceof GraphicalEditPart) {
 			GraphicalEditPart editPart = (GraphicalEditPart)element;
 			boolean isShow = AppearanceHelper.showElementIcon((View)editPart.getModel());
 			if (isShow) {
@@ -22,7 +24,9 @@ public class LifelineLabelProvider extends LabelProvider {
 
 	@Override
 	public String getText(Object element) {
-		if (element instanceof GraphicalEditPart) {
+		if (element instanceof View) {
+			return ApexLifelineLabelHelper.getInstance().labelToDisplay((View)element);
+		} else if (element instanceof GraphicalEditPart) {
 			GraphicalEditPart editPart = (GraphicalEditPart)element;
 			return ApexLifelineLabelHelper.getInstance().labelToDisplay(editPart);
 		}

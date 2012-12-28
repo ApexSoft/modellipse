@@ -53,7 +53,7 @@ public class SequenceEditorTweak extends EditorTweak implements PropertyChangeLi
 	
 	@Override
 	protected TweakViewer createViewer(Composite parent) {
-		fViewer = new SequenceTweakViewer(parent, SWT.HORIZONTAL);
+		fViewer = new SequenceTweakViewer(parent, SWT.HORIZONTAL, getDiagramEditor().getEditingDomain());
 		fViewer.setLabelProvider(createLabelProvider());
 		fViewer.setContentProvider(createContentProvider());
 		fViewer.setToolTipLabelProvider(createTooltipLabelProvider());

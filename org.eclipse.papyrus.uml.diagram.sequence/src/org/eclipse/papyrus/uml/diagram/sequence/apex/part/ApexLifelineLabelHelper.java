@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.gef.GraphicalEditPart;
@@ -15,13 +16,17 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.papyrus.infra.emf.appearance.helper.VisualInformationPapyrusConstants;
 import org.eclipse.papyrus.uml.appearance.helper.AppliedStereotypeHelper;
 import org.eclipse.papyrus.uml.appearance.helper.UMLVisualInformationPapyrusConstant;
 import org.eclipse.papyrus.uml.diagram.common.Activator;
+import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorPlugin;
+import org.eclipse.papyrus.uml.diagram.sequence.preferences.LifelinePreferencePage;
 import org.eclipse.papyrus.uml.diagram.sequence.util.LifelineLabelHelper;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Stereotype;
 
@@ -80,17 +85,13 @@ public class ApexLifelineLabelHelper extends LifelineLabelHelper {
 		return propertiesMap;
 	}
 
-
-	/**
-	 * {@inheritDoc}
-	 */
 	/**
 	 * @param view
 	 *        the view that displays the lifeline
 	 * @return
 	 */
-	public Element getUMLElement(View view) {
-		return (Element)view.getElement();
+	public Lifeline getUMLElement(View view) {
+		return (Lifeline)view.getElement();
 	}
 
 	/**
@@ -334,7 +335,33 @@ public class ApexLifelineLabelHelper extends LifelineLabelHelper {
 	 * @return the string corresponding to the display of the semantic element
 	 */
 	public String elementLabel(View view) {
-		return super.elementLabel(null);
+		int displayValue = getCurrentDisplayValue(view);
+		return getCustomLabel(getUMLElement(view), displayValue);
+	}
+	
+	private String getCustomLabel(Lifeline lifeline, int displayValue) {
+		StringBuilder sb = new StringBuilder();		
+		appendName(lifeline, displayValue, sb);
+		
+		// handle represent type label
+		appendType(lifeline, displayValue, sb);
+		return sb.toString();
+	}
+	
+	private int getCurrentDisplayValue(View view) {
+		EAnnotation customeDisplayAnnotation = view.getEAnnotation(VisualInformationPapyrusConstants.CUSTOM_APPEARENCE_ANNOTATION);
+		int displayValue = LifelinePreferencePage.DEFAULT_LABEL_DISPLAY;
+		if(customeDisplayAnnotation != null && customeDisplayAnnotation.getDetails().get(VisualInformationPapyrusConstants.CUSTOM_APPEARANCE_MASK_VALUE) != null) {
+			displayValue = Integer.parseInt(customeDisplayAnnotation.getDetails().get(VisualInformationPapyrusConstants.CUSTOM_APPEARANCE_MASK_VALUE));
+		} else {
+			// no specific information => look in preferences
+			IPreferenceStore store = UMLDiagramEditorPlugin.getInstance().getPreferenceStore();
+			int displayValueTemp = store.getInt(LifelinePreferencePage.LABEL_DISPLAY_PREFERENCE);
+			if(displayValueTemp != 0) {
+				displayValue = displayValueTemp;
+			}
+		}
+		return displayValue;
 	}
 
 	/**

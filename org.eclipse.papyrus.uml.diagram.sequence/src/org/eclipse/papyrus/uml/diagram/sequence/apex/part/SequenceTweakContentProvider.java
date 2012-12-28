@@ -1,9 +1,7 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.part;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,7 +11,6 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakStructuredContentProvider;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
-import org.eclipse.uml2.uml.Lifeline;
 
 public class SequenceTweakContentProvider extends TweakStructuredContentProvider {
 
