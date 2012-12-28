@@ -77,7 +77,6 @@ public abstract class TweakViewer extends StructuredViewer {
 		formLayout.marginBottom = 2;
 		fContainer.setLayout(formLayout);
 		
-
 		fContainer.addListener(SWT.Resize, new Listener() {
 			public void handleEvent(Event event) {
 				refresh();
@@ -100,9 +99,8 @@ public abstract class TweakViewer extends StructuredViewer {
 
 		disableRedraw();
 		try {
-			
+			unhookTweakItems(fTweakItems);
 			buildItem(input);
-			
 			hookTweakItems(fTweakItems);
 
 			updateSize();
@@ -258,10 +256,11 @@ public abstract class TweakViewer extends StructuredViewer {
 			return;
 		}
 		
+		int index = 0;
+		
 		for (Object element : elements) {
 			TweakItem item;
-			if (fTweakItems.contains(element)) {
-				int index = fTweakItems.indexOf(element);
+			if (index < fTweakItems.size()) {
 				item = fTweakItems.get(index);
 				if (item.getData() != null) {
 					unmapElement(item.getData());
@@ -270,6 +269,8 @@ public abstract class TweakViewer extends StructuredViewer {
 				item = createItem();
 				fTweakItems.add(item);
 			}
+			
+			index += 1;
 			
 			if (equals(element, item.getData())) {
 				update(element, null);
@@ -309,6 +310,15 @@ public abstract class TweakViewer extends StructuredViewer {
 
 	private void disableRedraw() {
 		fContainer.setRedraw(false);
+	}
+	
+	private int hOffset = 0;
+	
+	protected int getHorizontalOffset() {
+		return hOffset;
+	}
+	protected void setHorizontalOffset(int offset) {
+		hOffset = offset;
 	}
 	
 	private Image createGradientImage(int height, Display display) {

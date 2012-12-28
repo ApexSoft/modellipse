@@ -156,39 +156,19 @@ public abstract class EditorTweak implements ITweak {
 			return;
 		}
 		
+		if (fTweakViewer == null) {
+			return;
+		}
+		
 		Object input = fTweakViewer.getInput();
 		if (input == element || element.equals(input)) {
-			return;
+//			fTweakViewer.refresh();
+//			return;
 		}
 		
 		fTweakViewer.setInput(element);
 	}
 	
-	/**
-	 * EObject의 View를 구함
-	 * 
-	 * @param element
-	 * @return
-	 */
-	protected View findView(EObject element) {
-		EditPartViewer viewer = getDiagramEditor().getDiagramGraphicalViewer();
-		List<View> views = DiagramEditPartsUtil.findViews(element, viewer);
-		List<View> removeViews = new ArrayList<View>(views);
-		for (View view : views) {
-			EObject container = view.eContainer();
-			while (container != null && container instanceof View) {
-				if (views.contains(container)) {
-					removeViews.add(view);
-					break;
-				}
-				container = container.eContainer();
-			}
-		}
-		views.removeAll(removeViews);
-		
-		return views.size() > 0 ? views.get(0) : null;
-	}
-
 	public void dispose() {
 		if (fDisplayFocusListener != null) {
 			Display.getCurrent().removeListener(SWT.FocusIn, fDisplayFocusListener);
@@ -291,9 +271,9 @@ public abstract class EditorTweak implements ITweak {
 
 		activateTweak();
 
-		getDiagramEditor().getEditorSite().getActionBars().updateActionBars();
+//		getDiagramEditor().getEditorSite().getActionBars().updateActionBars();
 		
-		fOldSelection = getDiagramEditor().getDiagramGraphicalViewer().getSelection();
+//		fOldSelection = getDiagramEditor().getDiagramGraphicalViewer().getSelection();
 		
 //		getDiagramEditor().getDiagramGraphicalViewer().setSelection(new StructuredSelection(this));
 	}
@@ -310,9 +290,9 @@ public abstract class EditorTweak implements ITweak {
 
 		deactivateTweak();
 
-		getDiagramEditor().getEditorSite().getActionBars().updateActionBars();
+//		getDiagramEditor().getEditorSite().getActionBars().updateActionBars();
 		
-		getDiagramEditor().getDiagramGraphicalViewer().setSelection(fOldSelection);
+//		getDiagramEditor().getDiagramGraphicalViewer().setSelection(fOldSelection);
 		
 		fOldSelection = null;
 	}

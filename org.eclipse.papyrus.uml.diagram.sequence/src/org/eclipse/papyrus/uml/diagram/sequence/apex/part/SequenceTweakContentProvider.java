@@ -1,8 +1,6 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.part;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -13,10 +11,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakStructuredContentProvider;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
-import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.Lifeline;
 
 public class SequenceTweakContentProvider extends TweakStructuredContentProvider {
@@ -34,8 +30,6 @@ public class SequenceTweakContentProvider extends TweakStructuredContentProvider
 			return getLifelineEditParts(fEditPartViewer);
 		}
 		if (inputElement instanceof Diagram) {
-			Diagram diagram = (Diagram)inputElement;
-//			return getChildren(diagram).toArray();
 			return getLifelines(fEditPartViewer);
 		}
 		return super.getElements(inputElement);
@@ -67,23 +61,4 @@ public class SequenceTweakContentProvider extends TweakStructuredContentProvider
 		return views.toArray();
 	}
 	
-	private List<View> getChildren(View view) {
-		List<View> views = new ArrayList<View>();
-		
-		for (Object child : view.getChildren()) {
-			if (child instanceof View) {
-				View childView = (View)child;
-				if (childView.getElement() instanceof Lifeline) {
-					views.add(childView);
-				}
-				
-				for (View c : getChildren(childView)) {
-					if (c.getElement().equals(childView.getElement()) == false) {
-						views.add(c);
-					}
-				}
-			}
-		}
-		return views;
-	}
 }

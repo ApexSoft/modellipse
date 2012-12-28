@@ -115,12 +115,32 @@ public class TweakItem extends Item {
 		fDetailsBlock.setImage(image);
 		fDetailsBlock.setToopTip(toolTip);
 		
-		if (getData() instanceof IGraphicalEditPart) {
+		if (getData() instanceof Node) {
+			int l = 0, r = 0;
+			
+			Node node = (Node)getData();
+			LayoutConstraint constraint = node.getLayoutConstraint();
+			if (constraint instanceof Bounds) {
+				l = ((Bounds)constraint).getX();
+				r = l + ((Bounds)constraint).getWidth();
+			}
+			
+			Object layoutData = fContainer.getLayoutData();
+			if (layoutData instanceof FormData == false) {
+				layoutData = new FormData();
+			}
+			
+			int hOffset = fParent.getHorizontalOffset();
+			((FormData)layoutData).left = new FormAttachment(0, l + hOffset);
+			((FormData)layoutData).right = new FormAttachment(0, r + hOffset);
+			fContainer.setLayoutData(layoutData);
+		}
+		else if (getData() instanceof IGraphicalEditPart) {
 			IGraphicalEditPart editPart = (IGraphicalEditPart) getData();
 			IFigure figure = editPart.getFigure();
 			Rectangle bounds = figure.getBounds().getCopy();
 			
-			if (changedBounds) {
+			if (true/*changedBounds*/) {
 				View view = editPart.getNotationView();
 				if (view instanceof Node) {
 					LayoutConstraint constraint = ((Node)view).getLayoutConstraint();

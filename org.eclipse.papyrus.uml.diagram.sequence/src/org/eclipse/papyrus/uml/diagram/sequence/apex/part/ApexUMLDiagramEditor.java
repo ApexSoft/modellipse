@@ -124,7 +124,7 @@ public class ApexUMLDiagramEditor extends UMLDiagramEditor {
 		((GridData) fTweakComposite.getLayoutData()).exclude= false;
 		fTweakComposite.setVisible(true);
 		
-		fTweak.setInput(getDiagramEditPart());
+		fTweak.setInput(getDiagram());
 
 		fTweakComposite.getParent().layout(true, true);
 	}
@@ -163,7 +163,7 @@ public class ApexUMLDiagramEditor extends UMLDiagramEditor {
 		}
 	}
 
-	
+
 	private class PreferenceStoreChangeListener implements IPropertyChangeListener {
 		public void propertyChange(PropertyChangeEvent event) {
 			handlePreferenceStoreChanged(event);
