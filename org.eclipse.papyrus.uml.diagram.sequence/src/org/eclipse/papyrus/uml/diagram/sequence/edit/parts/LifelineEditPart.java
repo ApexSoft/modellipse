@@ -489,7 +489,7 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new LifelineDotLineCustomFigure.DefaultSizeNodeFigureEx(100, 250) {
+		DefaultSizeNodeFigure result = new LifelineDotLineCustomFigure.DefaultSizeNodeFigureEx(DEFAULT_FIGURE_WIDTH, 250) {
 
 			/**
 			 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#isDefaultAnchorArea(org.eclipse.draw2d.geometry.PrecisionPoint)
@@ -1344,6 +1344,11 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 		}
 		return types;
 	}
+	
+	/* apex added start */
+	public static final int DEFAULT_FIGURE_WIDTH = 100;
+	public static final int DEFAULT_FIGURE_HEIGHT = 800;
+	/* apex added end */
 
 	/**
 	 * @generated
@@ -1413,7 +1418,7 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			this.setLayoutManager(layoutThis);
 			this.setOpaque(false);
 			/* apex improved start */
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100), getMapMode().DPtoLP(800)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(DEFAULT_FIGURE_WIDTH), getMapMode().DPtoLP(DEFAULT_FIGURE_HEIGHT)));
 			/* apex improved end */
 			/* apex replaced
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100), getMapMode().DPtoLP(200)));

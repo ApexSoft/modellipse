@@ -1,15 +1,33 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.part;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.List;
+
+import org.eclipse.draw2d.FigureCanvas;
+import org.eclipse.draw2d.RangeModel;
+import org.eclipse.draw2d.Viewport;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gmf.runtime.diagram.core.listener.DiagramEventBroker;
+import org.eclipse.gmf.runtime.diagram.core.listener.NotificationListener;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.EditorTweak;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakStyledLabelProvider;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks.TweakViewer;
 import org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 
-public class SequenceEditorTweak extends EditorTweak {
+public class SequenceEditorTweak extends EditorTweak implements PropertyChangeListener, NotificationListener {
 
 	private TweakViewer fViewer;
 	
@@ -17,9 +35,24 @@ public class SequenceEditorTweak extends EditorTweak {
 		super(editorPart);
 	}
 
+	public void init() {
+		IDiagramGraphicalViewer viewer = getDiagramEditor().getDiagramGraphicalViewer();
+		Control control = viewer.getControl();
+		if (control instanceof FigureCanvas) {
+			FigureCanvas canvas = (FigureCanvas)control;
+			canvas.getViewport().getHorizontalRangeModel().addPropertyChangeListener(this);
+		}
+
+		Diagram diagram = getDiagramEditor().getDiagram();
+		List<View> views = DiagramEditPartsUtil.findViews(diagram.getElement(), viewer);
+		for (View view : views) {
+			addNotificationListener(view, this);
+		}
+	}
+	
 	@Override
 	protected TweakViewer createViewer(Composite parent) {
-		fViewer = new SequenceTweakViewer(parent, SWT.HORIZONTAL);
+		fViewer = new SequenceTweakViewer(parent, SWT.HORIZONTAL, getDiagramEditor());
 		fViewer.setLabelProvider(createLabelProvider());
 		fViewer.setContentProvider(createContentProvider());
 		fViewer.setToolTipLabelProvider(createTooltipLabelProvider());
@@ -28,7 +61,7 @@ public class SequenceEditorTweak extends EditorTweak {
 
 	@Override
 	protected Object getCurrentInput() {
-		return getDiagramEditor().getDiagramEditPart();
+		return getDiagramEditor().getDiagram();
 	}
 
 	@Override
@@ -75,4 +108,71 @@ public class SequenceEditorTweak extends EditorTweak {
 	private ILabelProvider createTooltipLabelProvider() {
 		return null;
 	}
+
+	public void propertyChange(PropertyChangeEvent evt) {
+		RangeModel model = null;
+		if (evt.getSource() instanceof RangeModel) {
+			model = (RangeModel)evt.getSource();
+		} else if (evt.getSource() instanceof Viewport) {
+			if (Viewport.PROPERTY_VIEW_LOCATION.equals(evt.getPropertyName())) {
+				Viewport viewport = (Viewport)evt.getSource();
+				model = viewport.getHorizontalRangeModel();
+			}
+		}
+		
+		if (model != null) {
+			refreshViewer(false);
+		}
+	}
+
+	private DiagramEventBroker getDiagramEventBroker() {
+		TransactionalEditingDomain editingDomain = getEditingDomain();
+		if (editingDomain != null) {
+			return DiagramEventBroker.getInstance(editingDomain);
+		}
+		return null;
+	}
+	
+	protected void addNotificationListener(EObject target, NotificationListener listener) {
+		DiagramEventBroker diagramEventBroker = getDiagramEventBroker();
+		if (diagramEventBroker != null) {
+			diagramEventBroker.addNotificationListener(target, listener);
+		}
+	}
+	
+	protected void removeNotificationListener(EObject target, NotificationListener listener) {
+		DiagramEventBroker diagramEventBroker = getDiagramEventBroker();
+		if (diagramEventBroker != null) {
+			diagramEventBroker.removeNotificationListener(target, listener);
+		}
+	}
+	
+	public void notifyChanged(Notification notification) {
+		Object notifier = notification.getNotifier();
+		if (notifier instanceof View) {
+			EObject parentElement = ((View)notifier).getElement();
+			if (Notification.ADD == notification.getEventType()) {
+				if (notification.getNewValue() instanceof View) {
+					View newView = (View)notification.getNewValue();
+					if (!parentElement.equals(newView.getElement())) {
+						addNotificationListener(newView, this);
+					}
+				}
+			} else if (Notification.REMOVE == notification.getEventType()) {
+				if (notification.getOldValue() instanceof View) {
+					View oldView = (View)notification.getOldValue();
+					removeNotificationListener(oldView, this);
+					refreshViewer(true);
+				}
+			}
+		}
+		Object feature = notification.getFeature();
+		if (NotationPackage.eINSTANCE.getLocation_X().equals(feature) ||
+				NotationPackage.eINSTANCE.getSize_Width().equals(feature)) {
+			refreshViewer(true);
+		} else if (NotationPackage.eINSTANCE.getNode_LayoutConstraint().equals(feature)) {
+			refreshViewer(true);
+		}
+	}
+	
 }

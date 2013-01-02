@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
@@ -108,50 +109,56 @@ public class TweakItem extends Item {
 		fDetailsBlock.setImage(image);
 		fDetailsBlock.setToopTip(toolTip);
 		
-		if (getData() instanceof IGraphicalEditPart) {
-			IGraphicalEditPart editPart = (IGraphicalEditPart) getData();
-			IFigure figure = editPart.getFigure();
-			Rectangle bounds = figure.getBounds().getCopy();
-			figure.translateToAbsolute(bounds);
+		if (getData() instanceof Node) {
+			int l = 0, r = 0;
+			
+			Node node = (Node)getData();
+			LayoutConstraint constraint = node.getLayoutConstraint();
+			if (constraint instanceof Bounds) {
+				Bounds b = (Bounds)constraint;
+				l = b.getX();
+				r = b.getWidth() == SWT.DEFAULT ? l + LifelineEditPart.DEFAULT_FIGURE_WIDTH : l + ((Bounds)constraint).getWidth();
+			}
 			
 			Object layoutData = fContainer.getLayoutData();
 			if (layoutData instanceof FormData == false) {
 				layoutData = new FormData();
 			}
 			
-			View view = editPart.getNotationView();
-			if (view instanceof Node) {
-				LayoutConstraint constraint = ((Node)view).getLayoutConstraint();
-				if (constraint instanceof Bounds) {
-					bounds.x = ((Bounds)constraint).getX();
-					bounds.width = ((Bounds)constraint).getWidth();
+			int hOffset = fParent.getHorizontalOffset();
+			((FormData)layoutData).left = new FormAttachment(0, l + hOffset);
+			((FormData)layoutData).right = new FormAttachment(0, r + hOffset);
+			fContainer.setLayoutData(layoutData);
+		} else if (getData() instanceof IGraphicalEditPart) {
+			IGraphicalEditPart editPart = (IGraphicalEditPart) getData();
+			IFigure figure = editPart.getFigure();
+			Rectangle bounds = figure.getBounds().getCopy();
+			
+			if (true/*changedBounds*/) {
+				View view = editPart.getNotationView();
+				if (view instanceof Node) {
+					LayoutConstraint constraint = ((Node)view).getLayoutConstraint();
+					if (constraint instanceof Bounds) {
+						bounds.x = ((Bounds)constraint).getX();
+						bounds.width = ((Bounds)constraint).getWidth();
+					}
 				}
 			}
-			((FormData)layoutData).left = new FormAttachment(0, bounds.x);
-			((FormData)layoutData).right = new FormAttachment(0, bounds.right());
+			
+			figure.translateToAbsolute(bounds);
+
+			Object layoutData = fContainer.getLayoutData();
+			if (layoutData instanceof FormData == false) {
+				layoutData = new FormData();
+			}
+			
+			int hOffset = 0;
+			((FormData)layoutData).left = new FormAttachment(0, bounds.x + hOffset);
+			((FormData)layoutData).right = new FormAttachment(0, bounds.right() + hOffset);
 			fContainer.setLayoutData(layoutData);
 		}
 	}
 	
-	int x = SWT.DEFAULT;
-	int width = SWT.DEFAULT;
-	
-	public void setX(int x) {
-		this.x = x;
-	}
-	
-	public int getX() {
-		return x;
-	}
-	
-	public void setWidth(int width) {
-		this.width = width;
-	}
-	
-	public int getWidth() {
-		return width;
-	}
-
 	boolean hasFocus() {
 		return false;
 	}
