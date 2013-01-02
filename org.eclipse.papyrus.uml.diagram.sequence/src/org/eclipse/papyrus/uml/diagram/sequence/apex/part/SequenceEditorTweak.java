@@ -9,6 +9,7 @@ import org.eclipse.draw2d.RangeModel;
 import org.eclipse.draw2d.Viewport;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.diagram.core.listener.DiagramEventBroker;
 import org.eclipse.gmf.runtime.diagram.core.listener.NotificationListener;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
@@ -43,16 +44,15 @@ public class SequenceEditorTweak extends EditorTweak implements PropertyChangeLi
 		}
 
 		Diagram diagram = getDiagramEditor().getDiagram();
-		DiagramEventBroker broker = DiagramEventBroker.getInstance(getDiagramEditor().getEditingDomain());
 		List<View> views = DiagramEditPartsUtil.findViews(diagram.getElement(), viewer);
 		for (View view : views) {
-			broker.addNotificationListener(view, this);
+			addNotificationListener(view, this);
 		}
 	}
 	
 	@Override
 	protected TweakViewer createViewer(Composite parent) {
-		fViewer = new SequenceTweakViewer(parent, SWT.HORIZONTAL, getDiagramEditor().getEditingDomain());
+		fViewer = new SequenceTweakViewer(parent, SWT.HORIZONTAL, getDiagramEditor());
 		fViewer.setLabelProvider(createLabelProvider());
 		fViewer.setContentProvider(createContentProvider());
 		fViewer.setToolTipLabelProvider(createTooltipLabelProvider());
@@ -121,12 +121,32 @@ public class SequenceEditorTweak extends EditorTweak implements PropertyChangeLi
 		}
 		
 		if (model != null) {
-			if (fViewer != null && fViewer.getControl().isVisible()) {
-				fViewer.refresh();
-			}
+			refreshViewer(false);
 		}
 	}
 
+	private DiagramEventBroker getDiagramEventBroker() {
+		TransactionalEditingDomain editingDomain = getEditingDomain();
+		if (editingDomain != null) {
+			return DiagramEventBroker.getInstance(editingDomain);
+		}
+		return null;
+	}
+	
+	protected void addNotificationListener(EObject target, NotificationListener listener) {
+		DiagramEventBroker diagramEventBroker = getDiagramEventBroker();
+		if (diagramEventBroker != null) {
+			diagramEventBroker.addNotificationListener(target, listener);
+		}
+	}
+	
+	protected void removeNotificationListener(EObject target, NotificationListener listener) {
+		DiagramEventBroker diagramEventBroker = getDiagramEventBroker();
+		if (diagramEventBroker != null) {
+			diagramEventBroker.removeNotificationListener(target, listener);
+		}
+	}
+	
 	public void notifyChanged(Notification notification) {
 		Object notifier = notification.getNotifier();
 		if (notifier instanceof View) {
@@ -135,25 +155,24 @@ public class SequenceEditorTweak extends EditorTweak implements PropertyChangeLi
 				if (notification.getNewValue() instanceof View) {
 					View newView = (View)notification.getNewValue();
 					if (!parentElement.equals(newView.getElement())) {
-						DiagramEventBroker broker = DiagramEventBroker.getInstance(getDiagramEditor().getEditingDomain());
-						broker.addNotificationListener(newView, this);
+						addNotificationListener(newView, this);
 					}
 				}
 			} else if (Notification.REMOVE == notification.getEventType()) {
 				if (notification.getOldValue() instanceof View) {
 					View oldView = (View)notification.getOldValue();
-					DiagramEventBroker broker = DiagramEventBroker.getInstance(getDiagramEditor().getEditingDomain());
-					broker.removeNotificationListener(oldView, this);
+					removeNotificationListener(oldView, this);
+					refreshViewer(true);
 				}
 			}
 		}
 		Object feature = notification.getFeature();
 		if (NotationPackage.eINSTANCE.getLocation_X().equals(feature) ||
 				NotationPackage.eINSTANCE.getSize_Width().equals(feature)) {
-			if (fViewer != null && fViewer.getControl().isVisible()) {
-				fViewer.setInput(getCurrentInput());
-			}
+			refreshViewer(true);
+		} else if (NotationPackage.eINSTANCE.getNode_LayoutConstraint().equals(feature)) {
+			refreshViewer(true);
 		}
 	}
-
+	
 }

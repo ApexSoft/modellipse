@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.TraverseListener;
 import org.eclipse.swt.graphics.Color;
@@ -100,8 +101,16 @@ public abstract class TweakViewer extends StructuredViewer {
 		disableRedraw();
 		try {
 			unhookTweakItems(fTweakItems);
-			buildItem(input);
+			int lastIndex = buildItem(input);
 			hookTweakItems(fTweakItems);
+			
+			while (lastIndex < fTweakItems.size()) {
+				TweakItem item = fTweakItems.remove(fTweakItems.size() - 1);
+				if (item.getData() != null) {
+					unmapElement(item.getData());
+				}
+				item.dispose();
+			}
 
 			updateSize();
 			fContainer.layout(true, true);
@@ -171,38 +180,16 @@ public abstract class TweakViewer extends StructuredViewer {
 
 	@Override
 	protected void internalRefresh(Object element) {
-		internalRefresh(element, true);
-//		disableRedraw();
-//		try {
-//			TweakItem item= (TweakItem) doFindItem(element);
-//			if (item == null) {
-//				for (int i= 0, size= fTweakItems.size(); i < size; i++) {
-//					TweakItem item1= fTweakItems.get(i);
-//					item1.refresh();
-//				}
-//			} else {
-//				item.refresh();
-//			}
-//			if (updateSize())
-//				fContainer.layout(true, true);
-//		} finally {
-//			enableRedraw();
-//		}
-	}
-	
-	@Override
-	protected void internalRefresh(Object element, boolean updateLabels) {
 		disableRedraw();
 		try {
-			boolean changedBounds = !updateLabels;
 			TweakItem item= (TweakItem) doFindItem(element);
 			if (item == null) {
 				for (int i= 0, size= fTweakItems.size(); i < size; i++) {
 					TweakItem item1= fTweakItems.get(i);
-					item1.refresh(changedBounds);
+					item1.refresh();
 				}
 			} else {
-				item.refresh(changedBounds);
+				item.refresh();
 			}
 			if (updateSize())
 				fContainer.layout(true, true);
@@ -210,7 +197,7 @@ public abstract class TweakViewer extends StructuredViewer {
 			enableRedraw();
 		}
 	}
-
+	
 	@Override
 	public void reveal(Object element) {
 	}
@@ -249,11 +236,11 @@ public abstract class TweakViewer extends StructuredViewer {
 		return fContainer;
 	}
 	
-	private void buildItem(Object input) {
+	private int buildItem(Object input) {
 		IStructuredContentProvider contentProvider = (IStructuredContentProvider)getContentProvider();
 		Object[] elements = contentProvider.getElements(input);
 		if (elements == null) {
-			return;
+			return 0;
 		}
 		
 		int index = 0;
@@ -285,6 +272,8 @@ public abstract class TweakViewer extends StructuredViewer {
 				buildItem(element);
 			}
 		}
+		
+		return index;
 	}
 	
 	private TweakItem createItem() {
@@ -376,5 +365,27 @@ public abstract class TweakViewer extends StructuredViewer {
 		RGB blend= FormColors.blend(rgb2, rgb1, ratio);
 
 		return new Color(display, blend);
+	}
+
+	@Override
+	protected void handleDispose(DisposeEvent event) {
+		if (fGradientBackground != null) {
+			fGradientBackground.dispose();
+			fGradientBackground = null;
+		}
+		if (fToolTipLabelProvider != null) {
+			fToolTipLabelProvider.dispose();
+			fToolTipLabelProvider = null;
+		}
+		
+		if (fTweakItems != null) {
+			Iterator<TweakItem> iterator = fTweakItems.iterator();
+			while (iterator.hasNext()) {
+				TweakItem item = iterator.next();
+				item.dispose();
+			}
+			fTweakItems.clear();
+		}
+		super.handleDispose(event);
 	}
 }

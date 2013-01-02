@@ -101,13 +101,6 @@ public class TweakItem extends Item {
 	}
 
 	void refresh() {
-		refresh(false);
-	}
-	
-	/**
-	 * @param changedBounds EditPart의 bounds 변경에 의한 refresh. true일 경우 Model의 Bounds에 의해 위치 결정
-	 */
-	void refresh(boolean changedBounds) {
 		String text = fLabelProvider.getText(getData());
 		Image image = fLabelProvider.getImage(getData());
 		String toolTip = fToolTipLabelProvider.getText(getData());
@@ -136,8 +129,7 @@ public class TweakItem extends Item {
 			((FormData)layoutData).left = new FormAttachment(0, l + hOffset);
 			((FormData)layoutData).right = new FormAttachment(0, r + hOffset);
 			fContainer.setLayoutData(layoutData);
-		}
-		else if (getData() instanceof IGraphicalEditPart) {
+		} else if (getData() instanceof IGraphicalEditPart) {
 			IGraphicalEditPart editPart = (IGraphicalEditPart) getData();
 			IFigure figure = editPart.getFigure();
 			Rectangle bounds = figure.getBounds().getCopy();

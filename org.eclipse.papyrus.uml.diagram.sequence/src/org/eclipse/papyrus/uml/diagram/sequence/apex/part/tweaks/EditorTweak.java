@@ -1,12 +1,7 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.part.tweaks;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gef.EditPartViewer;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
@@ -17,7 +12,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.OpenEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.papyrus.uml.diagram.common.util.DiagramEditPartsUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -169,6 +163,16 @@ public abstract class EditorTweak implements ITweak {
 		fTweakViewer.setInput(element);
 	}
 	
+	public void refreshViewer(boolean inputChange) {
+		if (fTweakViewer != null && fTweakViewer.getControl().isVisible()) {
+			if (!inputChange) {
+				fTweakViewer.refresh();
+			} else {
+				fTweakViewer.setInput(getCurrentInput());
+			}
+		}
+	}
+	
 	public void dispose() {
 		if (fDisplayFocusListener != null) {
 			Display.getCurrent().removeListener(SWT.FocusIn, fDisplayFocusListener);
@@ -187,6 +191,14 @@ public abstract class EditorTweak implements ITweak {
 
 	protected DiagramEditor getDiagramEditor() {
 		return fEditorPart;
+	}
+	
+	protected TransactionalEditingDomain getEditingDomain() {
+		DiagramEditor diagramEditor = getDiagramEditor();
+		if (diagramEditor != null) {
+			return diagramEditor.getEditingDomain();
+		}
+		return null;
 	}
 	
 	protected void setDiagramEditor(DiagramEditor editorPart) {
