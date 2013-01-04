@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Perspective
-Bundle-SymbolicName: kr.co.apexsoft.modellipse.perspective;singleton:=true
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: kr.co.apexsoft.stella.modeler.perspective;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: kr.co.apexsoft.modellipse.perspective.Activator
-Bundle-Vendor: ApexSoft
+Bundle-Activator: kr.co.apexsoft.stella.modeler.perspective.Activator
+Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.papyrus.uml.diagram.wizards,
@@ -16,4 +16,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.intro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: kr.co.apexsoft.modellipse.perspective
+Export-Package: kr.co.apexsoft.stella.modeler.perspective
+Bundle-Localization: plugin

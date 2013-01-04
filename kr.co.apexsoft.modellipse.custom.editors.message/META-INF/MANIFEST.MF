@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Message
-Bundle-SymbolicName: kr.co.apexsoft.modellipse.custom.editors.message;singleton:=true
+Bundle-SymbolicName: kr.co.apexsoft.stella.modeler.custom.editors.message;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: kr.co.apexsoft.modellipse.custom.editors.message.Activator
+Bundle-Activator: kr.co.apexsoft.stella.modeler.custom.editors.message.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jface.text,
@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.extensionpoints.editors;bundle-version="0.9.1",
  org.eclipse.emf.edit.ui,
  org.eclipse.uml2.uml.edit,
- kr.co.apexsoft.modellipse.custom.editors;bundle-version="1.0.0",
+ kr.co.apexsoft.stella.modeler.custom.editors;bundle-version="1.0.0",
  org.eclipse.papyrus.infra.gmfdiag.commands;bundle-version="0.9.1",
  org.eclipse.papyrus.infra.services.edit;bundle-version="0.9.1",
  org.eclipse.core.databinding,

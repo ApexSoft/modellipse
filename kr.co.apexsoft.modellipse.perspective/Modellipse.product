@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Modellipse" uid="kr.co.apexsoft.modellipse" id="kr.co.apexsoft.modellipse.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
+<product name="Modellipse" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
+
 
    <configIni use="default">
    </configIni>
@@ -11,10 +12,10 @@
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/kr.co.apexsoft.modellipse.perspective/icons/Modellipse-windowImage-16.png"/>
+   <windowImages i16="/kr.co.apexsoft.stella.modeler.perspective/icons/Modellipse-windowImage-16.png"/>
 
    <splash
-      location="kr.co.apexsoft.modellipse.perspective"
+      location="kr.co.apexsoft.stella.modeler.perspective"
       startupProgressRect="5,280,445,15"
       startupMessageRect="7,255,445,20"
       startupForegroundColor="000000" />
@@ -25,8 +26,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.google.guava"/>
@@ -36,10 +39,10 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
-      <plugin id="kr.co.apexsoft.modellipse.custom.editors"/>
-      <plugin id="kr.co.apexsoft.modellipse.custom.editors.message"/>
-      <plugin id="kr.co.apexsoft.modellipse.explorer"/>
-      <plugin id="kr.co.apexsoft.modellipse.perspective"/>
+      <plugin id="kr.co.apexsoft.stella.modeler.custom.editors"/>
+      <plugin id="kr.co.apexsoft.stella.modeler.custom.editors.message"/>
+      <plugin id="kr.co.apexsoft.stella.modeler.explorer"/>
+      <plugin id="kr.co.apexsoft.stella.modeler.perspective"/>
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.sourceforge.nattable.core"/>
       <plugin id="org.antlr.runtime"/>
@@ -523,7 +526,7 @@
 
    <configurations>
       <property name="launcher.XXMaxPermSize" value="512M" />
-      <property name="product" value="kr.co.apexsoft.modellipse.perspective.product" />
+      <property name="product" value="kr.co.apexsoft.stella.modeler.perspective.product" />
    </configurations>
 
 </product>

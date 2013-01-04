@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse version="3.4"?><plugin>
    <extension point="org.eclipse.ui.perspectives">
-      <perspective class="kr.co.apexsoft.modellipse.perspective.ModellipsePerspective" icon="icons/Logo-16-8bit.bmp" id="kr.co.apexsoft.modellipse.perspective.perspective" name="Modellipse">
+      <perspective class="kr.co.apexsoft.stella.modeler.perspective.ModellipsePerspective" icon="icons/Logo-16-8bit.bmp" id="kr.co.apexsoft.stella.modeler.perspective.perspective" name="%perspective.name">
       </perspective>
    </extension>
    <extension id="product" point="org.eclipse.core.runtime.products">
-      <product application="org.eclipse.ui.ide.workbench" name="Modellipse">
+      <product application="org.eclipse.ui.ide.workbench" name="%product.name">
          <property name="appName" value="Modellipse">
          </property>
          <property name="windowImages" value="icons/Modellipse-windowImage-16.png">
@@ -32,27 +32,27 @@
          point="org.eclipse.e4.ui.css.swt.theme">
       <theme
             basestylesheeturi="customization/css/modellipse.css"
-            id="kr.co.apexsoft.modellipse.perspective.theme.Modellipse"
+            id="kr.co.apexsoft.stella.modeler.perspective.theme.Modellipse"
             label="Modellipse">
       </theme>
       <theme
             basestylesheeturi="customization/css/adwaita.css"
-            id="kr.co.apexsoft.modellipse.perspective.theme.adwaita"
+            id="kr.co.apexsoft.stella.modeler.perspective.theme.adwaita"
             label="adwaita">
       </theme>
       <theme
             basestylesheeturi="customization/css/coffee.css"
-            id="kr.co.apexsoft.modellipse.perspective.theme.coffee"
+            id="kr.co.apexsoft.stella.modeler.perspective.theme.coffee"
             label="coffee">
       </theme>
       <theme
             basestylesheeturi="customization/css/lime.css"
-            id="kr.co.apexsoft.modellipse.perspective.theme.lime"
+            id="kr.co.apexsoft.stella.modeler.perspective.theme.lime"
             label="lime">
       </theme>
       <theme
             basestylesheeturi="customization/css/ocean.css"
-            id="kr.co.apexsoft.modellipse.perspective.theme.ocean"
+            id="kr.co.apexsoft.stella.modeler.perspective.theme.ocean"
             label="ocean">
       </theme>
    </extension>
@@ -61,19 +61,19 @@
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
             icon="icons/Modellipse-windowImage-16.png"
-            id="kr.co.apexsoft.modellipse.perspective.intro">
+            id="kr.co.apexsoft.stella.modeler.perspective.intro">
       </intro>
       <introProductBinding
-            introId="kr.co.apexsoft.modellipse.perspective.intro"
-            productId="kr.co.apexsoft.modellipse.perspective.product">
+            introId="kr.co.apexsoft.stella.modeler.perspective.intro"
+            productId="kr.co.apexsoft.stella.modeler.perspective.product">
       </introProductBinding>
    </extension>
    <extension
          point="org.eclipse.ui.intro.config">
       <config
             content="customization/intro/introContent.xml"
-            id="kr.co.apexsoft.modellipse.perspective.intro.config"
-            introId="kr.co.apexsoft.modellipse.perspective.intro">
+            id="kr.co.apexsoft.stella.modeler.perspective.intro.config"
+            introId="kr.co.apexsoft.stella.modeler.perspective.intro">
          <presentation
                home-page-id="root"
                standby-page-id="standby">
@@ -90,7 +90,7 @@
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
-            targetID="kr.co.apexsoft.modellipse.perspective.perspective">
+            targetID="kr.co.apexsoft.stella.modeler.perspective.perspective">
          <newWizardShortcut
                id="org.eclipse.papyrus.uml.diagram.wizards.1createproject">
          </newWizardShortcut>

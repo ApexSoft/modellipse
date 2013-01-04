@@ -3,24 +3,24 @@
 <plugin>
   <extension point="org.eclipse.ui.editors">
       <editor
-            class="kr.co.apexsoft.modellipse.explorer.editor.ModellipseMultiDiagramEditor"
+            class="kr.co.apexsoft.stella.modeler.explorer.editor.ModellipseMultiDiagramEditor"
             contributorClass="org.eclipse.papyrus.editor.PapyrusActionBarContributor"
             default="true"
             extensions="di"
             icon="icons/Modellipse-windowImage-16.png"
             id="org.eclipse.papyrus.infra.core.papyrusEditor"
             matchingStrategy="org.eclipse.papyrus.editor.PapyrusMatchingStrategy"
-            name="Modellipse Editor Core">
+            name="%editor.name">
       </editor>
    </extension>
    <extension
          point="org.eclipse.ui.views">
       <view
             category="org.eclipse.papyrus.views.category"
-            class="kr.co.apexsoft.modellipse.explorer.view.ApexModellipseExplorerView"
+            class="kr.co.apexsoft.stella.modeler.explorer.view.ApexModellipseExplorerView"
             icon="icons/Modellipse-windowImage-16.png"
-            id="kr.co.apexsoft.modellipse.explorer.view"
-            name="Modellipse Explorer"
+            id="kr.co.apexsoft.stella.modeler.explorer.view"
+            name="%view.name"
             restorable="true">
       </view>         
    </extension>
@@ -28,13 +28,13 @@
          point="org.eclipse.ui.navigator.viewer">
       <viewer
             popupMenuId="org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup"
-            viewerId="kr.co.apexsoft.modellipse.explorer.view">
+            viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
       </viewer>
       <viewerContentBinding
-            viewerId="kr.co.apexsoft.modellipse.explorer.view">
+            viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
          <includes>
             <contentExtension
-                  pattern="kr.co.apexsoft.modellipse.explorer.ModellipseNavigatorContent">
+                  pattern="kr.co.apexsoft.stella.modeler.explorer.ModellipseNavigatorContent">
             </contentExtension>
          </includes>
       </viewerContentBinding>      
@@ -43,7 +43,7 @@
             viewerId="org.eclipse.papyrus.views.modelexplorer.modellipseexplorer">
       </dragAssistant>
       <viewerActionBinding
-        viewerId="kr.co.apexsoft.modellipse.explorer.view">
+        viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
         <includes>
           <actionExtension
             pattern="org.eclipse.ui.navigator.resources.*">
@@ -55,11 +55,11 @@
          point="org.eclipse.ui.navigator.navigatorContent">
       <navigatorContent
             activeByDefault="true"
-            contentProvider="kr.co.apexsoft.modellipse.explorer.provider.ApexUMLContentProvider"
+            contentProvider="kr.co.apexsoft.stella.modeler.explorer.provider.ApexUMLContentProvider"
             icon="icons/Modellipse-windowImage-16.png"
-            id="kr.co.apexsoft.modellipse.explorer.ModellipseNavigatorContent"
-            labelProvider="kr.co.apexsoft.modellipse.explorer.provider.ApexUMLLabelProvider"
-            name="Modellipse Model Contents"
+            id="kr.co.apexsoft.stella.modeler.explorer.ModellipseNavigatorContent"
+            labelProvider="kr.co.apexsoft.stella.modeler.explorer.provider.ApexUMLLabelProvider"
+            name="%navigatorContent.name"
             priority="normal">
          <triggerPoints>
             <or>
@@ -131,27 +131,27 @@
   <extension point="org.eclipse.ui.menus">
 
     <!-- ModelExplorer toolbar -->
-    <menuContribution allPopups="false" locationURI="toolbar:kr.co.apexsoft.modellipse.explorer.view">
+    <menuContribution allPopups="false" locationURI="toolbar:kr.co.apexsoft.stella.modeler.explorer.view">
 
         <!-- Load modisco browser customization command -->     
-        <command commandId="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization" icon="icons/etool16/uiCustom.gif" label="Load browser customization" style="push">
+        <command commandId="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization" icon="icons/etool16/uiCustom.gif" label="%loadBrowserCustomizeCommandLabel" style="push">
         </command>
 
         <!-- Search element command --> 
-        <command commandId="org.eclipse.papyrus.views.modelexplorer.searchelement" icon="icons/etool16/search.gif" label="Search element" style="push">
+        <command commandId="org.eclipse.papyrus.views.modelexplorer.searchelement" icon="icons/etool16/search.gif" label="%searchElementCommandLabel" style="push">
         </command>
         
         <!-- Sort elements command -->  
-        <command commandId="org.eclipse.papyrus.views.modelexplorer.sortelement" icon="icons/etool16/sort.gif" label="sort" style="toggle">
+        <command commandId="org.eclipse.papyrus.views.modelexplorer.sortelement" icon="icons/etool16/sort.gif" label="%sortCommandLabel" style="toggle">
         </command>
     </menuContribution>
     <menuContribution
           allPopups="true"
           locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
        <command
-             commandId="kr.co.apexsoft.modellipse.apexdelete"
+             commandId="kr.co.apexsoft.stella.modeler.apexdelete"
              icon="icons/delete_edit.gif"
-             label="Delete"
+             label="%deleteCommandLabel"
              style="push">
           <visibleWhen
                 checkEnabled="true">
@@ -177,7 +177,7 @@
        </command>
        <command
              commandId="org.eclipse.papyrus.export.exportAllDiagrams"
-             label="Export All Diagrams..."
+             label="%exportAllDiagramsCommandLabel"
              style="push">
           <visibleWhen
                 checkEnabled="true">
@@ -198,28 +198,28 @@
   <extension
         point="org.eclipse.ui.newWizards">
      <category
-           id="kr.co.apexsoft.modellipse.wizards.category"
-           name="Modellipse">
+           id="kr.co.apexsoft.stella.modeler.wizards.category"
+           name="%wizardCategoryName">
      </category>
      <wizard
-           category="kr.co.apexsoft.modellipse.wizards.category"
-           class="kr.co.apexsoft.modellipse.explorer.wizard.ApexNewProjectWizard"
-           finalPerspective="kr.co.apexsoft.modellipse.perspective.perspective"
+           category="kr.co.apexsoft.stella.modeler.wizards.category"
+           class="kr.co.apexsoft.stella.modeler.explorer.wizard.ApexNewProjectWizard"
+           finalPerspective="kr.co.apexsoft.stella.modeler.perspective.perspective"
            icon="icons/Logo-16-8bit.bmp"
            id="org.eclipse.papyrus.uml.diagram.wizards.1createproject"
-           name="Modellipse Project"
+           name="%newProjectWizardName"
            project="true">
         <description>
            %NewWizards.project.description
         </description>
      </wizard>
      <wizard
-           category="kr.co.apexsoft.modellipse.wizards.category"
-           class="kr.co.apexsoft.modellipse.explorer.wizard.ApexInitModelWizard"
-           finalPerspective="kr.co.apexsoft.modellipse.perspective.perspective"
+           category="kr.co.apexsoft.stella.modeler.wizards.category"
+           class="kr.co.apexsoft.stella.modeler.explorer.wizard.ApexInitModelWizard"
+           finalPerspective="kr.co.apexsoft.stella.modeler.perspective.perspective"
            icon="icons/Logo-16-8bit.bmp"
            id="org.eclipse.papyrus.uml.diagram.wizards.createmodel"
-           name="Modellipse Model">
+           name="%newModelWizardName">
      </wizard>
   </extension>
   <extension
@@ -245,9 +245,9 @@
         point="org.eclipse.ui.commands">
      <command
            categoryId="org.eclipse.ui.category.edit"
-           defaultHandler="kr.co.apexsoft.modellipse.explorer.handler.ApexResourceDeleteHandler"
-           description="Delete the selection"
-           id="kr.co.apexsoft.modellipse.apexdelete"
-           name="Delete the Selected Resource"/>
+           defaultHandler="kr.co.apexsoft.stella.modeler.explorer.handler.ApexResourceDeleteHandler"
+           description="%deleteTheSelectionCommandDescription"
+           id="kr.co.apexsoft.stella.modeler.apexdelete"
+           name="%deleteTheSelectionCommandName"/>
   </extension>
 </plugin>

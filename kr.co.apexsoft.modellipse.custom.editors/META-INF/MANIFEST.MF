@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Editors
-Bundle-SymbolicName: kr.co.apexsoft.modellipse.custom.editors;singleton:=true
+Bundle-SymbolicName: kr.co.apexsoft.stella.modeler.custom.editors;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: kr.co.apexsoft.modellipse.custom.editors.Activator
+Bundle-Activator: kr.co.apexsoft.stella.modeler.custom.internal.editors.Activator
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Apexsoft
-Export-Package: kr.co.apexsoft.modellipse.custom.editors
+Export-Package: kr.co.apexsoft.stella.modeler.custom.editors
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.diagram.ui,
