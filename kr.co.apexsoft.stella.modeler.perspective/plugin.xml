@@ -5,7 +5,7 @@
       </perspective>
    </extension>
    <extension id="product" point="org.eclipse.core.runtime.products">
-      <product application="org.eclipse.ui.ide.workbench" name="%product.name">
+      <product application="org.eclipse.ui.ide.workbench" name="Modellipse">
          <property name="appName" value="Modellipse">
          </property>
          <property name="windowImages" value="icons/Modellipse-windowImage-16.png">
