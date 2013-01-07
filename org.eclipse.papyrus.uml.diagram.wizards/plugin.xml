@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
+<!--
   <extension point="org.eclipse.ui.newWizards">
     <category 
         id="org.eclipse.papyrus.wizards.category"
@@ -26,7 +27,7 @@
          name="Papyrus Model">
    </wizard>
   </extension>
-
+-->
   <extension-point id="templates" name="UML2 Model Templates" schema="schema/templates.exsd"/>
 
 </plugin>

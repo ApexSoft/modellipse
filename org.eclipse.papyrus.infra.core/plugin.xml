@@ -15,7 +15,7 @@
                id="org.eclipse.papyrus.uml.diagram.ui.toolbar">
             <command
                   commandId="org.eclipse.papyrus.infra.core.commands.dropdowncommand"
-                  icon="icons/papyrus/Papyrus_16x16.gif"
+                  icon="icons/Modellipse-windowImage-16.png"
                   label="Close Diagrams"
                   style="pulldown"
                   tooltip="Close Current Editor&apos;s Diagrams ">

@@ -13,6 +13,7 @@
             name="Install Papyrus Additional Components">
       </command>
    </extension>
+   <!--
    <extension
          point="org.eclipse.ui.handlers">
       <handler
@@ -35,6 +36,7 @@
          </toolbar>
       </menuContribution>
    </extension>
+   //-->
 
  <extension
          point="org.eclipse.ui.menus">
