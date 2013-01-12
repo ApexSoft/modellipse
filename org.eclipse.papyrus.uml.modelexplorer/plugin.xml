@@ -81,7 +81,7 @@
           <contentExtension 
                 pattern="org.eclipse.ui.navigator.resources.filters.*"/>
           <contentExtension
-                pattern="org.eclipse.papyrus.uml.modelexplorer.ModellipseNavigatorContent">
+                pattern="org.eclipse.papyrus.uml.modelexplorer.StellaNavigatorContent">
           </contentExtension>
          </includes>
       </viewerContentBinding>
@@ -1881,7 +1881,7 @@
     </menuContribution>
     <menuContribution
           allPopups="false"
-          locationURI="toolbar:org.eclipse.papyrus.uml.modelexplorer.modellipseexplorer">
+          locationURI="toolbar:org.eclipse.papyrus.uml.modelexplorer.stellaexplorer">
        <command
              commandId="org.eclipse.papyrus.views.modelexplorer.LoadBrowserCustomization"
              icon="icons/etool16/uiCustom.gif"

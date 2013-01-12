@@ -3,11 +3,11 @@
 <plugin>
   <extension point="org.eclipse.ui.editors">
       <editor
-            class="kr.co.apexsoft.stella.modeler.explorer.editor.ModellipseMultiDiagramEditor"
+            class="kr.co.apexsoft.stella.modeler.explorer.editor.StellaMultiDiagramEditor"
             contributorClass="org.eclipse.papyrus.editor.PapyrusActionBarContributor"
             default="true"
             extensions="di"
-            icon="icons/Modellipse-windowImage-16.png"
+            icon="icons/windowImage-16.png"
             id="org.eclipse.papyrus.infra.core.papyrusEditor"
             matchingStrategy="org.eclipse.papyrus.editor.PapyrusMatchingStrategy"
             name="%editor.name">
@@ -17,8 +17,8 @@
          point="org.eclipse.ui.views">
       <view
             category="org.eclipse.papyrus.views.category"
-            class="kr.co.apexsoft.stella.modeler.explorer.view.ApexModellipseExplorerView"
-            icon="icons/Modellipse-windowImage-16.png"
+            class="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView"
+            icon="icons/windowImage-16.png"
             id="kr.co.apexsoft.stella.modeler.explorer.view"
             name="%view.name"
             restorable="true">
@@ -40,7 +40,7 @@
                   pattern="org.eclipse.ui.navigator.resourceContent">
             </contentExtension>
             <contentExtension
-                  pattern="kr.co.apexsoft.stella.modeler.explorer.ModellipseNavigatorContent">
+                  pattern="kr.co.apexsoft.stella.modeler.explorer.StellaNavigatorContent">
             </contentExtension>
          </includes>
       </viewerContentBinding>      
@@ -62,8 +62,8 @@
       <navigatorContent
             activeByDefault="true"
             contentProvider="kr.co.apexsoft.stella.modeler.explorer.provider.ApexUMLContentProvider"
-            icon="icons/Modellipse-windowImage-16.png"
-            id="kr.co.apexsoft.stella.modeler.explorer.ModellipseNavigatorContent"
+            icon="icons/windowImage-16.png"
+            id="kr.co.apexsoft.stella.modeler.explorer.StellaNavigatorContent"
             labelProvider="kr.co.apexsoft.stella.modeler.explorer.provider.ApexUMLLabelProvider"
             name="%navigatorContent.name"
             priority="normal">
@@ -244,7 +244,7 @@
   <extension
         point="org.eclipse.emf.facet.infra.facet.registration">
      <facetset
-           file="resources/ApexModellipseUMLFacet.facetSet">
+           file="resources/ApexStellaUMLFacet.facetSet">
      </facetset>
   </extension>
   <extension

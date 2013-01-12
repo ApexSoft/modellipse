@@ -107,7 +107,7 @@ import com.google.common.collect.Lists;
  * ApexModellipseExplorer 는 여러개의 IMultiDiagramEditor에 존재하는 여러 모델을 하나의 View에서 보여준다.
  * 
  */
-public class ApexModellipseExplorerView extends CommonNavigator 
+public class ApexStellaExplorerView extends CommonNavigator 
                                         implements IRevealSemanticElement, 
                                                    IEditingDomainProvider,
                                                    ITabbedPropertySheetPageContributor {
@@ -149,7 +149,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 
 	/**
 	 * A listener on page (all editors) selection change. This listener is set
-	 * in {@link ApexModellipseExplorerView#init(IViewSite)}. It should be dispose to remove
+	 * in {@link ApexStellaExplorerView#init(IViewSite)}. It should be dispose to remove
 	 * hook to the Eclipse page.
 	 */
 	private ISelectionListener pageSelectionListener = new ISelectionListener() {
@@ -188,7 +188,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 		}
 	};
 
-	public ApexModellipseExplorerView() {
+	public ApexStellaExplorerView() {
 		super();
 		setLinkingEnabled(true);
 	}	
@@ -237,7 +237,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 	 */
 	private void handleSelectionChange(IWorkbenchPart part, ISelection selection) {
 //		if(selection instanceof IStructuredSelection) {
-//System.out.println("ApexModellipseExplorerView.handleSelectionChange(), line "
+//System.out.println("ApexStellaExplorerView.handleSelectionChange(), line "
 //		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
 //
 //			String selectedModelName = null;
@@ -350,7 +350,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 //				diWrapper = (ApexDIWrapper)parentItem;			
 //			} else {
 //				System.out
-//						.println("ApexModellipseExplorerView.getDiFileFromChildren(), line "
+//						.println("ApexStellaExplorerView.getDiFileFromChildren(), line "
 //								+ Thread.currentThread().getStackTrace()[1]
 //										.getLineNumber());
 //				System.out.println("  di없다");
@@ -494,7 +494,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 //			
 //			IContributionItem[] items = menuMgr.getItems();
 //			System.out
-//					.println("ApexModellipseExplorerView.createPartControl(), line "
+//					.println("ApexStellaExplorerView.createPartControl(), line "
 //							+ Thread.currentThread().getStackTrace()[1]
 //									.getLineNumber());
 //			System.out.println("  from Window Menu Manager");
@@ -534,7 +534,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 //				}
 //				
 //				System.out
-//				.println("ApexModellipseExplorerView.createPartControl(), line "
+//				.println("ApexStellaExplorerView.createPartControl(), line "
 //						+ Thread.currentThread().getStackTrace()[1]
 //								.getLineNumber());
 //				System.out.println("  contextFromMain : " + contextMenuItemList);
@@ -581,7 +581,7 @@ public class ApexModellipseExplorerView extends CommonNavigator
 //				IContributionItem[] items = super.getItems();
 //				List<IContributionItem> filteredItems = new ArrayList<IContributionItem> ();
 //				System.out
-//				.println("ApexModellipseExplorerView.createPartControl(...).new MenuManager() {...}.getItems(), line "
+//				.println("ApexStellaExplorerView.createPartControl(...).new MenuManager() {...}.getItems(), line "
 //						+ Thread.currentThread()
 //								.getStackTrace()[1]
 //								.getLineNumber());

@@ -12,7 +12,7 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PartInitException;
 
-public class ModellipseMultiDiagramEditor extends PapyrusMultiDiagramEditor {
+public class StellaMultiDiagramEditor extends PapyrusMultiDiagramEditor {
 
 	IFile diFile;
 

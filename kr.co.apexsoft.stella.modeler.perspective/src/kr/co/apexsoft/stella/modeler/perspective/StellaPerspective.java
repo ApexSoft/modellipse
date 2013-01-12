@@ -16,7 +16,7 @@ package kr.co.apexsoft.stella.modeler.perspective;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
-public class ModellipsePerspective implements IPerspectiveFactory {
+public class StellaPerspective implements IPerspectiveFactory {
 
 	/** constant for the definition of papyrus model explorer **/
 //	protected static final String ID_MODELEXPLORER = "org.eclipse.papyrus.views.modelexplorer.modelexplorer";

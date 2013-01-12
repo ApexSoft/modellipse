@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse version="3.4"?><plugin>
    <extension point="org.eclipse.ui.perspectives">
-      <perspective class="kr.co.apexsoft.stella.modeler.perspective.ModellipsePerspective" icon="icons/Logo-16-8bit.bmp" id="kr.co.apexsoft.stella.modeler.perspective.perspective" name="%perspective.name">
+      <perspective class="kr.co.apexsoft.stella.modeler.perspective.StellaPerspective" icon="icons/Logo-16-8bit.bmp" id="kr.co.apexsoft.stella.modeler.perspective.perspective" name="%perspective.name">
       </perspective>
    </extension>
    <extension id="product" point="org.eclipse.core.runtime.products">
       <product application="org.eclipse.ui.ide.workbench" name="Stella Modeler">
          <property name="appName" value="Stella Modeler">
          </property>
-         <property name="windowImages" value="icons/Modellipse-windowImage-16.png">
+         <property name="windowImages" value="icons/windowImage-16.png">
          </property>
          <property name="startupProgressRect" value="5,280,445,15">
          </property>
@@ -31,9 +31,9 @@
    <extension
          point="org.eclipse.e4.ui.css.swt.theme">
       <theme
-            basestylesheeturi="customization/css/modellipse.css"
-            id="kr.co.apexsoft.stella.modeler.perspective.theme.Modellipse"
-            label="Modellipse">
+            basestylesheeturi="customization/css/stella.css"
+            id="kr.co.apexsoft.stella.modeler.perspective.theme.Stella"
+            label="Stella">
       </theme>
       <theme
             basestylesheeturi="customization/css/adwaita.css"
@@ -60,7 +60,7 @@
          point="org.eclipse.ui.intro">
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            icon="icons/Modellipse-windowImage-16.png"
+            icon="icons/windowImage-16.png"
             id="kr.co.apexsoft.stella.modeler.perspective.intro">
       </intro>
       <introProductBinding
