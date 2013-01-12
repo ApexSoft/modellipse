@@ -18,7 +18,7 @@
       startupProgressRect="5,280,445,15"
       startupMessageRect="7,255,445,20"
       startupForegroundColor="000000" />
-   <launcher name="Modellipse">
+   <launcher name="Stella Modeler">
       <solaris/>
       <win useIco="false">
          <bmp/>
