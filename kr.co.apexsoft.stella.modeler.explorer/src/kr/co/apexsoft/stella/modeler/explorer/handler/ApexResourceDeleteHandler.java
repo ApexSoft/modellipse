@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import kr.co.apexsoft.stella.modeler.explorer.core.ApexModellipseProjectMap;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -112,7 +112,7 @@ public class ApexResourceDeleteHandler extends AbstractHandler {
 			}
 
 			String projectPath = project.getLocationURI().getPath();			
-			ApexModellipseProjectMap.getProjectMap().remove(projectPath);
+			ApexStellaProjectMap.getProjectMap().remove(projectPath);
 			
 			project.delete(true, true, null);
 			project = null;
@@ -130,7 +130,7 @@ public class ApexResourceDeleteHandler extends AbstractHandler {
 	 */
 	private void deleteDi(IWorkbenchPage activePage, IFile file) throws CoreException {
 
-		ApexModellipseProjectMap.removeModelServices(file);
+		ApexStellaProjectMap.removeModelServices(file);
 		
 		// Editor close시 ServicesRegistry 등에 의한 해제됨(CoreMultiDiagramEditor.dispose())
 		IEditorReference[] editorReferences = activePage.getEditorReferences();

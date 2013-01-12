@@ -2,7 +2,7 @@ package kr.co.apexsoft.stella.modeler.explorer.editor;
 
 import java.util.Map;
 
-import kr.co.apexsoft.stella.modeler.explorer.core.ApexModellipseProjectMap;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexProjectWrapper;
 
 import org.eclipse.core.resources.IFile;
@@ -24,7 +24,7 @@ public class StellaMultiDiagramEditor extends PapyrusMultiDiagramEditor {
 
 	@Override
 	public void dispose() {
-		ApexModellipseProjectMap.clearModelServices(diFile);
+		ApexStellaProjectMap.clearModelServices(diFile);
 		super.dispose();	
 	}		
 	

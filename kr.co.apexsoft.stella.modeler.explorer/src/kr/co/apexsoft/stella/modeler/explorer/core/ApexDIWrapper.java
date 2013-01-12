@@ -54,7 +54,7 @@ public class ApexDIWrapper implements ITreeElement {
 		
 		if ( container instanceof IProject ) {
 
-			Map<String, ApexProjectWrapper> projectMap = ApexModellipseProjectMap.getProjectMap();
+			Map<String, ApexProjectWrapper> projectMap = ApexStellaProjectMap.getProjectMap();
 			aProjectWrapper = projectMap.get(projectPath);
 		}
 		
@@ -156,11 +156,11 @@ public class ApexDIWrapper implements ITreeElement {
 	
 	private void createEditorAndSetUpTree(ApexProjectWrapper aProjectWrapper, IFile diFile, List<Object> result) {
 		String diFilePath = diFile.getLocationURI().getPath();
-		IEditorPart editor = ApexModellipseProjectMap.openEditor(diFile);
+		IEditorPart editor = ApexStellaProjectMap.openEditor(diFile);
 
 		if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
 			ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
-			aProjectWrapper = ApexModellipseProjectMap.setUpModelServices(diFile, servicesRegistry);
+			aProjectWrapper = ApexStellaProjectMap.setUpModelServices(diFile, servicesRegistry);
 
 			UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
 			makeModelElementItemList(this, umlModel, result);			
@@ -181,13 +181,13 @@ public class ApexDIWrapper implements ITreeElement {
 //				result.add(modelItem);	
 				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
 				modelItem.setTreeParent(diWrapper);
-				System.out
-						.println("ApexDIWrapper.makeModelElementItemList(), line "
-								+ Thread.currentThread().getStackTrace()[1]
-										.getLineNumber());
-				System.out.println("added modelItem : " + modelItem);
-				System.out.println("added modelItem.getText() : " + modelItem.getText());
-				System.out.println("modelItem.getTreeParent() : " + modelItem.getTreeParent());				
+//				System.out
+//						.println("ApexDIWrapper.makeModelElementItemList(), line "
+//								+ Thread.currentThread().getStackTrace()[1]
+//										.getLineNumber());
+//				System.out.println("added modelItem : " + modelItem);
+//				System.out.println("added modelItem.getText() : " + modelItem.getText());
+//				System.out.println("modelItem.getTreeParent() : " + modelItem.getTreeParent());				
 				
 				result.add((ITreeElement)modelItem);
 			}

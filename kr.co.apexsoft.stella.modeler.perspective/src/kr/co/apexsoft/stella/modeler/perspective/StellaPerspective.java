@@ -22,7 +22,7 @@ public class StellaPerspective implements IPerspectiveFactory {
 //	protected static final String ID_MODELEXPLORER = "org.eclipse.papyrus.views.modelexplorer.modelexplorer";
 	
 	/** constant for the definition of papyrus model explorer **/
-	protected static final String ID_MODELLIPSE_EXPLORER = "kr.co.apexsoft.stella.modeler.explorer.view"; //$NON-NLS-1$
+	protected static final String ID_STELLA_EXPLORER = "kr.co.apexsoft.stella.modeler.explorer.view"; //$NON-NLS-1$
 
 	/**
 	 * 
@@ -75,11 +75,11 @@ public class StellaPerspective implements IPerspectiveFactory {
 
 		// Place the the Resource Navigator to the top left of editor area.
 //		layout.addView(IPageLayout.ID_PROJECT_EXPLORER, IPageLayout.LEFT, 0.2f, editorArea);
-		// Place the the Modellipse Explorer to the top left of editor area.
-		layout.addView(ID_MODELLIPSE_EXPLORER, IPageLayout.LEFT, 0.2f, editorArea);
+		// Place the the Stella Explorer to the top left of editor area.
+		layout.addView(ID_STELLA_EXPLORER, IPageLayout.LEFT, 0.2f, editorArea);
 		
 		// place outline under the modellipse explorer
-		layout.addView(IPageLayout.ID_OUTLINE, IPageLayout.BOTTOM, 0.7f, ID_MODELLIPSE_EXPLORER);
+		layout.addView(IPageLayout.ID_OUTLINE, IPageLayout.BOTTOM, 0.7f, ID_STELLA_EXPLORER);
 
 		// Place the ModelExplorer under the Navigator
 //		layout.addView(ID_MODELEXPLORER, IPageLayout.BOTTOM, 0.33f, IPageLayout.ID_PROJECT_EXPLORER);

@@ -2,7 +2,7 @@ package kr.co.apexsoft.stella.modeler.explorer.view;
 
 import java.util.Iterator;
 
-import kr.co.apexsoft.stella.modeler.explorer.core.ApexModellipseProjectMap;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -39,12 +39,12 @@ public class ApexDoubleClickListener implements IDoubleClickListener {
 					IFile diFile = (IFile)currentObject;
 
 					if(OneFileUtils.isDi(diFile)) {
-						editor = ApexModellipseProjectMap.openEditor(diFile);
+						editor = ApexStellaProjectMap.openEditor(diFile);
 					}
 
 					if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
 						ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
-						ApexModellipseProjectMap.setUpModelServices(diFile, servicesRegistry);
+						ApexStellaProjectMap.setUpModelServices(diFile, servicesRegistry);
 						Viewer aViewer = event.getViewer();
 						aViewer.refresh();
 					}					

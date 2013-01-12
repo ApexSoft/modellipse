@@ -202,7 +202,7 @@ public class ApexProjectWrapper implements ITreeElement {
 	}
 
 	public Image getImage() {
-		ImageDescriptor imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/Modellipse-windowImage-16.png"); //$NON-NLS-1$
+		ImageDescriptor imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/windowImage-16.png"); //$NON-NLS-1$
 		return imgDesc.createImage();
 	}
 

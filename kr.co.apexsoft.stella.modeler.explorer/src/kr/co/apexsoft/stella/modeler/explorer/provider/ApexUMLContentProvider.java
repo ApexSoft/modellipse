@@ -294,50 +294,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 
 			if(OneFileUtils.isDi(diFile)) {
 				result = new ApexDIWrapper(diFile, itemsFactory, appearanceConfiguration).getChildren();
-//				String diFilePath = diFile.getLocationURI().getPath();
-//				String projectPath = diFile.getParent().getLocationURI().getPath();
-//
-//				Map<String, ApexProjectWrapper> projectMap = ApexModellipseProjectMap.getProjectMap();
-//				ApexProjectWrapper aProjectWrapper = projectMap.get(projectPath);
-//
-//
-//
-//				// 프로젝트 내 di를 최초로 펼친 경우 - (1)
-//				// 프로젝트 래퍼가 없고,
-//				// diPath에 대한 umlModel 도 없다.
-//				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
-//
-//				// 프로젝트 내 di를 한 번 펼친 후 다른 di를 펼친 경우 - (2)
-//				// 프로젝트 래퍼는 있고,
-//				// diPath에 대한 umlModel은 없다
-//				// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
-//
-//				// 더블클릭에 의한 refresh() 시 - (3)
-//				// 더블클릭 리스너가 직접 Editor를 열고 ServiceReg를 세팅
-//				// 프로젝트 래퍼가 있고,
-//				// diPath에 대한 umlModel 도 있다.
-//				// 여기선 가져와서 트리 만들어주기만 하믄 됨		
-//
-//				// 에디터 닫아서 ApexMEView에서 refresh() 호출된 경우 - (4)
-//				// 프로젝트 래퍼는 있고
-//				// diPath에 대한 umlModel은 없다 (2)와 겹침
-//				// 에디터가 닫은 모델은 IsDisposed 가 true 인 것으로 구분
-//				// 그냥 지나친다
-//
-//				if ( aProjectWrapper == null ) { // (1)
-//					createEditorAndSetUpTree(aProjectWrapper, diFile, result);
-//				} else if (aProjectWrapper.getIsDisposed(diFilePath)) { // (4)
-//
-//				} else if ( aProjectWrapper.getUmlModel(diFilePath) == null ) { // (2)
-//					createEditorAndSetUpTree(aProjectWrapper, diFile, result);						
-//				} else { // (3)
-//					UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
-//
-//					if ( umlModel != null ) {
-//						makeModelElementItemList(umlModel, result);
-//					}
-//				}
-			}
+			}			
 		}
 		else {
 			Object[] arrayObject = super.getChildren(parentElement);

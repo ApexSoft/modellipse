@@ -104,7 +104,7 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 /**
- * ApexModellipseExplorer 는 여러개의 IMultiDiagramEditor에 존재하는 여러 모델을 하나의 View에서 보여준다.
+ * ApexStellaExplorer 는 여러개의 IMultiDiagramEditor에 존재하는 여러 모델을 하나의 View에서 보여준다.
  * 
  */
 public class ApexStellaExplorerView extends CommonNavigator 

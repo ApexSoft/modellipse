@@ -12,7 +12,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 
-public class ApexModellipseProjectMap {
+public class ApexStellaProjectMap {
 
 	/**
 	 * Key : Project Path
@@ -51,8 +51,8 @@ public class ApexModellipseProjectMap {
 //			}
 			umlModel =  UmlUtils.getUmlModel(servicesRegistry);
 
-			if ( ApexModellipseProjectMap.getProjectMap().containsKey(projectPath) ) {
-				projectWrapper = (ApexProjectWrapper) ApexModellipseProjectMap.getProjectMap().get(projectPath);
+			if ( ApexStellaProjectMap.getProjectMap().containsKey(projectPath) ) {
+				projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);
 
 //				if ( !projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
 //					projectWrapper.put(diPath, servicesRegistry);
@@ -80,7 +80,7 @@ public class ApexModellipseProjectMap {
 //				}				
 			} else {
 				projectWrapper = new ApexProjectWrapper(diFile.getProject());
-				ApexModellipseProjectMap.getProjectMap().put(projectPath, projectWrapper);
+				ApexStellaProjectMap.getProjectMap().put(projectPath, projectWrapper);
 //				projectWrapper.addChildren(umlModel);
 //				projectWrapper.addServicesRegistryChildren(servicesRegistry);
 //				projectWrapper.put(diPath, servicesRegistry);
@@ -109,7 +109,7 @@ public class ApexModellipseProjectMap {
 		String diPath = diFile.getLocationURI().getPath();
 		String projectPath = diFile.getParent().getLocationURI().getPath();
 		ApexProjectWrapper projectWrapper = null;
-		projectWrapper = (ApexProjectWrapper) ApexModellipseProjectMap.getProjectMap().get(projectPath);
+		projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);
 		
 		// jiho
 		if (projectWrapper == null)
@@ -154,7 +154,7 @@ public class ApexModellipseProjectMap {
 		String diPath = diFile.getLocationURI().getPath();
 		String projectPath = diFile.getParent().getLocationURI().getPath();
 		ApexProjectWrapper projectWrapper = null;
-		projectWrapper = (ApexProjectWrapper) ApexModellipseProjectMap.getProjectMap().get(projectPath);
+		projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);
 
 		if ( projectWrapper != null ) {
 			if ( projectWrapper.getUmlModelMap().containsKey(diPath) ) {
