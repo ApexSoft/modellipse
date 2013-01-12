@@ -156,9 +156,14 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
                       "icons/windowImage-16.png"); //$NON-NLS-1$
 			image = imgDesc.createImage();
 		} else if ( element instanceof IFile ) {
-			imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, 
-                      "icons/class_hi.gif"); //$NON-NLS-1$
-			image = imgDesc.createImage();
+			IFile diFile = (IFile)element;
+
+			if(OneFileUtils.isDi(diFile)) {
+				imgDesc = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, 
+	                      "icons/class_hi.gif"); //$NON-NLS-1$
+				image = imgDesc.createImage();
+			}
+			
 		} else {
 			if ( decorationService != null ) {
 				// Get the Model Explorer Adapter
