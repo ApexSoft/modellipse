@@ -163,7 +163,6 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 	                      "icons/class_hi.gif"); //$NON-NLS-1$
 				image = imgDesc.createImage();
 			}
-			
 		} else {
 			if ( decorationService != null ) {
 				// Get the Model Explorer Adapter
@@ -249,11 +248,6 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 			if(OneFileUtils.isDi(file)) {
 				String fileName = file.getName();
 				text = fileName.substring(0, fileName.lastIndexOf('.')); //$NON-NLS-1$
-			} else {
-				System.out.println("ApexUMLLabelProvider.getText(), line "
-						+ Thread.currentThread().getStackTrace()[1]
-								.getLineNumber());
-				System.out.println("file : " + file);
 			}
 		} else if(element instanceof Diagram) {
 			Diagram diagram = (Diagram)element;

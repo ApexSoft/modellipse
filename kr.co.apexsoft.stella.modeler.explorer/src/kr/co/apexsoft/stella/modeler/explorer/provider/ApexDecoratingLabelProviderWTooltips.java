@@ -2,9 +2,13 @@ package kr.co.apexsoft.stella.modeler.explorer.provider;
 
 import java.util.Arrays;
 
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexDIWrapper;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider;
@@ -48,7 +52,7 @@ public class ApexDecoratingLabelProviderWTooltips extends
 	public void update(ViewerCell cell) {
 		
 		Object element = cell.getElement();
-
+		
 		StyledString styledString = getStyledText(element);
 		String newText= styledString.toString();
 		

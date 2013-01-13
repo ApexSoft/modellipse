@@ -1,43 +1,28 @@
 package kr.co.apexsoft.stella.modeler.explorer.core;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.facet.infra.browser.Messages;
-import org.eclipse.emf.facet.infra.browser.custom.MetamodelView;
-import org.eclipse.emf.facet.infra.browser.custom.TypeView;
-import org.eclipse.emf.facet.infra.browser.custom.core.CustomizationsCatalog;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.AppearanceConfiguration;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ItemsFactory;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
-import org.eclipse.emf.facet.infra.facet.Facet;
-import org.eclipse.emf.facet.infra.facet.FacetSet;
-import org.eclipse.emf.facet.infra.facet.core.FacetSetCatalog;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
-import org.eclipse.papyrus.infra.emf.Activator;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.uml2.uml.internal.impl.ModelImpl;
+import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 
 public class ApexDIWrapper implements ITreeElement {
 	
@@ -119,11 +104,11 @@ public class ApexDIWrapper implements ITreeElement {
 			// 그냥 지나친다
 
 			if ( aProjectWrapper == null ) { // (1)
-				createEditorAndSetUpTree(aProjectWrapper, _file, result);
+				createEditorAndSetUpTree(_file, result);
 			} else if (aProjectWrapper.getIsDisposed(diFilePath)) { // (4)
 
 			} else if ( aProjectWrapper.getUmlModel(diFilePath) == null ) { // (2)
-				createEditorAndSetUpTree(aProjectWrapper, _file, result);						
+				createEditorAndSetUpTree(_file, result);						
 			} else { // (3)
 				UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
 
@@ -154,12 +139,15 @@ public class ApexDIWrapper implements ITreeElement {
 		return null;
 	}
 	
-	private void createEditorAndSetUpTree(ApexProjectWrapper aProjectWrapper, IFile diFile, List<Object> result) {
+	private void createEditorAndSetUpTree(IFile diFile, List<Object> result) {
+		ApexProjectWrapper aProjectWrapper = null;
 		String diFilePath = diFile.getLocationURI().getPath();
 		IEditorPart editor = ApexStellaProjectMap.openEditor(diFile);
 
 		if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
 			ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
+			
+			// 아래에서 적합한 ProjectWrapper를 받아오므로 파라미터로 aProjectWrapper를 받아올 필요는 없어 보임)
 			aProjectWrapper = ApexStellaProjectMap.setUpModelServices(diFile, servicesRegistry);
 
 			UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
@@ -189,6 +177,10 @@ public class ApexDIWrapper implements ITreeElement {
 //				System.out.println("added modelItem.getText() : " + modelItem.getText());
 //				System.out.println("modelItem.getTreeParent() : " + modelItem.getTreeParent());				
 				
+				result.add((ITreeElement)modelItem);
+			} else if ( eObj instanceof PackageImpl ) { // Control를 통해 분리된 Package의 경우 모델처럼 Tree생성해줘야 함
+				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
+				modelItem.setTreeParent(diWrapper);				
 				result.add((ITreeElement)modelItem);
 			}
 		}

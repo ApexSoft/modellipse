@@ -34,10 +34,7 @@
             viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
          <includes>
             <contentExtension
-                  pattern="org.eclipse.ui.navigator.resources.filters.*">
-            </contentExtension>
-            <contentExtension
-                  pattern="org.eclipse.ui.navigator.resourceContent">
+                  pattern="org.eclipse.ui.navigator.resources.filters.workingSet">
             </contentExtension>
             <contentExtension
                   pattern="kr.co.apexsoft.stella.modeler.explorer.StellaNavigatorContent">
