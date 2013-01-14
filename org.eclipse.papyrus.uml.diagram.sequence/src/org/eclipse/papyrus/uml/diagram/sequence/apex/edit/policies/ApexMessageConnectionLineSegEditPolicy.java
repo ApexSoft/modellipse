@@ -129,7 +129,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 		}
 
 		Point realMoveDelta = request.getMoveDelta().getCopy();
-		int minY = getMovableTop(connectionPart, false);
+		int minY = getMovableTopPosition(connectionPart, false);
 		if (minY > location.y) {
 			realMoveDelta.y += minY - location.y;
 		}
@@ -221,8 +221,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 
 	private Command getConstrainedMoveCommand(ChangeBoundsRequest request) {
 		ConnectionNodeEditPart connectionPart = (ConnectionNodeEditPart)getHost();
-		int minY = getMovableTop(connectionPart, true);
-		int maxY = getMovableBottom(connectionPart);
+		int minY = getMovableTopPosition(connectionPart, true);
+		int maxY = getMovableBottomPosition(connectionPart);
 		return null;
 	}
 
@@ -366,8 +366,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 
 		int dy = location.y - oldLocation.y;
 
-		int minY = getMovableTop(host, isFlexible);
-		int maxY = getMovableBottom(host);
+		int minY = getMovableTopPosition(host, isFlexible);
+		int maxY = getMovableBottomPosition(host);
 		if (minY > location.y) {
 			dy = minY - oldLocation.y;
 		} else if (maxY < location.y) {
@@ -491,16 +491,16 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 				.get(ApexSequenceRequestConstants.APEX_MODIFIER_REORDERING));
 	}
 
-	protected int getMovableTop(ConnectionNodeEditPart connectionPart, boolean isFlexible) {
-		int minTop = Integer.MIN_VALUE, maxTop = Integer.MIN_VALUE;
+	protected int getMovableTopPosition(ConnectionNodeEditPart connectionPart, boolean isFlexible) {
+		int topMost = Integer.MIN_VALUE, movableTop = Integer.MIN_VALUE;
 
 		List<IGraphicalEditPart> siblingParts = ApexSequenceUtil.apexGetPrevSiblingEditParts(connectionPart);
 		List<IGraphicalEditPart> frontLinkedParts = ApexSequenceUtil.apexGetLinkedEditPartList(connectionPart, true, false, true);
 		IGraphicalEditPart realPrevPart = null;
 
 		for (IGraphicalEditPart siblingPart : siblingParts) {
-			minTop = Math.max(minTop, ApexSequenceUtil.apexGetAbsolutePosition(siblingPart, SWT.BOTTOM) + MARGIN);
-			maxTop = Math.max(maxTop, minTop);
+			topMost = Math.max(topMost, ApexSequenceUtil.apexGetAbsolutePosition(siblingPart, SWT.BOTTOM) + MARGIN);
+			movableTop = Math.max(movableTop, topMost);
 
 			if (siblingPart instanceof ConnectionNodeEditPart && !frontLinkedParts.contains(connectionPart)) {
 				// activation중 가장 하위 검색. realMinY는 activation 포함 가장 하위 y값
@@ -512,10 +512,10 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 					EObject ePrevSrcPartObj = ((IGraphicalEditPart) prevSourcePart).resolveSemanticElement(); 
 				
 					if (ePrevSrcPartObj instanceof ExecutionSpecification && prevSourcePart instanceof ShapeNodeEditPart) {
-						int ty = ApexSequenceUtil.apexGetAbsolutePosition((IGraphicalEditPart)prevTargetPart, SWT.BOTTOM) + MARGIN;
-						if (maxTop < ty) {
-							maxTop = ty;
-							realPrevPart = (IGraphicalEditPart)prevTargetPart;
+						int ty = ApexSequenceUtil.apexGetAbsolutePosition((IGraphicalEditPart)prevSourcePart, SWT.BOTTOM) + MARGIN;
+						if (movableTop < ty) {
+							movableTop = ty;
+							realPrevPart = (IGraphicalEditPart)prevSourcePart;
 						}
 					}
 				}
@@ -525,8 +525,8 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 					
 					if (ePrevTgtPartObj instanceof ExecutionSpecification && prevTargetPart instanceof ShapeNodeEditPart) {
 						int ty = ApexSequenceUtil.apexGetAbsolutePosition((IGraphicalEditPart)prevTargetPart, SWT.BOTTOM) + MARGIN;
-						if (maxTop < ty) {
-							maxTop = ty;
+						if (movableTop < ty) {
+							movableTop = ty;
 							realPrevPart = (IGraphicalEditPart)prevTargetPart;
 						}
 					}	
@@ -535,31 +535,32 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 			}
 		}
 
-		if (siblingParts.size() == 0) {
+		if (siblingParts.size() == 0 || realPrevPart == null) {
 			EditPart sourcePart = connectionPart.getSource();
 			ShapeNodeEditPart srcLifelinePart = SequenceUtil.getParentLifelinePart(sourcePart);
 			IFigure dotLine = ((IApexLifelineEditPart)srcLifelinePart).getNodeFigure();
 			Rectangle dotLineBounds = dotLine.getBounds().getCopy();
 			dotLine.translateToAbsolute(dotLineBounds);
-			minTop = dotLineBounds.y() + MARGIN;
-			maxTop = minTop;
+			topMost = dotLineBounds.y() + MARGIN;
+			movableTop = topMost;
+			return movableTop;
 		}
-
+		
 		EObject eObj = realPrevPart.resolveSemanticElement();
 		
 		if (isFlexible && (eObj instanceof ExecutionSpecification && realPrevPart instanceof ShapeNodeEditPart)) {
 			Dimension minSize = realPrevPart.getFigure().getMinimumSize();
 			int bottom = ApexSequenceUtil.apexGetAbsolutePosition(realPrevPart, SWT.TOP) + minSize.height();
-			minTop = Math.max(minTop, bottom);
+			topMost = Math.max(topMost, bottom);
 		}
 		else {
-			minTop = maxTop;
+			topMost = movableTop;
 		}
-		return minTop;
+		return topMost;
 	}
 
-	protected int getMovableBottom(ConnectionNodeEditPart connectionPart) {
-		int bottom = Integer.MAX_VALUE;
+	protected int getMovableBottomPosition(ConnectionNodeEditPart connectionPart) {
+		int movableBottom = Integer.MAX_VALUE;
 
 		List<IGraphicalEditPart> siblingParts = ApexSequenceUtil.apexGetNextSiblingEditParts(connectionPart);
 		List<IGraphicalEditPart> linkedParts = ApexSequenceUtil.apexGetLinkedEditPartList(connectionPart, true, true, false);
@@ -570,10 +571,10 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 		}
 		for (IGraphicalEditPart siblingPart : siblingParts) {
 			if (!linkedParts.contains(siblingPart)) {
-				bottom = Math.min(bottom, ApexSequenceUtil.apexGetAbsolutePosition(siblingPart, SWT.TOP) - MARGIN);
+				movableBottom = Math.min(movableBottom, ApexSequenceUtil.apexGetAbsolutePosition(siblingPart, SWT.TOP) - MARGIN);
 			}
 		}
 
-		return bottom - linkedBounds.height;
+		return movableBottom - linkedBounds.height;
 	}
 }
