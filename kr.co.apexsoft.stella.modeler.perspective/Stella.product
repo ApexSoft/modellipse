@@ -3,7 +3,6 @@
 
 <product name="Stella Modeler" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -16,16 +15,16 @@
 
    <splash
       location="kr.co.apexsoft.stella.modeler.perspective"
-      startupProgressRect="5,280,445,15"
-      startupMessageRect="7,255,445,20"
+      startupProgressRect="5,280,490,15"
+      startupMessageRect="5,255,490,20"
       startupForegroundColor="000000" />
    <launcher name="Stella Modeler">
       <solaris/>
       <win useIco="false">
-         <bmp/>
+         <bmp
+            winSmallLow="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-16-8bit.bmp"/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>

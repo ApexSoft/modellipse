@@ -10,13 +10,7 @@
          </property>
          <property name="windowImages" value="icons/windowImage-16.png">
          </property>
-         <property name="startupProgressRect" value="5,280,445,15">
-         </property>
          <property name="preferenceCustomization" value="plugin_customization.ini">
-         </property>
-         <property name="startupForegroundColor" value="000000">
-         </property>
-         <property name="startupMessageRect" value="7,255,445,20">
          </property>
          <property
                name="cssTheme"
@@ -25,6 +19,18 @@
          <property
                name="applicationCSSResources"
                value="platform:/plugin/org.eclipse.platform/images/">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="5,255,490,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,280,490,15">
          </property>
       </product>
    </extension>
