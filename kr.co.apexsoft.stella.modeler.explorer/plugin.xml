@@ -178,17 +178,6 @@
              </or>
           </visibleWhen>
        </command>
-       <command
-             commandId="org.eclipse.ui.edit.rename"
-             icon="icons/etool16/rename.gif"
-             id="org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup.rename"
-             label="&amp;Rename"
-             style="push"
-             tooltip="Rename the element">
-          <visibleWhen
-                checkEnabled="true">
-          </visibleWhen>
-       </command>
     </menuContribution>
   </extension>
   <extension
