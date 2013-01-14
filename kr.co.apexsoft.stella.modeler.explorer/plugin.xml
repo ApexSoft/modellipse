@@ -45,14 +45,6 @@
             class="org.eclipse.papyrus.views.modelexplorer.dnd.EObjectDragAdapterAssistant"
             viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
       </dragAssistant>
-      <viewerActionBinding
-        viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
-        <includes>
-          <actionExtension
-            pattern="org.eclipse.ui.navigator.resources.*">
-          </actionExtension>
-        </includes>
-      </viewerActionBinding>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
@@ -176,6 +168,17 @@
                    </iterate>
                 </with>
              </or>
+          </visibleWhen>
+       </command>
+       <command
+             commandId="org.eclipse.ui.edit.rename"
+             icon="icons/etool16/rename.gif"
+             id="org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup.rename"
+             label="&amp;Rename"
+             style="push"
+             tooltip="Rename the element">
+          <visibleWhen
+                checkEnabled="true">
           </visibleWhen>
        </command>
     </menuContribution>
