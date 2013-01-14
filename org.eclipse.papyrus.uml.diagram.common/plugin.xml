@@ -22,14 +22,15 @@
  <extension-point id="paletteDefinition" name="PaletteDefinition" schema="schema/paletteDefinition.exsd"/>
  <extension-point id="aspectToolProvider" name="aspectToolProvider" schema="schema/aspectToolProvider.exsd"/>
  <extension-point id="paletteCustomization" name="Palette customization" schema="schema/paletteCustomization.exsd"/>
-      
-      <extension point="org.eclipse.ui.views">
+
+<!--      
+ <extension point="org.eclipse.ui.views">
    <category 
 	id="org.eclipse.papyrus.views.category"
 	name="Papyrus">
    </category>
-   
 </extension>
+-->
 <extension
       point="org.eclipse.papyrus.infra.core.modelListener">
    <listener

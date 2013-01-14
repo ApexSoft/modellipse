@@ -15,8 +15,12 @@
    </extension>
    <extension
          point="org.eclipse.ui.views">
+      <category
+            id="kr.co.apexsoft.stella.modeler.views.category"
+            name="Stella">
+      </category>
       <view
-            category="org.eclipse.papyrus.views.category"
+            category="kr.co.apexsoft.stella.modeler.views.category"
             class="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView"
             icon="icons/windowImage-16.png"
             id="kr.co.apexsoft.stella.modeler.explorer.view"
