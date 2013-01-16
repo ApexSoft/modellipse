@@ -43,7 +43,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.uml2.uml.internal.impl.ModelImpl;
+import org.eclipse.uml2.uml.Model;
 
 /**
  * the label provider that inherits of modisco label provider.
@@ -262,7 +262,7 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 				ModelElementItem mItem = (ModelElementItem)element;
 				EObject eObj = mItem.getEObject();
 
-				if ( eObj instanceof ModelImpl ) {
+				if ( eObj instanceof Model ) {
 					URI uri = eObj.eResource().getURI();
 					String modelFileName = uri.lastSegment();
 					return modelFileName.substring(0, modelFileName.lastIndexOf("."));

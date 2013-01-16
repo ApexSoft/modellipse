@@ -170,7 +170,7 @@ public class ApexStellaProjectMap {
 	public static IEditorPart openEditor(IFile diFile) {
 		IEditorPart result = null;
 		try {
-			result = IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), diFile, true);
+			result = IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), diFile, false);
 		} catch (PartInitException e) {
 			e.printStackTrace();
 		}	
