@@ -21,8 +21,7 @@
    <launcher name="Stella Modeler">
       <solaris/>
       <win useIco="false">
-         <bmp
-            winSmallLow="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-16-8bit.bmp"/>
+         <bmp/>
       </win>
    </launcher>
 
