@@ -49,6 +49,7 @@ public class ApexDoubleClickListener implements IDoubleClickListener {
 						aViewer.refresh();
 					}					
 				}
+				// diagram 일 경우 더블클릭 시 해당 다이어그램 활성화
 			}
 		}
 	}
