@@ -263,9 +263,7 @@ public class ApexUMLLabelProvider extends CustomizableModelLabelProvider {
 				EObject eObj = mItem.getEObject();
 
 				if ( eObj instanceof Model ) {
-					URI uri = eObj.eResource().getURI();
-					String modelFileName = uri.lastSegment();
-					return modelFileName.substring(0, modelFileName.lastIndexOf("."));
+					return mItem.getName();
 				} else {
 					text = super.getText(element);
 				}
