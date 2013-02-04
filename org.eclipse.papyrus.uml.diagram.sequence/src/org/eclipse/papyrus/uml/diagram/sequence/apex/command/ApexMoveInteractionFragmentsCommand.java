@@ -30,7 +30,6 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
@@ -107,11 +106,11 @@ public class ApexMoveInteractionFragmentsCommand extends
 	/**
 	 * @param domain editing domain
 	 * @param viewer EditPartViewer
-	 * @param fragment InteractionFragment
-	 * @param yLocation
-	 * @param yExtent
-	 * @param yMoveDelta
+	 * @param fragment container (Interaction or InteractionOperand)
+	 * @param extent 이동될 범위
+	 * @param moveDelta move delta
 	 * @param margin
+	 * @param dontMoveOthers true 이면 extent 안의 것만 이동하고, false 이면 extent 하위도 이동
 	 */
 	public ApexMoveInteractionFragmentsCommand(
 			TransactionalEditingDomain domain, EditPartViewer viewer, InteractionFragment fragment, Rectangle extent, Point moveDelta, int margin, boolean dontMoveOthers) {
@@ -145,6 +144,8 @@ public class ApexMoveInteractionFragmentsCommand extends
 				IGraphicalEditPart editPart = getEditPart(ift);
 				Rectangle bounds = SequenceUtil.getAbsoluteBounds(editPart);
 				
+				// extent 하단의 이동을 방지하였을 때 (dontMoveOthers == false)
+				// 하단에 위치한 EditPart는 이동하지 않음
 				if (dontMoveOthers && extent.bottom() < bounds.y) {
 					continue;
 				}
@@ -292,6 +293,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 					List<EditPart> empty = Collections.emptyList();
 					LifelineEditPart lifelineEP = SequenceUtil.getParentLifelinePart(editPart);
 					if (lifelineEP != null) {
+						// Jiho remove, 2013-02-04
 						compCmd.add(OccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 								occurrenceSpecification, edge.y + realMoveDelta.y, newBounds, editPart, lifelineEP, empty));
 					}
