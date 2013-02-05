@@ -22,10 +22,12 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import kr.co.apexsoft.stella.modeler.explorer.Activator;
-import kr.co.apexsoft.stella.modeler.explorer.core.ApexDIWrapper;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
+import kr.co.apexsoft.stella.modeler.explorer.editor.StellaMultiDiagramEditor;
 import kr.co.apexsoft.stella.modeler.explorer.provider.ApexDecoratingLabelProviderWTooltips;
 
 import org.eclipse.core.commands.operations.IUndoContext;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -34,18 +36,17 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
-import org.eclipse.emf.facet.infra.browser.uicore.internal.model.LinkItem;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.action.IContributionItem;
-import org.eclipse.jface.action.MenuManager;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -66,8 +67,11 @@ import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
+import org.eclipse.papyrus.infra.core.utils.ServiceUtilsForActionHandlers;
 import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
+import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
+import org.eclipse.papyrus.views.modelexplorer.Messages;
 import org.eclipse.papyrus.views.modelexplorer.matching.IMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.LinkItemMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.ModelElementItemMatchingItem;
@@ -75,7 +79,6 @@ import org.eclipse.papyrus.views.modelexplorer.matching.ReferencableMatchingItem
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IMemento;
@@ -84,10 +87,8 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.WorkbenchWindow;
 import org.eclipse.ui.internal.navigator.NavigatorContentService;
 import org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor;
 import org.eclipse.ui.navigator.CommonNavigator;
@@ -1007,5 +1008,66 @@ public class ApexStellaExplorerView extends CommonNavigator
 		// 실제는 MultiDiagramEditor의 getContributorId()에 명시되어 있는 것이 유효
 		return "TreeOutlinePage"; //$NON-NLS-1$
 
+	}
+	
+	public class ApexDoubleClickListener implements IDoubleClickListener {
+
+		public void doubleClick(DoubleClickEvent event) {
+			ISelection selection = event.getSelection();
+//			IPageMngr pageMngr = null;
+//			//get the page Manager
+//			try {
+//				pageMngr = ServiceUtilsForActionHandlers.getInstance().getIPageMngr();
+//			} catch (Exception e) {
+//				Activator.log.error(Messages.DoubleClickListener_Error_NoLoadManagerToOpen, e);
+//			}
+//			if(pageMngr != null) {
+
+			if(selection instanceof IStructuredSelection) {
+				Iterator<?> iter = ((IStructuredSelection)selection).iterator();
+				while(iter.hasNext()) {
+					Object currentObject = iter.next();
+					
+					if ( currentObject instanceof IFile ) {
+						// 에디터 열고
+						IEditorPart editor = null;
+						IFile diFile = (IFile)currentObject;
+
+						if(OneFileUtils.isDi(diFile)) {
+							editor = ApexStellaProjectMap.openEditor(diFile);
+						}
+
+						if ( editor != null && editor instanceof PapyrusMultiDiagramEditor ) {
+							ServicesRegistry servicesRegistry = ((PapyrusMultiDiagramEditor)editor).getServicesRegistry();
+							ApexStellaProjectMap.setUpModelServices(diFile, servicesRegistry);
+							Viewer aViewer = event.getViewer();
+							aViewer.refresh();
+						}					
+					} else if ( currentObject instanceof ModelElementItem ) {
+						
+						ModelElementItem mItem = (ModelElementItem)currentObject;
+						EObject eObj = mItem.getEObject();
+						
+						if ( eObj instanceof DiagramImpl ) {
+							IPageMngr pageMngr = null;
+							try {
+								pageMngr = ServiceUtilsForActionHandlers.getInstance().getIPageMngr();
+							} catch (ServiceException e) {
+								Activator.log.error(Messages.DoubleClickListener_Error_NoLoadManagerToOpen, e);
+							}
+							/* apex
+//							 * 별도의 activate나 setFocus같은 활성화 방법이 없어 기존 페이지를 닫고 새로 여는 것으로 활성화 처리
+//							 * 닫고 추가로 여는 방법이므로 가장 마지막 페이지에서 활성화되며,
+//							 * 원래 있던 자리에서 활성화되게 하려면 TabFolderImpl의 movePage() 이용
+//							 */
+							if ( pageMngr.isOpen(eObj)) {
+								pageMngr.closePage(eObj);	
+							}								
+							pageMngr.openPage(eObj);
+						}
+					}
+				}
+			}
+		}
 	}
 }
