@@ -47,6 +47,7 @@ import org.eclipse.papyrus.uml.diagram.common.commands.PreserveAnchorsPositionCo
 import org.eclipse.papyrus.uml.diagram.common.draw2d.LifelineDotLineFigure;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.command.ApexPreserveAnchorsPositionCommand;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.command.CustomZOrderCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.ActionExecutionSpecificationEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.BehaviorExecutionSpecificationEditPart;
@@ -556,7 +557,7 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 
 					// keep absolute position of anchors
 					/* apex improved start */
-					Object relative = request.getExtendedData().get(SequenceRequestConstant.PRESERVE_ANCHOR_RELATIVE_BOUNDS);
+					Object relative = request.getExtendedData().get(ApexSequenceRequestConstants.APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS);
 					ApexPreserveAnchorsPositionCommand command = new ApexPreserveAnchorsPositionCommand(executionSpecificationEP, new Dimension(realMoveDelta.width, realMoveDelta.height),
 							PreserveAnchorsPositionCommand.PRESERVE_Y, executionSpecificationEP.getFigure(), request.getResizeDirection(), relative);
 					compoundCmd.add(new ICommandProxy(command));

@@ -104,17 +104,17 @@ public interface ApexSequenceRequestConstants {
 	public static final String APEX_CONNECTABLE_ELEMENT_TYPE = "Connectable Element Type"; //$NON-NLS-1$
 
 	/**
-	 * Execution�� bounds�� ����� �� anchor�� ����/������� �ʴ� ������
+	 * activation's new bounds to be preserved anchor
 	 */
 	public static final String APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS = "Preserve Anchor Relative bounds"; //$NON-NLS-1$
 
 	/**
-	 * SHIFT Ű�� ���ȴ��� ����
+	 * 'SHIFT' key is pressed
 	 */
 	public static final String APEX_MODIFIER_CONSTRAINED_MOVE = "modifier for constrained move"; //$NON-NLS-1$
 	
 	/**
-	 * CTRL Ű�� ���ȴ��� ����
+	 * 'CTRL' key is pressed
 	 */
 	public static final String APEX_MODIFIER_REORDERING = "modifier for sequence of messages"; //$NON-NLS-1$
 
