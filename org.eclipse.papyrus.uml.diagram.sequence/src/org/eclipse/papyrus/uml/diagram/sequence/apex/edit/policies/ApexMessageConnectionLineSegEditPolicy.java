@@ -1,6 +1,7 @@
 package org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.draw2d.Connection;
@@ -38,6 +39,7 @@ import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceDiagramCon
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.draw2d.routers.MessageRouter.RouterKind;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.swt.SWT;
@@ -82,22 +84,29 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 
 		if(getHost() instanceof ConnectionNodeEditPart) {
 			ConnectionNodeEditPart connectionPart = (ConnectionNodeEditPart)getHost();
-			Point oldLocation = ApexSequenceUtil.getAbsoluteEdgeExtremity(connectionPart, true);
+			Point oldLocation = SequenceUtil.getAbsoluteEdgeExtremity(connectionPart, true);
 			Point location = request.getLocation().getCopy();
-			Point moveDelta = new Point(0, location.y() - oldLocation.y);
+			
+			int movableTop = getMovableTopPosition(connectionPart, false);
+			if (movableTop > location.y) {
+				location.y = movableTop;
+			}
+			
+			Point moveDelta = new Point(0, location.y - oldLocation.y);
 
+			// BendpointRequest->ChangeBoundsRequest로 변환
 			ChangeBoundsRequest cbRequest = new ChangeBoundsRequest(REQ_MOVE);
 			cbRequest.setMoveDelta(moveDelta);
 			cbRequest.setLocation(location);
 			cbRequest.setExtendedData(request.getExtendedData());
+			cbRequest.setConstrainedMove(isConstrainedMove(cbRequest));
 
-//			Command result = ApexMessageConnectionLineSegmentEditPolicy.apexGetMoveConnectionCommand(cbRequest, connectionPart, isConstrainedMove(cbRequest));
-			Command result = getXXXCommand(cbRequest);
+			Command result = getHost().getCommand(cbRequest);
 			return result;
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
-
+	
 	protected Command getXXXCommand(ChangeBoundsRequest request) {
 		if (isReordering(request)) {
 			return getReorderingCommand(request);
@@ -228,8 +237,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 
 	@Override
 	protected List createManualHandles() {
-		List list = new ArrayList();
-		return list;
+		return Collections.emptyList();
 	}
 
 	private static final int MARGIN = ApexSequenceDiagramConstants.VERTICAL_MARGIN;
@@ -491,19 +499,26 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 				.get(ApexSequenceRequestConstants.APEX_MODIFIER_REORDERING));
 	}
 
+	/**
+	 * connectionPart가 이동가능한 최상단 y값을 구한다. 다른 EditPart가 있으면 이동이 불가능하다.
+	 * @param connectionPart
+	 * @param isFlexible
+	 * @return connectionPart가 이동가능한 최상단 y값
+	 */
 	protected int getMovableTopPosition(ConnectionNodeEditPart connectionPart, boolean isFlexible) {
 		int topMost = Integer.MIN_VALUE, movableTop = Integer.MIN_VALUE;
 
 		List<IGraphicalEditPart> siblingParts = ApexSequenceUtil.apexGetPrevSiblingEditParts(connectionPart);
 		List<IGraphicalEditPart> frontLinkedParts = ApexSequenceUtil.apexGetLinkedEditPartList(connectionPart, true, false, true);
-		IGraphicalEditPart realPrevPart = null;
+		IGraphicalEditPart realPrevPart = frontLinkedParts.size() > 0
+				? frontLinkedParts.get(frontLinkedParts.size() - 1) : null;
 
 		for (IGraphicalEditPart siblingPart : siblingParts) {
 			topMost = Math.max(topMost, ApexSequenceUtil.apexGetAbsolutePosition(siblingPart, SWT.BOTTOM) + MARGIN);
 			movableTop = Math.max(movableTop, topMost);
 
+			// Linked가 아닌 Message일 경우
 			if (siblingPart instanceof ConnectionNodeEditPart && !frontLinkedParts.contains(connectionPart)) {
-				// activation중 가장 하위 검색. realMinY는 activation 포함 가장 하위 y값
 				ConnectionNodeEditPart prevConnPart = (ConnectionNodeEditPart)siblingPart;
 				EditPart prevSourcePart = prevConnPart.getSource();
 				EditPart prevTargetPart = prevConnPart.getTarget();
@@ -511,7 +526,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 				if ( prevSourcePart instanceof IGraphicalEditPart ) {
 					EObject ePrevSrcPartObj = ((IGraphicalEditPart) prevSourcePart).resolveSemanticElement(); 
 				
-					if (ePrevSrcPartObj instanceof ExecutionSpecification && prevSourcePart instanceof ShapeNodeEditPart) {
+					if (ePrevSrcPartObj instanceof ExecutionSpecification) {
 						int ty = ApexSequenceUtil.apexGetAbsolutePosition((IGraphicalEditPart)prevSourcePart, SWT.BOTTOM) + MARGIN;
 						if (movableTop < ty) {
 							movableTop = ty;
@@ -523,7 +538,7 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 				if ( prevTargetPart instanceof IGraphicalEditPart ) {
 					EObject ePrevTgtPartObj = ((IGraphicalEditPart) prevTargetPart).resolveSemanticElement();
 					
-					if (ePrevTgtPartObj instanceof ExecutionSpecification && prevTargetPart instanceof ShapeNodeEditPart) {
+					if (ePrevTgtPartObj instanceof ExecutionSpecification) {
 						int ty = ApexSequenceUtil.apexGetAbsolutePosition((IGraphicalEditPart)prevTargetPart, SWT.BOTTOM) + MARGIN;
 						if (movableTop < ty) {
 							movableTop = ty;
@@ -535,9 +550,9 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 			}
 		}
 
-		if (siblingParts.size() == 0 || realPrevPart == null) {
+		if (siblingParts.size() == 0) {
 			EditPart sourcePart = connectionPart.getSource();
-			ShapeNodeEditPart srcLifelinePart = SequenceUtil.getParentLifelinePart(sourcePart);
+			LifelineEditPart srcLifelinePart = SequenceUtil.getParentLifelinePart(sourcePart);
 			IFigure dotLine = ((IApexLifelineEditPart)srcLifelinePart).getNodeFigure();
 			Rectangle dotLineBounds = dotLine.getBounds().getCopy();
 			dotLine.translateToAbsolute(dotLineBounds);
@@ -546,16 +561,15 @@ public class ApexMessageConnectionLineSegEditPolicy extends
 			return movableTop;
 		}
 		
-		EObject eObj = realPrevPart.resolveSemanticElement();
-		
-		if (isFlexible && (eObj instanceof ExecutionSpecification && realPrevPart instanceof ShapeNodeEditPart)) {
+		if (!isFlexible || realPrevPart == null ||
+				realPrevPart.resolveSemanticElement() instanceof ExecutionSpecification) {
+			topMost = movableTop;
+		} else {
 			Dimension minSize = realPrevPart.getFigure().getMinimumSize();
 			int bottom = ApexSequenceUtil.apexGetAbsolutePosition(realPrevPart, SWT.TOP) + minSize.height();
 			topMost = Math.max(topMost, bottom);
 		}
-		else {
-			topMost = movableTop;
-		}
+		
 		return topMost;
 	}
 
