@@ -44,7 +44,6 @@ extends PreserveAnchorsPositionCommand {
 		if(getPreserveAxis() == PRESERVE_Y || getPreserveAxis() == PRESERVE_XY) {
 			int anchorYPos = (int)Math.round(figureBounds.height * pp.preciseY());
 
-			/* apex added start */
 			if ((PositionConstants.SOUTH & resizeDirection) != 0 && relativeBounds.bottom() < figureBounds.y + anchorYPos) {
 				resizeDirection &= ~PositionConstants.SOUTH;
 				resizeDirection ^= PositionConstants.NORTH;
@@ -53,7 +52,6 @@ extends PreserveAnchorsPositionCommand {
 				resizeDirection &= ~PositionConstants.SOUTH;
 				resizeDirection ^= PositionConstants.NORTH;
 			}
-			/* apex added end */
 
 			pp.setPreciseY((double)anchorYPos / (figureBounds.height + sizeDelta.height));
 
@@ -73,7 +71,6 @@ extends PreserveAnchorsPositionCommand {
 		if(getPreserveAxis() == PRESERVE_X || getPreserveAxis() == PRESERVE_XY) {
 			int anchorXPos = (int)Math.round(figureBounds.width * pp.preciseX());
 
-			/* apex added start */
 			if ((PositionConstants.EAST & resizeDirection) != 0 && relativeBounds.right() < figureBounds.x + anchorXPos) {
 				resizeDirection &= ~PositionConstants.EAST;
 				resizeDirection ^= PositionConstants.WEST;
@@ -82,7 +79,6 @@ extends PreserveAnchorsPositionCommand {
 				resizeDirection &= ~PositionConstants.WEST;
 				resizeDirection ^= PositionConstants.EAST;
 			}
-			/* apex added end */
 
 			pp.setPreciseX((double)anchorXPos / (figureBounds.width + sizeDelta.width));
 
@@ -106,8 +102,8 @@ extends PreserveAnchorsPositionCommand {
 	public void setRelative(Object relative) {
 		if (relative instanceof Rectangle) {
 			this.relativeBounds = ((Rectangle)relative).getCopy();
-		}
-		else if (relative instanceof Point)
+		} else if (relative instanceof Point) {
 			this.relativeBounds = new Rectangle((Point)relative, new Dimension());
+		}
 	}
 }
