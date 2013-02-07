@@ -80,9 +80,6 @@
                 pattern="org.eclipse.ui.navigator.resourceContent" />                     
           <contentExtension 
                 pattern="org.eclipse.ui.navigator.resources.filters.*"/>
-          <contentExtension
-                pattern="org.eclipse.papyrus.uml.modelexplorer.StellaNavigatorContent">
-          </contentExtension>
          </includes>
       </viewerContentBinding>
         <viewerContentBinding

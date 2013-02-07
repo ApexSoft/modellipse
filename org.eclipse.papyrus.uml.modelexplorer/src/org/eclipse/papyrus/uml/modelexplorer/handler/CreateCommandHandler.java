@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.common.command.Command;
@@ -135,13 +137,27 @@ public abstract class CreateCommandHandler extends AbstractCommandHandler {
 		if(bookViewPart != null) {
 			modelExplorerView = (ModelExplorerView)((ModelExplorerPageBookView)bookViewPart).getActiveView();
 		}
+		
+		/* apex improved start */
+		ApexStellaExplorerView stellaExplorerView = (ApexStellaExplorerView)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view"); 
+		
+		// Set selection on new element in the model explorer
+		if((modelExplorerView != null) && (stellaExplorerView != null) && (newElement != null) ) {
+			List<EObject> semanticElementList = new ArrayList<EObject>();
+			semanticElementList.add(newElement);
+			modelExplorerView.revealSemanticElement(semanticElementList);
+			stellaExplorerView.revealSemanticElement(semanticElementList);
+		}
+		/* apex improved end */
 
+		/* apex replaced
 		// Set selection on new element in the model explorer
 		if((modelExplorerView != null) && (newElement != null)) {
 			List<EObject> semanticElementList = new ArrayList<EObject>();
 			semanticElementList.add(newElement);
 			modelExplorerView.revealSemanticElement(semanticElementList);
 		}
+		*/
 
 		return result;
 	}
