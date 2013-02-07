@@ -142,11 +142,16 @@ public abstract class CreateCommandHandler extends AbstractCommandHandler {
 		ApexStellaExplorerView stellaExplorerView = (ApexStellaExplorerView)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view"); 
 		
 		// Set selection on new element in the model explorer
-		if((modelExplorerView != null) && (stellaExplorerView != null) && (newElement != null) ) {
+		if(newElement != null) {
 			List<EObject> semanticElementList = new ArrayList<EObject>();
 			semanticElementList.add(newElement);
-			modelExplorerView.revealSemanticElement(semanticElementList);
-			stellaExplorerView.revealSemanticElement(semanticElementList);
+			
+			if (modelExplorerView != null) {
+				modelExplorerView.revealSemanticElement(semanticElementList);	
+			}
+			if (stellaExplorerView != null) {
+				stellaExplorerView.revealSemanticElement(semanticElementList);	
+			}			
 		}
 		/* apex improved end */
 
