@@ -1797,7 +1797,11 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 					}
 						
 					IFigure dotLineFigure = getPrimaryShape().getFigureLifelineDotLineFigure();
-					LifelineFigureHelper.showRegion(dotLineFigure, newRect, isShow);
+					if (isShow) {
+						LifelineFigureHelper.showRegion(dotLineFigure, newRect);
+					} else {
+						LifelineFigureHelper.hideRegion(dotLineFigure, newRect);
+					}
 				}
 			}
 			/* apex added end */
@@ -2429,7 +2433,7 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			}
 			
 			if (region.intersects(bounds) && !lifeline.getCoveredBys().contains(element)) {
-				LifelineFigureHelper.showRegion(figure, region, false);
+				LifelineFigureHelper.hideRegion(figure, region);
 			}
 		}
 		

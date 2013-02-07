@@ -19,10 +19,6 @@ public class LifelineFigureHelper {
 	static Map<IFigure, Collection<Rectangle>> hideRegions = new HashMap<IFigure, Collection<Rectangle>>();
 	
 	public static void showRegion(IFigure figure, Rectangle region) {
-		showRegion(figure, region, true);
-	}
-	
-	public static void showRegion(IFigure figure, Rectangle region, boolean isShow) {
 		if (figure == null || region == null)
 			return;
 		
@@ -31,14 +27,42 @@ public class LifelineFigureHelper {
 			hideRegions.put(figure, regions = new ArrayList<Rectangle>());
 		}
 		
-		if (!isShow) {
-			if (!regions.contains(region)) {
-				regions.add(region);
-			}
-		} else {
+		if (regions.contains(region)) {
 			regions.remove(region);
 		}
 	}
+	
+	public static void hideRegion(IFigure figure, Rectangle region) {
+		if (figure == null || region == null)
+			return;
+		
+		Collection<Rectangle> regions = hideRegions.get(figure);
+		if (regions == null) {
+			hideRegions.put(figure, regions = new ArrayList<Rectangle>());
+		}
+		
+		if (!regions.contains(region)) {
+			regions.add(region);
+		}
+	}
+	
+//	public static void showRegion(IFigure figure, Rectangle region, boolean isShow) {
+//		if (figure == null || region == null)
+//			return;
+//		
+//		Collection<Rectangle> regions = hideRegions.get(figure);
+//		if (regions == null) {
+//			hideRegions.put(figure, regions = new ArrayList<Rectangle>());
+//		}
+//		
+//		if (!isShow) {
+//			if (!regions.contains(region)) {
+//				regions.add(region);
+//			}
+//		} else {
+//			regions.remove(region);
+//		}
+//	}
 	
 	public static Collection<Rectangle> getHideRegions(IFigure figure) {
 		return hideRegions.get(figure);
