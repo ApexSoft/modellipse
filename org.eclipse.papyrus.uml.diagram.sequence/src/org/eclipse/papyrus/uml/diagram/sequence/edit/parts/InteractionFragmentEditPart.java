@@ -107,12 +107,12 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 		View parent = (View)container;
 		for (Object child : parent.getChildren()) {
 			if (child instanceof View) {
-				Rectangle lifelineRect = apexGetViewBounds(view);
-				Rectangle centralLineRect = new Rectangle(lifelineRect.x() +  lifelineRect.width() / 2, lifelineRect.y(), 
-						1,  lifelineRect.height());
-
 				EObject element = ((View)child).getElement();
 				if (element instanceof Lifeline && !coveredLifelines.contains(element)) {
+					Rectangle lifelineRect = apexGetViewBounds((View)child);
+					Rectangle centralLineRect = new Rectangle(lifelineRect.x() +  lifelineRect.width() / 2, lifelineRect.y(), 
+							1,  lifelineRect.height());
+
 					apexUpdateCoveredFigure(view, (Lifeline)element, centralLineRect);
 				}
 			}
@@ -142,7 +142,7 @@ public abstract class InteractionFragmentEditPart extends ShapeNodeEditPart {
 			}
 			
 			if (region.intersects(bounds)) {
-				LifelineFigureHelper.showRegion(figure, region, false);
+				LifelineFigureHelper.hideRegion(figure, region);
 			}
 		}
 	}
