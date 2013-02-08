@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import kr.co.apexsoft.stella.modeler.explorer.Activator;
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
-import kr.co.apexsoft.stella.modeler.explorer.editor.StellaMultiDiagramEditor;
 import kr.co.apexsoft.stella.modeler.explorer.provider.ApexDecoratingLabelProviderWTooltips;
 
 import org.eclipse.core.commands.operations.IUndoContext;
@@ -72,6 +71,7 @@ import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
 import org.eclipse.papyrus.views.modelexplorer.Messages;
+import org.eclipse.papyrus.views.modelexplorer.ModelExplorerView;
 import org.eclipse.papyrus.views.modelexplorer.matching.IMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.LinkItemMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.ModelElementItemMatchingItem;
@@ -112,7 +112,7 @@ public class ApexStellaExplorerView extends CommonNavigator
                                         implements IRevealSemanticElement, 
                                                    IEditingDomainProvider,
                                                    ITabbedPropertySheetPageContributor {
-
+	
 	/** ID of the view, as given in the plugin.xml file */
 	public static final String VIEW_ID = "org.eclipse.papyrus.uml.modelexplorer.modellipseexplorer"; //$NON-NLS-1$
 	/**
@@ -188,6 +188,12 @@ public class ApexStellaExplorerView extends CommonNavigator
 			firePropertyChange(IEditorPart.PROP_DIRTY);
 		}
 	};
+	
+//	public ApexStellaExplorerView(IMultiDiagramEditor part) {
+//		super(part);
+//		// TODO Auto-generated constructor stub
+//	}
+
 
 	public ApexStellaExplorerView() {
 		super();
