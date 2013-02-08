@@ -212,25 +212,6 @@
      </wizard>
   </extension>
   <extension
-        point="org.eclipse.emf.facet.infra.browser.custom.core.registration">
-     <browserCustomization
-           file="resources/ApexModelExplorerDefault.uiCustom"
-           loadByDefault="true">
-     </browserCustomization>
-  </extension>
-  <extension
-        point="org.eclipse.emf.facet.infra.query.registration">
-     <modelqueryset
-           file="resources/ApexBrowserQuery.querySet">
-     </modelqueryset>
-  </extension>
-  <extension
-        point="org.eclipse.emf.facet.infra.facet.registration">
-     <facetset
-           file="resources/ApexStellaUMLFacet.facetSet">
-     </facetset>
-  </extension>
-  <extension
         point="org.eclipse.ui.commands">
      <command
            categoryId="org.eclipse.ui.category.edit"
