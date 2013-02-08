@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Set;
 
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexDIWrapper;
+import kr.co.apexsoft.stella.modeler.explorer.util.DiParseHelper;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -281,7 +282,10 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 						IFile file = (IFile)r;
 
 						if(OneFileUtils.isDi(file)) {
-							result.add(file);
+							DiParseHelper diHelper = new DiParseHelper();
+							if ( diHelper.checkControlled(file) ) {
+								result.add(file);	
+							}							
 						}
 					} 
 				}
