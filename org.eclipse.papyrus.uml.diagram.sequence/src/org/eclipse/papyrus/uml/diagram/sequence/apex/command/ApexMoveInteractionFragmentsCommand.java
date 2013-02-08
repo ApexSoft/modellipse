@@ -32,10 +32,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.interfaces.IApexLifelineEditPart;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexOccurrenceSpecificationMoveHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceRequestConstants;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.InteractionOperandEditPart;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.LifelineEditPart;
-import org.eclipse.papyrus.uml.diagram.sequence.util.OccurrenceSpecificationMoveHelper;
+import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.InteractionCompartmentXYLayoutEditPolicy;
+import org.eclipse.papyrus.uml.diagram.sequence.util.OperandBoundsComputeHelper;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceRequestConstant;
 import org.eclipse.papyrus.uml.diagram.sequence.util.SequenceUtil;
 import org.eclipse.uml2.uml.CombinedFragment;
@@ -104,13 +107,14 @@ public class ApexMoveInteractionFragmentsCommand extends
 	}
 	
 	/**
-	 * @param domain editing domain
-	 * @param viewer EditPartViewer
-	 * @param fragment container (Interaction or InteractionOperand)
-	 * @param extent 이동될 범위
-	 * @param moveDelta move delta
+	 * 
+	 * @param domain	editing domain
+	 * @param viewer	EditPartViewer
+	 * @param fragment	container (Interaction or InteractionOperand)
+	 * @param extent	직접적인 이동 영역, Message의 경우 y만 해당되고, CF의 경우 y~bottom영역이 해당 됨
+	 * @param moveDelta	move delta
 	 * @param margin
-	 * @param dontMoveOthers true 이면 extent 안의 것만 이동하고, false 이면 extent 하위도 이동
+	 * @param dontMoveOthers	true 이면 extent 범위만 이동하고, false 이면 extent 하위가 모두 이동
 	 */
 	public ApexMoveInteractionFragmentsCommand(
 			TransactionalEditingDomain domain, EditPartViewer viewer, InteractionFragment fragment, Rectangle extent, Point moveDelta, int margin, boolean dontMoveOthers) {
@@ -142,7 +146,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 			
 			if (ift instanceof ExecutionSpecification) {
 				IGraphicalEditPart editPart = getEditPart(ift);
-				Rectangle bounds = SequenceUtil.getAbsoluteBounds(editPart);
+				Rectangle bounds = ApexSequenceUtil.getAbsoluteBounds(editPart);
 				
 				// extent 하단의 이동을 방지하였을 때 (dontMoveOthers == false)
 				// 하단에 위치한 EditPart는 이동하지 않음
@@ -150,7 +154,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 					continue;
 				}
 				
-				if (extent.y <= bounds.y) {	// 이동범위 하단에 걸쳐있거나 위치한 EditPart의 경우
+				if (extent.y <= bounds.y) {	// Activation이 이동범위에 모두 포함된 경우, bounds를 이동
 					if (!dontMoveOthers) {
 						Rectangle newBounds = bounds.getCopy();
 						Rectangle parentBounds = editPart.getFigure().getParent().getBounds().getCopy();
@@ -164,7 +168,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 						request.setMoveDelta(realMoveDelta);
 						command.add(editPart.getCommand(request));
 					}
-				} else if (extent.y < bounds.bottom()) {	// 이동범위를 상단에 걸쳐있거나 이동범위를 포함하는 EditPart의 경우
+				} else if (/*extent.y > bounds.y &&*/ extent.y < bounds.bottom()) {	// Activation의 하단만 이동범위에 걸쳐있을 경우, 하단 길이 변경
 					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
 					request.getExtendedData().put(ApexSequenceRequestConstants.APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS, extent);
 					request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
@@ -180,41 +184,48 @@ public class ApexMoveInteractionFragmentsCommand extends
 					continue;
 				}
 				
-				if (extent.y <= bounds.y) {
-					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
-					request.setMoveDelta(realMoveDelta);
-					command.add(editPart.getCommand(request));
+				if (extent.y <= bounds.y) {	// CF가 이동범위에 모두 포함된 경우, ChangeBoundsRequest 이용
+//					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
+//					request.setMoveDelta(realMoveDelta);
+//					command.add(editPart.getCommand(request));
+					Rectangle newBounds = bounds.getCopy();
+					editPart.getFigure().translateToRelative(newBounds);
+					newBounds.translate(realMoveDelta);
+					SetBoundsCommand sbCommand = new SetBoundsCommand(getEditingDomain(), "Set Bounds", editPart, newBounds);
+					command.add(new ICommandProxy(sbCommand));
+					
+				} else if (/*extent.y > bounds.y &&*/ extent.y < bounds.bottom()) {
+					// CF가 걸쳐있는 경우는 발생하지 않음
 				}
 			} else if (ift instanceof MessageOccurrenceSpecification) {
 				Message message = ((MessageOccurrenceSpecification)ift).getMessage();
 				IGraphicalEditPart editPart = getEditPart(message);
 				if (ift.equals(message.getSendEvent()) && editPart instanceof ConnectionNodeEditPart) {
-					EditPart source = ((ConnectionNodeEditPart)editPart).getSource();
-					
 					Point edge = ApexSequenceUtil.getAbsoluteEdgeExtremity((ConnectionNodeEditPart) editPart, true);
+					if (edge == null) {
+						continue;
+					}
 					
 					if (dontMoveOthers && extent.bottom() < edge.y) {
 						continue;
 					}
 					
-					if (edge != null && edge.y >= extent.y) {
+					if (extent.y <= edge.y) {
+						EditPart source = ((ConnectionNodeEditPart)editPart).getSource();
 						
-						if ( source instanceof IGraphicalEditPart ) {
-							EObject eObj = ((IGraphicalEditPart) source).resolveSemanticElement();
+						if (source instanceof LifelineEditPart) {
+							LifelineEditPart lifelineEditPart = (LifelineEditPart)source;
 							
-							if ( eObj instanceof Lifeline ) {
-								IGraphicalEditPart graphcalEditPart = (IGraphicalEditPart)source;
-								Collection<MessageOccurrenceSpecification> occurrenceSpecifications = needToMoveMessages.get(graphcalEditPart);
-								if (occurrenceSpecifications == null) {
-									occurrenceSpecifications = new HashSet<MessageOccurrenceSpecification>();
-									needToMoveMessages.put(graphcalEditPart, occurrenceSpecifications);
-								}
-								occurrenceSpecifications.add((MessageOccurrenceSpecification) ift);
+							Collection<MessageOccurrenceSpecification> occurrenceSpecifications = needToMoveMessages.get(lifelineEditPart);
+							if (occurrenceSpecifications == null) {
+								occurrenceSpecifications = new HashSet<MessageOccurrenceSpecification>();
+							}
+							occurrenceSpecifications.add((MessageOccurrenceSpecification) ift);
+							needToMoveMessages.put(lifelineEditPart, occurrenceSpecifications);
 
-								Integer bottom = needToMoveBottoms.get(graphcalEditPart);
-								if (bottom == null || bottom < edge.y + realMoveDelta.y) {
-									needToMoveBottoms.put(graphcalEditPart, edge.y + realMoveDelta.y);
-								}
+							Integer bottom = needToMoveBottoms.get(lifelineEditPart);
+							if (bottom == null || bottom < edge.y + realMoveDelta.y) {
+								needToMoveBottoms.put(lifelineEditPart, edge.y + realMoveDelta.y);
 							}
 						}
 					}
@@ -223,6 +234,14 @@ public class ApexMoveInteractionFragmentsCommand extends
 		}
 		
 		command.add(createPreserveAnchorCommands(needToMoveMessages, needToMoveBottoms, realMoveDelta));
+		
+		if (fragment instanceof InteractionOperand) {
+			InteractionOperandEditPart ioEditPart = (InteractionOperandEditPart)getEditPart(fragment);
+			ChangeBoundsRequest cbRequest = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
+			cbRequest.setResizeDirection(PositionConstants.SOUTH);
+			cbRequest.setSizeDelta(new Dimension(0, realMoveDelta.y));
+			command.add(OperandBoundsComputeHelper.createIOEPResizeCommand(cbRequest, ioEditPart));
+		}
 		
 		if (command.isEmpty() || command.canExecute()) {
 			command.execute();
@@ -234,8 +253,8 @@ public class ApexMoveInteractionFragmentsCommand extends
 	
 	/**
 	 * Anchor 
-	 * @param needToMoveMessages	이동이 필요한 MOS들
-	 * @param needToMoveBottoms		이동 이전의 bottom값들
+	 * @param needToMoveMessages	source인 LifelineEditPart에 연결된 MOS들 중 preserve anchor가 필요한 MOS들
+	 * @param needToMoveBottoms		source인 LifelineEditPart가 bottom으로 확장이 필요하다면 최종 bottom값
 	 * @param realMoveDelta
 	 * @return
 	 */
@@ -293,8 +312,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 					List<EditPart> empty = Collections.emptyList();
 					LifelineEditPart lifelineEP = SequenceUtil.getParentLifelinePart(editPart);
 					if (lifelineEP != null) {
-						// Jiho remove, 2013-02-04
-						compCmd.add(OccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
+						compCmd.add(ApexOccurrenceSpecificationMoveHelper.getMoveMessageOccurrenceSpecificationsCommand(
 								occurrenceSpecification, edge.y + realMoveDelta.y, newBounds, editPart, lifelineEP, empty));
 					}
 				}
