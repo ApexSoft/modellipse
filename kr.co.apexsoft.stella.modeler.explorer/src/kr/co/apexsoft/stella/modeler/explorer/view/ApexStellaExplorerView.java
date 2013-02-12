@@ -1049,7 +1049,7 @@ public class ApexStellaExplorerView extends CommonNavigator
 							Viewer aViewer = event.getViewer();
 							aViewer.refresh();
 						}					
-					} else if ( currentObject instanceof ModelElementItem ) {
+					} else if ( currentObject instanceof ModelElementItem ) { //Diagram 더블클릭 시 오픈
 						
 						ModelElementItem mItem = (ModelElementItem)currentObject;
 						EObject eObj = mItem.getEObject();
