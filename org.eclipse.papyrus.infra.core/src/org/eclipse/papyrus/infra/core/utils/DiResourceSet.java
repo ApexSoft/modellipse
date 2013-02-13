@@ -28,6 +28,7 @@ import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.ModelsReader;
 import org.eclipse.papyrus.infra.core.resource.notation.NotationModel;
 import org.eclipse.papyrus.infra.core.resource.notation.NotationUtils;
+import org.eclipse.papyrus.infra.core.resource.sasheditor.DiModel;
 import org.eclipse.papyrus.infra.core.resource.sasheditor.DiModelUtils;
 import org.eclipse.papyrus.infra.core.resource.sasheditor.SashModelUtils;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
@@ -246,8 +247,22 @@ public class DiResourceSet extends ModelSet {
 	 *             controlled resources
 	 */
 	public Resource getAssociatedDiResource(EObject modelElement) {
+		
+		/* apex improved start */
+		if(modelElement != null) {
+			Resource modelResource = modelElement.eResource();
+			if(modelResource != null && !modelResource.equals(getModelResource())) {
+				// handle controlled resource
+				return getAssociatedResource(modelResource, DiModel.DI_FILE_EXTENSION);
+			}
+		}
+		return getDiResource();
+		/* apex improved end */
+		
+		/* apex replaced
 		// return the "base" di since we want the opened tabs in a unique di
 		return getDiResource();
+		*/
 	}
 
 	/**

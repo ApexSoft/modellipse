@@ -24,9 +24,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import kr.co.apexsoft.stella.modeler.explorer.Activator;
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
 import kr.co.apexsoft.stella.modeler.explorer.provider.ApexDecoratingLabelProviderWTooltips;
+import kr.co.apexsoft.stella.modeler.explorer.util.ApexModelTreeUtil;
 
 import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -50,7 +52,9 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
@@ -63,6 +67,7 @@ import org.eclipse.papyrus.infra.core.resource.additional.AdditionalResourcesMod
 import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.IPageMngr;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
+import org.eclipse.papyrus.infra.core.ui.IApexStellaExplorerViewService;
 import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
@@ -71,7 +76,6 @@ import org.eclipse.papyrus.infra.emf.providers.SemanticFromModelExplorer;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.views.modelexplorer.CustomCommonViewer;
 import org.eclipse.papyrus.views.modelexplorer.Messages;
-import org.eclipse.papyrus.views.modelexplorer.ModelExplorerView;
 import org.eclipse.papyrus.views.modelexplorer.matching.IMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.LinkItemMatchingItem;
 import org.eclipse.papyrus.views.modelexplorer.matching.ModelElementItemMatchingItem;
@@ -80,7 +84,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.ISelectionListener;
@@ -111,7 +117,8 @@ import com.google.common.collect.Lists;
 public class ApexStellaExplorerView extends CommonNavigator 
                                         implements IRevealSemanticElement, 
                                                    IEditingDomainProvider,
-                                                   ITabbedPropertySheetPageContributor {
+                                                   ITabbedPropertySheetPageContributor,
+                                                   IApexStellaExplorerViewService {
 	
 	/** ID of the view, as given in the plugin.xml file */
 	public static final String VIEW_ID = "org.eclipse.papyrus.uml.modelexplorer.modellipseexplorer"; //$NON-NLS-1$
@@ -234,8 +241,39 @@ public class ApexStellaExplorerView extends CommonNavigator
 		}
 	}	
 	
+	private ITreeSelection getRoot(ITreeSelection iTreeElement) {
+//		ITreeSelection parent = iTreeElement..getTreeParent();
+//		if ( parent != null ) {
+//			getRoot(parent);
+//		}
+		return iTreeElement;
+	}
+	
+	private void setServiceRegistry(PapyrusMultiDiagramEditor editor) {
+		PapyrusMultiDiagramEditor papyrusEditor = (PapyrusMultiDiagramEditor)editor;
+		serviceRegistry = papyrusEditor.getServicesRegistry();
+		try {
+			editingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(serviceRegistry);
+			//			this.editingDomain = EditorUtils.getTransactionalEditingDomain(editorPart.getServicesRegistry());
+			// Set Viewer input if it already exist
+//			if(getCommonViewer() != null) {
+//				getCommonViewer().setInput(serviceRegistry);
+//			}							
+			saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
+			undoContext = serviceRegistry.getService(IUndoContext.class);
+
+			editingDomain.addResourceSetListener(resourceSetListener);
+			saveAndDirtyService.addInputChangedListener(editorInputChangedListener);
+		} catch (ServiceException e) {
+			// Can't get EditingDomain, skip
+			e.printStackTrace();
+		}	
+	}
 	/**
 	 * Selection 이 바뀌었을 경우 처리
+	 * 탐색기의 요소를 select할 경우 해당 요소가 있는 모델 에디터에서 ServiceRegistry가져와서 세팅
+	 * 선택이 여러 모델에 걸쳐 있을 경우 최종 선택 요소의 모델 에디터를 기준으로 처리
+	 * 
 	 * ModelExplorer의 선택에 따라 해당 요소의 View를 Editor에서 reveal하도록 구현하려 했으나 실패
 	 * 현재 Editor선택에 따라 ServiceRegistry를 구성하는 역할 수행
 	 * 
@@ -243,6 +281,26 @@ public class ApexStellaExplorerView extends CommonNavigator
 	 * @param selection
 	 */
 	private void handleSelectionChange(IWorkbenchPart part, ISelection selection) {
+		
+		PapyrusMultiDiagramEditor editorPart = null;
+		
+		/* apex added start */
+		if ( part instanceof ApexStellaExplorerView ) {
+			
+			if ( selection instanceof ITreeSelection ) {				
+				ITreeSelection aTreeSelection = (ITreeSelection)selection;			
+				editorPart = ApexModelTreeUtil.getEditorPartFromModelTreeSelection(aTreeSelection);				
+				setServiceRegistry(editorPart);
+				
+			}			
+		} else if ( part instanceof PapyrusMultiDiagramEditor ) {			
+			setServiceRegistry((PapyrusMultiDiagramEditor)part);
+		}
+			
+		
+//		System.out.println("part.getEditorSite().getId() : " + ((PapyrusMultiDiagramEditor) part).getEditorSite().getId());
+		
+		
 //		if(selection instanceof IStructuredSelection) {
 //System.out.println("ApexStellaExplorerView.handleSelectionChange(), line "
 //		+ Thread.currentThread().getStackTrace()[1].getLineNumber());
@@ -313,27 +371,28 @@ public class ApexStellaExplorerView extends CommonNavigator
 		
 		
 		
-		/* apex added start */
-		if ( part instanceof PapyrusMultiDiagramEditor ) {
-			PapyrusMultiDiagramEditor papyrusEditor = (PapyrusMultiDiagramEditor)part;
-			serviceRegistry = papyrusEditor.getServicesRegistry();
-			try {
-				editingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(serviceRegistry);
-				//			this.editingDomain = EditorUtils.getTransactionalEditingDomain(editorPart.getServicesRegistry());
-				// Set Viewer input if it already exist
-//				if(getCommonViewer() != null) {
-//					getCommonViewer().setInput(serviceRegistry);
-//				}							
-				saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
-				undoContext = serviceRegistry.getService(IUndoContext.class);
-
-				editingDomain.addResourceSetListener(resourceSetListener);
-				saveAndDirtyService.addInputChangedListener(editorInputChangedListener);
-			} catch (ServiceException e) {
-				// Can't get EditingDomain, skip
-				e.printStackTrace();
-			}						
-		}
+//		/* apex added start */
+//		if ( part instanceof PapyrusMultiDiagramEditor ) {
+//			
+//			PapyrusMultiDiagramEditor papyrusEditor = (PapyrusMultiDiagramEditor)part;
+//			serviceRegistry = papyrusEditor.getServicesRegistry();
+//			try {
+//				editingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(serviceRegistry);
+//				//			this.editingDomain = EditorUtils.getTransactionalEditingDomain(editorPart.getServicesRegistry());
+//				// Set Viewer input if it already exist
+////				if(getCommonViewer() != null) {
+////					getCommonViewer().setInput(serviceRegistry);
+////				}							
+//				saveAndDirtyService = serviceRegistry.getService(ISaveAndDirtyService.class);
+//				undoContext = serviceRegistry.getService(IUndoContext.class);
+//
+//				editingDomain.addResourceSetListener(resourceSetListener);
+//				saveAndDirtyService.addInputChangedListener(editorInputChangedListener);
+//			} catch (ServiceException e) {
+//				// Can't get EditingDomain, skip
+//				e.printStackTrace();
+//			}						
+//		}
 		/* apex added end */
 	}
 
@@ -1075,5 +1134,10 @@ public class ApexStellaExplorerView extends CommonNavigator
 				}
 			}
 		}
+	}
+
+	@Override
+	public ServicesRegistry getServicesRegistry() {
+		return serviceRegistry;
 	}
 }
