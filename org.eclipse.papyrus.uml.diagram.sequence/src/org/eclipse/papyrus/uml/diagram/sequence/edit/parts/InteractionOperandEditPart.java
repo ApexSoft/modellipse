@@ -424,9 +424,15 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 			this.setLineStyle(Graphics.LINE_DASH);
 
 			/* apex improved start */
-			OneLineBorder border = new OneLineBorder(ColorConstants.lightGray, this.getLineWidth(), PositionConstants.TOP);
-			border.setStyle(Graphics.LINE_DASH);			
-			this.setBorder(border);
+			this.setShadow(false);
+			
+			if (!firstOperand) {
+				OneLineBorder border = new OneLineBorder(ColorConstants.lightGray, this.getLineWidth(), PositionConstants.TOP);
+				border.setStyle(Graphics.LINE_DASH);			
+				this.setBorder(border);
+			} else {
+				this.setBorder(null);
+			}
 			/* apex improved end */
 			/* apex replaced
 			this.setBorder(null);
