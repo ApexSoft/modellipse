@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.common.command.Command;
@@ -29,6 +27,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.services.edit.service.ElementEditServiceUtils;
 import org.eclipse.papyrus.infra.services.edit.service.IElementEditService;
 import org.eclipse.papyrus.uml.modelexplorer.filter.CommandFilter;
@@ -108,6 +107,9 @@ public abstract class CreateCommandHandler extends AbstractCommandHandler {
 	}
 
 	/**
+	 * apex updated
+	 * 새로운 요소 추가 시 StellaExplorer에도 추가되어 reveal@select 되는 기능 추가
+	 * 
 	 * Add selection on new element after creation.
 	 * 
 	 * @see org.listerel.papyrus.sysml.modelexplorer.common.handler.AbstractCommandHandler#execute(org.eclipse.core.commands.ExecutionEvent)
@@ -139,7 +141,7 @@ public abstract class CreateCommandHandler extends AbstractCommandHandler {
 		}
 		
 		/* apex improved start */
-		ApexStellaExplorerView stellaExplorerView = (ApexStellaExplorerView)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view"); 
+		IRevealSemanticElement stellaExplorerView = (IRevealSemanticElement)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view"); 
 		
 		// Set selection on new element in the model explorer
 		if(newElement != null) {

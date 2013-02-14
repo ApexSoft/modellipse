@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Set;
 
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexDIWrapper;
+import kr.co.apexsoft.stella.modeler.explorer.util.ApexDiParseHelper;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -274,6 +275,8 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			IResource[] members;
 			try {
 				members = project.members();
+				
+				List<IFile> controlledFiles = ApexDiParseHelper.getControlledDiFiles(project);
 
 				for ( IResource r : members ) {
 
@@ -281,7 +284,10 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 						IFile file = (IFile)r;
 
 						if(OneFileUtils.isDi(file)) {
-							result.add(file);
+							
+							if ( !controlledFiles.contains(file) ) {
+								result.add(file);	
+							}		
 						}
 					} 
 				}

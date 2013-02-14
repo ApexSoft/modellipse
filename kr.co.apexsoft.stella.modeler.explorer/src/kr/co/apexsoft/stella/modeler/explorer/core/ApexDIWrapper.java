@@ -164,23 +164,9 @@ public class ApexDIWrapper implements ITreeElement {
 		
 		for ( EObject eObj : contents ) {
 
-			if ( eObj instanceof ModelImpl ) {
-//				ModelElementItem modelItem = new ModelElementItem(eObj, null, this.appearanceConfiguration); 
-//				result.add(modelItem);	
+			if ( eObj instanceof ModelImpl || eObj instanceof PackageImpl ) { // Control를 통해 분리된 Package의 경우 모델처럼 Tree생성해줘야 함
 				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
-				modelItem.setTreeParent(diWrapper);
-//				System.out
-//						.println("ApexDIWrapper.makeModelElementItemList(), line "
-//								+ Thread.currentThread().getStackTrace()[1]
-//										.getLineNumber());
-//				System.out.println("added modelItem : " + modelItem);
-//				System.out.println("added modelItem.getText() : " + modelItem.getText());
-//				System.out.println("modelItem.getTreeParent() : " + modelItem.getTreeParent());				
-				
-				result.add((ITreeElement)modelItem);
-			} else if ( eObj instanceof PackageImpl ) { // Control를 통해 분리된 Package의 경우 모델처럼 Tree생성해줘야 함
-				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
-				modelItem.setTreeParent(diWrapper);				
+				modelItem.setTreeParent(diWrapper);//				
 				result.add((ITreeElement)modelItem);
 			}
 		}

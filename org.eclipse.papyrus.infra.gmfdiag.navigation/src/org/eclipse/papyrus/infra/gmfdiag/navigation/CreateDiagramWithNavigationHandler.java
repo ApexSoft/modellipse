@@ -28,9 +28,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.papyrus.commands.wrappers.GMFtoEMFCommandWrapper;
 import org.eclipse.papyrus.infra.core.extension.commands.ICreationCommand;
 import org.eclipse.papyrus.infra.core.extension.commands.ICreationCondition;
+import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.utils.BusinessModelResolver;
 import org.eclipse.papyrus.infra.core.utils.DiResourceSet;
-import org.eclipse.papyrus.infra.core.utils.EditorUtils;
+import org.eclipse.papyrus.infra.core.utils.ServiceUtilsForActionHandlers;
 import org.eclipse.papyrus.infra.widgets.toolbox.dialog.InformationDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -98,8 +99,26 @@ public abstract class CreateDiagramWithNavigationHandler extends AbstractHandler
 		return null;
 	}
 
+	/**
+	 * apex updated
+	 * 
+	 * diResourceSet 을 deprecated method를 사용하지 않고 제대로 가져오도록 수정
+	 * 
+	 * @param navElement
+	 */
 	private void createDiagram(NavigableElement navElement) {
+		/* apex improved start */
+		DiResourceSet diResourceSet = null;
+		try {
+			diResourceSet = ServiceUtilsForActionHandlers.getInstance().getServiceRegistry().getService(DiResourceSet.class);
+		} catch (ServiceException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		/* apex improved end */
+		/* apex replaced
 		DiResourceSet diResourceSet = EditorUtils.getDiResourceSet();
+		*/
 
 		if(navElement != null && diResourceSet != null) {
 			try {
