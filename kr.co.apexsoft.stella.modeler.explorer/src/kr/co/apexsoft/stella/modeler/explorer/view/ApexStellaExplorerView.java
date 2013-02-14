@@ -28,7 +28,6 @@ import kr.co.apexsoft.stella.modeler.explorer.util.ApexModelTreeUtil;
 
 import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -43,6 +42,7 @@ import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
@@ -54,7 +54,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
@@ -84,9 +83,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.ISelectionListener;
@@ -958,6 +955,9 @@ public class ApexStellaExplorerView extends CommonNavigator
 	/**
 	 * apex updated
 	 * 
+	 * 다이어그램 추가 시에도 reveal & select 되도록 처리
+	 * 다이어그램의 경우 currentEObject.eContainer() 가 null 이라서 currentEObject.getElement()를 사용하도록 수정
+	 * 
 	 * Expands the given CommonViewer to reveal the given elements
 	 * @param elementList The elements to reveal
 	 * @param commonViewer The CommonViewer they are to be revealed in
@@ -984,7 +984,18 @@ public class ApexStellaExplorerView extends CommonNavigator
 				// retrieve the ancestors to reveal them
 				// and allow the selection of the object
 				ArrayList<EObject> parents = new ArrayList<EObject>();
+				
+				/* apex improved started */
 				EObject tmp = currentEObject.eContainer();
+				if ( tmp == null && (currentEObject instanceof Diagram) ) {
+					Diagram diagram = (Diagram)currentEObject;
+					tmp = diagram.getElement();
+				}
+				/* apex improved end */
+				//* apex replaced
+//				EObject tmp = currentEObject.eContainer();
+				//*/
+				
 				while(tmp != null) {
 					parents.add(tmp);
 					tmp = tmp.eContainer();

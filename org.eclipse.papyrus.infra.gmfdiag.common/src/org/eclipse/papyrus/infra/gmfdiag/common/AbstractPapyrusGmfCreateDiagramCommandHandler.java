@@ -14,6 +14,7 @@
 package org.eclipse.papyrus.infra.gmfdiag.common;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -26,6 +27,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -49,10 +51,12 @@ import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.IPageMngr;
 import org.eclipse.papyrus.infra.core.sasheditor.contentprovider.ISashWindowsContentProvider;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
+import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.BusinessModelResolver;
 import org.eclipse.papyrus.infra.core.utils.DiResourceSet;
 import org.eclipse.papyrus.infra.core.utils.EditorUtils;
 import org.eclipse.papyrus.infra.core.utils.OpenDiagramCommand;
+import org.eclipse.papyrus.views.modelexplorer.NavigatorUtils;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
@@ -119,7 +123,7 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 		CompositeCommand cmd = new CompositeCommand("Create diagram");
 		ICommand createCmd = getCreateDiagramCommand(diResourceSet, container, name);
 		cmd.add(createCmd);
-		cmd.add(new OpenDiagramCommand(dom, createCmd));
+		cmd.add(new OpenDiagramCommand(dom, createCmd));		
 
 		dom.getCommandStack().execute(new GMFtoEMFCommandWrapper(cmd));
 	}
@@ -204,7 +208,7 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 		return null;
 	}
 
-	/**
+	/** 
 	 * Create a diagram.
 	 * 
 	 * @param diagramResource
@@ -222,7 +226,7 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 			diagram.setName(name);
 			diagram.setElement(owner);
 			initializeDiagram(diagram);
-			diagramResource.getContents().add(diagram);
+			diagramResource.getContents().add(diagram);	
 		}
 		return diagram;
 	}
@@ -282,6 +286,10 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 	}
 
 	/**
+	 * apex updated
+	 * 
+	 * 다이어그램 추가 후 reveal & select 처리
+	 * 
 	 * {@inheritDoc}
 	 */
 	public ICommand getCreateDiagramCommand(final DiResourceSet diResourceSet, final EObject container, final String diagramName) {
@@ -320,7 +328,20 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 
 				if(diagram != null) {
 					IPageMngr pageMngr = EditorUtils.getIPageMngr(diResource);
-					pageMngr.addPage(diagram);
+					pageMngr.addPage(diagram);					
+
+					/* apex improved start */
+//					IRevealSemanticElement stellaExplorerView = (IRevealSemanticElement)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view"); 
+//					
+//					// Set selection on new element in the model explorer			
+//					List<EObject> semanticElementList = new ArrayList<EObject>();
+//					semanticElementList.add(diagram);
+//					
+//					if (stellaExplorerView != null) {
+//						stellaExplorerView.revealSemanticElement(semanticElementList);	
+//					}
+					/* apex improved end */
+					
 					return CommandResult.newOKCommandResult(diagram);
 				}
 				return CommandResult.newErrorCommandResult("Error during diagram creation");

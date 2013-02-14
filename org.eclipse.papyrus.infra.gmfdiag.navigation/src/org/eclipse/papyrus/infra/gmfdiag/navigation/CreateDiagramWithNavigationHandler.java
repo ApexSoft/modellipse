@@ -13,6 +13,7 @@
  *****************************************************************************/
 package org.eclipse.papyrus.infra.gmfdiag.navigation;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +21,10 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -29,10 +33,12 @@ import org.eclipse.papyrus.commands.wrappers.GMFtoEMFCommandWrapper;
 import org.eclipse.papyrus.infra.core.extension.commands.ICreationCommand;
 import org.eclipse.papyrus.infra.core.extension.commands.ICreationCondition;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
+import org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.core.utils.BusinessModelResolver;
 import org.eclipse.papyrus.infra.core.utils.DiResourceSet;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtilsForActionHandlers;
 import org.eclipse.papyrus.infra.widgets.toolbox.dialog.InformationDialog;
+import org.eclipse.papyrus.views.modelexplorer.NavigatorUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
@@ -103,6 +109,7 @@ public abstract class CreateDiagramWithNavigationHandler extends AbstractHandler
 	 * apex updated
 	 * 
 	 * diResourceSet 을 deprecated method를 사용하지 않고 제대로 가져오도록 수정
+	 * Diagram 추가 시 reveal & select 되도록 수정
 	 * 
 	 * @param navElement
 	 */
@@ -124,6 +131,29 @@ public abstract class CreateDiagramWithNavigationHandler extends AbstractHandler
 			try {
 				CompositeCommand command = NavigationHelper.getLinkCreateAndOpenNavigableDiagramCommand(navElement, creationCommand, null, diResourceSet);
 				diResourceSet.getTransactionalEditingDomain().getCommandStack().execute(new GMFtoEMFCommandWrapper(command));
+				
+				/* apex improved start */
+				CommandResult cmdResult = command.getCommandResult();		
+				Object returnValue = cmdResult.getReturnValue();				 
+				
+				if ( returnValue instanceof List<?> ) {
+					List<?> returnValues = (List<?>)returnValue;
+					List<EObject> semanticElementList = new ArrayList<EObject>();
+					
+					for ( Object aReturnValue : returnValues ) {
+						
+						if ( aReturnValue instanceof Diagram ) {							
+							// Set selection on new element in the model explorer
+							semanticElementList.add((Diagram)aReturnValue);
+						}
+					}
+					IRevealSemanticElement stellaExplorerView = (IRevealSemanticElement)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view");
+
+					if (stellaExplorerView != null) {
+						stellaExplorerView.revealSemanticElement(semanticElementList);	
+					}	
+				}
+				/* apex improved end */
 			} catch (Exception e) {
 			}
 		}
