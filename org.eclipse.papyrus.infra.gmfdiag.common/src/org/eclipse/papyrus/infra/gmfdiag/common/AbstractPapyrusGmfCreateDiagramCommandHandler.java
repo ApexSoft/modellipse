@@ -286,10 +286,6 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 	}
 
 	/**
-	 * apex updated
-	 * 
-	 * 다이어그램 추가 후 reveal & select 처리
-	 * 
 	 * {@inheritDoc}
 	 */
 	public ICommand getCreateDiagramCommand(final DiResourceSet diResourceSet, final EObject container, final String diagramName) {
@@ -328,20 +324,7 @@ public abstract class AbstractPapyrusGmfCreateDiagramCommandHandler extends Abst
 
 				if(diagram != null) {
 					IPageMngr pageMngr = EditorUtils.getIPageMngr(diResource);
-					pageMngr.addPage(diagram);					
-
-					/* apex improved start */
-//					IRevealSemanticElement stellaExplorerView = (IRevealSemanticElement)NavigatorUtils.findViewPart("kr.co.apexsoft.stella.modeler.explorer.view"); 
-//					
-//					// Set selection on new element in the model explorer			
-//					List<EObject> semanticElementList = new ArrayList<EObject>();
-//					semanticElementList.add(diagram);
-//					
-//					if (stellaExplorerView != null) {
-//						stellaExplorerView.revealSemanticElement(semanticElementList);	
-//					}
-					/* apex improved end */
-					
+					pageMngr.addPage(diagram);							
 					return CommandResult.newOKCommandResult(diagram);
 				}
 				return CommandResult.newErrorCommandResult("Error during diagram creation");
