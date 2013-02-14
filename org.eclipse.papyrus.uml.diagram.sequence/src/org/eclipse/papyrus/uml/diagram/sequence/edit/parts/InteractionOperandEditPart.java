@@ -24,6 +24,7 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -89,11 +90,11 @@ import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.papyrus.infra.gmfdiag.common.figure.node.IPapyrusNodeFigure;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.GradientPreferenceConverter;
 import org.eclipse.papyrus.infra.gmfdiag.preferences.utils.PreferenceConstantHelper;
-import org.eclipse.papyrus.uml.diagram.common.draw2d.OneLineDashedBorder;
 import org.eclipse.papyrus.uml.diagram.common.editpolicies.BorderItemResizableEditPolicy;
 import org.eclipse.papyrus.uml.diagram.common.figure.node.PapyrusNodeFigure;
 import org.eclipse.papyrus.uml.diagram.common.helper.PreferenceInitializerForElementHelper;
 import org.eclipse.papyrus.uml.diagram.common.providers.UIAdapterImpl;
+import org.eclipse.papyrus.uml.diagram.sequence.apex.edit.policies.ApexInteractionOperandDragEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.CombinedFragmentCreationEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.InteractionOperandComponentEditPolicy;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.policies.InteractionOperandDragDropEditPolicy;
@@ -169,6 +170,8 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 	}
 
 	/**
+	 * apex updated
+	 * 
 	 * Remove EditPolicyRoles.DRAG_DROP_ROLE and EditPolicy.PRIMARY_DRAG_ROLE :
 	 * - adding elements to an interactionOperand doesn't anymore resize the enclosing CF
 	 * - interactionOperand are no longer dNd
@@ -196,6 +199,9 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 		// Fixed bug id=364701 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=364701)
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new InteractionOperandDragDropEditPolicy());
+		/* apex added start */
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ApexInteractionOperandDragEditPolicy());
+		/* apex added end */
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new GuardConditionDirectEditPolicy());
 	}
 
@@ -284,6 +290,8 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 	}
 
 	/**
+	 * apex update
+	 * 
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -297,6 +305,10 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
 		figure.add(shape);
+		/* apex added start */
+		// InteractionOperand 선택 시 border가 2px씩 안쪽으로 위치하도록
+		figure.setBorder(new MarginBorder(0, 2, 2, 2));
+		/* apex added end */
 		contentPane = setupContentPane(shape);
 		return figure;
 	}
@@ -420,8 +432,6 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 			// Fixed bug id=364701 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=364701)
 			// by using StackLayout instead of XYLayout
 			this.setLayoutManager(new XYLayout());
-
-			this.setLineStyle(Graphics.LINE_DASH);
 
 			/* apex improved start */
 			this.setShadow(false);

@@ -254,7 +254,7 @@ public class CustomDiagramDragDropEditPolicy extends CommonDiagramDragDropEditPo
 	}
 
 	/**
-	 * uml2.uml.Type ���� drop�� ���
+	 * uml2.uml.Type을 drop한 경우
 	 * @param dropRequest
 	 * @param droppedObject
 	 * @return
