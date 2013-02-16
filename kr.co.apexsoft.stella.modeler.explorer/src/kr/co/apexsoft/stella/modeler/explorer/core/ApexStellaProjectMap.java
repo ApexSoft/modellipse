@@ -27,75 +27,34 @@ public class ApexStellaProjectMap {
 	/**
 	 * apex added
 	 * 
+	 * 에디터를 열 때 ModelServices 설정 
+	 * 
 	 * @param servicesRegistry
 	 */
 	public static ApexProjectWrapper setUpModelServices(IFile diFile, ServicesRegistry servicesRegistry) {
 
-			String diPath = diFile.getLocationURI().getPath();
-			String projectPath = diFile.getParent().getLocationURI().getPath();
-			ApexProjectWrapper projectWrapper = null;
+		String diPath = diFile.getLocationURI().getPath();
+		String projectPath = diFile.getParent().getLocationURI().getPath();
+		ApexProjectWrapper projectWrapper = null;
+		UmlModel umlModel = null;
 
-//			ISaveAndDirtyService saveAndDirtyService = null;
-//			IUndoContext undoContext = null;
-//			TransactionalEditingDomain transactionalEditingDomain = null;
-			UmlModel umlModel = null;
+		umlModel =  UmlUtils.getUmlModel(servicesRegistry);
 
+		if ( ApexStellaProjectMap.getProjectMap().containsKey(projectPath) ) {
+			projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);
 
-			// Get required services from ServicesRegistry
-//			try {
-//				saveAndDirtyService = servicesRegistry.getService(ISaveAndDirtyService.class);
-//				undoContext = servicesRegistry.getService(IUndoContext.class);
-//				transactionalEditingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(servicesRegistry);
-//			} catch (ServiceException e) {
-//				e.printStackTrace();
-//			}
-			umlModel =  UmlUtils.getUmlModel(servicesRegistry);
-
-			if ( ApexStellaProjectMap.getProjectMap().containsKey(projectPath) ) {
-				projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);
-
-//				if ( !projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
-//					projectWrapper.put(diPath, servicesRegistry);
-//					projectWrapper.addServicesRegistryChildren(servicesRegistry);
-//				}
-//				if ( !projectWrapper.getSaveAndDirtyServiceMap().containsKey(diPath) ) {
-//					projectWrapper.put(diPath, saveAndDirtyService);
-//				}
-//				if ( !projectWrapper.getTransactionalEditingDomainMap().containsKey(diPath) ) {
-//					projectWrapper.put(diPath, transactionalEditingDomain);
-//				}
-//				if ( !projectWrapper.getUndoContextMap().containsKey(diPath) ) {
-//					projectWrapper.put(diPath, undoContext);
-//				}
-//				if ( !projectWrapper.getDiFileMap().containsKey(diPath) ) {
-//					projectWrapper.put(diPath, diFile);					
-//				}
-				if ( !projectWrapper.getUmlModelMap().containsKey(diPath) ) {
-					projectWrapper.put(diPath, umlModel);
-					projectWrapper.setIsDisposed(diPath, new Boolean(false));
-//					projectWrapper.addChildren(umlModel);	
-				}
-//				if ( !projectWrapper.getPropertySheetPageMap().containsKey(diPath) ) {
-//					projectWrapper.put(diPath, propertySheetPage);
-//				}				
-			} else {
-				projectWrapper = new ApexProjectWrapper(diFile.getProject());
-				ApexStellaProjectMap.getProjectMap().put(projectPath, projectWrapper);
-//				projectWrapper.addChildren(umlModel);
-//				projectWrapper.addServicesRegistryChildren(servicesRegistry);
-//				projectWrapper.put(diPath, servicesRegistry);
-//				projectWrapper.put(diPath, saveAndDirtyService);
-//				projectWrapper.put(diPath, transactionalEditingDomain);
-//				projectWrapper.put(diPath, undoContext);
-//				projectWrapper.put(diPath, diFile);
+			if ( !projectWrapper.getUmlModelMap().containsKey(diPath) ) {
 				projectWrapper.put(diPath, umlModel);
-//				projectWrapper.put(diPath, propertySheetPage);
-				projectWrapper.put(diPath, new Boolean(false));
+				projectWrapper.setIsDisposed(diPath, new Boolean(false));
 			}
+			
+		} else {
+			projectWrapper = new ApexProjectWrapper(diFile.getProject());
+			ApexStellaProjectMap.getProjectMap().put(projectPath, projectWrapper);
+			projectWrapper.put(diPath, umlModel);
+			projectWrapper.put(diPath, new Boolean(false));
+		}
 
-//			projectWrapper.addChildren(servicesRegistry);
-//			ApexModellipseExplorerRoot.getServicesRegistryList().add(servicesRegistry);	
-//		}
 		return projectWrapper;
 	}
 
@@ -109,36 +68,14 @@ public class ApexStellaProjectMap {
 		String diPath = diFile.getLocationURI().getPath();
 		String projectPath = diFile.getParent().getLocationURI().getPath();
 		ApexProjectWrapper projectWrapper = null;
-		projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);
-		
-		// jiho
-		if (projectWrapper == null)
-			return;
+		projectWrapper = (ApexProjectWrapper) ApexStellaProjectMap.getProjectMap().get(projectPath);	
 
 		if ( projectWrapper != null ) {
-//			if ( servicesRegsitryMap.containsKey(diPath) ) {
-//				servicesRegsitryMap.remove(diPath);
-//				projectWrapper.addServicesRegistryChildren(servicesRegistry);
-//			}
-//			if ( !projectWrapper.getSaveAndDirtyServiceMap().containsKey(diPath) ) {
-//				projectWrapper.put(diPath, saveAndDirtyService);
-//			}
-//			if ( !projectWrapper.getTransactionalEditingDomainMap().containsKey(diPath) ) {
-//				projectWrapper.put(diPath, transactionalEditingDomain);
-//			}
-//			if ( !projectWrapper.getUndoContextMap().containsKey(diPath) ) {
-//				projectWrapper.put(diPath, undoContext);
-//			}
-//			if ( !projectWrapper.getDiFileMap().containsKey(diPath) ) {
-//				projectWrapper.put(diPath, diFile);					
-//			}
 			if ( projectWrapper.getUmlModelMap().containsKey(diPath) ) {
-				projectWrapper.removeUmlModel(diPath);
-//				projectWrapper.removeChildren(umlModel);	
+				projectWrapper.removeUmlModel(diPath);	
 			}
 			if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
-				projectWrapper.setIsDisposed(diPath, new Boolean(true));
-//				projectWrapper.removeChildren(umlModel);	
+				projectWrapper.setIsDisposed(diPath, new Boolean(true));	
 			}			
 		}
 
@@ -176,7 +113,4 @@ public class ApexStellaProjectMap {
 		}	
 		return result;
 	}
-//	public static List<ServicesRegistry> getServicesRegistryList() {
-//		return _serviceRegistryList;
-//	}
 }
