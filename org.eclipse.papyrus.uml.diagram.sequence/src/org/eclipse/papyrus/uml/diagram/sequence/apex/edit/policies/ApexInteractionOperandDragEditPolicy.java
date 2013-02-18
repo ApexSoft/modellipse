@@ -30,7 +30,7 @@ public class ApexInteractionOperandDragEditPolicy extends ResizableEditPolicy {
 	public ApexInteractionOperandDragEditPolicy() {
 		super();
 		setDragAllowed(false);
-		setResizeDirections(PositionConstants.NORTH);
+		setResizeDirections(PositionConstants.NORTH_SOUTH);
 	}
 
 	/**
@@ -42,18 +42,27 @@ public class ApexInteractionOperandDragEditPolicy extends ResizableEditPolicy {
 		List handles = new ArrayList();
 		
 		boolean isFirstOperand = false;
+		boolean isLastOperand = false;
 		
 		if (getHost() instanceof InteractionOperandEditPart) {
 			InteractionOperandEditPart ioEP = (InteractionOperandEditPart)getHost();
 			List children = ioEP.getParent().getChildren();
-			if (children.size() > 0 && ioEP.equals(children.get(0))) {
-				isFirstOperand = true;
+			if (children.size() > 0) {
+				if (ioEP.equals(children.get(0))) {
+					isFirstOperand = true;
+				}
+				if (ioEP.equals(children.get(children.size() - 1))) {
+					isLastOperand = true;
+				}
 			}
 			
 			createMoveHandle(handles, ioEP);
 			if (!isFirstOperand) {
 				createResizeHandle(handles, PositionConstants.NORTH, ioEP);
 			}
+//			if (!isLastOperand) {
+				createResizeHandle(handles, PositionConstants.SOUTH, ioEP);
+//			}
 		}
 		
 		for (int i = 0, size = handles.size(); i < size; i++) {
