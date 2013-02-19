@@ -54,6 +54,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
@@ -281,14 +282,16 @@ public class ApexStellaExplorerView extends CommonNavigator
 		
 		PapyrusMultiDiagramEditor editorPart = null;
 		
-		/* apex added start */
+		/* apex added start */		
 		if ( part instanceof ApexStellaExplorerView ) {
 			
 			if ( selection instanceof ITreeSelection ) {				
 				ITreeSelection aTreeSelection = (ITreeSelection)selection;			
-				editorPart = ApexModelTreeUtil.getEditorPartFromModelTreeSelection(aTreeSelection);				
-				setServiceRegistry(editorPart);
+				editorPart = ApexModelTreeUtil.getEditorPartFromModelTreeSelection(aTreeSelection);		
 				
+				if ( editorPart != null ) {
+					setServiceRegistry(editorPart);	
+				}
 			}			
 		} else if ( part instanceof PapyrusMultiDiagramEditor ) {			
 			setServiceRegistry((PapyrusMultiDiagramEditor)part);
