@@ -14,6 +14,7 @@
 package org.eclipse.papyrus.uml.diagram.sequence.edit.parts;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -63,6 +64,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.TopGraphicEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
@@ -1888,5 +1890,35 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 			return null;
 		}
 	}
- 
+
+	@Override
+	public boolean isSelectable() {
+		if (super.isSelectable()) {
+			EditPart focusEditPart = getViewer().getFocusEditPart();
+			if (focusEditPart instanceof IGraphicalEditPart) {
+				TopGraphicEditPart focusTopEP = ((IGraphicalEditPart)focusEditPart).getTopGraphicEditPart();
+				TopGraphicEditPart myTopEP = getTopGraphicEditPart();
+
+				if (myTopEP == focusTopEP) {
+					return true;
+				}
+				
+				EditPart myParentEP = myTopEP.getParent();
+				while (myParentEP != null && myParentEP instanceof CombinedFragmentEditPart == false) {
+					myParentEP = myParentEP.getParent();
+				}
+				
+				EditPart focusParentEP = focusTopEP;
+				while (focusParentEP != null && focusParentEP instanceof CombinedFragmentEditPart == false) {
+					focusParentEP = focusParentEP.getParent();
+				}
+				
+				if (myParentEP != null && myParentEP.equals(focusParentEP)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 }
