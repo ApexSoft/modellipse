@@ -864,8 +864,15 @@ System.out.println("agep1.absBounds : " + apexGetAbsoluteRectangle(agep1));
 			EditPart ep = epEntry.getValue();
 
 			if(ep instanceof LifelineEditPart) {
-				Rectangle lifelineRect = ApexSequenceUtil.apexGetAbsoluteRectangle((LifelineEditPart)ep);
-
+				// lifeline의 cover되는 범위를 가운데 dashline으로 한정
+				LifelineEditPart lifelineEP = (LifelineEditPart)ep;
+				IFigure lifelineFig = lifelineEP.getPrimaryShape().getFigureLifelineDotLineFigure().getDashLineRectangle();
+				Rectangle lifelineRect = lifelineFig.getBounds().getCopy();
+				lifelineFig.translateToAbsolute(lifelineRect);
+				//
+				
+//				Rectangle lifelineRect = ApexSequenceUtil.apexGetAbsoluteRectangle((LifelineEditPart)ep);
+				
 				if(selectionRect.intersects(lifelineRect)) {
 					positionallyCoveredLifelineEditParts.add((LifelineEditPart)ep);
 				}

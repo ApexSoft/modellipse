@@ -1751,18 +1751,18 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			}
 			
 			for (Object value : newValues) {
-				GraphicalEditPart graphicalEP = null;
+				GraphicalEditPart cfEP = null;
 				if (value instanceof CombinedFragment) {
 					notifier.listenObject((CombinedFragment)value);
-					graphicalEP = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)value, GraphicalEditPart.class, getViewer());
+					cfEP = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)value, GraphicalEditPart.class, getViewer());
 				}
 				
-				if (graphicalEP != null) {
-					View notationView = graphicalEP.getNotationView();
-					Rectangle rect = apexGetViewBounds(notationView);
+				if (cfEP != null) {
+					View notationView = cfEP.getNotationView();
+					Rectangle cfNewBounds = apexGetViewBounds(notationView);
 					
 					IFigure dotLineFigure = getPrimaryShape().getFigureLifelineDotLineFigure();
-					LifelineFigureHelper.showRegion(dotLineFigure, rect);
+					LifelineFigureHelper.showRegion(dotLineFigure, cfNewBounds);
 				}
 			}
 			
@@ -1776,31 +1776,37 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			}
 
 			for (Object value : oldValues) {
-				GraphicalEditPart graphicalEP = null;
+				GraphicalEditPart cfEP = null;
 				if (value instanceof CombinedFragment) {
 					notifier.unlistenObject((CombinedFragment)value);
-					graphicalEP = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)value, GraphicalEditPart.class, getViewer());
+					cfEP = (GraphicalEditPart)ApexSequenceUtil.getEditPart((CombinedFragment)value, GraphicalEditPart.class, getViewer());
 				}
 				
-				if (graphicalEP != null) {
-					IFigure figure = graphicalEP.getFigure();
-					Rectangle origRect = figure.getBounds().getCopy();
+				if (cfEP != null) {
+					IFigure figure = cfEP.getFigure();
+					Rectangle cfOldBounds = figure.getBounds().getCopy();
 					
-					View notationView = graphicalEP.getNotationView();
-					Rectangle newRect = apexGetViewBounds(notationView);
+					View notationView = cfEP.getNotationView();
+					Rectangle cfNewBounds = apexGetViewBounds(notationView);
 					
-					boolean isShow = origRect.isEmpty() || ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(origRect, this).contains(this);
-					isShow &= !ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(newRect, this).contains(this);
-
-					if ((origRect.width > 0 || origRect.height > 0) && isShow) {
-						newRect = origRect;
+					boolean isOldContains = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(cfOldBounds, this).contains(this);
+					boolean isNewContains = ApexSequenceUtil.apexGetPositionallyCoveredLifelineEditParts(cfNewBounds, this).contains(this); 
+					// Lifeline의 CoveredBy인 CF가 삭제될 때
+					// 1. CF의 범위가 변경되어 Lifeline의 범위를 벗어날 때
+					// 2. 인위적으로 CoveredBy에서 CF 삭제
+					//    covered가 아닌데 범위에 포함된 경우(isNewContains==true) 숨김(isShow:=false)
+					boolean isShow = cfOldBounds.isEmpty() || isOldContains;
+					isShow &= !isNewContains;
+					
+					if ((cfOldBounds.width > 0 || cfOldBounds.height > 0) && isShow) {
+						cfNewBounds = cfOldBounds;
 					}
-						
+					
 					IFigure dotLineFigure = getPrimaryShape().getFigureLifelineDotLineFigure();
 					if (isShow) {
-						LifelineFigureHelper.showRegion(dotLineFigure, newRect);
+						LifelineFigureHelper.showRegion(dotLineFigure, cfNewBounds);
 					} else {
-						LifelineFigureHelper.hideRegion(dotLineFigure, newRect);
+						LifelineFigureHelper.hideRegion(dotLineFigure, cfNewBounds);
 					}
 				}
 			}

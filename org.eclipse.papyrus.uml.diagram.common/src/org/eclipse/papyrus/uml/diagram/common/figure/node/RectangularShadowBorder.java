@@ -52,6 +52,13 @@ public class RectangularShadowBorder extends LineBorder {
 		insetsNew.left = 0;
 		insetsNew.bottom = MapModeUtil.getMapMode(figure).DPtoLP(insetsNew.bottom + borderwidth);
 		insetsNew.right = MapModeUtil.getMapMode(figure).DPtoLP(insetsNew.right + borderwidth);
+		
+		/* apex added start */
+		// shadow width 만큼 안쪽으로 여백이 생기는 문제로 인한 수정
+		insetsNew.bottom = 0;
+		insetsNew.right = 0;
+		/* apex added end */
+		
 		return insetsNew;
 	}
 
