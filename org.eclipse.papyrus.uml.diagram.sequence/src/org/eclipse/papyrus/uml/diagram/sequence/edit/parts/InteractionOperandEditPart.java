@@ -1891,8 +1891,12 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 		}
 	}
 
+	/**
+	 * apex update
+	 */
 	@Override
 	public boolean isSelectable() {
+		/* apex improved start */
 		if (super.isSelectable()) {
 			EditPart focusEditPart = getViewer().getFocusEditPart();
 			if (focusEditPart instanceof IGraphicalEditPart) {
@@ -1919,6 +1923,10 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 			}
 		}
 		return false;
+		/* apex improved end */
+		/* apex replaced
+		super.isSelectable();
+		 */
 	}
 
 }
