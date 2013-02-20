@@ -2,11 +2,14 @@ package kr.co.apexsoft.stella.modeler.explorer.util;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -67,6 +70,24 @@ public class ApexModelTreeUtil {
 		return editorPart;
 	}
 	
-	
+	public static EObject getEObjectFromSelection(ISelection selection) {
+		
+		EObject eObj = null;
+		
+		if ( selection instanceof StructuredSelection ) {
+			StructuredSelection aTreeSelection = (StructuredSelection)selection;
+			Object treeObject = aTreeSelection.getFirstElement();
+			
+			if ( treeObject instanceof ModelElementItem ) {
+				ModelElementItem aModelElementItem = (ModelElementItem)treeObject;
+				eObj = aModelElementItem.getEObject();
+//				System.out.println("  Current Model Selection : " + aModelElementItem.getEObject());	
+			}
+		} else {
+//			System.out.println("  Current Selection : " + selection);
+		}
+		
+		return eObj;
+	}
 	
 }
