@@ -97,8 +97,12 @@ public class ServiceUtilsForActionHandlers {
 			throw new ServiceNotFoundException("Can't get the ServiceRegtistry from the current Stella Explorer.");
 		}
 		
-//		System.out.println("ServiceUtilsForActionHandlers.getServiceRegistry(), line : " + Thread.currentThread().getStackTrace()[1].getLineNumber());
-//		System.out.println("serviceRegistry : " + serviceRegistry.getService(ModelSet.class).getFilenameWithoutExtension());
+		System.out.println("ServiceUtilsForActionHandlers.getServiceRegistry(), line : " + Thread.currentThread().getStackTrace()[1].getLineNumber());
+		ModelSet modelSet = serviceRegistry.getService(ModelSet.class);
+		if ( modelSet != null ) {
+			System.out.println("serviceRegistry : " + serviceRegistry.getService(ModelSet.class).getFilenameWithoutExtension());	
+		}
+		
 		return serviceRegistry;	
 						
 		/* apex improved end */		

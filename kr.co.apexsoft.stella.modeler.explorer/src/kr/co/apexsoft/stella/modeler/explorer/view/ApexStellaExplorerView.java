@@ -54,7 +54,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.TreeSelection;
+import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
@@ -247,9 +247,7 @@ public class ApexStellaExplorerView extends CommonNavigator
 		return iTreeElement;
 	}
 	
-	private void setServiceRegistry(PapyrusMultiDiagramEditor editor) {
-		PapyrusMultiDiagramEditor papyrusEditor = (PapyrusMultiDiagramEditor)editor;
-		serviceRegistry = papyrusEditor.getServicesRegistry();
+	private void setEditingDomainFromServicesRegistry(ServicesRegistry servicesRegistry) {
 		try {
 			editingDomain = ServiceUtils.getInstance().getTransactionalEditingDomain(serviceRegistry);
 			//			this.editingDomain = EditorUtils.getTransactionalEditingDomain(editorPart.getServicesRegistry());
@@ -265,7 +263,18 @@ public class ApexStellaExplorerView extends CommonNavigator
 		} catch (ServiceException e) {
 			// Can't get EditingDomain, skip
 			e.printStackTrace();
-		}	
+		}
+	}
+	
+	private void setServiceRegistryFromEditor(PapyrusMultiDiagramEditor editor) {
+		PapyrusMultiDiagramEditor papyrusEditor = (PapyrusMultiDiagramEditor)editor;
+		serviceRegistry = papyrusEditor.getServicesRegistry();
+		setEditingDomainFromServicesRegistry(serviceRegistry);
+	}
+	
+	private void setServiceRegistryFromExplorer(ITreeSelection treeSelection) {
+		serviceRegistry = ApexModelTreeUtil.getServicesRegistryFromModelTreeSelection(treeSelection);
+		setEditingDomainFromServicesRegistry(serviceRegistry);
 	}
 	/**
 	 * Selection 이 바뀌었을 경우 처리
@@ -287,14 +296,26 @@ public class ApexStellaExplorerView extends CommonNavigator
 			
 			if ( selection instanceof ITreeSelection ) {				
 				ITreeSelection aTreeSelection = (ITreeSelection)selection;			
-				editorPart = ApexModelTreeUtil.getEditorPartFromModelTreeSelection(aTreeSelection);		
 				
-				if ( editorPart != null ) {
-					setServiceRegistry(editorPart);	
-				}
+				TreePath[] treePaths = aTreeSelection.getPaths();
+				
+				for ( TreePath aTreePath : treePaths ) {
+					if ( aTreePath.getLastSegment() instanceof ModelElementItem ) {
+						editorPart = ApexModelTreeUtil.getEditorPartFromModelTreeSelection(aTreeSelection);		
+						
+						if ( editorPart != null ) {
+							setServiceRegistryFromEditor(editorPart);	
+						} else {
+							
+							if ( !aTreeSelection.isEmpty() ) {
+								setServiceRegistryFromExplorer(aTreeSelection);	
+							}					
+						}		
+					}
+				}				
 			}			
 		} else if ( part instanceof PapyrusMultiDiagramEditor ) {			
-			setServiceRegistry((PapyrusMultiDiagramEditor)part);
+			setServiceRegistryFromEditor((PapyrusMultiDiagramEditor)part);
 		}
 			
 		

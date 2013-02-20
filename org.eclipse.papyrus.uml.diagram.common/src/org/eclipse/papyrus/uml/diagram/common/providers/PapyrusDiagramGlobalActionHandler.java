@@ -74,8 +74,14 @@ public class PapyrusDiagramGlobalActionHandler extends ImageSupportGlobalActionH
 		return AWTClipboardHelper.getInstance().hasCustomData();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * apex updated
+	 * 
+	 * 다이어그램이 없는 에디터가 선택될 경우 아래 getCommand() 에서 NullPointerException 발생
+	 * 에디터가 없을 경우 null 을 반환하도록 수정
+	 * 
+	 */
+	/* (non-Javadoc)
 	 * 
 	 * @see
 	 * org.eclipse.gmf.runtime.common.ui.services.action.global.IGlobalActionHandler
@@ -94,12 +100,54 @@ public class PapyrusDiagramGlobalActionHandler extends ImageSupportGlobalActionH
 
 		/* Create a command */
 		ICommand command = null;
+		
+		/* apex improved start */
+		if ( diagramPart.getDiagram() != null ) {
+			// Check the action id
+			String actionId = cntxt.getActionId();
+			if(actionId.equals(GlobalActionId.DELETE)) {
+				CompoundCommand deleteCC = getDeleteCommand(diagramPart, cntxt);
+				// Set the command
+				if(deleteCC != null && deleteCC.canExecute())
+					command = new CommandProxy(deleteCC);
+			} else if(actionId.equals(GlobalActionId.COPY)) {
+				command = getCopyCommand(cntxt, diagramPart, false);
+			} else if(actionId.equals(GlobalActionId.CUT)) {
+				command = getCutCommand(cntxt, diagramPart);
+			} else if(actionId.equals(GlobalActionId.PASTE)) {
 
-		/* Check the action id */
+				// Get the selected edit parts
+				Object[] objectsArray = ((IStructuredSelection)cntxt.getSelection()).toArray();
+
+				if(objectsArray.length > 0 && objectsArray[0] instanceof GraphicalEditPart) {
+
+					ICommand pastecommand = PasteCommandService.getInstance().getPasteViewCommand(((GraphicalEditPart)objectsArray[0]), Toolkit.getDefaultToolkit().getSystemClipboard(), ((GraphicalEditPart)objectsArray[0]).getEditingDomain().getClipboard());
+
+					if(pastecommand.canExecute()) {
+						((GraphicalEditPart)objectsArray[0]).getEditingDomain().getCommandStack().execute(new GMFtoEMFCommandWrapper(pastecommand));
+						RootEditPart topEditPart = ((GraphicalEditPart)objectsArray[0]).getRoot();
+						if(topEditPart.getChildren().get(0) instanceof DiagramEditPart) {
+							CleanDiagramHelper.getInstance().run((DiagramEditPart)topEditPart.getChildren().get(0));
+						}
+
+					}
+					return null;
+				}
+
+			} else if(actionId.equals(GlobalActionId.SAVE)) {
+				part.getSite().getPage().saveEditor((IEditorPart)diagramPart, false);
+			} else if(actionId.equals(GlobalActionId.PROPERTIES)) {
+				new PropertyPageViewAction().run();
+			}
+		}
+		/* apex improved end */
+
+		/* apex replaced */
+		/* Check the action id
 		String actionId = cntxt.getActionId();
 		if(actionId.equals(GlobalActionId.DELETE)) {
 			CompoundCommand deleteCC = getDeleteCommand(diagramPart, cntxt);
-			/* Set the command */
+			/* Set the command
 			if(deleteCC != null && deleteCC.canExecute())
 				command = new CommandProxy(deleteCC);
 		} else if(actionId.equals(GlobalActionId.COPY)) {
@@ -108,7 +156,7 @@ public class PapyrusDiagramGlobalActionHandler extends ImageSupportGlobalActionH
 			command = getCutCommand(cntxt, diagramPart);
 		} else if(actionId.equals(GlobalActionId.PASTE)) {
 
-			/* Get the selected edit parts */
+			/* Get the selected edit parts
 			Object[] objectsArray = ((IStructuredSelection)cntxt.getSelection()).toArray();
 
 			if(objectsArray.length > 0 && objectsArray[0] instanceof GraphicalEditPart) {
@@ -131,7 +179,8 @@ public class PapyrusDiagramGlobalActionHandler extends ImageSupportGlobalActionH
 		} else if(actionId.equals(GlobalActionId.PROPERTIES)) {
 			new PropertyPageViewAction().run();
 		}
-
+		*/
+		
 		return command;
 	}
 

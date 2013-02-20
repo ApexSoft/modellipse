@@ -1,5 +1,9 @@
 package kr.co.apexsoft.stella.modeler.explorer.util;
 
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexProjectWrapper;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
+
+import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
@@ -9,6 +13,11 @@ import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
+import org.eclipse.papyrus.infra.core.lifecycleevents.ISaveAndDirtyService;
+import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
+import org.eclipse.papyrus.infra.core.services.ServiceException;
+import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
+import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PartInitException;
@@ -16,6 +25,24 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 public class ApexModelTreeUtil {
+	
+	public static IProject getProjectFromModelTreeSelection(ITreeSelection aTreeElement) {
+		
+		IProject project = null;
+		
+		TreePath[] treePath = aTreeElement.getPaths();				
+		Object projectObject = null;
+		
+		for ( TreePath aTreePath : treePath ) {
+			
+			projectObject = aTreePath.getFirstSegment();
+			if (projectObject instanceof IProject) {
+				project = (IProject)projectObject;
+			}
+		}
+		
+		return project;
+	}
 	
 	public static IFile getDiFileFromModelTreeSelection(ITreeSelection aTreeElement) {
 		
@@ -68,6 +95,17 @@ public class ApexModelTreeUtil {
 		}
 		
 		return editorPart;
+	}
+	
+	public static ServicesRegistry getServicesRegistryFromModelTreeSelection(ITreeSelection treeSelection) {
+
+		IProject project = getProjectFromModelTreeSelection(treeSelection);
+		ApexProjectWrapper aProjectWrapper = ApexStellaProjectMap.getProjectMap().get(project.getLocationURI().getPath());
+		
+		IFile file = getDiFileFromModelTreeSelection(treeSelection);
+		String diFilePath = file.getLocationURI().getPath();
+
+		return aProjectWrapper.getServicesRegistry(diFilePath);
 	}
 	
 	public static EObject getEObjectFromSelection(ISelection selection) {

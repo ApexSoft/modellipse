@@ -6,6 +6,7 @@ import java.util.Map;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
+import org.eclipse.papyrus.infra.core.services.ServiceMultiException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
@@ -15,7 +16,7 @@ import org.eclipse.ui.ide.IDE;
 public class ApexStellaProjectMap {
 
 	/**
-	 * Key : Project Path
+	 * Key : Project Path ( getLocationURI().getPath()의 리턴값 )
 	 * Value : ApexProjectWrapper 
 	 */
 	private static Map<String, ApexProjectWrapper> _projectMap = new HashMap<String, ApexProjectWrapper>();
@@ -46,6 +47,7 @@ public class ApexStellaProjectMap {
 			if ( !projectWrapper.getUmlModelMap().containsKey(diPath) ) {
 				projectWrapper.put(diPath, umlModel);
 				projectWrapper.setIsDisposed(diPath, new Boolean(false));
+				projectWrapper.put(diPath, servicesRegistry);
 			}
 			
 		} else {
@@ -53,6 +55,7 @@ public class ApexStellaProjectMap {
 			ApexStellaProjectMap.getProjectMap().put(projectPath, projectWrapper);
 			projectWrapper.put(diPath, umlModel);
 			projectWrapper.put(diPath, new Boolean(false));
+			projectWrapper.put(diPath, servicesRegistry);
 		}
 
 		return projectWrapper;
@@ -77,6 +80,9 @@ public class ApexStellaProjectMap {
 			if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
 				projectWrapper.setIsDisposed(diPath, new Boolean(true));	
 			}			
+			if ( projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
+				projectWrapper.removeServicesRegistry(diPath);	
+			}	
 		}
 
 	}

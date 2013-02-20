@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.emf.facet.infra.browser.uicore.CustomizationManager;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ITreeElement;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.papyrus.infra.core.Activator;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
+import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
@@ -19,15 +19,21 @@ public class ApexProjectWrapper implements ITreeElement {
 
 	private IProject _project;
 	/**
-	 * key : diPath
+	 * key : diPath = file.getLocationURI().getPath()
 	 */
 	private Map<String, UmlModel> _umlModelMap;
 	private Map<String, Boolean> _isDisposedMap;
+	private Map<String, ServicesRegistry> _servicesRegistryMap;
 
 	public ApexProjectWrapper(IProject project) {
 		_project = project;
 		_umlModelMap = new HashMap<String, UmlModel>();
 		_isDisposedMap = new HashMap<String, Boolean>();
+		_servicesRegistryMap = new HashMap<String, ServicesRegistry>();
+	}
+	
+	public Map<String, UmlModel> getUmlModelMap() {
+		return _umlModelMap;
 	}
 
 	public void put(String diPath, UmlModel s) {
@@ -40,10 +46,6 @@ public class ApexProjectWrapper implements ITreeElement {
 
 	public UmlModel getUmlModel(String diPath) {
 		return _umlModelMap.get(diPath);
-	}
-
-	public Map<String, UmlModel> getUmlModelMap() {
-		return _umlModelMap;
 	}
 
 	public Map<String, Boolean> getIsDisposedMap() {
@@ -71,6 +73,22 @@ public class ApexProjectWrapper implements ITreeElement {
 	
 	public void removeIsDisposedMap(String diPath) {
 		_isDisposedMap.remove(diPath);
+	}
+	
+	public Map<String, ServicesRegistry> getServicesRegistryMap() {
+		return _servicesRegistryMap;
+	}
+
+	public void put(String diPath, ServicesRegistry servicesRegistry) {
+		_servicesRegistryMap.put(diPath, servicesRegistry);
+	}	
+
+	public void removeServicesRegistry(String diPath) {
+		_servicesRegistryMap.remove(diPath);
+	}
+
+	public ServicesRegistry getServicesRegistry(String diPath) {
+		return _servicesRegistryMap.get(diPath);
 	}
 
 	public IProject getProject() {
