@@ -1175,4 +1175,8 @@ public class ApexStellaExplorerView extends CommonNavigator
 	public ServicesRegistry getServicesRegistry() {
 		return serviceRegistry;
 	}
+	
+	public void nullifyServicesRegistry() {
+		serviceRegistry = null;
+	}
 }

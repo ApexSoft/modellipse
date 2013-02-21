@@ -338,6 +338,10 @@ public class ServicesRegistry {
 	}
 
 	/**
+	 * apex updated
+	 * 
+	 * 에디터를 닫았다가 다시 열 때 등 namedServices가 null 인 경우 NullPointerException 발생 예방
+	 * 
 	 * Get the requested service by its class (the service has to be registered
 	 * by its class object).
 	 * 
@@ -350,6 +354,28 @@ public class ServicesRegistry {
 	@SuppressWarnings("unchecked")
 	public <S> S getService(Class<S> key) throws ServiceException {
 
+		/* apex improved start */
+		if ( namedServices != null ) {
+			String realKey = key.getName();
+			ServiceStartupEntry service = namedServices.get(realKey);
+
+			if(service == null) {
+				// throw an exception.
+				// If added, say it.
+				service = addedServices.get(realKey);
+				if(service != null)
+					throw new BadStateException("Registry should be started before.", service.getState(), service.getDescriptor());
+				else
+					throw new ServiceNotFoundException("No service registered under '" + key + "'");
+			}
+
+			return (S)service.getServiceInstance();	
+		} else {
+			return null;
+		}
+		
+		/* apex improved end */
+		/* apex replaced
 		String realKey = key.getName();
 		ServiceStartupEntry service = namedServices.get(realKey);
 
@@ -364,6 +390,7 @@ public class ServicesRegistry {
 		}
 
 		return (S)service.getServiceInstance();
+		*/
 	}
 
 	/**

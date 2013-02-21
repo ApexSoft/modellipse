@@ -105,9 +105,11 @@ public class ApexStellaProjectMap {
 			}
 			if ( projectWrapper.getIsDisposedMap().containsKey(diPath) ) {
 				projectWrapper.removeIsDisposedMap(diPath);
+			}
+			if ( projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
+				projectWrapper.removeServicesRegistry(diPath);
 			}			
 		}
-
 	}
 
 	public static IEditorPart openEditor(IFile diFile) {
