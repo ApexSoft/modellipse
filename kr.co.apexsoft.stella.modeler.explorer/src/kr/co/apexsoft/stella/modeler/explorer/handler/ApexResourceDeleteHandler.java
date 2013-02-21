@@ -93,24 +93,25 @@ public class ApexResourceDeleteHandler extends AbstractHandler {
 	private void deleteProject(IWorkbenchPage activePage, IProject project) throws CoreException {
 		
 		try {
-			IResource[] resources = project.members();
-			List<IFile> diFiles = new ArrayList<IFile>();
-			
-			for ( IResource resource : resources ) {
-				
-				if ( resource instanceof IFile ) {
-					IFile file = (IFile)resource;
-					
-					if (OneFileUtils.isDi(file)) {
-						diFiles.add(file);
+			if (project.isAccessible()) {
+				IResource[] resources = project.members();
+				List<IFile> diFiles = new ArrayList<IFile>();
+
+				for ( IResource resource : resources ) {
+
+					if ( resource instanceof IFile ) {
+						IFile file = (IFile)resource;
+
+						if (OneFileUtils.isDi(file)) {
+							diFiles.add(file);
+						}
 					}
 				}
-			}
-			
-			for (IFile diFile : diFiles) {
-				deleteDi(activePage, diFile);
-			}
 
+				for (IFile diFile : diFiles) {
+					deleteDi(activePage, diFile);
+				}
+			}
 			String projectPath = project.getLocationURI().getPath();			
 			ApexStellaProjectMap.getProjectMap().remove(projectPath);
 			
