@@ -25,6 +25,7 @@ import org.eclipse.papyrus.infra.core.services.ServiceNotFoundException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.ui.IApexStellaExplorerViewService;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 
@@ -69,7 +70,6 @@ public class ServiceUtilsForActionHandlers {
 		IWorkbenchPart workbenchPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart();
 		ServicesRegistry serviceRegistry = null;
 		
-		
 		if ( workbenchPart instanceof IApexStellaExplorerViewService ) {
 			try {
 				IApexStellaExplorerViewService aStellaExplorerViewService = (IApexStellaExplorerViewService)workbenchPart;
@@ -87,11 +87,31 @@ public class ServiceUtilsForActionHandlers {
 			} catch (NullPointerException e) {
 				// Can't get the Stella Explorer
 				throw new ServiceNotFoundException("Can't get the current Stella Explorer. No ServiceRegistry found.");
-			}
-			
+			}				
+		
 		} else if ( workbenchPart instanceof IEditorPart ) {
-			serviceRegistry = getServicesRegistryFromEditor((IEditorPart)workbenchPart);					
-		}			
+			serviceRegistry = getServicesRegistryFromEditor((IEditorPart)workbenchPart);
+			
+		} else { // 탐색기도 에디터도 아닌 경우. ex) Outline, Property 창 등
+			// 먼저 에디터를 기준으로 serviceRegistry를 가져오고
+			// 에디터가 없을 경우 탐색기에서
+			// 탐색기도 없을 경우 null 반환
+			IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+			
+			if ( editorPart != null ) {
+				serviceRegistry = getServicesRegistryFromEditor(editorPart);
+			} else {
+				IViewPart viewPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView("kr.co.apexsoft.stella.modeler.explorer.view");
+				
+				if ( viewPart != null ) {
+					
+					if ( viewPart instanceof IApexStellaExplorerViewService ) {
+						IApexStellaExplorerViewService aStellaExplorerViewService = (IApexStellaExplorerViewService)viewPart;
+						serviceRegistry = aStellaExplorerViewService.getServicesRegistry();	
+					}					
+				}
+			}
+		}		
 		
 		if ( serviceRegistry == null ) {
 			throw new ServiceNotFoundException("Can't get the ServiceRegtistry from the current Stella Explorer.");
