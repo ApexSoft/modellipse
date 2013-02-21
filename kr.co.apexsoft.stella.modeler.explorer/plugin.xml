@@ -51,11 +51,35 @@
       </dragAssistant>
       <viewerActionBinding
         viewerId="kr.co.apexsoft.stella.modeler.explorer.view">
-        <includes>
-          <actionExtension
-            pattern="org.eclipse.ui.navigator.resources.*">
-          </actionExtension>
-        </includes>
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.OpenActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.GotoActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.GoIntoActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.PortingActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.NewActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.PropertiesActionProvider">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.WorkManagementActionProvider">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.ResourceMgmtActions">
+            </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.WorkingSetActionProvider">
+            </actionExtension>
+         </includes>
       </viewerActionBinding>
    </extension>
    <extension
@@ -93,7 +117,8 @@
          </possibleChildren>
          <actionProvider
                class="org.eclipse.papyrus.views.modelexplorer.actionprovider.GenericTransformActionProvider"
-               id="org.eclipse.papyrus.views.modelexplorer.actionprovider.GenericTransformActionProvider">
+               id="org.eclipse.papyrus.views.modelexplorer.actionprovider.GenericTransformActionProvider"
+               priority="highest">
             <enablement>
                <or>
                   <adapt
@@ -104,7 +129,8 @@
          </actionProvider>
          <actionProvider
                class="org.eclipse.papyrus.views.modelexplorer.actionprovider.EditingDomainActionProvider"
-               id="org.eclipse.papyrus.views.modelexplorer.actionprovider.EditingDomainActionProvider">
+               id="org.eclipse.papyrus.views.modelexplorer.actionprovider.EditingDomainActionProvider"
+               priority="highest">
             <enablement>
                <and>
                   <not>
@@ -245,5 +271,119 @@
            </or>
         </enabledWhen>
      </handler>
+  </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+       <handler class="org.eclipse.papyrus.views.modelexplorer.handler.UndoHandler" commandId="org.eclipse.ui.edit.undo">
+      <activeWhen>
+         <and>
+            <with
+                  variable="activePart">
+               <test
+                     forcePluginActivation="true"
+                     property="kr.co.apexsoft.stella.modeler.explorer.tester.isStellaExplorer"
+                     value="true">
+               </test>
+            </with>
+            <with variable="activePart">
+               <instanceof value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+               </instanceof>
+            </with>
+         </and>
+      </activeWhen>
+   </handler>
+   <handler class="org.eclipse.papyrus.views.modelexplorer.handler.RedoHandler" commandId="org.eclipse.ui.edit.redo">
+      <activeWhen>
+         <and>
+            <with
+                  variable="activePart">
+               <test
+                     forcePluginActivation="true"
+                     property="kr.co.apexsoft.stella.modeler.explorer.tester.isStellaExplorer"
+                     value="true">
+               </test>
+            </with>
+            <with variable="activePart">
+               <instanceof value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+               </instanceof>
+            </with>
+         </and>
+      </activeWhen>
+   </handler>
+     <handler class="org.eclipse.papyrus.views.modelexplorer.handler.CutHandler" commandId="org.eclipse.ui.edit.cut">
+      <activeWhen>
+         <and>
+            <with
+                  variable="activePart">
+               <instanceof
+                     value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+               </instanceof>
+            </with>
+            <with
+                  variable="selection">
+               <test
+                     forcePluginActivation="true"
+                     property="org.eclipse.papyrus.views.modelexplorer.tester.isEObject"
+                     value="true">
+               </test>
+            </with>
+         </and>
+      </activeWhen>
+   </handler>
+       <handler
+         class="org.eclipse.papyrus.views.modelexplorer.handler.CopyHandler"
+         commandId="org.eclipse.ui.edit.copy">
+      <activeWhen>
+         <and>
+            <with
+                  variable="activePart">
+               <instanceof
+                     value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+               </instanceof>
+            </with>
+            <with
+                  variable="selection">
+                  <!-- We add this test in order to refresh the Copy action in the menu edit -->
+               <test
+                     forcePluginActivation="true"
+                     property="org.eclipse.papyrus.views.modelexplorer.tester.isEObject"
+                     value="true">
+               </test>
+            </with>
+         </and>
+      </activeWhen>
+   </handler>
+    <handler
+          class="org.eclipse.papyrus.views.modelexplorer.handler.PasteHandler"
+          commandId="org.eclipse.ui.edit.paste">
+       <activeWhen>
+          <and>
+             <with
+                   variable="activePart">
+                <instanceof
+                      value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+                </instanceof>
+             </with>
+             <with
+                   variable="selection">
+                <test
+                      forcePluginActivation="true"
+                      property="org.eclipse.papyrus.views.modelexplorer.tester.isEObject"
+                      value="true">
+                </test>
+             </with>
+          </and>
+       </activeWhen>
+    </handler>
+  </extension>
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="kr.co.apexsoft.stella.modeler.explorer.tester.PropertyTester"
+           id="kr.co.apexsoft.stella.modeler.explorer.tester"
+           namespace="kr.co.apexsoft.stella.modeler.explorer.tester"
+           properties="isStellaExplorer"
+           type="org.eclipse.ui.IWorkbenchPart">
+     </propertyTester>
   </extension>
 </plugin>
