@@ -159,15 +159,16 @@ public class ApexDIWrapper implements ITreeElement {
 		}	
 	}
 	
+	@SuppressWarnings("restriction")
 	private void makeModelElementItemList(ApexDIWrapper diWrapper, UmlModel umlModel, List<Object> result) {
 		EList<EObject> contents = umlModel.getResource().getContents();
 		
 		for ( EObject eObj : contents ) {
 
 			if ( eObj instanceof ModelImpl || eObj instanceof PackageImpl ) { // Control를 통해 분리된 Package의 경우 모델처럼 Tree생성해줘야 함
-				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
-				modelItem.setTreeParent(diWrapper);//				
-				result.add((ITreeElement)modelItem);
+				ModelElementItem aModelElementItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
+				aModelElementItem.setTreeParent(diWrapper);//				
+				result.add((ITreeElement)aModelElementItem);
 			}
 		}
 	}
