@@ -330,8 +330,8 @@
          </and>
       </activeWhen>
    </handler>
-       <handler
-         class="org.eclipse.papyrus.views.modelexplorer.handler.CopyHandler"
+<!--  <handler
+         class="org.eclipse.papyrus.uml.commands.handler.CopyHandler"
          commandId="org.eclipse.ui.edit.copy">
       <activeWhen>
          <and>
@@ -343,7 +343,6 @@
             </with>
             <with
                   variable="selection">
-                  <!-- We add this test in order to refresh the Copy action in the menu edit -->
                <test
                      forcePluginActivation="true"
                      property="org.eclipse.papyrus.views.modelexplorer.tester.isEObject"
@@ -354,7 +353,7 @@
       </activeWhen>
    </handler>
     <handler
-          class="org.eclipse.papyrus.views.modelexplorer.handler.PasteHandler"
+          class="org.eclipse.papyrus.uml.commands.handler.PasteHandler"
           commandId="org.eclipse.ui.edit.paste">
        <activeWhen>
           <and>
@@ -374,7 +373,7 @@
              </with>
           </and>
        </activeWhen>
-    </handler>
+    </handler>-->
   </extension>
   <extension
         point="org.eclipse.core.expressions.propertyTesters">

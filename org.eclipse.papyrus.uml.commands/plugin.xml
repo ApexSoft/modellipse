@@ -10,9 +10,14 @@
          <and>
             <with
                   variable="activePart">
-               <instanceof
-                     value="org.eclipse.papyrus.views.modelexplorer.ModelExplorerPageBookView">
-               </instanceof>
+               <or>
+                  <instanceof
+                        value="org.eclipse.papyrus.views.modelexplorer.ModelExplorerPageBookView">
+                  </instanceof>
+                  <instanceof
+                        value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+                  </instanceof>
+               </or>
             </with>
             <with
                   variable="selection">
@@ -33,9 +38,14 @@
           <and>
              <with
                    variable="activePart">
-                <instanceof
-                      value="org.eclipse.papyrus.views.modelexplorer.ModelExplorerPageBookView">
-                </instanceof>
+                <or>
+                   <instanceof
+                         value="org.eclipse.papyrus.views.modelexplorer.ModelExplorerPageBookView">
+                   </instanceof>
+                   <instanceof
+                         value="kr.co.apexsoft.stella.modeler.explorer.view.ApexStellaExplorerView">
+                   </instanceof>
+                </or>
              </with>
              <with
                    variable="selection">
