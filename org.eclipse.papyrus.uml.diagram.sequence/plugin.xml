@@ -219,7 +219,8 @@
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7004"/>
          </object>
-         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+         <context
+               views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
    </extension>
 
@@ -744,7 +745,9 @@
          <command commandId="org.eclipse.papyrus.uml.diagram.sequence.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="org.eclipse.papyrus.uml.diagram.sequence.part.UMLDiagramEditorID"/></with>
+                  <reference
+                        definitionId="isActiveDiagramASequenceDiagram">
+                  </reference>
                   <with variable="selection"><iterate ifEmpty="false"> 
                      <instanceof value="org.eclipse.papyrus.uml.diagram.sequence.edit.parts.PackageEditPart"/>
                   </iterate></with>
@@ -1590,7 +1593,27 @@
    <handler
          class="org.eclipse.papyrus.uml.diagram.sequence.apex.part.commands.ToggleTweakHandler"
          commandId="org.eclipse.papyrus.uml.diagram.sequence.toggleTweak">
+      <enabledWhen>
+         <and>
+            <reference
+                  definitionId="isActiveDiagramASequenceDiagram">
+            </reference>
+         </and>
+      </enabledWhen>
    </handler>
+</extension>
+<extension
+      point="org.eclipse.core.expressions.definitions">
+   <definition
+         id="isActiveDiagramASequenceDiagram">
+      <with
+            variable="activeEditor">
+         <test
+               property="org.eclipse.papyrus.uml.diagram.common.diagram.tester.diagramType"
+               value="PapyrusUMLSequenceDiagram">
+         </test>
+      </with>
+   </definition>
 </extension>
 
 
