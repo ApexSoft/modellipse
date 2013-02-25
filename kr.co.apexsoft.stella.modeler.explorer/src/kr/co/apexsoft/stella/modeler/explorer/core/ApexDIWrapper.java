@@ -95,7 +95,6 @@ public class ApexDIWrapper implements ITreeElement {
 			// 프로젝트 래퍼가 있고,
 			// diPath에 대한 umlModel 도 있다.
 			// 여기선 가져와서 트리 만들어주기만 하믄 됨		
-			// 끌때도 여기를 타서 계속 modelElementItem 생성하는 오류 있음
 
 			// 에디터 닫아서 ApexMEView에서 refresh() 호출된 경우 - (4)
 			// 프로젝트 래퍼는 있고
@@ -159,15 +158,16 @@ public class ApexDIWrapper implements ITreeElement {
 		}	
 	}
 	
+	@SuppressWarnings("restriction")
 	private void makeModelElementItemList(ApexDIWrapper diWrapper, UmlModel umlModel, List<Object> result) {
 		EList<EObject> contents = umlModel.getResource().getContents();
 		
 		for ( EObject eObj : contents ) {
 
 			if ( eObj instanceof ModelImpl || eObj instanceof PackageImpl ) { // Control를 통해 분리된 Package의 경우 모델처럼 Tree생성해줘야 함
-				ModelElementItem modelItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
-				modelItem.setTreeParent(diWrapper);//				
-				result.add((ITreeElement)modelItem);
+				ModelElementItem aModelElementItem = itemsFactory.createModelElementItem(eObj, null, appearanceConfiguration);
+				aModelElementItem.setTreeParent(diWrapper);//				
+				result.add((ITreeElement)aModelElementItem);
 			}
 		}
 	}
