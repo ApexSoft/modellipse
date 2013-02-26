@@ -18,6 +18,7 @@ import java.util.Collections;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -50,6 +51,11 @@ public abstract class ModelCreationCommandBase implements IModelCreationCommand 
 	}
 
 	/**
+	 * apex updated
+	 * 
+	 * 초기 model root 이름을 CreateUMLModelCommand에서 "model"로 하드코딩된 것 대신
+	 * di resource 이름과 같게 설정되도록 처리
+	 * 
 	 * Run as transaction.
 	 * 
 	 * @param diResourceSet
@@ -71,7 +77,13 @@ public abstract class ModelCreationCommandBase implements IModelCreationCommand 
 				EObject model = getRootElement(modelResource);
 				attachModelToResource(model, modelResource);
 
+				/* apex improved start */
+				initializeModel(model, modelResource);
+				/* apex improved end */
+				/* apex replaced
 				initializeModel(model);
+				*/
+				
 				return CommandResult.newOKCommandResult();
 
 			}
@@ -87,6 +99,42 @@ public abstract class ModelCreationCommandBase implements IModelCreationCommand 
 	 */
 	protected void initializeModel(EObject owner) {
 
+	}
+	
+
+	/**
+	 * apex added
+	 * 
+	 * 모델의 root 이름을 di 파일명과 같게 처리
+	 * 
+	 * @see org.eclipse.papyrus.infra.core.extension.commands.ModelCreationCommandBase#initializeModel(org.eclipse.emf.ecore.EObject)
+	 * 
+	 * @param owner
+	 */
+
+	protected void initializeModel(EObject owner, Resource resource) {
+		initializeModel(owner);
+		((org.eclipse.uml2.uml.Package)owner).setName(getModelName(resource));
+	}
+	
+
+	
+	/**
+	 * apex added
+	 * 
+	 * resource에서 di 파일명을 가져와서 return
+	 * 
+	 * Gets the model name.
+	 * 
+	 * @param resource  di 파일
+	 * 
+	 * @return the model name
+	 */
+	protected String getModelName(Resource resource) {
+		URI uri = resource.getURI().trimFileExtension();
+		String path = uri.path();
+		String fileName = path.substring(path.lastIndexOf('/')+1);
+		return fileName;
 	}
 
 	/**

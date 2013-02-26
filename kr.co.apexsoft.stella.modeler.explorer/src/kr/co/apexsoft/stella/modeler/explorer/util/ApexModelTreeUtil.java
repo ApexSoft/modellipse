@@ -3,21 +3,18 @@ package kr.co.apexsoft.stella.modeler.explorer.util;
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexProjectWrapper;
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
 
-import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
-import org.eclipse.papyrus.infra.core.lifecycleevents.ISaveAndDirtyService;
-import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
-import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
-import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PartInitException;
@@ -126,6 +123,15 @@ public class ApexModelTreeUtil {
 		}
 		
 		return eObj;
+	}
+	
+	public static String getFileNameFromEmfResource(Resource resource, boolean includeExt) {
+		
+		URI uri = resource.getURI();
+		String path = uri.path();
+		String fileName = path.substring(path.lastIndexOf('/'));
+		return includeExt ? fileName : fileName.substring(0, fileName.lastIndexOf('.'));
+		
 	}
 	
 }
