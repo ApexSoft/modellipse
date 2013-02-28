@@ -116,13 +116,13 @@ public class ServiceUtilsForActionHandlers {
 		if ( serviceRegistry == null ) {
 			throw new ServiceNotFoundException("Can't get the ServiceRegtistry from the current Stella Explorer.");
 		} else {
-			System.out.println("ServiceUtilsForActionHandlers.getServiceRegistry(), line : " + Thread.currentThread().getStackTrace()[1].getLineNumber());
-			ModelSet modelSet = serviceRegistry.getService(ModelSet.class);
-			if ( modelSet != null ) {
-				System.out.println("serviceRegistry : " + serviceRegistry.getService(ModelSet.class).getFilenameWithoutExtension() + ", " + serviceRegistry);
-			} else {
-				return null;
-			}	
+//			System.out.println("ServiceUtilsForActionHandlers.getServiceRegistry(), line : " + Thread.currentThread().getStackTrace()[1].getLineNumber());
+//			ModelSet modelSet = serviceRegistry.getService(ModelSet.class);
+//			if ( modelSet != null ) {
+//				System.out.println("serviceRegistry : " + serviceRegistry.getService(ModelSet.class).getFilenameWithoutExtension() + ", " + serviceRegistry);
+//			} else {
+//				return null;
+//			}	
 		}		
 		
 		return serviceRegistry;	

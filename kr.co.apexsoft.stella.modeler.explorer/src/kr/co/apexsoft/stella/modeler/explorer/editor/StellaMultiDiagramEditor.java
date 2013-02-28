@@ -45,7 +45,7 @@ public class StellaMultiDiagramEditor extends PapyrusMultiDiagramEditor {
 		// 이것이 없으면 Property 창에 해당 정보가 표시되지 않음
 		// 기능적으로 override 하지 않아도 부모의 getContributorId()를 통해 "TreeOutlinePage"를 return 하나
 		// 내용 파악 및 추후 별도 개발을 위해 override함
-		String contributorId = "TreeOutLinePage"; //$NON-NLS-1$
+		String contributorId = "TreeOutlinePage"; //$NON-NLS-1$
 		return contributorId;
 	}
 }

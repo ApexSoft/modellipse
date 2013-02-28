@@ -84,7 +84,10 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.ISelectionListener;
@@ -1146,9 +1149,36 @@ public class ApexStellaExplorerView extends CommonNavigator
 					} else if ( currentObject instanceof ModelElementItem ) { //Diagram 더블클릭 시 오픈
 						
 						ModelElementItem mItem = (ModelElementItem)currentObject;
-						EObject eObj = mItem.getEObject();
+						EObject eObj = mItem.getEObject();						
 						
 						if ( eObj instanceof DiagramImpl ) {
+							
+							// 해당 다이어그램이 있는 에디터를 활성화
+							IEditorPart tmpEditorPart = null;
+							
+							if ( selection instanceof ITreeSelection ) {				
+								ITreeSelection aTreeSelection = (ITreeSelection)selection;								
+								TreePath[] treePaths = aTreeSelection.getPaths();								
+								
+								for ( TreePath aTreePath : treePaths ) {
+									if ( aTreePath.getLastSegment() instanceof ModelElementItem ) {
+										tmpEditorPart = ApexModelTreeUtil.getEditorPartFromModelTreeSelection(aTreeSelection);
+									}
+								}				
+							}
+							
+							IWorkbenchPage workbenchPage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();			
+							IEditorReference[] editorRefs = workbenchPage.getEditorReferences();
+				
+							for ( IEditorReference editorRef : editorRefs ) {
+								IEditorPart editorPart = editorRef.getEditor(true);
+								
+								if ( editorPart.equals(tmpEditorPart) ) {
+									workbenchPage.activate(editorPart);
+								}								
+							}
+							
+							// 해당 다이어그램을 활성화
 							IPageMngr pageMngr = null;
 							try {
 								pageMngr = ServiceUtilsForActionHandlers.getInstance().getIPageMngr();
