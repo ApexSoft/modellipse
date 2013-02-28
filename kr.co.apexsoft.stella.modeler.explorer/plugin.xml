@@ -158,6 +158,17 @@
                </or>
             </possibleDropTargets>
          </dropAssistant>
+         <actionProvider
+               class="kr.co.apexsoft.stella.modeler.explorer.actionprovider.ResourceActionProvider"
+               id="kr.co.apexsoft.stella.modeler.explorer.actionprovider.ResourceActionProvider">
+            <enablement>
+               <and>
+                  <adapt
+                        type="org.eclipse.core.resources.IResource">
+                  </adapt>
+               </and>
+            </enablement>
+         </actionProvider>
       </navigatorContent>
    </extension>
 
