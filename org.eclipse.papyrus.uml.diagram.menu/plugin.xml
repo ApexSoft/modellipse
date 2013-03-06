@@ -811,7 +811,7 @@
    </menuContribution>
    <menuContribution
          allPopups="false"
-         locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=viewMenu">
+         locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=filtersMenu">
       <menu
             icon="platform:/plugin/org.eclipse.gmf.runtime.diagram.ui.actions/icons/elcl16/selectall.gif"
             id="org.eclipse.papyrus.uml.diagram.ui.popupmenu.select.menu"
