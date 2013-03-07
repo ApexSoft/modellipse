@@ -18,10 +18,11 @@ Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.em
 Bundle-Activator: org.eclipse.papyrus.infra.services.controlmode.Contr
  olModePlugin
 Bundle-Version: 0.9.1.v201209190809
-Export-Package: org.eclipse.papyrus.infra.services.controlmode,org.ecl
- ipse.papyrus.infra.services.controlmode.action,org.eclipse.papyrus.in
- fra.services.controlmode.commands,org.eclipse.papyrus.infra.services.
- controlmode.ui
+Export-Package: org.eclipse.papyrus.infra.services.controlmode,
+ org.eclipse.papyrus.infra.services.controlmode.action,
+ org.eclipse.papyrus.infra.services.controlmode.commands,
+ org.eclipse.papyrus.infra.services.controlmode.ui,
+ org.eclipse.papyrus.infra.services.controlmode.util
 Ant-Version: Apache Ant 1.8.2
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy

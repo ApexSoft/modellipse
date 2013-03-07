@@ -396,4 +396,5 @@
            type="org.eclipse.ui.IWorkbenchPart">
      </propertyTester>
   </extension>
+  
 </plugin>
