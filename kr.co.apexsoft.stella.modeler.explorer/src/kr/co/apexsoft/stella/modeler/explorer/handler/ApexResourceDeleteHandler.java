@@ -19,8 +19,9 @@ import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.papyrus.infra.onefile.model.PapyrusModelHelper;
 import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
-import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -43,14 +44,11 @@ public class ApexResourceDeleteHandler extends AbstractHandler {
 			
 			if ( aSelection instanceof ITreeSelection ) {
 				ITreeSelection treeSelection = (ITreeSelection)aSelection;
-				
-				if ( !treeSelection.isEmpty() ) {
-					Iterator it = treeSelection.iterator();
-					
-					while ( it.hasNext() ) {
-						Object obj = it.next();						
-						deleteResources(activePage, obj);
-					}
+				Iterator it = treeSelection.iterator();
+
+				while ( it.hasNext() ) {
+					Object obj = it.next();						
+					deleteResources(activePage, obj);
 				}
 			}
 		}
@@ -138,18 +136,16 @@ public class ApexResourceDeleteHandler extends AbstractHandler {
 		
 		for ( IEditorReference editorReference : editorReferences ) {
 			// 현재 선택된 editor 인지 확인 후 선택된 editor 닫기
-			IEditorPart editorPart = editorReference.getEditor(false);
-			String editorToolTip = editorPart.getTitleToolTip();
-			String diTreePath = file.toString();
-			String simpleFilePath = diTreePath.substring(diTreePath.indexOf('/')+1);
-			
-			if ( editorToolTip.equals(simpleFilePath) ) {
-				deleteAssociatedFiles(file);
-				file.delete(true, null);
-				file = null;
-				activePage.closeEditor(editorPart, false);						
+			IEditorInput input = editorReference.getEditorInput();
+			if (input instanceof IFileEditorInput) {
+				IFile f = ((IFileEditorInput)input).getFile();
+				if (file.equals(f)) {
+					activePage.closeEditors(new IEditorReference[] {editorReference}, false);
+				}
 			}
 		}
+		
+		deleteAssociatedFiles(file);
 	}
 
 	/**
