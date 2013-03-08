@@ -100,6 +100,7 @@ import org.eclipse.ui.internal.navigator.NavigatorContentService;
 import org.eclipse.ui.internal.navigator.extensions.NavigatorContentDescriptor;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewer;
+import org.eclipse.ui.navigator.CommonViewerSorter;
 import org.eclipse.ui.operations.RedoActionHandler;
 import org.eclipse.ui.operations.UndoActionHandler;
 import org.eclipse.ui.part.FileEditorInput;
@@ -193,7 +194,7 @@ public class ApexStellaExplorerView extends CommonNavigator
 		 * 
 		 */
 		public void isDirtyChanged() {
-			firePropertyChange(IEditorPart.PROP_DIRTY);
+//			firePropertyChange(IEditorPart.PROP_DIRTY);
 		}
 	};
 	
@@ -565,7 +566,7 @@ public class ApexStellaExplorerView extends CommonNavigator
 	@Override
 	public void createPartControl(Composite aParent) {
 		super.createPartControl(aParent);
-		getCommonViewer().setSorter(null);
+		getCommonViewer().setSorter(new CommonViewerSorter());
 		((CustomCommonViewer)getCommonViewer()).getDropAdapter().setFeedbackEnabled(true);
 		getCommonViewer().addDoubleClickListener(new ApexDoubleClickListener());
 		Tree tree = getCommonViewer().getTree();
