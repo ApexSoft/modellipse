@@ -331,7 +331,13 @@ public class RenameModelChange extends Change {
 				for(URI uri : uriMap.keySet()) {
 					Resource r = resourceSet.getResource(uri, false);
 					ECrossReferenceAdapter adapter = ECrossReferenceAdapter.getCrossReferenceAdapter(resourceSet);
+					/* apex improved start */
+					// 문맥상 맞지 않기도 하고, adapter==null인 경우 에러발생
+					if(adapter == null) {
+					/* apex improved end */
+					/* apex replaced
 					if(adapter != null) {
+					 */
 						adapter = new ECrossReferenceAdapter();
 						adapter.setTarget(resourceSet);
 					}

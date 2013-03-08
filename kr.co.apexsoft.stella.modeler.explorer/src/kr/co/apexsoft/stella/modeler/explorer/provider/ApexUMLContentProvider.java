@@ -62,7 +62,6 @@ import org.eclipse.swt.widgets.Control;
  * 
  * @deprecated Use {@link kr.co.apexsoft.stella.modeler.explorer.provider.ApexUMLContentProvider.providers.UMLContentProvider} instead
  */
-@Deprecated
 public class ApexUMLContentProvider extends CustomizableModelContentProvider implements IResourceChangeListener {
 
 	private Viewer viewer;
@@ -392,7 +391,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 	 * 
 	 * @param delta
 	 */
-	protected void processDelta(IResourceDelta delta) {		
+	protected void processDelta(IResourceDelta delta) {
 
 		Control ctrl = viewer.getControl();
 		if (ctrl == null || ctrl.isDisposed()) {
@@ -523,51 +522,40 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			return;
 		}
 		
-		/* apex added start */
-		// model wizard에서 추가된 notation, uml 은 Tree에 추가되지 않도록 처리
-		for ( IResourceDelta aChildren : addedChildren ) {
-			String fileExtension = aChildren.getProjectRelativePath().getFileExtension();
-			
-			if ( aChildren.getResource() instanceof IFile ) {
-				if ( fileExtension.equals("notation") || fileExtension.equals("uml") ) {
-					return;
-				}	
-			}	 
-		}
-		/* apex added end */
-
-		final Object[] addedObjects;
-		final Object[] removedObjects;
-
+		List<Object> addedList = new ArrayList<>();
+		List<Object> removedList = new ArrayList<>();
+		
 		// Process additions before removals as to not cause selection
 		// preservation prior to new objects being added
 		// Handle added children. Issue one update for all insertions.
 		int numMovedFrom = 0;
 		int numMovedTo = 0;
-		if (addedChildren.length > 0) {
-			addedObjects = new Object[addedChildren.length];
-			for (int i = 0; i < addedChildren.length; i++) {
-				addedObjects[i] = addedChildren[i].getResource();
-				if ((addedChildren[i].getFlags() & IResourceDelta.MOVED_FROM) != 0) {
-					++numMovedFrom;
-				}
+		for (int i = 0; i < addedChildren.length; i++) {
+			IResource subRes = addedChildren[i].getResource();
+			if (subRes instanceof IFile && !OneFileUtils.isDi(subRes)) {
+				continue;
 			}
-		} else {
-			addedObjects = new Object[0];
+			addedList.add(subRes);
+			if ((addedChildren[i].getFlags() & IResourceDelta.MOVED_FROM) != 0) {
+				++numMovedFrom;
+			}
 		}
 
 		// Handle removed children. Issue one update for all removals.
-		if (removedChildren.length > 0) {
-			removedObjects = new Object[removedChildren.length];
-			for (int i = 0; i < removedChildren.length; i++) {
-				removedObjects[i] = removedChildren[i].getResource();
-				if ((removedChildren[i].getFlags() & IResourceDelta.MOVED_TO) != 0) {
-					++numMovedTo;
-				}
+		for (int i = 0; i < removedChildren.length; i++) {
+			IResource subRes = removedChildren[i].getResource();
+			if (subRes instanceof IFile && !OneFileUtils.isDi(subRes)) {
+				continue;
 			}
-		} else {
-			removedObjects = new Object[0];
+			removedList.add(subRes);
+			if ((removedChildren[i].getFlags() & IResourceDelta.MOVED_TO) != 0) {
+				++numMovedTo;
+			}
 		}
+		
+		final Object[] addedObjects = addedList.toArray();
+		final Object[] removedObjects = removedList.toArray();
+
 		// heuristic test for items moving within same folder (i.e. renames)
 		final boolean hasRename = numMovedFrom > 0 && numMovedTo > 0;
 		
