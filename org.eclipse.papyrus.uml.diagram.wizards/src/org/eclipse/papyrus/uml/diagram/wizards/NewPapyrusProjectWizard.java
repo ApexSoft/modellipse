@@ -79,7 +79,7 @@ public class NewPapyrusProjectWizard extends CreateModelWizard {
 		addPage(myNewProjectPage);
 		super.addPages();
 	}
-	
+
 	/**
 	 * Creates the new model file page.
 	 *
@@ -91,7 +91,7 @@ public class NewPapyrusProjectWizard extends CreateModelWizard {
 	protected NewModelFilePage createNewModelFilePage(IStructuredSelection selection) {
 		return null;
 	}
-	
+
 
 	/**
 	 * Perform finish.
@@ -130,27 +130,27 @@ public class NewPapyrusProjectWizard extends CreateModelWizard {
 			projectLocationURI = myNewProjectPage.getLocationURI();
 		}
 
-        IProjectDescription projectDescription = null;
-        NullProgressMonitor progressMonitor = new NullProgressMonitor();
-        if (!project.exists())
-        {
-          projectDescription = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
-          if (projectLocationURI != null)
-          {
-            projectDescription.setLocationURI(projectLocationURI);
-          }
-          project.create(projectDescription, new SubProgressMonitor(progressMonitor, 1));
-          project.open(new SubProgressMonitor(progressMonitor, 1));
-        }
-        else 
-        {
-          projectDescription = project.getDescription();
-          project.open(new SubProgressMonitor(progressMonitor, 1));
-        }
+		IProjectDescription projectDescription = null;
+		NullProgressMonitor progressMonitor = new NullProgressMonitor();
+		if (!project.exists())
+		{
+			projectDescription = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
+			if (projectLocationURI != null)
+			{
+				projectDescription.setLocationURI(projectLocationURI);
+			}
+			project.create(projectDescription, new SubProgressMonitor(progressMonitor, 1));
+			project.open(new SubProgressMonitor(progressMonitor, 1));
+		}
+		else 
+		{
+			projectDescription = project.getDescription();
+			project.open(new SubProgressMonitor(progressMonitor, 1));
+		}
 
-        return project;
+		return project;
 	}
-	
+
 	/**
 	 * Creates the new model file.
 	 *
