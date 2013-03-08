@@ -341,7 +341,7 @@
         commandId="org.eclipse.ui.edit.delete"
         disabledIcon="IMG_TOOL_DELETE_DISABLED"
         icon="IMG_TOOL_DELETE"
-        label="Delete Selected Element"
+        label="Delete from Model"
         style="push">
      <visibleWhen>
         <and>
@@ -367,7 +367,7 @@
 
 		<command commandId="org.eclipse.papyrus.uml.diagram.common.commands.DeleteFromDiagram"
 			icon="icons/obj16/eraser.gif"
-			label="Hide Selected Element"
+			label="Delete from Diagram"
 			style="push">
 			<visibleWhen>
 				<and>
