@@ -566,7 +566,7 @@ public class ApexStellaExplorerView extends CommonNavigator
 	@Override
 	public void createPartControl(Composite aParent) {
 		super.createPartControl(aParent);
-		getCommonViewer().setSorter(new CommonViewerSorter());
+//		getCommonViewer().setSorter(new CommonViewerSorter());
 		((CustomCommonViewer)getCommonViewer()).getDropAdapter().setFeedbackEnabled(true);
 		getCommonViewer().addDoubleClickListener(new ApexDoubleClickListener());
 		Tree tree = getCommonViewer().getTree();
