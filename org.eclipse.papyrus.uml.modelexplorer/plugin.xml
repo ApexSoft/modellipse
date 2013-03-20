@@ -888,7 +888,7 @@
 <!-- UI Menu declaration for creation commands -->
 <extension point="org.eclipse.ui.menus">
 
-    <menuContribution locationURI="popup:org.eclipse.papyrus.views.modelexplorer.popupmenu.createchild" allPopups="false">
+    <menuContribution locationURI="popup:org.eclipse.papyrus.views.modelexplorer.popupmenu.createchild1" allPopups="false">
     
         <!-- Creation menu action for Abstraction -->
         <command commandId="org.eclipse.papyrus.uml.modelexplorer.AbstractionCreateCommand" icon="platform:/plugin/org.eclipse.uml2.uml.edit/icons/full/obj16/Abstraction.gif" label="Create a new Abstraction" style="push" tooltip="Create a new Abstraction">
