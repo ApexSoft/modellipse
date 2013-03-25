@@ -230,11 +230,13 @@
              </or>
           </visibleWhen>
        </command>
+       <!--
        <command
              commandId="kr.co.apexsoft.stella.modeler.explorer.rename.controlledFiles"
              label="Rename Controlled Files..."
              style="push">
        </command>
+       -->
     </menuContribution>
   </extension>
   <extension

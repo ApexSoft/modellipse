@@ -8,6 +8,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem;
@@ -19,6 +20,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.papyrus.infra.onefile.model.impl.PapyrusFile;
+import org.eclipse.papyrus.infra.onefile.utils.OneFileUtils;
 import org.eclipse.papyrus.infra.services.controlmode.util.ControlModeUtil;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
@@ -86,17 +88,28 @@ public class RenameControlledFileActionProvider extends CommonActionProvider {
 
 		renameAction = new RenameResourceAction(provider) {
 
+			/**
+			 * rename되는 Di 파일 반환을 반환해주면
+			 * RenameResourceAction에 의해 di 파일 외 .uml, .notation 파일에 대한 refactorong 처리 
+			 */
 			@Override
 			public IStructuredSelection getStructuredSelection() {
-				return new StructuredSelection(helper.getSelectedElements(getContext()));
+				// 이게 di 파일을 return 해야 함
+				return new StructuredSelection(helper.getSelectedDiFile(getContext()));
 			}
 
-			@Override
+			/**
+			 * 선택된 element의 실제 Resource인 .uml 파일
+			 * 실질적으로 null 여부 판단에만 사용됨
+			 */
+			@Override			
 			protected List getSelectedResources() {
-				// helper 에 해당 controlled 패키지에서 di 파일셋을 가져오도록 구현
-				return helper.getRelatedResources(getContext());
+				return helper.getSelectedResources(getContext());
 			}
 
+			/**
+			 * 이 메뉴가 Controlled된 패키지에서만 활성화되도록 처리
+			 */
 			@Override
 			public boolean isEnabled() {
 				boolean enabled = false;
@@ -116,6 +129,12 @@ public class RenameControlledFileActionProvider extends CommonActionProvider {
 
 	}
 	
+	/**
+	 * 선택된 패키지가 Control 되었는 지 여부 판단
+	 * 
+	 * @param toTest
+	 * @return result   toTest가 control된 패키지일 경우 true 아니면 false
+	 */
 	public boolean isControlled(Object toTest) {
 		boolean result = false;
 		
@@ -151,12 +170,12 @@ public class RenameControlledFileActionProvider extends CommonActionProvider {
 //		}
 		
 		/**
-		 * 선택된 패키지가 Control되어 생성된 3가지 papyrus file(di, uml, notation) list 반환 
+		 * 선택된 패키지가 Control되어 생성된 di 파일 반환 
 		 * 
 		 * @param context
 		 * @return
 		 */
-		public List getRelatedResources(ActionContext context) {
+		public List getSelectedResources(ActionContext context) {
 			
 			List result = new ArrayList();
 			List<Object> elements = getSelectedElements(context);
@@ -172,39 +191,54 @@ public class RenameControlledFileActionProvider extends CommonActionProvider {
 				
 				IFile controlledUMLFile = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(umlFilePath));
 				
-				IPapyrusFile papyrusFile = new PapyrusFile(controlledUMLFile);
-				
-				for ( IResource res : papyrusFile.getAssociatedResources() ) {
-					result.add(res);
-				}
+				if ( controlledUMLFile != null ) {
+					result.add(controlledUMLFile);
+				}			
 			}
 			
 			return result;
 		}
-//
-//		protected List getSelectedResources(ActionContext context) {
-//			ISelection selec = context.getSelection();
-//			List<IResource> resources = new ArrayList<IResource>();
-//			if(selec instanceof IStructuredSelection) {
-//				IStructuredSelection struc = (IStructuredSelection)selec;
-//				for(Iterator<Object> i = struc.iterator(); i.hasNext();) {
-//					Object o = i.next();
-//					if(o instanceof IWorkspaceRoot == false && o instanceof IResource == true) {
-//						IResource res = (IResource)o;
-//						resources.add(res);
-//					}
-//				}
-//			}
-//			return resources;
-//		}		
 		
+		/**
+		 * 선택된 패키지(Control된 패키지)의 di 파일 반환
+		 * @param context
+		 * @return
+		 */
+		public Object getSelectedDiFile(ActionContext context) {
+			Object result = null;
+			List selectedResources = getSelectedResources(context);
+			
+			if ( selectedResources.size() == 1 ) {
+				Object obj = selectedResources.get(0);
+				
+				if ( obj instanceof IFile ) {
+					IFile controlledUMLFile = (IFile)obj; 
+					IPapyrusFile papyrusFile = new PapyrusFile(controlledUMLFile);
+							
+					for ( IResource res : papyrusFile.getAssociatedResources() ) {
+						
+						if ( OneFileUtils.isDi(res) ) {
+							result = res;	
+						}					
+					}	
+				}				
+			}
+			return result;						
+		}
+		
+		/**
+		 * 현재 선택된 element를 반환
+		 * 
+		 * @param context
+		 * @return
+		 */
 		public List<Object> getSelectedElements(ActionContext context) {
 			ISelection selec = context.getSelection();
 			List<Object> elements = new ArrayList<Object>();
 			if(selec instanceof IStructuredSelection) {
 				IStructuredSelection struc = (IStructuredSelection)selec;
 				for(Iterator<Object> i = struc.iterator(); i.hasNext();) {
-					Object o = i.next();
+					Object o = i.next();					
 					elements.add(o);
 				}
 			}

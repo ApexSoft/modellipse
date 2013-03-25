@@ -143,18 +143,18 @@ public class ApexRenameControlledFilesHandler extends AbstractHandler {
 					String ext = res.getFileExtension();
 					
 					System.out.println("  oldPath : " + oldPath);
-					try {
+//					try {
 						// 파일명 바꿔주고,
 						IPath parentPath = res.getParent().getFullPath();
 						IPath newPath = new Path(parentPath.toOSString()+"/"+newName+"."+ext);
 						System.out.println("  newPath : " + newPath);
-						res.move(newPath, false, new NullProgressMonitor());
+//						res.move(newPath, false, new NullProgressMonitor());
 
 						// 기존 파일명을 링크하고 있던 다른 모든 파일에서 해당 링크를 수정해줘야 함
-					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+//					} catch (CoreException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
 				}				
 			}			
 		}
