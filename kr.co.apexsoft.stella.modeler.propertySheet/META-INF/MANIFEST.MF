@@ -7,7 +7,7 @@ Bundle-Activator: kr.co.apexsoft.stella.modeler.propertysheet.Activator
 Bundle-Vendor: ApexSoft
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.diagram.ui.properties;bundle-version="1.4.2",
- org.eclipse.core.expressions;bundle-version="3.4.401",
+ org.eclipse.core.expressions;bundle-version="3.4.400",
  org.eclipse.uml2.uml;bundle-version="4.0.1",
  org.eclipse.papyrus.infra.services.controlmode;bundle-version="0.9.1",
  org.eclipse.emf.facet.infra.browser.uicore;bundle-version="0.2.1",
