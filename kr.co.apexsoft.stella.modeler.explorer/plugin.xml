@@ -422,4 +422,46 @@
      </propertyTester>
   </extension>
   
+  <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.uml2.uml"
+            default-charset="UTF-8"
+            file-extensions="di"
+            id="kr.co.apexsoft.stella.modeler.explorer.resource.di_0_9_0"
+            name="%_UI_DI_0_9_0_content_type"
+            priority="normal">
+         <describer
+               class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter
+                  name="namespace"
+                  value="http://www.eclipse.org/papyrus/0.7.0/sashdi">
+            </parameter>
+            <parameter
+                  name="kind"
+                  value="xmi">
+            </parameter>
+         </describer>
+      </content-type>
+      <content-type
+            base-type="org.eclipse.uml2.uml"
+            default-charset="UTF-8"
+            file-extensions="notation"
+            id="kr.co.apexsoft.stella.modeler.explorer.resource.notation_0_9_0"
+            name="%_UI_NOTATION_0_9_0_content_type"
+            priority="normal">
+         <describer
+               class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter
+                  name="namespace"
+                  value="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+            </parameter>
+            <parameter
+                  name="kind"
+                  value="xmi">
+            </parameter>
+         </describer>
+      </content-type>
+   </extension>
+  
 </plugin>
