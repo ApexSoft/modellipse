@@ -23,13 +23,15 @@ public class ApexProjectWrapper implements ITreeElement {
 	 */
 	private Map<String, UmlModel> _umlModelMap;
 	private Map<String, Boolean> _isDisposedMap;
-	private Map<String, ServicesRegistry> _servicesRegistryMap;
+	private Map<String, ServicesRegistry> _servicesRegistryMap;	
+	private Map<String, ApexDIWrapper> _diWrapperMap;
 
 	public ApexProjectWrapper(IProject project) {
 		_project = project;
 		_umlModelMap = new HashMap<String, UmlModel>();
 		_isDisposedMap = new HashMap<String, Boolean>();
 		_servicesRegistryMap = new HashMap<String, ServicesRegistry>();
+		_diWrapperMap = new HashMap<String, ApexDIWrapper>();
 	}
 	
 	public Map<String, UmlModel> getUmlModelMap() {
@@ -89,6 +91,22 @@ public class ApexProjectWrapper implements ITreeElement {
 
 	public ServicesRegistry getServicesRegistry(String diPath) {
 		return _servicesRegistryMap.get(diPath);
+	}
+	
+	public void put(String diPath, ApexDIWrapper diWrapper) {
+		_diWrapperMap.put(diPath, diWrapper);
+	}
+	
+	public ApexDIWrapper getDIWrapper(String diPath) {
+		return _diWrapperMap.get(diPath);
+	}
+	
+	public Map<String, ApexDIWrapper> getDIWrapperMap() {
+		return _diWrapperMap;
+	}
+	
+	public void removeDIWrapper(String diPath) {
+		_diWrapperMap.remove(diPath);
 	}
 
 	public IProject getProject() {

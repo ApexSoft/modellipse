@@ -44,7 +44,7 @@ public class ApexDIWrapper implements ITreeElement {
 		}
 		
 		this.itemsFactory = itemsFactory;
-		this.appearanceConfiguration = appearanceConfigration;
+		this.appearanceConfiguration = appearanceConfigration;		
 	}
 	
 	public IFile getFile() {
@@ -89,6 +89,7 @@ public class ApexDIWrapper implements ITreeElement {
 			// 프로젝트 래퍼는 있고,
 			// diPath에 대한 umlModel은 없다
 			// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
+			// 에디터 열린상태에서 해당 프로젝트 삭제 시에도 여기를 탄다!!!!!!!!!!	
 
 			// 더블클릭에 의한 refresh() 시 - (3)
 			// 더블클릭 리스너가 직접 Editor를 열고 ServiceReg를 세팅
@@ -109,6 +110,11 @@ public class ApexDIWrapper implements ITreeElement {
 			} else if ( aProjectWrapper.getUmlModel(diFilePath) == null ) { // (2)
 				createEditorAndSetUpTree(_file, result);						
 			} else { // (3)
+				
+				if ( aProjectWrapper.getDIWrapper(diFilePath) == null ) {
+					aProjectWrapper.put(diFilePath, this);	
+				}
+				
 				UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
 
 				if ( umlModel != null ) {
@@ -139,7 +145,7 @@ public class ApexDIWrapper implements ITreeElement {
 	}
 	
 	private void createEditorAndSetUpTree(IFile diFile, List<Object> result) {
-		ApexProjectWrapper aProjectWrapper = null;
+//		ApexProjectWrapper aProjectWrapper = null;
 		String diFilePath = diFile.getLocationURI().getPath();
 		IEditorPart editor = ApexStellaProjectMap.openEditor(diFile);
 
@@ -151,6 +157,8 @@ public class ApexDIWrapper implements ITreeElement {
 
 			UmlModel umlModel = aProjectWrapper.getUmlModel(diFilePath);
 			makeModelElementItemList(this, umlModel, result);			
+			
+			aProjectWrapper.put(diFilePath, this);
 			
 			// refresh() 하지 않으면 MultiDiagramEditor보다 ExplorerView가 먼저 실행된 경우
 			// Browser Customization이 작동하지 않음

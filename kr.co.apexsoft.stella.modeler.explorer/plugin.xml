@@ -193,7 +193,7 @@
         </command>
 
         <!-- Search element command --> 
-        <command commandId="org.eclipse.papyrus.views.modelexplorer.searchelement" icon="icons/etool16/search.gif" label="%searchElementCommandLabel" style="push">
+        <command commandId="kr.co.apexsoft.stella.modeler.explorer.searchElement" icon="icons/etool16/search.gif" label="%searchElementCommandLabel" style="push">
         </command>
         
         <!-- Sort elements command -->  
@@ -275,6 +275,12 @@
            categoryId="org.eclipse.ui.category.edit"
            id="kr.co.apexsoft.stella.modeler.explorer.rename.controlledFiles"
            name="Rename Controlled Files">
+     </command>
+     <command
+           defaultHandler="kr.co.apexsoft.stella.modeler.explorer.handler.ApexSearchElementHandler"
+           description="Search Model Elements in the stella model explorer"
+           id="kr.co.apexsoft.stella.modeler.explorer.searchElement"
+           name="searchElement">
      </command>
   </extension>
   <extension

@@ -82,6 +82,9 @@ public class ApexStellaProjectMap {
 			}			
 			if ( projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
 				projectWrapper.removeServicesRegistry(diPath);	
+			}
+			if ( projectWrapper.getDIWrapperMap().containsKey(diPath) ) {
+				projectWrapper.removeDIWrapper(diPath);	
 			}	
 		}
 
@@ -109,6 +112,9 @@ public class ApexStellaProjectMap {
 			if ( projectWrapper.getServicesRegistryMap().containsKey(diPath) ) {
 				projectWrapper.removeServicesRegistry(diPath);
 			}			
+			if ( projectWrapper.getDIWrapperMap().containsKey(diPath) ) {
+				projectWrapper.removeDIWrapper(diPath);
+			}		
 		}
 	}
 
