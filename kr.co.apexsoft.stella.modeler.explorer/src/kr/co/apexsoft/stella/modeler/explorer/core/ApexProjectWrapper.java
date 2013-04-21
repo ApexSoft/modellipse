@@ -1,5 +1,6 @@
 package kr.co.apexsoft.stella.modeler.explorer.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class ApexProjectWrapper implements ITreeElement {
 	private Map<String, Boolean> _isDisposedMap;
 	private Map<String, ServicesRegistry> _servicesRegistryMap;	
 	private Map<String, ApexDIWrapper> _diWrapperMap;
+	private List<String> _deletedDIWrapperKey;
 
 	public ApexProjectWrapper(IProject project) {
 		_project = project;
@@ -32,6 +34,7 @@ public class ApexProjectWrapper implements ITreeElement {
 		_isDisposedMap = new HashMap<String, Boolean>();
 		_servicesRegistryMap = new HashMap<String, ServicesRegistry>();
 		_diWrapperMap = new HashMap<String, ApexDIWrapper>();
+		_deletedDIWrapperKey = new ArrayList<String>();
 	}
 	
 	public Map<String, UmlModel> getUmlModelMap() {
@@ -107,6 +110,18 @@ public class ApexProjectWrapper implements ITreeElement {
 	
 	public void removeDIWrapper(String diPath) {
 		_diWrapperMap.remove(diPath);
+	}
+	
+	public void addDeletedDIWrapperKey(String diPath) {
+		_deletedDIWrapperKey.add(diPath);
+	}
+	
+	public void removeDeletedDIWrapperKey(String diPath) {
+		_deletedDIWrapperKey.remove(diPath);
+	}
+	
+	public List<String> getDeletedDIWrapperKeyList() {
+		return _deletedDIWrapperKey;
 	}
 
 	public IProject getProject() {

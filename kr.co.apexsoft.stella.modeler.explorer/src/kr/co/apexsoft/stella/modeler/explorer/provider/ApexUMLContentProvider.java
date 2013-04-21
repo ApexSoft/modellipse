@@ -18,9 +18,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import kr.co.apexsoft.stella.modeler.explorer.core.ApexDIWrapper;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexProjectWrapper;
+import kr.co.apexsoft.stella.modeler.explorer.core.ApexStellaProjectMap;
 import kr.co.apexsoft.stella.modeler.explorer.util.ApexDiParseHelper;
 
 import org.eclipse.core.resources.IContainer;
@@ -298,7 +301,7 @@ public class ApexUMLContentProvider extends CustomizableModelContentProvider imp
 			IFile diFile = (IFile)parentElement;
 
 			if(OneFileUtils.isDi(diFile)) {
-				result = new ApexDIWrapper(diFile, itemsFactory, appearanceConfiguration).getChildren();
+				result = new ApexDIWrapper(diFile, itemsFactory, appearanceConfiguration).getChildren();		
 			}			
 		}
 		else {

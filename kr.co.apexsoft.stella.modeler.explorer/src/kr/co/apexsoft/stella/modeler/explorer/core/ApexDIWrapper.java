@@ -89,7 +89,8 @@ public class ApexDIWrapper implements ITreeElement {
 			// 프로젝트 래퍼는 있고,
 			// diPath에 대한 umlModel은 없다
 			// ->에디터 열고 ServiceReg를 가져와 세팅(최초 뷰 구성 시)
-			// 에디터 열린상태에서 해당 프로젝트 삭제 시에도 여기를 탄다!!!!!!!!!!	
+			// 에디터 열린상태에서 해당 di나 프로젝트 삭제 시에도 여기를 타므로
+			//   삭제 시(프로젝트 래퍼는 있고, 내부에 아무런 맵도 없는 경우) createEditorAndSetUpTree()를 호출하지 않도록 처리
 
 			// 더블클릭에 의한 refresh() 시 - (3)
 			// 더블클릭 리스너가 직접 Editor를 열고 ServiceReg를 세팅
@@ -108,7 +109,32 @@ public class ApexDIWrapper implements ITreeElement {
 			} else if (aProjectWrapper.getIsDisposed(diFilePath)) { // (4)
 
 			} else if ( aProjectWrapper.getUmlModel(diFilePath) == null ) { // (2)
-				createEditorAndSetUpTree(_file, result);						
+//				if ( aProjectWrapper.getUmlModelMap().size() > 0 ) { // 프로젝트 wrapper에 UmlModelMap이 있는 경우. 즉, diFilePath말고 다른 Key에 대한 UmlModelMap이 있는 경우
+//					List<String> deletedDiList = aProjectWrapper.getDeletedDIWrapperKeyList();
+//					boolean isDeleted = false;
+//					boolean canOpen = false;
+//					
+//					if ( deletedDiList.isEmpty() ) {
+//						canOpen = true;
+//					} else {
+//						for ( String deletedDi : deletedDiList ) {
+//							if ( !deletedDi.equals(diFilePath) ) {
+//								canOpen = true;
+//							} else {
+//								isDeleted = true;
+//							}
+//						}
+//						if ( isDeleted ) {
+//							isDeleted = false;
+//							deletedDiList.remove(diFilePath);
+//						}	
+//					}
+//					if ( canOpen ) {
+//						createEditorAndSetUpTree(_file, result);
+//					}	
+//				}
+				createEditorAndSetUpTree(_file, result);
+										
 			} else { // (3)
 				
 				if ( aProjectWrapper.getDIWrapper(diFilePath) == null ) {

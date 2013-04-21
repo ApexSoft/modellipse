@@ -1,12 +1,12 @@
 package kr.co.apexsoft.stella.modeler.explorer.core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlModel;
 import org.eclipse.papyrus.infra.core.resource.uml.UmlUtils;
-import org.eclipse.papyrus.infra.core.services.ServiceMultiException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
@@ -85,9 +85,8 @@ public class ApexStellaProjectMap {
 			}
 			if ( projectWrapper.getDIWrapperMap().containsKey(diPath) ) {
 				projectWrapper.removeDIWrapper(diPath);	
-			}	
+			}
 		}
-
 	}
 	
 	/**
@@ -115,6 +114,10 @@ public class ApexStellaProjectMap {
 			if ( projectWrapper.getDIWrapperMap().containsKey(diPath) ) {
 				projectWrapper.removeDIWrapper(diPath);
 			}		
+			List<String> deletedDIWrapperKeyList = projectWrapper.getDeletedDIWrapperKeyList();
+			if ( !deletedDIWrapperKeyList.contains(diPath) ) {
+				deletedDIWrapperKeyList.add(diPath);
+			}
 		}
 	}
 
