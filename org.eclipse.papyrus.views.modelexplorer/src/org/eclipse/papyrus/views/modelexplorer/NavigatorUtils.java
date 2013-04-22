@@ -24,6 +24,7 @@ import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IViewReference;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
@@ -52,7 +53,16 @@ public class NavigatorUtils {
 	 * @return the i view part
 	 */
 	public static IViewPart findViewPart(String viewID) {
+		/* apex improved start */
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		if (window == null) {
+			return null;
+		}
+		IWorkbenchPage page = window.getActivePage();
+		/* apex improved end */
+		/* apex replaced
 		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		 */
 		if(page == null) {
 			return null;
 		}
