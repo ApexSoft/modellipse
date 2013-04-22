@@ -195,6 +195,13 @@
       <plugin id="org.eclipse.emf.validation.ui"/>
       <plugin id="org.eclipse.emf.workspace"/>
       <plugin id="org.eclipse.emf.workspace.ui"/>
+      <plugin id="org.eclipse.epf.common"/>
+      <plugin id="org.eclipse.epf.common.ui"/>
+      <plugin id="org.eclipse.epf.richtext"/>
+      <plugin id="org.eclipse.epf.richtext.nl1" fragment="true"/>
+      <plugin id="org.eclipse.epf.richtext.nl2" fragment="true"/>
+      <plugin id="org.eclipse.epf.richtext.nl2a" fragment="true"/>
+      <plugin id="org.eclipse.epf.richtext.nlBidi" fragment="true"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.ds"/>
@@ -429,6 +436,9 @@
       <plugin id="org.eclipse.papyrus.uml.tools"/>
       <plugin id="org.eclipse.papyrus.uml.tools.extendedtypes"/>
       <plugin id="org.eclipse.papyrus.uml.tools.utils"/>
+      <plugin id="org.eclipse.papyrus.views.documentation"/>
+      <plugin id="org.eclipse.papyrus.views.documentation.view"/>
+      <plugin id="org.eclipse.papyrus.views.documentation.view.papyrus"/>
       <plugin id="org.eclipse.papyrus.views.modelexplorer"/>
       <plugin id="org.eclipse.papyrus.views.modelexplorer.resourceloading"/>
       <plugin id="org.eclipse.papyrus.views.modelexplorer.widgets"/>
