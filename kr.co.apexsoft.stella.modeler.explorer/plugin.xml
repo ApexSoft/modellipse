@@ -169,6 +169,17 @@
                </and>
             </enablement>
          </actionProvider>
+         <actionProvider
+               class="kr.co.apexsoft.stella.modeler.explorer.actionprovider.RenameControlledFileActionProvider"
+               id="kr.co.apexsoft.stella.modeler.explorer.actionprovider.RenameControlledFileActionProvider">
+            <enablement>
+               <and>
+                  <adapt
+                        type="org.eclipse.emf.facet.infra.browser.uicore.internal.model.ModelElementItem">
+                  </adapt>
+               </and>
+            </enablement>
+         </actionProvider>
       </navigatorContent>
    </extension>
 
@@ -182,7 +193,7 @@
         </command>
 
         <!-- Search element command --> 
-        <command commandId="org.eclipse.papyrus.views.modelexplorer.searchelement" icon="icons/etool16/search.gif" label="%searchElementCommandLabel" style="push">
+        <command commandId="kr.co.apexsoft.stella.modeler.explorer.searchElement" icon="icons/etool16/search.gif" label="%searchElementCommandLabel" style="push">
         </command>
         
         <!-- Sort elements command -->  
@@ -218,6 +229,11 @@
                 </with>
              </or>
           </visibleWhen>
+       </command>
+       <command
+             commandId="kr.co.apexsoft.stella.modeler.explorer.rename.controlledFiles"
+             label="Rename Controlled Files..."
+             style="push">
        </command>
     </menuContribution>
   </extension>
@@ -255,6 +271,17 @@
            description="%deleteTheSelectionCommandDescription"
            id="kr.co.apexsoft.stella.modeler.apexdelete"
            name="%deleteTheSelectionCommandName"/>
+     <command
+           categoryId="org.eclipse.ui.category.edit"
+           id="kr.co.apexsoft.stella.modeler.explorer.rename.controlledFiles"
+           name="Rename Controlled Files">
+     </command>
+     <command
+           defaultHandler="kr.co.apexsoft.stella.modeler.explorer.handler.ApexSearchElementHandler"
+           description="Search Model Elements in the stella model explorer"
+           id="kr.co.apexsoft.stella.modeler.explorer.searchElement"
+           name="searchElement">
+     </command>
   </extension>
   <extension
         point="org.eclipse.ui.handlers">
@@ -281,6 +308,10 @@
               </with>
            </or>
         </enabledWhen>
+     </handler>
+     <handler
+           class="kr.co.apexsoft.stella.modeler.explorer.handler.ApexRenameControlledFilesHandler"
+           commandId="kr.co.apexsoft.stella.modeler.explorer.rename.controlledFiles">
      </handler>
   </extension>
   <extension
@@ -1153,5 +1184,47 @@
         </command>
      </menuContribution>
   </extension>
+  
+  <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.uml2.uml"
+            default-charset="UTF-8"
+            file-extensions="di"
+            id="kr.co.apexsoft.stella.modeler.explorer.resource.di_0_9_0"
+            name="%_UI_DI_0_9_0_content_type"
+            priority="normal">
+         <describer
+               class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter
+                  name="namespace"
+                  value="http://www.eclipse.org/papyrus/0.7.0/sashdi">
+            </parameter>
+            <parameter
+                  name="kind"
+                  value="xmi">
+            </parameter>
+         </describer>
+      </content-type>
+      <content-type
+            base-type="org.eclipse.uml2.uml"
+            default-charset="UTF-8"
+            file-extensions="notation"
+            id="kr.co.apexsoft.stella.modeler.explorer.resource.notation_0_9_0"
+            name="%_UI_NOTATION_0_9_0_content_type"
+            priority="normal">
+         <describer
+               class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter
+                  name="namespace"
+                  value="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+            </parameter>
+            <parameter
+                  name="kind"
+                  value="xmi">
+            </parameter>
+         </describer>
+      </content-type>
+   </extension>
   
 </plugin>

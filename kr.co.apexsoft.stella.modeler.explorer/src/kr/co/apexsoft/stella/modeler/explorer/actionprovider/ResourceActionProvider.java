@@ -176,6 +176,4 @@ public class ResourceActionProvider extends CommonActionProvider {
 			return null;
 		}
 	}
-
-
 }
