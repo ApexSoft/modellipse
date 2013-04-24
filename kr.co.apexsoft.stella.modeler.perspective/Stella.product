@@ -36,6 +36,7 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="kr.co.apexsoft.stella.infra.core.resource.di"/>
       <plugin id="kr.co.apexsoft.stella.modeler.custom.editors"/>
       <plugin id="kr.co.apexsoft.stella.modeler.custom.editors.message"/>
       <plugin id="kr.co.apexsoft.stella.modeler.explorer"/>

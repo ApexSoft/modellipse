@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Di extension
+Bundle-SymbolicName: kr.co.apexsoft.stella.infra.core.resource.di;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Apexsoft.co.kr
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: kr.co.apexsoft.stella.infra.core.resource.di
