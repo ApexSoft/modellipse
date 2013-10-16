@@ -36,11 +36,13 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="kr.co.apexsoft.stella.adm"/>
       <plugin id="kr.co.apexsoft.stella.infra.core.resource.di"/>
       <plugin id="kr.co.apexsoft.stella.modeler.custom.editors"/>
       <plugin id="kr.co.apexsoft.stella.modeler.custom.editors.message"/>
       <plugin id="kr.co.apexsoft.stella.modeler.explorer"/>
       <plugin id="kr.co.apexsoft.stella.modeler.perspective"/>
+      <plugin id="kr.co.apexsoft.stella.modeler.propertySheet"/>
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.sourceforge.nattable.core"/>
       <plugin id="org.antlr.runtime"/>
@@ -480,6 +482,7 @@
       <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
+      <plugin id="org.eclipse.uml2"/>
       <plugin id="org.eclipse.uml2.codegen.ecore"/>
       <plugin id="org.eclipse.uml2.common"/>
       <plugin id="org.eclipse.uml2.common.edit"/>
