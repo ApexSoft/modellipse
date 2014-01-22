@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Stella Modeler Product
-Bundle-SymbolicName: kr.co.apexsoft.stella.modeler.product;singleton:=true
-Bundle-Version: 0.9.0.qualifier
-Bundle-Vendor: ApexSoft
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
