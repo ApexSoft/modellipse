@@ -202,7 +202,7 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new InteractionOperandDragDropEditPolicy());
 		/* apex added start */
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ApexInteractionOperandDragEditPolicy());
+//		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ApexInteractionOperandDragEditPolicy());
 		/* apex added end */
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new GuardConditionDirectEditPolicy());
 	}
@@ -309,7 +309,7 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 		figure.add(shape);
 		/* apex added start */
 		// InteractionOperand 선택 시 border가 2px씩 안쪽으로 위치하도록
-		figure.setBorder(new MarginBorder(0, 2, 2, 2));
+//		figure.setBorder(new MarginBorder(0, 2, 2, 2));
 		/* apex added end */
 		contentPane = setupContentPane(shape);
 		return figure;
@@ -436,19 +436,19 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 			this.setLayoutManager(new XYLayout());
 
 			/* apex improved start */
-			this.setShadow(false);
-			
-			if (!firstOperand) {
-				OneLineBorder border = new OneLineBorder(ColorConstants.lightGray, this.getLineWidth(), PositionConstants.TOP);
-				border.setStyle(Graphics.LINE_DASH);			
-				this.setBorder(border);
-			} else {
-				this.setBorder(null);
-			}
+//			this.setShadow(false);
+//			
+//			if (!firstOperand) {
+//				OneLineBorder border = new OneLineBorder(ColorConstants.lightGray, this.getLineWidth(), PositionConstants.TOP);
+//				border.setStyle(Graphics.LINE_DASH);			
+//				this.setBorder(border);
+//			} else {
+//				this.setBorder(null);
+//			}
 			/* apex improved end */
-			/* apex replaced
+			//* apex replaced
 			this.setBorder(null);
-			 */
+			// */
 
 			this.setLineSeparator(!firstOperand);
 
@@ -1897,36 +1897,36 @@ AbstractBorderedShapeEditPart implements ITextAwareEditPart {
 	@Override
 	public boolean isSelectable() {
 		/* apex improved start */
-		if (super.isSelectable()) {
-			EditPart focusEditPart = getViewer().getFocusEditPart();
-			if (focusEditPart instanceof IGraphicalEditPart) {
-				TopGraphicEditPart focusTopEP = ((IGraphicalEditPart)focusEditPart).getTopGraphicEditPart();
-				TopGraphicEditPart myTopEP = getTopGraphicEditPart();
-
-				if (myTopEP == focusTopEP) {
-					return true;
-				}
-				
-				EditPart myParentEP = myTopEP.getParent();
-				while (myParentEP != null && myParentEP instanceof CombinedFragmentEditPart == false) {
-					myParentEP = myParentEP.getParent();
-				}
-				
-				EditPart focusParentEP = focusTopEP;
-				while (focusParentEP != null && focusParentEP instanceof CombinedFragmentEditPart == false) {
-					focusParentEP = focusParentEP.getParent();
-				}
-				
-				if (myParentEP != null && myParentEP.equals(focusParentEP)) {
-					return true;
-				}
-			}
-		}
-		return false;
+//		if (super.isSelectable()) {
+//			EditPart focusEditPart = getViewer().getFocusEditPart();
+//			if (focusEditPart instanceof IGraphicalEditPart) {
+//				TopGraphicEditPart focusTopEP = ((IGraphicalEditPart)focusEditPart).getTopGraphicEditPart();
+//				TopGraphicEditPart myTopEP = getTopGraphicEditPart();
+//
+//				if (myTopEP == focusTopEP) {
+//					return true;
+//				}
+//				
+//				EditPart myParentEP = myTopEP.getParent();
+//				while (myParentEP != null && myParentEP instanceof CombinedFragmentEditPart == false) {
+//					myParentEP = myParentEP.getParent();
+//				}
+//				
+//				EditPart focusParentEP = focusTopEP;
+//				while (focusParentEP != null && focusParentEP instanceof CombinedFragmentEditPart == false) {
+//					focusParentEP = focusParentEP.getParent();
+//				}
+//				
+//				if (myParentEP != null && myParentEP.equals(focusParentEP)) {
+//					return true;
+//				}
+//			}
+//		}
+//		return false;
 		/* apex improved end */
-		/* apex replaced
-		super.isSelectable();
-		 */
+		//* apex replaced
+		return super.isSelectable();
+		// */
 	}
 
 }
