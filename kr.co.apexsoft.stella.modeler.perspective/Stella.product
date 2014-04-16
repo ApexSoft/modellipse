@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Stella Modeler" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
+<product name="Modellipse" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -18,10 +18,17 @@
       startupProgressRect="5,280,490,15"
       startupMessageRect="5,255,490,20"
       startupForegroundColor="000000" />
-   <launcher name="Stella Modeler">
+   <launcher name="Modellipse">
       <solaris/>
       <win useIco="false">
-         <bmp/>
+         <ico path="/kr.co.apexsoft.stella.modeler.perspective/icons/modellipse.ico"/>
+         <bmp
+            winSmallHigh="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-16-32bit.bmp"
+            winSmallLow="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-16-8bit.bmp"
+            winMediumHigh="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-32-32bit.bmp"
+            winMediumLow="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-32-8bit.bmp"
+            winLargeHigh="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-48-32bit.bmp"
+            winLargeLow="/kr.co.apexsoft.stella.modeler.perspective/icons/Logo-48-8bit.bmp"/>
       </win>
    </launcher>
 

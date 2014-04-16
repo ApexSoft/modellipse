@@ -278,7 +278,7 @@
      </command>
      <command
            defaultHandler="kr.co.apexsoft.stella.modeler.explorer.handler.ApexSearchElementHandler"
-           description="Search Model Elements in the stella model explorer"
+           description="Search Model Elements in the Modellipse explorer"
            id="kr.co.apexsoft.stella.modeler.explorer.searchElement"
            name="searchElement">
      </command>

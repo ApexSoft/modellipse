@@ -795,7 +795,7 @@
          allPopups="false"
          locationURI="menu:org.eclipse.ui.main.menu?after=edit">
       <menu
-            icon="icons/stella.png"
+            icon="icons/modellipse.png"
             id="org.eclipse.papyrus.uml.diagram.ui.menu"
             label="&amp;Diagram"
             tooltip="Diagram Menu">
@@ -899,7 +899,7 @@
          </visibleWhen>
       </command>
       <menu
-            icon="icons/stella.png"
+            icon="icons/modellipse.png"
             id="org.eclipse.papyrus.uml.diagram.ui.popupmenu.format"
             label="For&amp;mat"
             tooltip="Papyrus Format Menu">
@@ -913,7 +913,7 @@
          </visibleWhen>
       </menu>
       <menu
-            icon="icons/stella.png"
+            icon="icons/modellipse.png"
             id="org.eclipse.papyrus.uml.diagram.ui.popupmenu.filters"
             label="F&amp;ilters"
             tooltip="Papyrus Filters Menu">
@@ -934,7 +934,7 @@
          allPopups="false"
          locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=additions">
       <menu
-            icon="icons/stella.png"
+            icon="icons/modellipse.png"
             id="org.eclipse.papyrus.uml.diagram.ui.popupmenu.view"
             label="&amp;View"
             tooltip="Papyrus View Menu">
