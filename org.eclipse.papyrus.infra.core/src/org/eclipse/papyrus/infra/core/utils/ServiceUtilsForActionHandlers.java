@@ -85,8 +85,8 @@ public class ServiceUtilsForActionHandlers {
 					}
 				}
 			} catch (NullPointerException e) {
-				// Can't get the Stella Explorer
-				throw new ServiceNotFoundException("Can't get the current Stella Explorer. No ServiceRegistry found.");
+				// Can't get the Modellipse Explorer
+				throw new ServiceNotFoundException("Can't get the current Modellipse Explorer. No ServiceRegistry found.");
 			}				
 		
 		} else if ( workbenchPart instanceof IEditorPart ) {
@@ -114,7 +114,7 @@ public class ServiceUtilsForActionHandlers {
 		}		
 		
 		if ( serviceRegistry == null ) {
-			throw new ServiceNotFoundException("Can't get the ServiceRegtistry from the current Stella Explorer.");
+			throw new ServiceNotFoundException("Can't get the ServiceRegtistry from the current Modellipse Explorer.");
 		} else {
 //			System.out.println("ServiceUtilsForActionHandlers.getServiceRegistry(), line : " + Thread.currentThread().getStackTrace()[1].getLineNumber());
 //			ModelSet modelSet = serviceRegistry.getService(ModelSet.class);

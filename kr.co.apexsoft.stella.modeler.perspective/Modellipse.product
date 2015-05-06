@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Stella Modeler" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
+<product name="Modellipse" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
+
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.5 -Dhelp.lucene.tokenizer=standard -Xms40m -Xmx512m -XX:MaxPermSize=512M</vmArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.5 -Dhelp.lucene.tokenizer=standard -Xms128m -Xmx512m -XX:MaxPermSize=512M</vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
@@ -18,15 +19,17 @@
       startupProgressRect="5,280,490,15"
       startupMessageRect="5,255,490,20"
       startupForegroundColor="000000" />
-   <launcher name="Stella Modeler">
+   <launcher name="Modellipse">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.google.guava"/>

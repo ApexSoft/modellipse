@@ -75,7 +75,7 @@ public class StellaPerspective implements IPerspectiveFactory {
 
 		// Place the the Resource Navigator to the top left of editor area.
 //		layout.addView(IPageLayout.ID_PROJECT_EXPLORER, IPageLayout.LEFT, 0.2f, editorArea);
-		// Place the the Stella Explorer to the top left of editor area.
+		// Place the the Modellipse Explorer to the top left of editor area.
 		layout.addView(ID_STELLA_EXPLORER, IPageLayout.LEFT, 0.2f, editorArea);
 		
 		// place outline under the modellipse explorer

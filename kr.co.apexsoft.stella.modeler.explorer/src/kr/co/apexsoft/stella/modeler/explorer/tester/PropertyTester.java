@@ -20,7 +20,7 @@ public class PropertyTester extends org.eclipse.core.expressions.PropertyTester 
 	}
 
 	/**
-	 * Tests if the current activePart is the Stella Explorer
+	 * Tests if the current activePart is the Modellipse Explorer
 	 * 
 	 * @param receiver
 	 * @return
