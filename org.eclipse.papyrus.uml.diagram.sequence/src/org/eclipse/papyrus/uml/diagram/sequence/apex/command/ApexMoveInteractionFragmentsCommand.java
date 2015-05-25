@@ -140,6 +140,42 @@ public class ApexMoveInteractionFragmentsCommand extends
 		Collection<InteractionFragment> fragments = getInteractionFragments(fragment);
 		Point realMoveDelta = getRealMoveDelta(getMoveDelta(), fragments);
 		
+		// 이동하려는 Message의 하위 Fragments 중 가장 상단 CombinedFragment를 찾고
+		// 그 CF를 포함한 하위는 CF의 getCommand()를 통해 위치를 이동
+		IGraphicalEditPart belowCombinedFragmentEditPart = null;
+		int belowY = Integer.MAX_VALUE;
+		for (InteractionFragment ift : fragments) {
+			if (ift instanceof CombinedFragment) {
+				IGraphicalEditPart editPart = getEditPart(ift);
+				Rectangle bounds = ApexSequenceUtil.getAbsoluteBounds(editPart);
+				
+				if (dontMoveOthers && extent.bottom() < bounds.y) {
+					continue;
+				}
+				
+				if (extent.y <= bounds.y) {	// CF가 이동범위에 모두 포함된 경우, ChangeBoundsRequest 이용
+					if (belowY > bounds.y) {
+						belowY = bounds.y;
+						belowCombinedFragmentEditPart = editPart;
+					}
+				} else if (/*extent.y > bounds.y &&*/ extent.y < bounds.bottom()) {
+					// CF가 걸쳐있는 경우는 발생하지 않음
+				}
+			}
+		}
+		// CF내부의 Message 일괄 이동을 위해 ChangeBoundsRequest를 이용한 Command 생성
+		if (belowCombinedFragmentEditPart != null) {
+			ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
+			request.setMoveDelta(realMoveDelta);
+			command.add(belowCombinedFragmentEditPart.getCommand(request));
+//			Rectangle newBounds = bounds.getCopy();
+//			editPart.getFigure().translateToRelative(newBounds);
+//			newBounds.translate(realMoveDelta);
+//			SetBoundsCommand sbCommand = new SetBoundsCommand(getEditingDomain(), "Set Bounds", editPart, newBounds);
+//			command.add(new ICommandProxy(sbCommand));
+		}
+		
+		// Message~CombinedFragment 사이의 ExecutionSpecification들에 대한 위치 변경 Command 생성
 		for (InteractionFragment ift : fragments) {
 			if (notToMoveEObject.contains(ift))
 				continue;
@@ -151,6 +187,10 @@ public class ApexMoveInteractionFragmentsCommand extends
 				// extent 하단의 이동을 방지하였을 때 (dontMoveOthers == false)
 				// 하단에 위치한 EditPart는 이동하지 않음
 				if (dontMoveOthers && extent.bottom() < bounds.y) {
+					continue;
+				}
+				
+				if (belowY < bounds.y) {
 					continue;
 				}
 				
@@ -176,28 +216,12 @@ public class ApexMoveInteractionFragmentsCommand extends
 					request.setSizeDelta(new Dimension(0, realMoveDelta.y));
 					command.add(editPart.getCommand(request));
 				}
-			} else if (ift instanceof CombinedFragment) {
-				IGraphicalEditPart editPart = getEditPart(ift);
-				Rectangle bounds = ApexSequenceUtil.getAbsoluteBounds(editPart);
-				
-				if (dontMoveOthers && extent.bottom() < bounds.y) {
-					continue;
-				}
-				
-				if (extent.y <= bounds.y) {	// CF가 이동범위에 모두 포함된 경우, ChangeBoundsRequest 이용
-//					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
-//					request.setMoveDelta(realMoveDelta);
-//					command.add(editPart.getCommand(request));
-					Rectangle newBounds = bounds.getCopy();
-					editPart.getFigure().translateToRelative(newBounds);
-					newBounds.translate(realMoveDelta);
-					SetBoundsCommand sbCommand = new SetBoundsCommand(getEditingDomain(), "Set Bounds", editPart, newBounds);
-					command.add(new ICommandProxy(sbCommand));
-					
-				} else if (/*extent.y > bounds.y &&*/ extent.y < bounds.bottom()) {
-					// CF가 걸쳐있는 경우는 발생하지 않음
-				}
-			} else if (ift instanceof MessageOccurrenceSpecification) {
+			}
+		}
+		
+		// Lifeline을 source로 하는 Message들은 anchor를 변경하여 위치를 이동
+		for (InteractionFragment ift : fragments) {
+			if (ift instanceof MessageOccurrenceSpecification) {
 				Message message = ((MessageOccurrenceSpecification)ift).getMessage();
 				IGraphicalEditPart editPart = getEditPart(message);
 				if (ift.equals(message.getSendEvent()) && editPart instanceof ConnectionNodeEditPart) {
