@@ -131,6 +131,12 @@ public class LifelineXYLayoutEditPolicy extends XYLayoutEditPolicy {
 	}
 	
 	@Override
+	protected Command getAddCommand(Request generic) {
+		// CombinedFragment를 drag하여 Lifeline으로 이동하지 않도록 수정
+		return null;
+	}
+
+	@Override
 	protected EditPolicy createChildEditPolicy(EditPart child) {
 		View childView = (View)child.getModel();
 		switch(UMLVisualIDRegistry.getVisualID(childView)) {
