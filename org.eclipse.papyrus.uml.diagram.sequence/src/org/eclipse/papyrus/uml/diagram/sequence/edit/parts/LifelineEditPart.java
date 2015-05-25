@@ -1539,7 +1539,8 @@ public class LifelineEditPart extends NamedElementEditPart implements IApexLifel
 			fFigureExecutionsContainerFigure.setLayoutManager(new StackLayout());
 
 			/* apex improved start */
-			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
+//			fFigureLifelineDotLineFigure = new ApexCustomLifelineDotLineCustomFigure();
+			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
 			/* apex improved end */
 			/* apex replaced
 			fFigureLifelineDotLineFigure = new LifelineDotLineCustomFigure();
