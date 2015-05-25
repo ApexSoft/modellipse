@@ -172,7 +172,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
 					request.getExtendedData().put(ApexSequenceRequestConstants.APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS, extent);
 					request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
-					request.setResizeDirection(PositionConstants.NORTH);
+					request.setResizeDirection(PositionConstants.SOUTH);
 					request.setSizeDelta(new Dimension(0, realMoveDelta.y));
 					command.add(editPart.getCommand(request));
 				}
