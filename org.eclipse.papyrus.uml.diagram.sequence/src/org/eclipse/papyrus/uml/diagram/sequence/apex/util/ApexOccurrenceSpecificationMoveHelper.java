@@ -138,7 +138,7 @@ public class ApexOccurrenceSpecificationMoveHelper {
 		if(command.isEmpty()) {
 			return null;
 		}
-		return command;
+		return command.unwrap();
 	}
 
 	/**

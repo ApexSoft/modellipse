@@ -342,7 +342,7 @@ public class ApexMoveInteractionFragmentsCommand extends
 				}
 			}
 		}
-		return compCmd.size() > 0 ? compCmd : null;
+		return !compCmd.isEmpty() ? compCmd.unwrap() : null;
 	}
 	
 	public Rectangle getExtent() {
