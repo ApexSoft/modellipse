@@ -650,12 +650,25 @@ public class InteractionCompartmentXYLayoutEditPolicy extends XYLayoutEditPolicy
 				return compoundCmd;
 			}				
 
+			// message 상향 이동으로 인한 CF의 이동 시에는
+			// CF 상위 EditPart들이 이동되어 있다는 전제하에 범위 계산을 해야하지만
+			// 아직 Figure들이 이동되지 않은 상태에서 계산하는 경우에는 에러가 발생하게 된다.
+			// 따라서 message 이동을 통해 현재 함수에 접근한 경우 아래의 값을 통해 이를 해결한다.
+			Object dueToMovedMessage = null;
+			if (request.getExtendedData().get(ApexSequenceRequestConstants.APEX_DUE_TO_MOVED_MESSAGE) != null) {
+				dueToMovedMessage = request.getExtendedData().get(ApexSequenceRequestConstants.APEX_DUE_TO_MOVED_MESSAGE);
+			}
+			
 			// 상향 move 시 aboveEditPart 침범 방지 
 			List higherEditPartList = ApexSequenceUtil.apexGetHigherEditPartList(combinedFragmentEditPart);
 
 			if ( higherEditPartList.size() > 0 ) {		
 				IGraphicalEditPart aboveEditPart  = ApexSequenceUtil.apexGetAboveEditPart(combinedFragmentEditPart, higherEditPartList);
 				int yAbove = ApexSequenceUtil.apexGetAbsolutePosition(aboveEditPart, SWT.BOTTOM);
+				
+				if (Boolean.TRUE == dueToMovedMessage) {
+					yAbove += request.getMoveDelta().y;
+				}
 
 				if ( yAfterMove <= yAbove ) {
 					compoundCmd.add(UnexecutableCommand.INSTANCE);

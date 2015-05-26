@@ -167,6 +167,8 @@ public class ApexMoveInteractionFragmentsCommand extends
 		if (belowCombinedFragmentEditPart != null) {
 			ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
 			request.setMoveDelta(realMoveDelta);
+			// Message 상향 이동으로 인한 CF 상향이동 시 이용하기 위한 data
+			request.getExtendedData().put(ApexSequenceRequestConstants.APEX_DUE_TO_MOVED_MESSAGE, true);
 			command.add(belowCombinedFragmentEditPart.getCommand(request));
 //			Rectangle newBounds = bounds.getCopy();
 //			editPart.getFigure().translateToRelative(newBounds);

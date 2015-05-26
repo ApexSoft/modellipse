@@ -118,4 +118,8 @@ public interface ApexSequenceRequestConstants {
 	 */
 	public static final String APEX_MODIFIER_REORDERING = "modifier for sequence of messages"; //$NON-NLS-1$
 
+	/**
+	 * due to moved message
+	 */
+	public static final String APEX_DUE_TO_MOVED_MESSAGE = "due to moved message"; //$NON-NLS-1$
 }
