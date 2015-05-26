@@ -212,16 +212,13 @@ public class ApexMoveInteractionFragmentsCommand extends
 					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
 					request.getExtendedData().put(ApexSequenceRequestConstants.APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS, extent);
 					request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
-					request.setResizeDirection(PositionConstants.SOUTH);
+					request.setResizeDirection(PositionConstants.NORTH);
 					request.setSizeDelta(new Dimension(0, realMoveDelta.y));
 					command.add(editPart.getCommand(request));
 				}
 			}
-		}
-		
-		// Lifeline을 source로 하는 Message들은 anchor를 변경하여 위치를 이동
-		for (InteractionFragment ift : fragments) {
-			if (ift instanceof MessageOccurrenceSpecification) {
+			// Lifeline을 source로 하는 Message들은 anchor를 변경하여 위치를 이동
+			else if (ift instanceof MessageOccurrenceSpecification) {
 				Message message = ((MessageOccurrenceSpecification)ift).getMessage();
 				IGraphicalEditPart editPart = getEditPart(message);
 				if (ift.equals(message.getSendEvent()) && editPart instanceof ConnectionNodeEditPart) {
