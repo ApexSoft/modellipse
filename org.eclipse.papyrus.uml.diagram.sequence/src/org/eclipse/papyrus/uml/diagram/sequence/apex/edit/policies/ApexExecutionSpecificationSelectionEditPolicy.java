@@ -11,6 +11,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.uml.diagram.sequence.apex.util.ApexSequenceUtil;
 import org.eclipse.papyrus.uml.diagram.sequence.edit.parts.AbstractExecutionSpecificationEditPart;
@@ -83,7 +84,13 @@ public class ApexExecutionSpecificationSelectionEditPolicy extends
 				EditPart combinedFragmentCompartmentEP = interactionOperandEP.getParent();
 				EditPart combinedFragmentEP = combinedFragmentCompartmentEP.getParent();
 
-				command = combinedFragmentEP.getCommand(request);
+				// message 생성으로 source ExecutionSpecification의 resize가 발생하면
+				// ResizeDirection == PositionConstants.NORTH이므로
+				// ChangeBoundsRequest를 새로 생성하여 실행
+				ChangeBoundsRequest req = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
+				req.setResizeDirection(PositionConstants.SOUTH);
+				req.setSizeDelta(request.getSizeDelta());
+				command = combinedFragmentEP.getCommand(req);
 //				command = InteractionCompartmentXYLayoutEditPolicy.getCombinedFragmentResizeChildrenCommand(
 //						request, (ShapeNodeEditPart)combinedFragmentEP, (ShapeNodeEditPart)getHost());
 			}
