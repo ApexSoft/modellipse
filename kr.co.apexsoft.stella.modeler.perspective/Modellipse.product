@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Modellipse" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="0.9.1" useFeatures="false" includeLaunchers="true">
+<product name="Modellipse" uid="kr.co.apexsoft.stella.modeler" id="kr.co.apexsoft.stella.modeler.perspective.product" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="false" includeLaunchers="true">
 
 
    <configIni use="default">
