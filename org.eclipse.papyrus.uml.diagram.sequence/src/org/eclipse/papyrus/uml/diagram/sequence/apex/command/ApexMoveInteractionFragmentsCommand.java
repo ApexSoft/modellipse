@@ -212,7 +212,8 @@ public class ApexMoveInteractionFragmentsCommand extends
 					ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
 					request.getExtendedData().put(ApexSequenceRequestConstants.APEX_PRESERVE_ANCHOR_RELATIVE_BOUNDS, extent);
 					request.getExtendedData().put(SequenceRequestConstant.DO_NOT_MOVE_EDIT_PARTS, true);
-					request.setResizeDirection(PositionConstants.SOUTH);
+//					request.setResizeDirection(PositionConstants.SOUTH); // SOUTH로 하면 Activation 길이 자동 증가는 되지만, 2차 이후 메시지 하향 이동 시 사선 발생
+					request.setResizeDirection(PositionConstants.NORTH); // NORTH로 하면 2차 이후 메시지 하향 이동 시 사선 발생 안 하지만, CF 내의 Activation 길이 자동 증가 안됨
 					request.setSizeDelta(new Dimension(0, realMoveDelta.y));
 					command.add(editPart.getCommand(request));
 				}
